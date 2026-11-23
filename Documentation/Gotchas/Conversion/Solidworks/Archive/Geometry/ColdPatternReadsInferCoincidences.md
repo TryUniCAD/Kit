@@ -10,4 +10,4 @@ The strict decoder reconstructs both stock rectangles and derives four additiona
 
 ## Workaround
 
-Publish from the original neutral model and its typed presentation using the matching native receipt. Keep the inferred constraints and retained history visible when inspecting the decoded source. Whole-source republication requires a verified typed stock and presentation projection. [Publication boundary](../../../../../../re/solidworks/records/AggregateMeasuredLinearPattern2026.md)
+Use the matching native receipt and measured publication settings. For strict readback, bind the presentation to the actual readback parameter identifiers and keep the inferred constraints and retained history. The writer checks that the four inferred incidences on each sketch also hold in its independently regenerated read. [Measured readback](../../../../../../re/solidworks/records/AggregateMeasuredLinearPattern2026.md#measured-strict-source-republication)

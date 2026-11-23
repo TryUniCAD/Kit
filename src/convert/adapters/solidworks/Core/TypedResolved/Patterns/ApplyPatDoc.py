@@ -17,6 +17,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.MakePatParam import
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.MakePatSelect import (
     MakePatSelect,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.PatEvidence import (
+    KPatColdState,
+    KPatReadKey,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.PatternOwner import (
     PatternOwner,
 )
@@ -90,9 +94,7 @@ def ApplyPatDoc(
     Parameters = {Count.id: Count, Pitch.id: Pitch}
     Evidence = {
         "status": (
-            "projected_saved_single_direction"
-            if Surface is not None
-            else "projected_cold_single_direction"
+            "projected_saved_single_direction" if Surface is not None else KPatColdState
         ),
         "native_atom_lineage": OwnerValue.AtomsValue,
         "physical_body_node": (
@@ -135,7 +137,5 @@ def ApplyPatDoc(
             BoundStep if Value is StepValue else Value
             for Value in Document.feature_timeline
         ),
-        metadata=FreezeMapping(
-            {**Document.metadata, "solidworks.typed_linear_pattern": Evidence}
-        ),
+        metadata=FreezeMapping({**Document.metadata, KPatReadKey: Evidence}),
     )

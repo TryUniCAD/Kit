@@ -4,6 +4,12 @@ from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.solidworks.Core.Preparation.Patterns.PrepPatPart import (
     PrepPatPart,
 )
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.IsPatRead import (
+    IsPatRead,
+)
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.ReadPatSource import (
+    ReadPatSource,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -16,7 +22,14 @@ def CanWritePat(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
             OutputPath = None
         else:
             return False
+        if IsPatRead(DocumentValue):
+            NameValue = (
+                OutputPath.stem
+                if OutputPath is not None
+                else DocumentValue.sketches[0].name
+            )
+            DocumentValue = ReadPatSource(DocumentValue, NameValue)
         _ = PrepPatPart(DocumentValue, OutputPath, 1)
-    except (OSError, TypeError, ValueError):
+    except (IndexError, KeyError, OSError, TypeError, ValueError):
         return False
     return True

@@ -65,6 +65,9 @@ from convert.adapters.solidworks.Core.Writing.Stocks.WriteStocksMut import (
 )
 from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSweepMut
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.IsPatRead import (
+    IsPatRead,
+)
 from convert.adapters.solidworks.Core.Writing.Patterns.EmitPatMut import EmitPatMut
 from convert.adapters.solidworks.Core.Writing.Measured.Thin.EmitThinMut import (
     EmitThinMut,
@@ -87,6 +90,8 @@ def EmitFreshMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult | None:
+    if IsPatPart(DocumentValue) or IsPatRead(DocumentValue):
+        return EmitPatMut(DocumentValue, TargetValue, OptionsValue)
     if HasThinWrite(DocumentValue):
         return EmitThinMut(DocumentValue, TargetValue, OptionsValue)
     if HasOrdRevEnd(DocumentValue) and HasRevEndMeas(OptionsValue):
@@ -95,8 +100,6 @@ def EmitFreshMut(
         return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
     if IsStockChain(DocumentValue):
         return WriteStocksMut(DocumentValue, TargetValue, OptionsValue)
-    if IsPatPart(DocumentValue):
-        return EmitPatMut(DocumentValue, TargetValue, OptionsValue)
     if IsSweepPart(DocumentValue):
         return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
     if IsChmfPart(DocumentValue):
@@ -129,7 +132,7 @@ def EmitNativeMut(
     if IsImportRead(DocumentValue):
         return EmitImportMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
-    if not ReadbackValue:
+    if not ReadbackValue or IsPatRead(DocumentValue):
         FreshValue = EmitFreshMut(DocumentValue, TargetValue, OptionsValue)
         if FreshValue is not None:
             return FreshValue

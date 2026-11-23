@@ -2,6 +2,9 @@ from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.NativeSourceKey import KSourceFormatKey
 from convert.adapters.solidworks.Core.Preparation.Circle.IsCircRead import IsCircRead
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipRead import IsEllipRead
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.IsPatRead import (
+    IsPatRead,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -10,6 +13,7 @@ def IsColdRead(Document: CadDocument) -> bool:
     return (
         IsCircRead(Document)
         or IsEllipRead(Document)
+        or IsPatRead(Document)
         or (
             Document.assembly is None
             and Document.DrawingValue is None

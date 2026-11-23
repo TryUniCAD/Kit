@@ -24,7 +24,7 @@ def TestMeasuredPat() -> None:
             capture_output=True,
             text=True,
             cwd=RootValue,
-            timeout=30,
+            timeout=60,
         )
         assert Result.returncode == 0 and not Result.stderr, Result.stderr
         Report = CastValue(dict[str, object], LoadJson(Result.stdout))
@@ -40,9 +40,12 @@ def TestMeasuredPat() -> None:
         if Report["status"] == "unmeasured_compressor_refused":
             assert "zlib-ng" in Runtime
             assert Report["publications"] == 0 and Report["refusals"] == 6
+            assert Report["readback_publications"] == Report["readback_refusals"] == 0
         else:
             assert Report["status"] == "native_hash_reproduced"
             Geometry = CastValue(dict[str, object], Report["strict_geometry"])
             assert Geometry["faces"] == FacesValue and Report["streams"] == 10
-            assert Report["publications"] == 6 and Report["refusals"] == 24
+            assert Report["publications"] == 6 and Report["refusals"] == 20
+            assert Report["readback_publications"] == 14
+            assert Report["readback_refusals"] == 28
             assert Report["native_processes"] == 0

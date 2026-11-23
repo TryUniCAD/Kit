@@ -8,6 +8,15 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.Preparation.Patterns.PrepPatPart import (
     PrepPatPart,
 )
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.IsPatRead import (
+    IsPatRead,
+)
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.ReadPatSource import (
+    ReadPatSource,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
+    CheckColdRead,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.CheckMeasPath import (
     CheckMeasPath,
 )
@@ -19,6 +28,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
 )
 from convert.adapters.solidworks.Core.Writing.Patterns.MatchPatMeas import MatchPatMeas
 from convert.adapters.solidworks.Core.Writing.Patterns.ReadPatMeas import ReadPatMeas
+from convert.adapters.solidworks.Core.Writing.Patterns.ReadPatName import ReadPatName
 from convert.adapters.solidworks.Core.Writing.Patterns.ReadPatOptions import (
     ReadPatOptions,
 )
@@ -40,8 +50,14 @@ def EmitPatMut(
         Requested = FilePath(TargetValue).expanduser().absolute()
         OutputPath = ResolveWithin(Requested.name, Requested.parent)
         CheckMeasPath(OutputPath, Settings)
+    ReadbackValue = IsPatRead(DocumentValue)
+    InputValue = (
+        ReadPatSource(DocumentValue, ReadPatName(Settings, OutputPath))
+        if ReadbackValue
+        else DocumentValue
+    )
     Candidate = PrepPatPart(
-        DocumentValue,
+        InputValue,
         OutputPath or TargetValue,
         WrittenAt,
         Settings,
@@ -49,6 +65,10 @@ def EmitPatMut(
     )
     Payload = Candidate.BytesValue
     Evidence = MatchPatMeas(FilesValue, ResultValue, ResultSha, Payload)
+    if ReadbackValue:
+        CheckColdRead(
+            DocumentValue, Payload, IncludeBrep=DocumentValue.brep is not None
+        )
     Transfers = tuple(
         CapTransfer(Value, TransferMode.KNative)
         for Value in sorted(GetDocumentCaps(DocumentValue))

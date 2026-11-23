@@ -25,6 +25,9 @@ from convert.adapters.solidworks.Core.Preparation.Materials.PlanMatPart import (
 )
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
+from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.IsPatRead import (
+    IsPatRead,
+)
 from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
@@ -70,6 +73,8 @@ def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
         return CanWriteCircle(DocumentValue, TargetValue)
     if IsEllipRead(DocumentValue):
         return CanWriteEllip(DocumentValue, TargetValue)
+    if IsPatRead(DocumentValue):
+        return CanWritePat(DocumentValue, TargetValue)
     PathValue = (
         FilePath(TargetValue) if isinstance(TargetValue, (str, FilePath)) else None
     )

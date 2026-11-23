@@ -130,6 +130,64 @@ def check_shape(readback, original, phase):
             "sdk_sketch_relations": [[row.kind for row in sketch.constraints] for sketch in readback.sketches]}
 
 
+def qualify_readback(full, design, options, presentation, payload, writers):
+    from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
+    from interchange.Features.FeatureBoundPlane import BoundDatum
+    from interchange.Features.FeatureKinds import LinearPattern
+    from interchange.serialization import dumps, loads
+
+    owned = ("units", "configurations", "parameters", "support_planes", "sketches",
+             "feature_timeline", "selections", "bodies")
+    require(full.brep is not None and design.brep is None
+            and not full.brep_payloads and not design.brep_payloads
+            and all(getattr(full, name) == getattr(design, name) for name in owned),
+            "both read modes must reach the same actual typed source owners")
+    angle, = (step for step in full.feature_timeline if type(step.definition) is BoundDatum)
+    pattern, = (step for step in full.feature_timeline if type(step.definition) is LinearPattern)
+    owned_presentation = replace(
+        presentation, AngleStyle=replace(presentation.AngleStyle, ParamId=angle.parameter_ids[0]),
+        CountParamId=pattern.parameter_ids[0], PitchParamId=pattern.parameter_ids[1]
+    )
+    selected = {**options, PRESENTATION: owned_presentation}
+    publications = 0
+    refusals = 0
+    for source in (full, design):
+        canonical = dumps(source)
+        portable = loads(canonical)
+        require(dumps(portable) == canonical, "neutral JSON changed the complete strict source")
+        for document in (source, portable):
+            for writer in writers:
+                sink = BytesIO()
+                outcome = writer(document, sink, selected)
+                require(sink.getvalue() == payload and outcome.vendor_loadable and outcome.application_usable
+                        and not outcome.dropped and outcome.native_capabilities == GetDocumentCaps(document)
+                        and outcome.metadata[MEASURE]["generated_sha256"] == finger(payload),
+                        "strict readback did not republish the exact measured artifact with complete transfer")
+                publications += 1
+        body, = source.bodies
+        altered = replace(source, bodies=(replace(
+            body, topology=replace(body.topology, volume=body.topology.volume + 1.0)),))
+        for document in (replace(source, metadata={**source.metadata, "unowned_authored_state": True}),
+                         replace(source, source=replace(source.source, sha256="0" * 64)), altered):
+            for writer in writers[:2]:
+                refuse(lambda sink: writer(document, sink, selected), BytesIO(b"untouched"),
+                       "cold readback differs from its regenerated part")
+                refusals += 1
+        for writer in writers[:2]:
+            for overrides, diagnostic in (
+                (options, "no exact native linear pattern measurement"),
+                ({**options, PRESENTATION: presentation}, "not bound to the actual active parameter owners"),
+                ({**selected, MEASURE: {**selected[MEASURE], "written_at": selected[MEASURE]["written_at"] + 1}},
+                 "no exact native linear pattern measurement"),
+                ({**selected, MEASURE: {**selected[MEASURE], "receipt": {"packet": b"{}", "result": b"{}"}}},
+                 "requires its exact disclosed native measurement"),
+            ):
+                refuse(lambda sink: writer(source, sink, overrides), BytesIO(b"untouched"), diagnostic)
+                refusals += 1
+        require(dumps(source) == canonical, "publication mutated the original source document")
+    return publications, refusals, selected
+
+
 def verify(name, scratch):
     from convert import open_document, write_document
     from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
@@ -139,6 +197,7 @@ def verify(name, scratch):
     from convert.adapters.solidworks.Core.Preparation.Patterns.PrepPatPart import PrepPatPart
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
     from interchange import CadDocument
+    from interchange.serialization import dumps, loads
 
     for module in ("interchange.brep.Validation.BrepValidate", "interchange.document.Behavior.DocumentIo",
                    "interchange.document.Models.DocumentProvenance", "interchange.document.Validation.DocumentAssemblyValidate",
@@ -186,7 +245,8 @@ def verify(name, scratch):
                     refuse(lambda sink: writer(authored, sink, options), BytesIO(), "no exact native linear pattern measurement")
                     refusals += 1
             return {"case": name, "status": "unmeasured_compressor_refused", "generated_sha256": digest,
-                    "runtime": ZLIB_RUNTIME_VERSION, "runtime_reads": len(denied), "publications": 0, "refusals": refusals}
+                    "runtime": ZLIB_RUNTIME_VERSION, "runtime_reads": len(denied), "publications": 0, "refusals": refusals,
+                    "readback_publications": 0, "readback_refusals": 0}
         enum, = matches
         _, native, evidence, normalized = receipts[enum]
         case_values = {**bare, PRESENTATION: presentation, MEASURE: {"written_at": epoch, "receipt": evidence}}
@@ -221,13 +281,11 @@ def verify(name, scratch):
                     for outcome in outcomes), "publication lacks actual native transfer evidence")
         readback = open_document(BytesIO(payload), source_format=FORMAT, strict=True)
         shape = check_shape(readback, authored, native["phases"][name + "-edit"])
-        old_values = {key: value for key, value in case_values.items() if key != PRESENTATION}
-        refuse(lambda sink: public(readback, sink, old_values), BytesIO(b"untouched"), "does not support")
-        refuse(lambda sink: direct(readback, sink, old_values), BytesIO(b"untouched"), "exact passing SOLIDWORKS")
         design = open_document(BytesIO(payload), source_format=FORMAT, strict=True, include_brep=False)
-        for writer in (public, direct):
-            refuse(lambda sink: writer(design, sink, old_values), BytesIO(b"untouched"), "native-only feature definitions")
-        refusals += 4
+        readback_publications, readback_refusals, readback_values = qualify_readback(
+            readback, design, {key: value for key, value in case_values.items() if key != PRESENTATION},
+            presentation, payload, launches
+        )
         step = authored.feature_timeline[-1]
         pitch_id = step.parameter_ids[1]
         driver = next(value for value in authored.parameters if value.id == pitch_id)
@@ -250,6 +308,14 @@ def verify(name, scratch):
     persisted = open_document(target, source_format=FORMAT, strict=True)
     require(check_shape(persisted, authored, native["phases"][name + "-edit"]) == shape,
             "path and buffer selected different physical semantics")
+    persisted_design = open_document(target, source_format=FORMAT, strict=True, include_brep=False)
+    with no_reads(scratch) as denied:
+        for document in (persisted, persisted_design):
+            sink = BytesIO()
+            published = public(loads(dumps(document)), sink, readback_values)
+            require(sink.getvalue() == payload and published.application_usable, "strict path loses publication identity")
+            readback_publications += 1
+    require(not denied, "path readback publication attempted a runtime file read")
     contrast = scratch / "WrongPath" / target_name
     contrast.parent.mkdir()
     contrast.write_bytes(b"older output")
@@ -266,7 +332,8 @@ def verify(name, scratch):
             "request_sha256": finger(request_bytes), "generated_sha256": digest,
             "packet_sha256": finger(evidence["packet"]), "result_sha256": finger(evidence["result"]),
             "streams": len(streams), "runtime_reads": len(denied), "native_processes": 0,
-            "publications": len(outcomes), "refusals": refusals + 1, "strict_geometry": shape}
+            "publications": len(outcomes), "refusals": refusals + 1, "strict_geometry": shape,
+            "readback_publications": readback_publications, "readback_refusals": readback_refusals}
 
 
 if __name__ == "__main__":
