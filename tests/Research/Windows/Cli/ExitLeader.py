@@ -17,7 +17,12 @@ def RunExitLeader() -> NoReturn:
         RecordPath = FilePath(sys.argv[1])
         JoinConsole(RecordPath)
         ChildProcess = StartProcess(
-            [sys.executable, "-m", "tests.Research.Windows.Cli.PipeChild", str(RecordPath)],
+            [
+                sys.executable,
+                "-m",
+                "tests.Research.Windows.Cli.PipeChild",
+                str(RecordPath),
+            ],
             stdout=sys.stdout,
             stderr=sys.stderr,
             creationflags=KNoWindow,

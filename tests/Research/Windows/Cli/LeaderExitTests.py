@@ -6,6 +6,7 @@ from sysconfig import get_path as GetConfigPath
 from pytest import mark as TestMark, raises as ExpectError
 
 from tests.Research.Windows.Cli.OwnConsole import OwnConsole
+from tests.Research.Windows.Cli.StopConsole import StopConsole
 from tests.Research.Windows.Cli.StopCustody import StopCustody
 from tests.Research.Windows.IsProcessAlive import IsProcessAlive
 from tests.Research.Windows.WaitForExit import WaitForExit
@@ -15,7 +16,9 @@ if sys.platform == "win32":
 
 
 # cleanup must recover pipe ownership from a surviving descendant after its real console leader exits
-@TestMark.skipif(sys.platform != "win32", reason="Windows console custody process boundary")
+@TestMark.skipif(
+    sys.platform != "win32", reason="Windows console custody process boundary"
+)
 def CheckLeaderExit(TmpPath: FilePath) -> None:
     if sys.platform == "win32":
         RootPath = FilePath(__file__).resolve().parents[4]
@@ -23,14 +26,20 @@ def CheckLeaderExit(TmpPath: FilePath) -> None:
         BasePython = str(getattr(sys, "_base_executable", sys.executable))
         Bootstrap = (
             "import site, sys, runpy; "
-            "site.addsitedir(sys.argv.pop(1)); "
-            "runpy.run_module(sys.argv.pop(1), run_name='__main__')"
+            + "site.addsitedir(sys.argv.pop(1)); "
+            + "runpy.run_module(sys.argv.pop(1), run_name='__main__')"
         )
         with OwnConsole() as (JobName, JobHandle):
             _ = (TmpPath / "ConsoleCustody").write_text(JobName, encoding="utf-8")
             with StartProcess(
-                [BasePython, "-c", Bootstrap, GetConfigPath("purelib"),
-                 "tests.Research.Windows.Cli.ExitLeader", str(RecordPath)],
+                [
+                    BasePython,
+                    "-c",
+                    Bootstrap,
+                    GetConfigPath("purelib"),
+                    "tests.Research.Windows.Cli.ExitLeader",
+                    str(RecordPath),
+                ],
                 cwd=RootPath,
                 stdout=KPipe,
                 stderr=KPipe,
@@ -48,6 +57,9 @@ def CheckLeaderExit(TmpPath: FilePath) -> None:
                     assert "retained stdout" in OutputText, (OutputText, ErrorText)
                     WaitForExit(ChildPid)
                 finally:
-                    StopCustody(JobHandle)
+                    try:
+                        StopCustody(JobHandle)
+                    finally:
+                        StopConsole(Leader)
     else:
         raise OSError("Console custody process coverage requires Windows")
