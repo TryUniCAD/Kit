@@ -5,6 +5,7 @@ from sysconfig import get_path as GetConfigPath
 
 from pytest import mark as TestMark, raises as ExpectError
 
+from tests.Research.Windows.Cli.CaptureConsole import CaptureConsole
 from tests.Research.Windows.Cli.OwnConsole import OwnConsole
 from tests.Research.Windows.Cli.StopConsole import StopConsole
 from tests.Research.Windows.Cli.StopCustody import StopCustody
@@ -51,11 +52,10 @@ def CheckLeaderExit(TmpPath: FilePath) -> None:
                     ChildPid = int(RecordPath.read_text(encoding="utf-8"))
                     assert IsProcessAlive(ChildPid)
                     with ExpectError(TimeoutExpired):
-                        _ = Leader.communicate(timeout=0.25)
-                    StopCustody(JobHandle)
+                        _ = CaptureConsole(Leader, JobHandle, TmpPath, Timeout=0.25)
+                    WaitForExit(ChildPid)
                     OutputText, ErrorText = Leader.communicate(timeout=15)
                     assert "retained stdout" in OutputText, (OutputText, ErrorText)
-                    WaitForExit(ChildPid)
                 finally:
                     try:
                         StopCustody(JobHandle)

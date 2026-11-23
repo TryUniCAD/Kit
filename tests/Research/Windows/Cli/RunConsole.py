@@ -2,12 +2,9 @@ import sys
 from pathlib import Path as FilePath
 from subprocess import PIPE as KPipe, CompletedProcess, Popen as StartProcess
 from sys import executable as KPythonPath
-from time import monotonic as ReadClock
 
+from tests.Research.Windows.Cli.CaptureConsole import CaptureConsole
 from tests.Research.Windows.Cli.OwnConsole import OwnConsole
-from tests.Research.Windows.Cli.StopConsole import StopConsole
-from tests.Research.Windows.Cli.StopCustody import StopCustody
-from tests.Research.Windows.Cli.VerifyWorkers import VerifyWorkers
 
 if sys.platform == "win32":
     from subprocess import CREATE_NEW_CONSOLE as KNewConsole
@@ -28,7 +25,7 @@ def RunConsole(ConfigPath: FilePath, SignalName: str) -> CompletedProcess[str]:
         Arguments = [
             KPythonPath,
             "-m",
-            f"tests.Research.Windows.Cli.{ModuleName}",
+            "tests.Research.Windows.Cli." + ModuleName,
             str(ConfigPath.parent / "ProcessIds.json"),
             str(RootPath),
             str(ConfigPath),
@@ -47,20 +44,6 @@ def RunConsole(ConfigPath: FilePath, SignalName: str) -> CompletedProcess[str]:
                 stderr=KPipe,
                 text=True,
             ) as ConsoleProcess:
-                try:
-                    OutputText, ErrorText = ConsoleProcess.communicate(timeout=90)
-                    _ = (ConfigPath.parent / "LauncherExited").write_text(
-                        str(ReadClock()), encoding="utf-8"
-                    )
-                    if ConsoleProcess.returncode == 0:
-                        VerifyWorkers(ConfigPath.parent / "ProcessIds.json")
-                    return CompletedProcess(
-                        Arguments, ConsoleProcess.returncode, OutputText, ErrorText
-                    )
-                finally:
-                    try:
-                        StopCustody(JobHandle)
-                    finally:
-                        StopConsole(ConsoleProcess)
+                return CaptureConsole(ConsoleProcess, JobHandle, ConfigPath.parent)
     else:
         raise OSError("Windows CLI console coverage requires a Windows host")
