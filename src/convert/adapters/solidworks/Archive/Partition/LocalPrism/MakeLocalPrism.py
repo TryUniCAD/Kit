@@ -27,7 +27,11 @@ from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeVertexCells im
     MakeVertexCells,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismCarriers import (
+    PrismCarriers,
     ReadCarriers,
+)
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismFaceLoop import (
+    PrismFaceLoop,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismFinLinks import (
     MakeFinLinks,
@@ -40,14 +44,13 @@ from convert.Geometry.Parasolid import BrepTopology
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
-# the local body archive needs resident typed cells computed only from the admitted portable boundary
-def MakeLocalPrism(ModelValue: BrepModel) -> tuple[XmtNode, ...]:
-    CheckPrismSolid(ModelValue)
-    TopologyValue = BrepTopology(ModelValue)
-    CarriersValue = ReadCarriers(ModelValue)
-    CheckPrismTrims(TopologyValue, CarriersValue)
-    FacesValue = ReadPrismFaces(ModelValue, TopologyValue)
-    CheckPrismRings(FacesValue, TopologyValue)
+# the owned topology and analytic carriers allocate all resident local cells
+def MakeLocalCells(
+    ModelValue: BrepModel,
+    TopologyValue: BrepTopology,
+    CarriersValue: PrismCarriers,
+    FacesValue: tuple[PrismFaceLoop, ...],
+) -> tuple[XmtNode, ...]:
     FinLinks = MakeFinLinks(FacesValue, TopologyValue)
     return MakePrismNodes(
         (
@@ -59,3 +62,14 @@ def MakeLocalPrism(ModelValue: BrepModel) -> tuple[XmtNode, ...]:
             *MakePrismPlanes(CarriersValue),
         )
     )
+
+
+# the local body archive needs resident typed cells computed only from the admitted portable boundary
+def MakeLocalPrism(ModelValue: BrepModel) -> tuple[XmtNode, ...]:
+    CheckPrismSolid(ModelValue)
+    TopologyValue = BrepTopology(ModelValue)
+    CarriersValue = ReadCarriers(ModelValue)
+    CheckPrismTrims(TopologyValue, CarriersValue)
+    FacesValue = ReadPrismFaces(ModelValue, TopologyValue)
+    CheckPrismRings(FacesValue, TopologyValue)
+    return MakeLocalCells(ModelValue, TopologyValue, CarriersValue, FacesValue)

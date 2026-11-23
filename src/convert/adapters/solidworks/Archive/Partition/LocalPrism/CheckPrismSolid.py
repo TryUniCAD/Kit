@@ -6,7 +6,7 @@ from interchange.geometry.Models.Transform import KTransformIdentity
 
 
 # a bare local transmit owns only one portable solid with no carried native state
-def CheckPrismSolid(ModelValue: BrepModel) -> None:
+def CheckPrismSolid(ModelValue: BrepModel, *, AllowReverse: bool = False) -> None:
     if type(ModelValue) is not BrepModel or ModelValue.schema_version != "1.0":
         raise ValueError("local prism requires a typed neutral B-rep")
     if (
@@ -45,7 +45,8 @@ def CheckPrismSolid(ModelValue: BrepModel) -> None:
         or UseValue.reversed
         or not RegionValue.solid
         or not ShellValue.closed
-        or any(FaceUse.reversed for FaceUse in ModelValue.face_uses)
+        or not AllowReverse
+        and any(UseValue.reversed for UseValue in ModelValue.face_uses)
     ):
         raise ValueError("local prism requires an untransformed outward solid shell")
     CheckBareCells(ModelValue)

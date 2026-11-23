@@ -53,6 +53,6 @@ def ReadFaceRing(
         )
         for First, Second in zip(Remaining[:-1], Remaining[1:], strict=True)
     )
-    if not TwiceArea > 0.0:
+    if not (TwiceArea > 0.0 if BoundaryValue.LoopValue.outer else TwiceArea < 0.0):
         raise ValueError("local prism face normal contradicts its oriented loop")
     return tuple(PrismVector(PointValue) for PointValue in PointsValue)

@@ -1,6 +1,9 @@
 from collections import Counter
 from collections.abc import Mapping
 
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.CheckPocketLoop import (
+    CheckPocketLoop,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.CheckOwnedXmt import (
     CheckOwnedXmt,
 )
@@ -15,10 +18,10 @@ from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Archive.Partition.XmtReferences import XmtReferences
 
 
-# a standalone transmit must contain one closed resident solid before bytes leave the writer
-def CheckLocalXmt(NodesValue: Mapping[int, XmtNode]) -> None:
-    BodyValue = RequireXmt(NodesValue, 1, 12)
-    CountsValue = Counter(NodeValue.KindValue for NodeValue in NodesValue.values())
+# paired owners and their carrier inventories identify the bounded resident profile
+def CheckLocalSize(
+    BodyValue: XmtNode, CountsValue: Counter[int], AllowPocket: bool
+) -> None:
     FaceCount, EdgeCount, VertexCount = (
         CountsValue[KindValue] for KindValue in (14, 16, 18)
     )
@@ -40,9 +43,32 @@ def CheckLocalXmt(NodesValue: Mapping[int, XmtNode]) -> None:
             CountsValue[30],
             CountsValue[50],
         )
-        != (FaceCount, 2 * EdgeCount, VertexCount, EdgeCount, FaceCount)
+        != (
+            FaceCount + int(AllowPocket),
+            2 * EdgeCount,
+            VertexCount,
+            EdgeCount,
+            FaceCount,
+        )
     ):
         raise ValueError("local kernel solid ownership or topology counts differ")
+    if AllowPocket and (
+        (FaceCount, EdgeCount, VertexCount) != (11, 24, 16)
+        or BodyValue.Integer("attribute_chains")
+    ):
+        raise ValueError("local kernel does not contain one bare rectangular pocket")
+
+
+# a standalone transmit must contain one closed resident solid before bytes leave the writer
+def CheckLocalXmt(
+    NodesValue: Mapping[int, XmtNode], *, AllowPocket: bool = False
+) -> None:
+    BodyValue = RequireXmt(NodesValue, 1, 12)
+    CheckLocalSize(
+        BodyValue,
+        Counter(Value.KindValue for Value in NodesValue.values()),
+        AllowPocket,
+    )
     for NodeValue in NodesValue.values():
         CheckXmtLink(NodesValue, NodeValue, KLocalShapes[NodeValue.KindValue])
         if 13 <= NodeValue.KindValue <= 50 and NodeValue.Integer("attributes_features"):
@@ -55,4 +81,6 @@ def CheckLocalXmt(NodesValue: Mapping[int, XmtNode]) -> None:
         Pending.update(set(XmtReferences(NodesValue[IndexValue])) - Visited)
     if Visited != set(NodesValue):
         raise ValueError("local kernel has records outside its body ownership")
+    if AllowPocket:
+        CheckPocketLoop(NodesValue)
     CheckOwnedXmt(NodesValue, BodyValue)

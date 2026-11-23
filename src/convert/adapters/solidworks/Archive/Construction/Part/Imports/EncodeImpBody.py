@@ -2,6 +2,9 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Partition.LocalCylinder.MakeLocalCyl import (
     MakeLocalCyl,
 )
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeLocalPocket import (
+    MakeLocalPocket,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeLocalPrism import (
     MakeLocalPrism,
 )
@@ -36,9 +39,19 @@ def EncodeImpBody(
     IsPeriodic = any(
         isinstance(Surface, CylinderSurface) for Surface in ModelValue.surfaces
     )
+    IsPocket = not IsPeriodic and any(
+        not LoopValue.outer for LoopValue in ModelValue.loops
+    )
     if IsPeriodic and OwnedBody:
         raise ValueError("local import attributes require a planar body")
-    NodesValue = MakeLocalCyl(ModelValue) if IsPeriodic else MakeLocalPrism(ModelValue)
+    if IsPeriodic:
+        NodesValue = MakeLocalCyl(ModelValue)
+    elif IsPocket:
+        if OwnedBody:
+            raise ValueError("local pocket does not admit attributed body owners")
+        NodesValue = MakeLocalPocket(ModelValue)
+    else:
+        NodesValue = MakeLocalPrism(ModelValue)
     if OwnedBody:
         NameValue = ReadNodeName(FeatureValue)
         if NameValue != KeyValue:
@@ -49,4 +62,4 @@ def EncodeImpBody(
             NameValue, FieldInt(FeatureValue.FieldsValue, "f08"), AtomId, BodyStamp
         )
         NodesValue = BindLocalAttrs(NodesValue, OwnerValue)
-    return EncodeLocalBody(KeyValue, NodesValue)
+    return EncodeLocalBody(KeyValue, NodesValue, AllowPocket=IsPocket)

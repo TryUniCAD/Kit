@@ -10,10 +10,12 @@ from convert.adapters.solidworks.Archive.Strings.EncodeString import EncodeStrin
 
 
 # a local feature group derives its wide key and record length from the typed body
-def EncodeLocalBody(KeyValue: str, NodeValues: tuple[XmtNode, ...]) -> bytes:
+def EncodeLocalBody(
+    KeyValue: str, NodeValues: tuple[XmtNode, ...], *, AllowPocket: bool = False
+) -> bytes:
     if type(KeyValue) is not str or not KeyValue or not KeyValue.isprintable():
         raise ValueError("local body requires a printable feature storage key")
-    PayloadValue = EncodePartData(EncodeLocalXmt(NodeValues))
+    PayloadValue = EncodePartData(EncodeLocalXmt(NodeValues, AllowPocket=AllowPocket))
     RecordSize = len(PayloadValue) + 1
     if RecordSize >= 1 << 31:
         raise ValueError("local body record length exceeds its signed archive word")

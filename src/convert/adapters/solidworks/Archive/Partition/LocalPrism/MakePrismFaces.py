@@ -44,43 +44,59 @@ def MakePrismFins(
     return tuple(Values)
 
 
+# each trim owns its fins and any link to a further trim on the same face
+def MakePrismLoops(
+    Boundaries: list[PrismFaceLoop], FaceRef: PrismRef, FinLinks: PrismFinLinks
+) -> tuple[PrismCell, ...]:
+    LoopRefs = tuple(PrismRef(15, Value.LoopValue.id) for Value in Boundaries)
+    FollowingValues: tuple[PrismRef | int, ...] = (*LoopRefs[1:], 0)
+    Values: list[PrismCell] = []
+    for LoopRef, Boundary, Following in zip(
+        LoopRefs, Boundaries, FollowingValues, strict=True
+    ):
+        Values.append(
+            PrismCell(
+                LoopRef,
+                {
+                    "face": FaceRef,
+                    "halfedge": PrismRef(17, Boundary.UsesValue[0].id),
+                    "next": Following,
+                },
+            )
+        )
+        Values.extend(MakePrismFins(Boundary, FinLinks))
+    return tuple(Values)
+
+
 # the solid and void face links traverse the same complete oriented boundary
 def MakePrismFaces(
     FacesValue: tuple[PrismFaceLoop, ...], FinLinks: PrismFinLinks
 ) -> tuple[PrismCell, ...]:
-    FaceChain = PrismChain(
-        PrismRef(14, BoundaryValue.FaceValue.id) for BoundaryValue in FacesValue
-    )
-    Values: list[PrismCell] = []
+    GroupsValue: dict[PrismRef, list[PrismFaceLoop]] = {}
     for BoundaryValue in FacesValue:
-        FaceValue = BoundaryValue.FaceValue
-        FaceRef = PrismRef(14, FaceValue.id)
-        LoopRef = PrismRef(15, BoundaryValue.LoopValue.id)
+        GroupsValue.setdefault(PrismRef(14, BoundaryValue.FaceValue.id), []).append(
+            BoundaryValue
+        )
+    FaceChain = PrismChain(GroupsValue)
+    Values: list[PrismCell] = []
+    for FaceRef, Boundaries in GroupsValue.items():
+        First = Boundaries[0]
         Previous, Following = FaceChain[FaceRef]
-        Values.extend(
-            (
-                PrismCell(
-                    FaceRef,
-                    {
-                        "shell": KPrismSolidShell,
-                        "front_shell": KPrismVoidShell,
-                        "loop": LoopRef,
-                        "surface": PrismRef(50, FaceValue.surface_id),
-                        "previous": Previous,
-                        "next": Following,
-                        "previous_front": Previous,
-                        "next_front": Following,
-                        "sense": "+",
-                    },
-                ),
-                PrismCell(
-                    LoopRef,
-                    {
-                        "face": FaceRef,
-                        "halfedge": PrismRef(17, BoundaryValue.UsesValue[0].id),
-                    },
-                ),
-                *MakePrismFins(BoundaryValue, FinLinks),
+        Values.append(
+            PrismCell(
+                FaceRef,
+                {
+                    "shell": KPrismSolidShell,
+                    "front_shell": KPrismVoidShell,
+                    "loop": PrismRef(15, First.LoopValue.id),
+                    "surface": PrismRef(50, First.FaceValue.surface_id),
+                    "previous": Previous,
+                    "next": Following,
+                    "previous_front": Previous,
+                    "next_front": Following,
+                    "sense": "+",
+                },
             )
         )
+        Values.extend(MakePrismLoops(Boundaries, FaceRef, FinLinks))
     return tuple(Values)

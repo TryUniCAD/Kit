@@ -20,7 +20,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.
 
 # generated imports need a native local transmit from model owned node fields alone
 def EncodeLocalXmt(
-    NodeValues: tuple[XmtNode, ...], SchemaValue: str = KTerminalFinSchema
+    NodeValues: tuple[XmtNode, ...],
+    SchemaValue: str = KTerminalFinSchema,
+    *,
+    AllowPocket: bool = False,
 ) -> bytes:
     if type(SchemaValue) is not str or SchemaValue != KTerminalFinSchema:
         raise ValueError("local kernel transmit schema is unqualified")
@@ -48,9 +51,11 @@ def EncodeLocalXmt(
         )
         NodesValue[IndexValue] = RecordValue
     if any(NodeValue.KindValue in (31, 51) for NodeValue in NodesValue.values()):
+        if AllowPocket:
+            raise ValueError("local pocket cannot have periodic geometry")
         CheckCylGraph(NodesValue)
     else:
-        CheckLocalXmt(NodesValue)
+        CheckLocalXmt(NodesValue, AllowPocket=AllowPocket)
     OutputValue.extend(PackValue(">H", 1))
     WritePointerMut(OutputValue, 0)
     return ParaStream(bytes(OutputValue), SchemaValue, KLocalDescription)
