@@ -1,5 +1,5 @@
 ---
-name: parashell/kit-path-boundaries
+name: unicad/kit-path-boundaries
 version: 1.0.0
 library: true
 extensionTargets:

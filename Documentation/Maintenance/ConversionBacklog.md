@@ -772,7 +772,7 @@ This is B07 expansion work within PR #94's broad plan, not a completed or active
 
 The NX, CATIA and Creo implementation PRs closed without merging on 2026-11-16.
 Their work on containers, retained payloads and bounded geometry remains research evidence for scoped A16 child claims. Each claimed route requires independent native acceptance after A13 and A15. [NX #115](https://github.com/TryUniCAD/Kit/pull/115), [CATIA #116](https://github.com/TryUniCAD/Kit/pull/116), [Creo #117](https://github.com/TryUniCAD/Kit/pull/117)
-Rhino, standalone AutoCAD and Parashell have no matching implementation PR in the inspected inventory.
+Rhino and standalone AutoCAD have no matching implementation PR in the inspected inventory.
 They still belong to the broader A16 expansion scope and require explicit child claims.
 
 ### Drawings and assemblies
@@ -829,3 +829,21 @@ The inspected register names that missing evidence before A06 can qualify its gr
 Check that register again before running or claiming anything.
 The next independent available task is B01, followed by B10/B11 work that can use already qualified examples.
 No new research implementation, application run, user evaluation or conversion qualification is claimed by this planning change.
+
+## Native feature ladder evidence follow-up
+
+Task `A08h-Ladders2026` is a scoped evidence publication under the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladders2026-native-campaign-evidence).
+Codex owns packaging on `feat/deterministic-campaign-20261122`; delivery PR is [#263](https://github.com/TryUniCAD/Kit/pull/263).
+Dependencies are merged PRs #158 and #207 and the licensed native workers.
+The exit requires a verified corpus manifest, sanitized records, explicit failure outcomes, and current-head publication readiness.
+The [campaign package](../../re/FeatureLadders2026/README.md) does not change the production snapshot or close B02, B03, B05 or B13.
+Native recovery and semantic qualification remain blocked as recorded in that package.
+
+## Recovered SOLIDWORKS native ladder evidence
+
+Task `A08h-LadderRecovery` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
+Codex owns evidence publication on `feat/solidworks-ladder-recovery-20261122`; delivery PR is [#267](https://github.com/TryUniCAD/Kit/pull/267).
+The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
+Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
+The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
+Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.

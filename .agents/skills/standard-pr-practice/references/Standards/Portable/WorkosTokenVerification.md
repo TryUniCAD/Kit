@@ -12,7 +12,7 @@ metadata:
 
 # WorkOS Token Verification — Get The Issuer Right
 
-Every Parashell backend that validates a WorkOS user-management access token MUST verify it the same way the working services do. Copying the pattern wrong causes a silent `401 Unauthorized` on every request even though the token is valid everywhere else. This is mandatory.
+Every UniCAD backend that validates a WorkOS user-management access token MUST verify it the same way the working services do. Copying the pattern wrong causes a silent `401 Unauthorized` on every request even though the token is valid everywhere else. This is mandatory.
 
 ## The Rule That Bites: Issuer Is Per-Client
 

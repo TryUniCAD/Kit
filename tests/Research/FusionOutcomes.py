@@ -27,7 +27,21 @@ def CheckOutcomes(CensusPath: FilePath, TempPath: FilePath) -> None:
         check=False,
     )
     assert SameRun.returncode == 0, (SameRun.stdout, SameRun.stderr)
-    for CaseName in ("missing", "improved", "duplicate", "source"):
+    Comparison = JsonCodec.loads(SameRun.stdout)
+    assert Comparison["manifest_binding"] == "pinned_attribution_metadata_migration"
+    assert (
+        Comparison["baseline_manifest_sha256"]
+        == "4cc8fb707641ecde29a04b5dafa1ecbf7e706a839550a4af3b8807d19b64d4e2"
+    )
+    assert (
+        Comparison["observed_manifest_sha256"]
+        == Report["observation"]["manifest_sha256"]
+    )
+    assert (
+        Comparison["observed_manifest_sha256"]
+        == "905b547f47e6b649b190bee11964067ce8dfa81ec8d43fd15e1c37f8d6eda05c"
+    )
+    for CaseName in ("missing", "improved", "duplicate", "source", "corpus"):
         Changed = JsonCodec.loads(CensusPath.read_text())
         if CaseName == "missing":
             Changed["assets"] = Changed["assets"][1:]
@@ -41,6 +55,8 @@ def CheckOutcomes(CensusPath: FilePath, TempPath: FilePath) -> None:
             )
         elif CaseName == "duplicate":
             Changed["assets"].append(Changed["assets"][0])
+        elif CaseName == "corpus":
+            Changed["observation"]["corpus_revision"] = "0" * 40
         else:
             Changed["observation"]["manifest_sha256"] = "0" * 64
         ChangedPath = TempPath / f"{CaseName}.json"

@@ -51,6 +51,11 @@ It also checks every registered workflow outcome. Unexpected failures,
 cancellations, timeouts, and skipped required jobs fail the aggregate.
 Jobs assigned to the other phase are explicitly deferred.
 
+The Gitleaks job classifies one reviewed standards SHA-256 as public data only at its exact workflow path.
+Real scanner probes require detection for that value in another file and for an unknown value at the allowed path.
+The complete history scan and upstream detector rules remain enabled.
+See [attribution queue repairs](Documentation/Changes/Ci/AttributionQueueRepair.md).
+
 The [breaking change label check](Documentation/Changes/BreakingChangeLabelChecks.md)
 separates PR event types into different concurrency groups and reads current metadata.
 The [PR diff breakdown](Documentation/Reference/Operations/DiffBreakdown.md)
@@ -134,6 +139,10 @@ The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedT
 The plan [reuses verified results](Documentation/Changes/QueueTestReuse.md) of test modules whose recorded files and folders did not change since an accepted ancestor candidate.
 Every other collected test runs in a shard.
 Each shard holds at most 1,200 tests, which is 300 tests for each CPU of its 4-CPU runner.
+Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with an eight-shard runtime budget.
+The count cap takes precedence if it requires more shards.
+Platform shards use platform-specific duration histories from the shared plan instead of count-based modulo selection.
+See [runtime scheduling](Documentation/Changes/Ci/QueueRuntimeScheduling.md).
 Each `Test suite / Shard (n)` job runs only its planned node IDs.
 The shard runs them [in parallel on every CPU](Documentation/Changes/ParallelTestShards.md) with pytest-xdist.
 The plan orders each shard so that a fast test follows each slow test.
@@ -162,7 +171,7 @@ Completed-result process checks remain; pending-process liveness and evidence pu
 See the [removal scope and evidence](Documentation/Changes/Ci/FlakyPendingGateRemoval.md).
 
 The checked-in desired queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
-at most two candidates concurrently, and merges one entry at a time. Its
+one candidate at a time, and merges one entry at a time. Its
 90-minute response timeout allows the existing 60-minute analyses plus runner
 scheduling. Each candidate has its own concurrency group; a later PR update
 cannot cancel a different queue candidate. Heavy workflows do not repeat on
@@ -170,6 +179,9 @@ the subsequent `main` push. The observed live `Protect` settings differ: five
 concurrent builds, up to five merged entries, a five-minute minimum wait, a
 60-minute response timeout, and an existing organization-admin bypass. These
 were preserved; only the required status contexts were changed for this repair.
+The 22 November 2026 investigation observed newer live settings: 25 concurrent builds,
+a two-entry merge minimum, a ten-minute minimum-entry wait, and a ten-entry merge maximum.
+These differ from the desired manifest and require separate administrator activation.
 
 ## Activate after this PR merges
 

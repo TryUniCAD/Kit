@@ -26,7 +26,6 @@ No replacement percentage is claimed without a complete acceptance matrix.
 | Creo                    | No production adapter on this main revision. PR #117 adds PSB research and adapter work.                   | Qualified semantic reads and independent editable writing.                                          |
 | Rhino                   | No production adapter on this main revision.                                                               | Format/version contract, reader, writer and target acceptance.                                      |
 | AutoCAD                 | No standalone production adapter on this main revision. Fusion drawing codecs are a separate bounded path. | Format/version contract, neutral drawing model and qualified standalone routes.                     |
-| Parashell               | No separate public format contract or adapter on this main revision.                                       | Define its format identity and relationship to FreeCAD, then qualify its routes.                    |
 | Kit JSON and shared SDK | Neutral model, serialization, discovery, conversion API, CLI and packaging exist.                          | Complete route evidence, operational hardening, user evaluation and release qualification.          |
 
 Registration, same-format reconstruction and retained native bytes do not establish cross-format editability.

@@ -115,7 +115,7 @@ read its complete standards index and every applicable rule before coding.
   Verify the requester's identity and current repository `admin` permission.
   Implementation requests and PR creation alone do not authorize merging.
 - Use Python for backend work, React for frontend work, and `uv` for Python
-  dependencies outside `Parashell/` and `modules/`.
+  dependencies outside `modules/`.
 - Add the mandatory rationale comment above every Python declaration, lambda,
   and module binding. Follow the skill's rationale standard. Other explanatory
   comments and comment-oriented docstrings remain prohibited. Preserve required

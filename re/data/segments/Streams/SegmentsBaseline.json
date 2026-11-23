@@ -1,7 +1,7 @@
 {
   "label": "baseline",
-  "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
-  "log": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\out\\cdb_trace_baseline.log",
+  "part": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+  "log": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\trace\\out\\cdb_trace_baseline.log",
   "stream_length": 11075,
   "base_map_index": 109,
   "object_count": 321,

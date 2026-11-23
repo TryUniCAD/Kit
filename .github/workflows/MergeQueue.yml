@@ -105,28 +105,16 @@ jobs:
           tail -n 1 "${RUNNER_TEMP}/Collected.txt"
 
       - name: Fetch earlier merge-group test durations
+        if: github.event_name == 'merge_group'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          RunId="$(
-            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=TestDurations&per_page=100" --jq '
-              [
-                .artifacts[]
-                | select(.expired | not)
-                | select((.workflow_run.head_branch // "") | startswith("gh-readonly-queue/"))
-                | select(.workflow_run.head_repository_id == .workflow_run.repository_id)
-              ]
-              | sort_by(.created_at)
-              | last
-              | .workflow_run.id // empty
-            '
-          )"
-          if [ -z "$RunId" ]; then
-            echo "No earlier merge-group test durations exist; shards balance by test count" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          gh run download "$RunId" --repo "$GITHUB_REPOSITORY" --name TestDurations --dir "${RUNNER_TEMP}/History"
+          bash .github/scripts/Queue/FetchDurations.sh TestDurations "${RUNNER_TEMP}/History"
+          for Platform in windows-2025 macos-26; do
+            bash .github/scripts/Queue/FetchDurations.sh "PlatformDurations-${Platform}" \
+              "${RUNNER_TEMP}/ShardPlan/History-${Platform}"
+          done
 
       - name: Fetch test results that an accepted ancestor verified
         if: github.event_name == 'merge_group'
@@ -167,8 +155,25 @@ jobs:
 
       - name: Plan test shards
         id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          RuntimeArgs=()
+          TargetSeconds=0
+          if [ "$GITHUB_EVENT_NAME" = merge_group ]; then
+            if ! TargetSeconds="$(gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/rules/branches/main?per_page=100" | jq '
+              [.[][] | select(.type == "merge_queue") | .parameters]
+              | if length == 1 and .[0].max_entries_to_build == 1
+                  and .[0].min_entries_to_merge == 1
+                  and .[0].min_entries_to_merge_wait_minutes == 0
+                then 1200 else 0 end')"; then
+              TargetSeconds=0
+              echo "::warning::Live rules lookup failed; runtime expansion remains disabled"
+            fi
+            RuntimeArgs=(--target-seconds "$TargetSeconds" --runtime-shards 8)
+          fi
+          echo "Runtime shard target: ${TargetSeconds} test seconds; zero retains count-based sizing" >> "$GITHUB_STEP_SUMMARY"
           git ls-tree -r -z HEAD > "${RUNNER_TEMP}/Tree.bin"
           uv run --no-sync --python 3.14 python -m tools.TestShards.PlanShards \
             --collected "${RUNNER_TEMP}/Collected.txt" \
@@ -178,6 +183,7 @@ jobs:
             --carried "${RUNNER_TEMP}/ShardPlan/Carried.json" \
             --max-age-days 7 \
             --max-tests 1200 \
+            "${RuntimeArgs[@]}" \
             --output "${RUNNER_TEMP}/ShardPlan/ShardPlan.json" \
             --summary "$GITHUB_STEP_SUMMARY"
           cp "${RUNNER_TEMP}/Collected.txt" "${RUNNER_TEMP}/ShardPlan/Collected.txt"
@@ -384,6 +390,7 @@ jobs:
       PlatformShard: ${{ matrix.group }}
       NativePattern: "^tests/Research/Windows/"
       SelectionPatterns: |-
+        ^tests/Policy/Shards/PlatformPlanTests\.py::
         ^tests/Research/Windows/
         ^tests/Research/Outputs/
         ^tests/Research/Applications/ApplicationParkTests\.py::
@@ -446,6 +453,7 @@ jobs:
               test "$?" -eq 1
             fi
             case "$Pattern" in
+              '^tests/Policy/Shards/PlatformPlanTests\.py::') AuditSuite=tests/Policy/Shards/PlatformPlanTests.py ;;
               '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
               '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
               *) exit 1 ;;
@@ -460,8 +468,15 @@ jobs:
           test -s "${RUNNER_TEMP}/PlatformReport/Collected.txt"
           grep -E "$NativePattern" "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "${RUNNER_TEMP}/PlatformReport/Native.txt"
           test -s "${RUNNER_TEMP}/PlatformReport/Native.txt"
-          awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
-            "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
+          if [ "$AuditEvent" = workflow_dispatch ] || [ "$AuditEvent" = push ]; then
+            awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
+              "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
+          else
+            uv run --no-sync --python 3.14 python -m tools.TestShards.Platform.SelectShard \
+              --collected "${RUNNER_TEMP}/PlatformReport/Collected.txt" \
+              --history "${RUNNER_TEMP}/ShardPlan/History-${PlatformRunner}/Durations.json" \
+              --index "$ShardIndex" --count "$ShardCount" --output "$Selected"
+          fi
           test -s "$Selected"
 
       - name: Execute the required platform process cases
@@ -534,6 +549,16 @@ jobs:
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-windows-2025 "$RunAttempt"
           '^tests/Research/Windows/'
+          "$ReportRoot/Durations.json"
+
+      - name: Publish Windows durations for later plans
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: PlatformDurations-windows-2025
+          overwrite: true
+          path: ${{ runner.temp }}/WindowsReports/Durations.json
+          if-no-files-found: error
+          retention-days: 7
 
   research-macos-shard:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -560,6 +585,7 @@ jobs:
       PlatformShard: ${{ matrix.group }}
       NativePattern: '^tests/Research/Applications/FusionColdStartTests\.py::'
       SelectionPatterns: |-
+        ^tests/Policy/Shards/PlatformPlanTests\.py::
         ^tests/Research/Supervisor[^/]*Tests\.py::
         ^tests/Research/Supervisor/Supervisor[^/]*Tests\.py::
         ^tests/Research/Outputs/
@@ -608,6 +634,16 @@ jobs:
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-macos-26 "$RunAttempt"
           '^tests/Research/Applications/FusionColdStartTests\.py::'
+          "$ReportRoot/Durations.json"
+
+      - name: Publish macOS durations for later plans
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: PlatformDurations-macos-26
+          overwrite: true
+          path: ${{ runner.temp }}/MacosReports/Durations.json
+          if-no-files-found: error
+          retention-days: 7
 
   linux-oom-witness:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -906,7 +942,7 @@ jobs:
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run Bandit SAST
-        run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,Parashell,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
+        run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
 
   semgrep:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -936,7 +972,7 @@ jobs:
         run: uv run python -m tools.Security.SemgrepPaths
 
       - name: Run Semgrep SAST
-        run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=Parashell --exclude=modules --exclude=re
+        run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=modules --exclude=re
 
   pip-audit:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -1145,7 +1181,7 @@ jobs:
       - name: Run dlint insecure-pattern scan
         run: >-
           uv run flake8 --select=DUO
-          --exclude=.venv,examples,Parashell,modules,re,tests
+          --exclude=.venv,examples,modules,re,tests
           src Cli tools .github/scripts
 
   gitleaks:
@@ -1192,6 +1228,47 @@ jobs:
           ReceiptPath=re/solidworks/measurements/2026/SdkColdEllipseReceipt01.json
           PublicDigest="$(sha256sum "$ReceiptPath" | cut -d ' ' -f 1)"
           printf '%s = "%s"\n' 'KEllipAuthSha' "$PublicDigest" | RequireDetection
+
+      - name: Verify public checksum classification stays narrow
+        env:
+          HarnessSha: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          FixturePath=$(mktemp -d "${RUNNER_TEMP}/GitleaksChecksum.XXXXXX")
+          ConfigPath=$(mktemp "${RUNNER_TEMP}/GitleaksPolicy.XXXXXX")
+          ScannerPath="${RUNNER_TEMP}/gitleaks"
+          git show "${HarnessSha}:.github/config/Gitleaks.toml" > "${ConfigPath}"
+          mkdir -p "${FixturePath}/.github/workflows"
+          git show "${HarnessSha}:.github/workflows/SteeringSync.yml" \
+            | grep --fixed-strings '".kiro/steering/WorkosTokenVerification.md":' \
+              > "${FixturePath}/.github/workflows/SteeringSync.yml"
+          (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          )
+          cp "${FixturePath}/.github/workflows/SteeringSync.yml" "${FixturePath}/Other.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted another file"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+          rm -- "${FixturePath}/Other.yml"
+          sed 's/5034005417c0910a/6034005417c0910a/' \
+            "${FixturePath}/.github/workflows/SteeringSync.yml" > "${FixturePath}/Changed.yml"
+          mv -- "${FixturePath}/Changed.yml" "${FixturePath}/.github/workflows/SteeringSync.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted an unknown value"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
 
       - name: Run Gitleaks history secret audit
         run: >-
@@ -1365,7 +1442,7 @@ jobs:
         run: >-
           "${RUNNER_TEMP}/trivy" fs
           --scanners vuln,misconfig,secret
-          --skip-dirs .venv,examples,Parashell,modules,re
+          --skip-dirs .venv,examples,modules,re
           --ignorefile .github/config/TrivyIgnore.txt
           --exit-code 1 .
 
@@ -1403,7 +1480,6 @@ jobs:
           cat > "${RUNNER_TEMP}/TrufflehogExcludes" <<'EOF'
           (^|/)\.venv/
           (^|/)examples/
-          (^|/)Parashell/
           (^|/)modules/
           (^|/)re/
           EOF

@@ -43,3 +43,12 @@ if [ -n "$NativePattern" ]; then
     ' "${ReportFiles[@]}"
 fi
 echo "Every collected case ran exactly once across four successful shards" >> "$GITHUB_STEP_SUMMARY"
+
+if [ -n "${5:-}" ]; then
+  jq --slurp '
+    [.[] | select(.["$report_type"] == "TestReport")
+      | {nodeid, duration: (.duration // 0)}]
+    | group_by(.nodeid)
+    | {Durations: map({key: .[0].nodeid, value: (map(.duration) | add)}) | from_entries}
+    ' "${ReportFiles[@]}" > "$5"
+fi
