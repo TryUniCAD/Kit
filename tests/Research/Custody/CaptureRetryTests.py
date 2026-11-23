@@ -75,6 +75,7 @@ def CheckPinnedDownload(
 
     # each request records the actual encoded path and emits the corresponding wire response
     class FixtureResponse(HttpHandler):
+
         # the current attempt controls the http status while only successful responses carry bytes
         def do_GET(self) -> None:
             Status = Statuses[len(Requests)] if len(Requests) < len(Statuses) else 500
