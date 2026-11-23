@@ -146,7 +146,7 @@ def measure_archive(raw, reg, plans, *, assembly):
     for name in selected:
         research = stream_roundtrip(archive, name, reg, plans, linked=True)
         rows[name] = compact_stream(research)
-        if name == "Contents/Definition":
+        if name == "Contents/Definition" and name in archive.streams:
             data = archive.require(name)
             rows[name] = sdk_stream(data, lambda: sdk_definition(data))
             slots = Counter()
