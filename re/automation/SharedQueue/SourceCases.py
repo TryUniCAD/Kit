@@ -26,6 +26,7 @@ SHARED_POLICY = (
     "State.py",
     "Stats.py",
     "Dispatch.py",
+    "Demand.py",
     "Submit.py",
 )
 

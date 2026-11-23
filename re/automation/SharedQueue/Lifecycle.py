@@ -9,6 +9,8 @@
 from graphlib import CycleError, TopologicalSorter
 
 from SharedQueue.State import installed
+from SharedQueue.Demand import install_demand
+from SharedQueue.Stats import install_report
 
 
 # cancellation fences running leases while preserving accepted evidence for later subscribers
@@ -42,18 +44,21 @@ def reconcile_cancelled(ledger, row):
 
 # changed subscriptions can affect only their own upstream prerequisites
 def reconcile_members(ledger, roots):
-    pending, closure = set(roots), set()
+    install_report(ledger)
+    install_demand(ledger)
+    pending, closure, upstream = set(roots), set(), {}
     while pending:
         job_id = pending.pop()
         if job_id in closure:
             continue
         closure.add(job_id)
-        pending.update(
+        upstream[job_id] = {
             row[0]
             for row in ledger.db.execute(
                 "SELECT dependency FROM dependencies WHERE job_id=?", (job_id,)
             )
-        )
+        }
+        pending.update(upstream[job_id])
     candidates = {}
     for job_id in closure:
         row = ledger.db.execute(
@@ -62,37 +67,32 @@ def reconcile_members(ledger, roots):
         ).fetchone()
         if row is not None:
             candidates[job_id] = row["cancelled"] is not None
-    graph, direct = {}, {}
-    for job_id in candidates:
-        children = ledger.db.execute(
-            "SELECT d.job_id,s.job_id AS shared,c.job_id AS cancelled FROM dependencies d LEFT JOIN shared_jobs s ON s.job_id=d.job_id LEFT JOIN shared_cancelled c ON c.job_id=d.job_id WHERE d.dependency=?",
-            (job_id,),
-        ).fetchall()
-        graph[job_id] = {
-            row["job_id"] for row in children if row["job_id"] in candidates
-        }
-        direct[job_id] = ledger.db.execute(
-            "SELECT 1 FROM shared_members m JOIN shared_requests r ON r.request=m.request WHERE m.job_id=? AND r.active=1 LIMIT 1",
-            (job_id,),
-        ).fetchone() is not None or any(
-            row["shared"] is None
-            or (row["job_id"] not in candidates and row["cancelled"] is None)
-            for row in children
-        )
+    graph = {job_id: set() for job_id in candidates}
+    for child, parents in upstream.items():
+        if child in candidates:
+            for parent in parents:
+                if parent in candidates:
+                    graph[parent].add(child)
     try:
         order = tuple(TopologicalSorter(graph).static_order())
     except CycleError as error:
         raise ValueError(
             "shared prerequisite graph contains a dependency cycle"
         ) from error
-    needed, cancelled = {}, 0
+    cancelled = 0
     for job_id in order:
-        needed[job_id] = direct[job_id] or any(needed[child] for child in graph[job_id])
-        if not needed[job_id] and not candidates[job_id]:
+        active_refs = ledger.db.execute(
+            "SELECT active_refs FROM shared_report_items WHERE job_id=?", (job_id,)
+        ).fetchone()[0]
+        demand = ledger.db.execute(
+            "SELECT live_children FROM shared_demand WHERE dependency=?", (job_id,)
+        ).fetchone()
+        needed = active_refs > 0 or (demand is not None and demand[0] > 0)
+        if not needed and not candidates[job_id]:
             ledger.db.execute("INSERT INTO shared_cancelled VALUES (?)", (job_id,))
             ledger.db.execute("INSERT OR IGNORE INTO dirty VALUES (?)", (job_id,))
             cancelled += 1
-        elif needed[job_id] and candidates[job_id]:
+        elif needed and candidates[job_id]:
             ledger.db.execute("DELETE FROM shared_cancelled WHERE job_id=?", (job_id,))
             ledger.db.execute(
                 "UPDATE jobs SET parked=0,state='queued',reason=NULL WHERE id=? AND state='rejected' AND reason='shared request superseded'",

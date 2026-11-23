@@ -35,7 +35,6 @@ def enabled(ledger):
 def runnable_jobs(ledger, pool, *, grouped=False):
     where = """
         WHERE j.state='queued' AND j.next_run<=:now
-        AND (:pool IS NULL OR j.kind IN (SELECT kind FROM pool_kinds WHERE pool=:pool))
         AND NOT EXISTS (
             SELECT 1 FROM job_resources r LEFT JOIN resources a ON a.name=r.resource
             WHERE r.job_id=j.id AND (COALESCE(a.available,0)=0 OR (
@@ -44,6 +43,11 @@ def runnable_jobs(ledger, pool, *, grouped=False):
             )>=a.capacity)
         )
     """
+    membership = (
+        ""
+        if pool is None
+        else " AND j.kind IN (SELECT kind FROM pool_kinds WHERE pool=:pool) "
+    )
     reservations = [
         predicate
         for active, predicate in (
@@ -60,7 +64,7 @@ def runnable_jobs(ledger, pool, *, grouped=False):
     params = {"now": time.time(), "pool": pool, "scope": pool or ""}
     limit = "" if grouped else " LIMIT 1"
     if not enabled(ledger):
-        source, extra, order = "jobs j ", "", "j.created,j.id"
+        source, extra, order = "jobs j ", membership, "j.created,j.id"
         if shared_installed(ledger):
             install_dispatch(ledger)
             source, extra, order = dispatch_query(pool)
@@ -84,6 +88,7 @@ def runnable_jobs(ledger, pool, *, grouped=False):
             AND turn.lane=COALESCE(p.lane,1) AND turn.family=COALESCE(p.family,'')
         """
         + where
+        + membership
         + f"""
         AND (p.installation IS NULL OR EXISTS (
             SELECT 1 FROM resources i WHERE i.name=p.installation AND i.capacity=1
