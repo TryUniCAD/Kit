@@ -559,10 +559,18 @@ The exit requires a verified corpus manifest, sanitized records, explicit failur
 The [campaign package](../../re/FeatureLadders2026/README.md) does not change the production snapshot or close B02, B03, B05 or B13.
 Native recovery and semantic qualification remain blocked as recorded in that package.
 
+## Bounded Fusion rectangle reader follow-up
+
+Task `A05-RectangleRecovery` is active under the [automation register](../Reference/Research/AutomationSteps.md#a05-rectanglerecovery-bounded-reader-qualification).
+Codex owns the bounded unconstrained reverse-XY and positive-YZ reader work on `fix/native-rectangle-qualification-20261122`.
+Delivery PR is [#265](https://github.com/TryUniCAD/Kit/pull/265); current-head CI and configured review are pending. Queue candidate `06b002441448d2e961629215cdc09768ea8b1530` passed the original Windows fixture path but was rejected after the combined policy/native job exhausted its ten-minute deadline. The [scheduling repair](../Changes/Ci/NativeCompatibilityScheduling.md) preserves all paths and adds the user-authorized twelve-minute shard buffer; fresh queue acceptance remains required. Dependencies are merged PR #263, the strict reader, and independent licensed controls.
+The exit requires numerical source comparison, public SDK and CLI replay, retained refusal coverage, shared-suite integration, and current-head CI and review.
+Native writing and full conversion acceptance remain open. SOLIDWORKS host recovery is separate.
+
 ## Recovered SOLIDWORKS native ladder evidence
 
-Task `A08h-LadderRecovery` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
-Codex owns evidence publication on `feat/solidworks-ladder-recovery-20261122`; delivery PR is [#267](https://github.com/TryUniCAD/Kit/pull/267).
+Task `A08h-LadderRecovery` was published through the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
+Codex published the evidence on `feat/solidworks-ladder-recovery-20261122`; delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`.
 The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
 The archived reports retain 96 incorrect top/right placements.
 The separately scoped [principal-plane reader repair](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) now matches all 144 native ladder centroids in full and design-only reads.

@@ -13,6 +13,7 @@ from sys import executable as PythonExe, platform as HostPlatform
 from pytest import mark as TestMark
 
 from tests.Research.SupervisorClient import KRepoRoot
+from tests.Research.Windows.Readback.BossSourcePins import KBossSources
 from tests.Research.Windows.Readback.InstallReadback import InstallReadback
 from tests.Research.Windows.Readback.ReadbackGit import ReadbackGit
 
@@ -39,11 +40,11 @@ print('validated Boss collector source pins')
 )
 def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) -> None:
     RootPath, _ = InstallReadback(TmpPath)
-    for SourcePath in (KRepoRoot / "re/automation").rglob("*"):
-        if SourcePath.is_file() and SourcePath.suffix in (".py", ".cs", ".ps1"):
-            Destination = RootPath / SourcePath.relative_to(KRepoRoot)
-            Destination.parent.mkdir(parents=True, exist_ok=True)
-            _ = Destination.write_bytes(SourcePath.read_bytes())
+    for RelativePath in KBossSources:
+        SourcePath = KRepoRoot / "re/automation" / RelativePath
+        Destination = RootPath / "re/automation" / RelativePath
+        Destination.parent.mkdir(parents=True, exist_ok=True)
+        _ = Destination.write_bytes(SourcePath.read_bytes())
     _ = ReadbackGit(RootPath, "add", "re")
     _ = ReadbackGit(
         RootPath,

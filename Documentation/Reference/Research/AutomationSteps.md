@@ -50,10 +50,19 @@ All captured centroids agree; the 58 older pinned part documents retain identica
 Status is checking, with the bounded offline checks passed. The exit covers source placement and its shared-suite process regression.
 Fresh native acceptance, complete typed rectangle admission, and conversion qualification remain outside this result.
 
+#### A05-RectangleRecovery: bounded reader qualification
+
+Codex owns this active follow-up on `fix/native-rectangle-qualification-20261122`, based on main `7a0a987ec2f1ab4099c839621a8e51d18bcfa872`.
+Delivery PR is [#265](https://github.com/TryUniCAD/Kit/pull/265); current-head CI and configured review are pending. Queue candidate `06b002441448d2e961629215cdc09768ea8b1530` was rejected for the combined policy/native deadline after its subprocess tests passed. The [scheduling repair](../../Changes/Ci/NativeCompatibilityScheduling.md) shards the complete roster with the user-authorized twelve-minute buffer; fresh queue acceptance remains required. Dependencies are merged PR #263, the strict reader, and licensed native workers.
+Scope is unconstrained millimeter XY reverse and positive YZ rectangle evidence, plus native worker recovery investigation.
+Fresh constrained controls and separately authored unconstrained controls distinguish authoring deficiencies from unsupported reader grammar.
+The exit requires strict CLI replay, native numerical comparisons, retained negative cases, shared-suite integration, and current-head CI and review.
+This child does not close conversion acceptance, XZ or reverse-YZ support, or the full native catalogue.
+
 #### A08h-LadderRecovery: recovered native corpus
 
-Codex owns this active evidence publication on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
-Delivery PR is [#267](https://github.com/TryUniCAD/Kit/pull/267). Dependencies are merged PR #263, the existing research controller and licensed source captures.
+Codex published this evidence on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
+Delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`. Dependencies are merged PR #263, the existing research controller and licensed source captures.
 The [package](../../../re/solidworks/FeatureLadderRecovery/README.md) retains 37 complete native cases and 111 strict decodes, plus two failed-batch salvage files.
 Original controller failures remain recorded. The archived reports retain fifteen matching front-plane centroids and 96 wrong top/right placements.
 The exit requires verified artifact hashes, sanitized provenance, explicit semantic failures and current-head publication checks and review.

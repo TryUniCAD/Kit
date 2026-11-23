@@ -14,3 +14,4 @@ class RectGeometry:
     Width: float
     Depth: float
     BasePoint: tuple[float, float, float]
+    NativePoints: tuple[tuple[float, float, float], ...]

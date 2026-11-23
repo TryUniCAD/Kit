@@ -72,6 +72,7 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
       if (IsPull && File === "WorkflowQuality.yml")
         OtherPhaseOnly.push(
           "Research CLI Windows compatibility / ${{ matrix.group }}",
+          "Native file compatibility / ${{ matrix.group }}",
         );
       return [
         WorkflowRoot + File,
