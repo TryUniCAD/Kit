@@ -55,11 +55,17 @@ def CheckStockSolid(ModelValue: BrepModel, FeatureId: str) -> None:
 
 
 # the six positively sized walls must match their actual ordered corner incidence and line carriers
-def CheckStockRings(ModelValue: BrepModel, Sizes: tuple[float, float, float]) -> None:
+def CheckStockRings(
+    ModelValue: BrepModel,
+    Minimum: tuple[float, float, float],
+    Maximum: tuple[float, float, float],
+) -> None:
     Topology = BrepTopology(ModelValue)
     Carriers = ReadCarriers(ModelValue)
     CheckPrismTrims(Topology, Carriers)
-    Centre = SpaceVector(Sizes[0] / 2, Sizes[1] / 2, Sizes[2] / 2)
+    Centre = SpaceVector(
+        *((First + Other) / 2 for First, Other in zip(Minimum, Maximum, strict=True))
+    )
     FaceUses = {UseValue.face_id: UseValue for UseValue in ModelValue.face_uses}
     Points = Topology.vertex_by_id
     Corners = {
@@ -107,11 +113,11 @@ def CheckStockRings(ModelValue: BrepModel, Sizes: tuple[float, float, float]) ->
     Expected = {
         frozenset(
             Corner
-            for Corner in Cartesian(*((0.0, SizeValue) for SizeValue in Sizes))
+            for Corner in Cartesian(*zip(Minimum, Maximum, strict=True))
             if Corner[AxisIndex] == Level
         )
         for AxisIndex in range(3)
-        for Level in (0.0, Sizes[AxisIndex])
+        for Level in (Minimum[AxisIndex], Maximum[AxisIndex])
     }
     UseCounts = Counter(Value.edge_id for Value in ModelValue.coedges)
     UniqueUses = {
@@ -147,9 +153,18 @@ def ReadStockShape(
     OwnerValue: NativeObject,
     FeatureId: str,
     Sizes: tuple[float, float, float],
+    *,
+    Minimum: tuple[float, float, float] = (0.0, 0.0, 0.0),
+    Placed: bool = False,
 ) -> BrepModel:
     Property, Nodes = ReadShapeNodes(OwnerValue)
-    if tuple(Value.tag for Value in Nodes) != ("Part",):
+    TagsValue = tuple(Value.tag for Value in Nodes)
+    if TagsValue != ("Part",) and (
+        not Placed
+        or TagsValue != ("Part", "ElementMap")
+        or Nodes[1].attrib
+        or len(Nodes[1])
+    ):
         raise ValueError("FreeCAD stock shape has unsupported extra element owners")
     Payload = FindShapeData(
         Document, ArchiveValue, OwnerValue, Property, Nodes[0], "feature_id", FeatureId
@@ -161,7 +176,8 @@ def ReadStockShape(
     ModelValue = DecodeAsciiBrep(Payload.data, IdPrefix="stock", DesignBodyId=FeatureId)
     if ModelValue is None:
         raise ValueError("FreeCAD stock shape is not a supported OCCT analytical solid")
-    CheckBoxCache(ModelValue, (0.0, 0.0, 0.0), Sizes)
+    Maximum = (Minimum[0] + Sizes[0], Minimum[1] + Sizes[1], Minimum[2] + Sizes[2])
+    CheckBoxCache(ModelValue, Minimum, Maximum)
     CheckStockSolid(ModelValue, FeatureId)
-    CheckStockRings(ModelValue, Sizes)
+    CheckStockRings(ModelValue, Minimum, Maximum)
     return ModelValue

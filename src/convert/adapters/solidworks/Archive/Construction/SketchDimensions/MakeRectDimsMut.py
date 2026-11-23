@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.OffsetGraph import (
+    OffsetGraph,
+)
 from convert.adapters.solidworks.Archive.Construction.Sketch.RequirePolygon import (
     RequirePolygon,
 )
@@ -56,6 +59,8 @@ def MakeRectDimsMut(
     InputValue: RectDimInput,
     Allocator: PersistentIds,
     DriverNames: tuple[str, str] = ("D1", "D2"),
+    *,
+    OffsetValue: OffsetGraph | None = None,
 ) -> tuple[DimensionGraph, ...]:
     if type(InputValue) is not RectDimInput:
         raise TypeError(
@@ -69,7 +74,7 @@ def MakeRectDimsMut(
         raise ValueError(
             "rectangle sketch requires two distinct driving parameter names"
         )
-    Drivers = ReadRectDrivers(GraphValue)
+    Drivers = ReadRectDrivers(GraphValue, OffsetValue=OffsetValue)
     if GraphValue.FrameValue != PrincipalFrame("z") and (
         any(InputValue.TextDepths) or isinstance(InputValue.RouteCenter, tuple)
     ):

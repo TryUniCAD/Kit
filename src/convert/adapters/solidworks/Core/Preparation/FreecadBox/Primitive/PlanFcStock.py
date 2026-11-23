@@ -8,20 +8,25 @@ from convert.adapters.solidworks.Core.Preparation.FreecadBox.Primitive.CheckStoc
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Primitive.ReadStockDims import (
     ReadStockDims,
 )
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.Primitive.ReadStockPlace import (
+    ReadStockPlace,
+)
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Primitive.ReadStockSource import (
     ReadStockSource,
 )
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Validation.DocumentValidate import AssertValid
 from interchange.geometry.Models.SupportPlane import SupportPlane
-from interchange.geometry.Models.Transform import KTransformIdentity
 
 
 # the selected stock must derive geometry from its own primitive inputs without changing its source graph
-def PlanFcStock(Document: CadDocument, FeatureId: str, PartName: str) -> CadDocument:
+def PlanFcStock(
+    Document: CadDocument, FeatureId: str, PartName: str, *, Placed: bool = False
+) -> CadDocument:
     AssertValid(Document)
     ArchiveValue, OwnerValue, FeatureValue = ReadStockSource(Document, FeatureId)
     Length, Width, Height = ReadStockDims(Document.parameters, OwnerValue, FeatureValue)
+    PoseValue = ReadStockPlace(OwnerValue, FeatureValue.name, Placed=Placed)
     if len(Document.configurations) != 1:
         raise ValueError("FreeCAD stock requires one actual configuration")
     (ConfigValue,) = Document.configurations
@@ -39,7 +44,23 @@ def PlanFcStock(Document: CadDocument, FeatureId: str, PartName: str) -> CadDocu
         RequireScalar(Width.value.value),
         RequireScalar(Height.value.value),
     )
-    _ = ReadStockShape(Document, ArchiveValue, OwnerValue, FeatureId, Sizes)
+    Origin = PoseValue.origin
+    _ = ReadStockShape(
+        Document,
+        ArchiveValue,
+        OwnerValue,
+        FeatureId,
+        Sizes,
+        Minimum=(Origin.x, Origin.y, Origin.z),
+        Placed=Placed,
+    )
+    BodyId = FeatureId + ":stock"
+    if (
+        Placed
+        and len(Document.feature_timeline) == len(Document.bodies) == 1
+        and Document.bodies[0].final_feature_id == FeatureId
+    ):
+        BodyId = Document.bodies[0].id
     return MakeBoxNeutral(
         Document,
         PartName,
@@ -48,8 +69,6 @@ def PlanFcStock(Document: CadDocument, FeatureId: str, PartName: str) -> CadDocu
         (Length.name, Width.name, Height.name),
         FeatureValue.name,
         SourceFeature=FeatureValue,
-        SourcePlane=SupportPlane(
-            FeatureId + ":placement", "XY-plane", KTransformIdentity
-        ),
-        BodyId=FeatureId + ":stock",
+        SourcePlane=SupportPlane(FeatureId + ":placement", "XY-plane", PoseValue),
+        BodyId=BodyId,
     )
