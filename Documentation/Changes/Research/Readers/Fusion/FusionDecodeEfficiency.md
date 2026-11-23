@@ -6,7 +6,7 @@ Each profile still checks its own owner namespace and references.
 
 The pinned research reader parses the canonical neutral JSON once for typed reconstruction and receipt evidence.
 It validates both documents and compares the rebuilt JSON bytes with the original canonical bytes.
-Use the existing pinned reader options described in the [Fusion reader guide](../../../Reference/Research/FusionResearchReader.md).
+Use the existing pinned reader options described in the [Fusion reader guide](../../../../Reference/Research/FusionResearchReader.md).
 
 ## Verification
 

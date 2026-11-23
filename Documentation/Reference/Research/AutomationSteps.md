@@ -298,9 +298,10 @@ See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 ### A05a-DecodeEfficiency
 
 Codex owns the strict Fusion decoding and receipt efficiency follow-up on `codex/fusion-decoder-efficiency-pr`.
+Delivery PR is [#280](https://github.com/TryUniCAD/Kit/pull/280).
 It depends on the A05a pinned reader and A05b exact outcome contract.
 The exit requires byte-exact neutral documents, equivalent receipts, unchanged refusal diagnostics, measured offline timings, and current-head PR checks and review.
-The [change entry](../../Changes/Research/Readers/FusionDecodeEfficiency.md) records the implementation and evidence.
+The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) records the implementation and evidence.
 
 ## A06 comparison implementation and qualification
 

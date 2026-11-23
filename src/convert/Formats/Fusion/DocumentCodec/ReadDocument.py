@@ -1,8 +1,7 @@
 from collections.abc import Callable
 from itertools import chain as ChainValues
 
-from convert.Formats.Fusion.ContainerCodec.Model.SegmentIndex import SegmentIndex
-from convert.Formats.Fusion.ContainerCodec.ReadContainer import ReadContainer
+from convert.Formats.Fusion.ContainerCodec.ReadIndexed import ReadIndexed
 from convert.Formats.Fusion.DocumentCodec.Auxiliary.Configuration.CheckDocConfig import (
     CheckDocConfig,
 )
@@ -36,8 +35,7 @@ from convert.Formats.Fusion.DocumentCodec.Records.ReadDocSchemas import ReadDocS
 def ReadDocument(
     Payload: bytes, InflateZstd: Callable[[bytes, int], bytes] | None = None
 ) -> DocumentModel:
-    Indexes: list[SegmentIndex] = []
-    Container = ReadContainer(Payload, InflateZstd, Indexes=Indexes)
+    Container, Indexes = ReadIndexed(Payload, InflateZstd)
     Schemas = ReadDocSchemas()
     TargetRows = tuple(MakeTargets(IndexValue.Metadata) for IndexValue in Indexes)
     Segments = tuple(
@@ -58,6 +56,7 @@ def ReadDocument(
             zip(Container.Streams, Indexes, strict=True)
         )
     )
+    del Indexes
     Parts = ReadDocParts(Container.Parts)
     Result = DocumentModel(
         Container.Document,

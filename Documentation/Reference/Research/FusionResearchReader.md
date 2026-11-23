@@ -27,7 +27,7 @@ Use `--manifest PATH` for another supported manifest.
 Each decoded asset has a path-hash directory containing `document.json` and `receipt.json`.
 Documents retain SDK serialization and pass typed reconstruction.
 Receipts bind source bytes, SDK/tool fingerprints, options, hashes, and unresolved evidence.
-The [decoder efficiency record](../../Changes/Research/Readers/FusionDecodeEfficiency.md) describes the reuse of validated data and the byte comparison.
+The [decoder efficiency record](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) describes the reuse of validated data and the byte comparison.
 
 Exit `0` means all selected assets decoded.
 Exit `3` means a published summary includes rejected or reader-error outcomes.
