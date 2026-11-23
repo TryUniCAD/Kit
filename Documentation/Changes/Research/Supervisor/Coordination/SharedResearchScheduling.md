@@ -43,6 +43,9 @@ The [owning register](../../../../Reference/Research/AutomationSteps.md#a08b-sha
 Process integration coverage exercises concurrent submissions and claims, request revisions, shared subscribers, dependency graphs, result reuse, resource exclusion, pending limits and obsolete lease rejection.
 Advisor coverage uses a disposable provider process. It does not call a paid API or establish live-account acceptance.
 The scenarios join the existing complete suite, planner and shards.
+The shared dispatch wrapper uses the unique basename `SharedQueueDispatchTests.py`.
+The [collection finding](../../../../Gotchas/Ci/Collection/PytestBasenameCollision.md) records its collision with the application dispatch module in the first merge-group plan.
+The rename preserves the scenario and every assertion. Fresh merge-group collection and execution remain required.
 Local process execution with Python 3.14.7 passed all six queue scenarios: races, lifecycle, scheduling, supervisor, legal notices and metadata polling.
 Six concurrent enqueue clients shared one execution claim. A corrupted large evidence object remains visible to metadata polling without payload hashing, while integrity-checked job inspection still refuses it. Lifecycle checks retained another subscriber's work, refused stale completion, preserved historical receipts and prevented orphan resurrection.
 The real supervisor executed the existing inference runner with canonical IDs, then stopped its owned cancelled worker on a stale lease.
