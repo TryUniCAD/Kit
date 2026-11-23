@@ -112,3 +112,26 @@ missing schemas. The two full reports have the same SHA-256
 `e0f38125514ee2e049bf37d1a9335e334ea7b837aa97c72a171e4b196ee1912b`.
 The audit started no native processes and generated no new CAD files.
 [Revision-bound receipt](../measurements/2026/BinaryArchiveAfterConcentricAndOffset01.json)
+
+## Recovered cuboid ladder
+
+The recovered package adds 37 source batches with an independently authored
+variation between two controls. The SDK at `be74eadbeb7785beacdf746e0d449b7cc7545b5c`
+strictly reads all 111 version-19000 parts in full and design-only modes.
+The actual reference resolves fifteen Front, forty-eight Top and forty-eight
+Right sketches. Each matches its native world centroid, cuboid area and
+volume, and the live boss D1 value. Both modes retain the same design
+history and body bounds. The sketches have zero explicit dimensional
+parameters. [Original recovery evidence](../FeatureLadderRecovery/README.md)
+
+Two independent audits produced identical complete reports. All 1,665
+binary streams and all 111 KeyWords streams consume their typed layouts
+and re-emit their original bytes. The script pins the recovery manifest,
+source file hashes, authored plane recipes and ground truth. The
+recovered files contribute reader and archive evidence. Native candidate
+acceptance and FCStd conversion have separate receipts. [Audit summary](../measurements/2026/RecoveredCuboidArchiveLadder01.json)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/AuditRecoveredLadder.py \
+  be74eadbeb7785beacdf746e0d449b7cc7545b5c /tmp/UnusedRecoveredCuboids.json
+```

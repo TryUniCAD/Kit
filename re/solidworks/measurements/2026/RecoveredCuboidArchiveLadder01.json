@@ -1,0 +1,134 @@
+{
+  "archive_codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "40a081f74b7e3a1a217ea8bf152d7c499022fbf9",
+    "src": "dd567c63ead5bd816554501cb3f8959c6b800d01"
+  },
+  "archive_codec_revision": "be74eadbeb7785beacdf746e0d449b7cc7545b5c",
+  "heldout_inputs_read": 0,
+  "manifest_sha256": "d9df29c43e811c1e4d1e7b5071a84a110d1ed5afa06921135396f851f82a1c84",
+  "native_controlled_batches": 37,
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "schema": "kit.sw2026.recovered-cuboid-ladder-summary.v1",
+  "tools_sha256": {
+    "AuditArchiveCorpus.py": "aaa9bda498d8717f439d9fca77bf251bf08ad7fec23dddbdc98ee54f3ccfe746",
+    "AuditKeywordCorpus.py": "1b28a4ad382e442ce861f3ab816a762cc369d475f164c035b28f7f9cff5783fe",
+    "AuditRecoveredLadder.py": "a4fb760aa966593be2a83d05a35c0231cc6fa97b6db039ffc381b414b3fc1f75"
+  },
+  "plane_counts": {
+    "Front Plane": 15,
+    "Top Plane": 48,
+    "Right Plane": 48
+  },
+  "files_with_sketch_parameters": 0,
+  "source_digests_sha256": "e58f1df0da4ac6cd638bc53bcff85ac766f6cec3d373f9b128d161907914c06d",
+  "full_reports_sha256": [
+    "11a2326fdd59dab6f4fce856571fa80846d0bc34af68d0f0e53acee56afebf87",
+    "11a2326fdd59dab6f4fce856571fa80846d0bc34af68d0f0e53acee56afebf87"
+  ],
+  "archive_versions": {
+    "19000": 111
+  },
+  "geometry": {
+    "area_matches": 111,
+    "centroid_matches": 111,
+    "depth_driver_matches": 111,
+    "design_only_brep_absent": 111,
+    "design_only_matches": 111,
+    "files": 111,
+    "full_brep_present": 111,
+    "plane_matches": 111,
+    "volume_matches": 111
+  },
+  "stream_counts": {
+    "binary": 1665,
+    "keywords": 111,
+    "attempted": 1776,
+    "typed_exact": 1776
+  },
+  "streams": {
+    "Contents/CMgr": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Contents/CMgrHdr2": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Contents/Config-0": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Contents/Config-0-ModelHeader": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Contents/Config-0-ResolvedFeatures": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Contents/CusProps": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Contents/Definition": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Contents/eModelLic": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "Header2": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "ModelStamps": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "SwDocContentMgr/SwDocContentMgrInfo": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "ThirdPtyStore/VisualStates": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "_DL_VERSION_19000/DLUpdateStamp": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "_MO_VERSION_19000/Biography": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    },
+    "_MO_VERSION_19000/History": {
+      "attempted": 111,
+      "exact_bytes": 111,
+      "typed_exact": 111
+    }
+  },
+  "keywords": {
+    "attempted": 111,
+    "ordinary_framing": 111,
+    "typed_exact": 111
+  },
+  "fcstd_parts_qualified": 0,
+  "fcstd_assemblies_qualified": 0
+}

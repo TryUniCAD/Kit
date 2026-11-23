@@ -134,6 +134,10 @@ def sdk_mates(archive, name, configuration):
 
 def measure(path, raw, reg, plans):
     require(path.startswith(SCOPE + "corpus/"), "audit permits only disclosed corpus files")
+    return measure_archive(raw, reg, plans, assembly=path.casefold().endswith(".sldasm"))
+
+
+def measure_archive(raw, reg, plans, *, assembly):
     archive = SldprtArchive.from_bytes(raw)
     require(archive.format_version == 4 and ContainerMo(archive.streams) == RELEASE, "native archive build profile differs")
     optional = (name for name in plans if name not in REQUIRED and name in archive.streams)
@@ -154,7 +158,7 @@ def measure(path, raw, reg, plans):
                 "raw_fields": [{"field": field, "bytes": size, "operations": count}
                                for (field, size), count in sorted(slots.items())],
             }
-    if path.casefold().endswith(".sldasm"):
+    if assembly:
         for name in archive.streams:
             match = re.fullmatch(r"Contents/Config-([0-9]+)-MatesList", name)
             if match is not None:

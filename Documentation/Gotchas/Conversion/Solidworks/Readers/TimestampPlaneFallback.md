@@ -22,3 +22,9 @@ Qualify owned timestamp-bearing references and the typed scene-state branch from
 Keep malformed ownership, axis and matrix refusals.
 Do not remove guards or accept a timestamp pattern as a complete format rule.
 Replay all planes and directions and add independent controls before claiming a production placement repair.
+
+The aggregate now recovers the actual support and D1 on all 111 tracked
+version-19000 parts in this cohort. That result covers
+the measured Front, Top and Right layouts and both strict read modes. The
+earlier typed scene-branch result stays bound to its original reader.
+[Later aggregate replay](../../../../../re/solidworks/measurements/2026/RecoveredCuboidArchiveLadder01.json)
