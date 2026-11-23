@@ -609,4 +609,6 @@ Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for
 Dependencies are merged PRs #263 and #267 and their unchanged native source observations.
 The bounded exit requires correct public-reader placement, timestamp variability, malformed-reference guards, and unchanged older part output.
 The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the completed offline checks.
+Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
+Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
