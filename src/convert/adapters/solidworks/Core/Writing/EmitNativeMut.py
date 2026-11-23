@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
 )
 from convert.adapters.solidworks.Core.Preparation.Imports.HasBareBrep import HasBareBrep
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
+from convert.adapters.solidworks.Core.Preparation.Materials.PlanMatPart import (
+    IsPhysicalMat,
+)
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
@@ -19,6 +22,9 @@ from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead imp
     IsRevRead,
 )
 from convert.adapters.solidworks.Core.Writing.Imports.EmitImportMut import EmitImportMut
+from convert.adapters.solidworks.Core.Writing.Materials.EmitMatPartMut import (
+    EmitMatPartMut,
+)
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
     HasThinWrite,
 )
@@ -107,6 +113,8 @@ def EmitNativeMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
+    if IsPhysicalMat(DocumentValue):
+        return EmitMatPartMut(DocumentValue, TargetValue, OptionsValue)
     if IsRevRead(DocumentValue):
         return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
     if IsOffRead(DocumentValue):

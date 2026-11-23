@@ -16,6 +16,10 @@ from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
 from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
+from convert.adapters.solidworks.Core.Preparation.Materials.PlanMatPart import (
+    IsPhysicalMat,
+    PlanMatPart,
+)
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
 from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
@@ -81,10 +85,11 @@ def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
 # part selection must validate specific editable histories ahead of generic import and ordinary part routes
 def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     try:
+        if IsPhysicalMat(DocumentValue):
+            MaterialPlan, _, _ = PlanMatPart(DocumentValue)
+            return IsPartTarget(MaterialPlan.NameValue, TargetValue)
         if IsBoxSource(DocumentValue):
-            ProofValue = ProveBoxSource(DocumentValue)
-            NameValue = ProofValue.PlanValue.PartSource.ModelValue.metadata.get("name")
-            return isinstance(NameValue, str) and IsPartTarget(NameValue, TargetValue)
+            return CanWriteBox(DocumentValue, TargetValue)
         if IsRevRead(DocumentValue):
             return CanWriteRev(DocumentValue, TargetValue)
         if IsOffRead(DocumentValue):
@@ -109,6 +114,13 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
         return CanWriteSimple(DocumentValue, TargetValue)
     except (IndexError, TypeError, ValueError):
         return False
+
+
+# the attached box must qualify from its complete source proof and actual name
+def CanWriteBox(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
+    ProofValue = ProveBoxSource(DocumentValue)
+    NameValue = ProofValue.PlanValue.PartSource.ModelValue.metadata.get("name")
+    return isinstance(NameValue, str) and IsPartTarget(NameValue, TargetValue)
 
 
 # the standalone shape needs to qualify for a measured writer before entering generic part preparation

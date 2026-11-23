@@ -13,6 +13,12 @@ from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut impor
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartProfMut import (
     MakePartProfMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.BindPartMatMut import (
+    BindPartMatMut,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.PartMatIntent import (
+    PartMatIntent,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
 )
@@ -44,6 +50,7 @@ def MakeAnchorPart(
     *,
     WidthDepth: bool = False,
     AllocatorValue: PersistentIds | None = None,
+    MaterialValue: PartMatIntent | None = None,
 ) -> PartCandidate:
     Allocator = PersistentIds() if AllocatorValue is None else AllocatorValue
     SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)
@@ -58,6 +65,8 @@ def MakeAnchorPart(
         _ = MakeCornerMut(ProfileValue, SystemValue.OriginValue)
     else:
         _ = MakeCenterMut(ProfileValue, SystemValue.OriginValue)
+    if MaterialValue is not None:
+        BindPartMatMut(SystemValue, MaterialValue)
     return FinishBlindMut(
         SystemValue,
         ProfileValue,

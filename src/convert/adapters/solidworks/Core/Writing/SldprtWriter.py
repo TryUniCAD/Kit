@@ -29,11 +29,33 @@ from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from convert.adapters.solidworks.Core.Writing.CanWriteSldDoc import CanWriteSldDoc
 from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
+from convert.adapters.solidworks.Core.Preparation.Materials.PlanMatPart import (
+    CanWriteMatDoc,
+)
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
-from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
+    IsRevRead,
+)
 from convert.adapters.base.Materials.CheckMatState import CheckMatState
 from convert.Formats.CheckSourceText import CheckSourceText
 from interchange.document.Models.DocumentModel import CadDocument
+
+
+# the output families retain their own admission and publication paths
+def EmitSldMut(
+    DocumentValue: CadDocument,
+    TargetValue: KTargetType,
+    OptionsValue: WriteOptions | None,
+) -> WriteResult:
+    if DocumentValue.DrawingValue is not None:
+        return EmitBlankMut(DocumentValue, TargetValue, OptionsValue)
+    if DocumentValue.assembly is not None:
+        if CanWriteNested(DocumentValue, TargetValue):
+            return QualifyNested(
+                EmitNestedMut(DocumentValue, TargetValue, OptionsValue, int(ReadTime()))
+            )
+        return EmitAsmMut(DocumentValue, TargetValue, OptionsValue)
+    return EmitNativeMut(DocumentValue, TargetValue, OptionsValue)
 
 
 # the canonical writer admits the modeled part owned assembly and authored blank drawing profiles
@@ -41,6 +63,11 @@ class SldprtWriter(StockEndWriter, PairProtocol):
     __slots__ = ()
 
     KTypedDrawings = True
+
+    # the measured physical part profile preserves owned density and default color
+    @property
+    def TypedMaterials(self) -> bool:
+        return True
 
     # the registry needs independent write metadata to retain the existing assembly and drawing reader aliases
     @property
@@ -53,7 +80,7 @@ class SldprtWriter(StockEndWriter, PairProtocol):
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
-        return CanWriteSldDoc(DocValue, Target)
+        return CanWriteMatDoc(DocValue) and CanWriteSldDoc(DocValue, Target)
 
     # the public structural writer protocol uses these keyword names across plugins and conversion
     def write(
@@ -63,6 +90,8 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         options: WriteOptions | None = None,
     ) -> WriteResult:
         CheckMatState(document)
+        if not CanWriteMatDoc(document):
+            raise ValueError("unsupported SOLIDWORKS material assignment")
         CheckResearch(document)
         CheckInchWrite(document)
         CheckEquations(document)
@@ -74,12 +103,4 @@ class SldprtWriter(StockEndWriter, PairProtocol):
             CheckReadOnly(document)
         elif not IsColdRead(document):
             CheckNative(document, self, destination)
-        if document.DrawingValue is not None:
-            return EmitBlankMut(document, destination, options)
-        if document.assembly is not None:
-            if CanWriteNested(document, destination):
-                return QualifyNested(
-                    EmitNestedMut(document, destination, options, int(ReadTime()))
-                )
-            return EmitAsmMut(document, destination, options)
-        return EmitNativeMut(document, destination, options)
+        return EmitSldMut(document, destination, options)
