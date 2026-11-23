@@ -110,3 +110,7 @@ outside the generated inventory. The full system XML, linked
 document state and the other source conditions remain open.
 Neither the original source nor the generated bundle gains public,
 native or held-out qualification.
+
+The [property transport proof](ConcentricD01PropertyTransport2026.md)
+adds three streams from the actual generated property membership and
+preserves this unit mirror and the other generated owners exactly.
