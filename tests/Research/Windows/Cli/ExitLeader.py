@@ -1,5 +1,5 @@
 import sys
-from os import _exit as ExitProcess
+from os import _exit as ExitProcess, environ as Environment, pathsep as KPathSeparator
 from subprocess import Popen as StartProcess
 from time import monotonic as ReadClock, sleep as WaitSeconds
 from typing import NoReturn
@@ -26,6 +26,7 @@ def RunExitLeader() -> NoReturn:
             stdout=sys.stdout,
             stderr=sys.stderr,
             creationflags=KNoWindow,
+            env={**Environment, "PYTHONPATH": KPathSeparator.join(sys.path)},
         )
         UntilTime = ReadClock() + 30
         while ReadClock() < UntilTime:

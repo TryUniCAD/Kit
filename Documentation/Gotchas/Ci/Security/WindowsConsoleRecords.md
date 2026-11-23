@@ -29,5 +29,10 @@ Validate each derived sibling path as well as the initial selection.
 The boundary resolves symlinks and requires containment beneath the operating system temporary root.
 Keep the existing CodeQL query, threat model, and concrete boundary model unchanged.
 
+The leader starts a base interpreter to preserve process identity.
+Its descendant must inherit the leader's package search paths to load the same containment boundary.
+Pass those paths through the child process environment; keep the existing direct interpreter and custody assertions.
+The [current-head review](https://github.com/TryUniCAD/Kit/pull/271#discussion_r4666702779) identified this required package propagation.
+
 The normal Windows console cases retain their custody, cancellation, timing, and worker-cleanup assertions.
 Fresh merge-group security analysis and native Windows execution remain required for the repaired revision.
