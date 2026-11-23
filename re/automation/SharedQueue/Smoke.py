@@ -12,6 +12,7 @@ import tempfile
 from pathlib import Path
 
 from LifecycleCases import check_dependents, check_invalidation, check_supersession
+from NoticeCases import check_notices
 from RaceCases import check_graph, check_races
 from SchedulingCases import check_grouped, check_limits, check_priority, check_resources
 from SupervisorCases import check_supervisor
@@ -19,13 +20,14 @@ from SupervisorCases import check_supervisor
 
 def main():
     parser = argparse.ArgumentParser(description="Exercise shared queue behavior through concurrent controller processes")
-    parser.add_argument("scenario", choices=("races", "lifecycle", "scheduling", "supervisor"))
+    parser.add_argument("scenario", choices=("races", "lifecycle", "scheduling", "supervisor", "notices"))
     args = parser.parse_args()
     scenarios = {
         "races": (check_races, check_graph),
         "lifecycle": (check_supersession, check_invalidation, check_dependents),
         "scheduling": (check_limits, check_priority, check_resources, check_grouped),
         "supervisor": (check_supervisor,),
+        "notices": (check_notices,),
     }
     with tempfile.TemporaryDirectory(prefix="kit-shared-queue-") as temporary:
         root = Path(temporary)

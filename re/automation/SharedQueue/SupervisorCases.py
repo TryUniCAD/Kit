@@ -97,7 +97,9 @@ def check_supervisor(root):
         while time.monotonic() < deadline:
             if marker.is_file() and client.state(work)["state"] == "completed":
                 break
-            assert process.poll() is None, "supervisor exited before consuming shared work"
+            if process.poll() is not None:
+                stdout, stderr = process.communicate(timeout=10)
+                raise AssertionError(("supervisor exited before consuming shared work", stdout, stderr))
             time.sleep(0.1)
         else:
             raise AssertionError("shared work did not reach real worker processes")

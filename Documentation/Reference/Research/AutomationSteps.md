@@ -40,6 +40,16 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A08b-SharedQueue: shared research requests and advice budgets
+
+Codex owns this checking task on `codex/shared-research-queue` for a separate main-target delivery PR.
+Dependencies are the A03 controller, A07 scheduling, A08 supervisor pools and the existing optional advisor integration.
+The scope is local shared request deduplication, subscriber-aware supersession, bounded priority queues and shared advisor admission.
+Independent instances explicitly select the same local controller store and advisor state; one supervisor owns the controller store.
+The exit requires real process-boundary concurrency, cancellation, recovery and provider-budget evidence, plus current-head PR checks and configured review.
+Five real-process queue scenarios and five disposable-provider advice groups passed locally with Python 3.14.7. The source and verification details are in the [change entry](../../Changes/Research/Supervisor/Coordination/SharedResearchScheduling.md).
+No CAD capability, native acceptance flag or production conversion route changes.
+
 #### A08h-LadderRecovery: recovered native corpus
 
 Codex owns this active evidence publication on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
@@ -60,7 +70,6 @@ Status: checking for publication; native recovery and semantic qualification rem
 The packaging exit requires verified corpus hashes, sanitized evidence, documented failures, and current-head PR readiness.
 This child does not close A07, A08c, A13, A15, B02, B03 or any supported production boundary.
 Production reader repairs require a separately scoped follow-up with independently corroborated rules and held-out evidence.
-
 
 A08h is checking on [PR #207](https://github.com/TryUniCAD/Kit/pull/207), branch
 `codex/catalogue-native-authoring`, owned by Codex. It
