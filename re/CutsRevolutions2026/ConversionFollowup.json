@@ -1,0 +1,95 @@
+{
+  "task": "A08h-ConversionFollowup20261123",
+  "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+  "finished_utc": "2026-11-23T18:27:44.355959+00:00",
+  "pipeline_status": "coverage_incomplete",
+  "features": {
+    "solidworks": {
+      "completed": 2
+    }
+  },
+  "native_verification": {
+    "fusion": {
+      "status": "failed",
+      "measurement_status": "failed",
+      "sources_unchanged": true,
+      "controls_healthy": true,
+      "full_semantics_verified": false,
+      "error": "ValueError: Native Fusion projection requires a sketch followed by one extrusion",
+      "cases": 1
+    },
+    "solidworks": {
+      "status": "failed",
+      "measurement_status": "failed",
+      "sources_unchanged": true,
+      "controls_healthy": true,
+      "full_semantics_verified": false,
+      "error": null,
+      "cases": 14
+    }
+  },
+  "input_reader_passes": {
+    "input_sha256": "de2ad6a141b9b83a059ee75e513e7a34583b14a6fec7a43c930389358a6ec4c8",
+    "passes": [],
+    "stop": "no_verified_patch"
+  },
+  "file_stall": {
+    "available_experiments": [
+      "vary blind boss depth",
+      "vary blind cut depth"
+    ],
+    "control_edits": [],
+    "evidence_files": [
+      "FileScope.json",
+      "Input-dimension-evidence.json"
+    ],
+    "focus": "ambiguous_dimension",
+    "signed_extrusion_layout_refuted_on_searched_fields": true,
+    "source_sha256": "de2ad6a141b9b83a059ee75e513e7a34583b14a6fec7a43c930389358a6ec4c8",
+    "targets": [
+      {
+        "feature_id": 89,
+        "parameter": "D1",
+        "status": "ambiguous"
+      },
+      {
+        "feature_id": 96,
+        "parameter": "D1",
+        "status": "ambiguous"
+      },
+      {
+        "feature_id": 69,
+        "parameter": "D1",
+        "status": "no_matching_record"
+      }
+    ]
+  },
+  "queued_inputs_not_dispatched": [
+    "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/BIELA.SLDPRT",
+    "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/CULATA_DERECHO.SLDPRT"
+  ],
+  "queue_reason": "do not repeat successful catalogue captures without qualifying pattern controls",
+  "pipeline_exit_code": null,
+  "exit_code_note": "outer queue was paused while its child settled; child exit status was not recorded; report status is coverage_incomplete",
+  "model_advice": false,
+  "raw_directory": "ConversionFollowup/ENGRANE ARBOL DE LEVAS",
+  "scheduler_exit_code": 143,
+  "scheduler_reason": "terminated only the paused future queue after the active child finished",
+  "authoring_measurements": {
+    "baseline_cases": 4,
+    "baseline_failed": 2,
+    "candidate_cases": 9,
+    "candidate_passed": 9,
+    "same_session_reopen": true,
+    "independent_generator_holdout": false
+  },
+  "reader": {
+    "new_strict_decodes": 2,
+    "conversion_refusals": 2,
+    "remaining_semantic_refusals": {
+      "cut_entity_class": 2,
+      "yz_dimension_type": 1
+    },
+    "installed_python": "3.14.6"
+  }
+}

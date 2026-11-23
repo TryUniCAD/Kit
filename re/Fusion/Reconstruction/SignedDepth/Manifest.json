@@ -1,0 +1,1256 @@
+{
+  "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+  "task": "A08h-CutsRevolutions20261123",
+  "model_advice": false,
+  "lineage": "same reviewed vendor builder with separate parameter holdouts; not independent authoring lineage",
+  "samples": [
+    {
+      "id": "BossReverseXY",
+      "split": "discovery",
+      "file": "BossReverseXY.f3d",
+      "sha256": "f40ab8ec78a99b1a0ec9da708b5f8ab6c471b57cfcf7115c9a51f7a8354809b4",
+      "case": {
+        "recipe": "P03",
+        "parameters": {
+          "width_mm": 37.1,
+          "height_mm": 22.3,
+          "depth_mm": 9.7
+        },
+        "options": {
+          "basis": "XY",
+          "direction": -1
+        }
+      },
+      "native": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "37.100000000000001 mm",
+            "unit": "mm",
+            "value_internal": 3.7100000000000004,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "22.299999999999997 mm",
+            "unit": "mm",
+            "value_internal": 2.23,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-9.6999999999999993 mm",
+            "unit": "mm",
+            "value_internal": -0.97,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 8025.101,
+        "center_of_mass_mm": [
+          18.55,
+          11.15,
+          -4.85
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 8025.101,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                -9.7
+              ],
+              [
+                37.1,
+                22.3,
+                0.0
+              ]
+            ]
+          }
+        ]
+      },
+      "reopened": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "37.100000000000001 mm",
+            "unit": "mm",
+            "value_internal": 3.7100000000000004,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "22.299999999999997 mm",
+            "unit": "mm",
+            "value_internal": 2.23,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-9.6999999999999993 mm",
+            "unit": "mm",
+            "value_internal": -0.97,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 8025.101,
+        "center_of_mass_mm": [
+          18.55,
+          11.15,
+          -4.85
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 8025.101,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                -9.7
+              ],
+              [
+                37.1,
+                22.3,
+                0.0
+              ]
+            ]
+          }
+        ]
+      },
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "centroid": true,
+        "healthy": true,
+        "reopen_geometry": true
+      },
+      "passed": true,
+      "builder_sha256": "7d0de98515f4d1425d4b13c068493e523171c1bc6c9a429fb421c6480be1d8af"
+    },
+    {
+      "id": "BossReverseXYHoldout",
+      "split": "parameter_holdout",
+      "file": "BossReverseXYHoldout.f3d",
+      "sha256": "4375e0ce324704688479e2985a5efe11701fcd2f5f703c088280d3c3f2d77472",
+      "case": {
+        "recipe": "P03",
+        "parameters": {
+          "width_mm": 43.9,
+          "height_mm": 29.3,
+          "depth_mm": 13.7
+        },
+        "options": {
+          "basis": "XY",
+          "direction": -1
+        }
+      },
+      "native": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "43.899999999999991 mm",
+            "unit": "mm",
+            "value_internal": 4.39,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "29.300000000000001 mm",
+            "unit": "mm",
+            "value_internal": 2.93,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-13.700000000000001 mm",
+            "unit": "mm",
+            "value_internal": -1.37,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 17621.899,
+        "center_of_mass_mm": [
+          21.95,
+          14.65,
+          -6.85
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 17621.899,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                -13.7
+              ],
+              [
+                43.9,
+                29.3,
+                0.0
+              ]
+            ]
+          }
+        ]
+      },
+      "reopened": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "43.899999999999991 mm",
+            "unit": "mm",
+            "value_internal": 4.39,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "29.300000000000001 mm",
+            "unit": "mm",
+            "value_internal": 2.93,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-13.700000000000001 mm",
+            "unit": "mm",
+            "value_internal": -1.37,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 17621.899,
+        "center_of_mass_mm": [
+          21.95,
+          14.65,
+          -6.85
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 17621.899,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                -13.7
+              ],
+              [
+                43.9,
+                29.3,
+                0.0
+              ]
+            ]
+          }
+        ]
+      },
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "centroid": true,
+        "healthy": true,
+        "reopen_geometry": true
+      },
+      "passed": true,
+      "builder_sha256": "7d0de98515f4d1425d4b13c068493e523171c1bc6c9a429fb421c6480be1d8af"
+    },
+    {
+      "id": "CutTrain",
+      "split": "discovery",
+      "file": "CutTrain.f3d",
+      "sha256": "01b94b0096440d3a5644a668f09273eb7780d6689ee0fa140f797a46f446e136",
+      "case": {
+        "recipe": "P04",
+        "parameters": {
+          "width_mm": 43.7,
+          "height_mm": 27.9,
+          "depth_mm": 13.1,
+          "cut_width_mm": 11.3,
+          "cut_height_mm": 6.7,
+          "cut_depth_mm": 3.9
+        },
+        "options": {
+          "basis": "XY"
+        }
+      },
+      "native": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 2,
+            "name": "CutSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 3,
+            "name": "BlindCut",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "43.699999999999996 mm",
+            "unit": "mm",
+            "value_internal": 4.37,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_u_mm"
+            ]
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "27.899999999999999 mm",
+            "unit": "mm",
+            "value_internal": 2.79,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_v_mm"
+            ]
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "13.1 mm",
+            "unit": "mm",
+            "value_internal": 1.31,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_width_mm",
+            "kind": "ModelParameter",
+            "expression": "11.300000000000001 mm",
+            "unit": "mm",
+            "value_internal": 1.1300000000000001,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_height_mm",
+            "kind": "ModelParameter",
+            "expression": "6.7000000000000002 mm",
+            "unit": "mm",
+            "value_internal": 0.67,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_u_mm",
+            "kind": "ModelParameter",
+            "expression": "width_mm / 2",
+            "unit": "mm",
+            "value_internal": 2.185,
+            "role": "Linear Dimension-4",
+            "dependencies": [
+              "width_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_v_mm",
+            "kind": "ModelParameter",
+            "expression": "height_mm / 2",
+            "unit": "mm",
+            "value_internal": 1.395,
+            "role": "Linear Dimension-5",
+            "dependencies": [
+              "height_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-3.8999999999999999 mm",
+            "unit": "mm",
+            "value_internal": -0.39,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d10",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 15676.644,
+        "center_of_mass_mm": [
+          21.85,
+          13.95,
+          6.463359173
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 15676.644,
+            "faces": 11,
+            "edges": 24,
+            "vertices": 16,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                43.7,
+                27.9,
+                13.1
+              ]
+            ]
+          }
+        ]
+      },
+      "reopened": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 2,
+            "name": "CutSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 3,
+            "name": "BlindCut",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "43.699999999999996 mm",
+            "unit": "mm",
+            "value_internal": 4.37,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_u_mm"
+            ]
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "27.899999999999999 mm",
+            "unit": "mm",
+            "value_internal": 2.79,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_v_mm"
+            ]
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "13.1 mm",
+            "unit": "mm",
+            "value_internal": 1.31,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_width_mm",
+            "kind": "ModelParameter",
+            "expression": "11.300000000000001 mm",
+            "unit": "mm",
+            "value_internal": 1.1300000000000001,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_height_mm",
+            "kind": "ModelParameter",
+            "expression": "6.7000000000000002 mm",
+            "unit": "mm",
+            "value_internal": 0.67,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_u_mm",
+            "kind": "ModelParameter",
+            "expression": "width_mm / 2",
+            "unit": "mm",
+            "value_internal": 2.185,
+            "role": "Linear Dimension-4",
+            "dependencies": [
+              "width_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_v_mm",
+            "kind": "ModelParameter",
+            "expression": "height_mm / 2",
+            "unit": "mm",
+            "value_internal": 1.395,
+            "role": "Linear Dimension-5",
+            "dependencies": [
+              "height_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-3.8999999999999999 mm",
+            "unit": "mm",
+            "value_internal": -0.39,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d10",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 15676.644,
+        "center_of_mass_mm": [
+          21.85,
+          13.95,
+          6.463359173
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 15676.644,
+            "faces": 11,
+            "edges": 24,
+            "vertices": 16,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                43.7,
+                27.9,
+                13.1
+              ]
+            ]
+          }
+        ]
+      },
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "centroid": true,
+        "healthy": true,
+        "reopen_geometry": true
+      },
+      "passed": true,
+      "builder_sha256": "7d0de98515f4d1425d4b13c068493e523171c1bc6c9a429fb421c6480be1d8af"
+    },
+    {
+      "id": "CutHoldout",
+      "split": "parameter_holdout",
+      "file": "CutHoldout.f3d",
+      "sha256": "24e5baec4b34753a1232958df70b717665d75d014d5727c23f90ea44c252939d",
+      "case": {
+        "recipe": "P04",
+        "parameters": {
+          "width_mm": 47.3,
+          "height_mm": 31.1,
+          "depth_mm": 17.9,
+          "cut_width_mm": 13.7,
+          "cut_height_mm": 9.3,
+          "cut_depth_mm": 5.1
+        },
+        "options": {
+          "basis": "XY"
+        }
+      },
+      "native": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 2,
+            "name": "CutSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 3,
+            "name": "BlindCut",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "47.299999999999990 mm",
+            "unit": "mm",
+            "value_internal": 4.7299999999999995,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_u_mm"
+            ]
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "31.100000000000001 mm",
+            "unit": "mm",
+            "value_internal": 3.1100000000000003,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_v_mm"
+            ]
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "17.899999999999999 mm",
+            "unit": "mm",
+            "value_internal": 1.79,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_width_mm",
+            "kind": "ModelParameter",
+            "expression": "13.700000000000001 mm",
+            "unit": "mm",
+            "value_internal": 1.37,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_height_mm",
+            "kind": "ModelParameter",
+            "expression": "9.3000000000000007 mm",
+            "unit": "mm",
+            "value_internal": 0.9300000000000002,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_u_mm",
+            "kind": "ModelParameter",
+            "expression": "width_mm / 2",
+            "unit": "mm",
+            "value_internal": 2.3649999999999998,
+            "role": "Linear Dimension-4",
+            "dependencies": [
+              "width_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_v_mm",
+            "kind": "ModelParameter",
+            "expression": "height_mm / 2",
+            "unit": "mm",
+            "value_internal": 1.5550000000000002,
+            "role": "Linear Dimension-5",
+            "dependencies": [
+              "height_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-5.0999999999999996 mm",
+            "unit": "mm",
+            "value_internal": -0.51,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d10",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 25681.646,
+        "center_of_mass_mm": [
+          23.65,
+          15.55,
+          8.788068697
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 25681.646,
+            "faces": 11,
+            "edges": 24,
+            "vertices": 16,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                47.3,
+                31.1,
+                17.9
+              ]
+            ]
+          }
+        ]
+      },
+      "reopened": {
+        "feature_tree": [
+          {
+            "index": 0,
+            "name": "RectangleSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 1,
+            "name": "BlindBoss",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 2,
+            "name": "CutSketch",
+            "type": "Sketch",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          },
+          {
+            "index": 3,
+            "name": "BlindCut",
+            "type": "ExtrudeFeature",
+            "suppressed": false,
+            "rolled_back": false,
+            "health": {
+              "state": "healthy",
+              "message": ""
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "width_mm",
+            "kind": "ModelParameter",
+            "expression": "47.299999999999990 mm",
+            "unit": "mm",
+            "value_internal": 4.7299999999999995,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_u_mm"
+            ]
+          },
+          {
+            "name": "height_mm",
+            "kind": "ModelParameter",
+            "expression": "31.100000000000001 mm",
+            "unit": "mm",
+            "value_internal": 3.1100000000000003,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": [
+              "cut_center_v_mm"
+            ]
+          },
+          {
+            "name": "depth_mm",
+            "kind": "ModelParameter",
+            "expression": "17.899999999999999 mm",
+            "unit": "mm",
+            "value_internal": 1.79,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d4",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_width_mm",
+            "kind": "ModelParameter",
+            "expression": "13.700000000000001 mm",
+            "unit": "mm",
+            "value_internal": 1.37,
+            "role": "Linear Dimension-2",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_height_mm",
+            "kind": "ModelParameter",
+            "expression": "9.3000000000000007 mm",
+            "unit": "mm",
+            "value_internal": 0.9300000000000002,
+            "role": "Linear Dimension-3",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_u_mm",
+            "kind": "ModelParameter",
+            "expression": "width_mm / 2",
+            "unit": "mm",
+            "value_internal": 2.3649999999999998,
+            "role": "Linear Dimension-4",
+            "dependencies": [
+              "width_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_center_v_mm",
+            "kind": "ModelParameter",
+            "expression": "height_mm / 2",
+            "unit": "mm",
+            "value_internal": 1.5550000000000002,
+            "role": "Linear Dimension-5",
+            "dependencies": [
+              "height_mm"
+            ],
+            "dependents": []
+          },
+          {
+            "name": "cut_depth_mm",
+            "kind": "ModelParameter",
+            "expression": "-5.0999999999999996 mm",
+            "unit": "mm",
+            "value_internal": -0.51,
+            "role": "AlongDistance",
+            "dependencies": [],
+            "dependents": []
+          },
+          {
+            "name": "d10",
+            "kind": "ModelParameter",
+            "expression": "0.0 deg",
+            "unit": "deg",
+            "value_internal": 0.0,
+            "role": "TaperAngle",
+            "dependencies": [],
+            "dependents": []
+          }
+        ],
+        "body_count": 1,
+        "volume_mm3": 25681.646,
+        "center_of_mass_mm": [
+          23.65,
+          15.55,
+          8.788068697
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 25681.646,
+            "faces": 11,
+            "edges": 24,
+            "vertices": 16,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                47.3,
+                31.1,
+                17.9
+              ]
+            ]
+          }
+        ]
+      },
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "centroid": true,
+        "healthy": true,
+        "reopen_geometry": true
+      },
+      "passed": true,
+      "builder_sha256": "7d0de98515f4d1425d4b13c068493e523171c1bc6c9a429fb421c6480be1d8af"
+    }
+  ]
+}

@@ -36,7 +36,7 @@ def BuildFusion(Helper, Application, Case):
                 f"the native builder omitted driving parameter {ParamName}"
             )
         UnitName = "deg" if ParamName == "angle_deg" else "mm"
-        Parameter.expression = f"{Normal['parameters'][ParamName]:.17g} {UnitName}"
+        Parameter.expression = f"{(-1 if ParamName in ('depth_mm', 'cut_depth_mm') and Parameter.value < 0 else 1) * Normal['parameters'][ParamName]:.17g} {UnitName}"
     if Design.computeAll() is not True:
         raise RuntimeError("fusion refused the requested parameterized rebuild")
     return Document
