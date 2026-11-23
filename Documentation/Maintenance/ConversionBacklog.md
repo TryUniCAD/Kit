@@ -268,6 +268,13 @@ disclosed assemblies. Two guarded workers add the generated stream to the
 35-stream parent while preserving the other 34 and the linked part. Eight
 original D01 members remain outside the composed inventory.
 
+Prior native results bind the omission of both [assembly lightweight and display caches](../../re/solidworks/records/ConcentricAssemblyCacheOwnership2026.md)
+in six generated assembly files across four resolved-model lifecycles. The
+measured radial parent's [preview, tessellation and default motion members](../../re/solidworks/records/AssemblyPresentationCaches2026.md)
+were also absent before its passing edit and reopen. The native save
+restores those presentation and motion members. Exact D01 lifecycle and
+graphics behavior remain open for the new composition.
+
 The [stock child roughness comparison](../../re/solidworks/records/ConcentricStockChildAppearanceCodec2026.md) preserves two independent native edits through save and reopen with both controls healthy. The typed audit replays the two populated Definition streams and distinguishes the five classic appearance fields from unchanged DSPBR roughness. A separate single-getter trial proves the second stored row, common ID, allocator advance and binary32 conversion path. [Getter evidence](../../re/solidworks/records/AppearanceGetterPersistence2026.md) Generated appearance writing remains open.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.
