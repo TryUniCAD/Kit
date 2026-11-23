@@ -38,16 +38,19 @@ def CheckRealMinute(RequireCpu: bool = False) -> None:
         )
         assert TimeClock.monotonic() - StartedAt >= 60
         Started = [Event for Event in Events if Event.get("event") == "started"]
-        assert len(Started) == 2
-        assert Started[1]["at"] - Started[0]["at"] >= 60
+        assert [Event["job"] for Event in Started] == ["adaptive:hold", "adaptive:next"]
+        LaunchIndex = None
         if RequireCpu:
+            LaunchIndex = Events.index(Started[1])
             (HoldFinished,) = [
                 Event
                 for Event in Events
                 if Event.get("event") == "finished"
                 and Event.get("job") == "adaptive:hold"
             ]
-            assert Started[1]["at"] < HoldFinished["at"]
+            assert LaunchIndex < Events.index(HoldFinished)
+        else:
+            assert Started[1]["at"] - Started[0]["at"] >= 60
         assert Harness.ReadJob("adaptive:hold")["state"] == "completed"
         assert Harness.ReadJob("adaptive:next")["state"] == "completed"
-        CheckAdaptive(Events, Started[1]["at"] if RequireCpu else None)
+        CheckAdaptive(Events, LaunchIndex)

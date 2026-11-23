@@ -4,7 +4,7 @@ from typing import Mapping
 
 # a pool may grow only after a full healthy interval with spare resources
 def CheckAdaptive(
-    Events: list[Mapping[str, object]], SuccessorAt: float | None = None
+    Events: list[Mapping[str, object]], LaunchIndex: int | None = None
 ) -> None:
     Admissions = [
         JsonCodec.loads(JsonCodec.dumps(Event))
@@ -23,13 +23,18 @@ def CheckAdaptive(
             if Event["adaptive_reason"] == "healthy_minute"
         }.values()
     )
-    if SuccessorAt is not None:
+    if LaunchIndex is not None:
         assert Increased, Admissions[-1]
         FirstRaise = Increased[-1]
         assert FirstRaise["active_limit"] == First["active_limit"] + 1
         assert FirstRaise["running"] == First["active_limit"]
-        assert FirstRaise["at"] <= SuccessorAt
         assert 0 <= FirstRaise["host"]["cpu_busy_fraction_1m"] < 0.85
+        assert any(
+            Event.get("event") == "admission"
+            and Event.get("adaptive_reason") == "healthy_minute"
+            and Event.get("adaptive_revision") == FirstRaise["adaptive_revision"]
+            for Event in Events[:LaunchIndex]
+        )
     for Event in Increased:
         assert Event["healthy_seconds"] >= 60
         HostInfo = Event["host"]
