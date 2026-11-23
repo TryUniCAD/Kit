@@ -1,14 +1,13 @@
-from dataclasses import replace as ChangeRecord
-from json import dumps as EncodeJson, loads as ParseJson
+from json import loads as ParseJson
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 
 from pytest import mark as MarkValue
 
-from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.serialization.JsonCodec import DumpJson
+from tests.Research.Archives.Comparison.BulkOrderDocuments import MakeOrderDocs
 from tests.Research.Archives.Comparison.BulkProcess import RunBulk
+from tests.Research.Archives.Comparison.BulkTypedProcess import RunTypedBatch
 from tests.Research.Archives.Comparison.BulkTypedDocuments import (
     LoseTypedRef,
     MakeCutDoc,
@@ -16,39 +15,6 @@ from tests.Research.Archives.Comparison.BulkTypedDocuments import (
     MakeOutputDoc,
 )
 from tests.Research.Archives.Comparison.SemanticComparisonTests import WriteDocument
-
-
-# typed output and modifying definitions must cross codec and process boundaries with explicit evidence
-def RunTypedBatch(
-    TmpPath: FilePath, First: CadDocument, Second: CadDocument, ExitCode: int
-) -> dict[str, object]:
-    FirstPath = TmpPath / "Solidworks.json"
-    SecondPath = TmpPath / "Fusion.json"
-    WriteDocument(FirstPath, First)
-    WriteDocument(SecondPath, Second)
-    Before = (FirstPath.read_bytes(), SecondPath.read_bytes())
-    Manifest = TmpPath / "Pairs.json"
-    ManifestText = EncodeJson(
-        {
-            "version": 1,
-            "pairs": [
-                {"id": "typed", "left": FirstPath.name, "right": SecondPath.name}
-            ],
-        }
-    )
-    assert Manifest.write_text(ManifestText, encoding="utf-8") == len(ManifestText)
-    Output = TmpPath / "Output"
-    Result = RunBulk(["--manifest", str(Manifest), "--output", str(Output)])
-    assert Result.returncode == ExitCode, Result.stderr + Result.stdout
-    assert (FirstPath.read_bytes(), SecondPath.read_bytes()) == Before
-    Summary = ParseJson((Output / "summary.json").read_text(encoding="utf-8"))
-    assert Summary["pair_count"] == 1
-    return CastValue(
-        dict[str, object],
-        ParseJson(
-            (Output / Summary["pairs"][0]["report"]["path"]).read_text(encoding="utf-8")
-        ),
-    )
 
 
 # independently named valid documents must align declared references while retaining intentional unknown face evidence
@@ -136,43 +102,6 @@ def CheckTypedDiff(TmpPath: FilePath, Family: str, Change: str, RoleName: str) -
     )
     assert any(IssueItem["role"] == RoleName for IssueItem in Differences)
     assert not Comparison["ambiguous"] and not Comparison["search_limited"]
-
-
-# ordered body operands need two unchanged anchored bodies so replacement checks cannot conceal ordering regressions
-def MakeOrderDocs(Family: str) -> tuple[CadDocument, CadDocument]:
-    Document = (
-        MakeOutputDoc("ordered")
-        if Family == "outputs"
-        else MakeCutDoc("ordered", "same")
-    )
-    Feature = Document.feature_timeline[-1]
-    BodyIds = tuple(BodyValue.id for BodyValue in Document.bodies)
-    Definition = Feature.definition
-    if isinstance(Definition, DistanceCut):
-        Feature = ChangeRecord(
-            Feature, definition=ChangeRecord(Definition, TargetBodyIds=BodyIds)
-        )
-    Feature = ChangeRecord(Feature, OutputBodyIds=BodyIds)
-    Document = ChangeRecord(
-        Document,
-        feature_timeline=(*Document.feature_timeline[:-1], Feature),
-        bodies=tuple(
-            ChangeRecord(BodyValue, final_feature_id=Feature.id)
-            for BodyValue in Document.bodies
-        ),
-    )
-    ReversedIds = tuple(reversed(BodyIds))
-    if Family == "cut_targets":
-        assert isinstance(Feature.definition, DistanceCut)
-        Changed = ChangeRecord(
-            Feature,
-            definition=ChangeRecord(Feature.definition, TargetBodyIds=ReversedIds),
-        )
-    else:
-        Changed = ChangeRecord(Feature, OutputBodyIds=ReversedIds)
-    return Document, ChangeRecord(
-        Document, feature_timeline=(*Document.feature_timeline[:-1], Changed)
-    )
 
 
 # order only changes must survive the real codec and bulk command without changing membership or scalar observations
