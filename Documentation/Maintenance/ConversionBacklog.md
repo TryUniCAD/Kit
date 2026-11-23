@@ -298,6 +298,17 @@ Protocol byte identity, an open PR, source training measurements, and green stat
 
 ## Important gap boundaries
 
+### B04-SW2026-IMPORTED-BODY
+
+The PR #121 takeover extends the shared planar geometry-only composer and
+strict reader to one enclosed rectangular through-opening. Both cap chains
+retain their physical trim order. Two model-only archives and both strict
+reading modes agree with independent geometry and exact earlier controls.
+Exit still requires a controlled native lifecycle and measured output
+publication for this profile. Multiple openings and complete source
+capability transfer remain open.
+[Scoped proof and dependencies](../../re/solidworks/records/PlanarThroughOpening2026.md)
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 [PR #172](https://github.com/TryUniCAD/Kit/pull/172) delivered the strict

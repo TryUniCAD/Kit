@@ -6,23 +6,21 @@ from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.brep.Topology.BrepTopology import BrepFace
 
 
-# ordered trims keep the first boundary outward and any secondary boundary inward
+# material boundaries need one exterior while preserving the supplied trim order
 def ReadPrismTrims(
     FaceValue: BrepFace, TopologyValue: BrepTopology
 ) -> tuple[PrismFaceLoop, ...]:
     Values: list[PrismFaceLoop] = []
-    for IndexValue, LoopId in enumerate(FaceValue.loop_ids):
+    for LoopId in FaceValue.loop_ids:
         LoopValue = TopologyValue.loops[LoopId]
         UsesValue = tuple(
             TopologyValue.coedges[UseId] for UseId in LoopValue.coedge_ids
         )
-        if (
-            LoopValue.outer != (IndexValue == 0)
-            or len(UsesValue) < 3
-            or any(UseValue.pcurve_id for UseValue in UsesValue)
-        ):
+        if len(UsesValue) < 3 or any(UseValue.pcurve_id for UseValue in UsesValue):
             raise ValueError("local prism requires complete ordered planar trims")
         Values.append(PrismFaceLoop(FaceValue, LoopValue, UsesValue))
+    if sum(Boundary.LoopValue.outer for Boundary in Values) != 1:
+        raise ValueError("local prism requires complete ordered planar trims")
     return tuple(Values)
 
 
@@ -30,12 +28,13 @@ def ReadPrismTrims(
 def ReadPrismFaces(
     ModelValue: BrepModel, TopologyValue: BrepTopology, *, AllowPocket: bool = False
 ) -> tuple[PrismFaceLoop, ...]:
+    ExtraLoops = len(ModelValue.loops) - len(ModelValue.faces)
     if (
         tuple(UseValue.face_id for UseValue in ModelValue.face_uses)
         != tuple(FaceValue.id for FaceValue in ModelValue.faces)
         or ModelValue.shells[0].face_use_ids
         != tuple(UseValue.id for UseValue in ModelValue.face_uses)
-        or len(ModelValue.loops) != len(ModelValue.faces) + int(AllowPocket)
+        or ExtraLoops not in ((1, 2) if AllowPocket else (0,))
     ):
         raise ValueError("local prism requires one ordered outer loop per shell face")
     Values: list[PrismFaceLoop] = []

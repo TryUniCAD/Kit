@@ -3,6 +3,7 @@ from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.CheckPocketLoop import (
     CheckPocketLoop,
+    CheckRimSize,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.CheckOwnedXmt import (
     CheckOwnedXmt,
@@ -37,26 +38,22 @@ def CheckLocalSize(
         or not EdgeCount
         or not VertexCount
         or (
-            CountsValue[15],
             CountsValue[17],
             CountsValue[29],
             CountsValue[30],
             CountsValue[50],
         )
-        != (
-            FaceCount + int(AllowPocket),
-            2 * EdgeCount,
-            VertexCount,
-            EdgeCount,
-            FaceCount,
-        )
+        != (2 * EdgeCount, VertexCount, EdgeCount, FaceCount)
+        or not AllowPocket
+        and CountsValue[15] != FaceCount
     ):
         raise ValueError("local kernel solid ownership or topology counts differ")
-    if AllowPocket and (
-        (FaceCount, EdgeCount, VertexCount) != (11, 24, 16)
-        or BodyValue.Integer("attribute_chains")
-    ):
-        raise ValueError("local kernel does not contain one bare rectangular pocket")
+    if AllowPocket:
+        CheckRimSize(FaceCount, CountsValue[15], EdgeCount, VertexCount)
+        if BodyValue.Integer("attribute_chains"):
+            raise ValueError(
+                "local kernel does not contain one bare rectangular pocket"
+            )
 
 
 # a standalone transmit must contain one closed resident solid before bytes leave the writer

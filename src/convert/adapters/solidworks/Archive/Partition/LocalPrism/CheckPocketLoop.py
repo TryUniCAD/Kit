@@ -4,7 +4,15 @@ from convert.adapters.solidworks.Archive.Partition.WalkXmtChain import WalkXmtCh
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 
 
-# the rim adds one terminated loop link inside the same face owner
+# blind and through openings need the same perimeter cells with different cap ownership
+def CheckRimSize(
+    FaceCount: int, LoopCount: int, EdgeCount: int, VertexCount: int
+) -> None:
+    if FaceCount not in (10, 11) or (LoopCount, EdgeCount, VertexCount) != (12, 24, 16):
+        raise ValueError("local pocket has an unsupported face or boundary inventory")
+
+
+# each opening adds one terminated loop link inside its own cap face
 def CheckPocketLoop(NodesValue: Mapping[int, XmtNode]) -> None:
     GroupsValue = tuple(
         WalkXmtChain(
@@ -22,7 +30,8 @@ def CheckPocketLoop(NodesValue: Mapping[int, XmtNode]) -> None:
         IndexValue for GroupValue in GroupsValue for IndexValue in GroupValue
     )
     if (
-        sorted(map(len, GroupsValue)) != [1] * 10 + [2]
+        len(GroupsValue) not in (10, 11)
+        or any(len(GroupValue) not in (1, 2) for GroupValue in GroupsValue)
         or len(Linked) != 12
         or set(Linked)
         != {Value.IndexValue for Value in NodesValue.values() if Value.KindValue == 15}
