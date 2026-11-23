@@ -1,15 +1,15 @@
-import ctypes
 import time
 from collections import deque
-from ctypes import wintypes
+from ctypes import POINTER, byref
+from ctypes.wintypes import BOOL, FILETIME, WORD
 
 from WindowsApi import KERNEL, require_success
 
 
-KERNEL.GetSystemTimes.argtypes = [ctypes.POINTER(wintypes.FILETIME)] * 3
-KERNEL.GetSystemTimes.restype = wintypes.BOOL
+KERNEL.GetSystemTimes.argtypes = [POINTER(FILETIME)] * 3
+KERNEL.GetSystemTimes.restype = BOOL
 KERNEL.GetActiveProcessorGroupCount.argtypes = []
-KERNEL.GetActiveProcessorGroupCount.restype = wintypes.WORD
+KERNEL.GetActiveProcessorGroupCount.restype = WORD
 
 WINDOW_SECONDS = 60
 MAX_WINDOW_SECONDS = 70
@@ -20,8 +20,8 @@ def ticks(value):
 
 
 def system_cpu_times():
-    idle, kernel, user = (wintypes.FILETIME() for _ in range(3))
-    require_success(KERNEL.GetSystemTimes(ctypes.byref(idle), ctypes.byref(kernel), ctypes.byref(user)))
+    idle, kernel, user = (FILETIME() for _ in range(3))
+    require_success(KERNEL.GetSystemTimes(byref(idle), byref(kernel), byref(user)))
     return ticks(idle), ticks(kernel) + ticks(user)
 
 
