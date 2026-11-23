@@ -22,7 +22,7 @@ Without corresponding inventory entries, a changed imported module could alter a
 
 ## Resolution
 
-The existing lifecycle source inventory now includes all seven shared queue policy modules.
+The existing lifecycle source inventory now includes all shared queue policy modules, including maintained status aggregation.
 The source-bound process scenario compares an isolated committed source checkout, changes each new member separately, removes one member, and restores the original files.
 Clean sources pass; changed and missing policy members refuse.
 The scenario starts no CAD application and does not establish native model acceptance.
