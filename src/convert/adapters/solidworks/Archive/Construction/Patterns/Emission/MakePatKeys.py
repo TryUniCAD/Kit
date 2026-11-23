@@ -122,9 +122,10 @@ def MakePatKeys(GraphValue: PatPartGraph) -> bytes:
         PatKeyRow(GraphValue.PlaneValue, AngleDims),
         PatKeyRow(GraphValue.PatternValue, PatDims),
     )
+    OrderedWords = tuple(sorted(Words, key=PatKeyOrder))
     return MakeKeywords(
         ReadNodeName(SystemValue.RootValue),
         Settings.HeaderValue.ModifiedAt,
         Configs,
-        tuple(sorted(Words, key=PatKeyOrder)),
+        OrderedWords,
     )
