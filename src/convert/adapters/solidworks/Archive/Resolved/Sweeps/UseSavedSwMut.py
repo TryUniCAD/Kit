@@ -16,7 +16,7 @@ from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSweepCtxMut import (
 )
 
 
-# a saved sweep reads its signed display attachments and explicit side surface in its own context
+# a saved sweep retains its signed display attachments and explicit side surface in its own context
 def UseSavedSwMut(ContextValue: BodyContext) -> None:
     UseSweepCtxMut(ContextValue, SavedResult=True)
     SideName = "moSweepSideSurfIdRep_c"

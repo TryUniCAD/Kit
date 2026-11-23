@@ -46,9 +46,8 @@ def CheckSweepNodes(NodesValue: tuple[XmtNode, ...], IsPartition: bool) -> None:
                 raise ValueError("sweep kernel cell has a detached resident link")
 
 
-# sweep sheets and attributed partitions reuse the typed native node codec and stream framing
-def EncodeSweepXmt(NodesValue: tuple[XmtNode, ...], IsPartition: bool) -> bytes:
-    CheckSweepNodes(NodesValue, IsPartition)
+# validated sweep nodes share the same class framing and transmit header
+def EncodeSwNodes(NodesValue: tuple[XmtNode, ...], Description: bytes) -> bytes:
     OutputValue = bytearray(PackValue(">HI", 239, 0))
     SeenKinds: set[int] = set()
     for NodeValue in NodesValue:
@@ -56,5 +55,12 @@ def EncodeSweepXmt(NodesValue: tuple[XmtNode, ...], IsPartition: bool) -> bytes:
             OutputValue, NodeValue, KKernelShapes[NodeValue.KindValue], SeenKinds
         )
     WriteXmtEndMut(OutputValue)
-    Description = KSweepGhostDescription if IsPartition else KLocalDescription
     return ParaStream(bytes(OutputValue), KTerminalFinSchema, Description)
+
+
+# sweep sheets and attributed partitions reuse the typed native node codec and stream framing
+def EncodeSweepXmt(NodesValue: tuple[XmtNode, ...], IsPartition: bool) -> bytes:
+    CheckSweepNodes(NodesValue, IsPartition)
+    return EncodeSwNodes(
+        NodesValue, KSweepGhostDescription if IsPartition else KLocalDescription
+    )

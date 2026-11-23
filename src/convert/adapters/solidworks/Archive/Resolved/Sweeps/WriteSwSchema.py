@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSchemaMut import (
     WriteSchemaMut,
 )
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Partition.Sweeps.EncodeSavedSw import (
+    EncodeSavedSw,
+)
 from convert.adapters.solidworks.Archive.Partition.Sweeps.EncodeSweepXmt import (
     EncodeSweepXmt,
 )
@@ -75,18 +78,23 @@ def CheckColdSweep(
         )
 
 
-# embedded section serialization recomputes the sheet and compressed length from its typed authored circle
-def WriteSwSectMut(FrameValue: WriteFrame) -> None:
+# both section modes compute their compressed extent from typed resident cells
+def WriteSwSectMut(FrameValue: WriteFrame, *, SavedResult: bool = False) -> None:
     FieldsValue = FrameValue.ScopeValue.FieldsValue
     CircleValue = FieldsValue.get("CircleValue")
     if (
         FrameValue.NodeValue.ClassValue != RuntimeClass("moGeneralCurveRef_w", 1)
         or FrameValue.NodeValue.FieldsValue.get("has_fc8") != 1
-        or set(FieldsValue) != {"CircleValue"}
+        or set(FieldsValue)
+        != ({"CircleValue", "NodesValue"} if SavedResult else {"CircleValue"})
         or type(CircleValue) is not CircleGeometry
     ):
         raise BodyUnsupported("sweep section requires an actual typed circle owner")
-    BodyValue = EncodePartData(EncodeSweepXmt(MakeSwSheet(CircleValue), False))
+    BodyValue = EncodePartData(
+        EncodeSavedSw(FieldsValue["NodesValue"], CircleValue)
+        if SavedResult
+        else EncodeSweepXmt(MakeSwSheet(CircleValue), False)
+    )
     OutputValue = FrameValue.WriterValue.OutputValue
     OutputValue.extend(EncodeScalar(0, "u8"))
     OutputValue.extend(EncodeScalar(len(BodyValue) + 1, "i32"))
@@ -98,12 +106,14 @@ def WriteSwSectMut(FrameValue: WriteFrame) -> None:
 
 
 # only this concrete local schema writer handles the sweep section transport
-def WriteSwSchema(FrameValue: WriteFrame, SchemaName: str) -> None:
+def WriteSwSchema(
+    FrameValue: WriteFrame, SchemaName: str, *, SavedResult: bool = False
+) -> None:
     if SchemaName == "sweep.embeddedSection19000":
-        WriteSwSectMut(FrameValue)
+        WriteSwSectMut(FrameValue, SavedResult=SavedResult)
         return
     if SchemaName == "sweep.data19000":
-        CheckColdSweep(FrameValue.ScopeValue.FieldsValue)
+        CheckColdSweep(FrameValue.ScopeValue.FieldsValue, SavedResult=SavedResult)
     WriteSchemaMut(FrameValue, SchemaName)
 
 

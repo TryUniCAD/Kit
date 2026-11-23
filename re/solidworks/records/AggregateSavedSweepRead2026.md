@@ -60,3 +60,46 @@ scope.
 [Exact source and control receipt](../measurements/2026/AggregateSavedSweepRead01.json)
 [Prior scoped reader and role provenance](https://github.com/TryUniCAD/Kit/blob/84bed4175c2daf7fa50d10757ea83f667d03521f/re/solidworks/records/ScopedSavedSweepSdk2026.md)
 [Prior complete suite test](https://github.com/TryUniCAD/Kit/blob/84bed4175c2daf7fa50d10757ea83f667d03521f/tests/Convert/Solidworks/SweepReading/SavedSweepTests.py)
+
+## Exact saved resolved re-emission
+
+Task `B04-SW2026-SWEEP/saved-resolved-replay`, owner `/root/format_proofs`,
+delivery #121, base `197a3283267e95167ac716efbe57d3449bab1b15`.
+`WriteResolMut(..., ReplaySavedSweep=True)` takes the model and linked
+map from the explicit saved `ReadNativeLink` branch. The shared saved
+layouts require version 19000, an ordinary compressed part,
+`cmgr_f658=1`, the two solved sweep flags and the exact empty inline
+configuration body map.
+
+The saved Section graph retains its ten ordered typed cells and their
+actual connectivity. The standalone root's next body points to absent
+slot 2. The observed transmit order is `1,3,4,5,6,7,9,10,11,8`.
+The writer verifies the actual sheet, circle and resident links, then
+computes the typed node records, transmit header, compressed frame and
+section length. Both wrapped payloads reproduce inside the complete
+resolved stream. Each resolved graph has two declared one-element
+binary64 display caches. The shared packed scalar writer decodes and
+encodes these fields individually. The usage report records zero raw
+byte-field operations.
+
+| Disclosed fixture | Resolved bytes | Resolved SHA-256 | Inherited to final map |
+| --- | ---: | --- | --- |
+| SweepArcWide | 14,601 | `5a98f672aa95cf0b39f9fb3be02603c1071b15f7aa9b8c5a3c1413f4160e9c02` | 110 to 278 |
+| SweepArcWideSectionEdit | 14,730 | `e634947e5e06ded00b5706f01327cfde953cf4d482f09a8500148a1ee3b73d8d` | 110 to 278 |
+
+```sh
+python3.14 -I -B re/tooling/sw2026/sweep_source/ProveSavedSwReplay.py
+```
+
+Five fresh guarded workers verify the two saved streams, both pinned
+cold controls, and the ordinary L1 resolved stream with zero runtime
+reads. Saved inputs refuse the ordinary and cold modes, mixed modes,
+alternate body maps, opaque section input and foreign resident links.
+The fixtures' scrubbed omissions include Definition and DisplayLists.
+This proof covers an existing resolved stream and its recomputed map
+under classic zlib 1.2.12. Public saved-to-native export, whole-archive
+construction and held-out native acceptance remain separate work.
+The ordinary corpus pipeline does not yet select the dedicated saved
+sweep schema writer. The guarded receipt SHA-256 is
+`8222c9c5767479af779b000ae8f3ecd44dcbd766de2a20a214f9fe72be7eb777`.
+[Guarded evidence](../measurements/2026/SavedSweepResolvedReplay01.json) · [Sparse sheet gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Resolved/SavedSweepSheetHasSparseOrder.md)

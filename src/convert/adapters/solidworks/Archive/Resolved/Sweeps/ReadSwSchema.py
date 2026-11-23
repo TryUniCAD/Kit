@@ -50,6 +50,8 @@ def ReadSwSheetMut(FrameValue: ReadFrame, *, SavedResult: bool) -> None:
         SavedResult=SavedResult,
     )
     FrameValue.ScopeValue.FieldsValue["CircleValue"] = CircleValue
+    if SavedResult:
+        FrameValue.ScopeValue.FieldsValue["NodesValue"] = tuple(NodesValue.values())
     FrameValue.ContextValue.UsageValue.SchemaCalls["sweep.embeddedSection19000"] += 1
 
 
