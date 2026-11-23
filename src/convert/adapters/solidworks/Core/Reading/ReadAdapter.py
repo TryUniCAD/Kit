@@ -793,7 +793,9 @@ def FinishPartDoc(
         )
     else:
         DocValue = ReadSavedEq(DocValue, Archive, SavedEq, Settings)
-    DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive, GraphValue), Archive)
+    DocValue = WithPartProps(
+        WithCmgrInfo(DocValue, Archive, GraphValue), Archive, LinkedConfig=GraphValue
+    )
     DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
     DocValue = WithThinDoc(DocValue, Archive, ConfigId, DerivedValue)
