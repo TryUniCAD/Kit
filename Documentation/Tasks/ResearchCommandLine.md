@@ -40,7 +40,8 @@ kit research --root . compare --manifest /path/to/Pairs.json --unit mm -o /path/
 Either folder can go first. The first is labeled left in reports and the second is labeled right.
 Choose a new output directory for each run.
 Declare the actual geometry units. Use `--left-unit` and `--right-unit` instead of `--unit` when the sides differ.
-The command reads existing decoded JSON, writes reports and preserves the comparator's exit status.
+The command reads existing decoded JSON and reports every pair.
+It copies the first folder's original JSON to `NewComparison/unified/` for each pair that compares equal at zero tolerance with no unresolved issues.
 See the [comparison procedure](CompareDecodedDocuments.md) for pairing rules, reports and exit codes.
 
 ## Decode committed inputs

@@ -107,6 +107,16 @@ Inspect these artifacts:
 | `summary.txt`                                       | One readable outcome and feature-correspondence count per pair                                                         |
 | `summary.json`                                      | Complete pair roster, input paths, available input hashes, options, counts, and report hashes                          |
 | `reports/0000.json` and subsequent numbered reports | Detailed correspondence evidence, field differences, dependency differences, ambiguity, and unresolved source evidence |
+| `unified/`                                          | Original left JSON bytes for pairs that compare equal at zero tolerance with no unresolved issues                      |
+
+Use the `unified` field in each summary row to find the copy, its SHA-256, byte count and geometry unit.
+The numbered name uses the same pair index as the detailed report.
+The copy preserves the original document and any qualification markers.
+Pairs with differences, unresolved evidence or input failures get reports without copies.
+Any nonzero tolerance disables copying for the entire run.
+This keeps the folder limited to exact agreement within the comparator's observed scope.
+If a copy cannot be published, the report remains available, its summary row records `unified_error`, and the batch returns exit `1`.
+The direct script creates `unified/` when you supply `--unified`.
 
 A feature correspondence can contain differences.
 It does not mean the features are equal.
@@ -118,8 +128,8 @@ Unsupported domains remain explicit issues.
 
 | Exit | Meaning                                                                                                |
 | ---: | ------------------------------------------------------------------------------------------------------ |
-|    0 | Every selected pair has `equal_observed_graph` status                                                  |
-|    1 | Invalid setup, a missing input, or an input error                                                      |
+|    0 | Every selected pair has `equal_observed_graph` status and no copy failed                               |
+|    1 | Invalid setup, a missing input, an input error, or a failed unified copy                               |
 |    2 | Observed differences exist, without errors or unresolved outcomes                                      |
 |    3 | At least one pair is ambiguous, unresolved, incomplete, or retains source issues, without input errors |
 
@@ -127,9 +137,9 @@ Input errors take precedence over unresolved outcomes; unresolved outcomes take 
 Read the full outcome totals when a batch contains several statuses.
 Invalid documents do not stop later comparisons.
 Output-budget refusals retain an incomplete pair report and continue.
-Filesystem publication failures stop the batch.
+Filesystem failures that prevent writing reports or summaries stop the batch.
 The detailed engine status can remain `different` when unresolved source evidence also exists.
-Such batches return exit `3`; inspect each pair's `counts.source_issues` alongside its detailed differences.
+Without input or copy errors, such batches return exit `3`. Inspect each pair's `counts.source_issues` alongside its detailed differences.
 
 `summary.json` is published last and marks a completed observation batch.
 A directory without it is incomplete.
@@ -149,7 +159,7 @@ Directory discovery visits at most 100000 entries per side.
 Linked directories, linked selected files, and incomplete directory enumeration are refused.
 Each document and detailed report has a 32 MiB limit.
 Manifests have a 1 MiB limit; tolerance files have a 64 KiB limit.
-The batch output budget is 1 GiB, including reserved summary and error-report capacity.
+The batch output budget is 1 GiB, shared by reports, unified copies and reserved summary and error-report capacity.
 The [existing graph limits](../Reference/Research/SemanticComparison.md#limits-and-failures) also apply.
 
 For `missing_input`, correct the directory layout or manifest path.

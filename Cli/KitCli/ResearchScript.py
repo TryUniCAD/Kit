@@ -22,10 +22,14 @@ def ResearchScript(Options: CliOptions) -> tuple[FilePath, FilePath]:
         not (RootPath / ".git").exists()
         or not (RootPath / "src" / "convert").is_dir()
         or not ScriptPath.is_file()
+        or (
+            Options.ResearchTool == "compare"
+            and not ScriptPath.with_name("UnifiedExports.py").is_file()
+        )
     ):
         if Options.ResearchTool == "compare":
             raise ValueError(
-                "Research compare requires a trusted checkout containing re/automation/CompareDecoded.py"
+                "Research compare requires a trusted checkout containing re/automation/CompareDecoded.py and UnifiedExports.py"
             )
         raise ValueError(
             "Selected checkout does not contain the requested PR94 research tool"

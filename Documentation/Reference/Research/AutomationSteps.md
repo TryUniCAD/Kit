@@ -306,8 +306,8 @@ This scope does not change decoder behavior, complete A06b qualification, or est
 
 Codex owns the shorter research command on `codex/bulk-comparison-cli`.
 The [CLI follow-up PR](https://github.com/TryUniCAD/Kit/pulls?q=is%3Apr+head%3Acodex%2Fbulk-comparison-cli) targets the PR #273 comparator branch while that dependency is open.
-The scope is positional folders, manifest mode, shared explicit units, short output syntax and trusted checkout dispatch.
-The exit requires installed-command process evidence for both pairing modes, option refusal, older checkout diagnostics and current-revision CI and review.
+The scope is positional folders, manifest mode, shared explicit units, short output syntax, trusted checkout dispatch and unified copies for exact resolved pairs.
+The exit requires installed-command process evidence for both pairing modes, copy provenance and refusal, older checkout diagnostics and current-revision CI and review.
 See the [bulk comparison CLI change](../../Changes/Commands/BulkComparisonCli.md).
 
 ### Existing comparison implementation
