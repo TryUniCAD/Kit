@@ -73,6 +73,9 @@ uv run --frozen --no-default-groups python re/automation/CompareDecoded.py --lef
 
 `Solidworks/Case/Part.json` pairs with `Fusion/Case/Part.json`.
 Files without a counterpart remain `missing_input` outcomes.
+Their reports retain fingerprints for the present bounded plain files.
+Absent files have no fingerprint.
+Missing pairs do not deserialize the present document; invalid present-side file admission remains an input error.
 The programme does not infer matching designs from unrelated filenames.
 Feature matching happens within each requested document pair.
 
@@ -131,6 +134,7 @@ Reader agreement alone does not qualify editable conversion.
 
 A batch accepts at most 1000 pairs.
 Directory discovery visits at most 100000 entries per side.
+The programme charges the input root and encountered entries during streaming enumeration, before retaining further work.
 Linked directories, linked selected files, and incomplete directory enumeration are refused.
 Each document and detailed report has a 32 MiB limit.
 Manifests have a 1 MiB limit; tolerance files have a 64 KiB limit.

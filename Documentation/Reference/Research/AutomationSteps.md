@@ -298,6 +298,20 @@ Status is checking. Scoped formatting, steering, Pyright, path policy, and Pytho
 Remote process verification, current-head CI, configured review, and merge-group acceptance remain pending.
 This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
 
+### A06g-BulkComparisonFollowups: independent implementation assistance
+
+The independent comparison team owns this follow-up on `codex/bulk-comparison-followups`.
+Its source dependency is PR #273 revision `3da3706b388a3bdf538fcb41f01e4f127c21ae26`.
+Delivery is a separate scoped follow-up PR targeting `codex/bulk-semantic-comparison`.
+Only the designated PR #273 owner integrates changes into that branch.
+Scope is typed body and face references, streaming discovery bounds, present-side fingerprints and subprocess coverage.
+Three disjoint worktrees own the graph, discovery and report changes respectively.
+Status is checking; local process tests and native applications have not run.
+The exit requires scoped commits, static checks, current-head CI/review and explicit deferred process/native acceptance.
+See the [change entry](../../Changes/Research/Readers/Comparison/BulkComparisonFollowups.md).
+This work retains the owner's unresolved-priority and report-budget fixes and does not change matching algorithms.
+It does not complete A06b qualification or establish native conversion acceptance.
+
 ### Existing comparison implementation
 
 The [portable graph comparator](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md) reads sealed neutral documents through the actual codec and validator.

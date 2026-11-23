@@ -69,6 +69,8 @@ The report seals the three comparison source files and refuses source changes du
 Matched records retain both source identities and field paths.
 Ambiguous entries retain their alternatives and scores.
 Dependency differences retain reference roles, endpoints and multiplicities.
+Declared references include feature output bodies, distance-cut target bodies, and face-offset body, selection and distance-parameter operands.
+These references can correspond across independent source identifiers.
 Names and collection traversal order do not select a counterpart.
 
 | Exit | Status                                    | Meaning                                                                                       |
