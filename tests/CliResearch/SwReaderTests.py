@@ -7,7 +7,6 @@ from tests.CliResearch.ResearchAssets import KSwAsset
 from tests.CliResearch.ResearchClient import ResearchCli
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
-
 # the reserved part exercises pinned batch paths with embedded spaces
 KHoldoutAsset = (
     "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/"
@@ -77,20 +76,20 @@ def CheckSwBatch(TmpPath: FilePath) -> None:
         )
         assert Reply.returncode == 0, Reply.stderr
         assert DecodeJson(Reply.stdout)["fingerprint"] == Entry["fingerprint"]
-        for Name in ("document.json", "receipt.json"):
-            assert (Batch / Entry["directory"] / Name).read_bytes() == (
-                Single / Name
+        for FileName in ("document.json", "receipt.json"):
+            assert (Batch / Entry["directory"] / FileName).read_bytes() == (
+                Single / FileName
             ).read_bytes()
 
 
 # a failed second pin must never expose the first staged document
-def CheckSwBatchPinFailure(TmpPath: FilePath) -> None:
+def CheckSwBatchPin(TmpPath: FilePath) -> None:
     Manifest = DecodeJson((ResearchRoot() / "re/automation/Corpus.json").read_bytes())
     for Asset in Manifest["assets"]:
         if Asset["path"] == KSwAsset:
             Asset["sha256"] = "0" * 64
     ManifestPath = TmpPath / "Manifest.json"
-    ManifestPath.write_text(EncodeJson(Manifest), encoding="utf-8")
+    _ = ManifestPath.write_text(EncodeJson(Manifest), encoding="utf-8")
     Batch = TmpPath / "Batch"
     Result = ResearchCli(
         TmpPath,

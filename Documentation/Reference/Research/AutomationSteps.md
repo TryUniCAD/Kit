@@ -697,9 +697,13 @@ PR head `b9efdb5ee15da0f802880b97816a8422865545b4` repeated the installed CLI ve
 ### A08d-PinnedReaderBatches: pinned corpus reader overhead
 
 Codex owns this checking task on `codex/pinned-decoder-batches`, based on main `14570404846c8aa1f90b02e68d6f70a419719ca7`.
-Delivery uses a separate PR. Dependencies are the A04a and A05a readers, the sealed A02 corpus, and the A08d CLI bridge.
+Delivery is [PR #279](https://github.com/TryUniCAD/Kit/pull/279).
+Dependencies are the A04a and A05a readers, the sealed A02 corpus, and the A08d CLI bridge.
 The scope covers Git transport for both formats, the additive SOLIDWORKS batch, and the feature inventory session.
 The exit requires public CLI timings, exact neutral byte comparisons, intact pin and refusal behavior, current-head CI and configured review.
+At reader revision `654f00108c3e151c28b5e3e84eb48bd2ff7f9f2a`, the three-part SOLIDWORKS median fell from 37.20 s to 17.97 s.
+The eight-part Fusion median moved from 16.93 s to 17.01 s with fifteen fewer blob processes.
+The measured neutral documents matched exactly in both comparisons.
 See the [change entry](../../Changes/Research/Offline/PinnedReaderBatches.md).
 
 ## A08h-Placement20261123: decimal native reader evidence
