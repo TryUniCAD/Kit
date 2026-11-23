@@ -49,6 +49,10 @@ from its newly written model and matches byte for byte. The source
 admission ledger still records unmodeled parent streams. The evidence
 adds zero native launches and zero held-out qualifications.
 
+The [fresh auxiliary composition](FreshAssemblyAuxiliaries2026.md)
+adds seven additional inactive document members on top of this
+complete indexed parent.
+
 ```sh
 python3.14 -I -B re/tooling/sw2026/para/concentric/ProveAssemblyContentIndex.py \\
   --disclosures /absolute/path/to/Oracle121Takeover \\

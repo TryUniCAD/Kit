@@ -239,6 +239,13 @@ Eleven saved indexes reconstruct exactly, including one empty assembly.
 Three guarded neutral builds preserve every prior parent stream. Eighteen
 original D01 members still need construction or source admission evidence.
 [Content index proof](../../re/solidworks/records/AssemblyContentIndex2026.md)
+
+Seven independently generated [fresh auxiliary members](../../re/solidworks/records/FreshAssemblyAuxiliaries2026.md)
+add the inactive opening-time properties, attachment and OLE
+registrations, and default motion-load map and empty lists. Eleven
+disclosed saves provide 77 exact stream comparisons. The 32-stream
+parent retains the earlier 25 streams and linked part. Eleven original
+D01 streams still need construction or source admission evidence.
 The [stock child roughness comparison](../../re/solidworks/records/ConcentricStockChildAppearanceCodec2026.md) preserves two independent native edits through save and reopen with both controls healthy. The typed audit replays the two populated Definition streams and distinguishes the five classic appearance fields from unchanged DSPBR roughness. A separate single-getter trial proves the second stored row, common ID, allocator advance and binary32 conversion path. [Getter evidence](../../re/solidworks/records/AppearanceGetterPersistence2026.md) Generated appearance writing remains open.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.
