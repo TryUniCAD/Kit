@@ -76,3 +76,7 @@ presence and the unmeasured native cache inventory. The next bridge needs
 scope-checked source inventory handling and native proof that each omitted
 cache can be regenerated. The assembler neither advances public eligibility
 nor touches H01 or H02.
+
+The [stamp and configuration bookkeeping proof](ConcentricD01StampStreams2026.md)
+adds three streams from the same neutral request and retains all four
+property owners byte for byte.

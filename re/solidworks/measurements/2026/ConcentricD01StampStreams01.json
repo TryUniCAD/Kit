@@ -1,0 +1,357 @@
+{
+  "base": "5ccf707ad3e82eb409d33833ba013e79b93ca84a",
+  "disclosed_corpus_sha256": "3c67d10789bbd681bfb99da712e1c6a035d78713b326c3048373ed4972198997",
+  "disclosed_sources": {
+    "D01": {
+      "Edited": {
+        "own_geometry_stamp": 103,
+        "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+        "stamps": {
+          "body": 101,
+          "creation_time": 1795044311,
+          "update": 106
+        },
+        "streams": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "e5c61b2623e031a153d58bf610ec3c61c542203d383480f24c2ab964892f1d47"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "77bc6a0f4d1e7738e4a9bd6f0c9ac5f4e3f3031d9240021ee6f2a6ec761caaa2"
+          }
+        }
+      },
+      "Source": {
+        "own_geometry_stamp": 102,
+        "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+        "stamps": {
+          "body": 101,
+          "creation_time": 1795044311,
+          "update": 105
+        },
+        "streams": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "eacac56f0db01457682757ecc5f82e4dba92be26d98372640597a9748db1b28b"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "09fb6800795ec158ed45138dfc46ba3e00375feb8f7c2947fd122e11a9368869"
+          }
+        }
+      }
+    },
+    "D02": {
+      "Edited": {
+        "own_geometry_stamp": 103,
+        "parent_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+        "stamps": {
+          "body": 101,
+          "creation_time": 1795044657,
+          "update": 107
+        },
+        "streams": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "28251bf52a57af19bbb5e759432e531d913db198020efa9281c30f1634a0ea8f"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "00c807862c0f2b2ed939bed72cdd33deea2d6d63a49da114e4be6ea98b538307"
+          }
+        }
+      },
+      "Source": {
+        "own_geometry_stamp": 102,
+        "parent_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+        "stamps": {
+          "body": 101,
+          "creation_time": 1795044657,
+          "update": 106
+        },
+        "streams": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "b0552e511903ce036ea090b8fa17c8126f24e6dcffb5e32071c416a3d2812d64"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "77bc6a0f4d1e7738e4a9bd6f0c9ac5f4e3f3031d9240021ee6f2a6ec761caaa2"
+          }
+        }
+      }
+    },
+    "D03": {
+      "Edited": {
+        "own_geometry_stamp": 103,
+        "parent_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+        "stamps": {
+          "body": 101,
+          "creation_time": 1795044950,
+          "update": 106
+        },
+        "streams": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "63161d44250bccf1fcc58b0b2778fe50aa2cd15a39a9707b305cb6f8a326fbbd"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "77bc6a0f4d1e7738e4a9bd6f0c9ac5f4e3f3031d9240021ee6f2a6ec761caaa2"
+          }
+        }
+      },
+      "Source": {
+        "own_geometry_stamp": 102,
+        "parent_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+        "stamps": {
+          "body": 101,
+          "creation_time": 1795044950,
+          "update": 105
+        },
+        "streams": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "942593ceb90f6ff603ebc4cbeec22aec6cf4b7e49517b1bd5143093d0d02a60e"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "09fb6800795ec158ed45138dfc46ba3e00375feb8f7c2947fd122e11a9368869"
+          }
+        }
+      }
+    }
+  },
+  "generated": {
+    "actual_mate": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.04690999999999999
+        ],
+        [
+          0.0,
+          -0.04691000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        150,
+        203
+      ],
+      "mate_bytes": 3596,
+      "mate_sha256": "217f18c6b94af88cb0cbf577ed3fc5e09fffd2d8ba2e2c24397b216ef0b83a59",
+      "occurrence_names": [
+        "ConcentricD01Child-1",
+        "ConcentricD01Child-2"
+      ],
+      "occurrences": [
+        24,
+        25
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.03126999999999999,
+          0.26817
+        ]
+      ]
+    },
+    "baseline_parent_sha256": "86915e1c4d796a52dd7b6004e57c5ae6b04f16bc070a5204b43532094ab8b18c",
+    "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+    "new_streams": {
+      "own_geometry_stamp": 101,
+      "stamps": {
+        "body": 101,
+        "creation_time": 1795044311,
+        "update": 101
+      },
+      "streams": {
+        "Contents/CnfgObjs": {
+          "bytes": 12,
+          "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "sha256": "e23782f9abaa8bacae0f8899337f618829fd350006f4f48b1d32e6149a7c554b"
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "sha256": "ad8eacc77de08da456abc915a336fcd603c032e7abd9d5e5a2bbd54033e68987"
+        }
+      }
+    },
+    "ordinary_streams_unchanged": 17,
+    "parent_bytes": 13796,
+    "parent_sha256": "4261559e326f8aba8c0a26bcf201b00583b844ab924fe831d72da3071311c24a",
+    "parent_streams": [
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Header2",
+      "ModelStamps",
+      "ThirdPtyStore/VisualStates",
+      "_DL_VERSION_19000/DLUpdateStamp",
+      "_MO_VERSION_19000/Biography",
+      "_MO_VERSION_19000/History",
+      "docProps/Config-0-Properties.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "properties": {
+      "configuration": "Default",
+      "created_at": 1795044312,
+      "created_minus_header_creation_s": 1,
+      "modified_at": 1816327100,
+      "modified_minus_header_save_s": 0,
+      "streams": {
+        "Contents/CusProps": {
+          "bytes": 106,
+          "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+        },
+        "docProps/Config-0-Properties.xml": {
+          "bytes": 699,
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+        },
+        "docProps/core.xml": {
+          "bytes": 546,
+          "sha256": "aaedc836fed39da0e6a74a47a4a604b49cb3968a29b4c9a770207f0bf035395e"
+        },
+        "docProps/custom.xml": {
+          "bytes": 853,
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+        }
+      },
+      "terminal_map": 7
+    },
+    "refusals": {
+      "detached_active_configuration": "empty configuration objects require the actual one selected assembly configuration",
+      "divergent_header_update": "assembly header creation/update/body ownership disagrees",
+      "duplicate_output_scope": "assembly bookkeeping conflicts with an already emitted stream",
+      "missing_mirror": "assembly bookkeeping scope is incomplete",
+      "missing_root_log": "assembly bookkeeping lacks an owned revision log",
+      "stale_display_update": "display update disagrees with the model update counter",
+      "trailing_config_data": "configuration object overrides contain an unqualified name or trailing data"
+    },
+    "runtime_external_accesses": 0,
+    "unrepresented_source_streams": [
+      "Contents/3DExperienceExchange2",
+      "Contents/3DExperienceExchange_ConfigHeader",
+      "Contents/Config-0-Attachment",
+      "Contents/Config-0-LWDATA",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/User Units Table",
+      "Contents/eModelLic",
+      "FaceTessellations/000-000-002",
+      "FaceTessellations/Directory",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPty/CM_MOTION_LOAD_1",
+      "ThirdPty/SWA_Schedules",
+      "[Content_Types].xml",
+      "_rels/.rels",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml"
+    ]
+  },
+  "guarded_generated_workers": 2,
+  "heldout_accesses": 0,
+  "integration": "9eb5a40b67406ea9b5a306e3cc5074d013096e66",
+  "native_probes": 0,
+  "neutral_request_sha256": "7fd17ea690d922132b83333672aca5bf3c194490788edfd8217202255556d783",
+  "prior_receipt_sha256": "39b0003fb2cf250afb85bc6efa26ec80e38bd92e47cfd49f909a789db13cf6d7",
+  "public_publication": false,
+  "schema": "kit.sw2026.disclosed-d01-assembly-bookkeeping.v1",
+  "source_original_refusal": "assembly root contains unprojected model content",
+  "source_sha256": {
+    "re/tooling/sw2026/para/concentric/D01AssemblyStampStreams.py": "0d120a1257f585deb52e5d0758d9f19b4992268cb5c63f5118177eb662d17c4e",
+    "re/tooling/sw2026/para/concentric/ProveD01AssemblyStamps.py": "b65dff7f5c9b3f251babbd33662601902749f24dd5f708391eceb9266334b404"
+  },
+  "whole_source_admitted": false
+}
