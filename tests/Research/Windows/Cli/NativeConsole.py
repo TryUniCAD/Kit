@@ -5,9 +5,9 @@ from subprocess import Popen as StartProcess
 from tests.Research.Windows.Cli.CanIgnoreEvent import CanIgnoreEvent
 from tests.Research.Windows.Cli.SignalConsole import SignalConsole
 from tests.Research.Windows.Cli.StopConsole import StopConsole
-from tests.Research.Windows.Cli.WaitConsole import WaitConsole
 
 if sys.platform == "win32":
+    from subprocess import CREATE_NEW_PROCESS_GROUP as KNewProcessGroup
     from win32api import SetConsoleCtrlHandler
 
 
@@ -16,7 +16,6 @@ def LaunchNative() -> int:
     if sys.platform == "win32":
         RecordName, RootName, ConfigName, EventName = sys.argv[1:]
         RecordPath = FilePath(RecordName)
-        GroupNumber = WaitConsole(RecordPath)
         KitExecutable = FilePath(sys.executable).with_name("kit.exe")
         SetConsoleCtrlHandler(CanIgnoreEvent, True)
         try:
@@ -32,10 +31,13 @@ def LaunchNative() -> int:
                     "run",
                     "--max-seconds",
                     "60",
-                ]
+                ],
+                creationflags=(
+                    KNewProcessGroup if EventName == "CTRL_BREAK_EVENT" else 0
+                ),
             ) as Launcher:
                 try:
-                    SignalConsole(RecordPath, EventName, GroupNumber)
+                    SignalConsole(RecordPath, EventName, Launcher.pid)
                     return Launcher.wait(timeout=75)
                 finally:
                     StopConsole(Launcher)

@@ -6,6 +6,7 @@ from pytest import mark as TestMark
 
 from tests.Research.SupervisorClient import FixtureJob, SessionHost
 from tests.Research.Windows.Compatibility.PrepareLegacy import PrepareLegacy
+from tests.Research.Windows.Compatibility.ProveLegacy import ProveLegacy
 
 
 # incompatible research checkouts must fail before a real queued job can acquire a lease
@@ -15,7 +16,9 @@ from tests.Research.Windows.Compatibility.PrepareLegacy import PrepareLegacy
 )
 def CheckLegacyCli(TmpPath: FilePath, MarkerText: str) -> None:
     Harness = SessionHost(TmpPath, {"decode": 1}, {"fixture.decode": "decode"})
-    Harness.SubmitJobs([FixtureJob("windows:legacy", "fixture.decode")])
+    Harness.SubmitJobs(
+        [FixtureJob("windows:legacy", "fixture.decode", lease_seconds=15)]
+    )
     BeforeJob = Harness.ReadJob("windows:legacy")
     StatePath = TmpPath / "SupervisorState"
     BeforeState = sorted(StatePath.rglob("*"))
@@ -43,3 +46,4 @@ def CheckLegacyCli(TmpPath: FilePath, MarkerText: str) -> None:
     assert "update the selected --root research checkout" in ResultInfo.stderr
     assert Harness.ReadJob("windows:legacy") == BeforeJob
     assert sorted(StatePath.rglob("*")) == BeforeState
+    ProveLegacy(Harness, RootPath)

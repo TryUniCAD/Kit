@@ -27,6 +27,9 @@ Native process coverage under `tests/Research/Windows/Cli/LauncherTests.py` exer
 Each case requires a settlement receipt and termination of the independently recorded worker process tree.
 Cancellation must finish within 15 seconds of the recorded request, before the safety deadline can settle workers independently.
 Compatibility cases reject missing, unsupported, and invalid protocol markers without changing a queued controller job.
+The same complete legacy fixture then dispatches that queued job directly, proving its dependencies are present.
+Native break-event cases create an explicit launcher process group and target its recorded root identifier.
+Private test job custody handles failed launchers and surviving descendants without masking successful worker-cleanup assertions.
 These cases use the existing Windows merge-queue selection and completeness checks.
 The existing CLI bridge compatibility check now requires supervisor help on Windows as well as POSIX systems.
 Remote execution results remain pending until CI runs this revision.
