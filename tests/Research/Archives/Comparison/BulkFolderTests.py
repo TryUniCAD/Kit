@@ -133,3 +133,46 @@ def CheckOutcomes(
     assert Summary["outcomes"] == {StatusName: 1}
     if "unresolved" in Scenario:
         assert Summary["pairs"][0]["counts"]["source_issues"] > 0
+
+
+# input failures must outrank retained source uncertainty without hiding later comparisons or their detailed evidence
+@MarkValue.parametrize("StatusName", ("unresolved", "different"))
+def CheckErrorFirst(TmpPath: FilePath, StatusName: str) -> None:
+    First = TmpPath / "Left"
+    Second = TmpPath / "Right"
+    Output = TmpPath / "Output"
+    First.mkdir()
+    Second.mkdir()
+    Document = MakeUnresolved("source_attributes")
+    assert (First / "AInvalid.json").write_text("{}", encoding="utf-8") == 2
+    WriteDocument(Second / "AInvalid.json", MakeDocument())
+    WriteDocument(First / "Part.json", Document)
+    WriteDocument(
+        Second / "Part.json",
+        ChangeSemantic(Document, "role") if StatusName == "different" else Document,
+    )
+    Result = RunBulk(
+        [
+            "--left",
+            str(First),
+            "--right",
+            str(Second),
+            "--output",
+            str(Output),
+        ]
+    )
+    assert Result.returncode == 1, Result.stderr + Result.stdout
+    Summary = ParseJson((Output / "summary.json").read_text(encoding="utf-8"))
+    assert Summary["pair_count"] == 2
+    assert Summary["exit_code"] == 1
+    assert Summary["outcomes"] == {"reader_error": 1, StatusName: 1}
+    assert Summary["pairs"][0]["status"] == "reader_error"
+    LaterRow = Summary["pairs"][1]
+    assert LaterRow["id"] == "Part.json"
+    assert LaterRow["status"] == StatusName
+    assert LaterRow["counts"]["source_issues"] > 0
+    Report = ParseJson(
+        (Output / LaterRow["report"]["path"]).read_text(encoding="utf-8")
+    )
+    assert Report["status"] == StatusName
+    assert all(Source["unresolved"] for Source in Report["sources"].values())
