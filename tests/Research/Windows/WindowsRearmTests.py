@@ -164,7 +164,7 @@ def RunRetries(Harness: SessionHost, Options: dict[str, str], Restart: bool) -> 
                 "fixture:rearm",
                 "fixture.app",
                 lease_seconds=12,
-                timeout_seconds=15,
+                timeout_seconds=19,
                 max_attempts=2,
                 retry_base_seconds=1,
                 resources=["application:missing"],

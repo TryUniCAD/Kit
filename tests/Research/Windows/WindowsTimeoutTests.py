@@ -60,19 +60,13 @@ def PrepareTimeout(
     _ = Queue.ConfigFile.write_text(JsonCodec.dumps(Config), encoding="utf-8")
     Harness = SessionHost(RootPath, {"apps": 1}, {"fixture.app": "apps"})
     SetAppRunner(Harness, Queue.ConfigFile, Readback=True)
-    SettlementMarginSeconds = 4
-    SupervisorConfig = JsonCodec.loads(Harness.ConfigFile.read_bytes())
-    SupervisorConfig["stop_grace_seconds"] += SettlementMarginSeconds
-    _ = Harness.ConfigFile.write_text(
-        JsonCodec.dumps(SupervisorConfig), encoding="utf-8"
-    )
     Harness.SubmitJobs(
         [
             FixtureJob(
                 "fixture:timeout",
                 "fixture.app",
                 lease_seconds=12,
-                timeout_seconds=TimeoutSeconds + SettlementMarginSeconds,
+                timeout_seconds=TimeoutSeconds + 4,
                 max_attempts=2,
                 resources=["application:missing"],
                 options={"source_revision": Config["source_revision"]},

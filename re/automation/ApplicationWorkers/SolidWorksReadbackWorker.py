@@ -32,6 +32,7 @@ READBACK_SCOPES = {
     DISCOVERY: ("P01-P03-P04", "discovery_files_observed", 25),
 }
 BUILD = "34.4.1.1011"
+RESULT_PUBLICATION_RESERVE_SECONDS = 5
 OUTPUTS = {
     "readback.plan": "readback/plan.json",
     "readback.measurements": "readback/measurements.json",
@@ -403,7 +404,7 @@ def dispatch(session, config, operation=OPERATION):
                "claim": "unqualified_dispatch", "native_qualified": False}
     if os.name != "nt" or config["application"] != "solidworks":
         return {"outcome": "waiting_application", "reason": "SOLIDWORKS readback requires Windows", "records": records}
-    deadline = min(job["stop_at"] - 1, time.time() + 300)
+    deadline = min(job["stop_at"] - RESULT_PUBLICATION_RESERVE_SECONDS, time.time() + 300)
     require(deadline > time.time(), "application session has no remaining dispatch budget")
     verify_sources(config)
     client = None
