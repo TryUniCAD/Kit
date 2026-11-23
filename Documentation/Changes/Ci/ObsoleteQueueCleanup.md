@@ -41,6 +41,7 @@ Scope: native queue resource cleanup; dependency: default-branch rollout.
 Exit: current-head PR gates and configured approval, then separately authorized queue acceptance and measured timing.
 
 The complete test suite includes process-boundary cleanup fixtures covering abandoned and active runs, API failures, pagination, current-run refresh, and excluded workflow identities.
+Failure scenarios require the expected API error evidence and exact candidate refs so unrelated fixture assertions cannot count as successful failure handling.
 Remote execution and a post-merge queue benchmark remain pending.
 No measured speedup is claimed for this change before candidate acceptance and end-to-end timing.
 The motivating observations are recorded in [dequeued candidate runs](../../Gotchas/Ci/Scheduling/DequeuedCandidateRuns.md).

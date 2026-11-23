@@ -81,3 +81,14 @@ def CheckCleanup(CaseName: str) -> None:
             f"heads/{Evidence['Current']['head_branch']}",
             f"heads/{Evidence['Current']['head_branch']}".replace("pr-42-", "pr-43-"),
         ]
+    elif Evidence["RefNames"]:
+        assert Evidence["RefNames"] == [f"heads/{Evidence['Current']['head_branch']}"]
+    if Outcome.returncode:
+        assert {
+            "queue-error": "Queue unavailable",
+            "queue-null": "Queue head evidence unavailable",
+            "queue-missing": "Queue head evidence unavailable",
+            "ref-error": "Reference lookup",
+            "entry-error": "Entry unavailable",
+            "entry-missing": "Current queue entry evidence unavailable",
+        }[CaseName] in Outcome.stderr
