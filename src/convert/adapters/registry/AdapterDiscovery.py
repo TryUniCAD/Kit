@@ -71,12 +71,16 @@ def GetAdapterType(CandidateData: object, PackageName: str) -> type[object] | No
     return CandidateData if IsReader or IsWriter else None
 
 
-# module inspection deduplicates imported symbols while preserving deterministic class ordering
+# module inspection resolves deferred facade exports so lazy packages still contribute every adapter they publish
 def GetModuleTypes(ModuleData: ModuleType) -> tuple[type[object], ...]:
     AdapterTypes = {
         AdapterType
-        for CandidateData in vars(ModuleData).values()
-        if (AdapterType := GetAdapterType(CandidateData, ModuleData.__name__))
+        for NameValue in dir(ModuleData)
+        if (
+            AdapterType := GetAdapterType(
+                getattr(ModuleData, NameValue, None), ModuleData.__name__
+            )
+        )
         is not None
     }
     return tuple(
