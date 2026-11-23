@@ -3,10 +3,12 @@ ReportRoot="${1:?}"
 ReportPrefix="${2:?}"
 RunAttempt="${3:?}"
 NativePattern="${4:-}"
+ShardCount="${6:-4}"
+case "$ShardCount" in 4|5) ;; *) exit 1 ;; esac
 Collected=""
 SelectedFiles=()
 ReportFiles=()
-for ShardIndex in 1 2 3 4; do
+for ((ShardIndex=1; ShardIndex<=ShardCount; ShardIndex++)); do
   ArtifactAttempt="$RunAttempt"
   while [ "$ArtifactAttempt" -gt 0 ]; do
     ReportDir="$ReportRoot/$ReportPrefix-shard-$ShardIndex-$ArtifactAttempt"
@@ -42,7 +44,7 @@ if [ -n "$NativePattern" ]; then
       and .outcome == "passed" and (.nodeid | test($NativePattern)))
     ' "${ReportFiles[@]}"
 fi
-echo "Every collected case ran exactly once across four successful shards" >> "$GITHUB_STEP_SUMMARY"
+echo "Every collected case ran exactly once across ${ShardCount} successful shards" >> "$GITHUB_STEP_SUMMARY"
 
 if [ -n "${5:-}" ]; then
   jq --slurp '

@@ -1,5 +1,8 @@
 # Merge queue operations
 
+The [shared runner budget](Documentation/Changes/Ci/RunnerBudgetScheduling.md) bounds cooperating heavy jobs and gives native merge acceptance priority over manual audits.
+Native shard expansion starts only after the trusted base includes its resource marker and updated CI allowlist.
+
 Kit uses GitHub's native merge queue for `main`. The desired settings live in
 [`.github/MergeQueue.json`](.github/MergeQueue.json). Repository settings are
 outside Git history: merging this configuration PR does not activate them.
