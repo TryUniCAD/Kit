@@ -19,14 +19,18 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 )
 
 
-# an explicit creation event must exist even when its time equals the native unset epoch
-def ReadPatTime(Header: ArchiveNode, PlaneValue: ArchiveNode, PlaneId: int) -> int:
+# a registered default datum may use the documented unset creation epoch before its first recorded event
+def ReadPatTime(
+    Header: ArchiveNode, PlaneValue: ArchiveNode, PlaneId: int, *, DefaultDatum: bool
+) -> tuple[int, bool]:
     LogsValue = ReadLogItems(Header.FieldsValue.get("f20"), "moLogs_c")
     Matches = tuple(
         ItemValue
         for ItemValue in LogsValue
         if FieldInt(ItemValue.FieldsValue, "f48") == PlaneId
     )
+    if DefaultDatum and not Matches:
+        return DatumTime(Header, PlaneId), False
     if (
         len(Matches) != 1
         or Matches[0].FieldsValue.get("f50")
@@ -34,7 +38,7 @@ def ReadPatTime(Header: ArchiveNode, PlaneValue: ArchiveNode, PlaneId: int) -> i
         or not ReadLogItems(Matches[0], "moStamp_c")
     ):
         raise ValueError("pattern direction requires both actual plane creation logs")
-    return DatumTime(Header, PlaneId)
+    return DatumTime(Header, PlaneId), True
 
 
 # the two header roles bind the same selected configuration and earlier plane allocation
@@ -44,6 +48,8 @@ def CheckPatTime(
     PlaneId: int,
     ConfigId: int,
     CreatedAt: int,
+    *,
+    DefaultDatum: bool,
 ) -> tuple[int, int]:
     Primary, Secondary = Headers
     RequireRootNode(Primary, "moHeader_c")
@@ -60,7 +66,11 @@ def CheckPatTime(
         == FieldInt(Secondary.FieldsValue, "f08")
     ):
         raise ValueError("pattern direction requires paired local part headers")
-    Epoch = ReadPatTime(Primary, PlaneValue, PlaneId)
-    if Epoch != CreatedAt or ReadPatTime(Secondary, PlaneValue, PlaneId) != Epoch:
+    PrimaryTime = ReadPatTime(Primary, PlaneValue, PlaneId, DefaultDatum=DefaultDatum)
+    SecondaryTime = ReadPatTime(
+        Secondary, PlaneValue, PlaneId, DefaultDatum=DefaultDatum
+    )
+    Epoch, _ = PrimaryTime
+    if PrimaryTime != SecondaryTime or (not DefaultDatum and Epoch != CreatedAt):
         raise ValueError("pattern direction creation differs between its own headers")
     return Epoch, SignedStamp(FieldInt(Primary.FieldsValue, "f40"))

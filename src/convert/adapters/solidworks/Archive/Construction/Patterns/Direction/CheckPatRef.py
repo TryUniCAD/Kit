@@ -13,13 +13,28 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 
 # the component and configuration must come from the actual part that allocated the selected plane
 def CheckPatRef(
-    SystemValue: PartSystem, Allocator: PersistentIds, PlaneValue: ArchiveNode
+    SystemValue: PartSystem,
+    Allocator: PersistentIds,
+    PlaneValue: ArchiveNode,
+    RoleValue: int,
 ) -> tuple[ArchiveNode, int, int]:
     RootValue = SystemValue.RootValue
     RequireRootNode(RootValue, "moPart_c")
     PlaneId = FieldInt(PlaneValue.FieldsValue, "f08")
     Geometry = ArchiveNode.RequireNode(PlaneValue.FieldsValue.get("f6f8"))
-    if Geometry.FieldsValue.get("owner") is not PlaneValue:
+    if RoleValue:
+        AxisValue = "x" if RoleValue == 1 else "y"
+        if (
+            RoleValue not in (1, 2)
+            or SystemValue.SystemValues.PlaneValues.get(AxisValue) is not PlaneValue
+            or sum(NodeValue is PlaneValue for NodeValue in SystemValue.FeatureValues)
+            != 1
+            or Geometry.FieldsValue.get("owner") is not None
+        ):
+            raise ValueError(
+                "pattern direction must use its actual registered principal plane"
+            )
+    elif Geometry.FieldsValue.get("owner") is not PlaneValue:
         raise ValueError("pattern direction geometry must belong to the selected plane")
     if (
         PlaneValue.FieldsValue.get("owner") is not RootValue

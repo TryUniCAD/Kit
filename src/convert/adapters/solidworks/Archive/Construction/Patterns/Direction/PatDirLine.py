@@ -11,3 +11,4 @@ class PatDirLine:
     PointValue: KDatumVector
     DirectionValue: KDatumVector
     SpanValue: float
+    RoleValue: int = 0

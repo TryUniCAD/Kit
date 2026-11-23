@@ -78,6 +78,8 @@ The neutral selected-stock writer accepts two independent coaxial annular stocks
 
 The default strict geometry read restores the exact count, spacing, seed feature and principal datum of the measured joined linear boss pattern. It joins the final body to the actual pattern and retains the saved boundary. [Saved linear pattern](../../Changes/Solidworks/Reading/Patterns/SolidworksLinearPatternRead.md)
 
+The internal pattern constructor can emit the selected direction member for an actual Top or Right plane using its signed display frame and paired header identity. Complete principal pattern publication remains unqualified. [Principal direction construction](../../Changes/Solidworks/Construction/Patterns/SolidworksPrincipalPatternDirection.md)
+
 The internal linked part archive codec also retains the finite hinge, constrained angular plane and its driving display for the measured oblique linear pattern. It reproduces the generated and native-saved streams with their owner maps. [Angular pattern archive](../../Changes/Solidworks/Archive/Patterns/SolidworksAngularPatternArchive.md)
 
 The strict public reader also recovers the finite hinge supports and the actual angular driving parameter for the measured saved oblique pattern. The contained joined-boss cases retain the count, pitch, direction, dependencies and saved solid. [Saved angular pattern](../../Changes/Solidworks/Reading/Patterns/SolidworksAngularPatternRead.md)

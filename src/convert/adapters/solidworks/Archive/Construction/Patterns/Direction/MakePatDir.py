@@ -38,12 +38,21 @@ def MakePatDir(
     Headers: tuple[ArchiveNode, ArchiveNode],
 ) -> ArchiveNode:
     LineValue = ReadPatDir(PlaneValue)
-    UnitValue, ConfigId, PlaneId = CheckPatRef(SystemValue, Allocator, PlaneValue)
+    UnitValue, ConfigId, PlaneId = CheckPatRef(
+        SystemValue, Allocator, PlaneValue, LineValue.RoleValue
+    )
     Epoch, Access = CheckPatTime(
-        Headers, PlaneValue, PlaneId, ConfigId, Settings.HeaderValue.CreatedAt
+        Headers,
+        PlaneValue,
+        PlaneId,
+        ConfigId,
+        Settings.HeaderValue.CreatedAt,
+        DefaultDatum=LineValue.RoleValue != 0,
     )
     RefFields = CompRefFields(UnitValue)
-    RefFields.update(ff0={"f00": PlaneId, "f08": Epoch}, ff8=None, f100=0)
+    RefFields.update(
+        ff0={"f00": PlaneId, "f08": Epoch}, ff8=None, f100=LineValue.RoleValue
+    )
     Reference = ArchiveNode(RuntimeClass("moCompRefPlane_c", 1), RefFields)
     Fields = WrapperFields(Reference)
     Fields.update(
