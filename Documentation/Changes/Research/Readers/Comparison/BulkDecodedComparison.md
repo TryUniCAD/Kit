@@ -39,6 +39,7 @@ Directory discovery streams entries within its fixed discovery budget instead of
 Typed-reference cases cover feature output bodies, cut targets and face-offset operands, preserving collection order and refusing dangling identities.
 Order-only controls reverse unchanged body identities and require indexed reference differences.
 The discovery process witness counts reads delegated to the real filesystem iterator and requires refusal after 100000 entries from a larger directory.
+Its fixed fixture location and stdout telemetry avoid caller-selected witness file operations; the [path-contract gotcha](../../../../Gotchas/Ci/Policy/ProcessWitnessPaths.md) records the security finding and required re-verification.
 Reusable typed-document builders and process helpers live in focused modules with direct imports.
 The [exact unit-factor correction](ExactTopologyUnitFactors.md) adds zero-tolerance topology scaling controls.
 The tests use the existing complete-suite collection, merge-queue planner, shards, and report.

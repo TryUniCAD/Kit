@@ -297,7 +297,9 @@ Delivery continuation uses the isolated `codex/bulk-comparison-delivery` branch 
 Follow-up scope includes real committed export envelopes, mixed-error exit precedence, and exact topology unit factors.
 The exit requires process-boundary evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, and current-head CI and configured review.
 Status is checking. Scoped formatting, steering, Pyright, path policy, and Python 3.11 syntax checks passed locally.
-Remote process verification, current-head CI, configured review, and merge-group acceptance remain pending.
+The [first source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) verified source `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`: 7,782 tests scheduled fresh, 7,394 passed and 388 skipped, including all 47 bulk cases exactly once.
+Subsequent ordering, streaming-witness and helper changes require fresh revision-bound process evidence, current-head CI and configured review before pre-enrollment readiness.
+Native merge-group acceptance remains pending and is separate from a manual source audit.
 This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
 
 ### Existing comparison implementation

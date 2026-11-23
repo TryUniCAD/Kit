@@ -549,6 +549,7 @@ Codex owns `codex/bulk-semantic-comparison`; delivery is [PR #273](https://githu
 It depends on the existing semantic comparator and codec and compares decoded JSON without running either decoder.
 The exit requires process evidence, output-preservation checks, current-head CI, and configured review.
 The [change entry](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md) preserves scope and qualification limits.
+The [first manual source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) passed on `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`, including 47 bulk process cases; later review follow-ups require fresh source-bound evidence.
 The production snapshot and conversion milestones remain unchanged.
 
 The next critical-path task is B02: fresh native Fusion readback and paired semantic qualification on PR #94.
