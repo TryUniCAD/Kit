@@ -1,9 +1,10 @@
-from json import loads as ParseJson
+from json import dumps as EncodeJson, loads as ParseJson
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 
 from pytest import mark as MarkValue
 
+from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.serialization.JsonCodec import DumpJson
 from tests.Research.Archives.Comparison.BulkOrderDocuments import MakeOrderDocs
 from tests.Research.Archives.Comparison.BulkProcess import RunBulk
@@ -125,10 +126,36 @@ def CheckTypedOrder(TmpPath: FilePath, Family: str, RoleName: str) -> None:
     Differences = CastValue(
         list[dict[str, object]], Comparison["reference_differences"]
     )
-    assert {Difference["role"] for Difference in Differences} == {
-        RoleName + "/0",
-        RoleName + "/1",
-    }
+    Before, After = First.feature_timeline[-1], Second.feature_timeline[-1]
+    LeftIds, RightIds = Before.OutputBodyIds, After.OutputBodyIds
+    if Family == "cut_targets":
+        assert isinstance(Before.definition, DistanceCut)
+        assert isinstance(After.definition, DistanceCut)
+        LeftIds, RightIds = (
+            Before.definition.TargetBodyIds,
+            After.definition.TargetBodyIds,
+        )
+    Expected = [
+        {
+            "left": Before.id,
+            "right": After.id,
+            "role": RoleName + "/" + str(Index),
+            "left_target": BodyId,
+            "right_target": BodyId,
+            "left_count": LeftCount,
+            "right_count": RightCount,
+            "reason": "target_multiplicity",
+        }
+        for Index, (LeftBody, RightBody) in enumerate(zip(LeftIds, RightIds))
+        for BodyId, LeftCount, RightCount in (
+            (LeftBody, 1, 0),
+            (RightBody, 0, 1),
+        )
+    ]
+    assert len(Differences) == len(Expected) == 4
+    assert sorted(
+        EncodeJson(ItemValue, sort_keys=True) for ItemValue in Differences
+    ) == sorted(EncodeJson(ItemValue, sort_keys=True) for ItemValue in Expected)
     assert not Comparison["ambiguous"] and not Comparison["search_limited"]
     assert not Comparison["unmatched_left"] and not Comparison["unmatched_right"]
     assert not Comparison["issues"]
