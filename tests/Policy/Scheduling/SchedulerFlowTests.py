@@ -12,6 +12,8 @@ import pytest as Pytest
         "budget-new",
         "budget-audit",
         "budget-legacy",
+        "budget-uncontrolled",
+        "budget-rules-error",
         "budget-invalid",
         "budget-error",
         "admit-empty",
@@ -46,10 +48,16 @@ def CheckScheduler(CaseName: str) -> None:
         assert len(Shards) == (5 if CaseName == "budget-new" else 4)
         assert [Shard["index"] for Shard in Shards] == list(range(len(Shards)))
         assert Evidence["Outputs"]["runtime-target"] == (
-            "0" if CaseName == "budget-legacy" else "1200"
+            "0"
+            if CaseName
+            in {"budget-legacy", "budget-uncontrolled", "budget-rules-error"}
+            else "1200"
         )
         assert Evidence["Outputs"]["max-tests"] == (
-            "1200" if CaseName == "budget-legacy" else "1000"
+            "1200"
+            if CaseName
+            in {"budget-legacy", "budget-uncontrolled", "budget-rules-error"}
+            else "1000"
         )
         return
     assert Evidence["Pauses"] == int(CaseName in {"admit-busy", "admit-stale"})

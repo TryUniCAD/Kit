@@ -1,3 +1,4 @@
+const { ReadExpansion } = require("./ReadExpansion.cjs");
 const { ReadAuditRuns } = require("./ReadAuditRuns.cjs");
 
 async function SelectBudget(Github, Context, Logger) {
@@ -23,8 +24,10 @@ async function SelectBudget(Github, Context, Logger) {
   } catch (ErrorInfo) {
     if (ErrorInfo.status !== 404) throw ErrorInfo;
   }
-  const AuditRuns = Enabled && (await ReadAuditRuns(Github, Context.repo));
-  const Count = Enabled && !AuditRuns ? 5 : 4;
+  const Expanded =
+    Enabled && (await ReadExpansion(Github, Context.repo, Logger));
+  const AuditRuns = Expanded && (await ReadAuditRuns(Github, Context.repo));
+  const Count = Expanded && !AuditRuns ? 5 : 4;
   Logger.setOutput(
     "native",
     JSON.stringify(
@@ -35,8 +38,8 @@ async function SelectBudget(Github, Context, Logger) {
     ),
   );
   Logger.setOutput("count", String(Count));
-  Logger.setOutput("max-tests", Enabled ? "1000" : "1200");
-  Logger.setOutput("runtime-target", Enabled ? "1200" : "0");
+  Logger.setOutput("max-tests", Expanded ? "1000" : "1200");
+  Logger.setOutput("runtime-target", Expanded ? "1200" : "0");
   Logger.info(
     `Native shards: ${Count}; shared Linux lanes: 8; trusted budget active: ${Enabled}`,
   );

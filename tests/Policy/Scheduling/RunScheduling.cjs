@@ -57,6 +57,21 @@ const Github = {
   },
   paginate: async (Method, Request) => {
     Requests += 1;
+    if (Method === "GET /repos/{owner}/{repo}/rules/branches/{branch}") {
+      Assert.equal(Request.branch, "main");
+      if (CaseName === "budget-rules-error")
+        throw new Error("Rules unavailable");
+      return [
+        {
+          type: "merge_queue",
+          parameters: {
+            max_entries_to_build: CaseName === "budget-uncontrolled" ? 25 : 1,
+            min_entries_to_merge: 1,
+            min_entries_to_merge_wait_minutes: 0,
+          },
+        },
+      ];
+    }
     Assert.equal(Method, "runs");
     Assert.equal(Request.workflow_id, "MergeQueue.yml");
     if (CaseName === "budget-audit" && Request.status === "in_progress")
@@ -76,6 +91,7 @@ const Context = {
 };
 const Logger = {
   info: () => {},
+  warning: () => {},
   setOutput: (OutputName, Value) => {
     Outputs[OutputName] = Value;
   },

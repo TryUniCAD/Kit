@@ -21,12 +21,15 @@ All heavy audit jobs depend on successful admission and collection.
 Audit Windows and macOS shards execute one at a time in the fifth native lane.
 The first four native lanes remain available to merge candidates arriving during an audit.
 Audits retain fresh test execution, their requested source SHA, feature-session input, and every reporting gate.
-Their Linux matrix runs at most two shards concurrently and shares the eight Linux lanes.
+All heavy Linux audit jobs share only lanes six and seven, including scanners and at most two concurrent test shards.
+The first six Linux lanes remain available to later merge candidates.
 This gives merge acceptance priority; complete manual audits can take longer than an unconstrained isolated audit.
 
 ## More sharding within the budget
 
-After the trusted base includes `.github/CiResources.json` and the updated allowlist, a candidate uses five native shards when no audit is active or pending.
+After the trusted base includes `.github/CiResources.json` and the updated allowlist, expansion also requires live queue settings of one build, one minimum entry, and zero batching wait.
+Unavailable rules disable expansion.
+An eligible candidate uses five native shards when no audit is active or pending.
 An active or pending audit retains four candidate shards, with the audit occupying the fifth lane.
 Linux uses a one-thousand-test cap and the existing twelve-hundred-test-second target, with eight runtime-requested shards.
 Additional shards required by the test-count cap reuse those same eight lanes.
@@ -46,7 +49,7 @@ No lint rule is suppressed to accept the new concurrency key.
 
 ## Operation and verification
 
-Task: future CI runner scheduling; owner: Codex; delivery PR pending.
+Task: future CI runner scheduling; owner: Codex; delivery [PR #276](https://github.com/TryUniCAD/Kit/pull/276).
 Scope: resource admission, bounded fanout, and fail-fast collection; dependency: default-branch rollout.
 Exit: current-head PR gates and configured approval, followed by separately authorized native acceptance and measured timing.
 
@@ -60,3 +63,5 @@ The shared concurrency queues retain at most one hundred pending jobs per lane; 
 An administrator must apply one candidate build, one minimum merge entry, and zero batching wait to the existing queue rule while preserving every other protection.
 The PR does not mutate repository settings, cancel other work, or change acceptance requirements.
 See [manual audit contention](../../Gotchas/Ci/Scheduling/ManualAuditRunnerContention.md) and [concurrency validator support](../../Gotchas/Ci/Scheduling/ConcurrencyQueueValidator.md).
+
+See the [native report count gotcha](../../Gotchas/Ci/Shards/NativeReportShardCount.md) for five-shard reporting compatibility.
