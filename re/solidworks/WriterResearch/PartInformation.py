@@ -146,10 +146,12 @@ def AddProperty(Section: Element, Pid: int, PropName: str, Kind: str, Text: str)
 
 
 # the normal name and the summary alias intentionally share the same text property identifier
-def AddDictionary(Section: Element, Names: Mapping[int, str]) -> None:
+def AddDictionary(
+    Section: Element, Names: Mapping[int, str], Order: tuple[int, ...]
+) -> None:
     SubElement(Section, "propertyNameDictionaryElement", name="", pid="0")
-    for Pid in KDictOrder:
-        if Pid == 50 and Pid not in Names:
+    for Pid in Order:
+        if Pid not in Names:
             continue
         PropName = Names[Pid]
         SubElement(
@@ -172,6 +174,15 @@ def EncodeInformation(Generation: int, Values: Mapping[str, str | int]) -> bytes
         raise ValueError(
             "ordinary SOLIDWORKS information properties do not match the witnessed roster"
         )
+    Fields = {
+        Pid: (Name, *TypedValue(Pid, Values[Name])) for Pid, Name in Names.items()
+    }
+    return EncodeInfoTable(Fields, KDictOrder)
+
+
+def EncodeInfoTable(
+    Fields: Mapping[int, tuple[str, str, str]], Order: tuple[int, ...]
+) -> bytes:
     Root = Element("Properties", {"xmlns": KInfoNs, "xmlns:vt": KVTypes})
     Section = SubElement(
         Root,
@@ -181,8 +192,7 @@ def EncodeInformation(Generation: int, Values: Mapping[str, str | int]) -> bytes
         fmtid=KUserProps,
     )
     AddProperty(Section, 1, "", "i2", str(KUtf8))
-    for Pid, PropName in Names.items():
-        Kind, Text = TypedValue(Pid, Values[PropName])
-        AddProperty(Section, Pid, PropName, Kind, Text)
-    AddDictionary(Section, Names)
+    for Pid, (Name, Kind, Text) in Fields.items():
+        AddProperty(Section, Pid, Name, Kind, Text)
+    AddDictionary(Section, {Pid: Name for Pid, (Name, _, _) in Fields.items()}, Order)
     return EncodePackageXml(Root, Standalone=True, ShortEmptyElements=False)

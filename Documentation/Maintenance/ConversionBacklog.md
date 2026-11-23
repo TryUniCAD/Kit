@@ -262,6 +262,12 @@ complete stores. The guarded 34-stream parent preserves every earlier
 stream and the linked child. Nine original D01 members remain outside the
 composed inventory, including [vendor license metadata](../../re/solidworks/records/ConcentricEModelLicOwnership2026.md).
 
+The [assembly system information writer](../../re/solidworks/records/D01AssemblyInformation2026.md)
+reproduces 49 properties, their dictionary and the entire stream in twelve
+disclosed assemblies. Two guarded workers add the generated stream to the
+35-stream parent while preserving the other 34 and the linked part. Eight
+original D01 members remain outside the composed inventory.
+
 The [stock child roughness comparison](../../re/solidworks/records/ConcentricStockChildAppearanceCodec2026.md) preserves two independent native edits through save and reopen with both controls healthy. The typed audit replays the two populated Definition streams and distinguishes the five classic appearance fields from unchanged DSPBR roughness. A separate single-getter trial proves the second stored row, common ID, allocator advance and binary32 conversion path. [Getter evidence](../../re/solidworks/records/AppearanceGetterPersistence2026.md) Generated appearance writing remains open.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.

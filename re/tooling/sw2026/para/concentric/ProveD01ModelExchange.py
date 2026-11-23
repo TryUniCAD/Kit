@@ -277,7 +277,7 @@ def generate(inputs, expected):
         not accessed and len(data.Records) == 8 and len(after.streams) == 34,
         "model exchange scope changed",
     )
-    return {
+    result = {
         "prior_parent_sha256": expected,
         "parent_sha256": fingerprint(output),
         "parent_bytes": len(output),
@@ -290,6 +290,15 @@ def generate(inputs, expected):
         "runtime_external_accesses": len(accessed),
         "duplicate_refusal": refusal,
     }
+    return output, child, result, accessed
+
+
+def model_inputs(neutral, prior):
+    return {
+        "neutral": json.loads(neutral),
+        "header_event": prior["generated"]["creation_events"][0],
+        "model_clock": "2026-11-23T02:28:02",
+    }
 
 
 def main():
@@ -301,7 +310,8 @@ def main():
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     if args.worker:
-        sys.stdout.buffer.write(wire(generate(json.load(sys.stdin), args.worker)))
+        _, _, result, _ = generate(json.load(sys.stdin), args.worker)
+        sys.stdout.buffer.write(wire(result))
         return
     require(
         args.output is not None and args.model_module is not None,
@@ -324,13 +334,7 @@ def main():
     )
     visibility = native_visibility(args.model_module)
     neutral = neutral_request(args.disclosures, properties)
-    request = wire(
-        {
-            "neutral": json.loads(neutral),
-            "header_event": prior["generated"]["creation_events"][0],
-            "model_clock": "2026-11-23T02:28:02",
-        }
-    )
+    request = wire(model_inputs(neutral, prior))
     command = (
         sys.executable,
         "-I",
