@@ -31,11 +31,9 @@ function ReadWorkflows(IsQueue, NativeCount) {
       if (Name.includes(GroupMatrix)) {
         if ((!IsQueue && File === "MergeQueue.yml") || Deferred.has(Name))
           return [Name];
-        const Expanded = ExpandGroups(Block, NativeCount).map((Group) =>
+        return ExpandGroups(Block, NativeCount).map((Group) =>
           Name.replace(GroupMatrix, Group),
         );
-        if (Deferred.has(Name)) Expanded.forEach((Item) => Deferred.add(Item));
-        return Expanded;
       }
       if (IsQueue && Name === ShardMatrix)
         return [1, 2, 3].map((Index) => `Test suite / Shard (${Index})`);
