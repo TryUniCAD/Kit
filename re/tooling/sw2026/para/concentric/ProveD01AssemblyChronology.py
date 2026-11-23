@@ -201,7 +201,7 @@ def visual_input(bundle, document, request, reg):
     return replace(bundle, StreamsValue=bundle.StreamsValue | {VISUAL: data})
 
 
-def compose(request, intents, docs, models, reg, *, refusals=None):
+def compose_streams(request, intents, docs, models, reg, *, refusals=None):
     phases = ("before", "after")
     if intents is None:
         bundles = tuple(build(request[key], doc, model) for key, doc, model in zip(phases, docs, models, strict=True))
@@ -223,7 +223,12 @@ def compose(request, intents, docs, models, reg, *, refusals=None):
     visual_bytes = relocate_visual(previous, current, models, reg)
     apply_history(previous, current, models, selected)
     streams = EmitAsmStreams(*roles, current.OccurrenceValues, current.MateValues).StreamsValue
-    return BuildSldprt(streams | {VISUAL: visual_bytes}, FormatVersion=4), current
+    return streams | {VISUAL: visual_bytes}, current
+
+
+def compose(request, intents, docs, models, reg, *, refusals=None):
+    streams, current = compose_streams(request, intents, docs, models, reg, refusals=refusals)
+    return BuildSldprt(streams, FormatVersion=4), current
 
 
 def prove_refusals(result, previous, current, models, intents, request, reg):

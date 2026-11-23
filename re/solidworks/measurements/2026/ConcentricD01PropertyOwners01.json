@@ -1,0 +1,370 @@
+{
+  "base": "3b5caa3b599b2184f32260e8b383d15044946d5f",
+  "disclosed_corpus_sha256": "3c67d10789bbd681bfb99da712e1c6a035d78713b326c3048373ed4972198997",
+  "disclosed_sources": {
+    "D01": {
+      "Edited": {
+        "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+        "configuration": "Default",
+        "created_at": 1795044312,
+        "created_minus_header_creation_s": 1,
+        "modified_at": 1795044372,
+        "modified_minus_header_save_s": 0,
+        "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+        "part_owner_refusal": "SOLIDWORKS body moCusPropMgr_c field f20 at 89: SOLIDWORKS body moCusPropMgr_c field f20/o at 89: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 89: assembly property manager has an unsupported concrete owner or placement",
+        "streams": {
+          "Contents/CusProps": {
+            "bytes": 106,
+            "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/core.xml": {
+            "bytes": 522,
+            "sha256": "54bcca54621b2032892f84927f07b619a4a79e5ac0e73f32ece7df7efe8b6d79"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          }
+        },
+        "terminal_map": 7
+      },
+      "Source": {
+        "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+        "configuration": "Default",
+        "created_at": 1795044312,
+        "created_minus_header_creation_s": 1,
+        "modified_at": 1795044326,
+        "modified_minus_header_save_s": 0,
+        "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+        "part_owner_refusal": "SOLIDWORKS body moCusPropMgr_c field f20 at 89: SOLIDWORKS body moCusPropMgr_c field f20/o at 89: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 89: assembly property manager has an unsupported concrete owner or placement",
+        "streams": {
+          "Contents/CusProps": {
+            "bytes": 106,
+            "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/core.xml": {
+            "bytes": 522,
+            "sha256": "2877a99b82ad9ef67b6207f925ca1b759b2193f90219d2a70bbf631637afc077"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          }
+        },
+        "terminal_map": 7
+      }
+    },
+    "D02": {
+      "Edited": {
+        "child_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
+        "configuration": "Default",
+        "created_at": 1795044658,
+        "created_minus_header_creation_s": 1,
+        "modified_at": 1795044714,
+        "modified_minus_header_save_s": 0,
+        "parent_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+        "part_owner_refusal": "SOLIDWORKS body moCusPropMgr_c field f20 at 89: SOLIDWORKS body moCusPropMgr_c field f20/o at 89: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 89: assembly property manager has an unsupported concrete owner or placement",
+        "streams": {
+          "Contents/CusProps": {
+            "bytes": 106,
+            "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/core.xml": {
+            "bytes": 522,
+            "sha256": "a68691ae795e9ae057c83584f58ae8b67936773c0d58310129ab92efb04ceccd"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          }
+        },
+        "terminal_map": 7
+      },
+      "Source": {
+        "child_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
+        "configuration": "Default",
+        "created_at": 1795044658,
+        "created_minus_header_creation_s": 1,
+        "modified_at": 1795044671,
+        "modified_minus_header_save_s": 0,
+        "parent_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+        "part_owner_refusal": "SOLIDWORKS body moCusPropMgr_c field f20 at 89: SOLIDWORKS body moCusPropMgr_c field f20/o at 89: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 89: assembly property manager has an unsupported concrete owner or placement",
+        "streams": {
+          "Contents/CusProps": {
+            "bytes": 106,
+            "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/core.xml": {
+            "bytes": 522,
+            "sha256": "11e80d2cf1311ef9f5f993652a558c80ab57af4162d33094af354379aaee80c0"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          }
+        },
+        "terminal_map": 7
+      }
+    },
+    "D03": {
+      "Edited": {
+        "child_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
+        "configuration": "Default",
+        "created_at": 1795044950,
+        "created_minus_header_creation_s": 0,
+        "modified_at": 1795045006,
+        "modified_minus_header_save_s": 0,
+        "parent_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+        "part_owner_refusal": "SOLIDWORKS body moCusPropMgr_c field f20 at 89: SOLIDWORKS body moCusPropMgr_c field f20/o at 89: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 89: assembly property manager has an unsupported concrete owner or placement",
+        "streams": {
+          "Contents/CusProps": {
+            "bytes": 106,
+            "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/core.xml": {
+            "bytes": 522,
+            "sha256": "f0e2d4fa6964ef56a8f83bdd89e1aea0677a7c0d010f7383b2be209b89fd1176"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          }
+        },
+        "terminal_map": 7
+      },
+      "Source": {
+        "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+        "configuration": "Default",
+        "created_at": 1795044950,
+        "created_minus_header_creation_s": 0,
+        "modified_at": 1795044965,
+        "modified_minus_header_save_s": 0,
+        "parent_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+        "part_owner_refusal": "SOLIDWORKS body moCusPropMgr_c field f20 at 89: SOLIDWORKS body moCusPropMgr_c field f20/o at 89: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 89: assembly property manager has an unsupported concrete owner or placement",
+        "streams": {
+          "Contents/CusProps": {
+            "bytes": 106,
+            "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/core.xml": {
+            "bytes": 522,
+            "sha256": "a3275dbec49deb5fb01dcb1343bc4213167b53c704f765def518195b6f0bb88c"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          }
+        },
+        "terminal_map": 7
+      }
+    }
+  },
+  "generated": {
+    "actual_mate": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.04690999999999999
+        ],
+        [
+          0.0,
+          -0.04691000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        150,
+        203
+      ],
+      "mate_bytes": 3596,
+      "mate_sha256": "217f18c6b94af88cb0cbf577ed3fc5e09fffd2d8ba2e2c24397b216ef0b83a59",
+      "occurrence_names": [
+        "ConcentricD01Child-1",
+        "ConcentricD01Child-2"
+      ],
+      "occurrences": [
+        24,
+        25
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.03126999999999999,
+          0.26817
+        ]
+      ]
+    },
+    "added_streams": {
+      "configuration": "Default",
+      "created_at": 1795044312,
+      "created_minus_header_creation_s": 1,
+      "modified_at": 1816327100,
+      "modified_minus_header_save_s": 0,
+      "streams": {
+        "Contents/CusProps": {
+          "bytes": 106,
+          "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440"
+        },
+        "docProps/Config-0-Properties.xml": {
+          "bytes": 699,
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+        },
+        "docProps/core.xml": {
+          "bytes": 546,
+          "sha256": "aaedc836fed39da0e6a74a47a4a604b49cb3968a29b4c9a770207f0bf035395e"
+        },
+        "docProps/custom.xml": {
+          "bytes": 853,
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+        }
+      },
+      "terminal_map": 7
+    },
+    "base_parent_sha256": "d30a40ca8d0b96192c66da436d58addb03021c3d8369c17b55f834b1b71c8b39",
+    "changed_creation_actor_core_only": true,
+    "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+    "ordinary_streams_unchanged": 13,
+    "parent_bytes": 13423,
+    "parent_sha256": "86915e1c4d796a52dd7b6004e57c5ae6b04f16bc070a5204b43532094ab8b18c",
+    "parent_streams": [
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/Config-0",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Header2",
+      "ThirdPtyStore/VisualStates",
+      "_MO_VERSION_19000/Biography",
+      "_MO_VERSION_19000/History",
+      "docProps/Config-0-Properties.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/COMPINSTANCETREE",
+      "swXmlContents/KeyWords"
+    ],
+    "refusals": {
+      "competing_property_stream": "assembly properties conflict with an already emitted scope",
+      "future_creation_event": "assembly package creation follows its final save",
+      "independent_config": "assembly property intent selects a different configuration",
+      "part_owner_class": "SOLIDWORKS body moCusPropMgr_c field f20 at 89: SOLIDWORKS body moCusPropMgr_c field f20/o at 89: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 89: assembly property manager has an unsupported concrete owner or placement",
+      "unrepresented_core_field": "assembly summary contains unprojected fields or noncanonical provenance"
+    },
+    "runtime_external_accesses": 0,
+    "unrepresented_source_streams": [
+      "Contents/3DExperienceExchange2",
+      "Contents/3DExperienceExchange_ConfigHeader",
+      "Contents/CnfgObjs",
+      "Contents/Config-0-Attachment",
+      "Contents/Config-0-LWDATA",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/User Units Table",
+      "Contents/eModelLic",
+      "FaceTessellations/000-000-002",
+      "FaceTessellations/Directory",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPty/CM_MOTION_LOAD_1",
+      "ThirdPty/SWA_Schedules",
+      "[Content_Types].xml",
+      "_DL_VERSION_19000/DLUpdateStamp",
+      "_rels/.rels",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml"
+    ]
+  },
+  "guarded_generated_workers": 2,
+  "heldout_accesses": 0,
+  "native_probes": 0,
+  "neutral_request_sha256": "7fd17ea690d922132b83333672aca5bf3c194490788edfd8217202255556d783",
+  "prior_receipt_sha256": "72aef4ea3efea4b499fc1cb878ce1b38bae985b627e8ace367189007b75bd800",
+  "public_publication": false,
+  "schema": "kit.sw2026.disclosed-d01-assembly-properties.v1",
+  "source_original_refusal": "assembly root contains unprojected model content",
+  "source_sha256": {
+    "re/tooling/sw2026/para/concentric/D01AssemblyPropertyIntent.py": "bee82026d446cbe37a377794848e03169beed0116f9adf5b03fa3c5a3b36d21b",
+    "re/tooling/sw2026/para/concentric/ProveD01AssemblyChronology.py": "8e9165a628d43ae5850b84a0c1a1ae596627bc4880b1362c79c1583b666d93b8",
+    "re/tooling/sw2026/para/concentric/ProveD01AssemblyProperties.py": "ca6543e230a63372d2453c9b21a085172b4318b3f3ef373bd3d28681e28d9603"
+  },
+  "whole_source_admitted": false
+}

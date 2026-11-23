@@ -87,3 +87,7 @@ linked-document state, and independently owned metadata still need
 classification and source admission. Preview, display-list and
 tessellation caches need separate native closure. The modeled
 chronology imposes no new acceptance or held-out credit.
+
+The subsequent [property owner proof](ConcentricD01PropertyOwners2026.md)
+constructs four additional property streams and keeps this chronology
+and all prior parent and child bytes exact.
