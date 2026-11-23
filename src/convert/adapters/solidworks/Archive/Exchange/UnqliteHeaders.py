@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Exchange.UnqliteLayout import (
 )
 
 
-# fresh single-bucket files derive their engine declaration and page map from the implemented storage rules
+# fresh stores derive their engine declaration and page map for one local bucket
 def UnqliteHeaders(ClockValue: int) -> bytes:
     if type(ClockValue) is not int or not 0 <= ClockValue <= 0xFFFFFFFF:
         raise ValueError("invalid UnQLite clock word")

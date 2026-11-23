@@ -11,8 +11,8 @@
 from collections.abc import Sequence
 from datetime import datetime
 
-from convert.adapters.solidworks.Archive.Exchange.WriteUnqliteStore import (
-    WriteUnqliteStore,
+from convert.adapters.solidworks.Archive.Exchange.WriteUnqlite import (
+    WriteUnqlite,
 )
 
 
@@ -34,4 +34,4 @@ def DosClock(Created: datetime) -> int:
 def WriteSingleBucket(
     Created: datetime, Records: Sequence[tuple[bytes, bytes]]
 ) -> bytes:
-    return WriteUnqliteStore(DosClock(Created), Records)
+    return WriteUnqlite(DosClock(Created), Records)

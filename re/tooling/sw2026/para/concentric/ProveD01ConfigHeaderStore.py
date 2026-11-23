@@ -35,10 +35,10 @@ from FreshAssemblyAuxiliaries import add_fresh_assembly_auxiliaries
 
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Exchange.DatabaseClock import (
-    DecodeUnqliteClock,
+    DecodeDbClock,
 )
-from convert.adapters.solidworks.Archive.Exchange.ReadUnqliteStore import (
-    ReadUnqliteStore,
+from convert.adapters.solidworks.Archive.Exchange.ReadUnqlite import (
+    ReadUnqlite,
 )
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 
@@ -48,7 +48,7 @@ PRIOR_PIN = "e3683d5e091adf854b75addb17057c2afdf6a9ffa24dd66f7a26a9cee107c2e4"
 SEMANTIC = "ConfigHeaderExchange01.json"
 SEMANTIC_PIN = "b567c3a30ec7c5ee28a0d40065e8a39fe7c073e3fc14e79ec974a32496ae1c94"
 FRAMING = "UnqliteExchangeStore01.json"
-FRAMING_PIN = "5057ed36d2792c6737bc05b262749340b944ef898e3a20572b88de695456130f"
+FRAMING_PIN = "2c7d418799199c49ec6ab216fafb19d38335957debfc1223d862022b021d3a85"
 
 
 def compare_sources(location, properties, projected):
@@ -60,12 +60,12 @@ def compare_sources(location, properties, projected):
             fingerprint(stored) == projected[name]["header_store_sha256"],
             "configuration store differs from the pinned semantic comparison",
         )
-        decoded = ReadUnqliteStore(stored)
+        decoded = ReadUnqlite(stored)
         ((key, value),) = decoded.Records
         _, identity = read_config_header(key, value)
         owners = {CMGR_HEADER: archive.require(CMGR_HEADER)}
         manager = ReadCmgrMut(archive.require("Contents/CMgr"), 19000).RootValue
-        created = DecodeUnqliteClock(decoded.ClockValue)
+        created = DecodeDbClock(decoded.ClockValue)
         recreated = add_config_header_exchange(owners, manager, created, identity)
         require(
             recreated[CONFIG_HEADER_STREAM] == stored, "projected source store differs"
@@ -119,12 +119,12 @@ def build(request_data, previous):
             "unrelated stream changed",
         )
         raw_store = archive.require(CONFIG_HEADER_STREAM)
-        store = ReadUnqliteStore(raw_store)
+        store = ReadUnqlite(raw_store)
         ((key, value),) = store.Records
         model, found_identity = read_config_header(key, value)
         require(
             found_identity == identity
-            and DecodeUnqliteClock(store.ClockValue) == created
+            and DecodeDbClock(store.ClockValue) == created
             and model.name == documents[1].configurations[0].name,
             "generated store changed a typed creation event or the active configuration",
         )

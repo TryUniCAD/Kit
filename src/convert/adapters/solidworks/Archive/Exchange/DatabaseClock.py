@@ -1,8 +1,8 @@
 from datetime import datetime as DateTime
 
 
-# the database creation instant uses UnQLite's native zero-based month and two-second granularity
-def EncodeUnqliteClock(Created: DateTime) -> int:
+# the database creation instant uses a zero based month and two second granularity
+def EncodeDbClock(Created: DateTime) -> int:
     if Created.tzinfo is not None or not 1980 <= Created.year <= 2107:
         raise ValueError("UnQLite creation requires an explicit DOS-range wall clock")
     return (
@@ -16,7 +16,7 @@ def EncodeUnqliteClock(Created: DateTime) -> int:
 
 
 # a decoded clock uses the same month basis without reading model header time fields
-def DecodeUnqliteClock(ClockValue: int) -> DateTime:
+def DecodeDbClock(ClockValue: int) -> DateTime:
     if type(ClockValue) is not int or not 0 <= ClockValue <= 0xFFFFFFFF:
         raise ValueError("invalid UnQLite clock word")
     return DateTime(

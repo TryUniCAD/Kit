@@ -7,10 +7,10 @@ from ConfigHeaderExchangeModel import (
 
 from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
 from convert.adapters.solidworks.Archive.Exchange.DatabaseClock import (
-    EncodeUnqliteClock,
+    EncodeDbClock,
 )
-from convert.adapters.solidworks.Archive.Exchange.WriteUnqliteStore import (
-    WriteUnqliteStore,
+from convert.adapters.solidworks.Archive.Exchange.WriteUnqlite import (
+    WriteUnqlite,
 )
 
 CMGR_HEADER = "Contents/CMgrHdr2"
@@ -26,5 +26,5 @@ def add_config_header_exchange(streams, manager, created, identity):
         raise ValueError("configuration exchange requires one actual lightweight entry")
     config = project_config_header(rows[0]["o"], project_active_config(manager))
     record = config_header_cell(config, identity)
-    store = WriteUnqliteStore(EncodeUnqliteClock(created), (record,))
+    store = WriteUnqlite(EncodeDbClock(created), (record,))
     return streams | {CONFIG_HEADER_STREAM: store}

@@ -16,10 +16,10 @@ def ReadUnqliteCell(Bucket: bytes, Offset: int) -> tuple[int, int, bytes, bytes]
         Bucket, Offset
     )
     DataStart = KeyStart + KeySize
-    End = DataStart + DataSize
-    if not KeySize or Overflow or End > len(Bucket):
+    CellEnd = DataStart + DataSize
+    if not KeySize or Overflow or CellEnd > len(Bucket):
         raise ValueError("UnQLite cell requires a complete local payload")
     KeyValue = Bucket[KeyStart:DataStart]
     if HashUnqliteKey(KeyValue) != HashValue:
         raise ValueError("UnQLite cell key hash differs")
-    return NextOffset, End, KeyValue, Bucket[DataStart:End]
+    return NextOffset, CellEnd, KeyValue, Bucket[DataStart:CellEnd]

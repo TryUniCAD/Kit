@@ -16,11 +16,11 @@ def ReadUnqliteFree(Bucket: bytes, StartOffset: int) -> list[tuple[int, int]]:
             or Current + KUnqliteFree.size > len(Bucket)
         ):
             raise ValueError("UnQLite bucket has an invalid free-list link")
-        Following, Size = KUnqliteFree.unpack_from(Bucket, Current)
-        End = Current + Size
-        if Size < KUnqliteFree.size or End > len(Bucket):
+        Following, BlockLength = KUnqliteFree.unpack_from(Bucket, Current)
+        BlockEnd = Current + BlockLength
+        if BlockLength < KUnqliteFree.size or BlockEnd > len(Bucket):
             raise ValueError("UnQLite free block is outside its bucket")
-        Ranges.append((Current, End))
+        Ranges.append((Current, BlockEnd))
         Visited.add(Current)
         Current = Following
     return Ranges

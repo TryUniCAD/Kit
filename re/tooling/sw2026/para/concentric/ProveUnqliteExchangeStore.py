@@ -26,20 +26,20 @@ from ProveAssemblyContentIndex import (
 from ObserveUnqliteStore import Observer
 
 from convert.adapters.solidworks.Archive.Exchange.DatabaseClock import (
-    DecodeUnqliteClock,
-    EncodeUnqliteClock,
+    DecodeDbClock,
+    EncodeDbClock,
 )
 from convert.adapters.solidworks.Archive.Exchange.ReadUnqliteFree import ReadUnqliteFree
-from convert.adapters.solidworks.Archive.Exchange.ReadUnqliteStore import (
-    ReadUnqliteStore,
+from convert.adapters.solidworks.Archive.Exchange.ReadUnqlite import (
+    ReadUnqlite,
 )
 from convert.adapters.solidworks.Archive.Exchange.UnqliteLayout import (
     KUnqliteBucket,
     KUnqliteFree,
     KUnqlitePageSize,
 )
-from convert.adapters.solidworks.Archive.Exchange.WriteUnqliteStore import (
-    WriteUnqliteStore,
+from convert.adapters.solidworks.Archive.Exchange.WriteUnqlite import (
+    WriteUnqlite,
 )
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
@@ -67,7 +67,7 @@ def refusals(payload):
         data = bytearray(payload)
         pack_into(frame, data, position, value)
         try:
-            ReadUnqliteStore(bytes(data))
+            ReadUnqlite(bytes(data))
         except ValueError as error:
             results[label] = str(error)
         else:
@@ -82,9 +82,9 @@ def worker(request):
         for key, properties in request["records"]
     )
     attempts = proof_guard()
-    stamp = EncodeUnqliteClock(clock)
-    data = WriteUnqliteStore(stamp, records)
-    store = ReadUnqliteStore(data)
+    stamp = EncodeDbClock(clock)
+    data = WriteUnqlite(stamp, records)
+    store = ReadUnqlite(data)
     require(
         store.ClockValue == stamp and store.Records == records and not attempts,
         "guarded physical codec changed model records or read external input",
@@ -92,7 +92,7 @@ def worker(request):
     return {
         "payload": b64encode(data).decode("ascii"),
         "sha256": fingerprint(data),
-        "clock": DecodeUnqliteClock(store.ClockValue).isoformat(),
+        "clock": DecodeDbClock(store.ClockValue).isoformat(),
         "records": len(records),
         "runtime_external_accesses": len(attempts),
         "refusals": refusals(data),
@@ -120,16 +120,15 @@ def source_receipts(args, observer):
         streams = {}
         for name in (CONFIG, MODEL):
             saved = archive.require(name)
-            store = ReadUnqliteStore(saved)
-            canonical = WriteUnqliteStore(store.ClockValue, store.Records)
+            store = ReadUnqlite(saved)
+            canonical = WriteUnqlite(store.ClockValue, store.Records)
             require(
-                ReadUnqliteStore(canonical) == store
+                ReadUnqlite(canonical) == store
                 and (name == CONFIG) == (canonical == saved),
                 "scoped physical exchange layout changed",
             )
             require(
-                EncodeUnqliteClock(DecodeUnqliteClock(store.ClockValue))
-                == store.ClockValue,
+                EncodeDbClock(DecodeDbClock(store.ClockValue)) == store.ClockValue,
                 "source database clock differs from the typed layout",
             )
             bucket = saved[2 * KUnqlitePageSize :]
@@ -153,7 +152,7 @@ def source_receipts(args, observer):
                 "saved_free_blocks": len(free_blocks),
                 "saved_inactive_nonzero_bytes": discarded,
                 "live_records": independent,
-                "clock": DecodeUnqliteClock(store.ClockValue).isoformat(),
+                "clock": DecodeDbClock(store.ClockValue).isoformat(),
             }
         data[label] = {"source_sha256": pin, "streams": streams}
     require(len(data) == 12, "physical exchange evidence scope changed")

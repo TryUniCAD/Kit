@@ -1,12 +1,12 @@
 from struct import Struct
 
-# the measured Windows database uses three equal physical pages
+# the measured database uses three equal physical pages
 KUnqlitePageSize = 4096
 
 # the pager header identifies the engine before the bucket map can be interpreted
 KUnqlitePager = Struct(">7sIIIIH")
 
-# the linear header includes its single logical-to-physical bucket mapping
+# the linear header maps the single logical bucket to its physical page
 KUnqliteMap = Struct(">IIQQQQIQQ")
 
 # the bucket links occupied records and reusable space independently
