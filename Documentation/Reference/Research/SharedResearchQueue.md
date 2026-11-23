@@ -124,6 +124,8 @@ A blocked application job does not consume an offline worker slot.
 Use `queue-status` to inspect active subscriptions, unique jobs, recorded states and waiting time.
 It reports `scope: queue_metadata`, `acceptance_verified: false` and zero artifact bytes hashed.
 Status polling does not reconcile jobs or read CAD payloads while holding the controller transaction.
+Global totals use a maintained status read model. Request pages and selected-request membership lookups remain bounded and indexed.
+Existing shared stores build that read model once; polling does not recount retained history.
 Use the existing `controller status --job SHARED_JOB_ID` command for integrity-checked job inspection.
 Normal claim, heartbeat and finish operations retain their existing reconciliation and evidence checks.
 Treat job completion, evidence integrity, semantic verification and native target acceptance as separate outcomes.

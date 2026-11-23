@@ -20,12 +20,18 @@ The first shared status implementation called `verify_job` for every active shar
 Each distinct large CAD input could therefore be hashed again during a status request.
 The first enqueue implementation also reconciled all subscriptions twice, so successive independent requests repeatedly traversed unrelated work.
 Both behaviors held the same transaction needed by worker lease operations.
+The later metadata-only status still scanned retained subscriptions and jobs to compute global totals.
+Paging the request list did not bound those aggregate scans.
 
 ## Resolution
 
 `queue-status` reads recorded metadata only, reports `acceptance_verified: false`, and hashes zero artifact bytes.
 The existing `status --job` interface retains integrity-checked inspection.
 Claims and result acceptance retain their normal evidence checks.
+
+Global status uses transactionally maintained subscription and job-state totals, plus an indexed oldest-queued lookup.
+Request pages read bounded summaries. A selected request uses its indexed memberships rather than a global conditional filter.
+Existing shared stores build the status read model once; subsequent polls do not recount retained history.
 
 Enqueue updates subscriptions before one reconciliation over the affected upstream closure.
 Transactional counters enforce quotas without global recounts for each admission.
