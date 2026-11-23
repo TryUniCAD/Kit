@@ -30,6 +30,9 @@ The failed run did not record that attribute directly.
 The pinned pywin32 type stub omits the documented `None` handler mode.
 `EnableCtrlInput` supplies that narrow call signature at the actual API boundary.
 The [pywin32 implementation](https://github.com/mhammond/pywin32/blob/main/win32/src/win32apimodule.cpp) handles `None` separately before checking callable handlers.
+Use direct `sys.platform` guards for both its import and its call.
+The [PR type check](https://github.com/TryUniCAD/Kit/actions/runs/45200550720/job/137782910312) rejected an aliased platform value as an insufficient import guard.
+The existing [conditional-import finding](../PlatformConditionalImports.md) records this requirement.
 
 ## Repair and verification
 
