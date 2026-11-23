@@ -3,6 +3,7 @@ from collections import Counter
 import json
 from pathlib import Path
 import re
+from subprocess import run
 import sys
 
 from AuditKeywordCorpus import ROOT, SCOPE, digest, git, pinned_documents, require
@@ -26,6 +27,7 @@ CODE_SCOPES = (
     "src",
     "re/tooling/sw2026/serial",
     "re/tooling/sw2026/AuditKeywordCorpus.py",
+    "re/tooling/sw2026/materials/ReplayAssignedStreams.py",
 )
 RELEASE = 19000
 
@@ -132,9 +134,61 @@ def sdk_mates(archive, name, configuration):
                     "map_count": encoded.MapValue.CounterValue}, (decoded.ReportValue, encoded.ReportValue)
 
 
+def sdk_saved_sweep(archive):
+    link = ReadNativeLink(archive, 0, SavedSweep=True)
+    config = link.ConfigValue
+    data_config, written_config = WriteConfigMut(config.RootValue, RELEASE, config.HeaderValue)
+    require(data_config == archive.require("Contents/Config-0") and written_config.MapValue == config.MapValue,
+            "saved sweep prerequisite Config-0 does not reproduce")
+    resolved = link.ResolvedValue
+    encoded, written = WriteResolMut(
+        resolved.RootsValue, resolved.ExtraFields, RELEASE, written_config.MapValue,
+        resolved.ContextValue, ReplaySavedSweep=True,
+    )
+    require(written.MapValue == resolved.MapValue and written.MapBase == resolved.MapBase,
+            "saved sweep resolved map changed")
+    return encoded, {"map_base": written.MapBase, "map_count": written.MapValue.CounterValue}, (
+        resolved.ReportValue, written.ReportValue,
+    )
+
+
+def assigned_material_replay(raw, result):
+    worker = Path(__file__).resolve().parent / "materials" / "ReplayAssignedStreams.py"
+    response = run((sys.executable, "-I", "-B", str(worker), "--worker", "assigned"),
+                   input=raw, capture_output=True, check=True, timeout=45)
+    proof = json.loads(response.stdout)
+    require(proof["source_sha256"] == result["sha256"] and proof["runtime_file_or_process_accesses"] == 0,
+            "assigned material replay does not bind the source")
+    streams = result["streams"]
+    required = {"Contents/Config-0", "Contents/Config-0-ResolvedFeatures"}
+    require(proof["streams"].keys() == required, "assigned material link is incomplete")
+    for name, row in proof["streams"].items():
+        legacy = streams[name]
+        require(row["exact"] and row["opaque_operations"] == 0 and
+                (row["bytes"], row["sha256"]) == (legacy["bytes"], legacy["sha256"]),
+                "assigned material replay differs from the source stream")
+        streams[name] = {
+            "bytes": row["bytes"], "sha256": row["sha256"], "map_count": row["map_count"],
+            "exact_without_tail": True, "exact_without_raw": True, "proven_typed_exact": True,
+            "raw_operations": 0, "provisional_schemas": [], "missing_schemas": [],
+            "packed_binary64_fields_per_direction": row["packed_binary64_fields_per_direction"],
+            "legacy_replay": legacy,
+        }
+    streams["Contents/Config-0-ResolvedFeatures"]["seeded_map_count"] = proof["resolved_seed_map"]
+
+
 def measure(path, raw, reg, plans):
     require(path.startswith(SCOPE + "corpus/"), "audit permits only disclosed corpus files")
-    return measure_archive(raw, reg, plans, assembly=path.casefold().endswith(".sldasm"))
+    result = measure_archive(raw, reg, plans, assembly=path.casefold().endswith(".sldasm"))
+    if path == SCOPE + "corpus/named-material/AssignedDensityProbe.SLDPRT":
+        assigned_material_replay(raw, result)
+    elif path.startswith(SCOPE + "corpus/saved-sweep/SavedSweepWide01/"):
+        archive = SldprtArchive.from_bytes(raw)
+        name = "Contents/Config-0-ResolvedFeatures"
+        streams = result["streams"]
+        checked = sdk_stream(archive.require(name), lambda: sdk_saved_sweep(archive))
+        streams[name] = {**checked, "legacy_replay": streams[name]}
+    return result
 
 
 def measure_archive(raw, reg, plans, *, assembly):
@@ -189,6 +243,11 @@ def audit(source_revision, codec_revision):
     totals = {key: sum(counts[key] for counts in counts_by_stream.values()) for key in ("attempts", *flags)}
     complete_files = {flag: sum(all(row[flag] for row in case["streams"].values()) for case in cases.values())
                       for flag in flags}
+    absent = {path: sorted(name for name, row in case["streams"].items() if row["bytes"] is None)
+              for path, case in cases.items()}
+    present = [[row for row in case["streams"].values() if row["bytes"] is not None] for case in cases.values()]
+    complete_present = {flag: sum(bool(rows) and all(row[flag] for row in rows) for rows in present)
+                        for flag in flags}
     return {
         "schema": "kit.sw2026.binary-archive-corpus-audit.v1",
         "script_sha256": digest(Path(__file__).read_bytes()),
@@ -201,6 +260,8 @@ def audit(source_revision, codec_revision):
         "assemblies": sum(path.casefold().endswith(".sldasm") for path in cases),
         "stream_counts": totals,
         "complete_files": complete_files,
+        "complete_present_files": complete_present,
+        "unavailable_streams": {path: rows for path, rows in absent.items() if rows},
         "counts_by_stream": counts_by_stream,
         "missing_schema_incidence": dict(missing_schemas),
         "provisional_schema_incidence": dict(provisional_schemas),
@@ -221,5 +282,5 @@ if __name__ == "__main__":
     payload = (json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
     with args.output.open("xb") as target:
         target.write(payload)
-    selected = ("source_files", "stream_counts", "complete_files")
+    selected = ("source_files", "stream_counts", "complete_files", "complete_present_files")
     print(json.dumps({key: result[key] for key in selected} | {"receipt_sha256": digest(payload)}))

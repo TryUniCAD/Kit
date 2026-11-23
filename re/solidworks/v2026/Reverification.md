@@ -100,6 +100,24 @@ operations, missing schemas or provisional schemas. Full field classification
 and generalization to additional feature families remain open.
 [Integrated binary census](../measurements/2026/ArchiveAfterStockIntegration01.json)
 
+The expanded disclosed census covers 92 parts and eight assemblies. It
+re-emits all 1,494 present selected streams from typed owners, with
+zero opaque operations, provisional schemas or missing schema dispatches.
+Both privacy-scrubbed Wide sweep copies omit Definition by design.
+The audit records those two absences and preserves the separate count
+of 98 files with every selected stream present and exact.
+[Expanded census](../measurements/2026/ExpandedArchiveCorpusReplay01.json)
+[Wide sweep fixture provenance](corpus/saved-sweep/SavedSweepWide01/README.md)
+
+The material contrast models the two zero-initialized members and its
+block manager's Windows GUID as typed data. The resolved codec inherits
+the new Config-0 map. Each saved sweep uses its own typed section node
+order and embedded references before re-emitting ResolvedFeatures.
+These are archive replay checks. Native rebuild, edits and independent
+held-out writer qualification remain separately measured.
+[Material owners](../records/AssignedMaterialStreamReplay2026.md)
+[Saved sweep replay](../measurements/2026/SavedSweepResolvedReplay01.json)
+
 The rooted instrument's CMgr, ModelHeader, Definition, Biography and History
 archives start at map counter 1. Config-0 adds its direct external-object bindings
 while loading. The resolved stream's prefix is the inherited configuration map
