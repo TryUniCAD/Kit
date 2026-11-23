@@ -60,13 +60,19 @@ def PrepareTimeout(
     _ = Queue.ConfigFile.write_text(JsonCodec.dumps(Config), encoding="utf-8")
     Harness = SessionHost(RootPath, {"apps": 1}, {"fixture.app": "apps"})
     SetAppRunner(Harness, Queue.ConfigFile, Readback=True)
+    SettlementMarginSeconds = 4
+    SupervisorConfig = JsonCodec.loads(Harness.ConfigFile.read_bytes())
+    SupervisorConfig["stop_grace_seconds"] += SettlementMarginSeconds
+    _ = Harness.ConfigFile.write_text(
+        JsonCodec.dumps(SupervisorConfig), encoding="utf-8"
+    )
     Harness.SubmitJobs(
         [
             FixtureJob(
                 "fixture:timeout",
                 "fixture.app",
                 lease_seconds=12,
-                timeout_seconds=TimeoutSeconds,
+                timeout_seconds=TimeoutSeconds + SettlementMarginSeconds,
                 max_attempts=2,
                 resources=["application:missing"],
                 options={"source_revision": Config["source_revision"]},
@@ -102,6 +108,7 @@ def AssertFirstWait(Events: list[object]) -> None:
             "attempt": Event["attempt"],
             "outcome": Event["outcome"],
             "stop_reason": Event["receipt"]["stop_reason"],
+            "stale": Event["stale"],
             "exit_status": Event["receipt"]["exit_status"],
         }
         for Event in JsonCodec.loads(JsonCodec.dumps(Events))
@@ -112,6 +119,7 @@ def AssertFirstWait(Events: list[object]) -> None:
             "attempt": 1,
             "outcome": "waiting_application",
             "stop_reason": None,
+            "stale": False,
             "exit_status": 0,
         }
     ], Terminal
