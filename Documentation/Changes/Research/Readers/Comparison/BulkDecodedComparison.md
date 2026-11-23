@@ -33,12 +33,14 @@ It covers renamed identities, mixed outcomes, unit normalization, manifest valid
 The tests use the existing complete-suite collection, merge-queue planner, shards, and report.
 No new workflow or CI job is introduced.
 Local test execution has not been performed.
+Scoped Black, Prettier, Python steering, Pyright, tracked-path policy, and Python 3.11 syntax checks passed before publication.
 Remote process execution, current-head CI, configured review, and queue acceptance remain pending.
 Documentation has been inspected as source; rendered usability and complete language conformance remain unverified.
 
 ## Ownership
 
 Task `A06g-BulkDecodedComparison` is owned by Codex on `codex/bulk-semantic-comparison`.
+Delivery is [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
 It depends on the existing A06a graph comparator and interchange codec.
 The [automation register](../../../../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command) records its delivery and exit condition.
 This delivery does not complete A06b or change the production conversion boundary.

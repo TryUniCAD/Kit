@@ -544,8 +544,8 @@ Keep remaining gaps, parked tasks and limitations visible.
 
 ## Immediate handoff
 
-The separately requested `A06g-BulkDecodedComparison` programme is active under the [owning register](../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command).
-Codex owns `codex/bulk-semantic-comparison`; delivery PR publication is pending.
+The separately requested `A06g-BulkDecodedComparison` programme is checking under the [owning register](../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command).
+Codex owns `codex/bulk-semantic-comparison`; delivery is [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
 It depends on the existing semantic comparator and codec and compares decoded JSON without running either decoder.
 The exit requires process evidence, output-preservation checks, current-head CI, and configured review.
 The [change entry](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md) preserves scope and qualification limits.
