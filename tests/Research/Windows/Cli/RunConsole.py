@@ -4,7 +4,10 @@ from subprocess import PIPE as KPipe, CompletedProcess, Popen as StartProcess
 from sys import executable as KPythonPath
 from time import monotonic as ReadClock
 
+from tests.Research.Windows.Cli.OwnConsole import OwnConsole
 from tests.Research.Windows.Cli.StopConsole import StopConsole
+from tests.Research.Windows.Cli.StopCustody import StopCustody
+from tests.Research.Windows.Cli.VerifyWorkers import VerifyWorkers
 
 if sys.platform == "win32":
     from subprocess import CREATE_NEW_CONSOLE as KNewConsole
@@ -31,27 +34,36 @@ def RunConsole(ConfigPath: FilePath, SignalName: str) -> CompletedProcess[str]:
             str(ConfigPath),
             SignalName,
         ]
-        with StartProcess(
-            Arguments,
-            cwd=RootPath,
-            creationflags=KNewConsole,
-            startupinfo=WindowInfo,
-            stdout=KPipe,
-            stderr=KPipe,
-            text=True,
-        ) as ConsoleProcess:
-            try:
-                _ = (ConfigPath.parent / "ConsoleGroup").write_text(
-                    str(ConsoleProcess.pid), encoding="utf-8"
-                )
-                OutputText, ErrorText = ConsoleProcess.communicate(timeout=90)
-                _ = (ConfigPath.parent / "LauncherExited").write_text(
-                    str(ReadClock()), encoding="utf-8"
-                )
-                return CompletedProcess(
-                    Arguments, ConsoleProcess.returncode, OutputText, ErrorText
-                )
-            finally:
-                StopConsole(ConsoleProcess)
+        with OwnConsole() as (JobName, JobHandle):
+            _ = (ConfigPath.parent / "ConsoleCustody").write_text(
+                JobName, encoding="utf-8"
+            )
+            with StartProcess(
+                Arguments,
+                cwd=RootPath,
+                creationflags=KNewConsole,
+                startupinfo=WindowInfo,
+                stdout=KPipe,
+                stderr=KPipe,
+                text=True,
+            ) as ConsoleProcess:
+                try:
+                    _ = (ConfigPath.parent / "ConsoleGroup").write_text(
+                        str(ConsoleProcess.pid), encoding="utf-8"
+                    )
+                    OutputText, ErrorText = ConsoleProcess.communicate(timeout=90)
+                    _ = (ConfigPath.parent / "LauncherExited").write_text(
+                        str(ReadClock()), encoding="utf-8"
+                    )
+                    if ConsoleProcess.returncode == 0:
+                        VerifyWorkers(ConfigPath.parent / "ProcessIds.json")
+                    return CompletedProcess(
+                        Arguments, ConsoleProcess.returncode, OutputText, ErrorText
+                    )
+                finally:
+                    try:
+                        StopCustody(JobHandle)
+                    finally:
+                        StopConsole(ConsoleProcess)
     else:
         raise OSError("Windows CLI console coverage requires a Windows host")
