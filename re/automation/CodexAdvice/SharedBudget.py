@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 import json
+import math
 import os
 import re
 import sqlite3
@@ -73,9 +74,19 @@ class SharedBudget:
                 os.close(descriptor)
         self.db = sqlite3.connect(database, timeout=5, isolation_level=None)
         self.db.row_factory = sqlite3.Row
+        self.waiting = {}
         try:
             self.db.execute("PRAGMA synchronous=FULL")
-            self.db.execute("PRAGMA journal_mode=DELETE")
+            if self.db.execute("PRAGMA journal_mode").fetchone()[0] != "delete":
+                self.db.execute("PRAGMA journal_mode=DELETE")
+            if self.db.execute("PRAGMA user_version").fetchone()[0] == 2:
+                config = self.db.execute(
+                    "SELECT call_limit,parallel FROM providers WHERE name=?",
+                    (provider,),
+                ).fetchone()
+                if config is not None:
+                    self.configure(config)
+                    return
             with self.transaction():
                 version = self.db.execute("PRAGMA user_version").fetchone()[0]
                 if version == 0:
@@ -112,16 +123,29 @@ class SharedBudget:
                     "SELECT call_limit,parallel FROM providers WHERE name=?",
                     (provider,),
                 ).fetchone()
-                if (self.limit is not None and config["call_limit"] != self.limit) or (
-                    self.parallel is not None and config["parallel"] != self.parallel
-                ):
-                    raise ValueError(
-                        "shared advice limits differ from the existing provider configuration"
-                    )
-                self.limit, self.parallel = config["call_limit"], config["parallel"]
+                self.configure(config)
         except BaseException:
             self.db.close()
             raise
+
+    # reopening an initialized provider must validate its fixed limits without taking the writer lock
+    def configure(self, config):
+        if (self.limit is not None and config["call_limit"] != self.limit) or (
+            self.parallel is not None and config["parallel"] != self.parallel
+        ):
+            raise ValueError(
+                "shared advice limits differ from the existing provider configuration"
+            )
+        self.limit, self.parallel = config["call_limit"], config["parallel"]
+
+    # idle observations must release their read snapshot before the caller waits
+    @contextmanager
+    def snapshot(self):
+        self.db.execute("BEGIN")
+        try:
+            yield
+        finally:
+            self.db.execute("ROLLBACK")
 
     # reservations must commit before provider calls without holding a database lock during inference
     @contextmanager
@@ -200,32 +224,111 @@ class SharedBudget:
             raise ValueError("invalid shared advice metadata count")
         return row[0]
 
-    # identical requests from different controllers share one reservation and one recorded proposal
-    def reserve(self, key, token, seconds):
+    # duplicate observers must not acquire the database writer lock or renew waiter leases while idle
+    def reserve(self, key, token, seconds, *, wait_until=None):
         if not re.fullmatch("[0-9a-f]{64}", key) or not re.fullmatch(
             "[0-9a-f]{64}", token
         ):
             raise ValueError("invalid shared advice request identity")
+        if not 1 <= seconds <= 180:
+            raise ValueError("shared advice attempts must take 1 to 180 seconds")
         now = time.time()
+        previous = self.waiting.get(token)
+        if wait_until is None:
+            wait_until = previous[1] if previous is not None else now + seconds
+        if type(wait_until) not in (int, float) or not math.isfinite(wait_until):
+            raise ValueError("invalid shared advice waiting deadline")
+        if previous is not None and previous[:2] != (key, wait_until):
+            raise ValueError("shared advice waiter identity or deadline changed")
+        if wait_until <= now:
+            return {"status": "wait_expired"}
+        self.waiting.setdefault(token, (key, wait_until, False))
+        with self.snapshot():
+            decision = self.observe(key, token, now)
+        return (
+            self.acquire(key, token, seconds, wait_until)
+            if decision is None
+            else decision
+        )
+
+    # terminal cached advice retains its original scope without any new reservation
+    def terminal(self, row):
+        return {
+            "status": (
+                "cached"
+                if row["state"] == "done"
+                else "prior_failure" if row["state"] == "failed" else "uncertain"
+            ),
+            "proposal": json.loads(row["proposal"]) if row["proposal"] else None,
+        }
+
+    # read snapshots separate an idle observer from a contender that needs atomic admission
+    def observe(self, key, token, now):
+        row = self.db.execute(
+            "SELECT * FROM requests WHERE provider=? AND request_key=?",
+            (self.provider, key),
+        ).fetchone()
+        if row is not None and row["state"] in {"done", "failed", "uncertain"}:
+            return self.terminal(row)
+        waiter = self.db.execute(
+            "SELECT provider,request_key,until_at FROM waiters WHERE token=?", (token,)
+        ).fetchone()
+        if waiter is None:
+            return {"status": "wait_expired"} if self.waiting[token][2] else None
+        if (waiter["provider"], waiter["request_key"], waiter["until_at"]) != (
+            self.provider,
+            key,
+            self.waiting[token][1],
+        ):
+            raise ValueError("shared advice waiter identity or deadline changed")
+        if waiter["until_at"] <= now:
+            return {"status": "wait_expired"}
+        self.waiting[token] = (key, waiter["until_at"], True)
+        config = self.db.execute(
+            "SELECT used,call_limit,parallel FROM providers WHERE name=?",
+            (self.provider,),
+        ).fetchone()
+        if (
+            self.db.execute(
+                "SELECT 1 FROM waiters WHERE until_at<=? LIMIT 1", (now,)
+            ).fetchone()
+            is not None
+            or self.db.execute(
+                "SELECT 1 FROM requests WHERE provider=? AND state='running' AND deadline<=? LIMIT 1",
+                (self.provider, now),
+            ).fetchone()
+            is not None
+        ):
+            return None
+        if row is not None and row["state"] == "running":
+            return {"status": "waiting"}
+        if config["used"] >= config["call_limit"]:
+            return {"status": "budget_exhausted"}
+        active = self.db.execute(
+            "SELECT COUNT(*) FROM requests WHERE provider=? AND state IN ('running','uncertain')",
+            (self.provider,),
+        ).fetchone()[0]
+        if active >= config["parallel"]:
+            return {"status": "waiting"}
+        first = self.db.execute(
+            "SELECT request_key FROM requests r WHERE provider=? AND state='queued' AND EXISTS (SELECT 1 FROM waiters w WHERE w.provider=r.provider AND w.request_key=r.request_key AND w.until_at>?) ORDER BY created,request_key LIMIT 1",
+            (self.provider, now),
+        ).fetchone()
+        return None if first is not None and first[0] == key else {"status": "waiting"}
+
+    # only a new join or potentially eligible acquisition may enter the durable writer path
+    def acquire(self, key, token, seconds, wait_until):
         with self.transaction():
+            now = time.time()
+            if wait_until <= now:
+                return {"status": "wait_expired"}
             self.sweep(now)
             row = self.db.execute(
                 "SELECT * FROM requests WHERE provider=? AND request_key=?",
                 (self.provider, key),
             ).fetchone()
             if row is not None and row["state"] in {"done", "failed", "uncertain"}:
-                return {
-                    "status": (
-                        "cached"
-                        if row["state"] == "done"
-                        else (
-                            "prior_failure" if row["state"] == "failed" else "uncertain"
-                        )
-                    ),
-                    "proposal": (
-                        json.loads(row["proposal"]) if row["proposal"] else None
-                    ),
-                }
+                return self.terminal(row)
             if row is None:
                 if self.request_count() >= 10000:
                     self.reclaim(now)
@@ -243,10 +346,24 @@ class SharedBudget:
                     "UPDATE requests SET state='queued',created=? WHERE provider=? AND request_key=?",
                     (now, self.provider, key),
                 )
-            self.db.execute(
-                "INSERT INTO waiters VALUES (?,?,?,?) ON CONFLICT(token) DO UPDATE SET until_at=excluded.until_at",
-                (self.provider, key, token, now + 10),
-            )
+            existing = self.db.execute(
+                "SELECT provider,request_key,until_at FROM waiters WHERE token=?",
+                (token,),
+            ).fetchone()
+            if existing is not None and (
+                existing["provider"],
+                existing["request_key"],
+                existing["until_at"],
+            ) != (self.provider, key, wait_until):
+                raise ValueError("shared advice waiter identity or deadline changed")
+            if existing is None:
+                if self.waiting[token][2]:
+                    return {"status": "wait_expired"}
+                self.db.execute(
+                    "INSERT INTO waiters VALUES (?,?,?,?)",
+                    (self.provider, key, token, wait_until),
+                )
+            self.waiting[token] = (key, wait_until, True)
             if row is not None and row["state"] == "running":
                 return {"status": "waiting"}
             config = self.db.execute(
@@ -259,11 +376,17 @@ class SharedBudget:
                 (self.provider,),
             ).fetchone()[0]
             first = self.db.execute(
-                "SELECT request_key FROM requests WHERE provider=? AND state='queued' ORDER BY created,request_key LIMIT 1",
-                (self.provider,),
+                "SELECT request_key FROM requests r WHERE provider=? AND state='queued' "
+                "AND EXISTS (SELECT 1 FROM waiters w WHERE w.provider=r.provider "
+                "AND w.request_key=r.request_key AND w.until_at>?) "
+                "ORDER BY created,request_key LIMIT 1",
+                (self.provider, now),
             ).fetchone()
             if active >= config["parallel"] or first[0] != key:
                 return {"status": "waiting"}
+            now = time.time()
+            if wait_until <= now:
+                return {"status": "wait_expired"}
             self.db.execute(
                 "UPDATE providers SET used=used+1 WHERE name=?", (self.provider,)
             )
@@ -303,6 +426,14 @@ class SharedBudget:
 
     # leaving the queue releases only this waiter and never another callers active request
     def leave(self, token):
+        self.waiting.pop(token, None)
+        with self.snapshot():
+            present = self.db.execute(
+                "SELECT 1 FROM waiters WHERE provider=? AND token=?",
+                (self.provider, token),
+            ).fetchone()
+        if present is None:
+            return
         with self.transaction():
             row = self.db.execute(
                 "SELECT request_key FROM waiters WHERE provider=? AND token=?",

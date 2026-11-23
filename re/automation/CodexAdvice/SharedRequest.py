@@ -52,12 +52,26 @@ def shared_request(
                 raise ValueError("shared advice context exceeds 8 KiB")
             key, token = digest(context), secrets.token_hex(32)
             deadline = time.monotonic() + seconds
+            wait_until = time.time() + seconds
+            polls = 0
             try:
                 while True:
                     if not is_current():
                         attempts.append({"effort": effort, "status": "stale"})
                         return None
-                    decision = budget.reserve(key, token, seconds)
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        attempts.append(
+                            {
+                                "effort": effort,
+                                "status": "shared_wait_timeout",
+                                "request_key": key,
+                            }
+                        )
+                        return None
+                    decision = budget.reserve(
+                        key, token, seconds, wait_until=wait_until
+                    )
                     status = decision["status"]
                     if status != "waiting":
                         break
@@ -71,7 +85,9 @@ def shared_request(
                             }
                         )
                         return None
-                    time.sleep(min(0.2, remaining))
+                    polls += 1
+                    jitter = 0.8 + int(token[:8], 16) % 401 / 1000
+                    time.sleep(min(min(0.2 + polls * 0.1, 1.0) * jitter, remaining))
                 if status == "cached":
                     attempts.append(
                         {
