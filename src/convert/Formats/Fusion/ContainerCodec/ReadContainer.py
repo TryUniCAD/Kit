@@ -93,9 +93,14 @@ def ReadContainer(
             Properties,
             Redirects,
         )
-        ExpectedNames = {Entry.Name for Entry in ContainerRows(Result, Indexes=Indexes)}
+        CheckedRows: list[SegmentIndex] | None = [] if Indexes is not None else None
+        ExpectedNames = {
+            Entry.Name for Entry in ContainerRows(Result, Indexes=CheckedRows)
+        }
         if set(Names) != ExpectedNames:
             raise ValueError(
                 "Missing directories or unaccounted Fusion container members"
             )
+        if Indexes is not None and CheckedRows is not None:
+            Indexes.extend(CheckedRows)
         return Result

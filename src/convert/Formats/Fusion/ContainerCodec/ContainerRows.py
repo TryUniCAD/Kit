@@ -54,12 +54,13 @@ def ContainerRows(
                 ZipAssetRow(KRedirectName, EmitRedirects(Value.Redirects), False),
             )
         )
+    CheckedRows: list[SegmentIndex] = []
     for Folder, SlotValue, Streams in zip(
         Folders, Value.Asset.Segments, Value.Streams, strict=True
     ):
         Checked = CheckStreams(Streams, SlotValue)
         if Indexes is not None:
-            Indexes.append(Checked)
+            CheckedRows.append(Checked)
         Prefix = KAssetPrefix + Folder
         Entries.extend(
             (
@@ -72,4 +73,6 @@ def ContainerRows(
         for PartValue in (*Value.Previews, *Value.Parts)
     )
     CheckZipPaths(tuple(Entry.Name for Entry in Entries))
+    if Indexes is not None:
+        Indexes.extend(CheckedRows)
     return tuple(Entries)
