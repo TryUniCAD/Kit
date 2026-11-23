@@ -80,4 +80,4 @@ offline run adds zero held-out credit.
 - [Hosted authored regression](../../../tests/Convert/Solidworks/SweepReading/ColdSweepTests.py)
 - [Existing measured publication](SweepMeasuredPublication2026.md)
 - [Independent saved reader controls](AggregateSavedSweepRead2026.md)
-- [Exact inverse unit conversion](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Resolved/SweepD1NeedsExactInverseUnits.md)
+- [Exact inverse unit conversion](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Resolved/SweepDimensionNeedsExactInverseUnits.md)
