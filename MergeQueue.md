@@ -126,6 +126,7 @@ across four Windows runners. Its stable report requires every shard and verifies
 that each collected case has exactly one outcome. Shard artifacts include the
 run attempt, roster, selected node IDs, report log, and slowest case durations.
 The Windows and macOS platform rosters each run across four runners from the same shared plan.
+The [obsolete-run cleanup](Documentation/Changes/Ci/ObsoleteQueueCleanup.md) releases runners only after confirming that a native candidate has no branch and is absent from the active queue.
 Each stable report checks complete combined outcomes and an actual native pass on its target platform.
 Platform cases stay serial within each runner to preserve process isolation.
 See [Windows platform sharding](Documentation/Changes/Ci/Testing/WindowsPlatformShards.md).
