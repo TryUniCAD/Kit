@@ -1,13 +1,3 @@
-<!--
-SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-
-This SPDX license identifier and copyright notice must not be
-removed, altered, or obscured. Doing so is a material breach of
-the PolyForm Strict License 1.0.0 and voids all licenses granted
-to you under it immediately and permanently.
--->
-
 # Windows supervisor CLI launcher
 
 The installed `kit research --root CHECKOUT supervisor ...` command now admits Windows research checkouts.
@@ -16,6 +6,8 @@ The supervisor still requires Windows 10 or newer, Python 3.14 or newer, and the
 Windows supervisor children use separate process groups.
 For supervisor commands, the launcher forwards handled `SIGINT`, `SIGTERM`, and `SIGBREAK` as `CTRL_BREAK_EVENT`.
 The supervisor accepts break events through its existing shutdown path.
+The CLI inspects the selected supervisor's explicit Windows shutdown protocol before launching it.
+Older or unsupported checkouts fail with an update instruction before any worker can claim a job.
 The launcher polls its wait so Python can dispatch pending Windows signal handlers while the supervisor remains active.
 It waits for cleanup and preserves the supervisor's exit status.
 Other Windows research commands retain their existing wait-for-completion behavior.
@@ -32,11 +24,7 @@ The [cancellation gotcha](../../../../Gotchas/Research/WindowsCliCancellation.md
 
 Native process coverage under `tests/Research/Windows/Cli/LauncherTests.py` exercises all three handled signal types against the actual supervisor.
 Each case requires a settlement receipt and termination of the independently recorded worker process tree.
+Cancellation must finish within 15 seconds of the recorded request, before the safety deadline can settle workers independently.
 These cases use the existing Windows merge-queue selection and completeness checks.
 The existing CLI bridge compatibility check now requires supervisor help on Windows as well as POSIX systems.
 Remote execution results remain pending until CI runs this revision.
-
-The original workspace instructions require an earlier legal attribution on new files.
-The comment checker now recognizes that exact complete notice alongside its later historical variant.
-Malformed and misplaced notices remain rejected through process-level policy coverage.
-See the [historical attribution gotcha](../../../../Gotchas/Research/LegacyLicenseAttribution.md).

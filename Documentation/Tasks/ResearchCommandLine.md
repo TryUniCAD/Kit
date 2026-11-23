@@ -20,6 +20,8 @@ Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
 `--root` authorizes execution of that checkout's research code and SDK.
 The wheel contains the SDK and CLI, not research fixtures or the `re/` workspace.
 On Windows, the supervisor requires Windows 10 or newer, Python 3.14 or newer, and the locked `pywin32` development extra.
+The selected checkout must advertise Windows CLI shutdown protocol 1.
+An older or incompatible checkout is rejected before worker dispatch; update the selected `--root` checkout when prompted.
 On Windows, reader, corpus, and controller commands wait for completion and return the tool's exit status.
 
 The examples use `/path/to/KitPr94` for the trusted research checkout.

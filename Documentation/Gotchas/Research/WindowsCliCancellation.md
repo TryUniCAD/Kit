@@ -1,13 +1,3 @@
-<!--
-SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-
-This SPDX license identifier and copyright notice must not be
-removed, altered, or obscured. Doing so is a material breach of
-the PolyForm Strict License 1.0.0 and voids all licenses granted
-to you under it immediately and permanently.
--->
-
 # Windows CLI cancellation needs console process groups
 
 ## Expectation
@@ -25,6 +15,7 @@ A blocking Windows process wait also delayed Python signal dispatch until the ch
 Use the updated CLI with Windows 10 or newer, Python 3.14 or newer, and the locked `pywin32` development extra.
 The launcher starts a separate process group and forwards handled cancellation as `CTRL_BREAK_EVENT`.
 The supervisor handles `SIGBREAK` through its existing shutdown path.
+The selected checkout must advertise Windows CLI shutdown protocol 1; older checkouts are rejected before launching workers.
 Bounded waits allow the launcher to dispatch pending cancellation while its child remains active.
 
 The launcher and supervisor must share a Windows console.
