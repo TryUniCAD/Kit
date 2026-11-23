@@ -577,12 +577,13 @@ jobs:
         env:
           ReportRoot: ${{ runner.temp }}/WindowsReports
           RunAttempt: ${{ github.run_attempt }}
+          ShardCount: ${{ needs.test-plan.outputs.count || '4' }}
         run: >-
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-windows-2025 "$RunAttempt"
           '^tests/Research/Windows/'
           "$ReportRoot/Durations.json"
-          "${{ needs.test-plan.outputs.count || '4' }}"
+          "$ShardCount"
 
       - name: Publish Windows durations for later plans
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -660,12 +661,13 @@ jobs:
         env:
           ReportRoot: ${{ runner.temp }}/MacosReports
           RunAttempt: ${{ github.run_attempt }}
+          ShardCount: ${{ needs.test-plan.outputs.count || '4' }}
         run: >-
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-macos-26 "$RunAttempt"
           '^tests/Research/Applications/FusionColdStartTests\.py::'
           "$ReportRoot/Durations.json"
-          "${{ needs.test-plan.outputs.count || '4' }}"
+          "$ShardCount"
 
       - name: Publish macOS durations for later plans
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
