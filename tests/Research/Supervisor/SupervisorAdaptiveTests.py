@@ -9,7 +9,7 @@ from tests.Research.SupervisorClient import FixtureJob
 
 
 # adaptive growth must be proven after real elapsed time rather than immediate admission
-def CheckRealMinute() -> None:
+def CheckRealMinute(RequireCpu: bool = False) -> None:
     with TempFiles.TemporaryDirectory() as TempPath:
         RootPath = FilePath(TempPath)
         Harness = MakeAdaptive(RootPath)
@@ -21,7 +21,7 @@ def CheckRealMinute() -> None:
                     max_attempts=1,
                     lease_seconds=30,
                     timeout_seconds=90,
-                    options={"hold_seconds": 65},
+                    options={"hold_seconds": 75 if RequireCpu else 65},
                 ),
                 FixtureJob(
                     "adaptive:next",
@@ -42,4 +42,4 @@ def CheckRealMinute() -> None:
         assert Started[1]["at"] - Started[0]["at"] >= 60
         assert Harness.ReadJob("adaptive:hold")["state"] == "completed"
         assert Harness.ReadJob("adaptive:next")["state"] == "completed"
-        CheckAdaptive(Events)
+        CheckAdaptive(Events, RequireCpu)

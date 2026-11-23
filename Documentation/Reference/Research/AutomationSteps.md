@@ -606,6 +606,11 @@ The [kernel OOM estimate](../../Changes/Research/Supervisor/KernelOomMemoryEstim
 
 The [A08b capacity status](../../Changes/Research/Supervisor/LiveSupervisorCapacity.md) reports the running supervisor's last admission decision and per-kind reservations. It validates owner identity, configuration, pause generation and freshness before returning the observations. At `648ddf5c`, the live status checks passed in the 59-case Linux, 92-case Windows and 143-case macOS supervisor runs. [Hosted workflow](https://github.com/TryUniCAD/Kit/actions/runs/43774889237)
 
+The A08b Windows adaptive CPU follow-up is owned by Codex on `codex/windows-adaptive-ramp`.
+It depends on the existing supervisor resource measurements and keeps the configured CPU and memory reserves.
+Exit requires a real Windows supervisor to observe a valid CPU interval and increase only when headroom and the existing interval permit it.
+[Windows adaptive CPU measurement](../../Changes/Research/Supervisor/Adaptive/WindowsAdaptiveCpu.md)
+
 The [A08b controller capacity refusal](../../Changes/Research/Supervisor/ControllerCapacityRefusal.md) at `c4526025` reports a real A03 concurrency refusal alongside the locally calculated headroom. The two-pool case passed on Linux, Windows and macOS at `b9efdb5e`. The Windows job failed an independent SOLIDWORKS rearm case. The [sampled A03 capacity view](../../Changes/Research/Supervisor/ControllerCapacitySnapshot.md) at `863c157b` counts shared logical slots separately from physical worker sessions. Its grouped-plus-singleton process check passed on hosted Linux and macOS at `3cd136ad`. [Earlier workflow](https://github.com/TryUniCAD/Kit/actions/runs/43779565898), [capacity process results](https://github.com/TryUniCAD/Kit/actions/runs/43781577583)
 
 The [A08b grouped offline calibration](../../Changes/Research/Supervisor/GroupedOfflineCalibration.md) accepted the same 64 pinned Fusion discovery archives once per arm and produced the same neutral output digest in two Windows runs at `50a4892b` and `ed0aa4bd`. The second run used 64 singleton sessions in 224.825 seconds and ten verified group sessions in 60.507 seconds. The grouped archive process case passed on hosted Linux and macOS at `f3e6b6cd`. Linux and macOS throughput remain unmeasured. [Hosted workflow](https://github.com/TryUniCAD/Kit/actions/runs/43777547783)
