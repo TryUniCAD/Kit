@@ -461,6 +461,12 @@ binds the narrower accepted slice. The aggregate also retains
 optional material text for its native generated local imports.
 [Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
 
+The aggregate [typed keyword corpus](../../re/solidworks/records/KeywordTypedCorpus2026.md)
+re-encodes 211 disclosed indexes and uses the shared codec for ordinary
+and nested assembly generation. Complete saved-source generation still
+needs the native assembly environment owner and the display precision
+inputs for all source documents.
+
 ### B04-SW2026-CONFIG-ATOM-EMISSION
 
 The PR #121 takeover team owns bounded kind-zero atom manager writing

@@ -11,7 +11,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeyDimMut imp
 
 
 # feature xml must preserve the recovered conditional type and single child grammar without guessing unknown native tags
-def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
+def MakeKeyFeatMut(
+    RootValue: Element, InputValue: KeywordFeature, *, NativeRows: bool = False
+) -> None:
     Attributes = {"id": str(InputValue.IdValue), "Name": InputValue.NameValue}
     if InputValue.KindValue is not None:
         Attributes["Type"] = InputValue.KindValue
@@ -26,12 +28,14 @@ def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
         )
     if InputValue.Dissectable is not None:
         Attributes["Dissectable"] = str(InputValue.Dissectable).lower()
-    if InputValue.RootValue is not None:
+    if InputValue.RootValue is not None and not NativeRows:
         Attributes["DissectableRoot"] = str(InputValue.RootValue).lower()
     if InputValue.ChildIds:
         Attributes["DissectableChildren"] = ",".join(
             str(IdValue) for IdValue in InputValue.ChildIds
         )
+    if InputValue.RootValue is not None and NativeRows:
+        Attributes["DissectableRoot"] = str(InputValue.RootValue).lower()
     if (
         InputValue.TagValue == "Extrusion"
         and InputValue.KindValue is None

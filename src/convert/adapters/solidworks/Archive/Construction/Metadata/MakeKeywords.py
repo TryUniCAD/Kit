@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig imp
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import (
     KeywordFeature,
 )
+from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordRef import (
+    KeywordRef,
+)
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeyFeatMut import (
     MakeKeyFeatMut,
 )
@@ -21,12 +24,13 @@ def MakeKeywords(
     NameValue: str,
     Timestamp: int,
     ConfigValues: tuple[KeywordConfig, ...],
-    FeatureValues: tuple[KeywordFeature, ...],
+    FeatureValues: tuple[KeywordFeature | KeywordRef, ...],
     *,
     CompactTags: bool = False,
+    NativeRows: bool = False,
 ) -> bytes:
     _ = ReadStyleText(NameValue, "keyword document name")
-    if type(CompactTags) is not bool:
+    if any(type(ValueInput) is not bool for ValueInput in (CompactTags, NativeRows)):
         raise TypeError("keyword framing requires an explicit compact mode")
     if type(Timestamp) is not int or not 0 <= Timestamp <= 0xFFFFFFFF:
         raise ValueError("keyword timestamp must fit unsigned unix seconds")
@@ -39,7 +43,10 @@ def MakeKeywords(
     if (
         type(FeatureValues) is not tuple
         or not FeatureValues
-        or any(type(ItemValue) is not KeywordFeature for ItemValue in FeatureValues)
+        or any(
+            type(ItemValue) not in (KeywordFeature, KeywordRef)
+            for ItemValue in FeatureValues
+        )
     ):
         raise TypeError("keywords require explicit typed feature rows")
     if len({ItemValue.IdValue for ItemValue in ConfigValues}) != len(
@@ -48,10 +55,13 @@ def MakeKeywords(
         raise ValueError(
             "keyword configuration and feature identifiers must be unique in their independent namespaces"
         )
-    FeatureIds = {ItemValue.IdValue for ItemValue in FeatureValues}
+    OwnerValues = tuple(
+        ItemValue for ItemValue in FeatureValues if type(ItemValue) is KeywordFeature
+    )
+    FeatureIds = {ItemValue.IdValue for ItemValue in OwnerValues}
     if any(
         ChildValue not in FeatureIds
-        for ItemValue in FeatureValues
+        for ItemValue in OwnerValues
         for ChildValue in ItemValue.ChildIds
     ):
         raise ValueError(
@@ -59,28 +69,53 @@ def MakeKeywords(
         )
     RootValue = Element("Keywords", {"id": str(Timestamp), "Name": NameValue})
     for ItemValue in ConfigValues:
-        AttrsValue = {
-            "id": str(ItemValue.IdValue),
-            "Name": ItemValue.NameValue,
-            "Type": "ConfigurationManager",
-        }
-        if ItemValue.MaterialValue is not None:
-            AttrsValue["Material"] = ItemValue.MaterialValue
-        _ = SubElement(RootValue, "Configuration", AttrsValue)
+        PutKeyCfgMut(RootValue, ItemValue)
     HasDegrees = any(
         DimValue.UnitValue == "degree"
-        for ItemValue in FeatureValues
+        for ItemValue in OwnerValues
         for DimValue in ItemValue.DimensionValues
     )
-    if not HasDegrees and any(
-        ItemValue.TagValue == "Sketch"
-        and ItemValue.KindValue is None
-        and not ItemValue.DimensionValues
-        for ItemValue in FeatureValues
+    if (
+        not NativeRows
+        and not HasDegrees
+        and any(
+            ItemValue.TagValue == "Sketch"
+            and ItemValue.KindValue is None
+            and not ItemValue.DimensionValues
+            for ItemValue in OwnerValues
+        )
     ):
         raise ValueError(
             "undimensioned sketch type omission requires its native revolve angle"
         )
     for FeatureValue in FeatureValues:
-        MakeKeyFeatMut(RootValue, FeatureValue)
+        if isinstance(FeatureValue, KeywordFeature):
+            MakeKeyFeatMut(RootValue, FeatureValue, NativeRows=NativeRows)
+        else:
+            PutKeyRefMut(RootValue, FeatureValue)
     return FrameKeywords(RootValue, HasDegrees or CompactTags)
+
+
+# configuration material has its own optional attribute on the native manager row
+def PutKeyCfgMut(RootValue: Element, ConfigValue: KeywordConfig) -> None:
+    AttrsValue = {
+        "id": str(ConfigValue.IdValue),
+        "Name": ConfigValue.NameValue,
+        "Type": "ConfigurationManager",
+    }
+    if ConfigValue.MaterialValue is not None:
+        AttrsValue["Material"] = ConfigValue.MaterialValue
+    _ = SubElement(RootValue, "Configuration", AttrsValue)
+
+
+# the native occurrence type is a declared suffix on the actual file stem
+def PutKeyRefMut(RootValue: Element, RefValue: KeywordRef) -> None:
+    _ = SubElement(
+        RootValue,
+        "Reference",
+        {
+            "id": str(RefValue.IdValue),
+            "Name": RefValue.NameValue,
+            "Type": RefValue.FileStem + "-",
+        },
+    )

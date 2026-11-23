@@ -1,0 +1,139 @@
+{
+  "codec_sources_sha256": "b679886374e611581c306b2fa69e8adb7763b26c7b8da8a13fd2723df2d9a419",
+  "generated_regression": {
+    "fresh_processes": 40,
+    "nested": {
+      "SdkNestedAssemblyNative01": {
+        "SdkFrame.SLDASM": "6901eab04d9642045b3f56a44ed7602fba1f533a7b8fee46dcde063801aa26bc",
+        "SdkModule.SLDASM": "7326aa2f78ff2c2c609e00ea20ec79ebf8e43e5638c596bf42d2d8b2dc9017c6",
+        "SdkNestedPlate.SLDPRT": "de72b0db675a3ecb96e27f36c2766f80aaaeb6cf8b81792097809e4118936a5f"
+      },
+      "SdkRepeatedNestedAssemblyNative01": {
+        "SdkFrame.SLDASM": "abf744242a62fe36885afb25340abdfb0cfc5d6393bcf1c9e2715af68cc0b5a0",
+        "SdkGaugePlate.SLDPRT": "20a4ddaa6eae45a9c84964b51a73c84a74a317632c48e19db65fe03ad1ee2950",
+        "SdkModule.SLDASM": "392681d05e2fb6233a3df59cf8a6066eb2cbce89db7f9e3ed653917bd3456f31",
+        "SdkNestedPlate.SLDPRT": "4ef7654cc2aa07d03a7047853f8a961f7889e45bae568db7b599d663ce17f470"
+      }
+    },
+    "ordinary": {
+      "coincident/x/0": {
+        "assembly": "6d0c5e52433843437b65152be1b40d81c6a9bf4d1da4932ccdfbfa3ace787eea",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "coincident/x/1": {
+        "assembly": "00b02dc2bbd28f1804551c79ebaf9e17c6fd8f25fe7fea2a574422ff8ef67082",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "coincident/y/0": {
+        "assembly": "dbd7b441df5a29666836e697c3d0407ddf75f36893344f6bdeddaf9e61959b56",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "coincident/y/1": {
+        "assembly": "40a1aad16ea507d010cb4f2e23f65e02cda9e0de92be4ce636f9363f4b3154b4",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "coincident/z/0": {
+        "assembly": "05d2bf24b30beec18463651d462536a1e0cdfbf0db8136eede515bf6a196abd8",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "coincident/z/1": {
+        "assembly": "c8bec6229542374eb7cc475de9dec377016797323adfe9ba7d64dfd79ddc1d83",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "distance/x/0": {
+        "assembly": "521d576eaf1f7c46a48ecd5cd701a410b67c957c20ab1ee9eb95ad5fec38ce29",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "distance/x/1": {
+        "assembly": "fbc68bb51d1fe1fc573ea1666d1d38047c3b0da9cf461f06a08ea676a2b36f2a",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "distance/y/0": {
+        "assembly": "5c69819e1dc193d6b86b1f1124a3a5fb4c5949e1cf35426de07dbc02d3dc07c1",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "distance/y/1": {
+        "assembly": "d21abc17efd8b0f50e2dfd282d32f91bcdb373426b13c8ca97069d69b372b70e",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "distance/z/0": {
+        "assembly": "0e4777c09ca49c8ea63e34c81c04c8a17f9b24a5001d48e028d1cdcbab9ca519",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "distance/z/1": {
+        "assembly": "dc4f946d31637463dce85921374048320d1b3a397a8cc8e51f4bafbeb2681d69",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "parallel/x/0": {
+        "assembly": "467c4b4a133a83175db0385178d2628e28ef7413cc56a084e9df67f53cbff630",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "parallel/x/1": {
+        "assembly": "b7a095f854b2c9337091a6b2698f5f6cb9e857a3ad8993a4d4da31ebaa5fdedc",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "parallel/y/0": {
+        "assembly": "327c9d2285d2ce2ef6704dfca5db8349eec9f01078f9303b2d7cfe3f4e2f5721",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "parallel/y/1": {
+        "assembly": "779e9dd4ed82bbcab6cd389a798cc862a80beb97993b5218eb4d9361fe80515c",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      },
+      "parallel/z/0": {
+        "assembly": "4c159ee17b94fa4f0315ef5a7ea50ced3f1eff337abb112c78eeba95e99ef1f1",
+        "child": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7"
+      },
+      "parallel/z/1": {
+        "assembly": "b91d428a19d1e0064fdfe6ec859a349de039be00f05ffa04b5e0a7369de009e2",
+        "child": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c"
+      }
+    },
+    "runtime_writer_input_reads": 0
+  },
+  "heldout_inputs_read": 0,
+  "input_git_revision": "9dca0bd65a4762962b0d71b896cdd354eb405a98",
+  "input_recovered_manifest_sha256": "d9df29c43e811c1e4d1e7b5071a84a110d1ed5afa06921135396f851f82a1c84",
+  "native_processes_started": 0,
+  "production_baseline_tree": "2074538fc5f621e27e12283583d1b088edc9911d",
+  "recovered": {
+    "counts": {
+      "compact": 111,
+      "configurations": 111,
+      "degree": 0,
+      "diameter": 0,
+      "dimensions": 111,
+      "empty_dissectable_sketches": 111,
+      "features": 2886,
+      "native_cut_order": 0,
+      "radius": 0,
+      "references": 0,
+      "spaced": 0,
+      "streams_exact": 111
+    },
+    "input_and_stream_manifest_sha256": "d54c1c4a807dd474dd6acf5d83b03e16d925742227d02746bf793ffd2aa63200"
+  },
+  "schema": "kit.sw2026.typed-keyword-index.v1",
+  "script_sha256": "56c11f7c2a9007c2e6e8d92200767ea1a19f0b98f608a762783a911fb2abe54a",
+  "tracked": {
+    "counts": {
+      "assembly_config_and_event_owners": 8,
+      "compact": 98,
+      "configurations": 100,
+      "degree": 4,
+      "diameter": 31,
+      "dimensions": 198,
+      "empty_dissectable_sketches": 23,
+      "empty_sheet_metal_owners": 31,
+      "features": 2628,
+      "native_cut_order": 8,
+      "occurrence_owners": 9,
+      "radius": 39,
+      "references": 9,
+      "saved_environment_requires_distinct_owner_mapping": 8,
+      "spaced": 2,
+      "streams_exact": 100
+    },
+    "input_and_stream_manifest_sha256": "e63dd05b52c10eb7f05e745f1ff5eacedbff622a3c94f7fcc2f20173d656832e"
+  }
+}
