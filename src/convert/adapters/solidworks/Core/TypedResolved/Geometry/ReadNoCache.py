@@ -87,6 +87,9 @@ def ReadNoCache(
                 ColdValue,
                 AllowFirstScope=RelationValue is None and not NullRect,
                 AllowPolygon=RelationValue is None and not NullRect,
+                DormantValue=(
+                    None if RelationValue is None else RelationValue.DormantValue
+                ),
             ),
             BodyId,
             ColdValue,

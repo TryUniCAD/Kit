@@ -14,7 +14,7 @@ A pair of fresh workers takes the intact [C130-P01 original](FcstdCornerPlan2026
 
 Two other fresh workers compare the full emitted bytes on the exact base `43b419d5c` and the modified source. All seven previously measured whole-container hashes match. The equation control and six circle end controls retain every stream digest and the original numeric end owners. The circle set includes forward, reversed, mid-plane and two physical direction modes. Invalid dormant inputs, a dormant value passed to the active mode, and any unsupported public option refuse. The full FCStd still refuses normal publication and leaves the caller's stream and cursor intact.
 
-The host proof emits only a sanitized receipt. It reads no runtime data while constructing either graph or controls and launches no CAD application. Qualification of a future native file with an explicit dormant value still needs open, rebuild, active-depth edit, save and fresh reopen with healthy controls. The named-equation readback, body label, other Pad properties, retained lineage and historical corpus membership stay open.
+The host proof emits only a sanitized receipt. It reads no runtime data while constructing either graph or controls and launches no CAD application. Qualification of a future native file with an explicit dormant value still needs open, rebuild, active-depth edit, save and fresh reopen with healthy controls. The [named-equation readback](SdkNamedWidthDepth2026.md) has a separate guarded comparison. The body label, other Pad properties, retained lineage and historical corpus membership stay open.
 
 ## Reproduction
 

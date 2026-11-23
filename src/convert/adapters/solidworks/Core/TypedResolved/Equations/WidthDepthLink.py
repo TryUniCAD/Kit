@@ -4,6 +4,9 @@ from dataclasses import dataclass as DataClass
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Core.TypedResolved.DepthOwner import (
+    DepthOwner as EndDepthOwner,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 
@@ -20,6 +23,9 @@ class WidthDepthLink:
     WidthOwner: Mapping[str, object]
     DepthOwner: Mapping[str, object]
     RelationNodes: frozenset[ArchiveNode]
+    WidthParam: str
+    DepthParam: str
+    DormantValue: EndDepthOwner | None = None
 
     # configuration reporting consumes the same graph that validated the relation
     @property

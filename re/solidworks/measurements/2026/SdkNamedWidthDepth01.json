@@ -1,0 +1,371 @@
+{
+  "base": "93743aea17b8d9c4ab396e207cd779bc543f3cb0",
+  "base_src_tree": "3a578b32d38cace9219136e3bdc7881cfe847afa",
+  "c130": {
+    "archive": {
+      "bytes": 9043,
+      "sha256": "5c430281a3daec6bb029eb55282b0cf7ac2cc7d02d81fb26a802b0f66e47f3db",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+        },
+        "Contents/Config-0": {
+          "bytes": 28779,
+          "sha256": "cd453e90d1c56cf2c4ab0bc348bff56b0ce8d56973d2d8e2838b123b6e43da4e"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 591,
+          "sha256": "01dd5e3024914a6df7cb2129d2f23ea4816178398cba8409297e0b34e2d82836"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12225,
+          "sha256": "7bc32f1ac78c8a7477f8d76213a26ad5642969107fc530c7f9a7c01340543c4d"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 591,
+          "sha256": "998cfffaaea18434883ae0c12b0557842a1e5bc390bf50609890a2f8abf6aad7"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1486,
+          "sha256": "4fc3d3b79696a6cb3d349e1982764b72573734f91484e35a3ab3ff8566374f88"
+        }
+      }
+    },
+    "publication_refusals": {
+      "intact_freecad": {
+        "adapter": "does not support the destination",
+        "registry": "does not support the destination"
+      },
+      "strict_named_readback": {
+        "adapter": "does not support the destination",
+        "registry": "does not support the destination"
+      }
+    },
+    "readback": {
+      "design_only": {
+        "document_sha256": "a54d109703db10b13dc80e492279827a64959c06491b4bc42a3ac85bd60e1de8",
+        "dormant": {
+          "name": "D2",
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 235,
+            "display_index": 233,
+            "end": 7930,
+            "field_span": false,
+            "handle_index": 234,
+            "object_index": 236,
+            "offset": 7887,
+            "slot": "f818.f20",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "value_mm": 10.0
+        },
+        "feature_operation": "join",
+        "height": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 20,
+          "dimension_index": 104,
+          "display_index": 122,
+          "end": 4816,
+          "field_span": false,
+          "group_index": 1,
+          "handle_index": 123,
+          "object_index": 105,
+          "offset": 4765,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "parameter_ids": [
+          "sldprt:parameter:18:width",
+          "sldprt:parameter:18:height",
+          "sldprt:parameter:21:Length"
+        ],
+        "relation": {
+          "class": "moRelation_c",
+          "end": 8686,
+          "field_span": false,
+          "object_index": 53,
+          "offset": 2145,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 22,
+          "dimension_index": 64,
+          "display_index": 230,
+          "end": 2569,
+          "field_span": false,
+          "handle_index": 231,
+          "object_index": 66,
+          "offset": 2495,
+          "slot": "f818.f18",
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "width": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 19,
+          "dimension_index": 99,
+          "display_index": 118,
+          "end": 4666,
+          "field_span": false,
+          "group_index": 0,
+          "handle_index": 119,
+          "object_index": 100,
+          "offset": 4617,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        }
+      },
+      "full": {
+        "document_sha256": "548bf4bcea28f86ce114e03eb679b70502280dc4a16665a9b454a79e918c5b4e",
+        "dormant": {
+          "name": "D2",
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 235,
+            "display_index": 233,
+            "end": 7930,
+            "field_span": false,
+            "handle_index": 234,
+            "object_index": 236,
+            "offset": 7887,
+            "slot": "f818.f20",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "value_mm": 10.0
+        },
+        "feature_operation": "create",
+        "geometry": {
+          "area_mm2": 4000.0,
+          "bounds_mm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              40.0,
+              20.0,
+              20.0
+            ]
+          ],
+          "counts": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "volume_mm3": 16000.0
+        },
+        "height": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 20,
+          "dimension_index": 104,
+          "display_index": 122,
+          "end": 4816,
+          "field_span": false,
+          "group_index": 1,
+          "handle_index": 123,
+          "object_index": 105,
+          "offset": 4765,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "parameter_ids": [
+          "sldprt:parameter:18:width",
+          "sldprt:parameter:18:height",
+          "sldprt:parameter:21:Length"
+        ],
+        "relation": {
+          "class": "moRelation_c",
+          "end": 8686,
+          "field_span": false,
+          "object_index": 53,
+          "offset": 2145,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 22,
+          "dimension_index": 64,
+          "display_index": 230,
+          "end": 2569,
+          "field_span": false,
+          "handle_index": 231,
+          "object_index": 66,
+          "offset": 2495,
+          "slot": "f818.f18",
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        },
+        "width": {
+          "class": "moLengthParameter_c",
+          "dimension_id": 19,
+          "dimension_index": 99,
+          "display_index": 118,
+          "end": 4666,
+          "field_span": false,
+          "group_index": 0,
+          "handle_index": 119,
+          "object_index": 100,
+          "offset": 4617,
+          "stream": "Contents/Config-0",
+          "value_field": "f58"
+        }
+      }
+    },
+    "refusals": {
+      "active_reverse_slot": {
+        "archive_sha256": "aafce594faf92151677b510008e12a51df7c99288d35fbcb5dbd5829adbd1dc6",
+        "strict_full_reason": "contains no readable Parasolid payload",
+        "typed_design_authority": false,
+        "typed_reason": "local width-depth equation requires an ordinary forward blind boss"
+      },
+      "dormant_equation_clone": {
+        "archive_sha256": "be851dc08405f8b6ce67883592675870a1c6b0e79248fe93a7d9a0ce5aff81d9",
+        "strict_full_reason": "contains no readable Parasolid payload",
+        "typed_design_authority": false,
+        "typed_reason": "local equation dimension does not alias its exact live owner"
+      },
+      "duplicate_dormant_identity": {
+        "archive_sha256": "1bda31dd5bcf6c27bb7fbecc656654637172811ba102e4ffaaab86c91b88fce5",
+        "strict_full_reason": "contains no readable Parasolid payload",
+        "typed_design_authority": false,
+        "typed_reason": "named width depth requires a separate owned dormant dimension"
+      },
+      "foreign_dormant_parameter": {
+        "archive_sha256": "ab59e4512f11b0a1fc1d4c960202b52a80e24c397c2696b2182f9e600e30e19c",
+        "strict_full_reason": "contains no readable Parasolid payload",
+        "typed_design_authority": false,
+        "typed_reason": "named width depth requires a separate owned dormant dimension"
+      },
+      "height_dependency": {
+        "archive_sha256": "0101f77c5bf0a86a5ae2d68650c9e5d6627642bd943b7f9fe8815b36270b6233",
+        "strict_full_reason": "contains no readable Parasolid payload",
+        "typed_design_authority": false,
+        "typed_reason": "native relation is outside the enabled local width-depth expression"
+      }
+    },
+    "runtime_data_reads": 0,
+    "source_dormant_id": "freecad:parameter:Pad:Length2",
+    "source_reads_at_intake": 1,
+    "source_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362"
+  },
+  "canonical_d1_unchanged": {
+    "archive": {
+      "bytes": 9157,
+      "sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "8e19dc894eca73aa1b68185608d6b785271812345bbaa19022567206bd9692af"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "4088c3b2b78efaa33d93da967797d2ac19d859070b739734062d47d8ee1ce355"
+        },
+        "Contents/Config-0": {
+          "bytes": 28811,
+          "sha256": "a6f986c4e8a09533e36dd4b255e78bf14ece4aaf51ab80efef9b4502dfcb7483"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 697,
+          "sha256": "08f89b3839f3ecdfc649e62ced641386c57381b52233b00169023c297cad3562"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12247,
+          "sha256": "af872eafdb9d1f91105415fcf1ededed573d0297bce10290f949e352327f6609"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 697,
+          "sha256": "1d6e112f85afd23b36234b3e90b868822ee05f16156b752bc89dfb3fd46292c6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "7420105d3cc2bba8fb54aac63795fe4d938853c8e2781d21c5301a4ee02d181e"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1522,
+          "sha256": "59dce410a9f90637ecba5ffdef5dc1808632013e9a042ec783780161a76fc842"
+        }
+      }
+    },
+    "documents": {
+      "design_only": "7c193c52f92f4203e32c9e396c6c4ef1ac8924d47934454ccd1522e29be11e2b",
+      "full": "33fd6f933c21ac8114d0c50feb0cc562a1e42a28a67fee74679c05aeef58a1f5"
+    },
+    "runtime_data_reads": 0
+  },
+  "native_dormant_contrast": {
+    "native_saved_edit": {
+      "active_depth_m": 0.0103,
+      "condition": 0,
+      "directions": 1,
+      "inactive_depth_m": 0.0068,
+      "reverse": 0
+    },
+    "original": {
+      "active_depth_m": 0.0068,
+      "condition": 0,
+      "directions": 1,
+      "inactive_depth_m": 0.0068,
+      "reverse": 0
+    },
+    "receipt_sha256": "e6d29c63227a56ab090d1243fc15a093ef1ec225042258376d6a0e3f838b0582"
+  },
+  "native_processes": 0,
+  "new_fcstd_publications": 0,
+  "new_native_qualifications": 0,
+  "request_sha256": {
+    "c130_inventory": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
+    "legacy_width_depth": "90d9d22d737bd8d313a68d10eef1e3cb730bdae81c973a3656b591d627ad786b"
+  },
+  "sdk_processes": 4,
+  "source_sha256": {
+    "re/tooling/sw2026/equations/BuildNamedWidthDepth.py": "e31cca9a1896862b63193bd2a10bd88ca41cd2cafdcbcc2dbe478e49d158a828",
+    "re/tooling/sw2026/equations/ProveNamedWidthDepth.py": "4aeae77a6ff25a93ee22e4c0efa94ed75e78f413b41db5e9dac87f67c692c118",
+    "src/convert/adapters/solidworks/Core/Reading/ReadAdapter.py": "87302b3333738668aaf275fb9338567977f9265fec23447f95c169a2f045ca4e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/DepthOwner.py": "26661d5149e2e9b9c90ffb4c0087a66f9cf2acfae02cb8f118cfc7e1ae2cc3f3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/CheckEqParams.py": "3686e36cadd700ed7fc9349a14e361194c158559b110030c6f8015a421a5c953",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/HasNamedEq.py": "45c132fee1be5003619f64919dc976c8b406612c78e50de9e4e199429ce7fcd7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqDormant.py": "f5b334597e5c36cac7ad5fb2a534fefc648915579e565b64b349e377debd64ec",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqWidth.py": "ef285144ba628bda3d1f66c29a865f16ba0e93df8fdd0d38479aa645c425a508",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadWidthDepth.py": "463faf63c56cf65cc0c579b8739744febf55f5c69489c75acf3545dde4fb94fe",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/TryWidthDepth.py": "64b73d640ad74c86e56c7621e699f824a6d4b2b49cfc0ae656e14b6747c07182",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/WidthDepthLink.py": "dfe82d094435c7f91db12e905349d15677664c52cc6d8465028c6c38f6e28d92",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismEnd.py": "60a2bb254a90333e522a9fc39189bd830f5605e27b44365c4c0d2645d48611c4",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadNoCache.py": "913953484de41a5f85162961d2436097ec1506a4a38d12fa81a27ba122295569",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadPrismPlan.py": "cc0dabc940b11758d9f9f417f22d7fc9c3e442540915a6804851af4cada5c66d"
+  }
+}

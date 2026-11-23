@@ -1,6 +1,7 @@
 from convert.adapters.solidworks.Archive.Construction.Blind.BlindZeroFields import (
     KBlindZeroFields,
 )
+from convert.adapters.solidworks.Core.TypedResolved.DepthOwner import DepthOwner
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismParam import (
     ReadPrismParam,
@@ -16,6 +17,7 @@ def CheckPrismEnd(
     *,
     ReversedBlind: bool = False,
     SelectedMidPlane: bool = False,
+    DormantValue: DepthOwner | None = None,
 ) -> None:
     Fields = OwnerValue.EndValue.FieldsValue
     EndCode = 6 if OwnerValue.ModeValue == ExtrudeEnd.KMidPlane else 0
@@ -50,12 +52,16 @@ def CheckPrismEnd(
         and "f20" in Fields
         and Fields["f20"] is None
     )
-    CheckPrismDims(OwnerValue, NullReverse=NullReverse)
+    CheckPrismDims(OwnerValue, NullReverse=NullReverse, DormantValue=DormantValue)
 
 
 # distinct end owners keep the live depth separate from inactive persisted parameters
 def CheckPrismDims(
-    OwnerValue: ExtrudeOwner, *, NullReverse: bool = False, IsSaved: bool = False
+    OwnerValue: ExtrudeOwner,
+    *,
+    NullReverse: bool = False,
+    IsSaved: bool = False,
+    DormantValue: DepthOwner | None = None,
 ) -> None:
     Fields = OwnerValue.EndValue.FieldsValue
     Values = tuple(
@@ -76,13 +82,27 @@ def CheckPrismDims(
         Values[0][2] <= 0
         or (
             not NullReverse
-            and (Values[1][2] <= 0 if IsSaved else Values[1][2] != Values[0][2])
+            and (
+                Values[1][2] <= 0
+                if IsSaved or DormantValue is not None
+                else Values[1][2] != Values[0][2]
+            )
         )
         or Values[-2][2] != 0
         or Values[-1][2] != 0
     ):
         raise ValueError(
             "cache free prism has draft or independent inactive end controls"
+        )
+    if DormantValue is not None and (
+        NullReverse
+        or Fields.get("f20") is not DormantValue.DisplayValue
+        or Values[1][0] is not DormantValue.Dimension
+        or Values[1][1] is not DormantValue.Parameter
+        or Values[1][2] != DormantValue.DepthValue.native_value
+    ):
+        raise ValueError(
+            "cache free prism dormant depth does not match its proven owner"
         )
     DimensionIds = tuple(Dimension.FieldsValue.get("f50") for Dimension, _, _ in Values)
     if len(set(DimensionIds)) != len(Values):

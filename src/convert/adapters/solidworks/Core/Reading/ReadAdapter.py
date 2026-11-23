@@ -2764,8 +2764,8 @@ def Parameters(
     if Relation is not None:
         return BindWidthDepth(
             Parameters,
-            ParamId(Relation.WidthFeature, "D1"),
-            ParamId(Relation.DepthFeature, "D1"),
+            ParamId(Relation.WidthFeature, Relation.WidthParam),
+            ParamId(Relation.DepthFeature, Relation.DepthParam),
             Relation,
         )
     return ApplyNativeMut(

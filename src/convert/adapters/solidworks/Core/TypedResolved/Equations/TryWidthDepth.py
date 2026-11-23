@@ -20,7 +20,13 @@ def TryWidthDepth(Model: NativeModel, Archive: SldprtArchive) -> NativeModel | N
     ):
         return None
     (Equation,) = Model.equations
-    if not Equation.lhs.startswith("D1@") or len(Equation.references) != 1:
+    if len(Equation.references) != 1 or (
+        not Equation.lhs.startswith("D1@")
+        and (
+            Equation.lhs.count("@") != 1
+            or Equation.rhs != f'"{Equation.references[0]}" / 2'
+        )
+    ):
         return None
     try:
         LinkValue = ReadNativeLink(
@@ -32,6 +38,11 @@ def TryWidthDepth(Model: NativeModel, Archive: SldprtArchive) -> NativeModel | N
         Relation = ReadWidthDepth(Projected, LinkValue, Archive)
     except (ValueError, TypeError, KeyError):
         return None
+    Dormant = Relation.DormantValue
+    if Dormant is not None and (
+        Equation.source != Relation.SourceText or Equation.configuration_id != 0
+    ):
+        return None
     return ReplaceValue(
         Projected,
         WidthDepth=Relation,
@@ -41,6 +52,17 @@ def TryWidthDepth(Model: NativeModel, Archive: SldprtArchive) -> NativeModel | N
                 "relation": Relation.RelationOwner,
                 "target": Relation.DepthOwner,
                 "dependency": Relation.WidthOwner,
+                **(
+                    {
+                        "dormant_depth": {
+                            "name": Dormant.DepthValue.name,
+                            "value_mm": Dormant.DepthValue.value_mm,
+                            "owner": Dormant.DepthValue.TypedOwner,
+                        }
+                    }
+                    if Dormant is not None
+                    else {}
+                ),
             },
         },
     )

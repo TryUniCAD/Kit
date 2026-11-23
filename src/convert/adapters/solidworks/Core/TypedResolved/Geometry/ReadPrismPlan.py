@@ -1,5 +1,6 @@
 from collections.abc import Mapping
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.TypedResolved.DepthOwner import DepthOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismBoss import (
     CheckPrismBoss,
 )
@@ -39,6 +40,7 @@ def ReadPrismBody(
     SelectedStock: bool = False,
     AllowFirstScope: bool = False,
     AllowPolygon: bool = False,
+    DormantValue: DepthOwner | None = None,
 ) -> PrismPlan:
     (BossValue,) = (
         NodeValue
@@ -62,6 +64,7 @@ def ReadPrismBody(
         OwnerValue,
         ReversedBlind=ReversedBlind,
         SelectedMidPlane=SelectedStock and ModeValue == ExtrudeEnd.KMidPlane,
+        DormantValue=DormantValue,
     )
     Depth = OwnerValue.RequireDepth().DepthValue
     Length = Depth.value_mm
@@ -115,6 +118,7 @@ def ReadPrismPlan(
     SelectedStock: bool = False,
     AllowFirstScope: bool = False,
     AllowPolygon: bool = False,
+    DormantValue: DepthOwner | None = None,
 ) -> PrismPlan:
     PlanValue = ReadPrismBody(
         LinkValue,
@@ -124,6 +128,7 @@ def ReadPrismPlan(
         SelectedStock=SelectedStock,
         AllowFirstScope=AllowFirstScope,
         AllowPolygon=AllowPolygon,
+        DormantValue=DormantValue,
     )
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     return PlanValue
