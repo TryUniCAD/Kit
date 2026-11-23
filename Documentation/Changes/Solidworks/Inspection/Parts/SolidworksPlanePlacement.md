@@ -54,6 +54,14 @@ The report records the source revision and hashes of all four changed SDK module
 The shared suite discovers `tests/Research/Archives/Ladders/PlacementTests.py` through its existing planner and shards.
 The separate historical recovery verifier still checks the archived 96 centroid failures.
 
+The first merge candidate `651d8287` failed the existing circular-support refusal test.
+That test changed the principal-plane identity while retaining its original axis and frame.
+The owned principal-reference guard rejects this contradiction before a document can return an unresolved-sketch diagnostic.
+The public SDK integration case now requires that format error in full and design-only reads.
+The diameter, flags, and footer cases still require unresolved-sketch diagnostics.
+The [refusal ordering](../../../../Gotchas/Conversion/Solidworks/Readers/PrincipalSupportRefusalOrder.md) records this compatibility distinction.
+Fresh remote checks must verify this repair before queue acceptance is claimed.
+
 ## Limits
 
 This repair establishes the bounded offline source-placement behavior against recorded native observations.
