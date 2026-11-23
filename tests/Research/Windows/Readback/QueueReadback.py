@@ -22,7 +22,7 @@ def QueueReadback(
     FaultName: str,
     Operation: str = "p02-readback",
 ) -> dict[str, object]:
-    ProgramPath = PrepareReadback(TmpPath, ConfigPath, Operation)
+    ProgramPath = PrepareReadback(TmpPath, RootPath, ConfigPath, Operation)
     SessionPath = TmpPath / "Session"
     WorkerRoot = RootPath / "re/automation/ApplicationWorkers"
     Listener = OpenProcess(

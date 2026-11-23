@@ -6,8 +6,21 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath)
+[CmdletBinding(DefaultParameterSetName = 'Capture')]
+param(
+    [Parameter(Mandatory = $true, ParameterSetName = 'Compile')][string]$Source,
+    [Parameter(Mandatory = $true)][string]$AssemblyPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$OwnerPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$JournalPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$MarkerPath
+)
 $ErrorActionPreference = 'Stop'
+if ($PSCmdlet.ParameterSetName -eq 'Capture') {
+    Add-Type -LiteralPath $AssemblyPath
+    [ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)
+    return
+}
+
 $Web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 $Program = @'
 public static class ProgressFixture
@@ -40,5 +53,4 @@ public static class ProgressFixture
     }
 }
 '@
-Add-Type -TypeDefinition ((Get-Content -LiteralPath $Source -Raw) + "`n" + $Program) -ReferencedAssemblies @('System.Core.dll', $Web)
-[ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)
+Add-Type -TypeDefinition ((Get-Content -LiteralPath $Source -Raw) + "`n" + $Program) -ReferencedAssemblies @('System.Core.dll', $Web) -OutputAssembly $AssemblyPath
