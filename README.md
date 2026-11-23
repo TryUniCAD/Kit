@@ -86,6 +86,10 @@ Kit executes the research code and SDK from that checkout.
 In the examples, replace `CHECKOUT` with that path and use new output directories.
 Use a checkout that contains the research tools, manifests, and pinned Git objects required by your task.
 
+On Windows, start `supervisor` and `kit run` from a checkout with the locked `pywin32` development extra.
+From the Kit repository directory, prefix those commands with `uv run --frozen --extra dev --python 3.14`.
+The [Windows supervisor setup](Documentation/Changes/Research/Supervisor/Cli/WindowsLauncher.md) describes the compatible checkout and console requirements.
+
 | Research tool | Example or starting command                                                                       |
 | ------------- | ------------------------------------------------------------------------------------------------- |
 | `solidworks`  | `kit research --offline --root CHECKOUT solidworks --asset PINNED_PART --output SolidWorksExport` |
@@ -106,18 +110,20 @@ See [native API setup and comparison](Documentation/Changes/Research/Automation/
 After controller initialization, use the same `--store` path with `status` to inspect jobs.
 Configure the worker programs before using the supervisor.
 With the same `--config`, use `submit Batch.json` to add jobs and `run --idle-seconds 30` to dispatch them.
-On Windows, the supervisor requires Windows 10 or later, Python 3.14 or later, the `pywin32` development extra, and a compatible checkout.
+On Windows, the supervisor requires Windows 10 or later and a checkout with the Windows shutdown protocol.
 Use `codec-patch` after a settled research run with a reviewed rule, measured controls, and a pinned container image.
 See the [research CLI guide](Documentation/Tasks/ResearchCommandLine.md) for pinned input examples, queue setup, and the codec patch procedure.
 
 ### Start a file or catalogue investigation
 
-Supply a local CAD file and choose a new run directory. Select `fusion`, `solidworks`, or `auto` by input type.
+Supply a local CAD file and choose a new run directory outside the selected checkout.
+Select `fusion`, `solidworks`, or `auto` by input type.
+From the Kit repository directory, the examples use `..` to place the output in a sibling directory.
 
 ```sh
-kit run --root CHECKOUT fusion --input model.f3d --directory FusionRun
-kit run --root CHECKOUT solidworks --input part.SLDPRT --directory SolidWorksRun
-kit run --root CHECKOUT auto --input unknown-file --directory DetectedRun
+kit run --root CHECKOUT fusion --input model.f3d --directory ../FusionRun
+kit run --root CHECKOUT solidworks --input part.SLDPRT --directory ../SolidWorksRun
+kit run --root CHECKOUT auto --input unknown-file --directory ../DetectedRun
 ```
 
 Inspect `FileScope.json` for the decode results and unresolved evidence.
@@ -130,6 +136,8 @@ Use `kit research --root CHECKOUT TOOL --help` or `kit run --root CHECKOUT fusio
 Install Kit from a trusted checkout containing [the comparison command](https://github.com/TryUniCAD/Kit/pull/275).
 Use that checkout for `--root`. Supply two folders of decoded `CadDocument` JSON and a new output directory.
 If the folders also contain receipts and summaries, use `--pattern document.json` to select the standard document filenames.
+Use the example's `--unit mm` only when both inputs report geometry in millimetres.
+Use `--left-unit` and `--right-unit` when units differ.
 
 ```sh
 kit research --root CHECKOUT compare SolidWorks Fusion --unit mm -o Comparison
@@ -137,8 +145,8 @@ kit research --root CHECKOUT compare SolidWorks Fusion --unit mm -o Comparison
 
 Kit pairs matching relative paths in the two folders.
 When paths differ, supply a [pair manifest](https://github.com/TryUniCAD/Kit/blob/713a024b138fbb54f72e89748dd4e6acb2c48228/Documentation/Tasks/CompareDecodedDocuments.md#pair-independently-named-exports) with `--manifest Pairs.json` in place of both folders.
-Use `--unit mm` only when both inputs report geometry in millimetres. Use `--left-unit` and `--right-unit` when units differ.
-At zero tolerance, Kit copies the first folder's original JSON for each exact match with no unresolved issues to `Comparison/unified/`.
+Kit compares the features and relationships it can observe. It can match features across different names and native identifiers.
+At zero tolerance, agreement across that scope with no unresolved issues puts a copy of the first folder's original JSON in `Comparison/unified/`.
 Review `Comparison/summary.json` for outcomes and paths, and `Comparison/reports/` for pair details.
 The unified folder records agreement between the decoded exports. Independent measurements establish CAD acceptance.
 
