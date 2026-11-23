@@ -62,6 +62,8 @@ That test changed the principal-plane identity while retaining its original axis
 The owned principal-reference guard rejects this contradiction before a document can return an unresolved-sketch diagnostic.
 The public SDK integration case now requires that format error in full and design-only reads.
 The diameter, flags, and footer cases still require unresolved-sketch diagnostics.
+The source audit also found the older rectangle attachment mutation expecting fallback after the same principal identity contradiction.
+Its public SDK boundary case now requires the format error in both read modes, including permissive inspection.
 The [refusal ordering](../../../../Gotchas/Conversion/Solidworks/Readers/PrincipalSupportRefusalOrder.md) records this compatibility distinction.
 Fresh remote checks must verify this repair before queue acceptance is claimed.
 
