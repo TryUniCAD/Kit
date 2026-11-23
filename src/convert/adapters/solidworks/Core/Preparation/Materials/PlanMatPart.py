@@ -22,6 +22,9 @@ from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimIn
     RectDimInput,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import CheckPlainScope
+from convert.adapters.solidworks.Core.Preparation.Materials.MatReadInput import (
+    MatReadInput,
+)
 from convert.adapters.solidworks.Core.Preparation.PartCaps import KPartWriteCaps
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentWalk import WalkDocuments
@@ -33,6 +36,14 @@ KMatCatalog = "solidworks_material_catalog"
 
 # the declared origin constraint carries meaning independent of the contour position
 KMatAnchor = "solidworks_origin_anchor"
+
+# cold physical assignment uses the canonical opaque model tint
+KMatDefaultColor = (
+    ((KModelTint >> 0) & 255) / 255,
+    ((KModelTint >> 8) & 255) / 255,
+    ((KModelTint >> 16) & 255) / 255,
+    1.0,
+)
 
 
 # an explicit material request enters its own preparation route before body import
@@ -79,6 +90,7 @@ def MakeMatAnchor(PlanValue: BlindPlan, KindValue: str) -> AnchorPartInput:
 def PlanMatPart(
     DocumentValue: CadDocument,
 ) -> tuple[BlindPlan, AnchorPartInput, PartMatIntent]:
+    DocumentValue = MatReadInput(DocumentValue, DocumentValue.metadata.get(KMatAnchor))
     CheckPlainScope(DocumentValue)
     AssertValid(DocumentValue)
     ModelValues = DocumentValue.metadata
@@ -98,12 +110,9 @@ def PlanMatPart(
         )
     (BodyValue,) = DocumentValue.bodies
     (MaterialValue,) = DocumentValue.materials
-    DefaultColor = tuple(
-        ((KModelTint >> ShiftValue) & 255) / 255 for ShiftValue in (0, 8, 16)
-    ) + (1.0,)
     if (
         BodyValue.material_id != MaterialValue.id
-        or MaterialValue.ColorValue != DefaultColor
+        or MaterialValue.ColorValue != KMatDefaultColor
     ):
         raise ValueError(
             "physical material must belong to the sole result with default presentation"

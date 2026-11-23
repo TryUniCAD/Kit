@@ -706,6 +706,13 @@ the two native-verified digests before public output. Full saved-source
 material transfer still requires native catalog ID, catalog appearance and
 material XML. [Physical material publication](../../Changes/Solidworks/Construction/Materials/SolidworksPhysicalMaterialPublication.md)
 
+The strict cold material reader returns the actual catalog, density, active
+configuration and three driving lengths. It exposes the origin relation and
+its construction geometry in both read modes. The full read also derives
+the single prism and its mass properties from the verified profile and
+depth. Both modes can republish a measured archive with its matching
+receipt, locator and epoch. [Cold material readback](../../Changes/Solidworks/Reading/Materials/SolidworksColdMaterialReadback.md)
+
 The measured Top-plane rectangular revolves use the same option with
 the original generation, native result and inspection job as UTF-8 text.
 The exact output digest qualifies Single Direction, Mid Plane, and

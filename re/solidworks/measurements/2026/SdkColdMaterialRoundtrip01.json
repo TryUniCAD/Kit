@@ -1,0 +1,75 @@
+{
+  "schema": "kit.sw2026.sdk-cold-material-roundtrip.v1",
+  "sdk_src_tree": "91e2c6261e1a1702c65726831371a60f1eb20451",
+  "source_parent": "4f3fe8ee989b7df7b15c9b87c29793617047e1aa",
+  "native_build": "34.5.2.0604",
+  "historical_authority_sha256": "aad91110c0f3237576c813e2c61a0d7301b7ab0295275c637ee0d7979f770f55",
+  "heldout_cases": 2,
+  "strict_heldout_reads": 4,
+  "exact_public_rewrites": 24,
+  "prewrite_and_raw_cache_refusals": 26,
+  "runtime_input_reads": 0,
+  "native_processes_started": 0,
+  "protected_source_archives_read": 0,
+  "protected_payloads_exported": 0,
+  "fcstd_corpus_outputs": 0,
+  "generated_synthetic_cross_host": {
+    "macos_reader": {
+      "cross_platform_sha256": "18f2924726b6209ea2d8f47fe907bf04d20702e4258ac084ce74af21a5a08528",
+      "expected_sha256": "4f30d09629acb59200388c0c2037767daea004161d3b47a738c05cfd2a14b87e",
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_reads": 0,
+      "strict_full_reads": 3,
+      "unrelated_camera_refusals": 1,
+      "unrepresented_stream_refusals": 1
+    },
+    "windows_guest_reader": {
+      "cross_platform_sha256": "4f30d09629acb59200388c0c2037767daea004161d3b47a738c05cfd2a14b87e",
+      "expected_sha256": "18f2924726b6209ea2d8f47fe907bf04d20702e4258ac084ce74af21a5a08528",
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_reads": 0,
+      "strict_full_reads": 3,
+      "unrelated_camera_refusals": 1,
+      "unrepresented_stream_refusals": 1
+    },
+    "comparison_stream": "Contents/Config-0"
+  },
+  "cases": [
+    {
+      "anchor": "corner",
+      "archive_sha256": "e475c61ee4dfd37a17ff4b9cccd987665405790629b2a8c76e27aef3b4cf7a89",
+      "case": "Candidate01",
+      "exact_public_rewrites": 12,
+      "full_and_design_reads": 2,
+      "native_processes_started": 0,
+      "physical_body_counts": [
+        1,
+        1,
+        6,
+        12,
+        8
+      ],
+      "prewrite_and_raw_cache_refusals": 13,
+      "runtime_reads": 0
+    },
+    {
+      "anchor": "center",
+      "archive_sha256": "a261b781f0971528e06f8bf8f16b08ff5acfb131f5162fc661a3a5fc71f775c3",
+      "case": "Candidate02",
+      "exact_public_rewrites": 12,
+      "full_and_design_reads": 2,
+      "native_processes_started": 0,
+      "physical_body_counts": [
+        1,
+        1,
+        6,
+        12,
+        8
+      ],
+      "prewrite_and_raw_cache_refusals": 13,
+      "runtime_reads": 0
+    }
+  ]
+}

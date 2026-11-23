@@ -43,6 +43,10 @@ models with no runtime file reads. Six adverse inputs per entry point
 leave each sink empty.
 [Replay tool](../../tooling/sw2026/materials/ReplayHeldoutMatSdk.py) · [Guarded replay receipt](../measurements/2026/SdkAssignedMaterialPhysical01.json)
 
+The later strict readback recovers both material models, reconstructs their
+analytic solids and republishes the full and design-only models under the
+same exact authority. [Cold material round trips](AssignedMaterialColdRoundtrip2026.md)
+
 The physical lane covers exactly the two guarded native artifact digests
 and the modeled default presentation. Full material transfer still
 requires the assigned catalog appearance, native ID, material XML and the

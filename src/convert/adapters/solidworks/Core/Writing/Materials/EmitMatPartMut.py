@@ -8,6 +8,12 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.Preparation.Materials.PrepMatPart import (
     PrepMatPart,
 )
+from convert.adapters.solidworks.Core.Preparation.Materials.ColdMatSource import (
+    IsColdMatSource,
+)
+from convert.adapters.solidworks.Core.Writing.Materials.CheckMatRead import (
+    CheckMatRead,
+)
 from convert.adapters.solidworks.Core.Writing.Materials.VerifyMatMeas import (
     VerifyMatMeas,
 )
@@ -39,6 +45,8 @@ def EmitMatPartMut(
         CheckMeasPath(OutputPath, Settings)
     Draft = PrepMatPart(DocumentValue, OutputPath or TargetValue, WrittenAt, Settings)
     Evidence = VerifyMatMeas(Receipt, Draft.BytesValue)
+    if IsColdMatSource(DocumentValue.source):
+        CheckMatRead(DocumentValue, Draft.BytesValue)
     Transfers = tuple(
         CapTransfer(Value, TransferMode.KNative)
         for Value in sorted(GetDocumentCaps(DocumentValue))

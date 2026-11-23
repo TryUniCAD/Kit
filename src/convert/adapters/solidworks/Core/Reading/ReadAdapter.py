@@ -213,6 +213,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.WithPatternDoc impo
 from convert.adapters.solidworks.Core.TypedResolved.Materials.WithPartMat import (
     WithPartMat,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Materials.Cold.ReadMatLane import (
+    ReadMatLane,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Shells.BindShellDoc import (
     BindShellDoc,
 )
@@ -507,10 +510,12 @@ def ReadAction(
         )
         ValidateSource(Label, True)
         return DocValue
-    SweepValue = ReadSweepLane(Archive, DataValue, Label, Settings)
-    if SweepValue is not None:
+    ColdValue = ReadSweepLane(Archive, DataValue, Label, Settings) or ReadMatLane(
+        Archive, DataValue, Label, Settings
+    )
+    if ColdValue is not None:
         ValidateSource(Label, False)
-        return SweepValue
+        return ColdValue
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 
 
