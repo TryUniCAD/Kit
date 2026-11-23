@@ -1,0 +1,995 @@
+{
+  "enums": {
+    "swDraftType_e": {
+      "swNeutralPlaneDraft": 0,
+      "swPartingLineDraft": 1,
+      "swStepDraft": 3
+    },
+    "swFeatureNameID_e": {
+      "swFmBlend": 9,
+      "swFmBlendCut": 10,
+      "swFmDraft": 3
+    },
+    "swObjectEquality": {
+      "swObjectSame": 1
+    },
+    "swRefPlaneReferenceConstraints_e": {
+      "swRefPlaneReferenceConstraint_Distance": 8,
+      "swRefPlaneReferenceConstraint_OptionFlip": 256
+    },
+    "swTangencyType_e": {
+      "swTangencyNone": 0
+    }
+  },
+  "executable": {
+    "file_version": "34.5.2.0604",
+    "prog_id": "SldWorks.Application.34",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "heldout_sources": 0,
+  "libraries": [
+    "34.0",
+    "34.0"
+  ],
+  "methods": {
+    "IDraftFeatureData2": [
+      {
+        "arguments": "((9, 1, None), (9, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 5,
+        "names": [
+          "AccessSelections",
+          "TopDoc",
+          "Component"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 2,
+        "names": [
+          "Angle"
+        ],
+        "return_type": "(5, 0, None)"
+      },
+      {
+        "arguments": "((5, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 2,
+        "names": [
+          "Angle"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 16,
+        "names": [
+          "DirectionPull"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "((9, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 16,
+        "names": [
+          "DirectionPull"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 17,
+        "names": [
+          "FacePropagation"
+        ],
+        "return_type": "(2, 0, None)"
+      },
+      {
+        "arguments": "((2, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 17,
+        "names": [
+          "FacePropagation"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 10,
+        "names": [
+          "FacesToDraft"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "((12, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 10,
+        "names": [
+          "FacesToDraft"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 22,
+        "names": [
+          "GetDraftedEntities"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 7,
+        "names": [
+          "GetFacesToDraftCount"
+        ],
+        "return_type": "(2, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 15,
+        "names": [
+          "NeutralPlane"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "((9, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 15,
+        "names": [
+          "NeutralPlane"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 6,
+        "names": [
+          "ReleaseSelectionAccess"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 3,
+        "names": [
+          "ReverseDirection"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 3,
+        "names": [
+          "ReverseDirection"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 1,
+        "names": [
+          "Type"
+        ],
+        "return_type": "(22, 0, None)"
+      },
+      {
+        "arguments": "((22, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 1,
+        "names": [
+          "Type"
+        ],
+        "return_type": "(24, 0, None)"
+      }
+    ],
+    "IEntity": [
+      {
+        "arguments": "((11, 1, None), ((26, (29, 50335488)), 1, None))",
+        "invocation_kind": 1,
+        "member_id": 65556,
+        "names": [
+          "Select4",
+          "Append",
+          "Data"
+        ],
+        "return_type": "(11, 0, None)"
+      }
+    ],
+    "IFace2": [
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 3,
+        "names": [
+          "GetSurface"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 1,
+        "names": [
+          "Normal"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "((12, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 1,
+        "names": [
+          "Normal"
+        ],
+        "return_type": "(24, 0, None)"
+      }
+    ],
+    "IFeature": [
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 33,
+        "names": [
+          "GetDefinition"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "(((26, 11), 2, None),)",
+        "invocation_kind": 1,
+        "member_id": 104,
+        "names": [
+          "GetErrorCode2",
+          "IsWarning"
+        ],
+        "return_type": "(3, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 103,
+        "names": [
+          "GetTypeName2"
+        ],
+        "return_type": "(8, 0, None)"
+      },
+      {
+        "arguments": "((9, 1, None), (9, 1, None), (9, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 35,
+        "names": [
+          "ModifyDefinition",
+          "Data",
+          "TopDoc",
+          "Component"
+        ],
+        "return_type": "(11, 0, None)"
+      }
+    ],
+    "IFeatureManager": [
+      {
+        "arguments": "((3, 1, None),)",
+        "invocation_kind": 1,
+        "member_id": 107,
+        "names": [
+          "CreateDefinition",
+          "Type"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "((9, 1, None),)",
+        "invocation_kind": 1,
+        "member_id": 108,
+        "names": [
+          "CreateFeature",
+          "FeatureData"
+        ],
+        "return_type": "((26, (29, 50337536)), 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None), (11, 1, None), (11, 1, None), (5, 1, None), (2, 1, None), (2, 1, None), (11, 1, None), (5, 1, None), (5, 1, None), (2, 1, None), (11, 1, None), (11, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 17,
+        "names": [
+          "InsertCutBlend",
+          "Closed",
+          "KeepTangency",
+          "ForceNonRational",
+          "TessToleranceFactor",
+          "StartMatchingType",
+          "EndMatchingType",
+          "IsThinBody",
+          "Thickness1",
+          "Thickness2",
+          "ThinType",
+          "UseFeatScope",
+          "UseAutoSelect"
+        ],
+        "return_type": "((26, (29, 50337536)), 0, None)"
+      },
+      {
+        "arguments": "((5, 1, None), (11, 1, None), (11, 1, None), (3, 1, None), (11, 1, None), (11, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 54,
+        "names": [
+          "InsertMultiFaceDraft",
+          "Angle",
+          "FlipDir",
+          "EdgeDraft",
+          "PropType",
+          "IsStepDraft",
+          "IsBodyDraft"
+        ],
+        "return_type": "((26, (29, 50337536)), 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None), (11, 1, None), (11, 1, None), (5, 1, None), (2, 1, None), (2, 1, None), (5, 1, None), (5, 1, None), (11, 1, None), (11, 1, None), (11, 1, None), (5, 1, None), (5, 1, None), (2, 1, None), (11, 1, None), (11, 1, None), (11, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 16,
+        "names": [
+          "InsertProtrusionBlend",
+          "Closed",
+          "KeepTangency",
+          "ForceNonRational",
+          "TessToleranceFactor",
+          "StartMatchingType",
+          "EndMatchingType",
+          "StartTangentLength",
+          "EndTangentLength",
+          "StartTangentDir",
+          "EndTangentDir",
+          "IsThinBody",
+          "Thickness1",
+          "Thickness2",
+          "ThinType",
+          "Merge",
+          "UseFeatScope",
+          "UseAutoSelect"
+        ],
+        "return_type": "((26, (29, 50337536)), 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None), (11, 1, None), (11, 1, None), (5, 1, None), (2, 1, None), (2, 1, None), (5, 1, None), (5, 1, None), (11, 1, None), (11, 1, None), (11, 1, None), (5, 1, None), (5, 1, None), (2, 1, None), (11, 1, None), (11, 1, None), (11, 1, None), (3, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 186,
+        "names": [
+          "InsertProtrusionBlend2",
+          "Closed",
+          "KeepTangency",
+          "ForceNonRational",
+          "TessToleranceFactor",
+          "StartMatchingType",
+          "EndMatchingType",
+          "StartTangentLength",
+          "EndTangentLength",
+          "StartTangentDir",
+          "EndTangentDir",
+          "IsThinBody",
+          "Thickness1",
+          "Thickness2",
+          "ThinType",
+          "Merge",
+          "UseFeatScope",
+          "UseAutoSelect",
+          "GuideCurveInfluence"
+        ],
+        "return_type": "((26, (29, 50337536)), 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None), (5, 1, None), (3, 1, None), (5, 1, None), (3, 1, None), (5, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 182,
+        "names": [
+          "InsertRefPlane",
+          "FirstConstraint",
+          "FirstConstraintAngleOrDistance",
+          "SecondConstraint",
+          "SecondConstraintAngleOrDistance",
+          "ThirdConstraint",
+          "ThirdConstraintAngleOrDistance"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None), (11, 1, None), (5, 1, None), (3, 1, None), (11, 1, None), (11, 1, None), (11, 1, None), (5, 1, None), (11, 1, None), (11, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 162,
+        "names": [
+          "InsertRib",
+          "Is2Sided",
+          "ReverseThicknessDir",
+          "Thickness",
+          "ReferenceEdgeIndex",
+          "ReverseMaterialDir",
+          "IsDrafted",
+          "DraftOutward",
+          "DraftAngle",
+          "IsNormToSketch",
+          "IsDraftedFromWall"
+        ],
+        "return_type": "(24, 0, None)"
+      }
+    ],
+    "ILoftFeatureData": [
+      {
+        "arguments": "((9, 1, None), (9, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 2,
+        "names": [
+          "AccessSelections",
+          "TopDoc",
+          "Component"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 30,
+        "names": [
+          "Centerline"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "((9, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 30,
+        "names": [
+          "Centerline"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 18,
+        "names": [
+          "EndTangencyType"
+        ],
+        "return_type": "(2, 0, None)"
+      },
+      {
+        "arguments": "((2, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 18,
+        "names": [
+          "EndTangencyType"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 4,
+        "names": [
+          "GetProfileCount"
+        ],
+        "return_type": "(2, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 43,
+        "names": [
+          "GuideCurveInfluence"
+        ],
+        "return_type": "(3, 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 43,
+        "names": [
+          "GuideCurveInfluence"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 16,
+        "names": [
+          "GuideCurves"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "((12, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 16,
+        "names": [
+          "GuideCurves"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 23,
+        "names": [
+          "IsBossFeature"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 19,
+        "names": [
+          "IsThinFeature"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 33,
+        "names": [
+          "Merge"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 33,
+        "names": [
+          "Merge"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 48,
+        "names": [
+          "PickPoints"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "((12, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 48,
+        "names": [
+          "PickPoints"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 7,
+        "names": [
+          "Profiles"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "((12, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 7,
+        "names": [
+          "Profiles"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 3,
+        "names": [
+          "ReleaseSelectionAccess"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 17,
+        "names": [
+          "StartTangencyType"
+        ],
+        "return_type": "(2, 0, None)"
+      },
+      {
+        "arguments": "((2, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 17,
+        "names": [
+          "StartTangencyType"
+        ],
+        "return_type": "(24, 0, None)"
+      }
+    ],
+    "IModelDocExtension": [
+      {
+        "arguments": "((9, 1, None),)",
+        "invocation_kind": 1,
+        "member_id": 98,
+        "names": [
+          "GetPersistReference3",
+          "DispObj"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "((8, 1, None), (8, 1, None), (5, 1, None), (5, 1, None), (5, 1, None), (11, 1, None), (3, 1, None), ((26, (29, 50334720)), 1, None), (3, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 68,
+        "names": [
+          "SelectByID2",
+          "Name",
+          "Type",
+          "X",
+          "Y",
+          "Z",
+          "Append",
+          "Mark",
+          "Callout",
+          "SelectOption"
+        ],
+        "return_type": "(11, 0, None)"
+      }
+    ],
+    "IRibFeatureData2": [
+      {
+        "arguments": "((9, 1, None), (9, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 13,
+        "names": [
+          "AccessSelections",
+          "TopDoc",
+          "Component"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 12,
+        "names": [
+          "Body"
+        ],
+        "return_type": "((26, (29, 50332672)), 0, None)"
+      },
+      {
+        "arguments": "(((26, (29, 50332672)), 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 12,
+        "names": [
+          "Body"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 9,
+        "names": [
+          "DraftAngle"
+        ],
+        "return_type": "(5, 0, None)"
+      },
+      {
+        "arguments": "((5, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 9,
+        "names": [
+          "DraftAngle"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 7,
+        "names": [
+          "EnableDraft"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 7,
+        "names": [
+          "EnableDraft"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 10,
+        "names": [
+          "ExtrusionDirection"
+        ],
+        "return_type": "(3, 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 10,
+        "names": [
+          "ExtrusionDirection"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 6,
+        "names": [
+          "FlipSide"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 6,
+        "names": [
+          "FlipSide"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 1,
+        "names": [
+          "IsTwoSided"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 1,
+        "names": [
+          "IsTwoSided"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 4,
+        "names": [
+          "RefSketchIndex"
+        ],
+        "return_type": "(22, 0, None)"
+      },
+      {
+        "arguments": "((22, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 4,
+        "names": [
+          "RefSketchIndex"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 15,
+        "names": [
+          "ReleaseSelectionAccess"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 2,
+        "names": [
+          "ReverseThicknessDir"
+        ],
+        "return_type": "(11, 0, None)"
+      },
+      {
+        "arguments": "((11, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 2,
+        "names": [
+          "ReverseThicknessDir"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 3,
+        "names": [
+          "Thickness"
+        ],
+        "return_type": "(5, 0, None)"
+      },
+      {
+        "arguments": "((5, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 3,
+        "names": [
+          "Thickness"
+        ],
+        "return_type": "(24, 0, None)"
+      }
+    ],
+    "ISelectData": [
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 4,
+        "names": [
+          "Mark"
+        ],
+        "return_type": "(3, 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 4,
+        "names": [
+          "Mark"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 1,
+        "names": [
+          "X"
+        ],
+        "return_type": "(5, 0, None)"
+      },
+      {
+        "arguments": "((5, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 1,
+        "names": [
+          "X"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 2,
+        "names": [
+          "Y"
+        ],
+        "return_type": "(5, 0, None)"
+      },
+      {
+        "arguments": "((5, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 2,
+        "names": [
+          "Y"
+        ],
+        "return_type": "(24, 0, None)"
+      },
+      {
+        "arguments": "()",
+        "invocation_kind": 2,
+        "member_id": 3,
+        "names": [
+          "Z"
+        ],
+        "return_type": "(5, 0, None)"
+      },
+      {
+        "arguments": "((5, 1, None),)",
+        "invocation_kind": 4,
+        "member_id": 3,
+        "names": [
+          "Z"
+        ],
+        "return_type": "(24, 0, None)"
+      }
+    ],
+    "ISelectionMgr": [
+      {
+        "arguments": "()",
+        "invocation_kind": 1,
+        "member_id": 30,
+        "names": [
+          "CreateSelectData"
+        ],
+        "return_type": "((26, (29, 50335488)), 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None), (3, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 36,
+        "names": [
+          "GetSelectedObject6",
+          "Index",
+          "Mark"
+        ],
+        "return_type": "(9, 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None),)",
+        "invocation_kind": 1,
+        "member_id": 34,
+        "names": [
+          "GetSelectedObjectCount2",
+          "Mark"
+        ],
+        "return_type": "(3, 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None),)",
+        "invocation_kind": 1,
+        "member_id": 17,
+        "names": [
+          "GetSelectedObjectMark",
+          "AtIndex"
+        ],
+        "return_type": "(3, 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None), (3, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 37,
+        "names": [
+          "GetSelectionPoint2",
+          "Index",
+          "Mark"
+        ],
+        "return_type": "(12, 0, None)"
+      },
+      {
+        "arguments": "((3, 1, None), (3, 1, None), (5, 1, None), (5, 1, None), (5, 1, None))",
+        "invocation_kind": 1,
+        "member_id": 39,
+        "names": [
+          "SetSelectionPoint2",
+          "Index",
+          "Mark",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "return_type": "(11, 0, None)"
+      }
+    ],
+    "ISketchSegment": [
+      {
+        "arguments": "((11, 1, None), ((26, (29, 50335488)), 1, None))",
+        "invocation_kind": 1,
+        "member_id": 65562,
+        "names": [
+          "Select4",
+          "Append",
+          "Data"
+        ],
+        "return_type": "(11, 0, None)"
+      }
+    ]
+  },
+  "native_files_authored": 0,
+  "native_processes": 0,
+  "schema": "kit.sw2026.loft-rib-draft-source-installation.v1"
+}
