@@ -1,6 +1,7 @@
 from functools import partial
 from struct import pack
 
+from ColdFilletAnno import read_annotation_binding
 from FilletModel import require
 
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
@@ -64,7 +65,8 @@ def check_cold_roots(roots, model):
         require(set(collection) == keys and all(value["n"] == 0 and not value["items"]
                                                 for value in collection.values()), "cold keeper collections must be present and empty")
     require(fields["fc20"]["n"] == 0 and not fields["fc20"]["items"], "cold options must start empty")
-    view = RequireNative(radius_item.FieldsValue["f08"], "moDisplayRadialDim_c").FieldsValue
+    display = RequireNative(radius_item.FieldsValue["f08"], "moDisplayRadialDim_c")
+    view = display.FieldsValue
     (handle_row,) = NativeRows(view["f850"])
     handle = RequireNative(handle_row["o"], "moFeatureDimHandle_c")
     dimension = RequireNative(handle.FieldsValue["ff0"], "ThreeDRadiusDim_c")
@@ -81,10 +83,14 @@ def check_cold_roots(roots, model):
             and all(owner["f08"] is historical[0]["f08"] and owner["f10"]["f08"] == historical[0]["f10"]["f08"]
                     for owner in historical), "cold edge carriers must share the same original producing stock")
     _, self_path, config_name, config_id = ReadFilletKeys(RequireNative(historical[0]["f08"], "moExtObject_c"))
-    return {"driver_id": dimension.FieldsValue["f50"], "driver": "D1", "radius_m": radius,
-            "stock_birth": historical[0]["f10"]["f08"], "self_path": self_path,
-            "config_name": config_name, "config_id": config_id, "feature_id": fields["f08"], "stock_id": stock.FieldsValue["f08"], "atom_id": atom.FieldsValue["f140"],
-            "surface_keys": [(row.ClassValue.NameValue, row.FieldsValue["f38"], row.FieldsValue.get("f3c")) for row in support]}
+    witness = {"driver_id": dimension.FieldsValue["f50"], "driver": "D1", "radius_m": radius,
+               "stock_birth": historical[0]["f10"]["f08"], "self_path": self_path,
+               "config_name": config_name, "config_id": config_id, "feature_id": fields["f08"], "stock_id": stock.FieldsValue["f08"], "atom_id": atom.FieldsValue["f140"],
+               "surface_keys": [(row.ClassValue.NameValue, row.FieldsValue["f38"], row.FieldsValue.get("f3c")) for row in support]}
+    annotation = read_annotation_binding(model, display)
+    if annotation is not None:
+        witness["annotation"] = annotation
+    return witness
 
 
 def cold_context(seed):

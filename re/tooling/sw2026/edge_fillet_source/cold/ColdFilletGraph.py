@@ -1,5 +1,6 @@
 from struct import pack
 
+from ColdFilletAnno import bind_annotations
 from ColdFilletIntent import FEATURE_NAME
 from FilletModel import require
 
@@ -96,6 +97,7 @@ def make_fillet(stock, intent, settings):
     allocator = PersistentIds(feature_id)
     feature = initial_feature(model, settings)
     driver = make_driver(model, feature, intent.definition.Radius.value)
+    bind_annotations(model, driver.DisplayValue, settings.TargetValue.FileVersion, intent.annotations)
     allocator.AllocateMut(driver.DimensionValue, "f50")
     allocator.AllocateMut(feature)
     atom = BindChmfAtomMut(stock, feature)

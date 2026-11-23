@@ -1,6 +1,7 @@
 from dataclasses import dataclass, replace
 from math import isfinite
 
+from ColdFilletAnno import FilletAnnotations, prepare_annotations
 from FilletModel import edge_role, require, stock
 
 from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfPlan import ChmfEdgePlan
@@ -24,11 +25,13 @@ class ColdFilletIntent:
     edge: ChmfEdgePlan
     definition: FilletFeature
     locator: SelfFileInput
+    annotations: FilletAnnotations | None = None
 
 
 def prepare_intent(spec, locator):
-    require(set(spec) == {"name", "size_mm", "center_mm", "edge_axis", "corner", "radius_mm"},
+    require(set(spec) - {"annotations"} == {"name", "size_mm", "center_mm", "edge_axis", "corner", "radius_mm"},
             "expected only neutral fillet intent")
+    annotations = prepare_annotations(spec["annotations"]) if "annotations" in spec else None
     size, center, radius = spec["size_mm"], spec["center_mm"], spec["radius_mm"]
     require(len(size) == 3 and len(center) == 2
             and all(type(value) in (float, int) and isfinite(value) for value in (*size, *center, radius))
@@ -62,4 +65,4 @@ def prepare_intent(spec, locator):
     radius = spec["radius_mm"] / 1000.0
     require(1e-14 <= radius < span / 2.0, "uniform radius exceeds its convex stock supports")
     edge = ChmfEdgePlan(bounds, axis, carrier, corner, span)
-    return ColdFilletIntent(document, edge, FilletFeature(ParameterValue(radius, ValueKind.KLength, "m")), locator)
+    return ColdFilletIntent(document, edge, FilletFeature(ParameterValue(radius, ValueKind.KLength, "m")), locator, annotations)
