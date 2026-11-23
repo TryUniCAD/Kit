@@ -544,6 +544,14 @@ Keep remaining gaps, parked tasks and limitations visible.
 
 ## Immediate handoff
 
+The separately requested `A06g-BulkDecodedComparison` programme is checking under the [owning register](../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command).
+Codex owns `codex/bulk-semantic-comparison`; delivery is [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
+It depends on the existing semantic comparator and codec and compares decoded JSON without running either decoder.
+The exit requires process evidence, output-preservation checks, current-head CI, and configured review.
+The [change entry](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md) preserves scope and qualification limits.
+The [first manual source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) passed on `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`, including 47 bulk process cases; later review follow-ups require fresh source-bound evidence.
+The production snapshot and conversion milestones remain unchanged.
+
 The next critical-path task is B02: fresh native Fusion readback and paired semantic qualification on PR #94.
 The inspected register names that missing evidence before A06 can qualify its graph comparisons.
 Check that register again before running or claiming anything.
