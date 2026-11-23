@@ -1,0 +1,259 @@
+{
+  "base": "935d9848dab052aff0bc4495faa579e011cc7cba",
+  "guarded_generation": {
+    "authored": {
+      "ordinary": {
+        "child": {
+          "bytes": 10839,
+          "sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8"
+        },
+        "fields": {
+          "f08": "AssemblyActive",
+          "f10": 0,
+          "f18": "ConcentricAuthored",
+          "f20": 2,
+          "f24": 1,
+          "f28": "moMateConcentric",
+          "f30": "ConcentricAuthored (NeutralCylinderAlphaDerived<1>,NeutralCylinderAlphaDerived<2>)",
+          "f38": 0,
+          "f3c": 19
+        },
+        "fragment": {
+          "bytes": 312,
+          "sha256": "3b98df33c2a7692c7cdb4e1d163eaa30c27fdfb495e36f4e279096f83b9576ed"
+        },
+        "parent": {
+          "bytes": 10760,
+          "sha256": "929c8e4260b62d8c16fd1a7369a46bebc9d0bcec104b36b8fbddfd3fb5b75bdd"
+        }
+      },
+      "refusals": {
+        "configuration_override": "assembly mate descriptor requires an ordinary configuration without overrides",
+        "crossed_wrapper_owner": "assembly mate descriptor requires the actual ordered active wrapper allocation",
+        "foreign_mate_group": "assembly mate descriptor requires one ordinary active two-end mate",
+        "reused_end": "assembly mate descriptor needs distinct actual endpoint owners",
+        "unclassified_type": "assembly mate descriptor has an unclassified concrete mate type",
+        "wrong_endpoint_slot": "assembly mate descriptor requires the actual ordered active wrapper allocation"
+      },
+      "reversed_presentation": {
+        "child": {
+          "bytes": 10839,
+          "sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8"
+        },
+        "fields": {
+          "f08": "Mechanism Review",
+          "f10": 0,
+          "f18": "Opposite axis \u691c",
+          "f20": 2,
+          "f24": 1,
+          "f28": "moMateConcentric",
+          "f30": "Opposite axis \u691c (Other-mount<3>,Motion-guide<17>)",
+          "f38": 0,
+          "f3c": 19
+        },
+        "fragment": {
+          "bytes": 244,
+          "sha256": "d28b8bbc73d8967b29726073cd0f9ee85657cbf8f51c2c84b790eb6af026d677"
+        },
+        "parent": {
+          "bytes": 10883,
+          "sha256": "b9e9eb4710080f862a2a0c6f7375731e28c6dd36f92bdb57a7319dbc509744a4"
+        }
+      }
+    },
+    "runtime_input_accesses": 0
+  },
+  "guarded_workers": 2,
+  "heldout_accesses": 0,
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_runs": 0,
+  "pinned_disclosure_receipt_sha256": "676fb1e7e56e929d880a7de1471acf7cb456b70f9fec862f00961fc597736c51",
+  "prior_generated_pair_trial_sha256": "9b7e52d198a7e2a70902b3794fff1987451bc6a599ca1d557493eddc75a580c9",
+  "proof_source_sha256": {
+    "AssemblyMateDescriptor.py": "6e5f4ecc5808957d28a76e5ba14e6e10ac3fe4a6b26a998df441dd72c37c1a2b",
+    "ProveAssemblyMateDescriptor.py": "f5c6d624bedf405fc68c2bf389c5710ddea87ad2dc60c364222aee74b2105c5e"
+  },
+  "request_sha256": "c4b6c936c4a2083560b5e4a9f0f0fc58d09053a9e53d2bcba87e14da3ffccc0a",
+  "schema": "kit.sw2026.assembly-mate-descriptor.v1",
+  "source_and_control_replacements": {
+    "A0_one.SLDASM": {
+      "content_index": {
+        "bytes": 786,
+        "sha256": "6439f8aeed46dfb89da454bc129dcdb5e1e3cfd9228ea21e50e4ee2006083b71"
+      },
+      "descriptors": [],
+      "final_map_counter": 15,
+      "replacement_exact": true,
+      "source_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8"
+    },
+    "A13SyncedSingle.SLDASM": {
+      "content_index": {
+        "bytes": 822,
+        "sha256": "723cb56b90228a4dfd59927f3006a29c859cfd2446d2306ecd9d5552af24b0de"
+      },
+      "descriptors": [],
+      "final_map_counter": 15,
+      "replacement_exact": true,
+      "source_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523"
+    },
+    "A14SyncedRepeat.SLDASM": {
+      "content_index": {
+        "bytes": 1254,
+        "sha256": "dce113b047d7ded6fe6b29f5ba5903e73b9079cc495495efc7b2eb7904c106e1"
+      },
+      "descriptors": [],
+      "final_map_counter": 17,
+      "replacement_exact": true,
+      "source_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37"
+    },
+    "A1_two.SLDASM": {
+      "content_index": {
+        "bytes": 1660,
+        "sha256": "f85d961cc6b70a20c7ac0d798205ecbffe0dba487dab28da21d91d47ca789070"
+      },
+      "descriptors": [
+        {
+          "allocation": 10,
+          "concrete_class": "moMateCoincident",
+          "descriptor_characters": 36,
+          "mate_type": 0,
+          "node_id": 26,
+          "wire_bytes": 192
+        },
+        {
+          "allocation": 11,
+          "concrete_class": "moMateDistanceDim_c",
+          "descriptor_characters": 34,
+          "mate_type": 5,
+          "node_id": 28,
+          "wire_bytes": 176
+        },
+        {
+          "allocation": 12,
+          "concrete_class": "moMateCoincident",
+          "descriptor_characters": 36,
+          "mate_type": 0,
+          "node_id": 29,
+          "wire_bytes": 178
+        }
+      ],
+      "final_map_counter": 21,
+      "replacement_exact": true,
+      "source_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4"
+    },
+    "D01/Edited": {
+      "content_index": {
+        "bytes": 2220,
+        "sha256": "3c3fd286c99bbab57e4b51df50f254c3488f464ba388648c985ac2b06ae637bc"
+      },
+      "descriptors": [
+        {
+          "allocation": 10,
+          "concrete_class": "moMateConcentric",
+          "descriptor_characters": 57,
+          "mate_type": 1,
+          "node_id": 26,
+          "wire_bytes": 234
+        }
+      ],
+      "final_map_counter": 19,
+      "replacement_exact": true,
+      "source_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52"
+    },
+    "D01/Source": {
+      "content_index": {
+        "bytes": 1612,
+        "sha256": "4eb93b8e825b5a11f1ed4c974da9d8e0a46e48f97061e49864cca219b583ccd0"
+      },
+      "descriptors": [
+        {
+          "allocation": 10,
+          "concrete_class": "moMateConcentric",
+          "descriptor_characters": 57,
+          "mate_type": 1,
+          "node_id": 26,
+          "wire_bytes": 234
+        }
+      ],
+      "final_map_counter": 19,
+      "replacement_exact": true,
+      "source_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+    },
+    "D02/Edited": {
+      "content_index": {
+        "bytes": 2236,
+        "sha256": "e1263f0060754be202efe441222bc670c2fe0eb34dccfd523da933e3e6bda7e7"
+      },
+      "descriptors": [
+        {
+          "allocation": 10,
+          "concrete_class": "moMateConcentric",
+          "descriptor_characters": 57,
+          "mate_type": 1,
+          "node_id": 26,
+          "wire_bytes": 234
+        }
+      ],
+      "final_map_counter": 19,
+      "replacement_exact": true,
+      "source_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf"
+    },
+    "D02/Source": {
+      "content_index": {
+        "bytes": 1612,
+        "sha256": "d833ebe976a24a256c5f370405d60930ef4038b0535550861efd6ff9fc59a824"
+      },
+      "descriptors": [
+        {
+          "allocation": 10,
+          "concrete_class": "moMateConcentric",
+          "descriptor_characters": 57,
+          "mate_type": 1,
+          "node_id": 26,
+          "wire_bytes": 234
+        }
+      ],
+      "final_map_counter": 19,
+      "replacement_exact": true,
+      "source_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf"
+    },
+    "D03/Edited": {
+      "content_index": {
+        "bytes": 2268,
+        "sha256": "951907c1eee1c1da7afede4469031c2c7c78bfd4fe756af1ec4235890f9d2cc6"
+      },
+      "descriptors": [
+        {
+          "allocation": 10,
+          "concrete_class": "moMateConcentric",
+          "descriptor_characters": 57,
+          "mate_type": 1,
+          "node_id": 26,
+          "wire_bytes": 234
+        }
+      ],
+      "final_map_counter": 19,
+      "replacement_exact": true,
+      "source_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d"
+    },
+    "D03/Source": {
+      "content_index": {
+        "bytes": 1684,
+        "sha256": "bf71c953e190a1eedb4339b4a7c8ab0ca731e83fe8239e541d7bc35f42714271"
+      },
+      "descriptors": [
+        {
+          "allocation": 10,
+          "concrete_class": "moMateConcentric",
+          "descriptor_characters": 57,
+          "mate_type": 1,
+          "node_id": 26,
+          "wire_bytes": 234
+        }
+      ],
+      "final_map_counter": 19,
+      "replacement_exact": true,
+      "source_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039"
+    }
+  }
+}
