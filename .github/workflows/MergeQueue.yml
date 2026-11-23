@@ -1179,14 +1179,19 @@ jobs:
       - name: Verify the history exception stays narrow
         run: |
           set -euo pipefail
-          if printf 'end_spec_offset=%s, axis_kind=%s if AxisValue is None\n' 'Token' 'None' \
-            | "${RUNNER_TEMP}/gitleaks" stdin \
-              --config .github/config/Gitleaks.toml --redact --exit-code 23; then
-            echo "::error::The history exception unexpectedly accepted an unrelated source"
-            exit 1
-          else
-            test "$?" -eq 23
-          fi
+          RequireDetection() {
+            local Result=0
+            "${RUNNER_TEMP}/gitleaks" stdin \
+              --config .github/config/Gitleaks.toml --redact --exit-code 23 || Result=$?
+            if [ "$Result" -ne 23 ]; then
+              echo "::error::An unscoped history control did not produce the expected detection"
+              return 1
+            fi
+          }
+          printf 'end_spec_offset=%s, axis_kind=%s if AxisValue is None\n' 'Token' 'None' | RequireDetection
+          ReceiptPath=re/solidworks/measurements/2026/SdkColdEllipseReceipt01.json
+          PublicDigest="$(sha256sum "$ReceiptPath" | cut -d ' ' -f 1)"
+          printf '%s = "%s"\n' 'KEllipAuthSha' "$PublicDigest" | RequireDetection
 
       - name: Run Gitleaks history secret audit
         run: >-

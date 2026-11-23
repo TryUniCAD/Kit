@@ -22,13 +22,13 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMe
 from interchange.Core.Common import FreezeMapping
 
 # this authenticates the disclosed normalized receipt and never contributes construction values
-KEllipAuthSha = "e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3"
+KEllipReportSha = "e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3"
 
 
 # canonical serialization matches the exact verified disclosed offline authority
 def CheckEllipAuth(Receipt: dict[str, object]) -> None:
     Canonical = DumpJson(Receipt, indent=2, sort_keys=True, allow_nan=False) + "\n"
-    if CalcSha(Canonical.encode()).hexdigest() != KEllipAuthSha:
+    if CalcSha(Canonical.encode()).hexdigest() != KEllipReportSha:
         raise ValueError("ellipse readback requires authenticated offline evidence")
 
 
@@ -58,7 +58,7 @@ def VerifyEllipMeas(
                     "oracle_build": KOraclePart["build"],
                     "edit_record_sha256": EditHash,
                     "reopen_record_sha256": ReopenHash,
-                    **({"authority_sha256": KEllipAuthSha} if RequireAuth else {}),
+                    **({"authority_sha256": KEllipReportSha} if RequireAuth else {}),
                 }
             )
         }

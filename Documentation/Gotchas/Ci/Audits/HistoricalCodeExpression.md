@@ -13,6 +13,13 @@ The preceding offset variable supplied the detector's keyword context.
 That value is source syntax rather than a credential literal.
 The [original scanner log](https://github.com/TryUniCAD/Kit/actions/runs/43691519928/job/132743056959) records the rule, commit, path, and line.
 
+The same rule also flagged the public SHA-256 of the normalized cold ellipse
+report. The report's bytes reproduce the exact value in the historical
+identifier. The present identifier names the report digest.
+[Report bytes](../../../../re/solidworks/measurements/2026/SdkColdEllipseReceipt01.json) ·
+[Historical source](https://github.com/TryUniCAD/Kit/blob/ffa49a63caf2b3c433c05433c7b638e5d0d4fde7/src/convert/adapters/solidworks/Core/Writing/Ellipse/VerifyEllipMeas.py#L25) ·
+[Scanner log](https://github.com/TryUniCAD/Kit/actions/runs/45086453357/job/137406081845)
+
 ## Resolution
 
 Extend only the matching default rule with an `AND` exception for the complete historical commit,
