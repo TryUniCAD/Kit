@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from CodexAdvice.MetadataSmoke import identity, prepare, totals
 from CodexAdvice.SharedBudget import SharedBudget
-from CodexAdvice.SharedSmoke import command, events, settle, setup, start
+from CodexAdvice.SharedSmoke import events, settle, setup, start
 
 
 # process barriers keep metadata writes outside the measured idle interval

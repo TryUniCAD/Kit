@@ -21,7 +21,6 @@ from Ledger import Ledger
 from PriorityClaims import runnable_jobs
 from PrioritySchedule import initialize as native_schedule
 from ProcessClient import Client, job
-from SharedQueue.Dispatch import install_dispatch
 
 
 # independent relational counts check every cached priority including aliases and inactive requests
