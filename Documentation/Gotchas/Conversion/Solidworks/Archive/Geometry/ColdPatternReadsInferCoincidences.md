@@ -6,7 +6,7 @@ The recovered rectangle's relation list contains only the authored axis constrai
 
 ## Actual behavior
 
-The aggregate's strict geometry decoder reconstructs both stock rectangles and derives four additional endpoint coincidences per sketch. Each disclosed archive originated from four authored axis constraints per rectangle. The default readback recovers one solid and the live pattern count and pitch. The history-only projection follows a different path and still retains opaque native definitions. [Exact disclosed comparison](../../../../../../re/solidworks/measurements/2026/AggregateMeasuredLinearPattern01.json)
+The strict decoder reconstructs both stock rectangles and derives four additional endpoint coincidences per sketch. Each disclosed archive originated from four authored axis constraints per rectangle. Full and design-only reads recover the same typed owner graph and live parameters. The full read also emits a derived solid. [Strict design-only comparison](../../../../../../re/solidworks/measurements/2026/SdkColdPatternDesignRead01.json)
 
 ## Workaround
 

@@ -85,7 +85,7 @@ def ApplyPatDoc(
         )
     ModelValue = Document.brep
     (BodyValue,) = Document.bodies
-    if ModelValue is None or BodyValue.final_feature_id != StepValue.id:
+    if BodyValue.final_feature_id != StepValue.id:
         raise ValueError("pattern final public body identity differs")
     Parameters = {Count.id: Count, Pitch.id: Pitch}
     Evidence = {
@@ -113,6 +113,8 @@ def ApplyPatDoc(
             ),
         )
     else:
+        if ModelValue is None:
+            raise ValueError("saved pattern requires its actual physical body")
         BrepValue, BoundBody = BindPatBody(
             ModelValue, BodyValue, Surface.NameValue, Evidence
         )

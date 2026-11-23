@@ -100,6 +100,16 @@ def summary(doc):
     }
 
 
+def design_summary(full, design):
+    fields = ("units", "configurations", "parameters", "support_planes", "sketches",
+              "feature_timeline", "selections", "bodies")
+    require(not design.validate() and design.brep is None and not design.brep_payloads
+            and all(getattr(design, field) == getattr(full, field) for field in fields)
+            and design.capabilities < full.capabilities
+            and design.metadata["solidworks.typed_linear_pattern"] == full.metadata["solidworks.typed_linear_pattern"],
+            "design-only read differs from the complete typed graph")
+
+
 def read_worker(input_path=None):
     sys.path.insert(0, str(ROOT / "src"))
     from convert import open_document
@@ -117,9 +127,13 @@ def read_worker(input_path=None):
     document = open_document(BytesIO(raw), source_format=FORMAT, strict=True)
     report = summary(document)
     require(summary(loads(dumps(document))) == report, "ordinary neutral JSON lost the recovered axis or plane")
+    designed = open_document(BytesIO(raw), source_format=FORMAT, strict=True, include_brep=False)
+    design_summary(document, designed)
+    design_summary(document, loads(dumps(designed)))
     if input_path is not None:
-        require(summary(open_document(input_path, strict=True)) == report,
-                "native path and stream reading disagree")
+        from_path = open_document(input_path, strict=True)
+        require(summary(from_path) == report, "native path and stream reading disagree")
+        design_summary(from_path, open_document(input_path, strict=True, include_brep=False))
     raw_doc = registry.read(raw, format_id=FORMAT, options=ReadOptions(extract_raw_brep=True, include_brep=False))
     require(raw_doc.brep is None and "solidworks.typed_linear_pattern" not in raw_doc.metadata,
             "metadata-only reader constructed a solid")
@@ -186,8 +200,10 @@ def measure(exact_hashes):
                 result[state] = {"source_sha256": digest, **row}
             results[name] = result
     require(len(results) == 2 and all(len(value) == 3 for value in results.values()), "incomplete pattern contrast")
-    return {"schema": "kit.sw2026.public-cold-oblique-pattern-read.v1", "cases": results, "isolated_processes": 12,
+    return {"schema": "kit.sw2026.public-cold-oblique-pattern-read.v2", "cases": results, "isolated_processes": 12,
             "ordinary_path_and_stream_reads": 12, "neutral_json_roundtrips": 6, "exact_generated_hashes_required": exact_hashes,
+            "design_only_path_and_stream_reads": 12, "design_only_json_roundtrips": 6,
+            "raw_brep_only_reads": 6,
             "heldout_payloads_read": 0, "native_processes_started": 0}
 
 

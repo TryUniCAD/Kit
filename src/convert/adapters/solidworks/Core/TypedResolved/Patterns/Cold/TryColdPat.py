@@ -49,8 +49,7 @@ def TryColdPat(
     Archive: SldprtArchive, ModelValue: NativeModel, Settings: ReadOptions, BodyId: str
 ) -> ColdPatPart | None:
     if (
-        not Settings.include_brep
-        or Settings.extract_raw_brep
+        Settings.extract_raw_brep
         or ModelValue.active_configuration_id != 0
         or not any(Value.class_name == "moLPattern_c" for Value in ModelValue.features)
         or not IsCacheAbsent(Archive)

@@ -43,8 +43,10 @@ def ReadPartShape(
     PartGeometry | None,
 ]:
     Model, SavedValue = TryStockPart(Archive, Model, Settings)
-    if SavedValue is not None or not Settings.include_brep:
+    if SavedValue is not None:
         return Model, SavedValue, None, None
+    if not Settings.include_brep:
+        return Model, None, TryColdPat(Archive, Model, Settings, BodyId), None
     Model, ColdValue = TryColdStock(Archive, Model, Settings)
     if ColdValue is not None:
         return Model, None, ColdValue, ColdValue.GeometryValue
