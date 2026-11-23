@@ -210,19 +210,23 @@ def check_rotated(representatives):
     cosine = math.cos(math.radians(3))
     sine = math.sin(math.radians(3))
     basis = (cosine, -sine, 0, 0, 0, 1, -sine, -cosine, 0)
-    assert cosine * cosine + sine * sine != 1.0
     streams = archive.streams
     edited = bytearray(streams[stream])
     struct.pack_into("<9d", edited, offset + 15, *basis)
     streams[stream] = bytes(edited)
     changed = BuildSldprt(streams, Template=raw)
     for include_brep in (True, False):
-        document = open_document(
-            changed, source_format="solidworks.sldprt", strict=True, include_brep=include_brep
-        )
-        (sketch,) = document.sketches
-        assert sketch.support_plane_id == "sldprt:plane:3"
-        assert sketch.attributes["support_plane_source"] == "plane-reference"
+        try:
+            open_document(
+                changed,
+                source_format="solidworks.sldprt",
+                strict=True,
+                include_brep=include_brep,
+            )
+        except ArchiveError as error:
+            assert "unsupported in-plane rotation of SOLIDWORKS principal sketch" in str(error)
+        else:
+            raise AssertionError("rotated principal sketch produced a neutral document")
     return 2
 
 
@@ -288,7 +292,7 @@ def main():
         "timestamp_variants": check_variability(representatives),
         "invalid_reference_rejections": invalid["rejections"],
         "unqualified_reference_fallbacks": invalid["unqualified_fallbacks"],
-        "rotated_frame_reads": check_rotated(representatives),
+        "rotated_frame_rejections": check_rotated(representatives),
         "custom_plane_reads": check_custom(),
         "multi_sketch_owner_scans": check_owner_scans(),
         "bounds_evidence": "derived from origin-based native recipes and measured centroids",

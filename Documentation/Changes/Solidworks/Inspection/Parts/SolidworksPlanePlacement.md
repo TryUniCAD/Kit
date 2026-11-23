@@ -21,7 +21,8 @@ The decode state caches that lookup, including an unavailable result, for the cu
 Each candidate must retain those owners, the same generation, compact pointer kinds, and the absent external component.
 The complete owner envelope stays inside its authored feature.
 The pose must retain its principal origin, unit scale, and absent nested transform within the owning feature boundary.
-The saved frame must be right-handed and its normal must agree with the principal datum.
+All three saved axes must match the canonical native basis for the principal datum.
+The neutral sketch references the datum frame. The reader rejects an in-plane rotation that this reference cannot represent.
 A compact reference with matching local owners and a principal identity raises a format error if its pose is invalid.
 Unrecognized ownership or non-principal identities retain the existing fallback path.
 Both supported generation stamps participate in fallback scanning.
@@ -38,7 +39,7 @@ No native files or historical reports were changed.
 - Twenty-four timestamp variants preserve placement across three principal planes and both extrusion directions.
 - Ten malformed principal poses fail both public read modes, including wrong-datum and reflected orthonormal matrices.
 - Nine unqualified pointer, owner, generation, or non-principal identity controls retain the explicit legacy fallback.
-- A three-degree in-plane rotation passes both read modes despite floating-point cross-product rounding.
+- The regression check requires both public read modes to reject a three-degree in-plane rotation.
 - The recorded `example.SLDPRT` keeps Sketch40 on its user-created `Plane1` in both read modes, with an available origin owner and the existing labelled fallback.
 - All 58 older pinned SOLIDWORKS part documents serialize identically before and after this repair.
 - The focused process and compatibility selection passed 19 tests.
