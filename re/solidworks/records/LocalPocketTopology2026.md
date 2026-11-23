@@ -47,9 +47,9 @@ computed from the neutral B-rep. The constructor receives no native source,
 bytes, offsets, or fields. The separate native observer records geometry
 and numeric ownership only.
 
-Run the [guarded proof](../../tooling/sw2026/imported_body_source/VerifyLocalPocket.py)
-in the isolated checkout with the previously disclosed, checksum-pinned
-source directory:
+Run the original guarded proof at the construction commit
+`b851798b44625a8d0dab9fee37798c55b687883e` with the previously disclosed,
+checksum-pinned source directory:
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/imported_body_source/VerifyLocalPocket.py all \
@@ -67,9 +67,50 @@ near each case differs in only the local body stream, which grows from
 archives the whole-file checks preserve all 48 stream fingerprints on the
 classic zlib 1.2.12 runtime.
 
-The stock-type planner still refuses the new solid before public writing.
-Default strict pocket reading reports the existing single-loop boundary.
-The typed research read verifies the new graph directly from the generated
-container. Generated pockets have no native or held-out acceptance. No
-parametric history is projected, or assigned a transfer claim, by this
-geometry-only work.
+At that revision default strict pocket reading reported the single-loop
+boundary and the typed research read verified the new graph directly. The
+stock-type planner still refuses the new solid before public writing.
+
+## Strict SDK readback
+
+The single-configuration local import path now binds the storage group to
+its actual BaseBody feature through the resolved offset, unique unmarked
+atom, selected rollback and activation predecessor. The bare graph has one
+solid and one void region with their reciprocal shells. One face owns the
+outer trim and interior trim. Every edge has opposing fins and every vertex
+has a complete three-fin rotation. The decoded physical positions use the
+shared metres-to-millimetres conversion. The oriented rings must describe
+the complete rectangular stock and one finite rectangular cavity. An
+equivalent reversed carrier remains present in the returned B-rep.
+[Typed local body reader](../../../src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/ReadPocketBody.py)
+
+Design-only reads validate the same pocket and project its identity and
+topology. They return no B-rep or payloads. Raw reads return the three native
+payloads through their existing option. Implicit full reads and explicit
+`Default` design reads return the same provenance, imported feature ID and
+configured body. The read path preserves the exact neutral JSON form of
+each result and never changes the source archive.
+
+Run the [current guarded proof](../../tooling/sw2026/imported_body_source/VerifyLocalPocketRead.py)
+with the same disclosed source directory:
+
+```sh
+python3.14 -I -B re/tooling/sw2026/imported_body_source/VerifyLocalPocketRead.py all \
+  --disclosed-native-directory /path/to/OpenShellSource02/Disclosure
+```
+
+The [read receipt](../measurements/2026/SdkLocalPocketRead01.json) pins
+both complete generated archives and all 24 logical stream fingerprints
+to the earlier construction receipt. Each returns the exact same 11 faces,
+12 loops, 24 edges, 48 fins, and 16 vertices in the full B-rep as the
+independent typed read. The full measures agree with independent volume
+subtraction and face area. Design and full reads each preserve BaseBody 18
+and the bound design body through JSON. The two reversed-plane contrasts
+preserve the signed stored carrier and recover unchanged geometry. Each of
+the five negative contrasts fails in both strict modes. The verified read
+phase opens zero runtime files after imports. Separate processes repeat the
+previously measured controls and both original and edited shell sightings.
+
+No generated pocket has native or held-out acceptance. The geometry-only
+construction continues to refuse public writing. The readback has no
+editable parametric history for this imported body.

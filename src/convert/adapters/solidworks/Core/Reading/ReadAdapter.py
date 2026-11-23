@@ -328,6 +328,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocal
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalImport import (
     ReadLocalImport,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadPocketOnly import (
+    ReadPocketOnly,
+)
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.Native import (
@@ -699,7 +702,7 @@ def ReadNativePart(
         selections=SelectValues,
         feature_timeline=TimeValues,
         bodies=() if IsEmptyPart(Archive, Model) else Bodies,
-        brep=BrepValue,
+        brep=BrepValue if Settings.include_brep or LocalOwner is None else None,
         brep_payloads=Payloads,
         diagnostics=Diagnostics,
         capabilities=Instance.info.capabilities,
@@ -4450,6 +4453,16 @@ def ReadPartSolid(
         return Payloads, PayloadDiags, WarmPart.ModelValue, None, WarmPart
     if StockBrep is not None:
         return Payloads, PayloadDiags, StockBrep, None, None
+    if (
+        not Settings.include_brep
+        and Settings.strict
+        and not Settings.extract_raw_brep
+        and Model.active_configuration_id == 0
+        and ConfigCount == 1
+        and (DesignOwner := FindLocalOwner(Model, Archive)) is not None
+        and (DesignBrep := ReadPocketOnly(Archive, DesignOwner)) is not None
+    ):
+        return (), (), DesignBrep, DesignOwner, None
     Candidate = (
         FindLocalOwner(Model, Archive)
         if Settings.include_brep

@@ -1,0 +1,405 @@
+{
+  "controls": {
+    "periodic": {
+      "ReverseY": {
+        "geometry": {
+          "area_mm2": 839.0997628197488,
+          "bounds_mm": [
+            [
+              -15.75,
+              4.25,
+              -9.5
+            ],
+            [
+              -6.5,
+              28.5,
+              -0.25
+            ]
+          ],
+          "centroid_mm": [
+            -11.125,
+            16.375,
+            -4.875
+          ],
+          "volume_mm3": 1629.6152861255837
+        },
+        "local_kernel": {
+          "bytes": 1414,
+          "sha256": "85c47d7beb3b2c4a9e01d98341197e62f345601fcc4e813afb976cccc2b79852"
+        },
+        "logical_streams": 12,
+        "part": {
+          "bytes": 8992,
+          "sha256": "ff0054be16d0b08d888ea6299f209f59cdc286b894cdb48c0a83203b38b6272d"
+        }
+      },
+      "TranslatedZ": {
+        "geometry": {
+          "area_mm2": 1012.5745821601602,
+          "bounds_mm": [
+            [
+              9.5,
+              -15.25,
+              3.375
+            ],
+            [
+              23.0,
+              -1.75,
+              20.5
+            ]
+          ],
+          "centroid_mm": [
+            16.25,
+            -8.5,
+            11.9375
+          ],
+          "volume_mm3": 2451.252211656042
+        },
+        "local_kernel": {
+          "bytes": 1414,
+          "sha256": "20f764878d7ef568f01a9df61b276522f71a16aa7b13e2a2e121fd6ebf410b44"
+        },
+        "logical_streams": 12,
+        "part": {
+          "bytes": 8995,
+          "sha256": "ffb0d3f587387500ebd774c18272cfb5abff377b278ba42c54b63df9b4e4bda1"
+        }
+      }
+    },
+    "periodic_authority": {
+      "bytes": 7570,
+      "sha256": "eb1c2d29be5fae22d02f54b57aec0e733cc98c4cd44a45cc3dff30b93cab97de"
+    },
+    "planar": {
+      "ConcaveOwned": {
+        "archive": {
+          "bytes": 10890,
+          "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+        },
+        "exact_writes": 6,
+        "generated": {
+          "bytes": 10890,
+          "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+        },
+        "geometry_comparisons": 10,
+        "logical_streams": 12,
+        "refusals": 21,
+        "runtime_reads": 0
+      },
+      "RectangularBare": {
+        "archive": {
+          "bytes": 9914,
+          "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+        },
+        "exact_writes": 6,
+        "generated": {
+          "bytes": 9914,
+          "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+        },
+        "geometry_comparisons": 10,
+        "logical_streams": 12,
+        "refusals": 21,
+        "runtime_reads": 0
+      }
+    },
+    "planar_authority": {
+      "bytes": 17405,
+      "sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4"
+    },
+    "runtime_input_reads": 0
+  },
+  "generated": {
+    "cases": {
+      "Centered": {
+        "archive": {
+          "bytes": 10916,
+          "sha256": "536f8da2f24ce4d73bc49996420aacf8aed2dd551ca079d4481ee5574942987b"
+        },
+        "design": {
+          "configuration_id": "sldprt:configuration:0",
+          "feature_id": "sldprt:feature:18",
+          "geometry": null,
+          "json_sha256": "4c95917ab8a288654b8607f99ec9deab0a135780968f8d5bc6d59fed1054ffc9",
+          "label": "Imported pocket",
+          "native_object_id": 18,
+          "native_payloads": 0,
+          "neutral_json": true,
+          "topology": [
+            1,
+            1,
+            11,
+            24,
+            16
+          ]
+        },
+        "equivalent_reversed_plane": {
+          "alternate_carrier_preserved": true,
+          "full": {
+            "configuration_id": "sldprt:configuration:0",
+            "feature_id": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 3086.5,
+              "centroid_mm": [
+                0.0,
+                0.0,
+                6.777027027027027
+              ],
+              "volume_mm3": 4856.25
+            },
+            "json_sha256": "7cc56cd9b269f8748084652b923e2989cb901c52c608ad6752b448c7be718c85",
+            "label": "Imported pocket",
+            "native_object_id": 18,
+            "native_payloads": 3,
+            "neutral_json": true,
+            "topology": [
+              1,
+              1,
+              11,
+              24,
+              16
+            ]
+          }
+        },
+        "full": {
+          "configuration_id": "sldprt:configuration:0",
+          "feature_id": "sldprt:feature:18",
+          "geometry": {
+            "area_mm2": 3086.5,
+            "centroid_mm": [
+              0.0,
+              0.0,
+              6.777027027027027
+            ],
+            "volume_mm3": 4856.25
+          },
+          "json_sha256": "8b3a6756f2f8954f0ce3afd2a739634175fc1caeff88323ab04161c5782a494c",
+          "label": "Imported pocket",
+          "native_object_id": 18,
+          "native_payloads": 3,
+          "neutral_json": true,
+          "topology": [
+            1,
+            1,
+            11,
+            24,
+            16
+          ]
+        },
+        "raw_payloads": 3,
+        "refusals": {
+          "competing_payload": {
+            "design": "SLDPRT local geometry rejected: local pocket requires the sole selected payload group",
+            "full": "SLDPRT local geometry rejected: local body requires the sole selected payload group"
+          },
+          "false_carrier_station": {
+            "design": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane",
+            "full": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane"
+          },
+          "foreign_group": {
+            "design": "SLDPRT local geometry rejected: local body storage key differs from its resolved import",
+            "full": "SLDPRT local geometry rejected: local body storage key differs from its resolved import"
+          },
+          "foreign_rim_face": {
+            "design": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal",
+            "full": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal"
+          },
+          "missing_fin_rotation": {
+            "design": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation",
+            "full": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation"
+          }
+        },
+        "stream_digests": "exact",
+        "unmeasured_publication_refusals": 9
+      },
+      "Offset": {
+        "archive": {
+          "bytes": 10919,
+          "sha256": "bf6e1b0167e0e6fa499ecf62efc31ecbf7093c8a29cd1ad2a74229729c454dcd"
+        },
+        "design": {
+          "configuration_id": "sldprt:configuration:0",
+          "feature_id": "sldprt:feature:18",
+          "geometry": null,
+          "json_sha256": "04325c536429b7bdefcdb6120cb24f91304f6a138b2f570ba8518114666bdbd9",
+          "label": "Imported pocket",
+          "native_object_id": 18,
+          "native_payloads": 0,
+          "neutral_json": true,
+          "topology": [
+            1,
+            1,
+            11,
+            24,
+            16
+          ]
+        },
+        "equivalent_reversed_plane": {
+          "alternate_carrier_preserved": true,
+          "full": {
+            "configuration_id": "sldprt:configuration:0",
+            "feature_id": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 4084.0,
+              "centroid_mm": [
+                10.154362416107382,
+                19.60290827740492,
+                4.382550335570469
+              ],
+              "volume_mm3": 10728.0
+            },
+            "json_sha256": "41c8ee2c2241d7c0b236e04b859623b5ba72c8e8bd36087c76da9f3e4c1811ac",
+            "label": "Imported pocket",
+            "native_object_id": 18,
+            "native_payloads": 3,
+            "neutral_json": true,
+            "topology": [
+              1,
+              1,
+              11,
+              24,
+              16
+            ]
+          }
+        },
+        "full": {
+          "configuration_id": "sldprt:configuration:0",
+          "feature_id": "sldprt:feature:18",
+          "geometry": {
+            "area_mm2": 4084.0,
+            "centroid_mm": [
+              10.154362416107382,
+              19.60290827740492,
+              4.382550335570469
+            ],
+            "volume_mm3": 10728.0
+          },
+          "json_sha256": "d08b83e78e24c541189e33a1fd41737160292fa3684807f1062f8032cbe70793",
+          "label": "Imported pocket",
+          "native_object_id": 18,
+          "native_payloads": 3,
+          "neutral_json": true,
+          "topology": [
+            1,
+            1,
+            11,
+            24,
+            16
+          ]
+        },
+        "raw_payloads": 3,
+        "refusals": {
+          "competing_payload": {
+            "design": "SLDPRT local geometry rejected: local pocket requires the sole selected payload group",
+            "full": "SLDPRT local geometry rejected: local body requires the sole selected payload group"
+          },
+          "false_carrier_station": {
+            "design": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane",
+            "full": "SLDPRT local geometry rejected: local prism trim leaves its supporting plane"
+          },
+          "foreign_group": {
+            "design": "SLDPRT local geometry rejected: local body storage key differs from its resolved import",
+            "full": "SLDPRT local geometry rejected: local body storage key differs from its resolved import"
+          },
+          "foreign_rim_face": {
+            "design": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal",
+            "full": "SLDPRT local geometry rejected: kernel owner chain is not reciprocal"
+          },
+          "missing_fin_rotation": {
+            "design": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation",
+            "full": "SLDPRT local geometry rejected: local pocket vertex has inconsistent fin rotation"
+          }
+        },
+        "stream_digests": "exact",
+        "unmeasured_publication_refusals": 9
+      }
+    },
+    "frozen_construction": {
+      "bytes": 15255,
+      "sha256": "8d847b127137b6efdab54cea127af0ce083066f76e027cc64cbcf9c6dd05afb6"
+    },
+    "runtime_input_reads": 0
+  },
+  "native": {
+    "native_identity_authority": {
+      "bytes": 18505,
+      "sha256": "6d37583aff89d01d5ce50c580b34ad26e7cd039b1b2ff44fadf110f30a68553b"
+    },
+    "observations": {
+      "OpenShell.SLDPRT": {
+        "active_partition": {
+          "bytes": 10633,
+          "sha256": "37c1c327942c2117025686f8c37a480392693643b84d2822b4a3e12b5879cc22"
+        },
+        "body_node": 2,
+        "rim": {
+          "face": 41,
+          "loop_ids": [
+            62,
+            195
+          ],
+          "plane_normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "signed_xy_area_mm2": [
+            2173.0,
+            -1677.96
+          ],
+          "surface_face_sense": "-"
+        },
+        "topology": [
+          11,
+          12,
+          24,
+          48,
+          16
+        ],
+        "whole": {
+          "bytes": 69974,
+          "sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd"
+        }
+      },
+      "OpenShellEdited.SLDPRT": {
+        "active_partition": {
+          "bytes": 10633,
+          "sha256": "ed851b373fe1a83178020591e05bd7fad7c3420641d42d6ea9f0e17e8d2b20f1"
+        },
+        "body_node": 2,
+        "rim": {
+          "face": 41,
+          "loop_ids": [
+            64,
+            194
+          ],
+          "plane_normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "signed_xy_area_mm2": [
+            2173.0,
+            -1559.2035999999996
+          ],
+          "surface_face_sense": "-"
+        },
+        "topology": [
+          11,
+          12,
+          24,
+          48,
+          16
+        ],
+        "whole": {
+          "bytes": 69898,
+          "sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810"
+        }
+      }
+    }
+  },
+  "native_processes_started": 0,
+  "new_heldout_cases": 0,
+  "new_public_writer_admission": false,
+  "probe_sha256": "e75232f209aea8ead44c0b01ce76fb1931adfdf87dcd2fa81d3f8bd94ddc16c7",
+  "schema": "kit.sw2026.strict-local-pocket-read.v1"
+}

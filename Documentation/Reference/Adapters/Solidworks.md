@@ -837,9 +837,10 @@ readback of the two measured generated planar containers.
 [Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 · [Rectangular solid writer](../../Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
 
-The internal composer also has an offline rectangular recess profile with
-one exterior and one interior trim on its upper rim. It awaits strict
-public readback and native output qualification.
+The internal composer also models a rectangular recess with one exterior
+and one interior trim on its upper rim. The strict reader validates and
+projects the same body in full and design-only reads. This profile awaits
+native output qualification.
 [Rectangular recess evidence](../../../re/solidworks/records/LocalPocketTopology2026.md)
 
 Exact measured publication supports the disclosed bare rectangle and

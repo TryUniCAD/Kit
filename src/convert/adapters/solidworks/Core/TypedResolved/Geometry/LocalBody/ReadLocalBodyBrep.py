@@ -1,6 +1,5 @@
 from collections.abc import Sequence
 
-from convert.Geometry.Parasolid import BuildPartModel
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Native import NativeFeature
@@ -10,12 +9,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.ReadLocalCyl import (
     ReadLocalCyl,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.CheckLocalBodyGraph import (
-    CheckLocalGraph,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.MakeLocalBodyTables import (
-    MakeLocalTables,
-)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyNodes import (
     ReadLocalNodes,
 )
@@ -24,6 +17,13 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPayload import (
     ReadLocalState,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPlane import (
+    ReadLocalPlane,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadPocketBody import (
+    HasPocketLoops,
+    ReadPocketBody,
 )
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.Payloads.PayloadRecord import BrepPayload
@@ -54,23 +54,17 @@ def ReadLocalBrep(
             raise ValueError("local cylinder has no physical active partition")
         CheckCylOwner(Archive, OwnerValue, OwnerName, MarkValue, PriorMark)
         return ReadLocalCyl(NodesValue, OffsetsValue)
-    CheckLocalGraph(NodesValue)
-    TablesValue = MakeLocalTables(NodesValue, OffsetsValue)
-    ModelValue = BuildPartModel(TablesValue)
-    if (
-        len(ModelValue.bodies) != 1
-        or len(ModelValue.regions) != 1
-        or not ModelValue.regions[0].solid
-        or len(ModelValue.shells) != 1
-        or not ModelValue.shells[0].closed
-        or len(ModelValue.faces) != len(TablesValue.bridges)
-        or len(ModelValue.loops) != len(TablesValue.loops)
-        or len(ModelValue.edges) != len(TablesValue.edge_uses)
-        or len(ModelValue.coedges) != len(TablesValue.coedges)
-        or len(ModelValue.vertices) != len(TablesValue.vertex_uses)
-        or len(ModelValue.curves) != len(TablesValue.curves)
-        or len(ModelValue.surfaces) != len(TablesValue.surfaces)
-        or ModelValue.validate()
-    ):
-        raise ValueError("local body does not contain one complete closed solid")
-    return ModelValue
+    if HasPocketLoops(NodesValue):
+        if (
+            Archive is None
+            or OwnerValue is None
+            or PartitionData is None
+            or OwnerName != OwnerValue.name
+        ):
+            raise ValueError(
+                "local pocket requires its exact feature and active partition"
+            )
+        return ReadPocketBody(
+            NodesValue, OffsetsValue, Archive, OwnerValue, MarkValue, PriorMark
+        )
+    return ReadLocalPlane(NodesValue, OffsetsValue, AllowPocket=False)

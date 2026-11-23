@@ -13,6 +13,16 @@ from convert.adapters.solidworks.Container.Format import (
 from interchange.Payloads.PayloadRecord import BrepPayload
 
 
+# the selected and activation marks must be derived from the same physical history
+def ReadLocalMarks(ActiveData: bytes, HistoryData: bytes) -> tuple[int, int]:
+    ActiveNodes = ReadActiveNodes(ActiveData)
+    CheckXmtGraph(ActiveNodes)
+    if len(ActiveNodes) != 1 or ActiveNodes[1].Integer("body"):
+        raise ValueError("local body requires an empty active partition")
+    _, PriorMark = ReadHistMarks(HistoryData, ActiveNodes)
+    return ActiveNodes[1].Integer("current_id"), PriorMark
+
+
 # both readback paths need the same exact configuration payload selection
 def ReadLocalState(
     Payloads: Sequence[BrepPayload], PartitionData: bytes | None = None
@@ -40,12 +50,8 @@ def ReadLocalState(
             ("deltas", HistoryData),
         ):
             raise ValueError("local body selection differs from the archive partition")
-    ActiveNodes = ReadActiveNodes(ActiveData)
-    CheckXmtGraph(ActiveNodes)
-    if len(ActiveNodes) != 1 or ActiveNodes[1].Integer("body"):
-        raise ValueError("local body requires an empty active partition")
-    _, PriorMark = ReadHistMarks(HistoryData, ActiveNodes)
-    return LocalData, ActiveNodes[1].Integer("current_id"), PriorMark
+    MarkValue, PriorMark = ReadLocalMarks(ActiveData, HistoryData)
+    return LocalData, MarkValue, PriorMark
 
 
 # callers without activation ownership keep the selected body and mark interface

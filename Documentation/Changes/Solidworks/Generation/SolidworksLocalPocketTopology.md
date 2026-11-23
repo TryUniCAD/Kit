@@ -16,6 +16,7 @@ topology agree with independent rectangular subtraction. The previously
 measured rectangle, concave L prism and two cylinders retain their whole-file
 hashes. [Reproduction and measurements](../../../../re/solidworks/records/LocalPocketTopology2026.md)
 
-The generated pocket parts await independent native measurement and strict
-public readback. The existing geometry-only publication profiles and their
-per-output evidence gates still apply.
+The construction checkpoint preceded strict public readback. The generated
+pocket parts await independent native measurement. The existing geometry-only
+publication profiles and their per-output evidence gates still apply.
+[Strict readback](../Inspection/Parts/Geometry/SolidworksLocalPocketReadback.md)
