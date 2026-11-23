@@ -11,7 +11,8 @@ from tests.Policy.Shards.FindTestShell import FindTestShell
 
 # scheduling changes must retain actual pytest outcomes through the complete native reporting boundary
 @TestMark.parametrize("HasHistory", (False, True))
-def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
+@TestMark.parametrize("ShardCount", (4, 5))
+def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool, ShardCount: int) -> None:
     _, CollectedIds = PlanSample(TmpPath)
     TestIds = sorted(CollectedIds)
     HistoryPath = TmpPath / "History.json"
@@ -27,14 +28,14 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
                 }
             )
         )
-    for ShardIndex in range(4):
+    for ShardIndex in range(ShardCount):
         ReportRoot = TmpPath / f"Platform-shard-{ShardIndex + 1}-1"
         ReportRoot.mkdir()
         CollectedPath = ReportRoot / "Collected.txt"
         _ = CollectedPath.write_text("\n".join(TestIds) + "\n", newline="\n")
         SelectArgs = ["-m", "tools.TestShards.Platform.SelectShard"]
         SelectArgs += ["--collected", str(CollectedPath), "--history", str(HistoryPath)]
-        SelectArgs += ["--index", str(ShardIndex), "--count", "4"]
+        SelectArgs += ["--index", str(ShardIndex), "--count", str(ShardCount)]
         SelectArgs += ["--output", str(ReportRoot / "Selected.txt")]
         Selected = RunCommand(SelectArgs, KRootPath)
         assert Selected.returncode == 0, Selected.stderr
