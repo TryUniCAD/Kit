@@ -3,8 +3,14 @@ from collections.abc import Sequence
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Native import NativeFeature
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckAnnGraph import (
+    HasAnnularWalls,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckCylOwner import (
     CheckCylOwner,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.ReadAnnBody import (
+    ReadAnnBody,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.ReadLocalCyl import (
     ReadLocalCyl,
@@ -52,6 +58,16 @@ def ReadLocalBrep(
     ):
         if PartitionData is None:
             raise ValueError("local cylinder has no physical active partition")
+        if HasAnnularWalls(NodesValue):
+            return ReadAnnBody(
+                NodesValue,
+                OffsetsValue,
+                Archive,
+                OwnerValue,
+                OwnerName,
+                MarkValue,
+                PriorMark,
+            )
         CheckCylOwner(Archive, OwnerValue, OwnerName, MarkValue, PriorMark)
         return ReadLocalCyl(NodesValue, OffsetsValue)
     if HasPocketLoops(NodesValue):

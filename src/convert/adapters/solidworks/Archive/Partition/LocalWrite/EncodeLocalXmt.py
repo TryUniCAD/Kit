@@ -13,8 +13,14 @@ from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut im
     WriteXmtNodeMut,
 )
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckAnnGraph import (
+    HasAnnularWalls,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckCylGraph import (
     CheckCylGraph,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.ReadLocalCyl import (
+    ReadLocalCyl,
 )
 
 
@@ -32,6 +38,7 @@ def EncodeLocalXmt(
     OutputValue = bytearray(PackValue(">HI", 239, 0))
     SeenKinds: set[int] = set()
     NodesValue: dict[int, XmtNode] = {}
+    OffsetsValue: dict[int, int] = {}
     for IndexValue, NodeValue in enumerate(NodeValues, 1):
         if (
             type(NodeValue) is not XmtNode
@@ -46,6 +53,7 @@ def EncodeLocalXmt(
         RecordValue = XmtNode(
             IndexValue, NodeValue.KindValue, dict(NodeValue.FieldsValue)
         )
+        OffsetsValue[IndexValue] = len(OutputValue)
         WriteXmtNodeMut(
             OutputValue, RecordValue, KLocalShapes[RecordValue.KindValue], SeenKinds
         )
@@ -53,7 +61,10 @@ def EncodeLocalXmt(
     if any(NodeValue.KindValue in (31, 51) for NodeValue in NodesValue.values()):
         if AllowPocket:
             raise ValueError("local pocket cannot have periodic geometry")
-        CheckCylGraph(NodesValue)
+        if HasAnnularWalls(NodesValue):
+            _ = ReadLocalCyl(NodesValue, OffsetsValue)
+        else:
+            CheckCylGraph(NodesValue)
     else:
         CheckLocalXmt(NodesValue, AllowPocket=AllowPocket)
     OutputValue.extend(PackValue(">H", 1))

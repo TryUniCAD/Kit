@@ -859,12 +859,14 @@ readback of the two measured generated planar containers.
 [Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 · [Rectangular solid writer](../../Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
 
-The internal composer also models a rectangular blind recess or one straight
-rectangular through-opening. The strict reader validates the same body in
-full and design-only reads and preserves both cap trims for a through-opening.
+The internal composer also models a rectangular blind recess, one straight
+rectangular through-opening, and a cylinder with one full coaxial circular
+bore. The strict reader validates the same imported body in full and
+design-only reads and preserves both cap trims for a through-opening.
 These profiles await native output qualification.
 [Rectangular recess evidence](../../../re/solidworks/records/LocalPocketTopology2026.md)
 · [Rectangular through-opening evidence](../../../re/solidworks/records/PlanarThroughOpening2026.md)
+· [Annular body evidence](../../../re/solidworks/records/AnnularLocalImport2026.md)
 
 Exact measured publication supports the disclosed bare rectangle and
 one orthogonal concave L prism. Pass the completed import report through

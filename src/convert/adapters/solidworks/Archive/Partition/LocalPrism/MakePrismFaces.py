@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeBoundFace import (
+    MakeBoundFace,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismCell import (
     PrismCell,
     PrismRef,
@@ -10,10 +13,6 @@ from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismFaceLoop impo
 )
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismFinLinks import (
     PrismFinLinks,
-)
-from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismRootKeys import (
-    KPrismSolidShell,
-    KPrismVoidShell,
 )
 
 
@@ -83,19 +82,13 @@ def MakePrismFaces(
         First = Boundaries[0]
         Previous, Following = FaceChain[FaceRef]
         Values.append(
-            PrismCell(
+            MakeBoundFace(
                 FaceRef,
-                {
-                    "shell": KPrismSolidShell,
-                    "front_shell": KPrismVoidShell,
-                    "loop": PrismRef(15, First.LoopValue.id),
-                    "surface": PrismRef(50, First.FaceValue.surface_id),
-                    "previous": Previous,
-                    "next": Following,
-                    "previous_front": Previous,
-                    "next_front": Following,
-                    "sense": "+",
-                },
+                PrismRef(15, First.LoopValue.id),
+                PrismRef(50, First.FaceValue.surface_id),
+                Previous,
+                Following,
+                True,
             )
         )
         Values.extend(MakePrismLoops(Boundaries, FaceRef, FinLinks))

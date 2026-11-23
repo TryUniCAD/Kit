@@ -6,6 +6,12 @@ from convert.adapters.solidworks.Container.Format import (
 )
 from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeFeature
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckAnnGraph import (
+    HasAnnularWalls,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.ReadAnnBody import (
+    ReadAnnBody,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalBodyNodes import (
     ReadLocalNodes,
 )
@@ -22,10 +28,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadPocke
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
-# the design view derives its pocket identity without publishing a geometry payload
-def ReadPocketOnly(
-    Archive: SldprtArchive, OwnerValue: NativeFeature
-) -> BrepModel | None:
+# the design view derives selected trimmed solid ownership without publishing geometry
+def ReadTrimOnly(Archive: SldprtArchive, OwnerValue: NativeFeature) -> BrepModel | None:
     GroupData = Archive.get(KLocalBodyStream)
     if GroupData is None:
         return None
@@ -37,17 +41,25 @@ def ReadPocketOnly(
         NodesValue, OffsetsValue = ReadLocalNodes(LocalData, AllowPeriodic=True)
     except (KeyError, OverflowError, ValueError):
         return None
-    if not HasPocketLoops(NodesValue):
+    Annular = HasAnnularWalls(NodesValue)
+    if not Annular and not HasPocketLoops(NodesValue):
         return None
     try:
-        if ReadLocalWrap(GroupData, LocalData) != OwnerValue.name:
+        GroupKey = ReadLocalWrap(GroupData, LocalData)
+        if GroupKey != OwnerValue.name:
             raise ValueError("local body storage key differs from its resolved import")
-        Physical = DecodePartData(Archive.require(KPartitionStream), KPartitionStream)
-        if tuple(Value.kind for Value in Physical) != ("partition", "deltas"):
-            raise ValueError(
-                "local pocket requires the selected physical partition and deltas"
+        Profile = "local annulus" if Annular else "local pocket"
+        MarkValue, PriorMark = ReadTrimMarks(Archive, Profile)
+        if Annular:
+            return ReadAnnBody(
+                NodesValue,
+                OffsetsValue,
+                Archive,
+                OwnerValue,
+                GroupKey,
+                MarkValue,
+                PriorMark,
             )
-        MarkValue, PriorMark = ReadLocalMarks(Physical[0].data, Physical[1].data)
         return ReadPocketBody(
             NodesValue, OffsetsValue, Archive, OwnerValue, MarkValue, PriorMark
         )
@@ -55,3 +67,13 @@ def ReadPocketOnly(
         raise SldprtFormat(
             f"SLDPRT local geometry rejected: {ErrorInfo}"
         ) from ErrorInfo
+
+
+# the trimmed view must still identify both physical parts of its local history
+def ReadTrimMarks(Archive: SldprtArchive, Profile: str) -> tuple[int, int]:
+    Physical = DecodePartData(Archive.require(KPartitionStream), KPartitionStream)
+    if tuple(Value.kind for Value in Physical) != ("partition", "deltas"):
+        raise ValueError(
+            f"{Profile} requires the selected physical partition and deltas"
+        )
+    return ReadLocalMarks(Physical[0].data, Physical[1].data)

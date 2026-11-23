@@ -1,0 +1,903 @@
+{
+  "baseline": {
+    "blind_strict_read_and_json_exact": true,
+    "exact_blind_cases": 2,
+    "exact_measured_controls": 4,
+    "exact_planar_through_cases": 2,
+    "exact_through_receipt": {
+      "bytes": 20931,
+      "sha256": "0bb97a7f13662c26ee4f5c2029cd80e8bceb9f127342bda0a961d93784f3ff52"
+    },
+    "logical_stream_hashes": 96,
+    "previous_receipt": {
+      "bytes": 12403,
+      "sha256": "18f813c67561bbe21c195c6456297ac743afe6ccdbe9156e09ea3b1f97aae019"
+    },
+    "runtime_input_reads": 0
+  },
+  "compressor": "1.2.12",
+  "model-generate": {
+    "cases": {
+      "AxisRing": {
+        "archive_owners": {
+          "activation_mark": 2,
+          "atom_body_tag": 0,
+          "atom_display_mode": 6,
+          "atom_id": 101,
+          "atom_map_index": 51,
+          "body_stamp": 102,
+          "configured_body_count": 1,
+          "feature_id": 18,
+          "local_group": "Imported annulus",
+          "model_update": 103,
+          "selected_mark": 3,
+          "typed_stream_replay": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Header2"
+          ]
+        },
+        "authored_parametric_history": false,
+        "candidate": {
+          "bytes": 9048,
+          "sha256": "3c15b8ac5a224a7ab8e476618cda90ac7b68a87e3302fc91bfc7d3d5689d04ae"
+        },
+        "guard_refusals": {
+          "equal_radii": "local annulus requires distinct coaxial cylindrical walls",
+          "foreign_carrier_owner_read": "local annulus has foreign cap or wall ownership",
+          "foreign_carrier_owner_write": "local annulus has foreign cap or wall ownership",
+          "negative_primary_fin_read": "local annulus has foreign edge or circular carrier ownership",
+          "negative_primary_fin_write": "local annulus has foreign edge or circular carrier ownership",
+          "noncoaxial": "local annulus requires distinct coaxial cylindrical walls",
+          "outward_bore": "local annulus must preserve the opposing wall sense and its trims",
+          "partial_rim": "local annulus requires one full circle trim per edge",
+          "reversed_wall_face_read": "local annulus must preserve the opposing wall sense and its trims",
+          "reversed_wall_face_write": "local annulus must preserve the opposing wall sense and its trims"
+        },
+        "local_kernel": {
+          "bytes": 1970,
+          "sha256": "4d112c27996c53076209e3dd481f657e475b6523896a5a99bdd4467ec3f6d685"
+        },
+        "locator": "C:\\KitAnnularImport\\Candidates\\AxisRing.SLDPRT",
+        "portable_source_geometry": {
+          "area_mm2": 2211.681228127214,
+          "bounds_mm": [
+            [
+              -10.0,
+              -9.0,
+              -3.0
+            ],
+            [
+              12.0,
+              13.0,
+              13.0
+            ]
+          ],
+          "cap_roles": [
+            true,
+            false
+          ],
+          "centroid_mm": [
+            1.0,
+            2.0,
+            5.0
+          ],
+          "height_mm": 16.0,
+          "portable_derived_seams": 4,
+          "radii_mm": [
+            5.0,
+            11.0
+          ],
+          "volume_mm3": 4825.486315913922
+        },
+        "public_write_refusals": 9,
+        "sdk": {
+          "design": {
+            "feature": "sldprt:feature:18",
+            "json": {
+              "bytes": 66188,
+              "sha256": "df575f3cf4b95cd16dcb538ecdb7a6fe3e54c88c471aa84805746d1f77407e78"
+            },
+            "topology": [
+              1,
+              1,
+              4,
+              4,
+              4
+            ]
+          },
+          "full": {
+            "feature": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 2211.681228127214,
+              "bounds_mm": [
+                [
+                  -10.0,
+                  -9.0,
+                  -3.0
+                ],
+                [
+                  12.0,
+                  13.0,
+                  13.0
+                ]
+              ],
+              "cap_roles": [
+                true,
+                false
+              ],
+              "centroid_mm": [
+                1.0,
+                2.0,
+                5.0
+              ],
+              "height_mm": 16.0,
+              "portable_derived_seams": 4,
+              "radii_mm": [
+                5.0,
+                11.0
+              ],
+              "volume_mm3": 4825.486315913922
+            },
+            "json": {
+              "bytes": 84674,
+              "sha256": "c106957847f6adbe660dbb8ad8ecf7b696534d6d6d14b60b29dfc2b06eba5010"
+            },
+            "topology": [
+              1,
+              1,
+              4,
+              4,
+              4
+            ]
+          }
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 988,
+            "sha256": "b8909ee4b232887a9933013c283dd7195c0962e85fb40f12c20450c639052c13"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22373,
+            "sha256": "06950c76c630bd2d8792e610c19dac3ed248df9c21d40146a926762eccefb8fb"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 759,
+            "sha256": "ceaa19cbcac1f5190b9505bda73d7b8d3bf5e1f0bb68adfcc6053b3105fd8953"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5475,
+            "sha256": "dae561893c35acee3fc1e979da90c78b908d4fec18fc143aea61292f1f072adb"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 759,
+            "sha256": "0aa9ac4f2615af4f273b8a78af0acd7a52495a73b3bcd827e954d44a82bbb49a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1301,
+            "sha256": "15bee9472b0610ef11bc0c9a290536400ea6fdaafda4d2c3ccaa000e34863c46"
+          }
+        },
+        "typed_local_cells": 37,
+        "wire": {
+          "body": 1,
+          "edges": {
+            "26": {
+              "cap": 6,
+              "circle": 27,
+              "negative_fin": 25,
+              "negative_owner": 21,
+              "positive_fin": 10,
+              "positive_owner": 6,
+              "radius_m": 0.005,
+              "wall": 21
+            },
+            "28": {
+              "cap": 6,
+              "circle": 29,
+              "negative_fin": 8,
+              "negative_owner": 6,
+              "positive_fin": 13,
+              "positive_owner": 11,
+              "radius_m": 0.011,
+              "wall": 11
+            },
+            "30": {
+              "cap": 16,
+              "circle": 31,
+              "negative_fin": 15,
+              "negative_owner": 11,
+              "positive_fin": 18,
+              "positive_owner": 16,
+              "radius_m": 0.011,
+              "wall": 11
+            },
+            "32": {
+              "cap": 16,
+              "circle": 33,
+              "negative_fin": 20,
+              "negative_owner": 16,
+              "positive_fin": 23,
+              "positive_owner": 21,
+              "radius_m": 0.005,
+              "wall": 21
+            }
+          },
+          "faces": {
+            "11": {
+              "carrier": 35,
+              "carrier_kind": 51,
+              "carrier_sense": "+",
+              "effective_sign": 1,
+              "face_sense": "+",
+              "fins": [
+                13,
+                15
+              ],
+              "loops": [
+                12,
+                14
+              ],
+              "origin_m": [
+                0.001,
+                0.002,
+                -0.003
+              ],
+              "radius_m": 0.011,
+              "raw_axis": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "16": {
+              "carrier": 36,
+              "carrier_kind": 50,
+              "carrier_sense": "+",
+              "effective_sign": 1,
+              "face_sense": "+",
+              "fins": [
+                18,
+                20
+              ],
+              "loops": [
+                17,
+                19
+              ],
+              "origin_m": [
+                0.001,
+                0.002,
+                0.013
+              ],
+              "raw_axis": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "21": {
+              "carrier": 37,
+              "carrier_kind": 51,
+              "carrier_sense": "+",
+              "effective_sign": -1,
+              "face_sense": "-",
+              "fins": [
+                23,
+                25
+              ],
+              "loops": [
+                22,
+                24
+              ],
+              "origin_m": [
+                0.001,
+                0.002,
+                0.013
+              ],
+              "radius_m": 0.005,
+              "raw_axis": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "6": {
+              "carrier": 34,
+              "carrier_kind": 50,
+              "carrier_sense": "+",
+              "effective_sign": 1,
+              "face_sense": "+",
+              "fins": [
+                8,
+                10
+              ],
+              "loops": [
+                7,
+                9
+              ],
+              "origin_m": [
+                0.001,
+                0.002,
+                -0.003
+              ],
+              "raw_axis": [
+                -0.0,
+                -0.0,
+                -1.0
+              ]
+            }
+          }
+        },
+        "written_at": 1790000000
+      },
+      "ObliqueRing": {
+        "archive_owners": {
+          "activation_mark": 2,
+          "atom_body_tag": 0,
+          "atom_display_mode": 6,
+          "atom_id": 101,
+          "atom_map_index": 51,
+          "body_stamp": 102,
+          "configured_body_count": 1,
+          "feature_id": 18,
+          "local_group": "Imported annulus",
+          "model_update": 103,
+          "selected_mark": 3,
+          "typed_stream_replay": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Header2"
+          ]
+        },
+        "authored_parametric_history": false,
+        "candidate": {
+          "bytes": 9066,
+          "sha256": "9b2aa81269bd988c77169ae0cab52c4ef36ea8790f2640e1a1580490bc972405"
+        },
+        "guard_refusals": {
+          "equal_radii": "local annulus requires distinct coaxial cylindrical walls",
+          "foreign_carrier_owner_read": "local annulus has foreign cap or wall ownership",
+          "foreign_carrier_owner_write": "local annulus has foreign cap or wall ownership",
+          "negative_primary_fin_read": "local annulus has foreign edge or circular carrier ownership",
+          "negative_primary_fin_write": "local annulus has foreign edge or circular carrier ownership",
+          "noncoaxial": "local annulus requires distinct coaxial cylindrical walls",
+          "outward_bore": "local annulus must preserve the opposing wall sense and its trims",
+          "partial_rim": "local annulus requires one full circle trim per edge",
+          "reversed_wall_face_read": "local annulus must preserve the opposing wall sense and its trims",
+          "reversed_wall_face_write": "local annulus must preserve the opposing wall sense and its trims"
+        },
+        "local_kernel": {
+          "bytes": 1970,
+          "sha256": "f3b3536d8feda5a8a1621c7483d8405d4ad81bc09780f7484ccc9d099effc855"
+        },
+        "locator": "C:\\KitAnnularImport\\Candidates\\ObliqueRing.SLDPRT",
+        "portable_source_geometry": {
+          "area_mm2": 1223.9448628844984,
+          "bounds_mm": [
+            [
+              -9.525,
+              -16.424999999999997,
+              10.875
+            ],
+            [
+              11.025,
+              2.924999999999999,
+              28.125
+            ]
+          ],
+          "cap_roles": [
+            false,
+            true
+          ],
+          "centroid_mm": [
+            0.75,
+            -6.75,
+            19.5
+          ],
+          "height_mm": 11.25,
+          "portable_derived_seams": 4,
+          "radii_mm": [
+            2.75,
+            8.625
+          ],
+          "volume_mm3": 2361.900898723279
+        },
+        "public_write_refusals": 9,
+        "sdk": {
+          "design": {
+            "feature": "sldprt:feature:18",
+            "json": {
+              "bytes": 66212,
+              "sha256": "880dd56c597e32141bee19e7f994937ad4bc5e54a0c9bf39d02cff07b6df7cd9"
+            },
+            "topology": [
+              1,
+              1,
+              4,
+              4,
+              4
+            ]
+          },
+          "full": {
+            "feature": "sldprt:feature:18",
+            "geometry": {
+              "area_mm2": 1223.9448628844984,
+              "bounds_mm": [
+                [
+                  -9.525,
+                  -16.424999999999997,
+                  10.875
+                ],
+                [
+                  11.025,
+                  2.924999999999999,
+                  28.125
+                ]
+              ],
+              "cap_roles": [
+                false,
+                true
+              ],
+              "centroid_mm": [
+                0.75,
+                -6.75,
+                19.5
+              ],
+              "height_mm": 11.25,
+              "portable_derived_seams": 4,
+              "radii_mm": [
+                2.75,
+                8.625
+              ],
+              "volume_mm3": 2361.900898723279
+            },
+            "json": {
+              "bytes": 84773,
+              "sha256": "c743912ee5f46563cc2a2a13637b23e9985169da5356502e13edcaf5013eea5c"
+            },
+            "topology": [
+              1,
+              1,
+              4,
+              4,
+              4
+            ]
+          }
+        },
+        "streams": {
+          "Config-0-FeatureBodies/LocalBodies": {
+            "bytes": 990,
+            "sha256": "6658b7ecc35d9bc3bc4b8f88e14c28abb12914503a669812c602ba7972a16488"
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5a20ba4764f85cf84fa8b4bcc087cdc51e73c7ea910acef490b91329a59ca8dd"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+          },
+          "Contents/Config-0": {
+            "bytes": 22379,
+            "sha256": "0a4b0c41b2a7c535078800f228132bd4a92b571b2019a8519dc38b7cbe07ea61"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 777,
+            "sha256": "5f045d82fe30babe6316f52265dd9b0561f00e2e3d6fadf87b94c9fec849b833"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 606,
+            "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 5475,
+            "sha256": "dae561893c35acee3fc1e979da90c78b908d4fec18fc143aea61292f1f072adb"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 777,
+            "sha256": "674c20190e3c0441b6d5390bb53f3362b4655603efd0a01dd271e3b39454c841"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1304,
+            "sha256": "8f9d85ce9f7473fa2f8f9b1f6c35c32ece39cd334af8977f024f286e1c3199e7"
+          }
+        },
+        "typed_local_cells": 37,
+        "wire": {
+          "body": 1,
+          "edges": {
+            "26": {
+              "cap": 6,
+              "circle": 27,
+              "negative_fin": 25,
+              "negative_owner": 21,
+              "positive_fin": 8,
+              "positive_owner": 6,
+              "radius_m": 0.00275,
+              "wall": 21
+            },
+            "28": {
+              "cap": 6,
+              "circle": 29,
+              "negative_fin": 10,
+              "negative_owner": 6,
+              "positive_fin": 13,
+              "positive_owner": 11,
+              "radius_m": 0.008625,
+              "wall": 11
+            },
+            "30": {
+              "cap": 16,
+              "circle": 31,
+              "negative_fin": 15,
+              "negative_owner": 11,
+              "positive_fin": 20,
+              "positive_owner": 16,
+              "radius_m": 0.008625,
+              "wall": 11
+            },
+            "32": {
+              "cap": 16,
+              "circle": 33,
+              "negative_fin": 18,
+              "negative_owner": 16,
+              "positive_fin": 23,
+              "positive_owner": 21,
+              "radius_m": 0.00275,
+              "wall": 21
+            }
+          },
+          "faces": {
+            "11": {
+              "carrier": 35,
+              "carrier_kind": 51,
+              "carrier_sense": "+",
+              "effective_sign": 1,
+              "face_sense": "+",
+              "fins": [
+                13,
+                15
+              ],
+              "loops": [
+                12,
+                14
+              ],
+              "origin_m": [
+                0.004125,
+                -0.01125,
+                0.0195
+              ],
+              "radius_m": 0.008625,
+              "raw_axis": [
+                -0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "16": {
+              "carrier": 36,
+              "carrier_kind": 50,
+              "carrier_sense": "+",
+              "effective_sign": 1,
+              "face_sense": "+",
+              "fins": [
+                18,
+                20
+              ],
+              "loops": [
+                17,
+                19
+              ],
+              "origin_m": [
+                -0.002625,
+                -0.00225,
+                0.0195
+              ],
+              "raw_axis": [
+                -0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "21": {
+              "carrier": 37,
+              "carrier_kind": 51,
+              "carrier_sense": "+",
+              "effective_sign": -1,
+              "face_sense": "-",
+              "fins": [
+                23,
+                25
+              ],
+              "loops": [
+                22,
+                24
+              ],
+              "origin_m": [
+                -0.002625,
+                -0.00225,
+                0.0195
+              ],
+              "radius_m": 0.00275,
+              "raw_axis": [
+                -0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "6": {
+              "carrier": 34,
+              "carrier_kind": 50,
+              "carrier_sense": "+",
+              "effective_sign": 1,
+              "face_sense": "+",
+              "fins": [
+                8,
+                10
+              ],
+              "loops": [
+                7,
+                9
+              ],
+              "origin_m": [
+                0.004125,
+                -0.01125,
+                0.0195
+              ],
+              "raw_axis": [
+                0.6,
+                -0.8,
+                -0.0
+              ]
+            }
+          }
+        },
+        "written_at": 1790000000
+      }
+    },
+    "runtime_input_reads": 0
+  },
+  "native-observation": {
+    "active": {
+      "bytes": 4478,
+      "sha256": "1b04be9c2b3c1b8bb4ed50a8b7752e6e889c0145218d2ab977102d14d7449783"
+    },
+    "catalog": {
+      "bytes": 1634548,
+      "sha256": "83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e"
+    },
+    "deltas": {
+      "bytes": 864,
+      "sha256": "35868a2d97dfc45a1a1d59e88373e9967a683b88dc374478fda4c6c8a0763bd2"
+    },
+    "kind_inventory": {
+      "101": 1,
+      "12": 1,
+      "13": 2,
+      "14": 4,
+      "15": 8,
+      "16": 4,
+      "17": 8,
+      "19": 2,
+      "31": 4,
+      "50": 2,
+      "51": 2,
+      "70": 1,
+      "74": 1,
+      "79": 13,
+      "80": 13,
+      "81": 22,
+      "82": 21,
+      "83": 3,
+      "98": 1
+    },
+    "native_build": "34.5.2.0604",
+    "ownership": {
+      "body": 2,
+      "edges": {
+        "10": {
+          "cap": 39,
+          "circle": 42,
+          "negative_fin": 48,
+          "negative_owner": 41,
+          "positive_fin": 46,
+          "positive_owner": 39,
+          "radius_m": 0.023719,
+          "wall": 41
+        },
+        "43": {
+          "cap": 64,
+          "circle": 8,
+          "negative_fin": 77,
+          "negative_owner": 64,
+          "positive_fin": 47,
+          "positive_owner": 41,
+          "radius_m": 0.023719,
+          "wall": 41
+        },
+        "49": {
+          "cap": 39,
+          "circle": 52,
+          "negative_fin": 60,
+          "negative_owner": 39,
+          "positive_fin": 54,
+          "positive_owner": 59,
+          "radius_m": 0.011137000000000001,
+          "wall": 59
+        },
+        "55": {
+          "cap": 64,
+          "circle": 51,
+          "negative_fin": 80,
+          "negative_owner": 59,
+          "positive_fin": 53,
+          "positive_owner": 64,
+          "radius_m": 0.011137000000000001,
+          "wall": 59
+        }
+      },
+      "faces": {
+        "39": {
+          "carrier": 65,
+          "carrier_kind": 50,
+          "carrier_sense": "+",
+          "effective_sign": 1,
+          "face_sense": "+",
+          "fins": [
+            46,
+            60
+          ],
+          "loops": [
+            50,
+            58
+          ],
+          "origin_m": [
+            0.005371000000000001,
+            -0.007193,
+            0.011731
+          ],
+          "raw_axis": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "41": {
+          "carrier": 7,
+          "carrier_kind": 51,
+          "carrier_sense": "-",
+          "effective_sign": 1,
+          "face_sense": "-",
+          "fins": [
+            48,
+            47
+          ],
+          "loops": [
+            75,
+            78
+          ],
+          "origin_m": [
+            0.005371000000000001,
+            -0.007193,
+            0.011731
+          ],
+          "radius_m": 0.023719,
+          "raw_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        "59": {
+          "carrier": 66,
+          "carrier_kind": 51,
+          "carrier_sense": "-",
+          "effective_sign": -1,
+          "face_sense": "+",
+          "fins": [
+            54,
+            80
+          ],
+          "loops": [
+            57,
+            56
+          ],
+          "origin_m": [
+            0.005371000000000001,
+            -0.007193,
+            0.011731
+          ],
+          "radius_m": 0.011137000000000001,
+          "raw_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        "64": {
+          "carrier": 45,
+          "carrier_kind": 50,
+          "carrier_sense": "+",
+          "effective_sign": -1,
+          "face_sense": "-",
+          "fins": [
+            77,
+            53
+          ],
+          "loops": [
+            70,
+            76
+          ],
+          "origin_m": [
+            0.005371000000000001,
+            -0.007193,
+            0.0
+          ],
+          "raw_axis": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "partition": {
+      "bytes": 2649,
+      "sha256": "66a45a6935a205161532db1507cfd57782a7a9593a1aa5ce8be513ff59d95f26"
+    },
+    "saved_part": {
+      "bytes": 71454,
+      "sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439"
+    },
+    "wire_schema": "SCH_3701250_37102_13006"
+  },
+  "native_processes_started": 0,
+  "new_heldout_cases": 0,
+  "new_public_writer_admission": false,
+  "runtime": "3.14.7",
+  "schema": "kit.sw2026.annular-local-import.v1",
+  "tool": {
+    "bytes": 24070,
+    "sha256": "472b05bdadfece7a785cc0d456a2c8f932f75f250549d962c59f465a32e3dc64"
+  }
+}

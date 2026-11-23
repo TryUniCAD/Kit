@@ -305,10 +305,12 @@ The PR #121 takeover extends the shared planar geometry-only composer and
 strict reader to one enclosed rectangular through-opening. Both cap chains
 retain their physical trim order. Two model-only archives and both strict
 reading modes agree with independent geometry and exact earlier controls.
-Exit still requires a controlled native lifecycle and measured output
-publication for this profile. Multiple openings and complete source
-capability transfer remain open.
-[Scoped proof and dependencies](../../re/solidworks/records/PlanarThroughOpening2026.md)
+One coaxial circular through-bore now has the same model-only evidence with
+two further archives and a disclosed SP05.2 boundary reference. Controlled
+native lifecycles and measured publication for these openings, multiple
+openings and complete source capability transfer remain open.
+[Rectangular proof](../../re/solidworks/records/PlanarThroughOpening2026.md)
+· [Annular proof](../../re/solidworks/records/AnnularLocalImport2026.md)
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 

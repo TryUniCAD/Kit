@@ -328,8 +328,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocal
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalImport import (
     ReadLocalImport,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadPocketOnly import (
-    ReadPocketOnly,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadTrimOnly import (
+    ReadTrimOnly,
 )
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
@@ -4462,7 +4462,7 @@ def ReadPartSolid(
         and Model.active_configuration_id == 0
         and ConfigCount == 1
         and (DesignOwner := FindLocalOwner(Model, Archive)) is not None
-        and (DesignBrep := ReadPocketOnly(Archive, DesignOwner)) is not None
+        and (DesignBrep := ReadTrimOnly(Archive, DesignOwner)) is not None
     ):
         return (), (), DesignBrep, DesignOwner, None
     Candidate = (

@@ -1,6 +1,10 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckAnnGraph import (
+    CheckAnnGraph,
+    HasAnnularWalls,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckCylRims import (
     CheckCylRims,
 )
@@ -39,7 +43,10 @@ KInactiveLinks = {
 # admitting the periodic shape requires every resident entity to be accounted for
 def CheckCylGraph(NodesValue: Mapping[int, XmtNode]) -> None:
     BodyValue, KindsValue = ReadLocalRoot(NodesValue, False)
+    Annular = HasAnnularWalls(NodesValue)
     Inventory = {12: 1, 13: 2, 14: 3, 15: 4, 16: 2, 17: 4, 19: 2, 31: 2, 50: 2, 51: 1}
+    if Annular:
+        Inventory.update({14: 4, 15: 8, 16: 4, 17: 8, 31: 4, 51: 2})
     if {
         KindValue: len(IdsValue) for KindValue, IdsValue in KindsValue.items()
     } != Inventory or tuple(NodesValue) != tuple(range(1, len(NodesValue) + 1)):
@@ -65,4 +72,7 @@ def CheckCylGraph(NodesValue: Mapping[int, XmtNode]) -> None:
         )
     ):
         raise ValueError("local cylinder has unqualified bare ownership or identities")
-    CheckCylRims(NodesValue, BodyValue)
+    if Annular:
+        CheckAnnGraph(NodesValue, BodyValue)
+    else:
+        CheckCylRims(NodesValue, BodyValue)

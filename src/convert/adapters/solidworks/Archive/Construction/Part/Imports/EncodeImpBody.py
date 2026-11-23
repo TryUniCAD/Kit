@@ -1,4 +1,7 @@
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.MakeAnnularBody import (
+    MakeAnnularBody,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalCylinder.MakeLocalCyl import (
     MakeLocalCyl,
 )
@@ -36,16 +39,19 @@ def EncodeImpBody(
 ) -> bytes:
     if type(OwnedBody) is not bool:
         raise TypeError("local import attributes require an explicit boolean")
-    IsPeriodic = any(
+    WallCount = sum(
         isinstance(Surface, CylinderSurface) for Surface in ModelValue.surfaces
     )
+    IsPeriodic = WallCount > 0
     IsPocket = not IsPeriodic and any(
         not LoopValue.outer for LoopValue in ModelValue.loops
     )
     if IsPeriodic and OwnedBody:
         raise ValueError("local import attributes require a planar body")
     if IsPeriodic:
-        NodesValue = MakeLocalCyl(ModelValue)
+        NodesValue = (
+            MakeAnnularBody(ModelValue) if WallCount == 2 else MakeLocalCyl(ModelValue)
+        )
     elif IsPocket:
         if OwnedBody:
             raise ValueError("local pocket does not admit attributed body owners")

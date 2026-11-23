@@ -6,11 +6,23 @@ from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import (
     ReadActiveNodes,
 )
 from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHistMarks
+from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
     KPartitionStream,
 )
+from convert.adapters.solidworks.Container.Parasolid import HasPayload
 from interchange.Payloads.PayloadRecord import BrepPayload
+
+
+# a complete local solid must exclusively own the selected geometry payload group
+def CheckSoleGroup(Archive: SldprtArchive, Profile: str) -> None:
+    if any(
+        Value.name not in {KLocalBodyStream, KPartitionStream}
+        and HasPayload(Value.data)
+        for Value in Archive.records
+    ):
+        raise ValueError(f"{Profile} requires the sole selected payload group")
 
 
 # the selected and activation marks must be derived from the same physical history

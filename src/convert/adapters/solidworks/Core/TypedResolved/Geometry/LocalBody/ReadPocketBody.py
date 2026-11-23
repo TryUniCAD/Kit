@@ -2,14 +2,12 @@ from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Container.Format import (
-    KLocalBodyStream,
-    KPartitionStream,
-)
-from convert.adapters.solidworks.Container.Parasolid import HasPayload
 from convert.adapters.solidworks.Core.Native import NativeFeature
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.CheckBareOwner import (
     CheckBareOwner,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPayload import (
+    CheckSoleGroup,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPlane import (
     ReadLocalPlane,
@@ -35,12 +33,7 @@ def ReadPocketBody(
     MarkValue: int,
     PriorMark: int,
 ) -> BrepModel:
-    if any(
-        Value.name not in {KLocalBodyStream, KPartitionStream}
-        and HasPayload(Value.data)
-        for Value in Archive.records
-    ):
-        raise ValueError("local pocket requires the sole selected payload group")
+    CheckSoleGroup(Archive, "local pocket")
     CheckBareOwner(
         Archive, OwnerValue, OwnerValue.name, MarkValue, PriorMark, "local pocket"
     )

@@ -1,16 +1,15 @@
 from convert.adapters.solidworks.Archive.Partition.LocalCylinder.LocalCylShape import (
     LocalCylShape,
 )
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeBoundFace import (
+    MakeBoundFace,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismCell import (
     PrismCell,
     PrismRef,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismChain import (
     PrismChain,
-)
-from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismRootKeys import (
-    KPrismSolidShell,
-    KPrismVoidShell,
 )
 
 
@@ -30,20 +29,7 @@ def MakeCylFaces(
     MantleRef, FarPlane, NearPlane = SurfaceRefs
     LinksValue = PrismChain(FaceRefs)
     return tuple(
-        PrismCell(
-            FaceRef,
-            {
-                "shell": KPrismSolidShell,
-                "front_shell": KPrismVoidShell,
-                "loop": LoopRef,
-                "surface": SurfaceRef,
-                "previous": PriorRef,
-                "next": NextRef,
-                "previous_front": PriorRef,
-                "next_front": NextRef,
-                "sense": "+",
-            },
-        )
+        MakeBoundFace(FaceRef, LoopRef, SurfaceRef, PriorRef, NextRef, True)
         for FaceRef, LoopRef, SurfaceRef in zip(
             FaceRefs, LoopRefs, (FarPlane, NearPlane, MantleRef), strict=True
         )

@@ -3,9 +3,18 @@ from dataclasses import replace as Replace
 from math import tau as FullTurn
 
 from convert.Geometry.Parasolid import BuildPartModel
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckAnnBrep import (
+    CheckAnnBrep,
+)
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.AddCylGeomMut import (
     AddCylGeomMut,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.BindAnnRoles import (
+    BindAnnRoles,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckAnnGraph import (
+    HasAnnularWalls,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckCylBrep import (
     CheckCylBrep,
@@ -36,5 +45,9 @@ def ReadLocalCyl(
             for EdgeValue in ModelValue.edges
         ),
     )
-    CheckCylBrep(ModelValue)
+    if HasAnnularWalls(NodesValue):
+        ModelValue = BindAnnRoles(ModelValue)
+        CheckAnnBrep(ModelValue)
+    else:
+        CheckCylBrep(ModelValue)
     return ModelValue
