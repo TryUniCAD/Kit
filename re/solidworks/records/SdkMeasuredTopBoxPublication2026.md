@@ -46,8 +46,15 @@ python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyMeasuredTopBox.
 python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyColdTopBox.py
 ```
 
-The host check recorded 12 refusals at the three SDK entry points and
-zero runtime reads. The original three disclosed Top controls retained
+The host check recorded 15 measurement refusals and ten support
+controls with zero runtime reads. The original internal construction
+view still refuses conventional SDK and JSON writes because its native
+source identity requires its archive support marker. The proof's
+separate neutral intent is derived only after verifying the native
+plane reference and actual linked Top owner. It reproduces the complete
+disclosed generated archive. [Projection support](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/TopProjectionKeepsSourceIdentity.md)
+
+The original three disclosed Top controls retained
 all exact default archive and per-stream digests, and both disclosed
 ordinary measured parts retained their exact SDK and CLI publication
 behavior. The ordinary control proof SHA-256 is

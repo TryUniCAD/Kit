@@ -105,11 +105,32 @@ def run_staged(model, settings, locator, report, slot):
         assert guard.events["open"] == 1 and not guard.denied
 
 
+def project_neutral(model, name):
+    from convert.adapters.registry.SupportWrite import CheckSupports
+    from convert.adapters.solidworks.Core.Preparation.FreecadBox.Readback.ReadTopInput import ReadTopInput
+    from interchange import CadSource
+
+    CheckSupports(model)
+    (sketch,) = model.sketches
+    (plane,) = (row for row in model.support_planes if row.id == sketch.support_plane_id)
+    owner = sketch.attributes.get("support_plane_native_id")
+    if (model.source.format_id != FORMAT or plane.name != "Top Plane"
+            or type(owner) is not int or owner != plane.attributes.get("native_object_id")):
+        raise ValueError("retained box does not select its linked Top support")
+    projection = ReadTopInput(model, name)
+    semantics = json.loads(projection.to_json())
+    del semantics["source"]
+    identity = sha256(json.dumps(semantics, sort_keys=True, separators=(",", ":"),
+                                 allow_nan=False).encode()).hexdigest()
+    neutral = replace(projection, source=CadSource("kit.neutral.box", "<projected-top-intent>", identity))
+    CheckSupports(neutral)
+    return neutral
+
+
 def worker(request):
     launch_args()
     from convert import open_document
     from convert.adapters.solidworks.Container.Container import SldprtArchive
-    from convert.adapters.solidworks.Core.Preparation.FreecadBox.Readback.ReadTopInput import ReadTopInput
     from interchange import CadDocument
     from VerifySdkCircleEndRegistration import OutputGuard
 
@@ -126,7 +147,7 @@ def worker(request):
     sys.addaudithook(audit.audit)
     matching = 0
     with audit.active("memory"):
-        neutral = ReadTopInput(model, name)
+        neutral = project_neutral(model, name)
         for variant in (model, neutral):
             for emit in active_routes.values():
                 sink = BytesIO()
@@ -148,6 +169,29 @@ def worker(request):
     return {"slot": slot, "archive_sha256": expected["sha256"], "exact_streams": len(expected["streams"]),
             "exact_guarded_stream_publications": matching, "exact_guarded_file_stage_writes": 1,
             "clock_refused_without_output": True, "runtime_input_reads": 0}
+
+
+def support_controls(readback, sink, active_routes, settings):
+    from convert import write_document
+    from convert.adapters.solidworks.Core.Preparation.FreecadBox.Readback.ReadTopInput import ReadTopInput
+
+    stripped = ReadTopInput(readback, "SignedBox")
+    (sketch,) = readback.sketches
+    unqualified = replace(readback, sketches=(replace(
+        sketch, attributes={**sketch.attributes, "unframed_support_plane_native_id": 1},
+    ),))
+    for model in (stripped, unqualified):
+        for emit in active_routes.values():
+            refuse(lambda: emit(model, sink, settings), "unqualified SOLIDWORKS sketch support references")
+        refuse(lambda: write_document(model, sink, destination_format="interchange.json"),
+               "unqualified SOLIDWORKS sketch support references")
+    refuse(lambda: project_neutral(unqualified, "SignedBox"), "unqualified SOLIDWORKS sketch support references")
+    false_owner = replace(readback, sketches=(replace(
+        sketch, attributes={**sketch.attributes,
+                            "support_plane_native_id": sketch.attributes["support_plane_native_id"] + 1},
+    ),))
+    refuse(lambda: project_neutral(false_owner, "SignedBox"), "does not select its linked Top support")
+    return 10
 
 
 def host():
@@ -182,13 +226,21 @@ def host():
         )
         forged_values = values(LOCATOR, EPOCH, forged)
         readback = open_document(candidate.BytesValue, source_format=FORMAT, strict=True)
+        projected = project_neutral(readback, "SignedBox")
+        assert PrepTopPart(
+            projected, BytesIO(), EPOCH, WriteOptions(values={"final_destination": LOCATOR}),
+            PlatformMath=True,
+        ).BytesValue == candidate.BytesValue
+        support_refusals = support_controls(readback, wrong, active_routes, settings)
         for emit in active_routes.values():
             refuse(lambda: emit(document, wrong, bad), "authenticated held-out evidence")
             refuse(lambda: emit(document, wrong, forged_values), "authenticated held-out evidence")
             refuse(lambda: emit(document, wrong, settings), "no exact held-out native measurement")
             refuse(lambda: emit(readback, wrong, settings), "no exact held-out native measurement")
+            refuse(lambda: emit(projected, wrong, settings), "no exact held-out native measurement")
     assert not guard.denied and wrong.getvalue() == b"prior" and wrong.tell() == 0
-    return {"schema": METHOD, "native_processes_started": 0, "refused_stream_publications": 12,
+    return {"schema": METHOD, "native_processes_started": 0, "refused_stream_publications": 15,
+            "support_refusals": support_refusals, "projected_archive_equal": True,
             "measured_reports_used": 1, "runtime_input_reads": 0}
 
 
