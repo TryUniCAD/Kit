@@ -6,15 +6,15 @@ JSON and scope receipts when a strict archive check fails.
 
 ## Behavior and use
 
-Download the existing `solidworks-construction-<candidate SHA>` artifact from
-the workflow-quality run. Curve parser records live under `SourceParser/Curve/`.
+Download `solidworks-construction-<candidate SHA>-<shard>` from the
+workflow-quality run. Each artifact carries the shard selection. Its curve
+parser records live under `solidworks-construction/SourceParser/Curve/`.
 Read each report's hashes, byte-identity result, schema-usage result and scope.
 Source parsing evidence remains separate from generated candidate files.
 
-Upload does not run for a canceled workflow or a skipped native-format step.
-The pinned upload action, artifact name, error on missing files and 14-day
-retention remain unchanged. The native process step keeps its original commands
-and failure result; retaining evidence never makes a failed check pass.
+Upload runs after each completed native compatibility shard, including a
+failed shard. Artifacts have 14-day retention and the workflow reports
+the shard's test result independently.
 
 ## Observed failure and verification
 

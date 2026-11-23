@@ -2,6 +2,7 @@ from convert.adapters.Fusion.Native.Rectangle.ReadRectBounds import ReadRectBoun
 from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     LinkedNodes,
     RequireFields,
+    ResolveField,
     SameNodes,
 )
 from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
@@ -76,6 +77,13 @@ def ReadRectangle(
         UpperX - LowerX,
         UpperY - LowerY,
         (LowerX, LowerY, 0.0),
+        tuple(
+            PointCoords(
+                ResolveField(Graph, NodeValue, Field, "Point3D").Fields["point"]
+            )
+            for NodeValue in LineNodes
+            for Field in ("rStartPoint", "rEndPoint")
+        ),
     )
 
 

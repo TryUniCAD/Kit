@@ -13,6 +13,7 @@ from sys import executable as PythonExe, platform as HostPlatform
 from pytest import mark as TestMark
 
 from tests.Research.SupervisorClient import KRepoRoot
+from tests.Research.Windows.Readback.BossSourcePins import KBossSources
 from tests.Research.Windows.Readback.InstallReadback import InstallReadback
 from tests.Research.Windows.Readback.ReadbackGit import ReadbackGit
 
@@ -22,19 +23,6 @@ sys.path.insert(0, sys.argv[1])
 from RunSolidWorksBossWitness import SourcePins
 SourcePins(sys.argv[2])
 print('validated Boss collector source pins')
-"""
-
-
-# the copied fixture should use exactly the companion sources pinned by production
-KCopyBossSources = """import sys
-from pathlib import Path
-source_root, target_root = map(Path, sys.argv[1:])
-sys.path.insert(0, str(source_root / 're/automation'))
-from RunSolidWorksBossWitness import PinnedSources
-for relative in PinnedSources:
-    destination = target_root / relative
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_bytes((source_root / relative).read_bytes())
 """
 
 
@@ -52,12 +40,11 @@ for relative in PinnedSources:
 )
 def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) -> None:
     RootPath, _ = InstallReadback(TmpPath)
-    _ = RunProcess(
-        [PythonExe, "-B", "-c", KCopyBossSources, str(KRepoRoot), str(RootPath)],
-        capture_output=True,
-        check=True,
-        timeout=25,
-    )
+    for RelativePath in KBossSources:
+        SourcePath = KRepoRoot / "re/automation" / RelativePath
+        Destination = RootPath / "re/automation" / RelativePath
+        Destination.parent.mkdir(parents=True, exist_ok=True)
+        _ = Destination.write_bytes(SourcePath.read_bytes())
     _ = ReadbackGit(RootPath, "add", "--", "re/automation")
     _ = ReadbackGit(
         RootPath,
