@@ -2,14 +2,14 @@
 
 The assembly writer takes a complete neutral `CadDocument.assembly` and generates the native root `.SLDASM` and its owned dependencies beside it. The neutral documents and occurrence graph provide the inputs to the shared SDK constructors.
 
-The normal flat writer supports the exact measured coincident and
-driving-distance pair. It uses two direct occurrences of one owned
-dimensioned rectangular part and one fixed occurrence. The child,
-configuration, names, placements and actual principal plane selections
-come from the neutral graph. The ordered mate group and three child
-drivers remain editable. Other planar and perpendicular profiles have
-independent internal construction and native evidence.
-[Scoped measurement and limits](../../../re/solidworks/records/AuthenticatedPlanarBundle2026.md)
+The normal flat writer supports the measured coincident and driving-distance
+group and the measured initially satisfied perpendicular mate. Each uses
+two direct occurrences of one owned dimensioned rectangular part, with one
+fixed occurrence. The neutral graph supplies the child, configuration,
+names, placements and principal plane selections. The strict reader
+retains the ordered mate endpoints and three editable child drivers.
+[Coincident and distance evidence](../../../re/solidworks/records/AuthenticatedPlanarBundle2026.md)
+[Perpendicular evidence](../../../re/solidworks/records/MeasuredPerpendicularBundle2026.md)
 
 An occurrence may carry an explicit `reference_number` such as `"2"` for
 `SharedPart-2`. It must match the canonical positive decimal suffix of
@@ -28,12 +28,14 @@ measurement. [Nested publication scope](../../Changes/Solidworks/Construction/As
 or explicit `destination_format="solidworks.sldasm"`. The assembly
 alias resolves to the canonical `solidworks.sldprt` registration.
 
-For the measured planar pair, pass the released
+For either disclosed flat bundle, pass the corresponding released
 `MeasuredOutput.json` file's `measurement` member in
-`values["solidworks_native_measurement"]`. Use the receipt's exact
-encoded assembly locator. On macOS also pass it as the explicit
-`native_destination`. The final filesystem path must correspond to
-the measured locator for a native-usable result.
+`values["solidworks_native_measurement"]`. A pre-writer locked
+perpendicular input uses its measured `written_at` and the complete
+`SdkPerpendicularRegistryHeldout01.json` report as `receipt`.
+Supply the encoded assembly locator as `native_destination` on macOS.
+The final filesystem path must correspond to the measured locator for a
+native-usable result.
 
 ```python
 from convert import write_document
@@ -77,8 +79,9 @@ Metadata additionally reports `component_file_count`, `component_file_names`,
 `component_bytes_written` and `bundle_bytes_written`. Native usability flags
 apply to the measured SOLIDWORKS 2026 profile.
 
-The measured planar public route reproduces both complete files from
-the disclosed native lifecycle at the encoded path and epoch. It
-requires a registry-owned stage. The strict reader retains the actual
-live distance parameter and its ordered selections after the write.
-[Authenticated planar change](../../Changes/Solidworks/Construction/Assembly/SolidworksAuthenticatedPlanarBundle.md)
+Both measured flat routes require a registry-owned stage and exact whole
+file matches before publication. The strict reader preserves the driving
+distance in the coincident and distance group and the ordered selections
+in both profiles.
+[Coincident and distance change](../../Changes/Solidworks/Construction/Assembly/SolidworksAuthenticatedPlanarBundle.md)
+[Perpendicular change](../../Changes/Solidworks/Construction/Assembly/SolidworksMeasuredPerpPublication.md)

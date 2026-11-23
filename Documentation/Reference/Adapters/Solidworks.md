@@ -202,7 +202,7 @@ ordinary two-occurrence concentric parent. Its binary state uses the
 actual generated header, active configuration and persistent references.
 [Concentric default state](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksConcentricDefaultDisplay.md)
 
-The public writer accepts one initially satisfied principal-plane perpendicular between two direct occurrences of one owned dimensioned rectangular part. Both pre-writer locked assembly and child pairs pass the standard registry recipe, a live child depth edit, valid reorientation, synchronized save and fresh reopen. Both retain the ordered mate references, geometry and three driver values. [Perpendicular writer qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
+Two pre-writer locked parent and child pairs with a single initially satisfied principal-plane perpendicular passed the earlier registry recipe, a live child depth edit, valid reorientation, synchronized save and fresh reopen. Both retain the ordered mate references, geometry and three driver values. The current writer checks both generated files against either the disclosed measurement or the authenticated sealed registration and requires the measured physical locator to report native usability. [Perpendicular publication](../../Changes/Solidworks/Construction/Assembly/SolidworksMeasuredPerpPublication.md) [Native qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
 The SDK construction layer builds complete aligned coincident and parallel plane-mate graphs from the actual registered assembly and child datum owners. Six independently generated parent and child pairs match the research composer byte for byte across all three principal axes. The SDK also constructs the complete positive driving distance graph with its dimension allocated before the mate, two actual reference pairs and its live length parameter. Six independent parent and child bundles match the reference composer across all principal axes. [Driving distance construction](../../Changes/Solidworks/Archive/SolidworksDrivingDistanceConstruction.md) [Fresh planar mate construction](../../Changes/Solidworks/Archive/SolidworksFreshPlanarMateConstruction.md)
 
@@ -241,11 +241,10 @@ child-first save, and fresh reopen. Kit preserves all six mate endpoints and
 26 scoped archive streams.
 [Portable registry native trial](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPortableAssemblyRegistryNative.md)
 
-The normal flat writer uses an authenticated exact-artifact receipt
-for the disclosed coincident and driving-distance pair. It regenerates
-the complete parent and child from neutral intent and binds native
-usability to the measured physical locator. Other planar and
-perpendicular shapes retain separate internal construction and evidence.
+The normal flat writer regenerates the complete parent and child from the
+neutral model for either measured flat profile. It checks an authenticated
+whole-bundle receipt and binds native usability to the measured physical
+locator.
 [Assembly writing profile](SolidworksAssemblyWriting.md)
 
 The internal recursive composer attaches actual generated part and subassembly targets to fully resolved rigid occurrences. It derives expanded activity and world bounds from the dependency graph. A three-definition hierarchy and four-definition repeated hierarchy pass 156 typed stream comparisons. Thirty earlier single- and ordered-mate bundles retain exact bytes. [Generated assembly targets](../../Changes/Solidworks/Archive/Assembly/SolidworksGeneratedAssemblyTargets.md)
