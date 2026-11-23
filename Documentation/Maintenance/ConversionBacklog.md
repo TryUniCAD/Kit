@@ -479,10 +479,12 @@ optional material text for its native generated local imports.
 The aggregate [typed keyword corpus](../../re/solidworks/records/KeywordTypedCorpus2026.md)
 re-encodes 211 disclosed indexes and uses the shared codec for ordinary
 and nested assembly generation. The [binary owner projection](../../re/solidworks/records/KeywordOwnerProjection2026.md)
-reconstructs all eight saved assembly indexes, 111 recovered cuboid
-indexes and all 309 saved part dimension displays. The native dimension-key path accounts for
-volatile sibling order. Other part feature rows and display policies
-remain within the broader classification task.
+reconstructs all eight saved assembly indexes. The [complete part projection](../../re/solidworks/records/FullPartKeywordOwners2026.md)
+reconstructs all 5,330 feature rows and 309 dimension displays across 203
+parts. It reproduces 196 complete streams byte for byte. The documented
+native dimension key explains the seven differences in sibling order.
+Unobserved feature roles and display policies remain in the broader
+classification task.
 
 ### B04-SW2026-CONFIG-ATOM-EMISSION
 

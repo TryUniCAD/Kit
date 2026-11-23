@@ -1,0 +1,1584 @@
+{
+  "binary_owners": [
+    "Contents/CMgr",
+    "Contents/Config-0",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0-ResolvedFeatures"
+  ],
+  "disclosed_documents_sha256": "79880713776d06fa314bdb3dd4af669d588505739fb908582221dd141b017092",
+  "documents": {
+    "Cases/solidworks-059/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "c206307661c38ae394c6dea1bb52b3de8a40ea81f0f45872ae7ff87f8ee867c2",
+      "saved_keyword_sha256": "c206307661c38ae394c6dea1bb52b3de8a40ea81f0f45872ae7ff87f8ee867c2",
+      "source_sha256": "116ac2434ed621564da43165480a9a39ac8189b6d20c3511cacae60f78e42ba6"
+    },
+    "Cases/solidworks-059/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "2d586db0b49aee77622fc371c198494df207c84b9b7d56932a9f582af3ddff90",
+      "saved_keyword_sha256": "2d586db0b49aee77622fc371c198494df207c84b9b7d56932a9f582af3ddff90",
+      "source_sha256": "6ac50d21f5333d3bce325945c17ebad749f655f12ecc0e475fe5aca36b2373d9"
+    },
+    "Cases/solidworks-059/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "f20d19795fe45d871f30f565b4ba997e5dfddb580d7bed8eb8eb04ef002c335e",
+      "saved_keyword_sha256": "f20d19795fe45d871f30f565b4ba997e5dfddb580d7bed8eb8eb04ef002c335e",
+      "source_sha256": "c061b7bff9dc15f72bc2165042b8d2b78ac77e2d1de9c535e2c9ad53d093438c"
+    },
+    "Cases/solidworks-060/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "e38a522b8157a7cabe16aac23f49414ee61b572387b920cd31720c28bdc91b67",
+      "saved_keyword_sha256": "e38a522b8157a7cabe16aac23f49414ee61b572387b920cd31720c28bdc91b67",
+      "source_sha256": "5e85fcad3eefa762f6b7785443835b711192bbaecf61cb5c274fc473c4c3c4ab"
+    },
+    "Cases/solidworks-060/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ccb24731dc6aa053f23e9d8cf36a8afac1ad0a2457a0ce139e3bcca4199cca9f",
+      "saved_keyword_sha256": "ccb24731dc6aa053f23e9d8cf36a8afac1ad0a2457a0ce139e3bcca4199cca9f",
+      "source_sha256": "1dda4997ceb928a3875ada1dd2082bc24d8120d14af14805d469e04fd86754d2"
+    },
+    "Cases/solidworks-060/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "3269bcfe2884e02d77e8478798f4ac991a6a1577f68a90f73fe605ad763b182c",
+      "saved_keyword_sha256": "3269bcfe2884e02d77e8478798f4ac991a6a1577f68a90f73fe605ad763b182c",
+      "source_sha256": "79be480b8d8b4a433d6cc95bf216544f6a16aea284f0861e96fb8ea89f314758"
+    },
+    "Cases/solidworks-061/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "c0d92cdaea35d85adf8220b6b0d29ef4cfe19cd96f10e14df1c67b07c9944b11",
+      "saved_keyword_sha256": "c0d92cdaea35d85adf8220b6b0d29ef4cfe19cd96f10e14df1c67b07c9944b11",
+      "source_sha256": "b7102dd89dd6b96b01757ab93ecad7e8cdeff7a76118ba742f753a853a611637"
+    },
+    "Cases/solidworks-061/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "a9dd83fc55cd1b47782e8d9da3f886e961172c71098826bd70ecb84a7657a06f",
+      "saved_keyword_sha256": "a9dd83fc55cd1b47782e8d9da3f886e961172c71098826bd70ecb84a7657a06f",
+      "source_sha256": "afc9fcbcf8cbe3fc084a552734a268d83b32636ca648945cce28a43973a0cb20"
+    },
+    "Cases/solidworks-061/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "f0de75ff0d060f5ac2d88149092c721208be13bfd396e5f2e49bc5feed51003d",
+      "saved_keyword_sha256": "f0de75ff0d060f5ac2d88149092c721208be13bfd396e5f2e49bc5feed51003d",
+      "source_sha256": "35f6918a6abc9ddf8b8e7bc69f7360df6aeaf0bd5e008294aa6946fd55072713"
+    },
+    "Cases/solidworks-062/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ecc45280178bbb0ad2d9d8acd120fa9bdaa2d1b2ab70b1da15d5516e078fd129",
+      "saved_keyword_sha256": "ecc45280178bbb0ad2d9d8acd120fa9bdaa2d1b2ab70b1da15d5516e078fd129",
+      "source_sha256": "18754acbe01da28ee916cdad9d1cd092d4adff5c321b436ccbec7b819e3cb3eb"
+    },
+    "Cases/solidworks-062/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "5c277cd6b738806793818d11afca8f255d6216d00b8b88ac5eea90da3e456efa",
+      "saved_keyword_sha256": "5c277cd6b738806793818d11afca8f255d6216d00b8b88ac5eea90da3e456efa",
+      "source_sha256": "647cc45002f94b3ee3f96bc27eba565f15cc7d1473afc9029382bbd9292f1679"
+    },
+    "Cases/solidworks-062/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "5f5ba82f5addd5cc5157768ccbdd4e4a4601c529cf2580986eeb0ef94fde8392",
+      "saved_keyword_sha256": "5f5ba82f5addd5cc5157768ccbdd4e4a4601c529cf2580986eeb0ef94fde8392",
+      "source_sha256": "e2e69d22509d2627f2b06050a6221fc9eccb0ebfca4e9163ad78f6c9e3777513"
+    },
+    "Cases/solidworks-063/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "6d5c00f5f03496fba25709343ec311ccf54aeb1dc25a770ea0b31657389ea10c",
+      "saved_keyword_sha256": "6d5c00f5f03496fba25709343ec311ccf54aeb1dc25a770ea0b31657389ea10c",
+      "source_sha256": "fe4e6beec2c7349b87d3dd0abe03d47a95a2df513af9e484e0588ce719eac574"
+    },
+    "Cases/solidworks-063/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "6ab0ff4925a4b05eea94f6adc874fd58ad354a94630dd04263df6b52cf360f29",
+      "saved_keyword_sha256": "6ab0ff4925a4b05eea94f6adc874fd58ad354a94630dd04263df6b52cf360f29",
+      "source_sha256": "dcd48e3032be86cc677ceeb982f5a822a0e33d3b56380fe24d5df8e0a2c2dc09"
+    },
+    "Cases/solidworks-063/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "2f2d7be6f8f548220fed2ea35636efefd329a3a2d13380d73fc026f6de843530",
+      "saved_keyword_sha256": "2f2d7be6f8f548220fed2ea35636efefd329a3a2d13380d73fc026f6de843530",
+      "source_sha256": "9404b625eb6b0900bfc4c94fc6c5d6ef0011457ce346e5078d568c835a4a07e7"
+    },
+    "Cases/solidworks-064/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ef992e9c39215d77149b68a9c11698265092e7f2a3021bcd504cbbf586e0af93",
+      "saved_keyword_sha256": "ef992e9c39215d77149b68a9c11698265092e7f2a3021bcd504cbbf586e0af93",
+      "source_sha256": "c2da8805532f01288c6c06b551b83ed1192f46500c085b78453ebd9b6ec3f371"
+    },
+    "Cases/solidworks-064/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "eabaf1408d425825e0573eea778c4dca9cc421b1d07b1a9bfe233b02b5323238",
+      "saved_keyword_sha256": "eabaf1408d425825e0573eea778c4dca9cc421b1d07b1a9bfe233b02b5323238",
+      "source_sha256": "9d3a168a14cb0dd589f501511f13ec682040d46086753c30d401524b9e1d9f64"
+    },
+    "Cases/solidworks-064/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "248bb84d9cbf29a8fe185605baf08f301328ae8f03925bfdcde492f907ec7e40",
+      "saved_keyword_sha256": "248bb84d9cbf29a8fe185605baf08f301328ae8f03925bfdcde492f907ec7e40",
+      "source_sha256": "88e9b8bdab7329ec9cf9738b9c8e49e0a9ef492c990efdc33a06cd684f4c3f22"
+    },
+    "Cases/solidworks-065/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "8891788c06e6da20ba3e3078c6e716a88af976e185b490e46e728fe70ef4ae3d",
+      "saved_keyword_sha256": "8891788c06e6da20ba3e3078c6e716a88af976e185b490e46e728fe70ef4ae3d",
+      "source_sha256": "6f8425b29f1c5582e9053529b7b9cdd4b7084b95ade6b8d07f35207a7acd14a9"
+    },
+    "Cases/solidworks-065/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "515141f10f1ff21566c32b352b7096ec373a493955a004f22334a545b43e8272",
+      "saved_keyword_sha256": "515141f10f1ff21566c32b352b7096ec373a493955a004f22334a545b43e8272",
+      "source_sha256": "aef80ca8a8ed59d733f2f93bf84e97fc6b12134b6bae87b3c98906009dade7ba"
+    },
+    "Cases/solidworks-065/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "88342b039f01651e1d207a1b50fea6a094d4ba13d4b03b8a2eeda1ddaab98045",
+      "saved_keyword_sha256": "88342b039f01651e1d207a1b50fea6a094d4ba13d4b03b8a2eeda1ddaab98045",
+      "source_sha256": "c288a8f09c7238ec26f0f7f8340bcdb70e3cfe1adb633f88ea71348b88f07771"
+    },
+    "Cases/solidworks-066/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "cab8f125b33e5eeee7cd8083714f3ea09784d657fc43c86af6e64cc59340b8bc",
+      "saved_keyword_sha256": "cab8f125b33e5eeee7cd8083714f3ea09784d657fc43c86af6e64cc59340b8bc",
+      "source_sha256": "b30646bfd4fe770d58a32faa60c9bd8c0f2b51ae8a71064d35a804d47ee65cab"
+    },
+    "Cases/solidworks-066/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "97e1858677233b1ef7c7d07225f052495231b34354a3f4f124a6ae1df9d508e6",
+      "saved_keyword_sha256": "97e1858677233b1ef7c7d07225f052495231b34354a3f4f124a6ae1df9d508e6",
+      "source_sha256": "c644a4e94ab026373d6617827d5fe9da489eef1269d58ed3e9357b7c3a149f77"
+    },
+    "Cases/solidworks-066/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "674a2324076bfb4b83111cc1799cad520d34ca05b7407012a9eb76273fa5029e",
+      "saved_keyword_sha256": "674a2324076bfb4b83111cc1799cad520d34ca05b7407012a9eb76273fa5029e",
+      "source_sha256": "2953942d08a729d38b9842d1226aff3c74682f91b7689cbbe157fca494629c26"
+    },
+    "Cases/solidworks-067/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "f5d457e0bd0a005b6d12d91e344abedf4170837bcccd925b2e4627563b2fe761",
+      "saved_keyword_sha256": "f5d457e0bd0a005b6d12d91e344abedf4170837bcccd925b2e4627563b2fe761",
+      "source_sha256": "24f233cd4e25542ebe24f4114b017bd7ec52dec001731dc2b8cbd7b93d15b427"
+    },
+    "Cases/solidworks-067/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "2a605d08f1b9634e1715aa35a4885a5c2e1e439c30e0a4681e702b53959b0e36",
+      "saved_keyword_sha256": "2a605d08f1b9634e1715aa35a4885a5c2e1e439c30e0a4681e702b53959b0e36",
+      "source_sha256": "85f57e80b681ac75a1127ed8abf553fd59b80b4816be0b0c651f567fde6238c2"
+    },
+    "Cases/solidworks-067/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "1b45415851a43f82431bd64e2b384d1d68e6b4d4a88b99a7b76e122285e9b9f6",
+      "saved_keyword_sha256": "1b45415851a43f82431bd64e2b384d1d68e6b4d4a88b99a7b76e122285e9b9f6",
+      "source_sha256": "c1085720fefa58934ec307192c8ff3cbc236d8254f1263d6706d394ef37e3683"
+    },
+    "Cases/solidworks-068/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "0da65a4d2320a7c5fd09e2257b189c6eabfd03fed36052fbc3069dcb044235d5",
+      "saved_keyword_sha256": "0da65a4d2320a7c5fd09e2257b189c6eabfd03fed36052fbc3069dcb044235d5",
+      "source_sha256": "b83f81a13baf06600b85260d3316a336fd39d200b5b91a0d1b11643dc8007d10"
+    },
+    "Cases/solidworks-068/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ba332feb388bfb3c11f6c18bc86517ed420d88e33d009e901fc6714ecb5f4f8e",
+      "saved_keyword_sha256": "ba332feb388bfb3c11f6c18bc86517ed420d88e33d009e901fc6714ecb5f4f8e",
+      "source_sha256": "6e4e3c552e8dadb72c7d3828f73c26c693ac22bfc7bcf1baffc3ac5b5195b9dc"
+    },
+    "Cases/solidworks-068/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "bfd8caca68963dbb9a71752ba485912ec2cd0f2ada4d6e0682bb836de629da7f",
+      "saved_keyword_sha256": "bfd8caca68963dbb9a71752ba485912ec2cd0f2ada4d6e0682bb836de629da7f",
+      "source_sha256": "a11b4b51b2391eaa679031b4e43eb4e889822b022d79c567b62679e1e64104d3"
+    },
+    "Cases/solidworks-069/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "87a82d486adcfc6029b2060c4ceb69e5d9c1686f7a04d0dc5a92f57be9bc20d6",
+      "saved_keyword_sha256": "87a82d486adcfc6029b2060c4ceb69e5d9c1686f7a04d0dc5a92f57be9bc20d6",
+      "source_sha256": "46660387d289165111a0539820c1f5e4bf0fcf532f48007923420e68159ba256"
+    },
+    "Cases/solidworks-069/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "687fa63c93822a044ffad3c05c667106068f0b67e00696db52781356a4071ca2",
+      "saved_keyword_sha256": "687fa63c93822a044ffad3c05c667106068f0b67e00696db52781356a4071ca2",
+      "source_sha256": "ee474af31741fe1698911ec9b3c12bbc20870aa14e430f3268cbffe04839ef05"
+    },
+    "Cases/solidworks-069/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "e66f172048925042b5345f4c0ae85530372af5fe822f94c057132d0fd44f8b49",
+      "saved_keyword_sha256": "e66f172048925042b5345f4c0ae85530372af5fe822f94c057132d0fd44f8b49",
+      "source_sha256": "ad407c2f22e4839683101e0162765952a8db088cba4448458487372e380c1751"
+    },
+    "Cases/solidworks-070/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "361113f904cfcb4bc005c50fafee7ad7133a9a3c23b37e4a7d73843ef2b7bbc5",
+      "saved_keyword_sha256": "361113f904cfcb4bc005c50fafee7ad7133a9a3c23b37e4a7d73843ef2b7bbc5",
+      "source_sha256": "bef56a9d3060ebc41513aa5fc16b513da78fedbcb5cb3b7d7f9eba56036c7ff2"
+    },
+    "Cases/solidworks-070/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ab0da5a029c3e9c8aca76cc6082fa6e20aa91b0bc5ca4cda5e25d3331d854611",
+      "saved_keyword_sha256": "ab0da5a029c3e9c8aca76cc6082fa6e20aa91b0bc5ca4cda5e25d3331d854611",
+      "source_sha256": "e873f95ae9f2a7b6da84307125e2dd233d83f8b80dd78298115d1945a06f058e"
+    },
+    "Cases/solidworks-070/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "3efa08d894ee25e7de37f70a4f4aae550cc68319bbd1ec4412ca59b66b587b19",
+      "saved_keyword_sha256": "3efa08d894ee25e7de37f70a4f4aae550cc68319bbd1ec4412ca59b66b587b19",
+      "source_sha256": "142d21eb7da20b505e57bf076e8335b5204e25b8ea866c9fa522514968d75236"
+    },
+    "Cases/solidworks-071/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "377c105ddffe041b19f20aed13e409d06199db11032a00f2e5204688455df207",
+      "saved_keyword_sha256": "377c105ddffe041b19f20aed13e409d06199db11032a00f2e5204688455df207",
+      "source_sha256": "2033ac1e8c1466467b7808f6588be7672c8ddf675735154e4f1e9cc736d0383d"
+    },
+    "Cases/solidworks-071/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "aa5a9b5f14e08bd50d70a520ca5d65317c4f59fb11da44a5a24c4879cf44f248",
+      "saved_keyword_sha256": "aa5a9b5f14e08bd50d70a520ca5d65317c4f59fb11da44a5a24c4879cf44f248",
+      "source_sha256": "0865d228dfd69e7a246ca7cccefe682b70e6376df22e7ce03b6c4eae7498fe00"
+    },
+    "Cases/solidworks-071/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "322fdcc0132c8e0efffe942ed50f3799c4edfb2cbc31174f9eb59e579f93233d",
+      "saved_keyword_sha256": "322fdcc0132c8e0efffe942ed50f3799c4edfb2cbc31174f9eb59e579f93233d",
+      "source_sha256": "113a9a5ce49f06e2bf8a473097f478a019a065170fe04fd4d099a9d053259a43"
+    },
+    "Cases/solidworks-072/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "294362420f104fcad841fc411b680e1deca0cc60438f93142b80edd19423bcb9",
+      "saved_keyword_sha256": "294362420f104fcad841fc411b680e1deca0cc60438f93142b80edd19423bcb9",
+      "source_sha256": "5abac8873bbd3d6ceccbbac63607a2fc3c992768d6cb2010c5c389cab2a3dfcb"
+    },
+    "Cases/solidworks-072/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "6b707a3d91d69e9ff87728ecd42bfaddeb757d896fa67b29081885eed7334c9d",
+      "saved_keyword_sha256": "6b707a3d91d69e9ff87728ecd42bfaddeb757d896fa67b29081885eed7334c9d",
+      "source_sha256": "5aff140cbf4a32f04d07336fa2b421401b6f87c862ec7823a13da0f4eb16ea0f"
+    },
+    "Cases/solidworks-072/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "16f7169072568c0ae6454cf36e498e096d466c2aff0ac8046029e8b8ee0c6dee",
+      "saved_keyword_sha256": "16f7169072568c0ae6454cf36e498e096d466c2aff0ac8046029e8b8ee0c6dee",
+      "source_sha256": "f47c71f04b943ddc279601db9a549ba7ee8977555df81bae5016fd72fd9d04df"
+    },
+    "Cases/solidworks-073/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "673fa14554b4b7a7af384caf313a7be00fe3b93fce19b54461b29f057c9aea2a",
+      "saved_keyword_sha256": "673fa14554b4b7a7af384caf313a7be00fe3b93fce19b54461b29f057c9aea2a",
+      "source_sha256": "0e8b2d941e7e698dda83a1f9398064174e1ef59b334973a878376093c858de24"
+    },
+    "Cases/solidworks-073/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "74b587bd5ded885e96cbb047d9bfb247dfae8abd9b5bd83017b8d727496424e4",
+      "saved_keyword_sha256": "74b587bd5ded885e96cbb047d9bfb247dfae8abd9b5bd83017b8d727496424e4",
+      "source_sha256": "c0f531b249efe604474948d5fa42f0670632afce36781aa16d97cf7e10d4fdaa"
+    },
+    "Cases/solidworks-073/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "7eb733a00481c34f8e23f91f84f1f48abcd830db61e12ee8a27a5d0ceb274a01",
+      "saved_keyword_sha256": "7eb733a00481c34f8e23f91f84f1f48abcd830db61e12ee8a27a5d0ceb274a01",
+      "source_sha256": "99736f720369610cc53b08e0eb0b31aa6c0435ba1f4bd8a065eb73eb1dd6c8e0"
+    },
+    "Cases/solidworks-074/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "eb792a22a2345fdc66ad316e6fc6f8469b0a34dca3275771cb355f67ddf3758e",
+      "saved_keyword_sha256": "eb792a22a2345fdc66ad316e6fc6f8469b0a34dca3275771cb355f67ddf3758e",
+      "source_sha256": "5476b45de148cf0aa7067f799d0ac6612ca5b9ee9da7c45fb1ad26a1aa98208a"
+    },
+    "Cases/solidworks-074/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "41edb527227d8677f2742bbdd5a39d32fccdb74b59b34f420fb4c6a7d3f862d6",
+      "saved_keyword_sha256": "41edb527227d8677f2742bbdd5a39d32fccdb74b59b34f420fb4c6a7d3f862d6",
+      "source_sha256": "cdd31bd5fb1266d33dbfa5da185eed1f06cf77634b63c2521c85a808c0152925"
+    },
+    "Cases/solidworks-074/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "9504dc90baab26d03ec1af66e54206096494c9e1cfc890480e0713a3e1deea3b",
+      "saved_keyword_sha256": "9504dc90baab26d03ec1af66e54206096494c9e1cfc890480e0713a3e1deea3b",
+      "source_sha256": "59395be0cc3e2c8f2a567788e56b1e5342bb5a37eff646f18a7078a209baed9e"
+    },
+    "Cases/solidworks-075/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "e562b941c0bea5ad91fb55c5de4cb23bd59c546fef7ee03960f2171333d025fa",
+      "saved_keyword_sha256": "e562b941c0bea5ad91fb55c5de4cb23bd59c546fef7ee03960f2171333d025fa",
+      "source_sha256": "d36d4dcd4d93c19d0e1a4ed6aa2a4ffab46f4f913ee6a4dc1988d4353620be36"
+    },
+    "Cases/solidworks-075/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "a505af7c090fc5a112e8805f92fba411228bdb0d51d2fd81c4470fa2294ed2cc",
+      "saved_keyword_sha256": "a505af7c090fc5a112e8805f92fba411228bdb0d51d2fd81c4470fa2294ed2cc",
+      "source_sha256": "f383e576ec3d362ec83f9a5abd82c13c2da335222675cc9bbf4c8bfa49b0d1a2"
+    },
+    "Cases/solidworks-075/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "06da5ca14d5c9b719ca097934c22bc81b237a2f82be1e910291a288096de149b",
+      "saved_keyword_sha256": "06da5ca14d5c9b719ca097934c22bc81b237a2f82be1e910291a288096de149b",
+      "source_sha256": "fc891a66dbfe8ab84ba34f21969dff22fc5d5c0fda965bdcdf661441e93936e3"
+    },
+    "Cases/solidworks-076/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "6f9903dc3eb3bdb0005b5d4d9c6e3cbddbe6406a5f7155267c03674c9fcab5e0",
+      "saved_keyword_sha256": "6f9903dc3eb3bdb0005b5d4d9c6e3cbddbe6406a5f7155267c03674c9fcab5e0",
+      "source_sha256": "34b9831c0fea2655a1fbf092673707b39e10567194c9b1e2c090dda771f2c59e"
+    },
+    "Cases/solidworks-076/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "0a9e875f83879482b0717576c12a6a319921dca3b710b5195fefe70c4b443e9a",
+      "saved_keyword_sha256": "0a9e875f83879482b0717576c12a6a319921dca3b710b5195fefe70c4b443e9a",
+      "source_sha256": "e2ea643c1ff677b169bb7593828b7ea7f23040883367684915ce1d86412b2236"
+    },
+    "Cases/solidworks-076/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "2f67a783d49c412a548147bf31c4264747c4d0cc65698f0f46db19dad1afb1f3",
+      "saved_keyword_sha256": "2f67a783d49c412a548147bf31c4264747c4d0cc65698f0f46db19dad1afb1f3",
+      "source_sha256": "4d375345a9cde101763180986de1e46e28a96d0c45456bb5528184f05bbb05bb"
+    },
+    "Cases/solidworks-077/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "3762db9855893e2783f8bf010711063ce19a4936668c553689ed5161ed204e2a",
+      "saved_keyword_sha256": "3762db9855893e2783f8bf010711063ce19a4936668c553689ed5161ed204e2a",
+      "source_sha256": "99e29d617e238f8c71a29281eb9f750ae58b50a05066f8583ed144636f79d11f"
+    },
+    "Cases/solidworks-077/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "24eb2ee1358d17392d5ada88fcc0c411b7b4f842b3d0309bd2962f89e4fd83e7",
+      "saved_keyword_sha256": "24eb2ee1358d17392d5ada88fcc0c411b7b4f842b3d0309bd2962f89e4fd83e7",
+      "source_sha256": "d6d375d7fd97a2fa32ee88db3599e7232001b39726495173efff2db8280bb42d"
+    },
+    "Cases/solidworks-077/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "71eb481a437aa81010380236a025c50a9be9828e27fdabad0765a7b18f00aecc",
+      "saved_keyword_sha256": "71eb481a437aa81010380236a025c50a9be9828e27fdabad0765a7b18f00aecc",
+      "source_sha256": "2cce60892b8f87e9f24d08f5d4b05233063372247a292a9c5c2f41f6dbc93c0d"
+    },
+    "Cases/solidworks-078/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ffad167226850cdd2a438e0348acec6322b8bb07f752224286cdbe7b14380139",
+      "saved_keyword_sha256": "ffad167226850cdd2a438e0348acec6322b8bb07f752224286cdbe7b14380139",
+      "source_sha256": "f09738f85e84bc1316d6d73907abdfc920d11fed71e6effa09ee14a0d4b6aaf5"
+    },
+    "Cases/solidworks-078/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "b78387ac8e64cec69fdd511c3c12c476ce2aa2c6d7f67c5d80d675b2ea910be4",
+      "saved_keyword_sha256": "b78387ac8e64cec69fdd511c3c12c476ce2aa2c6d7f67c5d80d675b2ea910be4",
+      "source_sha256": "9f035942101f91182b144fb9972dfbf072407cf8d5e5d00febf5e3437abb9ae6"
+    },
+    "Cases/solidworks-078/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "01474902a7ea7df27a32aea48f66a857599168697482506740374741e9123cae",
+      "saved_keyword_sha256": "01474902a7ea7df27a32aea48f66a857599168697482506740374741e9123cae",
+      "source_sha256": "3c256bcd0406126a0dd97744ad19bc388f2f12c4c16b6b009b7076c62cf79000"
+    },
+    "Cases/solidworks-079/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "affb6d5bc484d4b798b14b65c7fcfa359a58c19afd9a5dcfdc46356faeafcf28",
+      "saved_keyword_sha256": "affb6d5bc484d4b798b14b65c7fcfa359a58c19afd9a5dcfdc46356faeafcf28",
+      "source_sha256": "1b4f210644c2c51884052d254255a34794090dae3c6ac2511cb2c7a7ad024b3b"
+    },
+    "Cases/solidworks-079/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ddff4d40035adbede52008dc72c3cb113831cdf842ee7c90e712d36dbadb0799",
+      "saved_keyword_sha256": "ddff4d40035adbede52008dc72c3cb113831cdf842ee7c90e712d36dbadb0799",
+      "source_sha256": "510bd39b42e77bd4ba3b9225c5878507c2fa0c0af9727ccd3238da2bbc7afc14"
+    },
+    "Cases/solidworks-079/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "97829a213ceaad5a6e5b1361489bdcd6e0e4ce5f0abd13cd8c5423652edf917d",
+      "saved_keyword_sha256": "97829a213ceaad5a6e5b1361489bdcd6e0e4ce5f0abd13cd8c5423652edf917d",
+      "source_sha256": "7f51570ea013ff4a3a847ebb6017a40a7bde3cb0d203ddad02d1f8001e41e6e0"
+    },
+    "Cases/solidworks-080/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "9c2e92e8a740c41d0ee5e692b0c649f6dbdb88955b12b1afd7e439698a4f2521",
+      "saved_keyword_sha256": "9c2e92e8a740c41d0ee5e692b0c649f6dbdb88955b12b1afd7e439698a4f2521",
+      "source_sha256": "15314077c939299b4aeaf8dcc9144abec313e6783b533996110ec0696cee568c"
+    },
+    "Cases/solidworks-080/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "52b5684c39cfe436fc72c491361058d92b222792d7723d9a86f10ab08a3dd5f2",
+      "saved_keyword_sha256": "52b5684c39cfe436fc72c491361058d92b222792d7723d9a86f10ab08a3dd5f2",
+      "source_sha256": "2c8b2ac6e9ccd4f843f80b47a6ab5fb4077cab9aab01631c0b854b3be45303b2"
+    },
+    "Cases/solidworks-080/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "5e0ad90b9b6adfa401ee35f0e8646b5481162d13abf8cff6164ae7285d076cb9",
+      "saved_keyword_sha256": "5e0ad90b9b6adfa401ee35f0e8646b5481162d13abf8cff6164ae7285d076cb9",
+      "source_sha256": "0dbb277ba2291ea14a837c58ffaf8fa6c652da318d7f5aa4a7341eb8ef079433"
+    },
+    "Cases/solidworks-081/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "20a0bbac1c0d37e0b1b9a55de48084bdbf5fe571adcad0cb77ef1b63cc7255ba",
+      "saved_keyword_sha256": "20a0bbac1c0d37e0b1b9a55de48084bdbf5fe571adcad0cb77ef1b63cc7255ba",
+      "source_sha256": "77bece026063b3db42d5b00c06dfed9f8dbfd0ecd8105cb85d223bea313859a6"
+    },
+    "Cases/solidworks-081/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "21a1bf6a084c12367860bdf6534a55648a8f26e1acfc8cd3b01e2fffc2252730",
+      "saved_keyword_sha256": "21a1bf6a084c12367860bdf6534a55648a8f26e1acfc8cd3b01e2fffc2252730",
+      "source_sha256": "c78ac07d0e0a2e06caa7b44cbe20e3ada93972a6720c47e6e8398a52153694c8"
+    },
+    "Cases/solidworks-081/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "bb75a2a81dd1de11c30270dc65a3f2a6fae30a448fc07744178661e79358a01d",
+      "saved_keyword_sha256": "bb75a2a81dd1de11c30270dc65a3f2a6fae30a448fc07744178661e79358a01d",
+      "source_sha256": "6ea808a5a8c137de5b1d81784570e4f12bbe2548fc37c0a50f25ebe9725d008b"
+    },
+    "Cases/solidworks-082/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "be486fdba838de3eaf2ea1116f1ee7d621e140ab140cc75c45ba2e734495f081",
+      "saved_keyword_sha256": "be486fdba838de3eaf2ea1116f1ee7d621e140ab140cc75c45ba2e734495f081",
+      "source_sha256": "e999c6bed8b4743ad7db4f423425169273b66e251028a3ec493238151eab8fcc"
+    },
+    "Cases/solidworks-082/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "9a30b2f46a40e158ab6edc28cc67a559669187c57fcaa2ae65e58a7fc7fbc8cd",
+      "saved_keyword_sha256": "9a30b2f46a40e158ab6edc28cc67a559669187c57fcaa2ae65e58a7fc7fbc8cd",
+      "source_sha256": "f60f06b2ce715b209cd0bef409036436042e5052eb39bda41e1379bcb5536fd2"
+    },
+    "Cases/solidworks-082/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "74ab00b559524d31d2a4d1bb78160d6e7436b23b5b057fd3d2440a3b6d3d5b39",
+      "saved_keyword_sha256": "74ab00b559524d31d2a4d1bb78160d6e7436b23b5b057fd3d2440a3b6d3d5b39",
+      "source_sha256": "52573b9f95a23b7b597fab120534d7b369c551913fa8008f008513dffd25c8e0"
+    },
+    "Cases/solidworks-083/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "42f135a57be36da24d7fad1723f09be456bb4e2a2e18cb0e0a6386b09d9ed15c",
+      "saved_keyword_sha256": "42f135a57be36da24d7fad1723f09be456bb4e2a2e18cb0e0a6386b09d9ed15c",
+      "source_sha256": "1a8ef7b65627ebd75fca13b8057b0ede9ed4ed1242ec339bd636a7dce1c24cab"
+    },
+    "Cases/solidworks-083/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "8a240b3eb5de49b7b57803158c3284a0b07aab86f706c37f5e3903214ab2c042",
+      "saved_keyword_sha256": "8a240b3eb5de49b7b57803158c3284a0b07aab86f706c37f5e3903214ab2c042",
+      "source_sha256": "2a16e2a5518c4cc0653294b4d170b27555b7d437e5de74565ba882e19d1c87c8"
+    },
+    "Cases/solidworks-083/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "60c77eaffa1804de87e4d8f56a666f48521d3f94cbb09b51e5cff660a10495d6",
+      "saved_keyword_sha256": "60c77eaffa1804de87e4d8f56a666f48521d3f94cbb09b51e5cff660a10495d6",
+      "source_sha256": "22e12aa582b5e3c7e9ed1020db0f86081494413672a2a3241a74ae7899b0c601"
+    },
+    "Cases/solidworks-084/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "26650354e5f559f393cd82866b6654ce3afbb2703efb83ee8762a69efe453ede",
+      "saved_keyword_sha256": "26650354e5f559f393cd82866b6654ce3afbb2703efb83ee8762a69efe453ede",
+      "source_sha256": "3f83e01bce1d1dd079cbc348767eaf32dd8045632b4cb348c06175d7406250af"
+    },
+    "Cases/solidworks-084/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "37454543a2d712d245fc827b66fedd39a9f2f0099012ec346d9e4daf25971738",
+      "saved_keyword_sha256": "37454543a2d712d245fc827b66fedd39a9f2f0099012ec346d9e4daf25971738",
+      "source_sha256": "5439fabd4da45bee6ebce3e6c4b565bd2142172462d09397a5f50bea0a491036"
+    },
+    "Cases/solidworks-084/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "658a62245e11c25db03f8cd7045607dd52eba275d27bb8924f0f4f5d59dc247d",
+      "saved_keyword_sha256": "658a62245e11c25db03f8cd7045607dd52eba275d27bb8924f0f4f5d59dc247d",
+      "source_sha256": "16dbeca98a0ee33ceb6873b8710364a9b7e433c6c3a3270e411b17e39067cd14"
+    },
+    "Cases/solidworks-085/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "2071df391ce3ed03c6bf84bfde13d290bfcd5830654926e0994f3b77c8f22e13",
+      "saved_keyword_sha256": "2071df391ce3ed03c6bf84bfde13d290bfcd5830654926e0994f3b77c8f22e13",
+      "source_sha256": "826eb5029f08ee43354c0292cfce2c1e35f52b22e34f06bc3d050de15c833cf5"
+    },
+    "Cases/solidworks-085/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "edc05da33f4dd280cc5969dfaf3701d968264ab85e52b003e3abcdc3867b6bbb",
+      "saved_keyword_sha256": "edc05da33f4dd280cc5969dfaf3701d968264ab85e52b003e3abcdc3867b6bbb",
+      "source_sha256": "26db46300ef7600e8608ff2f44fad2462d3f85a530e395812b14a5d28b062ad7"
+    },
+    "Cases/solidworks-085/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "21130195c4e9324ba7ba779f8d2fb6be5d7968e48a1f7035cb5841c255909d78",
+      "saved_keyword_sha256": "21130195c4e9324ba7ba779f8d2fb6be5d7968e48a1f7035cb5841c255909d78",
+      "source_sha256": "7b3ae4ba62d700583d59fd54875c634ffd0845f3addc3a1af8a9c80802d154eb"
+    },
+    "Cases/solidworks-086/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "bc7440015f6e409c5a9a22ef456773f628f7c811427cc979bfc18acb40d818a7",
+      "saved_keyword_sha256": "bc7440015f6e409c5a9a22ef456773f628f7c811427cc979bfc18acb40d818a7",
+      "source_sha256": "9807091d342bc1bac02918116941f3637b8cefccd4c4aa77514d4e7a43dde7af"
+    },
+    "Cases/solidworks-086/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "73895a0c6cac16ad5524ec32b0507b0d9618dfeb101a92f46272ed9511fb0033",
+      "saved_keyword_sha256": "73895a0c6cac16ad5524ec32b0507b0d9618dfeb101a92f46272ed9511fb0033",
+      "source_sha256": "9f4cadabb13b01bb96bb43060250c9b79b4eedb9ebe839f1da45453bc9f46751"
+    },
+    "Cases/solidworks-086/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "5008bad965c9584a5fbf21873ab662f22976e3c05fedf9258a64411a216707b5",
+      "saved_keyword_sha256": "5008bad965c9584a5fbf21873ab662f22976e3c05fedf9258a64411a216707b5",
+      "source_sha256": "c7dfac317b42b6ea86d2c96581e50c12f121f5f88d08863c1a42e96f97bd5966"
+    },
+    "Cases/solidworks-087/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "bc64f5724a1e863f83508867e0c8e948c72e71848c295e096771a65383548635",
+      "saved_keyword_sha256": "bc64f5724a1e863f83508867e0c8e948c72e71848c295e096771a65383548635",
+      "source_sha256": "c7c6aa1e8d2c6c1747ede6e626820ad3fa8b4afa8027cc6dc28f5f7ad322806f"
+    },
+    "Cases/solidworks-087/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "598a5e2d5609f3f0975387a8def2e0584b10029586e8df25555edc0365a9ef66",
+      "saved_keyword_sha256": "598a5e2d5609f3f0975387a8def2e0584b10029586e8df25555edc0365a9ef66",
+      "source_sha256": "c71eafb3ccf9467f7caff69742e6e5920b43aee61facf4013260a90a31160525"
+    },
+    "Cases/solidworks-087/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "19e7cccf989530c47ed9c2fbd148fcc06eff595c1eff4a1271cc9aa1ddb2494b",
+      "saved_keyword_sha256": "19e7cccf989530c47ed9c2fbd148fcc06eff595c1eff4a1271cc9aa1ddb2494b",
+      "source_sha256": "96199df535704de7523ac3dbc81e91923b397c8cb7d80bbcb3df254717c4ec9b"
+    },
+    "Cases/solidworks-088/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "9c69b3e13389c43ea3dd3eaaba6f39da55ff2af0fa98086a7db882453eed9f3a",
+      "saved_keyword_sha256": "9c69b3e13389c43ea3dd3eaaba6f39da55ff2af0fa98086a7db882453eed9f3a",
+      "source_sha256": "f5fb1280efcdb0f4a1d1fb15e4cca3e1a89df2146bc3ecd7fea5aa9620bc4887"
+    },
+    "Cases/solidworks-088/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "40a7299e63bdbb0c31490ffd941a73494d92463beceb295945866886d0cad195",
+      "saved_keyword_sha256": "40a7299e63bdbb0c31490ffd941a73494d92463beceb295945866886d0cad195",
+      "source_sha256": "b7708fa5385841d4d0abb304fc5540ed7370b029658b55d8ba668215186fa4cd"
+    },
+    "Cases/solidworks-088/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "74b8d91318c84e9eb6c085fd7a42c3af9860c0721d987697436f0f5e7b5d1898",
+      "saved_keyword_sha256": "74b8d91318c84e9eb6c085fd7a42c3af9860c0721d987697436f0f5e7b5d1898",
+      "source_sha256": "a3c0f7e8bbab00e1ebde2981e8bededb1532690e168b5f774c2778138f64663f"
+    },
+    "Cases/solidworks-089/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "7f19baf634b32ab2382f966d43eeeae8a7fd56a8d75cad39643818fc4a65f79e",
+      "saved_keyword_sha256": "7f19baf634b32ab2382f966d43eeeae8a7fd56a8d75cad39643818fc4a65f79e",
+      "source_sha256": "32d6e8773b070098d33ad1c1700f38703abd9a5b50949a22259b5a5eb4f20b0f"
+    },
+    "Cases/solidworks-089/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "f03322504f479fa0827cb1714b984271a6595dd2b1b41c94b0c0f1ca4c333abc",
+      "saved_keyword_sha256": "f03322504f479fa0827cb1714b984271a6595dd2b1b41c94b0c0f1ca4c333abc",
+      "source_sha256": "3877b0ace9b25748b2a0cbfc22588295a8b53219db38f1c4cb028c93a6b9fe25"
+    },
+    "Cases/solidworks-089/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "a83a8e3bbc41fde78680053fdb61964411f4e0590fbd52a30b0ec692f343b1ad",
+      "saved_keyword_sha256": "a83a8e3bbc41fde78680053fdb61964411f4e0590fbd52a30b0ec692f343b1ad",
+      "source_sha256": "9febbe66196b00744e734ad0d5d60cd30715dcf7d25ccdb8f4a565841f988f19"
+    },
+    "Cases/solidworks-090/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "31c54c8344878f38df6c9dd5d77a7a0c7ed1dbd20c41693482aef516ecd7343e",
+      "saved_keyword_sha256": "31c54c8344878f38df6c9dd5d77a7a0c7ed1dbd20c41693482aef516ecd7343e",
+      "source_sha256": "489e91d7731f7545455c05d6de105488e1cb825e02ef06cc6b89747d88a8486e"
+    },
+    "Cases/solidworks-090/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "525989bad0324e364b9721fa57fcb7d20f7dbe4befe94451df29ec4bb4505918",
+      "saved_keyword_sha256": "525989bad0324e364b9721fa57fcb7d20f7dbe4befe94451df29ec4bb4505918",
+      "source_sha256": "d0f7d31c4749ca43ee9b3a1ab5c5ff6388a37bc84465ddd6199bdca41cfab58d"
+    },
+    "Cases/solidworks-090/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "db2a8d6fa80aaecbd9c75400c7b6a5675bbb57b186fc0b92394426eeb0cde4a5",
+      "saved_keyword_sha256": "db2a8d6fa80aaecbd9c75400c7b6a5675bbb57b186fc0b92394426eeb0cde4a5",
+      "source_sha256": "00aadc5849c6bad328c56a169764cce7cc38368a40abd7d92ed2ac156e2c9c8d"
+    },
+    "Cases/solidworks-091/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "827655fd3c2c4feb3efebf5bef69e74f68bd2376ad45a40f3878537f156232c6",
+      "saved_keyword_sha256": "827655fd3c2c4feb3efebf5bef69e74f68bd2376ad45a40f3878537f156232c6",
+      "source_sha256": "c042b134908e5adcf4de2afb773de5270050dd3e31c22afb06ebf97ea7370e7e"
+    },
+    "Cases/solidworks-091/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "0c1f33538877e99c60c631e09ebfda19e19f0a51f3ceee5f96d915b742e0f99e",
+      "saved_keyword_sha256": "0c1f33538877e99c60c631e09ebfda19e19f0a51f3ceee5f96d915b742e0f99e",
+      "source_sha256": "7b6f0e1ee5fda35a8224ec60f07db673fb087571aed7a1deb30d568280c8512c"
+    },
+    "Cases/solidworks-091/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "e8dd7c676de3db63fde9afd9965a6dd0a51f524f56bfaf8acd095e79629450a7",
+      "saved_keyword_sha256": "e8dd7c676de3db63fde9afd9965a6dd0a51f524f56bfaf8acd095e79629450a7",
+      "source_sha256": "f1d734b57a58f2ea949b44745ce46b1d1ad6c261f4c80e14a8a6bc7f9961838b"
+    },
+    "Cases/solidworks-092/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "af7423b04a652c4ce4c8e4cb821810d6aeb5f0836b122e4f42211d1fdeae5ea2",
+      "saved_keyword_sha256": "af7423b04a652c4ce4c8e4cb821810d6aeb5f0836b122e4f42211d1fdeae5ea2",
+      "source_sha256": "c8ca2515c33b1b96a71bcdcb205f03b750fe469112e470779bab542c54fcb576"
+    },
+    "Cases/solidworks-092/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "8bae564faf3db352a01518f29d9abe66077c1a302d66185f8cda276a76b46122",
+      "saved_keyword_sha256": "8bae564faf3db352a01518f29d9abe66077c1a302d66185f8cda276a76b46122",
+      "source_sha256": "39e7d8af8fae990c7a63e41ad365b5a7151ab0b8ac300d5e91ffe7214ce66770"
+    },
+    "Cases/solidworks-092/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "00b9ddb1741964e4351a93d9cdbc73979834a0350074f2bd0117cf067e775a7d",
+      "saved_keyword_sha256": "00b9ddb1741964e4351a93d9cdbc73979834a0350074f2bd0117cf067e775a7d",
+      "source_sha256": "b8f8011379258253b7410c1f47bfdfd001b5b823dfe352665142beaedb43751d"
+    },
+    "Cases/solidworks-093/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "f3cc40f1516bea5247c9a81525d7a1a36921c09ef5676b3b2ff56e04aa18f4a0",
+      "saved_keyword_sha256": "f3cc40f1516bea5247c9a81525d7a1a36921c09ef5676b3b2ff56e04aa18f4a0",
+      "source_sha256": "24967c789e3ee75eb99152d2aca2dd7b289074fa5b037a4ac6fd4fb2c417f6c7"
+    },
+    "Cases/solidworks-093/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "ff0e3abce4b224b6831d2a23ea6460d65b1621b7b41e9083d381051a3594b561",
+      "saved_keyword_sha256": "ff0e3abce4b224b6831d2a23ea6460d65b1621b7b41e9083d381051a3594b561",
+      "source_sha256": "582871378893c554edae6c30ea856adfd4cb37e1368aa6bdaca39dfeff44cfdf"
+    },
+    "Cases/solidworks-093/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "2c4d1f758c7f875284fc82093557cf33d29e1491171449a1d88aae79b704d246",
+      "saved_keyword_sha256": "2c4d1f758c7f875284fc82093557cf33d29e1491171449a1d88aae79b704d246",
+      "source_sha256": "9f3248cfc94186c69af91dea2faa137f82212224aeb5405be8c905b66f0e4183"
+    },
+    "Cases/solidworks-094/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "0cc64e982fcf12910a17da096faf1b3ad02cdd0c48d02e3050b16d8578892de3",
+      "saved_keyword_sha256": "0cc64e982fcf12910a17da096faf1b3ad02cdd0c48d02e3050b16d8578892de3",
+      "source_sha256": "f045ab8507b3941bc24a5954732f3ca5e28374709d695306d9910d4c905aa9da"
+    },
+    "Cases/solidworks-094/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "605e3968038ab624bcc7050c6118e4f08cdaa1bae0b9e3a11fc0de68672beab7",
+      "saved_keyword_sha256": "605e3968038ab624bcc7050c6118e4f08cdaa1bae0b9e3a11fc0de68672beab7",
+      "source_sha256": "74f9d9e67c535affaba0a892bdf3bd126b05cc8cfd6e10db704bd35e0ffe9073"
+    },
+    "Cases/solidworks-094/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "f4fe77d9dcc8853c898c06184a5ae8fcffcaab16f0c7aee1dfc81a072e0b295c",
+      "saved_keyword_sha256": "f4fe77d9dcc8853c898c06184a5ae8fcffcaab16f0c7aee1dfc81a072e0b295c",
+      "source_sha256": "1b0e968565c9fa1ad37caf3eb9fcb9619188e7176b1418516d0fe76eab12a1b5"
+    },
+    "Cases/solidworks-095/control-after.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "a2f4804c39ba95fb7983f6a1928e44bf83ab4484eba957f94b2d0cd749cc7557",
+      "saved_keyword_sha256": "a2f4804c39ba95fb7983f6a1928e44bf83ab4484eba957f94b2d0cd749cc7557",
+      "source_sha256": "d8bd947bdf4f6603223be6d64d3407db86efb1282ea6ff85e14a78ca35095f82"
+    },
+    "Cases/solidworks-095/control-before.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "d3b9a581418eaec821fc7f691add3350c7962371e7bd77ee2743f55cb5986070",
+      "saved_keyword_sha256": "d3b9a581418eaec821fc7f691add3350c7962371e7bd77ee2743f55cb5986070",
+      "source_sha256": "1d933a763a0a611f817f7db45d536d95d9439eee9cb1e89ac404bcee02d0d31e"
+    },
+    "Cases/solidworks-095/variation.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "63339171b0ac2c51cb53c196bbff3ab44054e884b142498c1f3fb27d21d7a247",
+      "saved_keyword_sha256": "63339171b0ac2c51cb53c196bbff3ab44054e884b142498c1f3fb27d21d7a247",
+      "source_sha256": "68dd71b99d776977b699b05c6233215c1fe9ef63d9e1f60433438fcbaa5bc5a0"
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A13SyncedSingleChild.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "4fe5a57b847840e7dcb7e25245372b6091b809b2d905b31623b81158f9a8096b",
+      "saved_keyword_sha256": "4fe5a57b847840e7dcb7e25245372b6091b809b2d905b31623b81158f9a8096b",
+      "source_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d"
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeatChild.SLDPRT": {
+      "dimension_order_variants": [
+        {
+          "identity": 26,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        }
+      ],
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "4fe5a57b847840e7dcb7e25245372b6091b809b2d905b31623b81158f9a8096b",
+      "saved_keyword_sha256": "07fe42c5d59bb1d887ef7922f3638878688bb4f19099e0aaf49c65b27bb43cdb",
+      "source_sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c"
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-edited-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "7b53da7b53c7dca3cbb53a6f99957d9300d524a0d6144ef2f70b334e1825e9f1",
+      "saved_keyword_sha256": "7b53da7b53c7dca3cbb53a6f99957d9300d524a0d6144ef2f70b334e1825e9f1",
+      "source_sha256": "d4375a1e2ee594077e3450f0d436cf056f87a4a352fcd5b0e98e93eb0a16d49c"
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "7b53da7b53c7dca3cbb53a6f99957d9300d524a0d6144ef2f70b334e1825e9f1",
+      "saved_keyword_sha256": "7b53da7b53c7dca3cbb53a6f99957d9300d524a0d6144ef2f70b334e1825e9f1",
+      "source_sha256": "0e71a264d4182386dae17f494d78db397c84622675bcf35a629f59ac512de7a8"
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "00d966538e1e396bffbb4fc5f2df63c2c60ebdf328620d29032367e95bddcbb6",
+      "saved_keyword_sha256": "00d966538e1e396bffbb4fc5f2df63c2c60ebdf328620d29032367e95bddcbb6",
+      "source_sha256": "553dc621b49512d22b2aab565bbdb0c0247a2be6f8c02bc32ebcf4a41db2fb55"
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-edited-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "8fea48fa91dddeffeb142aa2e9913d05986f94645a2d70c44d9709d2845d79a5",
+      "saved_keyword_sha256": "8fea48fa91dddeffeb142aa2e9913d05986f94645a2d70c44d9709d2845d79a5",
+      "source_sha256": "ec3fb50e8e68ee40df50128e425f3f73df8b532379bc51917eb918b023c63172"
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "8fea48fa91dddeffeb142aa2e9913d05986f94645a2d70c44d9709d2845d79a5",
+      "saved_keyword_sha256": "8fea48fa91dddeffeb142aa2e9913d05986f94645a2d70c44d9709d2845d79a5",
+      "source_sha256": "8437bd6f8ef0ee25910bcad6cc5fac58d482d2f29f1c796c39966fe2ceb0d95e"
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "6d62bb640d6bb33bbec988633e21fdcaad3732d88ee4476f57623b3a5d84453a",
+      "saved_keyword_sha256": "6d62bb640d6bb33bbec988633e21fdcaad3732d88ee4476f57623b3a5d84453a",
+      "source_sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/ControlCircle.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "ef568256a839f906e700b69fcc19eec8f91521c901eadfa75edb17d3b57ea965",
+      "saved_keyword_sha256": "ef568256a839f906e700b69fcc19eec8f91521c901eadfa75edb17d3b57ea965",
+      "source_sha256": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/ControlRectangle.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "989cec35e0b497e4be2aaab701a71ffe75e1ccd199da797ba393b4bc1be70fb3",
+      "saved_keyword_sha256": "989cec35e0b497e4be2aaab701a71ffe75e1ccd199da797ba393b4bc1be70fb3",
+      "source_sha256": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D01CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "12f69f0f36226232e088e04d77db463d9a15b6e1ca8c4650cf4bbe4a9a07ce3e",
+      "saved_keyword_sha256": "12f69f0f36226232e088e04d77db463d9a15b6e1ca8c4650cf4bbe4a9a07ce3e",
+      "source_sha256": "ee8ef8654e1673ee6ee0d0ee2167e6a4e4db9e832f99cbca2cae6feb298f970b"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D02CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "14fd3a92ace5f6a5f1bc5b6c7a6dc472c661501b7bddabb90cd36f34ef82f1d7",
+      "saved_keyword_sha256": "14fd3a92ace5f6a5f1bc5b6c7a6dc472c661501b7bddabb90cd36f34ef82f1d7",
+      "source_sha256": "406908b2aa5030a94e7cc83b80ff31c94dd65c516f2715e22a0a00d9a32b286d"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D03CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "2563db3ffe6e43f8d52054093d209eb90a6d60f1f4e8840d20d7dc3b6374751c",
+      "saved_keyword_sha256": "2563db3ffe6e43f8d52054093d209eb90a6d60f1f4e8840d20d7dc3b6374751c",
+      "source_sha256": "7efdcf4d75985ad6f9781b53f2af2c59abef60c5b7bc79135d04116414c9ec3d"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D04CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "24e78972d8dbdffce35ca138e1987f11b15c34bedfa7554401daa8da4754ba7c",
+      "saved_keyword_sha256": "24e78972d8dbdffce35ca138e1987f11b15c34bedfa7554401daa8da4754ba7c",
+      "source_sha256": "90482aaf96483e8610666d1f30598de194268f8bf2dd0322e6d6eb13fc3b387a"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D05CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "9905c228312258c5b2ee99b16acb8a29f7ff15c1e189863f1016f1915c5f52e0",
+      "saved_keyword_sha256": "9905c228312258c5b2ee99b16acb8a29f7ff15c1e189863f1016f1915c5f52e0",
+      "source_sha256": "533eac286d319026fed4d406bfe45927d97e6d88cd8bc824633cc2bceb161cd8"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D06CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "d69ec11704752044acd74d38d4f897a2ffd28fec66c2d5997e897c17da2ce1db",
+      "saved_keyword_sha256": "d69ec11704752044acd74d38d4f897a2ffd28fec66c2d5997e897c17da2ce1db",
+      "source_sha256": "12534b9c377619b1fa6c444fb1d1d22acfac6859a61df97f69b51b005db75091"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D07CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "495a0e511c57e24d509d4da25c6471234191671dcf5799a7db2e7f57a2df04bc",
+      "saved_keyword_sha256": "495a0e511c57e24d509d4da25c6471234191671dcf5799a7db2e7f57a2df04bc",
+      "source_sha256": "214503789d42ba542361a1887ff43b5ccfb2957f50538ec7e551377b837f3ffa"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D08CircleRadius.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "617d5c381954850a85f0ae4f09924374f532a1019a786ea1ea5169a2b57d9c19",
+      "saved_keyword_sha256": "617d5c381954850a85f0ae4f09924374f532a1019a786ea1ea5169a2b57d9c19",
+      "source_sha256": "c574140db365d91a9fc8f59182c3683df08a1f65fef06b888056a8d37ca4b0a7"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D09Arc17Ccw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "edc7aecd76e729d2411619cd360ac33a9772d01b5adac5196d2869b6a9afaa6f",
+      "saved_keyword_sha256": "edc7aecd76e729d2411619cd360ac33a9772d01b5adac5196d2869b6a9afaa6f",
+      "source_sha256": "3fa1c49bfe77f2603433aff58e8ff7734e69c4676ca0a118f08515a13d7f7c15"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D10Arc17Cw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "f2811d798e500a34776a1b9ff50fc411325d2c749285cda1223dd6d479f11bc8",
+      "saved_keyword_sha256": "f2811d798e500a34776a1b9ff50fc411325d2c749285cda1223dd6d479f11bc8",
+      "source_sha256": "1c101c03d4d3a71085cb35bf04bfb7208aaad5303f27008b1a114c43652ef68e"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D11Arc90Ccw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "5d7279c79839a992b777c11be71c57da4ce9d2d28a2bf34bd5e06fa151cc11dc",
+      "saved_keyword_sha256": "5d7279c79839a992b777c11be71c57da4ce9d2d28a2bf34bd5e06fa151cc11dc",
+      "source_sha256": "32e015006a03485fec11d47450808fcd558b96a8cade0ac95431147e1c645439"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D12Arc90Cw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "247cc12f814492dce76652ee5c29b56ef7c02862ec553da1e6d3b47b02449216",
+      "saved_keyword_sha256": "247cc12f814492dce76652ee5c29b56ef7c02862ec553da1e6d3b47b02449216",
+      "source_sha256": "3181d46b90cce119049994017d4aaba009facf97a5bea2b3f61909e7d96f5262"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D13Arc180Ccw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "c7fc6d33a1fdf3094e8a4f890b7985e81e037d73e8ca8d0d1570249ff57f840d",
+      "saved_keyword_sha256": "c7fc6d33a1fdf3094e8a4f890b7985e81e037d73e8ca8d0d1570249ff57f840d",
+      "source_sha256": "ac48bb9834e1a14750f8d6b69e2ab5fcb5d7029d203f0f09aeb55e2a497362c4"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D14Arc180Cw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "8382f0391314cf6fb8fb84256bbe1a41028110b221287d6369474f92273bb5b9",
+      "saved_keyword_sha256": "8382f0391314cf6fb8fb84256bbe1a41028110b221287d6369474f92273bb5b9",
+      "source_sha256": "31e049bd6864e3fbc3da4e54281530820d9ce726ad2ec0723d5a78ce55742acc"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D15Arc270Ccw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "188bf0c14a84c22b78658e029b49e75132496f41797c7ef43262cc6783e6f432",
+      "saved_keyword_sha256": "188bf0c14a84c22b78658e029b49e75132496f41797c7ef43262cc6783e6f432",
+      "source_sha256": "1af41f0cf863f902bcb8482fa7eed5a2c28da0f232692d9c2a0e3286bab594bc"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D16Arc270Cw.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "33dbd046e6cf4fa97a8f3018f48298d37a6826ee83adfb1bdb10312a0441b6c9",
+      "saved_keyword_sha256": "33dbd046e6cf4fa97a8f3018f48298d37a6826ee83adfb1bdb10312a0441b6c9",
+      "source_sha256": "68e91546c1d6fb84f2730dd9f77d67cde6e01905a938502f4d1bb1ff9206ef9c"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D17TopCircle.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "a07f8afa46b92f557c2768719eb9b6751b43883573b10f2762917e0ffec49d7b",
+      "saved_keyword_sha256": "a07f8afa46b92f557c2768719eb9b6751b43883573b10f2762917e0ffec49d7b",
+      "source_sha256": "cdf237d6d0ae21c0e81de168d2d0d6153a1b6dc20cd2d53beca88bf60e4b7aa5"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D18RightCircle.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "06693ad5488261aa579584da4307f8fe0525df9b7068768547ca2fefe38f6d85",
+      "saved_keyword_sha256": "06693ad5488261aa579584da4307f8fe0525df9b7068768547ca2fefe38f6d85",
+      "source_sha256": "3bf38305bea09980a8a44da09a8721ae00294a9683c1a1fc157335f17fda61a9"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D19Annulus.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "41c84015963d06067d5a4f841c4cac6a3e803252a350d4b4970aa4cb45a2cf77",
+      "saved_keyword_sha256": "41c84015963d06067d5a4f841c4cac6a3e803252a350d4b4970aa4cb45a2cf77",
+      "source_sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D20TwoCircles.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "fc8aa595112e4e3c5756ba93142564e9a23d93df4efcfcac7d6429b784af55ec",
+      "saved_keyword_sha256": "fc8aa595112e4e3c5756ba93142564e9a23d93df4efcfcac7d6429b784af55ec",
+      "source_sha256": "ad42689b2b3e6e586b7acaff4c7f1c83e1839864c0877295fdd80a424aa92144"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D21EightCircles.SLDPRT": {
+      "dimension_order_variants": [
+        {
+          "identity": 26,
+          "model_order": [
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "D5",
+            "D6",
+            "D7",
+            "D8"
+          ],
+          "saved_order": [
+            "D7",
+            "D8",
+            "D5",
+            "D2",
+            "D4",
+            "D1",
+            "D6",
+            "D3"
+          ]
+        }
+      ],
+      "feature_owners": 26,
+      "parameter_owners": 9,
+      "projected_keyword_sha256": "59ea35b0268e6ea3a7ed2ecb69002f77f925ca6dde2cb12ffb3e1727a872f3dc",
+      "saved_keyword_sha256": "07aaf93071282c4686d1a90f5a22eac2d9eed3b59dac2fabcc53d984947794e5",
+      "source_sha256": "d51971d09bd449932b3bb5b18784dee3a29b7b41dec49b8a98729464f52bd5bf"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D22ConstructionArc.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "7ef1d97da2ccd926b916921581530bd21005c5a3d8c3732b05931928a4639603",
+      "saved_keyword_sha256": "7ef1d97da2ccd926b916921581530bd21005c5a3d8c3732b05931928a4639603",
+      "source_sha256": "b3f88291bc43d9930436079eae4a553dd4e73598c009dabff63c5d2ecae1f328"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D23TangentCapsule.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "108b4efe8937930b53497d2e2ca80cf29dfd88cb92527fe55bcdc7aac76b789f",
+      "saved_keyword_sha256": "108b4efe8937930b53497d2e2ca80cf29dfd88cb92527fe55bcdc7aac76b789f",
+      "source_sha256": "f0f2f52523015ff8b7a68584cec2f1ae79e82bf0ed0a8cb7f6da982d82451bb1"
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D24NearFullArc.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "f1a43171ed70d9506eac347386c4ebf1faf05bcf48302431def97bb9eeeb9ea8",
+      "saved_keyword_sha256": "f1a43171ed70d9506eac347386c4ebf1faf05bcf48302431def97bb9eeeb9ea8",
+      "source_sha256": "e804f6507f3ee3a57a11be1494b0a040b7c3d0a8b3d90e1dab1dd61a2e109084"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/ControlCircle.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "a69bfe712453505b2119f847471ab3f75f4a4b0be17f901ae4e0c23df6523910",
+      "saved_keyword_sha256": "a69bfe712453505b2119f847471ab3f75f4a4b0be17f901ae4e0c23df6523910",
+      "source_sha256": "ea66af3dbcb0d567ac333ea67c9752e4ae0dec2beb90d89ad634c7e899f72cd8"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/ControlRectangle.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "a20aff64697da36fad3d01e9e50ade4bc4b6014c380f32b57ee1e000b85b5a03",
+      "saved_keyword_sha256": "a20aff64697da36fad3d01e9e50ade4bc4b6014c380f32b57ee1e000b85b5a03",
+      "source_sha256": "010352800d3a485438e0b6530137cde56317f9f9e1c0e8c17bd914863a46bf37"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D01Forward.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "c7e28b9edaded5d728cb84c0ea46c9a5a41760ed1069e7fdad90c7001e6eb041",
+      "saved_keyword_sha256": "c7e28b9edaded5d728cb84c0ea46c9a5a41760ed1069e7fdad90c7001e6eb041",
+      "source_sha256": "6b95aeecb7057f247aa868d3ddf8b77a10fad309af7a7378da56321bd33dd191"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D02Forward.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "c277455421123bcbe7de6428e51eb710fbadd4e05abdcc7fe81df2a50cfcd976",
+      "saved_keyword_sha256": "c277455421123bcbe7de6428e51eb710fbadd4e05abdcc7fe81df2a50cfcd976",
+      "source_sha256": "0d951e8984997e45eefb435aa6f9ee9920ba3e4a0d28782b325136b3153d0d59"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D03Forward.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "e2bf7298a9402f074419918c5d24f197dac7f4c547e2e35fc83bec4f71d85a76",
+      "saved_keyword_sha256": "e2bf7298a9402f074419918c5d24f197dac7f4c547e2e35fc83bec4f71d85a76",
+      "source_sha256": "2044e27958b9725c79f356a7ab3653ab9e5db2c381dd6457fb737f0d25348b1a"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D04Reverse.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "addc9fc3a5cf49b2e791762aecc2a25efadb32bd8cb31b2410761266c9b6e61f",
+      "saved_keyword_sha256": "addc9fc3a5cf49b2e791762aecc2a25efadb32bd8cb31b2410761266c9b6e61f",
+      "source_sha256": "4f7ba1547e577010bb87f59c4eebe20a3dbb61a59c372bc34a8178082a674d42"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D05Reverse.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "30037292f8ebf85b3053d403ae73eae73dc2ce49b29d936c6135d0c2536787c5",
+      "saved_keyword_sha256": "30037292f8ebf85b3053d403ae73eae73dc2ce49b29d936c6135d0c2536787c5",
+      "source_sha256": "bbd32aaa07d731f248564f5305f66c9b516e91a4932fb8334af476e9fd6fea19"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D06Reverse.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "50199c2205eb2b4e9ed3aab2aa8b2b296c0e62d3bdbf1cdece1ac7ca7881d80f",
+      "saved_keyword_sha256": "50199c2205eb2b4e9ed3aab2aa8b2b296c0e62d3bdbf1cdece1ac7ca7881d80f",
+      "source_sha256": "7b39cb9c9b7026a1814c136613698de1e7ae25eb21a07b4c4d1c89f89fec500b"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D07MidPlane.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "1cdd4411f2a5d434f0061104a7840534dd6b9758b587b24f178cfbdb2480292a",
+      "saved_keyword_sha256": "1cdd4411f2a5d434f0061104a7840534dd6b9758b587b24f178cfbdb2480292a",
+      "source_sha256": "5d4d295282dc2ae43db28f7c7b3b9fb2dcf9a719c15d2b602b780459281176ee"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D08MidPlane.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "9e87b53b958dcc299712f7678594def5664edfd703967ae27e910f1bea149f6e",
+      "saved_keyword_sha256": "9e87b53b958dcc299712f7678594def5664edfd703967ae27e910f1bea149f6e",
+      "source_sha256": "565dceab2b91bc25e84d15f13ffd2acd781312e4d812aeb102af30cd7a6e6dc2"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D09MidPlane.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "a3e6ff0582a94751f057f9204cd497185000e1e33963ea75a5d51adb33ca343b",
+      "saved_keyword_sha256": "a3e6ff0582a94751f057f9204cd497185000e1e33963ea75a5d51adb33ca343b",
+      "source_sha256": "900d81f7daa9a42cebc6f34f6b18a10257ddcd7ca07a483562a64b4608d0a1e0"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D10TwoDirections.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "a3efb9f520dc3d44a2488b20642796e7742b9dfd28eb587ae39d3efdb0ecc9d2",
+      "saved_keyword_sha256": "a3efb9f520dc3d44a2488b20642796e7742b9dfd28eb587ae39d3efdb0ecc9d2",
+      "source_sha256": "c2ab625827632e606efaad0e8ec2e3c75ef10355152a7df012f2cd92ec669083"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D11TwoDirections.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "2b2315dd83fddaf2b52c64d89304f2536cf0c28e53c5ae33ab4cce1861a176b0",
+      "saved_keyword_sha256": "2b2315dd83fddaf2b52c64d89304f2536cf0c28e53c5ae33ab4cce1861a176b0",
+      "source_sha256": "68191a8949937c54151b2c6f0c16f72dda86273590557aba4c4ae3c52fb6fdc0"
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D12TwoDirections.SLDPRT": {
+      "dimension_order_variants": [
+        {
+          "identity": 32,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        }
+      ],
+      "feature_owners": 26,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "75d0b74cf7e23c40248809f7939d48b893fd81d1d547b870ceaf3fcc4d7b86ee",
+      "saved_keyword_sha256": "14e1b414d1d0f46d1455a8424f12ad369e030328db218a7b9461e06370171b42",
+      "source_sha256": "8fa04cc83bc3607c63214f8ed044174aaa1cdff42e0be093fe4a9da03edf7d0a"
+    },
+    "re/solidworks/v2026/corpus/ladder/C1a_control.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "a967132b49f5f3cd402215dc2a0bf5826568ffec5261ccbdb5e0b8e557e03c7e",
+      "saved_keyword_sha256": "a967132b49f5f3cd402215dc2a0bf5826568ffec5261ccbdb5e0b8e557e03c7e",
+      "source_sha256": "da3d7292dd7a7e0bfa8f4dc528a1aabf28dfc03be06ebc6759c2f44925207d21"
+    },
+    "re/solidworks/v2026/corpus/ladder/C1b_control.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "a6fee392ac9c80cfec0035ef3e17b0eaf0ee7579143fa427e0b5fefdcd41b2a0",
+      "saved_keyword_sha256": "a6fee392ac9c80cfec0035ef3e17b0eaf0ee7579143fa427e0b5fefdcd41b2a0",
+      "source_sha256": "fb41e09ab45b3119548f0e08e39ee6eef359cd523bb1bffd551292cec55dbccb"
+    },
+    "re/solidworks/v2026/corpus/ladder/E0_empty.SLDPRT": {
+      "feature_owners": 24,
+      "parameter_owners": 0,
+      "projected_keyword_sha256": "6957d8fd01e49609164b632580afa8c00e5543d452124cb032f23a785e0d6784",
+      "saved_keyword_sha256": "6957d8fd01e49609164b632580afa8c00e5543d452124cb032f23a785e0d6784",
+      "source_sha256": "eaf294476c1e998edcbf6183d77f50768f74fd509f030300c9ce7375dd7c1afb"
+    },
+    "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "507f9c7c1b6c4a70ea1ab7fe4c3e66b4cbab6f46168dc5e1338c5710499a69ef",
+      "saved_keyword_sha256": "507f9c7c1b6c4a70ea1ab7fe4c3e66b4cbab6f46168dc5e1338c5710499a69ef",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "re/solidworks/v2026/corpus/ladder/L2_boss.SLDPRT": {
+      "dimension_order_variants": [
+        {
+          "identity": 26,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        },
+        {
+          "identity": 35,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        }
+      ],
+      "feature_owners": 28,
+      "parameter_owners": 6,
+      "projected_keyword_sha256": "3b51248c6125f81b218ca2e52ceb0a8fdfa019a0839c13a48442fc508d17ad7e",
+      "saved_keyword_sha256": "244874deb852dad33c782aaf8ca7d75ddea7d04663ef90abdc46784f061ecdcb",
+      "source_sha256": "eaa3292009a2faf4fe2e9b07997ba3cf207bc06fcc89867310a9ee0377f1e533"
+    },
+    "re/solidworks/v2026/corpus/ladder/L3_boss.SLDPRT": {
+      "dimension_order_variants": [
+        {
+          "identity": 26,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        },
+        {
+          "identity": 35,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        },
+        {
+          "identity": 45,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        }
+      ],
+      "feature_owners": 30,
+      "parameter_owners": 9,
+      "projected_keyword_sha256": "c172be38d55e41b37f3742e16b918267645d672b5cb5bfc4f871df5aa9bb5754",
+      "saved_keyword_sha256": "b240e4ec7c7ac41d77266c3570021c9a39679a3aa1cdbfe5079ff62fc895125a",
+      "source_sha256": "b35942e076fc0d29433ab4e695462b7570d2588b321abb650734a79b65cd04ce"
+    },
+    "re/solidworks/v2026/corpus/ladder/L4_boss.SLDPRT": {
+      "dimension_order_variants": [
+        {
+          "identity": 35,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        }
+      ],
+      "feature_owners": 32,
+      "parameter_owners": 12,
+      "projected_keyword_sha256": "dfad64f831c901fd15805e776e22165873019b708e75e5a92b40b481eb988172",
+      "saved_keyword_sha256": "f99a7be0dd6e08dc1a4f5d52ee7ecd3b7ff4164e2ec9bb05b1794e7d41ab50bc",
+      "source_sha256": "906f3d92df24ef8c04dc1ca36859d4d4c575fdf25115a75945218dcb3f8dc9a0"
+    },
+    "re/solidworks/v2026/corpus/ladder/P0_plain.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "0b3a14ae6782791a0aaf3e9ef973c474411a8861c00ee0b95a8caa8be6107e09",
+      "saved_keyword_sha256": "0b3a14ae6782791a0aaf3e9ef973c474411a8861c00ee0b95a8caa8be6107e09",
+      "source_sha256": "2d11caf833f3e604006ed6920c62d4ca4c592a0a2059743ff1364548522d3cf8"
+    },
+    "re/solidworks/v2026/corpus/light-counts/OneLights.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "55571fc2cdc8f111ae46579ce4fe9d2d9c445031bffd4e8cc0be1e820422b255",
+      "saved_keyword_sha256": "55571fc2cdc8f111ae46579ce4fe9d2d9c445031bffd4e8cc0be1e820422b255",
+      "source_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7"
+    },
+    "re/solidworks/v2026/corpus/light-counts/TwoLights.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "64b8e796389da74cdc031426ffbf5dc7e551601167e290c1a27eef69db1800a5",
+      "saved_keyword_sha256": "64b8e796389da74cdc031426ffbf5dc7e551601167e290c1a27eef69db1800a5",
+      "source_sha256": "287f64869f8d037ebf3c92712453440e3f162beb6d1ac9226afd215d965b7dba"
+    },
+    "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT": {
+      "feature_owners": 18,
+      "parameter_owners": 0,
+      "projected_keyword_sha256": "067f823ee629cb6477d074d1177f65d5b8ca93843bb13c979b0a11ba02e55b28",
+      "saved_keyword_sha256": "067f823ee629cb6477d074d1177f65d5b8ca93843bb13c979b0a11ba02e55b28",
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "re/solidworks/v2026/corpus/local-import-readback/RectangularBare.SLDPRT": {
+      "feature_owners": 18,
+      "parameter_owners": 0,
+      "projected_keyword_sha256": "6b9d298647fccf2baa908f65d5cc86ad36e14a17b9bbea12554042f1bb27d425",
+      "saved_keyword_sha256": "6b9d298647fccf2baa908f65d5cc86ad36e14a17b9bbea12554042f1bb27d425",
+      "source_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+    },
+    "re/solidworks/v2026/corpus/named-material/AssignedDensityProbe.SLDPRT": {
+      "dimension_order_variants": [
+        {
+          "identity": 26,
+          "model_order": [
+            "D1",
+            "D2"
+          ],
+          "saved_order": [
+            "D2",
+            "D1"
+          ]
+        }
+      ],
+      "feature_owners": 26,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "bd9bb1c7115eafb53acdef673045f912534d67561d452c6891a1a26fb3087c74",
+      "saved_keyword_sha256": "72561705b362631374ed8bd21407a9c73d4330bf2aa0f23698450010b35c2f99",
+      "source_sha256": "04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583"
+    },
+    "re/solidworks/v2026/corpus/part-properties/CircularProperties.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "9befdcb80690e3f0c77313cb96bad03c1f4b8684a6e1c05900417411855fe80a",
+      "saved_keyword_sha256": "9befdcb80690e3f0c77313cb96bad03c1f4b8684a6e1c05900417411855fe80a",
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23"
+    },
+    "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveFrontFull.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "bb9d492888698503269570e96e7c0e5f2f9eb68cb089b0d5195436417237dab6",
+      "saved_keyword_sha256": "bb9d492888698503269570e96e7c0e5f2f9eb68cb089b0d5195436417237dab6",
+      "source_sha256": "04763616b53383aa354b130613a4ccd85e2b6fecc4b2a504c38893d6007e9705"
+    },
+    "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveRightReverse.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "3fb3d15e44b14f252932be4197d63841cdb9abfdee325febd77524fc05be52ec",
+      "saved_keyword_sha256": "3fb3d15e44b14f252932be4197d63841cdb9abfdee325febd77524fc05be52ec",
+      "source_sha256": "0c3ef35a0f8412895cf870359df037ae3450aad45abaa426767838894e18e681"
+    },
+    "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveTopForward.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "7546e1254e2a2ad587b8ea93116835ff138c1a1c84083b1cd3c64cb5bb224963",
+      "saved_keyword_sha256": "7546e1254e2a2ad587b8ea93116835ff138c1a1c84083b1cd3c64cb5bb224963",
+      "source_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0"
+    },
+    "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveTopReverse.SLDPRT": {
+      "feature_owners": 26,
+      "parameter_owners": 1,
+      "projected_keyword_sha256": "adf1f1f9894e0fe5674158f678197a0b06fe16082d719d4d63a11e29a06cf8ee",
+      "saved_keyword_sha256": "adf1f1f9894e0fe5674158f678197a0b06fe16082d719d4d63a11e29a06cf8ee",
+      "source_sha256": "04f734b81c99be660bfb3bf9c4b98cd4bf50d456ea13cb3008584dd2892ba932"
+    },
+    "re/solidworks/v2026/corpus/saved-sweep/SavedSweepWide01/SweepArcWide.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "b35ace8834c1794f232bfaa32693b8589b0c641f95ea9ff87379eac0337f1b84",
+      "saved_keyword_sha256": "b35ace8834c1794f232bfaa32693b8589b0c641f95ea9ff87379eac0337f1b84",
+      "source_sha256": "46a8faf1e54be5e312c0ab9f0e739c60cd4cd473bca09ae72369a552ef41675c"
+    },
+    "re/solidworks/v2026/corpus/saved-sweep/SavedSweepWide01/SweepArcWideSectionEdit.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "ad6207dd9f2d4c4ef6c813c9eb83136033f3e418ead5c5f42b3e89b6fa87f065",
+      "saved_keyword_sha256": "ad6207dd9f2d4c4ef6c813c9eb83136033f3e418ead5c5f42b3e89b6fa87f065",
+      "source_sha256": "2e1db56ec1100add9c8f086a8a77d48e52bc573827972b194bde64261f5cfa37"
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-edit-save.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "bbfe91ef982b5728867c90803fd055be5fa56a13dfa0ece26bf52d21087a4e27",
+      "saved_keyword_sha256": "bbfe91ef982b5728867c90803fd055be5fa56a13dfa0ece26bf52d21087a4e27",
+      "source_sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14"
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-edited-fresh.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "bbfe91ef982b5728867c90803fd055be5fa56a13dfa0ece26bf52d21087a4e27",
+      "saved_keyword_sha256": "bbfe91ef982b5728867c90803fd055be5fa56a13dfa0ece26bf52d21087a4e27",
+      "source_sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260"
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-open-save.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "fb9edabb8592fc5984519055f77a3d9e66fccd5b877e5df5f7cc41b450e7a4e0",
+      "saved_keyword_sha256": "fb9edabb8592fc5984519055f77a3d9e66fccd5b877e5df5f7cc41b450e7a4e0",
+      "source_sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5"
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-edit-save.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "8f70008c4da9376060ab92bf39986940e034b2bf7273b5df2cad10a0b9c29382",
+      "saved_keyword_sha256": "8f70008c4da9376060ab92bf39986940e034b2bf7273b5df2cad10a0b9c29382",
+      "source_sha256": "63ef29a1c59d8641f78348dc63f916ce9fae84709a141eec910c2baf6c0d3f7f"
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-edited-fresh.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "8f70008c4da9376060ab92bf39986940e034b2bf7273b5df2cad10a0b9c29382",
+      "saved_keyword_sha256": "8f70008c4da9376060ab92bf39986940e034b2bf7273b5df2cad10a0b9c29382",
+      "source_sha256": "b108c14b0f478d9fdcb795b838e9b55c37a3fbafe68b68cf2081f5b72d31620d"
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-open-save.SLDPRT": {
+      "feature_owners": 27,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "d75c6fc28c38c4cd531863e76a2b2a0eca0bac76457c028ff88b2cdb1b98390d",
+      "saved_keyword_sha256": "d75c6fc28c38c4cd531863e76a2b2a0eca0bac76457c028ff88b2cdb1b98390d",
+      "source_sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H01Forward-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "e80fcd497df4855abfcdd39409c10c8192bb4d7756eeb4a42cb1923e761db7f0",
+      "saved_keyword_sha256": "e80fcd497df4855abfcdd39409c10c8192bb4d7756eeb4a42cb1923e761db7f0",
+      "source_sha256": "745e7186baa20cea2dd6091ab30ffb0e6508988556ced6045f6d09f572e9c771"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H01Forward-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "saved_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "source_sha256": "dd16987f0aa1bbe9b7bd8ce353fb856976376a6ec6bb2f7873cdb81da2a98349"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H02Reverse-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "cd9755389633e23a72b56cdc85e0695aafb0bd0375db86219bd963d1aaf7a501",
+      "saved_keyword_sha256": "cd9755389633e23a72b56cdc85e0695aafb0bd0375db86219bd963d1aaf7a501",
+      "source_sha256": "7897a5517f2974d0ca6c4e6d39bb2f6bef72c26ba6dad36e47671f140a22afa0"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H02Reverse-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "3c8e078093dd422743ba13a535954a27a5f02bf9e83206033e96cf18d9ee4030",
+      "saved_keyword_sha256": "3c8e078093dd422743ba13a535954a27a5f02bf9e83206033e96cf18d9ee4030",
+      "source_sha256": "4cf34106ec9456d6179dc9f29c48480e971d1b0e6c620aee846d0bd90d1015b9"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H03MidPlane-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "3002e9dc33de22a530288e2d9e7a252930bc0a9511e0c727b85339664cdff7bd",
+      "saved_keyword_sha256": "3002e9dc33de22a530288e2d9e7a252930bc0a9511e0c727b85339664cdff7bd",
+      "source_sha256": "c1b2e39d5e3514b1c43cd36488c989a18e4beb6d01c17bce7b4765d480c674ce"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H03MidPlane-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "4c4cb4d812f768e33b4be49d5f02ad516b10721401e7a56986c12095b1ffc2ca",
+      "saved_keyword_sha256": "4c4cb4d812f768e33b4be49d5f02ad516b10721401e7a56986c12095b1ffc2ca",
+      "source_sha256": "06fc822986e1c2e92b69d59dcd21450ab1abaa90a001f35d8f1b06ccf26fa10f"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H04TwoDirections-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "2e6b96fc571b0ba318f2d2f6d0a1c9c46a4b6d99a9e4099c9c3b321665b90df1",
+      "saved_keyword_sha256": "2e6b96fc571b0ba318f2d2f6d0a1c9c46a4b6d99a9e4099c9c3b321665b90df1",
+      "source_sha256": "b5f7ea5bf4b81ea06ae53c9200643c8a7b3c1636c7245e6901080978453c1b55"
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H04TwoDirections-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 3,
+      "projected_keyword_sha256": "d766ade1dbc2e4f17192e71a0a9baf1fa2aea0dd4ad9b496546c498d0039f99f",
+      "saved_keyword_sha256": "d766ade1dbc2e4f17192e71a0a9baf1fa2aea0dd4ad9b496546c498d0039f99f",
+      "source_sha256": "6235f0a45c41bea9ac6b7878adf4bb4e8f43383e145a0b46f6c47c19b22f0085"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewBaseline-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "055f92824d2ff514538aad79218e8083894d6803816cac6ca612bf259ef5da7f",
+      "saved_keyword_sha256": "055f92824d2ff514538aad79218e8083894d6803816cac6ca612bf259ef5da7f",
+      "source_sha256": "45be009a20cc3914dcee9e661bba80c0aac6dd3073f8e5d56cbefdc2404383a5"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewBaseline-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "saved_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "source_sha256": "a68a68f6845423ed375303b75fd44011a6cc1fcb85826be07a61529e48c55a0a"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewCombined-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "84db8f41ce1be6b2c15d2800efb769c432c17f717a25b338f5c960d90bfeca40",
+      "saved_keyword_sha256": "84db8f41ce1be6b2c15d2800efb769c432c17f717a25b338f5c960d90bfeca40",
+      "source_sha256": "0a02385f3da8512d459db58c5bb902050b32368c16347b37dc7a672418b42fb0"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewCombined-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "saved_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "source_sha256": "5eef0d7e46cbbe42cfe6aab18c767e3d04325aab7684522f7da902a541f713c8"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewOrientation-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "cc41713a1121feb375a0f2fdac756534b1381d1d6d6218184d433fab413b81bc",
+      "saved_keyword_sha256": "cc41713a1121feb375a0f2fdac756534b1381d1d6d6218184d433fab413b81bc",
+      "source_sha256": "a5d0b1d0b445fcf6dd8855c55d73e672145cf15987bc158e173ef67006cebe74"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewOrientation-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "saved_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "source_sha256": "1a3a022a6b5765c8db6693b7f6330bc8097f73806df098d1447de38082fe16a2"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewScale-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "6ad2f9d29267ccfd98da46c276250d4ccc8b505ad5aa848c07488023cc07bd46",
+      "saved_keyword_sha256": "6ad2f9d29267ccfd98da46c276250d4ccc8b505ad5aa848c07488023cc07bd46",
+      "source_sha256": "6371c3889fb7bbe5b01367ae47849781698a1fb3e2a2781b873a6df1b7d0929f"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewScale-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "saved_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "source_sha256": "9dd99a1df44592fd7ba890a7b51f4a88815ff9de314060df8f9ee8ea06022da7"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewTranslate-fresh-reopen.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "f50b26b75b08dcc4fd2163919ec9c1829c91ad9e3ff08b701901713b59aa7d5d",
+      "saved_keyword_sha256": "f50b26b75b08dcc4fd2163919ec9c1829c91ad9e3ff08b701901713b59aa7d5d",
+      "source_sha256": "142eccd93fc80a61b8faaf4a8feb0921eb59e73f3ff12e996ee94b406cc64430"
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewTranslate-open-save.SLDPRT": {
+      "feature_owners": 28,
+      "parameter_owners": 2,
+      "projected_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "saved_keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "source_sha256": "b63c98527d539ed944813e9836747c273eef785159bbac084af439b0dc9b1568"
+    }
+  },
+  "heldout_inputs_read": 0,
+  "keyword_available_during_generation": false,
+  "model_runtime_file_reads": 0,
+  "native_processes_started": 0,
+  "recovered_source_sha256": "d9df29c43e811c1e4d1e7b5071a84a110d1ed5afa06921135396f851f82a1c84",
+  "required_owner_refusals": 4,
+  "schema": "kit.sw2026.saved-part-keyword-owners.v1",
+  "script_sha256": "c0876652675d0dded8d5940b88c893afedee5e5d15b76876e19555dc0d2d356e",
+  "statistics": {
+    "complete_streams_exact": 196,
+    "feature_owners": 5330,
+    "only_dimension_order_varies": 7,
+    "parameter_owners": 309,
+    "part_models": 203
+  },
+  "tracked_source": "9dca0bd65a4762962b0d71b896cdd354eb405a98"
+}

@@ -52,6 +52,12 @@ have precisely the same display membership and values, with a different
 sibling order. The receipt records those differences without using the
 saved order to seed any generated output.
 
+The [complete part projection](FullPartKeywordOwners2026.md) extends
+those comparisons to all 5,330 feature rows and the document framing in
+the same 203 parts. Four binary owner streams suffice for the projection.
+Its seven remaining byte differences all reduce to the documented
+dimension sibling order.
+
 The separate [recovered cuboid comparison](../measurements/2026/RecoveredKeywordOwners01.json)
 rebuilds the complete stream for all 111 recovered cuboids using their
 binary owners. The single active CMgr configuration supplies its identity
@@ -69,7 +75,7 @@ A separate before/after guarded run reproduces 43 ordinary and nested
 assembly and child files, including every stream, using 40 workers.
 The audit adds no native launches or held-out qualifications.
 Scope is the witnessed archive fields. New component target presentations,
-other part feature row roles and unmeasured display policies still require
+unobserved part feature row roles and unmeasured display policies still require
 their own evidence.
 
 ```sh
