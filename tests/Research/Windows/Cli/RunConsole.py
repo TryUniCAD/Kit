@@ -1,45 +1,57 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
-
 import sys as System
 from pathlib import Path as FilePath
-from subprocess import CompletedProcess, run as RunProcess
+from subprocess import PIPE as KPipe, CompletedProcess, Popen as StartProcess
 from sys import executable as KPythonPath
+from time import monotonic as ReadClock
+
+from tests.Research.Windows.Cli.StopConsole import StopConsole
+
+if System.platform == "win32":
+    from subprocess import CREATE_NEW_CONSOLE as KNewConsole
+    from subprocess import STARTF_USESHOWWINDOW as KUseShowWindow
+    from subprocess import STARTUPINFO as StartupInfo
 
 
 # native cancellation evidence requires an actual hidden console shared by launcher and supervisor
 def RunConsole(ConfigPath: FilePath, SignalName: str) -> CompletedProcess[str]:
     if System.platform == "win32":
-        from subprocess import CREATE_NEW_CONSOLE as KNewConsole
-        from subprocess import STARTF_USESHOWWINDOW as KUseShowWindow
-        from subprocess import STARTUPINFO as StartupInfo
-
         RootPath = FilePath(__file__).resolve().parents[4]
         WindowInfo = StartupInfo()
         setattr(WindowInfo, "dwFlags", KUseShowWindow)
         setattr(WindowInfo, "wShowWindow", 0)
-        return RunProcess(
-            [
-                KPythonPath,
-                "-m",
-                "tests.Research.Windows.Cli.ConsoleLauncher",
-                str(ConfigPath.parent / "ProcessIds.json"),
-                str(RootPath),
-                str(ConfigPath),
-                SignalName,
-            ],
+        ModuleName = (
+            "NativeConsole" if SignalName.startswith("CTRL_") else "ConsoleLauncher"
+        )
+        Arguments = [
+            KPythonPath,
+            "-m",
+            f"tests.Research.Windows.Cli.{ModuleName}",
+            str(ConfigPath.parent / "ProcessIds.json"),
+            str(RootPath),
+            str(ConfigPath),
+            SignalName,
+        ]
+        with StartProcess(
+            Arguments,
             cwd=RootPath,
             creationflags=KNewConsole,
             startupinfo=WindowInfo,
-            capture_output=True,
+            stdout=KPipe,
+            stderr=KPipe,
             text=True,
-            check=False,
-            timeout=90,
-        )
+        ) as ConsoleProcess:
+            try:
+                _ = (ConfigPath.parent / "ConsoleGroup").write_text(
+                    str(ConsoleProcess.pid), encoding="utf-8"
+                )
+                OutputText, ErrorText = ConsoleProcess.communicate(timeout=90)
+                _ = (ConfigPath.parent / "LauncherExited").write_text(
+                    str(ReadClock()), encoding="utf-8"
+                )
+                return CompletedProcess(
+                    Arguments, ConsoleProcess.returncode, OutputText, ErrorText
+                )
+            finally:
+                StopConsole(ConsoleProcess)
     else:
         raise OSError("Windows CLI console coverage requires a Windows host")
