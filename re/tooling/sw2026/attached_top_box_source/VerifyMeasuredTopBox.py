@@ -4,10 +4,12 @@ from dataclasses import replace
 from hashlib import sha256
 from io import BytesIO
 import json
+import re
 from pathlib import Path, PureWindowsPath
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
+from zipfile import ZIP_DEFLATED, ZipFile
 
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[4]
@@ -246,11 +248,43 @@ def compare(prior, output):
     return {"receipt_sha256": sha256(raw).hexdigest(), "verified_slots": len(outcomes)}
 
 
+def freeze(output, revision):
+    if not re.fullmatch("[0-9a-f]{40}", revision):
+        raise ValueError("freeze requires an exact committed revision")
+
+    def git(*args):
+        return subprocess.check_output(("git", "-C", str(ROOT), *args))
+
+    tooling = "re/tooling/sw2026/attached_top_box_source/"
+    method = HERE.relative_to(ROOT).as_posix()
+    names = (method, tooling + "VerifyColdTopBox.py", tooling + "ProveTopCornerPublic.py",
+             "re/tooling/sw2026/VerifySdkCircleEndRegistration.py",
+             REPORT.relative_to(ROOT).as_posix())
+    members = {name: git("show", revision + ":" + name) for name in names}
+    if members[method] != HERE.read_bytes():
+        raise ValueError("freeze method differs from the requested revision")
+    if sha256(members[names[-1]]).hexdigest() != AUTHORITY:
+        raise ValueError("freeze requires the exact tracked native report")
+    archive = BytesIO(git("archive", "--format=zip", revision, "src"))
+    with ZipFile(archive, mode="a", compression=ZIP_DEFLATED) as container:
+        for name, raw in members.items():
+            container.writestr(name, raw)
+    payload_value = archive.getvalue()
+    with output.open("xb") as handle:
+        handle.write(payload_value)
+    return {"packet_sha256": sha256(payload_value).hexdigest(), "source_revision": revision,
+            "source_tree": git("rev-parse", revision + ":src").decode().strip(),
+            "method_sha256": sha256(members[method]).hexdigest()}
+
+
 def main():
     parser = ArgumentParser()
     modes = parser.add_subparsers(dest="mode", required=True)
     modes.add_parser("host")
     modes.add_parser("worker")
+    package = modes.add_parser("freeze")
+    package.add_argument("output", type=Path)
+    package.add_argument("revision")
     guest = modes.add_parser("compare")
     guest.add_argument("prior", type=Path)
     guest.add_argument("output", type=Path)
@@ -259,6 +293,8 @@ def main():
         result = host()
     elif options.mode == "worker":
         result = worker(json.load(sys.stdin))
+    elif options.mode == "freeze":
+        result = freeze(options.output, options.revision)
     else:
         result = compare(options.prior, options.output)
     print(json.dumps(result, sort_keys=True, allow_nan=False))

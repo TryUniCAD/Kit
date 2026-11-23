@@ -53,17 +53,15 @@ ordinary measured parts retained their exact SDK and CLI publication
 behavior. The ordinary control proof SHA-256 is
 `4a8c2aff9a26f4fbf7b5c2f310101bc2df4add4ddfb54a3cdc348b763a4cf471`.
 
-The Windows owner can freeze the exact committed source and only the
-needed disclosed tools and report. Use a new packet and verify its hash
-before extraction.
+The Windows owner can freeze the exact committed source with the original
+disclosed packet tools and the pinned report. The repository's source
+archive excludes `re/` by policy. The freeze copies only the named proof
+files directly from their committed Git objects. Verify the reported
+packet hash before extraction.
 
 ```sh
-git archive --format=zip --output "$PACKET" "$REVISION" src \
-  re/tooling/sw2026/attached_top_box_source/VerifyMeasuredTopBox.py \
-  re/tooling/sw2026/attached_top_box_source/ProveTopCornerPublic.py \
-  re/tooling/sw2026/VerifySdkCircleEndRegistration.py \
-  re/solidworks/measurements/2026/AttachedTopBoxHeldoutNative01.json
-shasum -a 256 "$PACKET"
+python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyMeasuredTopBox.py \
+  freeze "$PACKET" "$REVISION"
 ```
 
 Run the exact extracted script with the same Windows interpreter as the
