@@ -37,3 +37,4 @@ Remote execution results remain pending until CI runs this revision.
 The installed Windows CLI reached actual supervisor help with Python 3.14.6 and locked `pywin32` dependencies.
 Focused Mypy 2.4.1 checks passed for seven changed files with both Windows and Linux targets.
 The [conditional import gotcha](../../../../Gotchas/Research/PlatformConditionalImports.md) records the required platform guards.
+The [job handle typing gotcha](../../../../Gotchas/Research/Pywin32JobHandleTyping.md) records the pinned stub's return-type limitation.

@@ -48,9 +48,6 @@ def RunConsole(ConfigPath: FilePath, SignalName: str) -> CompletedProcess[str]:
                 text=True,
             ) as ConsoleProcess:
                 try:
-                    _ = (ConfigPath.parent / "ConsoleGroup").write_text(
-                        str(ConsoleProcess.pid), encoding="utf-8"
-                    )
                     OutputText, ErrorText = ConsoleProcess.communicate(timeout=90)
                     _ = (ConfigPath.parent / "LauncherExited").write_text(
                         str(ReadClock()), encoding="utf-8"

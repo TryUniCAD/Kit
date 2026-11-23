@@ -15,7 +15,7 @@ if sys.platform == "win32":
 def OwnConsole() -> Iterator[tuple[str, int]]:
     if sys.platform == "win32":
         JobName = "Local\\KitCliConsole-" + TokenHex(24)
-        JobHandle = WindowsJobs.CreateJobObject(None, JobName)
+        JobHandle = getattr(WindowsJobs, "CreateJobObject")(None, JobName)
         if GetLastError() == 183:
             JobHandle.Close()
             raise OSError("Private console custody name already exists")
@@ -23,9 +23,9 @@ def OwnConsole() -> Iterator[tuple[str, int]]:
             LimitsInfo = WindowsJobs.QueryInformationJobObject(
                 JobHandle, WindowsJobs.JobObjectExtendedLimitInformation
             )
-            LimitsInfo["BasicLimitInformation"]["LimitFlags"] = (
-                WindowsJobs.JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
-            )
+            LimitsInfo["BasicLimitInformation"][
+                "LimitFlags"
+            ] = WindowsJobs.JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
             WindowsJobs.SetInformationJobObject(
                 JobHandle, WindowsJobs.JobObjectExtendedLimitInformation, LimitsInfo
             )

@@ -13,7 +13,9 @@ def JoinConsole(RecordPath: FilePath) -> None:
         JobName = RecordPath.with_name("ConsoleCustody").read_text(encoding="utf-8")
         if FullMatch(r"Local\\KitCliConsole-[0-9a-f]{48}", JobName) is None:
             raise ValueError("Invalid private console custody identity")
-        AccessMask = WindowsJobs.JOB_OBJECT_ASSIGN_PROCESS | WindowsJobs.JOB_OBJECT_QUERY
+        AccessMask = (
+            WindowsJobs.JOB_OBJECT_ASSIGN_PROCESS | WindowsJobs.JOB_OBJECT_QUERY
+        )
         JobHandle = getattr(WindowsJobs, "OpenJobObject")(AccessMask, False, JobName)
         try:
             ProcessHandle = GetCurrentProcess()
