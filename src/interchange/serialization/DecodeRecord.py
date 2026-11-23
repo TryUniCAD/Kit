@@ -18,7 +18,7 @@ from interchange.serialization.WireData import KWireData
 def DecodeRecord(
     SourceValue: dict[str, KWireData],
     TargetType: type[DataRecord],
-    DecoderFunc: CallableType[[object], object],
+    DecoderFunc: CallableType[[KWireData], object],
 ) -> object:
     WireArguments: dict[str, object] = {
         KeyValue: DecoderFunc(ItemValue)
