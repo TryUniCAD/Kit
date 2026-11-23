@@ -1,4 +1,5 @@
 from dataclasses import dataclass as DataClass
+from dataclasses import field as MakeDataField
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Construction.Blind.ReadEndDepth import (
@@ -10,13 +11,14 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.ReadDriverName 
 )
 
 
-# blind construction needs authored depth direction and target version before any archive node exists
+# one direction construction needs to retain an independently authored dormant depth without changing its geometric mode
 @DataClass(frozen=True, slots=True)
 class BlindEndInput:
     DepthValue: float
     IsReversed: bool
     VersionValue: int
     DepthName: str = "D1"
+    DormantDepth: float | None = MakeDataField(default=None, kw_only=True)
 
     # invalid dimensions must fail before constructor state can be mistaken for native output
     def __post_init__(self) -> None:
@@ -30,4 +32,6 @@ class BlindEndInput:
                 "blind construction currently requires the forward direction"
             )
         _ = ReadEndDepth(self.DepthValue)
+        if self.DormantDepth is not None:
+            _ = ReadEndDepth(self.DormantDepth)
         _ = ReadDriverName(self.DepthName)
