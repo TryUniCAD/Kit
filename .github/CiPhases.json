@@ -20,6 +20,11 @@
     "RationaleComments.yml": [],
     "WorkflowQuality.yml": [
       "Verify CI policy and pytest compatibility",
+      "Native file compatibility",
+      "Native file compatibility / shard-1",
+      "Native file compatibility / shard-2",
+      "Native file compatibility / shard-3",
+      "Native file compatibility / shard-4",
       "Qualify reader and writer patches",
       "Research CLI compatibility",
       "Research CLI Windows compatibility",

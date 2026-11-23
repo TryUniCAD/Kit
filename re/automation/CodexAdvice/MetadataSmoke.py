@@ -78,7 +78,7 @@ def totals(root):
     return counter, charged, used
 
 
-# polling must not traverse preserved paid history or mutate another providers expired work
+# polling must not traverse paid history or release another providers charged work
 def polling(parent):
     small = prepare(parent, "Small")
     large = prepare(parent, "Large")

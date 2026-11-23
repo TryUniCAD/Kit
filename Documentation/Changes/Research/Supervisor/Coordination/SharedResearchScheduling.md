@@ -48,6 +48,7 @@ Six concurrent enqueue clients shared one execution claim. A corrupted large evi
 The real supervisor executed the existing inference runner with canonical IDs, then stopped its owned cancelled worker on a stale lease.
 The supervisor scenario required native macOS process-inspection access outside the restricted filesystem sandbox; the ownership check was retained.
 Five shared-advice process groups passed, including timeout and caller-crash recovery, with zero live provider calls. Separate transport-failure controls retain charged capacity and prevent another request from dispatching before explicit recovery.
+Advice metadata coverage admitted 10,020 abandoned prompts while retaining only the two charged records. Indexed polling used 17,500 SQLite VM steps with two records and 17,600 with 8,001 retained records in the recorded fixture. Separate cases exercise expired foreign-provider waiters at the metadata ceiling, version-one migration and transaction rollback.
 Black 26.10.1 and focused steering checks passed for the normal-suite wrappers and the legal-notice policy change.
 Ninety-six independent requests each examined one job in one reconciliation pass. Separate checks cover diamond dependencies, standalone retention, quota rollback, counter state transitions and migration from existing shared stores.
 Seven changed queue-policy modules and a missing module were refused by the actual native lifecycle source check; clean restored sources passed without launching CAD.
@@ -58,3 +59,5 @@ The [policy import finding](../../../../Gotchas/Research/Supervisor/LifecyclePol
 No throughput improvement is claimed without a measured campaign comparison.
 
 The [historical legal-notice finding](../../../../Gotchas/Tooling/HistoricalNoticeValidation.md) records why the policy checker also recognizes the exact original workspace-required notice. Malformed and partial notices remain rejected.
+
+The [advice waiter finding](../../../../Gotchas/Research/Supervisor/SharedAdviceWaiters.md) records safe reclamation of uncharged requests and indexed expiry cleanup.
