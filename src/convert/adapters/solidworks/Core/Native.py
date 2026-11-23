@@ -55,7 +55,7 @@ from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.base.SafeParsing import CheckXmlDoctype
 from convert.adapters.solidworks.Container.Container import SldprtFormatError
-from convert.adapters.solidworks.Container.PlaneBasis import IsOrthonormal, MatrixAxes
+from convert.adapters.solidworks.Container.PlaneBasis import IsOrthonormal
 from convert.adapters.solidworks.Container.Format import (
     ASSEMBLY_SUFFIX as AsmSuffix,
     CANONICAL_PLANE_FEATURE_TYPE as CanonicalPlaneFeatureType,
