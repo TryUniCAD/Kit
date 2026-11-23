@@ -3,6 +3,7 @@ from pathlib import Path as FilePath
 from subprocess import Popen as StartProcess
 
 from tests.Research.Windows.Cli.CanIgnoreEvent import CanIgnoreEvent
+from tests.Research.Windows.Cli.EnableCtrlInput import EnableCtrlInput
 from tests.Research.Windows.Cli.JoinConsole import JoinConsole
 from tests.Research.Windows.Cli.SignalConsole import SignalConsole
 from tests.Research.Windows.Cli.StopConsole import StopConsole
@@ -19,6 +20,7 @@ def LaunchNative() -> int:
         RecordPath = FilePath(RecordName)
         JoinConsole(RecordPath)
         KitExecutable = FilePath(sys.executable).with_name("kit.exe")
+        EnableCtrlInput()
         SetConsoleCtrlHandler(CanIgnoreEvent, True)
         try:
             with StartProcess(

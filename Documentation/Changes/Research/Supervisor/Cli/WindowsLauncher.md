@@ -30,6 +30,9 @@ Compatibility cases reject missing, unsupported, and invalid protocol markers wi
 The same complete legacy fixture then dispatches that queued job directly, proving its dependencies are present.
 Fixture copying selects tracked automation Python files and the explicit test runner dependencies, excluding captures and untracked output.
 Native break-event cases create an explicit launcher process group and target its recorded root identifier.
+The private console explicitly enables Ctrl+C processing before it launches the installed CLI.
+This clears an inherited ignore attribute without changing the supervisor's separate process group or the cancellation assertions.
+The [inherited Ctrl+C finding](../../../../Gotchas/Research/Supervisor/InheritedConsoleIgnore.md) records the native failure and API contract.
 Private test job custody handles failed launchers and surviving descendants without masking successful worker-cleanup assertions.
 Console custody, readiness, and interruption records use the existing `ResolveTemp` boundary before filesystem access.
 That boundary rejects traversal and symlink escapes from the operating system temporary directory.

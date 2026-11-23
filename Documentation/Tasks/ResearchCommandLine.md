@@ -6,6 +6,10 @@ Run PR #94's pinned readers, corpus, durable controller, and configured supervis
 The CLI delegates to existing implementations and preserves their evidence contracts.
 Users do not write Python imports or scripts.
 
+For multiple local instances, use the [shared research queue](../Reference/Research/SharedResearchQueue.md)
+to submit revisioned requests to one controller and supervisor.
+Existing private catalogue runs retain their own stores unless their jobs are explicitly submitted through that endpoint.
+
 ## Before you start
 
 Install a CLI revision from its source checkout with `uv tool install .`.
