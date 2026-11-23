@@ -47,6 +47,8 @@ def EmitSldMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
+    if not CanWriteMatDoc(DocumentValue):
+        raise ValueError("unsupported SOLIDWORKS material assignment")
     if DocumentValue.DrawingValue is not None:
         return EmitBlankMut(DocumentValue, TargetValue, OptionsValue)
     if DocumentValue.assembly is not None:
@@ -90,8 +92,6 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         options: WriteOptions | None = None,
     ) -> WriteResult:
         CheckMatState(document)
-        if not CanWriteMatDoc(document):
-            raise ValueError("unsupported SOLIDWORKS material assignment")
         CheckResearch(document)
         CheckInchWrite(document)
         CheckEquations(document)
