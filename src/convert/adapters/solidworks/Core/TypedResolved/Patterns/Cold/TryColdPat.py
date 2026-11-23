@@ -26,6 +26,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.BuildColdPat i
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.CheckPatViews import (
     CheckPatViews,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.CheckPrinc import (
+    CheckPrincPat,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart import (
     ColdPatPart,
 )
@@ -64,13 +67,15 @@ def TryColdPat(
         RootValue = LinkValue.ConfigValue.RootValue
         CheckPrismRoot(RootValue, 3, HasAnnotations=True)
         CheckPrismRels(RootValue)
-        CheckPatViews(LinkValue)
         OwnerValue = ReadPatOwner(LinkValue, Header, IsCold=True)
         if LinkValue.ResolvedValue.ExtraFields is not None:
             raise ValueError("cache free pattern has a resolved body map")
-        Geometry = BuildColdPat(
-            LinkValue, OwnerValue, ReadPatStocks(LinkValue, OwnerValue), BodyId
-        )
+        StockPlans = ReadPatStocks(LinkValue, OwnerValue)
+        if OwnerValue.DatumValue.TiltValue is None:
+            CheckPrincPat(LinkValue, OwnerValue)
+        else:
+            CheckPatViews(LinkValue)
+        Geometry = BuildColdPat(LinkValue, OwnerValue, StockPlans, BodyId)
         Producer = OwnerValue.NodeValue
         NativeId = NativeNodeId(Producer)
         ProofValue = NativeNodeSpan(LinkValue, Producer)

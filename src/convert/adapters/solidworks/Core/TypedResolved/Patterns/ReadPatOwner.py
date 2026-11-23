@@ -52,7 +52,6 @@ def ReadPatOwner(
     if (
         LinkValue.ConfigValue.RootValue.ClassValue.NameValue != "moPart_c"
         or Counter(Classes[:StartIndex]) != SystemCounts
-        or (IsCold and HingeValue is None)
     ):
         raise ValueError(
             "ordinary linear pattern requires its ordered plate seed and pattern roots"

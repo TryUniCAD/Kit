@@ -1,0 +1,766 @@
+{
+  "base": "bd3ab078476c403e5615fc1f0eca6b29dd770747",
+  "exact_modeled_driver_owners": 24,
+  "guarded_workers": 9,
+  "native_writer_scope_changed": false,
+  "new_native_launches": 0,
+  "origin_model_receipt_sha256": "060b399b345a7b89f5b1e64cd059eb1261d094f8db4c94b0465fe54312725197",
+  "placed_model_receipt_sha256": "6081b4f4014738b6e403a9a10a1b7c0bfedca708e30aa71c5dbe53516c2f13fd",
+  "positive": {
+    "right_origin": {
+      "archive_sha256": "a4caa4b8d76ede9bd876cd629f4b47eee1b15adc833394b1bc6cb2f4f932550e",
+      "declared_path_reads": 12,
+      "display_owners": [
+        {
+          "annotation_ids": [
+            201
+          ],
+          "annotation_names": [
+            "*Front"
+          ],
+          "cache": 3.0,
+          "dimension_id": 24,
+          "display_id": 11,
+          "label": [
+            0.065,
+            0.041,
+            0.0
+          ],
+          "name": "D1",
+          "owner_slots": [
+            235,
+            236,
+            238,
+            240
+          ],
+          "parameter": 3,
+          "slot": "f1258"
+        },
+        {
+          "annotation_ids": [
+            200
+          ],
+          "annotation_names": [
+            "*Top"
+          ],
+          "cache": 0.031875,
+          "dimension_id": 25,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D3",
+          "owner_slots": [
+            243,
+            244,
+            245,
+            246
+          ],
+          "parameter": 0.031875,
+          "slot": "f1260"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 26,
+          "display_id": 0,
+          "label": [
+            0.029,
+            0.035,
+            0.0
+          ],
+          "name": "D2",
+          "owner_slots": [
+            249,
+            250,
+            251,
+            252
+          ],
+          "parameter": 1,
+          "slot": "f1268"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 27,
+          "display_id": 0,
+          "label": [
+            0.029,
+            0.055,
+            0.0
+          ],
+          "name": "D4",
+          "owner_slots": [
+            255,
+            256,
+            257,
+            258
+          ],
+          "parameter": 0.0,
+          "slot": "f1270"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 28,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D5",
+          "owner_slots": [
+            265,
+            266,
+            267,
+            268
+          ],
+          "parameter": 0.0,
+          "slot": "f1318"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 29,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D6",
+          "owner_slots": [
+            271,
+            272,
+            273,
+            274
+          ],
+          "parameter": 0.0,
+          "slot": "f1320"
+        }
+      ],
+      "geometry": {
+        "area_mm2": 44966.625,
+        "bounds_mm": [
+          0.0,
+          0.0,
+          0.0,
+          169.5,
+          112.0,
+          21.749999999999996
+        ],
+        "centroid_mm": [
+          84.16877731548682,
+          55.478609062421995,
+          4.87181157024005
+        ],
+        "face_count": 21,
+        "volume_mm3": 176904.28125
+      },
+      "graph": {
+        "atoms": [
+          101,
+          102,
+          103
+        ],
+        "count": 3,
+        "parents": [
+          "SeedBoss",
+          "Right Plane"
+        ],
+        "pattern_id": "sldprt:feature:30",
+        "pitch_mm": 31.875,
+        "reversed": false,
+        "selection_id": "sldprt:selection:30:pattern-direction",
+        "support_plane_id": "sldprt:plane:16"
+      },
+      "public_writer_refusals": [
+        "AdapterNotFoundError",
+        "ValueError"
+      ],
+      "stream_file_reads": 0
+    },
+    "right_placed": {
+      "archive_sha256": "1fe3a847379599138e1e099457e93bda62084cc22e50f61d42008408f7f1e3c6",
+      "declared_path_reads": 12,
+      "display_owners": [
+        {
+          "annotation_ids": [
+            201
+          ],
+          "annotation_names": [
+            "*Front"
+          ],
+          "cache": 3.0,
+          "dimension_id": 24,
+          "display_id": 11,
+          "label": [
+            0.06668500000000001,
+            0.026785000000000007,
+            0.0
+          ],
+          "name": "D1",
+          "owner_slots": [
+            235,
+            236,
+            238,
+            240
+          ],
+          "parameter": 3,
+          "slot": "f1258"
+        },
+        {
+          "annotation_ids": [
+            200
+          ],
+          "annotation_names": [
+            "*Top"
+          ],
+          "cache": 0.027183,
+          "dimension_id": 25,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D3",
+          "owner_slots": [
+            243,
+            244,
+            245,
+            246
+          ],
+          "parameter": 0.027183,
+          "slot": "f1260"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 26,
+          "display_id": 0,
+          "label": [
+            0.06183,
+            0.016090000000000007,
+            0.0
+          ],
+          "name": "D2",
+          "owner_slots": [
+            249,
+            250,
+            251,
+            252
+          ],
+          "parameter": 1,
+          "slot": "f1268"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 27,
+          "display_id": 0,
+          "label": [
+            0.07154,
+            0.016090000000000007,
+            0.0
+          ],
+          "name": "D4",
+          "owner_slots": [
+            255,
+            256,
+            257,
+            258
+          ],
+          "parameter": 0.0,
+          "slot": "f1270"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 28,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D5",
+          "owner_slots": [
+            265,
+            266,
+            267,
+            268
+          ],
+          "parameter": 0.0,
+          "slot": "f1318"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 29,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D6",
+          "owner_slots": [
+            271,
+            272,
+            273,
+            274
+          ],
+          "parameter": 0.0,
+          "slot": "f1320"
+        }
+      ],
+      "geometry": {
+        "area_mm2": 97111.66159999999,
+        "bounds_mm": [
+          -53.17,
+          -63.91,
+          0.0,
+          186.82999999999998,
+          126.09,
+          10.659999999999998
+        ],
+        "centroid_mm": [
+          66.91268513519788,
+          31.05503053032814,
+          3.2012997178269345
+        ],
+        "face_count": 21,
+        "volume_mm3": 291363.01970099995
+      },
+      "graph": {
+        "atoms": [
+          101,
+          102,
+          103
+        ],
+        "count": 3,
+        "parents": [
+          "SeedBoss",
+          "Right Plane"
+        ],
+        "pattern_id": "sldprt:feature:30",
+        "pitch_mm": 27.183,
+        "reversed": false,
+        "selection_id": "sldprt:selection:30:pattern-direction",
+        "support_plane_id": "sldprt:plane:16"
+      },
+      "public_writer_refusals": [
+        "AdapterNotFoundError",
+        "ValueError"
+      ],
+      "stream_file_reads": 0
+    },
+    "top_origin": {
+      "archive_sha256": "cbb71b7573f58193e052839bfce33385d804990725072c3ef21fef6f0f92b332",
+      "declared_path_reads": 12,
+      "display_owners": [
+        {
+          "annotation_ids": [
+            202
+          ],
+          "annotation_names": [
+            "*Front"
+          ],
+          "cache": 5.0,
+          "dimension_id": 24,
+          "display_id": 11,
+          "label": [
+            0.075,
+            0.089,
+            0.0
+          ],
+          "name": "D1",
+          "owner_slots": [
+            236,
+            237,
+            239,
+            241
+          ],
+          "parameter": 5,
+          "slot": "f1258"
+        },
+        {
+          "annotation_ids": [
+            201
+          ],
+          "annotation_names": [
+            "*Left"
+          ],
+          "cache": 0.01975,
+          "dimension_id": 25,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D3",
+          "owner_slots": [
+            244,
+            245,
+            246,
+            247
+          ],
+          "parameter": 0.01975,
+          "slot": "f1260"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 26,
+          "display_id": 0,
+          "label": [
+            0.074,
+            0.105,
+            0.0
+          ],
+          "name": "D2",
+          "owner_slots": [
+            250,
+            251,
+            252,
+            253
+          ],
+          "parameter": 1,
+          "slot": "f1268"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 27,
+          "display_id": 0,
+          "label": [
+            0.054,
+            0.105,
+            0.0
+          ],
+          "name": "D4",
+          "owner_slots": [
+            256,
+            257,
+            258,
+            259
+          ],
+          "parameter": 0.0,
+          "slot": "f1270"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 28,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D5",
+          "owner_slots": [
+            266,
+            267,
+            268,
+            269
+          ],
+          "parameter": 0.0,
+          "slot": "f1318"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 29,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D6",
+          "owner_slots": [
+            272,
+            273,
+            274,
+            275
+          ],
+          "parameter": 0.0,
+          "slot": "f1320"
+        }
+      ],
+      "geometry": {
+        "area_mm2": 57678.25,
+        "bounds_mm": [
+          0.0,
+          0.0,
+          0.0,
+          153.0,
+          151.5,
+          29.499999999999996
+        ],
+        "centroid_mm": [
+          76.57070289660685,
+          75.6085942067863,
+          7.0042246272549535
+        ],
+        "face_count": 31,
+        "volume_mm3": 315233.0625
+      },
+      "graph": {
+        "atoms": [
+          101,
+          102,
+          103
+        ],
+        "count": 5,
+        "parents": [
+          "SeedBoss",
+          "Top Plane"
+        ],
+        "pattern_id": "sldprt:feature:30",
+        "pitch_mm": 19.75,
+        "reversed": true,
+        "selection_id": "sldprt:selection:30:pattern-direction",
+        "support_plane_id": "sldprt:plane:15"
+      },
+      "public_writer_refusals": [
+        "AdapterNotFoundError",
+        "ValueError"
+      ],
+      "stream_file_reads": 0
+    },
+    "top_placed": {
+      "archive_sha256": "c5c3aebdb2c06290d942ce6f832913ef186c2126212d5d1c5e7e6d201efbe7b8",
+      "declared_path_reads": 12,
+      "display_owners": [
+        {
+          "annotation_ids": [
+            202
+          ],
+          "annotation_names": [
+            "*Front"
+          ],
+          "cache": 4.0,
+          "dimension_id": 24,
+          "display_id": 11,
+          "label": [
+            0.07192499999999999,
+            0.070655,
+            0.0
+          ],
+          "name": "D1",
+          "owner_slots": [
+            236,
+            237,
+            239,
+            241
+          ],
+          "parameter": 4,
+          "slot": "f1258"
+        },
+        {
+          "annotation_ids": [
+            201
+          ],
+          "annotation_names": [
+            "*Left"
+          ],
+          "cache": 0.025163,
+          "dimension_id": 25,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D3",
+          "owner_slots": [
+            244,
+            245,
+            246,
+            247
+          ],
+          "parameter": 0.025163,
+          "slot": "f1260"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 26,
+          "display_id": 0,
+          "label": [
+            0.06774,
+            0.053720000000000004,
+            0.0
+          ],
+          "name": "D2",
+          "owner_slots": [
+            250,
+            251,
+            252,
+            253
+          ],
+          "parameter": 1,
+          "slot": "f1268"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 27,
+          "display_id": 0,
+          "label": [
+            0.07611,
+            0.053720000000000004,
+            0.0
+          ],
+          "name": "D4",
+          "owner_slots": [
+            256,
+            257,
+            258,
+            259
+          ],
+          "parameter": 0.0,
+          "slot": "f1270"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 28,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D5",
+          "owner_slots": [
+            266,
+            267,
+            268,
+            269
+          ],
+          "parameter": 0.0,
+          "slot": "f1318"
+        },
+        {
+          "annotation_ids": [],
+          "annotation_names": [],
+          "cache": 0.0,
+          "dimension_id": 29,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "name": "D6",
+          "owner_slots": [
+            272,
+            273,
+            274,
+            275
+          ],
+          "parameter": 0.0,
+          "slot": "f1320"
+        }
+      ],
+      "geometry": {
+        "area_mm2": 138750.5488,
+        "bounds_mm": [
+          -18.259999999999998,
+          -83.28,
+          0.0,
+          211.74,
+          206.71999999999994,
+          10.839999999999998
+        ],
+        "centroid_mm": [
+          96.51360857178426,
+          61.35416550168296,
+          2.1144475736824213
+        ],
+        "face_count": 26,
+        "volume_mm3": 278007.30753199995
+      },
+      "graph": {
+        "atoms": [
+          101,
+          102,
+          103
+        ],
+        "count": 4,
+        "parents": [
+          "SeedBoss",
+          "Top Plane"
+        ],
+        "pattern_id": "sldprt:feature:30",
+        "pitch_mm": 25.163,
+        "reversed": true,
+        "selection_id": "sldprt:selection:30:pattern-direction",
+        "support_plane_id": "sldprt:plane:15"
+      },
+      "public_writer_refusals": [
+        "AdapterNotFoundError",
+        "ValueError"
+      ],
+      "stream_file_reads": 0
+    }
+  },
+  "refusals": {
+    "dormant_view": {
+      "design_pattern_not_projected": true,
+      "full_read_rejected": true,
+      "runtime_reads": 0,
+      "typed_refusal": "has a foreign display view or label"
+    },
+    "named_view_frame": {
+      "design_pattern_not_projected": true,
+      "full_read_rejected": true,
+      "runtime_reads": 0,
+      "typed_refusal": "requires its canonical annotation frame"
+    },
+    "pitch_witness": {
+      "design_pattern_not_projected": true,
+      "full_read_rejected": true,
+      "runtime_reads": 0,
+      "typed_refusal": "does not match its actual witnesses and frame"
+    },
+    "stale_line": {
+      "design_pattern_not_projected": true,
+      "full_read_rejected": true,
+      "runtime_reads": 0,
+      "typed_refusal": "requires its actual signed datum line"
+    },
+    "wrong_pitch_view": {
+      "design_pattern_not_projected": true,
+      "full_read_rejected": true,
+      "runtime_reads": 0,
+      "typed_refusal": "has a foreign display view or label"
+    }
+  },
+  "schema": "kit.sw2026.strict-principal-pattern-read.v1",
+  "strict_native_reads": 16,
+  "tool_sha256": "50182764989ca93c095c7cbedaea026e08474b7a140a4e7bc6ca8ca58092ab99"
+}

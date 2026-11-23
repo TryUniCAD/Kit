@@ -3,3 +3,6 @@ KPatReadKey = "solidworks.typed_linear_pattern"
 
 # only the analytically reconstructed cache free form can qualify for republication
 KPatColdState = "projected_cold_single_direction"
+
+# principal reads need their own state while measured republication remains specific to oblique parts
+KPatPrincState = "projected_cold_principal_direction"

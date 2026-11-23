@@ -19,6 +19,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.MakePatSelect impor
 )
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.PatEvidence import (
     KPatColdState,
+    KPatPrincState,
     KPatReadKey,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.PatternOwner import (
@@ -94,7 +95,13 @@ def ApplyPatDoc(
     Parameters = {Count.id: Count, Pitch.id: Pitch}
     Evidence = {
         "status": (
-            "projected_saved_single_direction" if Surface is not None else KPatColdState
+            "projected_saved_single_direction"
+            if Surface is not None
+            else (
+                KPatPrincState
+                if OwnerValue.DatumValue.TiltValue is None
+                else KPatColdState
+            )
         ),
         "native_atom_lineage": OwnerValue.AtomsValue,
         "physical_body_node": (
