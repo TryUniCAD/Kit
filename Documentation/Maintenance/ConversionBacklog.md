@@ -544,11 +544,28 @@ Keep remaining gaps, parked tasks and limitations visible.
 
 ## Immediate handoff
 
+The separately requested `A06g-BulkDecodedComparison` programme is checking under the [owning register](../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command).
+Codex owns `codex/bulk-semantic-comparison`; delivery is [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
+It depends on the existing semantic comparator and codec and compares decoded JSON without running either decoder.
+The exit requires process evidence, output-preservation checks, current-head CI, and configured review.
+The [change entry](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md) preserves scope and qualification limits.
+The [first manual source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) passed on `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`, including 47 bulk process cases; later review follow-ups require fresh source-bound evidence.
+The production snapshot and conversion milestones remain unchanged.
+
 The next critical-path task is B02: fresh native Fusion readback and paired semantic qualification on PR #94.
 The inspected register names that missing evidence before A06 can qualify its graph comparisons.
 Check that register again before running or claiming anything.
 The next independent available task is B01, followed by B10/B11 work that can use already qualified examples.
 No new research implementation, application run, user evaluation or conversion qualification is claimed by this planning change.
+
+## Shared research queue coordination
+
+Task `A08b-SharedQueue` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08b-sharedqueue-shared-research-requests-and-advice-budgets).
+Codex owns `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).
+Dependencies are the existing controller, supervisor, priority scheduler and optional advisor integration.
+The scope is shared local job requests, duplicate suppression, resource-aware admission, obsolete-work cancellation and shared advisor budgets.
+The exit requires process-boundary concurrency and recovery evidence and current-head PR readiness.
+This work changes research scheduling only; B02, B03, B05 and native conversion acceptance remain open.
 
 ## Native feature ladder evidence follow-up
 
@@ -586,3 +603,10 @@ Dependencies are merged PRs #263 and #267 and their unchanged native source obse
 The bounded exit requires correct public-reader placement, timestamp variability, malformed-reference guards, and unchanged older part output.
 The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the completed offline checks.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
+
+## Decimal native placement evidence for B02–B05
+
+Task `A08h-Placement20261123` is owned by Codex in the [automation register](../Reference/Research/AutomationSteps.md#a08h-placement20261123-decimal-native-reader-evidence), with delivery PR [#274](https://github.com/TryUniCAD/Kit/pull/274).
+The [fresh scope](../../re/NativePlacement2026/README.md) settled 48 native attempts and 255 strict committed-file replays. Capture is incomplete: 47 full batches plus two saved files from one COM failure yield 143 of 144 planned native inputs.
+Main retains 45 measured SOLIDWORKS placement mismatches. The separately owned [PR 270](https://github.com/TryUniCAD/Kit/pull/270) candidate passes 138 fresh source comparisons; [PR 269](https://github.com/TryUniCAD/Kit/pull/269) receives fresh decimal evidence for XZ and reverse-YZ refusals. Those contributions remain revision-bound and separate from production readiness.
+Dependencies are merged PRs #263/#265/#267, the existing controller and licensed source measurements. Publication exits on verified hashes, honest failure/semantic accounting and fresh CI/review. Existing writer ownership, including [PR 121](https://github.com/TryUniCAD/Kit/pull/121), remains separate; no donor writer is restored. B02/B03/B04/B05 remain unfinished and the production conversion boundary does not change.

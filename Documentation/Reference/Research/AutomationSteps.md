@@ -50,6 +50,16 @@ All captured centroids agree; the 58 older pinned part documents retain identica
 Status is checking, with the bounded offline checks passed. The exit covers source placement and its shared-suite process regression.
 Fresh native acceptance, complete typed rectangle admission, and conversion qualification remain outside this result.
 
+#### A08b-SharedQueue: shared research requests and advice budgets
+
+Codex owns this checking task on `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).
+Dependencies are the A03 controller, A07 scheduling, A08 supervisor pools and the existing optional advisor integration.
+The scope is local shared request deduplication, subscriber-aware supersession, bounded priority queues and shared advisor admission.
+Independent instances explicitly select the same local controller store and advisor state; one supervisor owns the controller store.
+The exit requires real process-boundary concurrency, cancellation, recovery and provider-budget evidence, plus current-head PR checks and configured review.
+Six real-process queue scenarios and five disposable-provider advice groups passed locally with Python 3.14.7. The source and verification details are in the [change entry](../../Changes/Research/Supervisor/Coordination/SharedResearchScheduling.md).
+No CAD capability, native acceptance flag or production conversion route changes.
+
 #### A05-RectangleRecovery: bounded reader qualification
 
 Codex owns this active follow-up on `fix/native-rectangle-qualification-20261122`, based on main `7a0a987ec2f1ab4099c839621a8e51d18bcfa872`.
@@ -296,6 +306,23 @@ The public Fusion partial reader now carries the [saved principal-plane identity
 See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
 ## A06 comparison implementation and qualification
+
+### A06g-BulkDecodedComparison: standalone bulk command
+
+Codex owns this separately requested programme on `codex/bulk-semantic-comparison`, based on main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`.
+Delivery is the separate normal [PR #273](https://github.com/TryUniCAD/Kit/pull/273) for the [bulk comparison command](../../Tasks/CompareDecodedDocuments.md).
+Dependencies are the existing A06a comparator and interchange codec, integrated through merged PR #158 (`22075ee5e77c3db9b56bd8c2bc8c415d6baf237d`).
+Scope is bulk comparison of existing decoded JSON, directory or manifest pairing, retained correspondence evidence, and outcome summaries.
+Delivery continuation uses the isolated `codex/bulk-comparison-delivery` branch and preserves the same PR head.
+Follow-up scope includes real committed export envelopes, mixed-error exit precedence, and exact topology unit factors.
+The exit requires process-boundary evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, and current-head CI and configured review.
+Status is checking. Scoped formatting, steering, Pyright, path policy, and Python 3.11 syntax checks passed locally.
+The [first source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) verified source `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`: 7,782 tests scheduled fresh, 7,394 passed and 388 skipped, including all 47 bulk cases exactly once.
+Subsequent ordering, streaming-witness and helper changes require fresh revision-bound process evidence, current-head CI and configured review before pre-enrollment readiness.
+Native merge-group acceptance remains pending and is separate from a manual source audit.
+This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
+
+### Existing comparison implementation
 
 The [portable graph comparator](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md) reads sealed neutral documents through the actual codec and validator.
 It compares typed fields and dependency roles, normalizes explicitly declared quantities and retains ambiguous correspondences.
@@ -676,3 +703,11 @@ PR #119 merged into `main` at `249cf7dcde6197c41fafb052eda8afb210bcf49e`. Synchr
 The two compatibility jobs for `a006c275` independently checked the installed CLI and isolated research checkout at the workflow merge SHA `8d66aa9b38bb3f436678cdad6af3206d0189fb51`. Linux passed 27 with one Windows-only skip and Windows passed 17. [Linux](https://github.com/TryUniCAD/Kit/actions/runs/43745878592/job/132908934845), [Windows](https://github.com/TryUniCAD/Kit/actions/runs/43745878592/job/132908934840)
 
 PR head `b9efdb5ee15da0f802880b97816a8422865545b4` repeated the installed CLI verification on exact tested merge `e60486e0532b92b66a5637a490acea934cb03959`. Both jobs asserted that the installed source and the physically separate research checkout matched the candidate SHA. Linux passed 27 cases with one Windows-only skip. Windows passed 17 cases. The result completes the installed CLI compatibility milestone for the selected reader, receipt, controller and supervisor contracts. Native qualification remains open under its owning steps. [Linux compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013443659), [Windows compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013444080)
+
+## A08h-Placement20261123: decimal native reader evidence
+
+Codex owns this evidence publication on `feat/native-placement-decoding-20261123`, from main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`. Delivery PR is [#274](https://github.com/TryUniCAD/Kit/pull/274).
+The [package](../../../re/NativePlacement2026/README.md) retains 47 complete native batches, one COM failure, 143 saved native files and all 255 committed-input replay outcomes. One expected after-control is missing.
+Dependencies are merged PRs #263, #265 and #267, the deterministic controller and licensed source workers. All executable capture/replay work has settled; publication CI and configured review remain pending.
+[PR 270](https://github.com/TryUniCAD/Kit/pull/270) owns the SOLIDWORKS attachment implementation. Its exact `78a1367e81b5748702289c2b2e733f24576df46e` candidate passes 138 comparisons on 69 fresh complete-batch inputs. [PR 269](https://github.com/TryUniCAD/Kit/pull/269) owns the remaining Fusion placement/sign investigation; this scope supplies fresh decimal controls.
+The exit requires sealed hashes, sanitized provenance, native/neutral comparisons, retained refusals/failures and current-head publication readiness. Numerical source acceptance is limited to the recorded cuboids. Full semantics, generative writing and editable target conversion remain open under B02–B05; this task does not duplicate either owning PR or close those milestones.

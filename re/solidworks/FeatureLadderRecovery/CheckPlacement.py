@@ -20,7 +20,6 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from convert import open_document
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
-from convert.adapters.solidworks.Core.Native import decode_native_model
 from convert.adapters.solidworks.Container.Archive import ArchiveError
 import convert.adapters.solidworks.Core.Native as native_reader
 
@@ -119,7 +118,7 @@ def check_sources():
 def reference(raw):
     archive = SldprtArchive.from_bytes(raw)
     stream = "Contents/Config-0-ResolvedFeatures"
-    model = decode_native_model(
+    model = native_reader.decode_native_model(
         archive.streams["swXmlContents/KeyWords"], archive.streams[stream]
     )
     (sketch,) = model.sketches
@@ -243,7 +242,7 @@ def check_owner_scans():
 
     native_reader.ReadPlaneOwner = counted
     try:
-        model = decode_native_model(
+        model = native_reader.decode_native_model(
             archive.streams["swXmlContents/KeyWords"],
             archive.streams["Contents/Config-0-ResolvedFeatures"],
         )
@@ -258,7 +257,9 @@ def check_custom():
     path = ROOT / "re/solidworks/examples/.SLDPRT/example.SLDPRT"
     archive = SldprtArchive.open(path)
     raw = archive.streams["Contents/Config-0-ResolvedFeatures"]
-    model = decode_native_model(archive.streams["swXmlContents/KeyWords"], raw)
+    model = native_reader.decode_native_model(
+        archive.streams["swXmlContents/KeyWords"], raw
+    )
     start = min(sketch.native_offset for sketch in model.sketches)
     assert native_reader.ReadPlaneOwner(raw, model.classes, start) is not None
     for include_brep in (True, False):
