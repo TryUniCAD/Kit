@@ -301,6 +301,9 @@ Codex owns the strict Fusion decoding and receipt efficiency follow-up on `codex
 Delivery PR is [#280](https://github.com/TryUniCAD/Kit/pull/280).
 It depends on the A05a pinned reader and A05b exact outcome contract.
 The exit requires byte-exact neutral documents, equivalent receipts, unchanged refusal diagnostics, measured offline timings, and current-head PR checks and review.
+Offline verification matched 16 reader outcomes and preserved the ordered native profiles.
+Three pinned strict inputs had 11% to 15% lower median receipt times.
+Native read medians were mixed.
 The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) records the implementation and evidence.
 
 ## A06 comparison implementation and qualification
