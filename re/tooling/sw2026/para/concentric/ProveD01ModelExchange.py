@@ -29,6 +29,7 @@ from ProveAssemblyContentIndex import (
     wire,
 )
 from AssemblyModelExchange import (
+    MATE_STREAM,
     ModelExchangeIds,
     add_model_exchange,
     model_owners,
@@ -46,13 +47,16 @@ from ConfigHeaderExchangeStore import add_config_header_exchange
 from ExchangeMessagePack import read_exchange_map
 from FreshAssemblyAuxiliaries import add_fresh_assembly_auxiliaries
 from InspectPartEnvironmentSource import Image
+from PlanarExchange import project_planar_exchange
 from PrepareGeneratedConcentric import windows_path
 from ProveConfigHeaderExchange import source_cases
 from ProveConcentricCmgrHistory import disclosed_cases, refuse
 from ProveFreshAssemblyAuxiliaries import neutral_request
 
 from convert.adapters.solidworks.Archive.Exchange.ReadUnqlite import ReadUnqlite
+from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
+from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 
 BASE = "2acb0d00e36e584e16cdcf1bfc6f7c1bc1a11ee0"
 PRIOR = "D01ConfigHeaderStore01.json"
@@ -171,18 +175,31 @@ def compare_sources(location, properties, corpus, rename):
                 model_records(owners, ids, ()) == records,
                 "empty mate model exchange differs",
             )
-        packed = not mates or mate_pin is not None
+        else:
+            require(
+                label == "A1_two.SLDASM",
+                "unknown mate owner in the disclosed model comparison",
+            )
+            link = ReadNativeLink(archive, 0)
+            group = ReadMatesMut(
+                archive.require(MATE_STREAM), link.ResolvedValue
+            ).RootsValue
+            projected = project_planar_exchange(link, group)
+            require(
+                model_records(owners, ids, projected) == records,
+                "planar model exchange differs",
+            )
         result[label] = {
             "parent_sha256": pin,
             "child_sha256": mate_pin,
-            "matching_records": 8 if packed else len(known),
+            "matching_records": len(records),
             "actual_mates": len(mates),
-            "exact_live_store": packed,
+            "exact_live_store": True,
             "toc_plane_order": ids.plane_order,
         }
     require(
         len(result) == 12
-        and sum(row["exact_live_store"] for row in result.values()) == 11,
+        and all(row["matching_records"] == 8 for row in result.values()),
         "the complete scoped native model exchange comparison changed",
     )
     return result
@@ -362,6 +379,7 @@ def main():
         HERE.with_name("AssemblyModelExchange.py"),
         HERE.with_name("ConcentricMateCell.py"),
         HERE.with_name("ExchangeMateEndpoints.py"),
+        HERE.with_name("PlanarExchange.py"),
         REPO / "re/solidworks/WriterResearch/PartObjectExchange.py",
     )
     report = wire(

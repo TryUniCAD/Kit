@@ -138,7 +138,7 @@
   },
   "file_sha256": {
     "re/solidworks/WriterResearch/ExchangePack.py": "53f73b9bb594fb7a73b0257935c81ab69d8bed606a4057b1dca2f05d0554d7af",
-    "re/solidworks/measurements/2026/D01ModelExchange01.json": "e9c9a56009b34529c242b7987cdd299f027f1b35f3c12bbf9129ecd615a721a3",
+    "re/solidworks/measurements/2026/D01ModelExchange01.json": "320d19067f29337c7fe572d17bf6b32f1293b63023c3139223b6a6ec748add32",
     "re/solidworks/measurements/2026/ExchangeMateEndpoints01.json": "a470d74fd13aecd9351ecd606b22cd2400ce8b571bcb711619c78c95fa1b34e2",
     "re/solidworks/v2026/corpus/assemblies/Manifest.json": "e60ba221757cf1452d70d952eecc1eb41c75e2bc0711c0c6aac7c457f9cd15c8",
     "re/solidworks/v2026/corpus/assembly-synchronized/Manifest.json": "86729463bf5734f53e209de81f09976cc95bee8c7d33395eb512ec0ed8b823b3",

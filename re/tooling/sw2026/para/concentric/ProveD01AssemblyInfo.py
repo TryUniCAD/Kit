@@ -32,7 +32,7 @@ from convert.adapters.solidworks.Core.Properties.ReadPropRoot import ReadPropRoo
 
 BASE = "d89dd5965880fda9b645336527b20fc02557d4e9"
 MODEL = "D01ModelExchange01.json"
-MODEL_PIN = "e3c6827aed8efb1827fad8af1620f8af7e9ca709fc3f2d34de28a42ee23c7bc3"
+MODEL_PIN = "320d19067f29337c7fe572d17bf6b32f1293b63023c3139223b6a6ec748add32"
 
 
 def system_rows(payload):

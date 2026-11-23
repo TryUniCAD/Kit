@@ -257,8 +257,9 @@ Ten original D01 members still need construction or source admission evidence.
 
 The [model exchange compositor](../../re/solidworks/records/AssemblyModelExchange2026.md)
 joins the actual manager, selection folder, principal datums and concentric
-references. It reconstructs 95 of 96 disclosed live records, with eleven
-complete stores. The guarded 34-stream parent preserves every earlier
+references. The planar projection adds the scoped coincident and distance
+records. The shared compositor reconstructs all 96 disclosed live records
+across twelve complete stores. The guarded 34-stream parent preserves every earlier
 stream and the linked child. Nine original D01 members remain outside the
 composed inventory, including [vendor license metadata](../../re/solidworks/records/ConcentricEModelLicOwnership2026.md).
 
