@@ -27,12 +27,15 @@ class PatDriveStyle:
     SelectedLeader: int
 
 
-# the scoped constructor supports the actual back count display and unassigned pitch display among six ordered owners
-def CheckPatStyles(Styles: tuple[PatDriveStyle, ...]) -> None:
+# the six display owners must retain the roles of the selected pattern profile
+def CheckPatStyles(
+    Styles: tuple[PatDriveStyle, ...], *, PitchView: str | None = None
+) -> None:
     if len(Styles) != len(KPatDriveSlots):
         raise ValueError(
             "pattern requires six explicitly styled driving or dormant display owners"
         )
+    Views = {"D1": "*Back" if PitchView is None else "*Front", "D3": PitchView}
     for StyleValue, (_, NameValue, _) in zip(Styles, KPatDriveSlots, strict=True):
         Labels = StyleValue.LabelValue
         if (
@@ -44,10 +47,14 @@ def CheckPatStyles(Styles: tuple[PatDriveStyle, ...]) -> None:
             or type(CastValue(object, StyleValue.DesignIntent)) is not bool
             or type(StyleValue.SelectedLeader) is not int
             or not -(1 << 31) <= StyleValue.SelectedLeader < (1 << 31)
-            or StyleValue.AnnotationName != ("*Back" if NameValue == "D1" else None)
+            or StyleValue.AnnotationName != Views.get(NameValue)
             or NameValue == "D3"
             and Labels != KHingeRoot
         ):
+            if PitchView is None:
+                raise ValueError(
+                    "pattern display style is outside the oblique Back count and unassigned pitch profile"
+                )
             raise ValueError(
-                "pattern display style is outside the oblique Back count and unassigned pitch profile"
+                "principal pattern requires the Front count and its signed pitch view"
             )

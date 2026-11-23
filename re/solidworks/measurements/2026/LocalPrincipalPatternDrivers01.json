@@ -1,0 +1,2092 @@
+{
+  "base": "3171f5ac8ab0786de30d027665ee5bf184f6b412",
+  "disclosed": {
+    "D01X.SLDPRT": {
+      "active_views": {
+        "D1": [
+          "*Front",
+          201
+        ],
+        "D3": [
+          "*Top",
+          200
+        ]
+      },
+      "archive_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+      "catalog_ids": {
+        "*Front": 201,
+        "*Top": 200
+      },
+      "config": "3d907c69875881895c1cddf1dcb328a9fa931952e12a9d745c962a02917bed2a",
+      "display_frontier": 12,
+      "map": [
+        112,
+        427
+      ],
+      "pitch_frame_words": [
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "-0x1.fa82e87d2c7bap-5",
+        "0x0.0p+0",
+        "0x1.079e59f2ba9d4p-6"
+      ],
+      "pitch_local_extent_m": 0.027183,
+      "pitch_midpoint_word": "0x1.ffffffffffffbp-2",
+      "pitch_witnesses_m": [
+        [
+          0.06183000000000001,
+          0.016090000000000007,
+          0.0
+        ],
+        [
+          0.08901300000000001,
+          0.016090000000000007,
+          0.0
+        ]
+      ],
+      "resolved": "e502cfbc9bcd027a1536d6f9d72b71d6c5aecae1632a8a059fc6101104418ca8",
+      "runtime_file_reads": 0,
+      "seed_and_sketch": [
+        308,
+        281
+      ],
+      "slots": {
+        "D1": {
+          "dimension_id": 41,
+          "display_cache": 3.0,
+          "display_id": 11,
+          "label": [
+            0.08901300000000001,
+            0.016090000000000007,
+            0.0
+          ],
+          "owner_map": [
+            385,
+            386,
+            388,
+            390
+          ],
+          "style_word": 2147484711,
+          "value": 3
+        },
+        "D2": {
+          "dimension_id": 43,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06183000000000001,
+            0.016090000000000007,
+            0.0
+          ],
+          "owner_map": [
+            399,
+            400,
+            401,
+            402
+          ],
+          "style_word": 2147484711,
+          "value": 1
+        },
+        "D3": {
+          "dimension_id": 42,
+          "display_cache": 0.027183,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            393,
+            394,
+            395,
+            396
+          ],
+          "style_word": 2147484711,
+          "value": 0.027183
+        },
+        "D4": {
+          "dimension_id": 44,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06183000000000001,
+            0.03609000000000001,
+            0.0
+          ],
+          "owner_map": [
+            405,
+            406,
+            407,
+            408
+          ],
+          "style_word": 2147484711,
+          "value": 0.0
+        },
+        "D5": {
+          "dimension_id": 45,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            415,
+            416,
+            417,
+            418
+          ],
+          "style_word": 2147484711,
+          "value": 0.0
+        },
+        "D6": {
+          "dimension_id": 46,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            421,
+            422,
+            423,
+            424
+          ],
+          "style_word": 2147484711,
+          "value": 0.0
+        }
+      },
+      "stream_lengths": [
+        25840,
+        28879
+      ]
+    },
+    "D01XInstances.SLDPRT": {
+      "active_views": {
+        "D1": [
+          "*Front",
+          201
+        ],
+        "D3": [
+          "*Top",
+          200
+        ]
+      },
+      "archive_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+      "catalog_ids": {
+        "*Front": 201,
+        "*Top": 200
+      },
+      "config": "a3ba42e64644e62df2888f2e7ff6e2b91f198fea6d383ea5517f26d28018fdae",
+      "display_frontier": 12,
+      "map": [
+        112,
+        427
+      ],
+      "pitch_frame_words": [
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "-0x1.fa82e87d2c7bap-5",
+        "0x0.0p+0",
+        "0x1.079e59f2ba9d4p-6"
+      ],
+      "pitch_local_extent_m": 0.027183,
+      "pitch_midpoint_word": "0x1.ffffffffffffbp-2",
+      "pitch_witnesses_m": [
+        [
+          0.06183000000000001,
+          0.016090000000000007,
+          0.0
+        ],
+        [
+          0.08901300000000001,
+          0.016090000000000007,
+          0.0
+        ]
+      ],
+      "resolved": "b460f235270e9de94ac62274274434f28ed6046999b8e07a2aeecc8bfb383ba1",
+      "runtime_file_reads": 0,
+      "seed_and_sketch": [
+        308,
+        281
+      ],
+      "slots": {
+        "D1": {
+          "dimension_id": 41,
+          "display_cache": 4.0,
+          "display_id": 11,
+          "label": [
+            0.08901300000000001,
+            0.016090000000000007,
+            0.0
+          ],
+          "owner_map": [
+            385,
+            386,
+            388,
+            390
+          ],
+          "style_word": 2147484711,
+          "value": 4
+        },
+        "D2": {
+          "dimension_id": 43,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06183000000000001,
+            0.016090000000000007,
+            0.0
+          ],
+          "owner_map": [
+            399,
+            400,
+            401,
+            402
+          ],
+          "style_word": 2147484711,
+          "value": 1
+        },
+        "D3": {
+          "dimension_id": 42,
+          "display_cache": 0.027183,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            393,
+            394,
+            395,
+            396
+          ],
+          "style_word": 2181039143,
+          "value": 0.027183
+        },
+        "D4": {
+          "dimension_id": 44,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06183000000000001,
+            0.03609000000000001,
+            0.0
+          ],
+          "owner_map": [
+            405,
+            406,
+            407,
+            408
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D5": {
+          "dimension_id": 45,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            415,
+            416,
+            417,
+            418
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D6": {
+          "dimension_id": 46,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            421,
+            422,
+            423,
+            424
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        }
+      },
+      "stream_lengths": [
+        25846,
+        29089
+      ]
+    },
+    "D01XSpacing.SLDPRT": {
+      "active_views": {
+        "D1": [
+          "*Front",
+          201
+        ],
+        "D3": [
+          "*Top",
+          200
+        ]
+      },
+      "archive_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+      "catalog_ids": {
+        "*Front": 201,
+        "*Top": 200
+      },
+      "config": "86f88d2fc620496eea28accbbc608123f36e3e6c219e9eed51186f2fc1cc1a3b",
+      "display_frontier": 12,
+      "map": [
+        112,
+        427
+      ],
+      "pitch_frame_words": [
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "-0x1.fa82e87d2c7bap-5",
+        "0x0.0p+0",
+        "0x1.079e59f2ba9d4p-6"
+      ],
+      "pitch_local_extent_m": 0.031427,
+      "pitch_midpoint_word": "0x1.ffffffffffffbp-2",
+      "pitch_witnesses_m": [
+        [
+          0.06183000000000001,
+          0.016090000000000007,
+          0.0
+        ],
+        [
+          0.093257,
+          0.016090000000000007,
+          0.0
+        ]
+      ],
+      "resolved": "ee62cefcc4dd8f0a270417a8f6e4bd3cbb96206669a9b2f2560708f2cdb62b6c",
+      "runtime_file_reads": 0,
+      "seed_and_sketch": [
+        308,
+        281
+      ],
+      "slots": {
+        "D1": {
+          "dimension_id": 41,
+          "display_cache": 3.0,
+          "display_id": 11,
+          "label": [
+            0.08901300000000001,
+            0.016090000000000007,
+            0.0
+          ],
+          "owner_map": [
+            385,
+            386,
+            388,
+            390
+          ],
+          "style_word": 2147484711,
+          "value": 3
+        },
+        "D2": {
+          "dimension_id": 43,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06183000000000001,
+            0.016090000000000007,
+            0.0
+          ],
+          "owner_map": [
+            399,
+            400,
+            401,
+            402
+          ],
+          "style_word": 2147484711,
+          "value": 1
+        },
+        "D3": {
+          "dimension_id": 42,
+          "display_cache": 0.031427,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            393,
+            394,
+            395,
+            396
+          ],
+          "style_word": 2181039143,
+          "value": 0.031427
+        },
+        "D4": {
+          "dimension_id": 44,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06183000000000001,
+            0.03609000000000001,
+            0.0
+          ],
+          "owner_map": [
+            405,
+            406,
+            407,
+            408
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D5": {
+          "dimension_id": 45,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            415,
+            416,
+            417,
+            418
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D6": {
+          "dimension_id": 46,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            421,
+            422,
+            423,
+            424
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        }
+      },
+      "stream_lengths": [
+        25846,
+        29089
+      ]
+    },
+    "D02Y.SLDPRT": {
+      "active_views": {
+        "D1": [
+          "*Front",
+          202
+        ],
+        "D3": [
+          "*Left",
+          201
+        ]
+      },
+      "archive_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+      "catalog_ids": {
+        "*Front": 202,
+        "*Left": 201,
+        "*Top": 200
+      },
+      "config": "99323ed45509bc433e6c649ca08375a21cd1ffefb5304af2492f7b6e69901abc",
+      "display_frontier": 12,
+      "map": [
+        113,
+        428
+      ],
+      "pitch_frame_words": [
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "-0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x1.b8130164840e2p-5",
+        "0x0.0p+0",
+        "0x1.157689ca18bd6p-4"
+      ],
+      "pitch_local_extent_m": 0.025163,
+      "pitch_midpoint_word": "0x1.0000000000001p-1",
+      "pitch_witnesses_m": [
+        [
+          0.06774,
+          0.053720000000000004,
+          0.0
+        ],
+        [
+          0.06774,
+          0.028557000000000003,
+          0.0
+        ]
+      ],
+      "resolved": "8d90f9bd93ea45d25c334df76aa5ca6bdfa25edb1dbdf62630f4d923e4bcd7a9",
+      "runtime_file_reads": 0,
+      "seed_and_sketch": [
+        309,
+        282
+      ],
+      "slots": {
+        "D1": {
+          "dimension_id": 41,
+          "display_cache": 4.0,
+          "display_id": 11,
+          "label": [
+            0.06774,
+            0.028557000000000003,
+            0.0
+          ],
+          "owner_map": [
+            386,
+            387,
+            389,
+            391
+          ],
+          "style_word": 2147484711,
+          "value": 4
+        },
+        "D2": {
+          "dimension_id": 43,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06774,
+            0.053720000000000004,
+            0.0
+          ],
+          "owner_map": [
+            400,
+            401,
+            402,
+            403
+          ],
+          "style_word": 2147484711,
+          "value": 1
+        },
+        "D3": {
+          "dimension_id": 42,
+          "display_cache": 0.025163,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            394,
+            395,
+            396,
+            397
+          ],
+          "style_word": 2147484711,
+          "value": 0.025163
+        },
+        "D4": {
+          "dimension_id": 44,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06774,
+            0.07372000000000001,
+            0.0
+          ],
+          "owner_map": [
+            406,
+            407,
+            408,
+            409
+          ],
+          "style_word": 2147484711,
+          "value": 0.0
+        },
+        "D5": {
+          "dimension_id": 45,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            416,
+            417,
+            418,
+            419
+          ],
+          "style_word": 2147484711,
+          "value": 0.0
+        },
+        "D6": {
+          "dimension_id": 46,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            422,
+            423,
+            424,
+            425
+          ],
+          "style_word": 2147484711,
+          "value": 0.0
+        }
+      },
+      "stream_lengths": [
+        26098,
+        28879
+      ]
+    },
+    "D02YInstances.SLDPRT": {
+      "active_views": {
+        "D1": [
+          "*Front",
+          202
+        ],
+        "D3": [
+          "*Left",
+          201
+        ]
+      },
+      "archive_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+      "catalog_ids": {
+        "*Front": 202,
+        "*Left": 201,
+        "*Top": 200
+      },
+      "config": "fa6710128ab29af93213a8df34933b69affb5a91eb86522dfb58d626b459cc49",
+      "display_frontier": 12,
+      "map": [
+        113,
+        428
+      ],
+      "pitch_frame_words": [
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "-0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x1.b8130164840e2p-5",
+        "0x0.0p+0",
+        "0x1.157689ca18bd6p-4"
+      ],
+      "pitch_local_extent_m": 0.025163,
+      "pitch_midpoint_word": "0x1.0000000000001p-1",
+      "pitch_witnesses_m": [
+        [
+          0.06774,
+          0.053720000000000004,
+          0.0
+        ],
+        [
+          0.06774,
+          0.028557000000000003,
+          0.0
+        ]
+      ],
+      "resolved": "96500e6a76d9c4018254c3fddb6d2af3f7501937a10403a2d48f765892fc2a70",
+      "runtime_file_reads": 0,
+      "seed_and_sketch": [
+        309,
+        282
+      ],
+      "slots": {
+        "D1": {
+          "dimension_id": 41,
+          "display_cache": 5.0,
+          "display_id": 11,
+          "label": [
+            0.06774,
+            0.028557000000000003,
+            0.0
+          ],
+          "owner_map": [
+            386,
+            387,
+            389,
+            391
+          ],
+          "style_word": 2147484711,
+          "value": 5
+        },
+        "D2": {
+          "dimension_id": 43,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06774,
+            0.053720000000000004,
+            0.0
+          ],
+          "owner_map": [
+            400,
+            401,
+            402,
+            403
+          ],
+          "style_word": 2147484711,
+          "value": 1
+        },
+        "D3": {
+          "dimension_id": 42,
+          "display_cache": 0.025163,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            394,
+            395,
+            396,
+            397
+          ],
+          "style_word": 2181039143,
+          "value": 0.025163
+        },
+        "D4": {
+          "dimension_id": 44,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06774,
+            0.07372000000000001,
+            0.0
+          ],
+          "owner_map": [
+            406,
+            407,
+            408,
+            409
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D5": {
+          "dimension_id": 45,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            416,
+            417,
+            418,
+            419
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D6": {
+          "dimension_id": 46,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            422,
+            423,
+            424,
+            425
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        }
+      },
+      "stream_lengths": [
+        26104,
+        29089
+      ]
+    },
+    "D02YSpacing.SLDPRT": {
+      "active_views": {
+        "D1": [
+          "*Front",
+          202
+        ],
+        "D3": [
+          "*Left",
+          201
+        ]
+      },
+      "archive_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+      "catalog_ids": {
+        "*Front": 202,
+        "*Left": 201,
+        "*Top": 200
+      },
+      "config": "1ca8efc48a357d9960a9aa8b745ecfe3c12c81a0a5c75b5e99be70371feab221",
+      "display_frontier": 12,
+      "map": [
+        113,
+        428
+      ],
+      "pitch_frame_words": [
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "0x0.0p+0",
+        "-0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x1.b8130164840e2p-5",
+        "0x0.0p+0",
+        "0x1.157689ca18bd6p-4"
+      ],
+      "pitch_local_extent_m": 0.029173,
+      "pitch_midpoint_word": "0x1.0000000000001p-1",
+      "pitch_witnesses_m": [
+        [
+          0.06774,
+          0.053720000000000004,
+          0.0
+        ],
+        [
+          0.06774,
+          0.024547000000000003,
+          0.0
+        ]
+      ],
+      "resolved": "fe291652c8611a12eadc23f275b9157d87c583a8471a1ef3a8f25146e2d609cb",
+      "runtime_file_reads": 0,
+      "seed_and_sketch": [
+        309,
+        282
+      ],
+      "slots": {
+        "D1": {
+          "dimension_id": 41,
+          "display_cache": 4.0,
+          "display_id": 11,
+          "label": [
+            0.06774,
+            0.028557000000000003,
+            0.0
+          ],
+          "owner_map": [
+            386,
+            387,
+            389,
+            391
+          ],
+          "style_word": 2147484711,
+          "value": 4
+        },
+        "D2": {
+          "dimension_id": 43,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06774,
+            0.053720000000000004,
+            0.0
+          ],
+          "owner_map": [
+            400,
+            401,
+            402,
+            403
+          ],
+          "style_word": 2147484711,
+          "value": 1
+        },
+        "D3": {
+          "dimension_id": 42,
+          "display_cache": 0.029173,
+          "display_id": 10,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            394,
+            395,
+            396,
+            397
+          ],
+          "style_word": 2181039143,
+          "value": 0.029173
+        },
+        "D4": {
+          "dimension_id": 44,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.06774,
+            0.07372000000000001,
+            0.0
+          ],
+          "owner_map": [
+            406,
+            407,
+            408,
+            409
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D5": {
+          "dimension_id": 45,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            416,
+            417,
+            418,
+            419
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        },
+        "D6": {
+          "dimension_id": 46,
+          "display_cache": 0.0,
+          "display_id": 0,
+          "label": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "owner_map": [
+            422,
+            423,
+            424,
+            425
+          ],
+          "style_word": 2181039143,
+          "value": 0.0
+        }
+      },
+      "stream_lengths": [
+        26104,
+        29089
+      ]
+    }
+  },
+  "generated": {
+    "right": {
+      "count": {
+        "active_views": {
+          "D1": [
+            "*Front",
+            200
+          ],
+          "D3": [
+            "*Top",
+            201
+          ]
+        },
+        "catalog_ids": {
+          "*Front": 200,
+          "*Top": 201
+        },
+        "config": "497f2fdaaf3b83b5e95afcd58380237668544e871315864a12dd2c76f06bdcd0",
+        "display_frontier": 12,
+        "map": [
+          94,
+          277
+        ],
+        "pitch_frame_words": [
+          "0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "-0x1.374bc6a7ef9dbp-6",
+          "0x0.0p+0",
+          "0x1.2bd3c36113405p-6"
+        ],
+        "pitch_local_extent_m": 0.0217,
+        "pitch_midpoint_word": "0x1.0000000000001p-1",
+        "pitch_witnesses_m": [
+          [
+            0.019,
+            0.0183,
+            0.0
+          ],
+          [
+            0.0407,
+            0.0183,
+            0.0
+          ]
+        ],
+        "request_sha256": "a06a4dccefe96d672efc15fa13573be4736a58a17022712d5805a1eea388b933",
+        "resolved": "022e7a425e6c3596e607558951eb20e72819e2e6ab5f054b18ce5a8904b3d622",
+        "runtime_file_reads": 0,
+        "seed_and_sketch": [
+          212,
+          192
+        ],
+        "slots": {
+          "D1": {
+            "dimension_id": 24,
+            "display_cache": 5.0,
+            "display_id": 11,
+            "label": [
+              0.06797,
+              0.0351,
+              0.0
+            ],
+            "owner_map": [
+              235,
+              236,
+              238,
+              240
+            ],
+            "style_word": 2147484711,
+            "value": 5
+          },
+          "D2": {
+            "dimension_id": 26,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.019,
+              0.0183,
+              0.0
+            ],
+            "owner_map": [
+              249,
+              250,
+              251,
+              252
+            ],
+            "style_word": 2147484711,
+            "value": 1
+          },
+          "D3": {
+            "dimension_id": 25,
+            "display_cache": 0.0217,
+            "display_id": 10,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              243,
+              244,
+              245,
+              246
+            ],
+            "style_word": 2147484775,
+            "value": 0.0217
+          },
+          "D4": {
+            "dimension_id": 27,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.02012,
+              0.03937,
+              0.0
+            ],
+            "owner_map": [
+              255,
+              256,
+              257,
+              258
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D5": {
+            "dimension_id": 28,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              265,
+              266,
+              267,
+              268
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D6": {
+            "dimension_id": 29,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              271,
+              272,
+              273,
+              274
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          }
+        },
+        "stream_lengths": [
+          23006,
+          23823
+        ]
+      },
+      "initial": {
+        "active_views": {
+          "D1": [
+            "*Front",
+            200
+          ],
+          "D3": [
+            "*Top",
+            201
+          ]
+        },
+        "catalog_ids": {
+          "*Front": 200,
+          "*Top": 201
+        },
+        "config": "497f2fdaaf3b83b5e95afcd58380237668544e871315864a12dd2c76f06bdcd0",
+        "display_frontier": 12,
+        "map": [
+          94,
+          277
+        ],
+        "pitch_frame_words": [
+          "0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "-0x1.374bc6a7ef9dbp-6",
+          "0x0.0p+0",
+          "0x1.2bd3c36113405p-6"
+        ],
+        "pitch_local_extent_m": 0.0217,
+        "pitch_midpoint_word": "0x1.0000000000001p-1",
+        "pitch_witnesses_m": [
+          [
+            0.019,
+            0.0183,
+            0.0
+          ],
+          [
+            0.0407,
+            0.0183,
+            0.0
+          ]
+        ],
+        "request_sha256": "3bf7a1a487c875c2f096bea132b3aff6316a6c78402707108be3138165fea18c",
+        "resolved": "c478c17b62e84bd8a8838562823f5529f1816cf0ff006f291171b89e73b38045",
+        "runtime_file_reads": 0,
+        "seed_and_sketch": [
+          212,
+          192
+        ],
+        "slots": {
+          "D1": {
+            "dimension_id": 24,
+            "display_cache": 4.0,
+            "display_id": 11,
+            "label": [
+              0.06797,
+              0.0351,
+              0.0
+            ],
+            "owner_map": [
+              235,
+              236,
+              238,
+              240
+            ],
+            "style_word": 2147484711,
+            "value": 4
+          },
+          "D2": {
+            "dimension_id": 26,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.019,
+              0.0183,
+              0.0
+            ],
+            "owner_map": [
+              249,
+              250,
+              251,
+              252
+            ],
+            "style_word": 2147484711,
+            "value": 1
+          },
+          "D3": {
+            "dimension_id": 25,
+            "display_cache": 0.0217,
+            "display_id": 10,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              243,
+              244,
+              245,
+              246
+            ],
+            "style_word": 2147484775,
+            "value": 0.0217
+          },
+          "D4": {
+            "dimension_id": 27,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.02012,
+              0.03937,
+              0.0
+            ],
+            "owner_map": [
+              255,
+              256,
+              257,
+              258
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D5": {
+            "dimension_id": 28,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              265,
+              266,
+              267,
+              268
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D6": {
+            "dimension_id": 29,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              271,
+              272,
+              273,
+              274
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          }
+        },
+        "stream_lengths": [
+          23006,
+          23823
+        ]
+      },
+      "pitch": {
+        "active_views": {
+          "D1": [
+            "*Front",
+            200
+          ],
+          "D3": [
+            "*Top",
+            201
+          ]
+        },
+        "catalog_ids": {
+          "*Front": 200,
+          "*Top": 201
+        },
+        "config": "497f2fdaaf3b83b5e95afcd58380237668544e871315864a12dd2c76f06bdcd0",
+        "display_frontier": 12,
+        "map": [
+          94,
+          277
+        ],
+        "pitch_frame_words": [
+          "0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "-0x1.374bc6a7ef9dbp-6",
+          "0x0.0p+0",
+          "0x1.2bd3c36113405p-6"
+        ],
+        "pitch_local_extent_m": 0.01893,
+        "pitch_midpoint_word": "0x1.ffffffffffffep-2",
+        "pitch_witnesses_m": [
+          [
+            0.019,
+            0.0183,
+            0.0
+          ],
+          [
+            0.03793,
+            0.0183,
+            0.0
+          ]
+        ],
+        "request_sha256": "9716b56cd071b6a94ce992ce39f6e33a93410a00d686f6d622a3a6fc2fb11ff7",
+        "resolved": "65155ad56fc5d51554ba85d6670c076e927ed80092cbfb8fd0256f540797fbeb",
+        "runtime_file_reads": 0,
+        "seed_and_sketch": [
+          212,
+          192
+        ],
+        "slots": {
+          "D1": {
+            "dimension_id": 24,
+            "display_cache": 4.0,
+            "display_id": 11,
+            "label": [
+              0.06797,
+              0.0351,
+              0.0
+            ],
+            "owner_map": [
+              235,
+              236,
+              238,
+              240
+            ],
+            "style_word": 2147484711,
+            "value": 4
+          },
+          "D2": {
+            "dimension_id": 26,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.019,
+              0.0183,
+              0.0
+            ],
+            "owner_map": [
+              249,
+              250,
+              251,
+              252
+            ],
+            "style_word": 2147484711,
+            "value": 1
+          },
+          "D3": {
+            "dimension_id": 25,
+            "display_cache": 0.01893,
+            "display_id": 10,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              243,
+              244,
+              245,
+              246
+            ],
+            "style_word": 2147484775,
+            "value": 0.01893
+          },
+          "D4": {
+            "dimension_id": 27,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.02012,
+              0.03937,
+              0.0
+            ],
+            "owner_map": [
+              255,
+              256,
+              257,
+              258
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D5": {
+            "dimension_id": 28,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              265,
+              266,
+              267,
+              268
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D6": {
+            "dimension_id": 29,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              271,
+              272,
+              273,
+              274
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          }
+        },
+        "stream_lengths": [
+          23006,
+          23823
+        ]
+      }
+    },
+    "top": {
+      "count": {
+        "active_views": {
+          "D1": [
+            "*Front",
+            202
+          ],
+          "D3": [
+            "*Left",
+            200
+          ]
+        },
+        "catalog_ids": {
+          "*Front": 202,
+          "*Left": 200,
+          "*Top": 201
+        },
+        "config": "f444b58fcfd57d0e873cea23f17286a061204dc108b9e325eaab344e0cd3fbb5",
+        "display_frontier": 12,
+        "map": [
+          95,
+          278
+        ],
+        "pitch_frame_words": [
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "-0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "-0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x1.be76c8b439581p-4",
+          "0x0.0p+0",
+          "0x1.a9fbe76c8b439p-5"
+        ],
+        "pitch_local_extent_m": 0.02137,
+        "pitch_midpoint_word": "0x1.0000000000000p-1",
+        "pitch_witnesses_m": [
+          [
+            0.052,
+            0.109,
+            0.0
+          ],
+          [
+            0.052,
+            0.08763,
+            0.0
+          ]
+        ],
+        "request_sha256": "08715ee2dfc3f7a1a9c22c99e6e7a25715312ab5ba5d5b4cc46b96cc9b5d91ec",
+        "resolved": "fe1d54c3dc32a002e196a7c26fafdebc7d754d85d421a13cfa61b5a5ce46b257",
+        "runtime_file_reads": 0,
+        "seed_and_sketch": [
+          213,
+          193
+        ],
+        "slots": {
+          "D1": {
+            "dimension_id": 24,
+            "display_cache": 5.0,
+            "display_id": 11,
+            "label": [
+              0.0552,
+              0.08781,
+              0.0
+            ],
+            "owner_map": [
+              236,
+              237,
+              239,
+              241
+            ],
+            "style_word": 2147484711,
+            "value": 5
+          },
+          "D2": {
+            "dimension_id": 26,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.052,
+              0.109,
+              0.0
+            ],
+            "owner_map": [
+              250,
+              251,
+              252,
+              253
+            ],
+            "style_word": 2147484711,
+            "value": 1
+          },
+          "D3": {
+            "dimension_id": 25,
+            "display_cache": 0.02137,
+            "display_id": 10,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              244,
+              245,
+              246,
+              247
+            ],
+            "style_word": 2147484775,
+            "value": 0.02137
+          },
+          "D4": {
+            "dimension_id": 27,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.031,
+              0.112,
+              0.0
+            ],
+            "owner_map": [
+              256,
+              257,
+              258,
+              259
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D5": {
+            "dimension_id": 28,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              266,
+              267,
+              268,
+              269
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D6": {
+            "dimension_id": 29,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              272,
+              273,
+              274,
+              275
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          }
+        },
+        "stream_lengths": [
+          23260,
+          23823
+        ]
+      },
+      "initial": {
+        "active_views": {
+          "D1": [
+            "*Front",
+            202
+          ],
+          "D3": [
+            "*Left",
+            200
+          ]
+        },
+        "catalog_ids": {
+          "*Front": 202,
+          "*Left": 200,
+          "*Top": 201
+        },
+        "config": "f444b58fcfd57d0e873cea23f17286a061204dc108b9e325eaab344e0cd3fbb5",
+        "display_frontier": 12,
+        "map": [
+          95,
+          278
+        ],
+        "pitch_frame_words": [
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "-0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "-0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x1.be76c8b439581p-4",
+          "0x0.0p+0",
+          "0x1.a9fbe76c8b439p-5"
+        ],
+        "pitch_local_extent_m": 0.02137,
+        "pitch_midpoint_word": "0x1.0000000000000p-1",
+        "pitch_witnesses_m": [
+          [
+            0.052,
+            0.109,
+            0.0
+          ],
+          [
+            0.052,
+            0.08763,
+            0.0
+          ]
+        ],
+        "request_sha256": "eee5bb1c23c44ab4227a12538d7947f63d40f12f3aee01b9cac25077579bbec8",
+        "resolved": "ba0bcdf9a9a56a5f1fbcd0bad78d2656d7c3943672a668144ca991a8fa23d9a9",
+        "runtime_file_reads": 0,
+        "seed_and_sketch": [
+          213,
+          193
+        ],
+        "slots": {
+          "D1": {
+            "dimension_id": 24,
+            "display_cache": 4.0,
+            "display_id": 11,
+            "label": [
+              0.0552,
+              0.08781,
+              0.0
+            ],
+            "owner_map": [
+              236,
+              237,
+              239,
+              241
+            ],
+            "style_word": 2147484711,
+            "value": 4
+          },
+          "D2": {
+            "dimension_id": 26,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.052,
+              0.109,
+              0.0
+            ],
+            "owner_map": [
+              250,
+              251,
+              252,
+              253
+            ],
+            "style_word": 2147484711,
+            "value": 1
+          },
+          "D3": {
+            "dimension_id": 25,
+            "display_cache": 0.02137,
+            "display_id": 10,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              244,
+              245,
+              246,
+              247
+            ],
+            "style_word": 2147484775,
+            "value": 0.02137
+          },
+          "D4": {
+            "dimension_id": 27,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.031,
+              0.112,
+              0.0
+            ],
+            "owner_map": [
+              256,
+              257,
+              258,
+              259
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D5": {
+            "dimension_id": 28,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              266,
+              267,
+              268,
+              269
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D6": {
+            "dimension_id": 29,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              272,
+              273,
+              274,
+              275
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          }
+        },
+        "stream_lengths": [
+          23260,
+          23823
+        ]
+      },
+      "pitch": {
+        "active_views": {
+          "D1": [
+            "*Front",
+            202
+          ],
+          "D3": [
+            "*Left",
+            200
+          ]
+        },
+        "catalog_ids": {
+          "*Front": 202,
+          "*Left": 200,
+          "*Top": 201
+        },
+        "config": "f444b58fcfd57d0e873cea23f17286a061204dc108b9e325eaab344e0cd3fbb5",
+        "display_frontier": 12,
+        "map": [
+          95,
+          278
+        ],
+        "pitch_frame_words": [
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "-0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "0x0.0p+0",
+          "-0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x1.be76c8b439581p-4",
+          "0x0.0p+0",
+          "0x1.a9fbe76c8b439p-5"
+        ],
+        "pitch_local_extent_m": 0.018930000000000002,
+        "pitch_midpoint_word": "0x1.0000000000000p-1",
+        "pitch_witnesses_m": [
+          [
+            0.052,
+            0.109,
+            0.0
+          ],
+          [
+            0.052,
+            0.09007,
+            0.0
+          ]
+        ],
+        "request_sha256": "ba327fb5526c85f23f714d4127b483131dd7d9b588e22deff167bf5f97123515",
+        "resolved": "e9c7784eab7c17cdb654e28563bdd2e9643b6356feea2c75840b8e6f22614e07",
+        "runtime_file_reads": 0,
+        "seed_and_sketch": [
+          213,
+          193
+        ],
+        "slots": {
+          "D1": {
+            "dimension_id": 24,
+            "display_cache": 4.0,
+            "display_id": 11,
+            "label": [
+              0.0552,
+              0.08781,
+              0.0
+            ],
+            "owner_map": [
+              236,
+              237,
+              239,
+              241
+            ],
+            "style_word": 2147484711,
+            "value": 4
+          },
+          "D2": {
+            "dimension_id": 26,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.052,
+              0.109,
+              0.0
+            ],
+            "owner_map": [
+              250,
+              251,
+              252,
+              253
+            ],
+            "style_word": 2147484711,
+            "value": 1
+          },
+          "D3": {
+            "dimension_id": 25,
+            "display_cache": 0.01893,
+            "display_id": 10,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              244,
+              245,
+              246,
+              247
+            ],
+            "style_word": 2147484775,
+            "value": 0.01893
+          },
+          "D4": {
+            "dimension_id": 27,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.031,
+              0.112,
+              0.0
+            ],
+            "owner_map": [
+              256,
+              257,
+              258,
+              259
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D5": {
+            "dimension_id": 28,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              266,
+              267,
+              268,
+              269
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          },
+          "D6": {
+            "dimension_id": 29,
+            "display_cache": 0.0,
+            "display_id": 0,
+            "label": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "owner_map": [
+              272,
+              273,
+              274,
+              275
+            ],
+            "style_word": 2147484775,
+            "value": 0.0
+          }
+        },
+        "stream_lengths": [
+          23260,
+          23823
+        ]
+      }
+    }
+  },
+  "guarded_workers": 20,
+  "heldout_inputs_read": 0,
+  "native_build": "34.5.2.0604",
+  "new_native_launches": 0,
+  "refusals": {
+    "alternate_sense": "ValueError: principal pattern pitch requires the measured signed Right or Top direction",
+    "detached_plane": "ValueError: pattern direction must use its actual registered principal plane",
+    "foreign_seed": "ValueError: principal pattern pitch requires its actual rectangular Front seed",
+    "missing_view": "ValueError: angular display requires one actual authored annotation view",
+    "wrong_basis": "ValueError: principal pattern display requires its actual canonical annotation frame",
+    "wrong_style": "ValueError: principal pattern requires the Front count and its signed pitch view"
+  },
+  "schema": "kit.sw2026.principal-pattern-drivers.v1",
+  "source_lock_sha256": "8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426",
+  "source_packet_sha256": "913426870bc64edb320e6a1508521c81da677a2ef4feef80b715c7859856c1bc",
+  "source_placement_sha256": "827baa41493ed7fc459dcb5d7b4485a733494cf20fd4fb8d9ecb5aee4a70f566",
+  "source_spec_sha256": "12ec4c846dda8384657480503218fd25540847fe8ff9b9c1860c92355e9de983",
+  "source_tool_sha256": {
+    "Tools/LinearPatternAuthor.py": "8d09ae0316b5d04ea8e6c2f47b0f838312a484ce647fcc7ceee6ffa5ede07d37",
+    "Tools/LinearPatternSpecs.py": "89e64e2acca920084bf4211ba0e3e59969b6152c4279751aafe7ae4e3379c6b5"
+  },
+  "tool_sha256": "11f14064fb92525ab00ee903d23e8104ff20529abf2b768a07d49c4aae7a2b7e",
+  "writer_files_published": 0
+}

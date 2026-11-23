@@ -31,6 +31,9 @@ from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.PatAnnoVa
 from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.PatDriveStyle import (
     PatDriveStyle,
 )
+from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.PrincDrive import (
+    PrincDrive,
+)
 from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.SetPatPointMut import (
     SetPatPointMut,
 )
@@ -52,6 +55,7 @@ def MakePatDrive(
     IsCount: bool,
     Witnesses: tuple[KDatumVector, KDatumVector],
     LinearValue: LinearStyle,
+    PrincipalValue: PrincDrive | None,
 ) -> DimensionGraph:
     Parameter = ArchiveNode(
         RuntimeClass("moIntegerParameter_c" if IsCount else "moLengthParameter_c", 1),
@@ -73,7 +77,11 @@ def MakePatDrive(
     Fields = MakeCommonView(
         Handle, StyleValue.DesignIntent, StyleValue.SelectedLeader, 0 if IsCount else 18
     )
-    Views = PatAnnoValues(ModelValue, StyleValue)
+    Views = PatAnnoValues(
+        ModelValue,
+        StyleValue,
+        PitchView=PrincipalValue.PitchView if PrincipalValue else None,
+    )
     Fields.update(owner=OwnerValue, f58=DisplayId, n2b0=len(Views), f2b0=Views)
     Fields["f6a0"] = {
         **RequireRecord(Fields["f6a0"]),
@@ -91,7 +99,7 @@ def MakePatDrive(
     if StyleValue.NameValue == "D1":
         Fields["fad0"] = float(DriveValue)
     if StyleValue.NameValue == "D3":
-        SetPatPointMut(Dimension, Fields, Witnesses)
+        SetPatPointMut(Dimension, Fields, Witnesses, PrincipalValue)
     Display = ArchiveNode(
         RuntimeClass("moDisplayDim_c" if IsCount else "moDisplayDistanceDim_c", 1),
         Fields,

@@ -20,6 +20,9 @@ from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.PatDriveS
     KPatDriveSlots,
     PatDriveStyle,
 )
+from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.PrincDrive import (
+    PrincDrive,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
@@ -36,8 +39,12 @@ def PutPatDriveMut(
     PitchValue: float,
     Witnesses: tuple[KDatumVector, KDatumVector],
     Allocator: PersistentIds,
+    *,
+    PrincipalValue: PrincDrive | None = None,
 ) -> tuple[DimensionGraph, ...]:
-    CheckPatStyles(Styles)
+    CheckPatStyles(
+        Styles, PitchView=PrincipalValue.PitchView if PrincipalValue else None
+    )
     Fields = RequireNode(OwnerValue, "moLPattern_c").FieldsValue
     if (
         Fields.get("owner") is not ModelValue
@@ -66,6 +73,7 @@ def PutPatDriveMut(
             IsCount,
             Witnesses,
             LinearValue,
+            PrincipalValue,
         )
         for StyleValue, DriveValue, (_, NameValue, IsCount) in zip(
             Styles, Values, KPatDriveSlots, strict=True

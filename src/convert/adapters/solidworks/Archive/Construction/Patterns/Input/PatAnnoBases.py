@@ -7,3 +7,6 @@ KPatAnnoTop: KAnnoBasis = ((1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (0.0, 1.0, 0.0))
 
 # the live angle and count displays require the canonical back orientation
 KPatAnnoBack: KAnnoBasis = ((-1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, -1.0))
+
+# pitch in the reversed top profile is visible in its canonical left annotation
+KPatAnnoLeft: KAnnoBasis = ((0.0, 0.0, 1.0), (0.0, 1.0, 0.0), (-1.0, 0.0, 0.0))
