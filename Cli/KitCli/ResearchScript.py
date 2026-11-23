@@ -1,8 +1,9 @@
+import sys as System
 from pathlib import Path as FilePath
-from sys import platform as KPlatform
 
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.ResearchTools import KResearchScripts
+from KitCli.CanWindowsStop import CanWindowsStop
 
 
 # trusted checkout validation keeps research execution inside the selected source tree
@@ -36,6 +37,13 @@ def ResearchScript(Options: CliOptions) -> tuple[FilePath, FilePath]:
         )
     if not ScriptPath.resolve().is_relative_to(RootPath):
         raise ValueError("Research script must remain inside the selected checkout")
-    if Options.ResearchTool == "supervisor" and KPlatform == "win32":
-        raise ValueError("The PR94 research supervisor requires Linux or macOS")
+    if (
+        System.platform == "win32"
+        and Options.ResearchTool == "supervisor"
+        and not CanWindowsStop(ScriptPath)
+    ):
+        raise ValueError(
+            "Selected supervisor lacks Windows console shutdown protocol 1; "
+            + "update the selected --root research checkout before running it"
+        )
     return RootPath, ScriptPath

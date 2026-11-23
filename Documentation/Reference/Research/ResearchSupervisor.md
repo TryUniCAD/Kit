@@ -16,6 +16,9 @@ Production conversion must not import this research code.
 
 You need Python 3.11 or later on Linux or macOS.
 Windows requires Windows 10 or newer, Python 3.14 and the existing locked `pywin32` development extra.
+The installed `kit research --root CHECKOUT supervisor ...` command supports this Windows path.
+Its launcher forwards handled console cancellation to the supervisor and waits for worker cleanup.
+Use a shared Windows console for this cancellation path. Forced launcher termination still requires lease and recovery controls.
 The Windows path uses private Job Objects, restricted handle inheritance and process creation-time fencing.
 An owned built-in A03 supervisor reuses one bounded Windows helper for single-job claims. [Warm Windows claim helper](../../Changes/Research/Supervisor/WindowsWarmClaim.md)
 Linux and macOS retain their process-group and `wait4` paths.

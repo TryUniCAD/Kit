@@ -1,0 +1,30 @@
+{
+  "job": "solidworks-008",
+  "revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "case": {
+    "id": "solidworks-008",
+    "application": "solidworks",
+    "plane": "top",
+    "reverse": false,
+    "axis": "width",
+    "parameters_mm": {
+      "width": 16.2,
+      "height": 20,
+      "depth": 10
+    },
+    "split": "discovery",
+    "script_sha256": "6bac0b85efb00fc7b9bf9e4f96a3eac3ad54ef7c6182f0d7b3b198dc398d86a9"
+  },
+  "model_advice": false,
+  "native_status": "completed",
+  "started_at": 1795440771.9199638,
+  "finished_at": 1795440774.9144452,
+  "semantic_acceptance": false,
+  "vendor_conversion_acceptance": false,
+  "recovered_without_native_resubmission": true,
+  "original_controller_state": "failed; attempt budget exhausted after desktop pause invalidated local lease",
+  "original_controller_status_sha256": "48fdb2315fb40996bd1e6ac884ab37d563b784350086235d505afb34e82c00e7",
+  "timestamp_limit": "started_at/finished_at describe artifact retrieval and decoding, not original native execution",
+  "original_receipt_sha256": "e55b9832063d1ca45cd7f4c114209129f288eed311905329b1f45d8cd7ba32db",
+  "command_records": []
+}

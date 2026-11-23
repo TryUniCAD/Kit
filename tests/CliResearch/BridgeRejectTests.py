@@ -1,6 +1,6 @@
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
-from sys import executable as KPythonPath, platform as KPlatform
+from sys import executable as KPythonPath
 
 from pytest import mark as TestMark
 
@@ -54,7 +54,4 @@ def CheckRootGuard(TmpPath: FilePath) -> None:
 # supervisor availability must reflect the operating systems that support durable session ownership
 def CheckPoolHost(TmpPath: FilePath) -> None:
     Result = ResearchCli(TmpPath, "supervisor", "--help")
-    if KPlatform == "win32":
-        assert Result.returncode == 1 and "Linux or macOS" in Result.stderr
-        return
     assert Result.returncode == 0 and "--config" in Result.stdout

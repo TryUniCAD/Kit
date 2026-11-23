@@ -10,11 +10,22 @@ KRequiredNotice = (
 )
 
 
+# historical legal ownership remains mandatory when the workspace explicitly requires its original notice
+KOriginalNotice = (
+    KRequiredNotice[0],
+    "# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin",
+    *KRequiredNotice[2:],
+)
+
+
 # only the complete leading notice may survive because misplaced or altered commentary remains prohibited
 def GetNoticeLines(SourceText: str) -> set[tuple[int, int]]:
     SourceLines = SourceText.replace("\r\n", "\n").split("\n")
     FirstLine = int(SourceLines[0].startswith("#!"))
     AfterLine = FirstLine + len(KRequiredNotice)
-    if tuple(SourceLines[FirstLine:AfterLine]) != KRequiredNotice:
+    if tuple(SourceLines[FirstLine:AfterLine]) not in (
+        KRequiredNotice,
+        KOriginalNotice,
+    ):
         return set()
     return {(LineNum, 0) for LineNum in range(FirstLine + 1, AfterLine + 1)}

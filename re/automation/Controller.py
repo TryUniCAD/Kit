@@ -1,5 +1,4 @@
 import argparse
-import json
 import sqlite3
 import sys
 from pathlib import Path
@@ -14,6 +13,7 @@ from PrioritySchedule import schedule
 from Records import StaleLease, canonical, read_record
 from RecoveryFence import StaleOwner, check_owner, owner_digest, rotate_owner
 from SingleClaim import claim_to_file
+from SharedQueue.Commands import add_commands as add_shared_commands, dispatch as shared_dispatch
 
 
 def main():
@@ -22,6 +22,7 @@ def main():
     parser.add_argument("--store", type=Path, required=True)
     parser.add_argument("--owner")
     commands = parser.add_subparsers(dest="command", required=True)
+    add_shared_commands(commands)
     initialize = commands.add_parser("init")
     initialize.add_argument("--max-running", type=int, default=4)
     ownership = commands.add_parser("rotate-owner")
@@ -90,6 +91,8 @@ def main():
                 response = rotate_owner(ledger, args.new_owner)
             elif args.command == "init":
                 response = {"store_version": 4, "max_running": ledger.db.execute("SELECT value FROM settings WHERE key='max_running'").fetchone()[0]}
+            elif args.command in {"enqueue", "cancel-request", "queue-status", "queue-config"}:
+                response = shared_dispatch(ledger, args)
             elif args.command == "bind":
                 response = ledger.bind(args.name, args.file)
             elif args.command == "bind-batch":
