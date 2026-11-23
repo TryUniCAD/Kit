@@ -71,6 +71,10 @@ class SldprtWriter(StockEndWriter, PairProtocol):
     def TypedMaterials(self) -> bool:
         return True
 
+    # unqualified material documents must retain the registry material rejection
+    def SupportsMatDoc(self, DocumentValue: CadDocument) -> bool:
+        return CanWriteMatDoc(DocumentValue)
+
     # the registry needs independent write metadata to retain the existing assembly and drawing reader aliases
     @property
     def info(self) -> AdapterInfo:
@@ -82,7 +86,7 @@ class SldprtWriter(StockEndWriter, PairProtocol):
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
-        return CanWriteMatDoc(DocValue) and CanWriteSldDoc(DocValue, Target)
+        return self.SupportsMatDoc(DocValue) and CanWriteSldDoc(DocValue, Target)
 
     # the public structural writer protocol uses these keyword names across plugins and conversion
     def write(
