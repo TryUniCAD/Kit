@@ -57,7 +57,16 @@ def pinned_content(root, manifest, entries, asset_path):
 
 
 def source_digests(root):
-    return {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted((root / "src").rglob("*.py"))}
+    top = os.path.join(root, "src")
+    paths = []
+    for directory, directories, names in os.walk(top):
+        relative = "src" + directory[len(top):]
+        paths.extend(os.path.join(relative, name) for name in directories + names if os.path.normcase(name).endswith(".py"))
+    digests = {}
+    for path in sorted(paths, key=lambda path: os.path.normcase(path).split(os.sep)):
+        with open(os.path.join(root, path), "rb", buffering=0) as handle:
+            digests[path] = hashlib.sha256(handle.read()).hexdigest()
+    return digests
 
 
 def read_document(content, allow_partial):

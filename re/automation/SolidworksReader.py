@@ -14,6 +14,19 @@ from Corpus import git, read_tree
 from ReaderEvidence import reader_evidence
 
 
+def source_digests(root):
+    top = os.path.join(root, "src")
+    paths = []
+    for directory, directories, names in os.walk(top):
+        relative = "src" + directory[len(top):]
+        paths.extend(os.path.join(relative, name) for name in directories + names if os.path.normcase(name).endswith(".py"))
+    digests = {}
+    for path in sorted(paths, key=lambda path: os.path.normcase(path).split(os.sep)):
+        with open(os.path.join(root, path), "rb", buffering=0) as handle:
+            digests[path] = hashlib.sha256(handle.read()).hexdigest()
+    return digests
+
+
 def decode(root, manifest_path, asset_path, configuration, output):
     if output.exists() or output.is_symlink():
         raise ValueError("output already exists; select an unused directory")
@@ -44,8 +57,7 @@ def decode(root, manifest_path, asset_path, configuration, output):
     content = git(root, "cat-file", "blob", asset["git_blob"])
     if len(content) != size or hashlib.sha256(content).hexdigest() != asset["sha256"] or content[:16].hex() != asset["prefix_hex"]:
         raise ValueError("asset bytes differ from the pinned digest/prefix")
-    sdk_paths = sorted((root / "src").rglob("*.py"))
-    source_files = {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest() for path in sdk_paths}
+    source_files = source_digests(root)
     tool_files = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest() for name in ("SolidworksReader.py", "ReaderEvidence.py", "Corpus.py", "Evidence.py")}
     source_digest = hashlib.sha256(json.dumps(source_files, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     options = {"configuration": configuration, "strict": True, "include_brep": True, "include_tessellation": True}
@@ -82,7 +94,7 @@ def decode(root, manifest_path, asset_path, configuration, output):
         rebuilt.assert_valid()
         if rebuilt.to_json(indent=None).encode("utf-8") != encoded:
             raise ValueError("neutral serialization changed after typed reconstruction")
-        if source_files != {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest() for path in sdk_paths}:
+        if source_files != source_digests(root):
             raise ValueError("SDK source changed during decoding; retry against a stable checkout")
         wire = json.loads(encoded)
         receipt = {
