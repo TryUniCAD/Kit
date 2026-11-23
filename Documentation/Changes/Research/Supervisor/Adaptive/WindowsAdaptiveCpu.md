@@ -22,8 +22,8 @@ On a 20-CPU Windows host, the existing policy calculated 18 slots with two reser
 A grouped 64-file probe completed in 23.34 seconds and peaked at six overlapping readers.
 It averaged 35.2 percent host CPU activity and retained at least 11.99 GiB of available memory.
 That short probe ended before the adaptive interval could elapse.
-The Windows process case requires the queued successor to start before the first worker finishes.
-It also requires an upward adjustment under the measured headroom guards.
+The Windows process case requires an upward adjustment under the measured headroom guards.
+The queued successor must start after that adjustment and before the first worker finishes.
 
 ### Sustained Windows replay
 

@@ -50,4 +50,4 @@ def CheckRealMinute(RequireCpu: bool = False) -> None:
             assert Started[1]["at"] < HoldFinished["at"]
         assert Harness.ReadJob("adaptive:hold")["state"] == "completed"
         assert Harness.ReadJob("adaptive:next")["state"] == "completed"
-        CheckAdaptive(Events, RequireCpu)
+        CheckAdaptive(Events, Started[1]["at"] if RequireCpu else None)
