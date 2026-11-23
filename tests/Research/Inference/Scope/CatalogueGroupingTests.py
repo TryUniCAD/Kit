@@ -42,7 +42,10 @@ def CheckGrouping(TmpPath: FilePath) -> None:
         for Event in Events
         if Event.get("event") == "started" and Event["group_size"] > 1
     ]
-    assert GroupSizes and max(GroupSizes) <= 4
+    Runners = DecodeJson((RunPath / "Registry.json").read_bytes())["runners"]
+    MemberLimit = Runners["inference.rescan"]["group_max_members"]
+    assert MemberLimit == 8
+    assert GroupSizes and max(GroupSizes) <= MemberLimit
     Report = DecodeJson((RunPath / "CatalogueResult.json").read_bytes())
     Scope = Report["scopes"]["p03-blind-boss.solidworks"]
     assert Scope["status"] == "completed"
