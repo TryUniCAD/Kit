@@ -293,6 +293,8 @@ Codex owns this separately requested programme on `codex/bulk-semantic-compariso
 Delivery is the separate normal [PR #273](https://github.com/TryUniCAD/Kit/pull/273) for the [bulk comparison command](../../Tasks/CompareDecodedDocuments.md).
 Dependencies are the existing A06a comparator and interchange codec, integrated through merged PR #158 (`22075ee5e77c3db9b56bd8c2bc8c415d6baf237d`).
 Scope is bulk comparison of existing decoded JSON, directory or manifest pairing, retained correspondence evidence, and outcome summaries.
+Delivery continuation uses the isolated `codex/bulk-comparison-delivery` branch and preserves the same PR head.
+Follow-up scope includes real committed export envelopes, mixed-error exit precedence, and exact topology unit factors.
 The exit requires process-boundary evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, and current-head CI and configured review.
 Status is checking. Scoped formatting, steering, Pyright, path policy, and Python 3.11 syntax checks passed locally.
 Remote process verification, current-head CI, configured review, and merge-group acceptance remain pending.

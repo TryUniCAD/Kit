@@ -32,6 +32,10 @@ Native acceptance and independent semantic qualification are not established.
 
 Process integration coverage invokes the actual command against codec-serialized documents.
 It covers renamed identities, mixed outcomes, unit normalization, manifest validation, ambiguity, work budgets, sidecar selection, and overwrite refusal.
+The real-export case consumes the committed Fusion and SOLIDWORKS feature-ladder JSON through the same process boundary.
+Mixed-error cases retain later unresolved reports while requiring input-error exit precedence.
+Missing-counterpart cases retain available file fingerprints without treating incomplete pairs as decoded documents.
+The [exact unit-factor correction](ExactTopologyUnitFactors.md) adds zero-tolerance topology scaling controls.
 The tests use the existing complete-suite collection, merge-queue planner, shards, and report.
 No new workflow or CI job is introduced.
 Local test execution has not been performed.

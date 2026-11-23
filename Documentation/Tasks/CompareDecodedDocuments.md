@@ -99,6 +99,8 @@ Inspect these artifacts:
 A feature correspondence can contain differences.
 It does not mean the features are equal.
 The existing engine compares supported parameters, planes, sketches, constraints, selections, timelines, bodies, and materials.
+Declared decimal length factors are converted to exact rational values before deriving area and volume factors.
+This preserves equivalent feet/millimetre topology measurements at zero tolerance; it cannot recover precision already lost in source values.
 Full B-rep, meshes, retained payloads, and assembly graphs remain outside its semantic comparison scope.
 Unsupported domains remain explicit issues.
 
@@ -147,5 +149,6 @@ Do not remove source evidence or increase tolerances merely to obtain equality.
 
 - [Semantic comparison contract](../Reference/Research/SemanticComparison.md)
 - [Bulk programme change](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md)
+- [Exact topology unit factors](../Changes/Research/Readers/Comparison/ExactTopologyUnitFactors.md)
 - [Reader sidecar and path gotcha](../Gotchas/Research/Comparison/DecodedExportPairing.md)
 - [CAD acceptance criteria](../Reference/Operations/CadSuccessCriteria.md)
