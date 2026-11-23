@@ -16,6 +16,8 @@ from OutputManifest import InvalidOutput, output_manifest
 from PriorityBacklog import fill_backlog
 from PriorityClaims import record_turn, runnable_jobs
 from Records import StaleLease, bounded, canonical, digest, label, read_record, reason_text, specification
+from SharedQueue.State import guard_spec, installed as shared_installed
+from SharedQueue.Lifecycle import reconcile_cancelled, reconcile_members
 
 
 def named_inputs(spec):
@@ -193,6 +195,7 @@ class Ledger:
         return {"pool": name, "kinds": kinds}
 
     def store_spec(self, spec):
+        guard_spec(self, spec)
         encoded = canonical(spec)
         previous = self.db.execute("SELECT definition_hash,length(CAST(definition AS BLOB)) AS size FROM jobs WHERE id=?", (spec["id"],)).fetchone()
         if previous is not None and previous[0] == digest(spec):
@@ -231,7 +234,10 @@ class Ledger:
             raise ValueError("store job metadata limit exceeded")
         for job_id, parents in checks:
             self.check_edges(job_id, parents)
-        self.refresh()
+        if shared_installed(self):
+            reconcile_members(self)
+        else:
+            self.refresh()
         return {"submitted": len(specs)}
 
     def submit(self, value):
@@ -363,6 +369,8 @@ class Ledger:
             )
             self.event(name, "invalidated", {"fingerprint": fingerprint})
             row = self.db.execute("SELECT * FROM jobs WHERE id=?", (name,)).fetchone()
+        if reconcile_cancelled(self, row):
+            return
         if row["state"] == "running" and min(row["lease_until"], row["deadline"]) <= time.time():
             self.expire(row, spec)
             row = self.db.execute("SELECT * FROM jobs WHERE id=?", (name,)).fetchone()

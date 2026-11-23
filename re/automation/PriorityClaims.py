@@ -11,6 +11,7 @@ import time
 from FusionRestartPairs import excludes_claim, installed as fusion_reservations
 from FusionColdStartAdmission import excludes_claim as excludes_cold_claim, installed as cold_reservations
 from SolidWorksBatchAdmission import ClaimExclusion, IsAdmissionInstalled
+from SharedQueue.Ranking import rank_order
 
 
 # Version checks keep old controller stores on their original claim path.
@@ -53,7 +54,7 @@ def runnable_jobs(ledger, pool, *, grouped=False):
         return ledger.db.execute(
             "SELECT j.*, NULL AS schedule_lane, NULL AS schedule_family, NULL AS schedule_installation FROM jobs j "
             + where
-            + "ORDER BY j.created,j.id"
+            + "ORDER BY " + rank_order(ledger) + "j.created,j.id"
             + limit,
             params,
         )
@@ -89,6 +90,7 @@ def runnable_jobs(ledger, pool, *, grouped=False):
               )
         ))
         ORDER BY schedule_lane,COALESCE(turn.attempt,0),
+            {rank_order(ledger)}
             CASE WHEN p.job_id IS NOT NULL THEN (
                 SELECT COUNT(*) FROM dependencies d JOIN jobs child ON child.id=d.job_id
                 WHERE d.dependency=j.id AND child.state IN ('queued','waiting_evidence','waiting_ci','waiting_application')
