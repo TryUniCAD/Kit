@@ -2,10 +2,8 @@ from dataclasses import replace as ChangeRecord
 
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.Distance.DistanceCut import DistanceCut
-from tests.Research.Archives.Comparison.BulkTypedDocuments import (
-    MakeCutDoc,
-    MakeOutputDoc,
-)
+from tests.Research.Archives.Comparison.BulkCutDocument import MakeCutDoc
+from tests.Research.Archives.Comparison.BulkTypedDocuments import MakeOutputDoc
 
 
 # ordered body operands need two unchanged anchored bodies so replacement checks cannot conceal ordering regressions

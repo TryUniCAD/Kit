@@ -37,6 +37,9 @@ Mixed-error cases retain later unresolved reports while requiring input-error ex
 Missing-counterpart cases retain available file fingerprints without treating incomplete pairs as decoded documents.
 Directory discovery streams entries within its fixed discovery budget instead of first materializing each directory.
 Typed-reference cases cover feature output bodies, cut targets and face-offset operands, preserving collection order and refusing dangling identities.
+Order-only controls reverse unchanged body identities and require indexed reference differences.
+The discovery process witness counts reads delegated to the real filesystem iterator and requires refusal after 100000 entries from a larger directory.
+Reusable typed-document builders and process helpers live in focused modules with direct imports.
 The [exact unit-factor correction](ExactTopologyUnitFactors.md) adds zero-tolerance topology scaling controls.
 The tests use the existing complete-suite collection, merge-queue planner, shards, and report.
 No new workflow or CI job is introduced.

@@ -8,12 +8,10 @@ from interchange.serialization.JsonCodec import DumpJson
 from tests.Research.Archives.Comparison.BulkOrderDocuments import MakeOrderDocs
 from tests.Research.Archives.Comparison.BulkProcess import RunBulk
 from tests.Research.Archives.Comparison.BulkTypedProcess import RunTypedBatch
-from tests.Research.Archives.Comparison.BulkTypedDocuments import (
-    LoseTypedRef,
-    MakeCutDoc,
-    MakeOffsetDoc,
-    MakeOutputDoc,
-)
+from tests.Research.Archives.Comparison.BulkCutDocument import MakeCutDoc
+from tests.Research.Archives.Comparison.BulkMissingReference import LoseTypedRef
+from tests.Research.Archives.Comparison.BulkOffsetDocument import MakeOffsetDoc
+from tests.Research.Archives.Comparison.BulkTypedDocuments import MakeOutputDoc
 from tests.Research.Archives.Comparison.SemanticComparisonTests import WriteDocument
 
 
