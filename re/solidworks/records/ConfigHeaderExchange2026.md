@@ -45,4 +45,32 @@ python3.14 -I -B re/tooling/sw2026/para/concentric/ProveConfigHeaderExchange.py 
   --archive-image /path/to/exact/sldarchiveu.dll > /tmp/ConfigHeaderExchange01.json
 ```
 
-Model exchange generation, explicit platform or family/representation variants, and new native lifecycle and held-out qualification remain separate work.
+## Generated parent
+
+The [configuration store composer](../../tooling/sw2026/para/concentric/ConfigHeaderExchangeStore.py)
+reads the lightweight directory from the generated parent streams and joins
+its single entry to the actual active manager. An explicitly supplied
+publication wall clock and separately allocated UUID own the store creation
+event. The [shared database codec](UnqliteExchangeStore2026.md) derives the
+database framing, hashes, links and free space from that event and the
+single generated map.
+
+In the twelve disclosed archives, recomputing the database from its actual
+configuration and the observed volatile clock and UUID reproduces the entire
+stream byte for byte. Two isolated workers take the same neutral assembly
+and two independently supplied creation events over stdin. Both workers
+produce identical results for each event. The generated parents carry 33
+streams, preserve the other 32 and the complete child, and have zero runtime
+input accesses. A repeated publication over the same stream refuses. The
+two event choices change the whole parent and preserve the configuration
+map. Ten original D01 source members still need construction or admission
+evidence. The second model exchange database, platform and family or
+representation variants, native lifecycle and held-out qualification are open.
+
+[Generated parent receipt](../measurements/2026/D01ConfigHeaderStore01.json) · [Proof driver](../../tooling/sw2026/para/concentric/ProveD01ConfigHeaderStore.py)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/para/concentric/ProveD01ConfigHeaderStore.py \
+  --disclosures /absolute/path/to/Oracle121Takeover \
+  --output /tmp/UnusedD01ConfigHeaderStore.json
+```
