@@ -302,6 +302,14 @@ Subsequent ordering, streaming-witness and helper changes require fresh revision
 Native merge-group acceptance remains pending and is separate from a manual source audit.
 This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
 
+#### A06g CLI follow-up
+
+Codex owns the shorter research command on `codex/bulk-comparison-cli`.
+The [CLI follow-up PR](https://github.com/TryUniCAD/Kit/pulls?q=is%3Apr+head%3Acodex%2Fbulk-comparison-cli) targets the PR #273 comparator branch while that dependency is open.
+The scope is positional folders, manifest mode, shared explicit units, short output syntax and trusted checkout dispatch.
+The exit requires installed-command process evidence for both pairing modes, option refusal, older checkout diagnostics and current-revision CI and review.
+See the [bulk comparison CLI change](../../Changes/Commands/BulkComparisonCli.md).
+
 ### Existing comparison implementation
 
 The [portable graph comparator](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md) reads sealed neutral documents through the actual codec and validator.

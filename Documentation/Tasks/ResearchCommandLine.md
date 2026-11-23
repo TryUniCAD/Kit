@@ -27,6 +27,22 @@ Replace it with its absolute path; the installed CLI checkout can be different.
 Replace example output paths with unused directories that you own.
 Preserve the original CAD files.
 
+## Compare decoded JSON exports
+
+From a trusted checkout with the comparison command, run:
+
+```sh
+kit research --root . compare SolidWorks Fusion --unit mm -o NewComparison
+kit research --root . compare --manifest /path/to/Pairs.json --unit mm -o /path/to/NewComparison
+```
+
+`SolidWorks` and `Fusion` are folders of decoded JSON. Files pair by matching relative paths.
+Either folder can go first. The first is labeled left in reports and the second is labeled right.
+Choose a new output directory for each run.
+Declare the actual geometry units. Use `--left-unit` and `--right-unit` instead of `--unit` when the sides differ.
+The command reads existing decoded JSON, writes reports and preserves the comparator's exit status.
+See the [comparison procedure](CompareDecodedDocuments.md) for pairing rules, reports and exit codes.
+
 ## Decode committed inputs
 
 Decode a pinned SOLIDWORKS part:

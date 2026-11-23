@@ -1,5 +1,15 @@
 # Compare decoded documents in bulk
 
+From a trusted checkout, compare folders of decoded JSON:
+
+```sh
+kit research --root . compare SolidWorks Fusion --unit mm -o NewComparison
+```
+
+The command pairs files by matching relative paths.
+Either folder can go first. The first is labeled left in reports and the second is labeled right.
+Use the geometry unit declared for your exports and choose a new output directory.
+
 ## Purpose
 
 Compare existing Kit `CadDocument` JSON exports with one standalone command.
@@ -9,13 +19,16 @@ Feature correspondence uses typed fields and relationships, independently of nat
 
 ## Before you start
 
-Use a trusted source checkout containing `re/automation/CompareDecoded.py`.
-Install the locked Python environment with `uv sync --frozen --no-default-groups`.
-The standalone programme is source tooling, outside the installed wheel.
+Use a trusted source checkout containing this version of the comparison programme.
+Install Kit from this revision with `uv tool install .`.
+The installed launcher requires `--root` and runs the comparator from that checkout.
+You can also use `python -m KitCli research` in the installed environment.
+The comparator itself is source tooling outside the installed wheel.
 Raw vendor record dumps and reader receipts are not `CadDocument` inputs.
 
 Identify which exports describe corresponding source designs.
-Declare each side's geometry unit from the decoder contract.
+Use `--unit` when both sides share a geometry unit.
+For different units, use `--left-unit` and `--right-unit` together in place of `--unit`.
 Display units alone do not establish geometry units.
 Supported geometry units are `mm`, `cm`, `m`, `in`, and `ft`.
 
@@ -56,7 +69,7 @@ Pair identities describe the requested comparison; they do not select feature co
 Run from the trusted checkout:
 
 ```sh
-uv run --frozen --no-default-groups python re/automation/CompareDecoded.py --manifest /path/to/Pairs.json --left-unit mm --right-unit mm --output /path/to/NewComparison
+kit research --root . compare --manifest /path/to/Pairs.json --unit mm -o /path/to/NewComparison
 ```
 
 Replace the example paths with your actual paths.
@@ -65,13 +78,7 @@ The output directory must be unused.
 
 ### Pair matching directory layouts
 
-For export folders with matching relative paths, use directory mode:
-
-```sh
-uv run --frozen --no-default-groups python re/automation/CompareDecoded.py --left /path/to/Solidworks --right /path/to/Fusion --left-unit mm --right-unit mm --output /path/to/NewComparison
-```
-
-`Solidworks/Case/Part.json` pairs with `Fusion/Case/Part.json`.
+`SolidWorks/Case/Part.json` pairs with `Fusion/Case/Part.json`.
 Files without a counterpart remain `missing_input` outcomes.
 The programme does not infer matching designs from unrelated filenames.
 Feature matching happens within each requested document pair.
@@ -84,6 +91,11 @@ Patterns use relative `Path.match` semantics.
 Add `--tolerances /path/to/Tolerances.json` to use your declared absolute limits.
 Add `--max-candidates 50000` to change each pair's correspondence budget.
 The supported candidate range is 1 through 100000; the default is 20000.
+
+Run `kit research --root . compare --help` for all options.
+Existing direct invocations of `re/automation/CompareDecoded.py` still accept `--left`, `--right`, `--output` and both per-side unit flags.
+Use one pairing mode per run.
+Relative CLI inputs and outputs resolve from the command's working directory.
 
 ## Expected result
 

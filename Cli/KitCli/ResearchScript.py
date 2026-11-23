@@ -23,6 +23,10 @@ def ResearchScript(Options: CliOptions) -> tuple[FilePath, FilePath]:
         or not (RootPath / "src" / "convert").is_dir()
         or not ScriptPath.is_file()
     ):
+        if Options.ResearchTool == "compare":
+            raise ValueError(
+                "Research compare requires a trusted checkout containing re/automation/CompareDecoded.py"
+            )
         raise ValueError(
             "Selected checkout does not contain the requested PR94 research tool"
         )
