@@ -17,7 +17,7 @@ The owner transaction, group recovery and durable singleton retry markers retain
 The baseline uses `14570404846c8aa1f90b02e68d6f70a419719ca7` and 64 distinct pinned Fusion discovery archives from 36 study families.
 The 7,130,847 input bytes match the committed Git blobs and the pinned corpus at `74a0bc353421c25f7a6c539897baadf593a05766`.
 Selection excluded nondiscovery splits and their byte aliases.
-The older 9,670,016-byte private manifest was unavailable. The [historical pair](GroupedOfflineCalibration.md) is a separate measurement.
+The older 9,670,016-byte private manifest was unavailable. The [historical pair](../GroupedOfflineCalibration.md) is a separate measurement.
 
 The host used an Intel Core i9-10900, 20 logical CPUs, Windows build 26200, Python 3.14.6 and pywin32 312.
 Each arm used a fresh store, one physical slot, 20 logical slots, one worker thread and a strict 16 MiB footprint limit.
@@ -66,7 +66,7 @@ The first three arms ran in ascending order. The cap-20 arm ran in a later timin
 Host CPU busy time, including the benchmark, was 15.20%, 21.14%, 13.87% and 21.58% respectively.
 An earlier uninstrumented four-member arm took 160.005 seconds and produced the same output digest.
 The calibration has no rescan assessment dependencies. It measures one host and one physical slot.
-See [Windows calibration instrumentation](../../../Gotchas/Research/Supervisor/WindowsCalibrationSupervisorEntry.md) for the probe location.
+See [Windows calibration instrumentation](../../../../Gotchas/Research/Supervisor/WindowsCalibrationSupervisorEntry.md) for the probe location.
 
 ## Matched controller replay
 
@@ -111,9 +111,30 @@ Available memory and host CPU observations show spare resources during this shor
 The probe does not establish a sustained throughput recommendation or a Windows adaptive ramp gain.
 The physical probe SHA-256 is `288ff9cf2b24328ae8dc6288ccc25f28fc5a9c1c9eef859e7393555abb58cf24`.
 
-The calibration and physical probe use a fixed Fusion archive reader workload.
-The pinned catalogue has eight P03 archives per format, and the catalogue passes scope dependencies between them.
-It cannot reproduce 16-member or 20-member groups with those scopes.
-Matched catalogue throughput remains unverified.
+## P03 catalogue rescan replay
 
-[Research supervisor guide](../../../Reference/Research/ResearchSupervisor.md#optional-grouped-sessions)
+The matched replay used the SOLIDWORKS extrude catalogue fixture on the same Windows host.
+It used one physical worker with Python 3.14.6, NumPy 2.4.6 and pywin32 312.
+The worker configuration retained two reserved CPUs and 4 GiB of reserved memory.
+The private harness reported native verification unavailable before the catalogue attempted any application launch.
+[Catalogue native verification](../../../../Gotchas/Research/Offline/CatalogueNativeVerification.md) · [Catalogue inference dependencies](../../../../Gotchas/Research/Offline/CatalogueInferenceNeedsNumPy.md)
+
+| Observation | Baseline | Candidate |
+| --- | ---: | ---: |
+| Rescan groups | 4 and 4 | 8 |
+| First rescan claim to final settlement | 15.18 s | 7.90 s |
+| Command wall time | 38.45 s | 29.50 s |
+| Claim-to-settlement p95 | 7.41 s | 7.86 s |
+
+Baseline source was `14570404846c8aa1f90b02e68d6f70a419719ca7`.
+Candidate source was `0330d81c6526d788393e860e0bfbab4c9ae56a70`.
+Both runs completed all eight P03 rescans once and produced equal neutral digests, scope order and job results.
+Both retained P04 waiting evidence and reported `coverage_incomplete`.
+The fixed P03 scope contains eight sources. The wider caps were measured only in the archive calibration.
+
+Fixture SHA-256 `5601bae9faac269300b7416cd7010e43e8c74353fe891d3edf8a09c61bc22be1`.
+Neutral output SHA-256 `623a3800c0170fd0f85ffb63ba81a2027d531c68a3855bbb711edcdc1a9558d4`.
+Baseline replay SHA-256 `3b7f34ceb802f704e0d433d6c84f3fa9e221d193d90910a6fc54cc3937a75845`.
+Candidate replay SHA-256 `375147243183191bcb4326124e844b04f7f3b33cf0333986bb0258df0dc15e79`.
+
+[Research supervisor guide](../../../../Reference/Research/ResearchSupervisor.md#optional-grouped-sessions)

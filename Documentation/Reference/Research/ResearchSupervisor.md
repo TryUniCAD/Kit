@@ -124,7 +124,7 @@ Groups contain 2–20 members with the same kind, tool version and rule version.
 The combined input footprint must be below `group_limit_bytes`, which defaults to 1 MiB.
 Set `group_max_members` from 2 to 20 to lower the member ceiling. The default is 20.
 Fresh catalogue runs use groups of up to eight rescans and a strict 16 MiB combined footprint limit.
-Resumed runs use their saved runner settings. [Catalogue rescan throughput](../../Changes/Research/Supervisor/CatalogueRescanThroughput.md)
+Resumed runs use their saved runner settings. [Catalogue rescan throughput](../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md)
 The supervisor retains single-job fallback when a job cannot group or the group estimate cannot fit.
 
 A grouped worker receives `group.json` with `group_session_version: 1` and ordered member paths such as `jobs/00/job.json`.

@@ -6,4 +6,4 @@ This check can lead to application startup even when the run omitted `--native-c
 
 Use the fixed offline calibration tool when timing must exclude native applications.
 A private catalogue measurement can force API unavailability at the report boundary with the normal catalogue, controller and workers.
-Record that override and the native verification status with each measurement. [Catalogue rescan throughput](../../../Changes/Research/Supervisor/CatalogueRescanThroughput.md)
+Record that override and the native verification status with each measurement. [Catalogue rescan throughput](../../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md)

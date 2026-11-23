@@ -7,4 +7,4 @@ A probe installed only under the supervisor's `__main__` guard therefore collect
 Attach private instrumentation to the imported entry point before the host calls it.
 Retain normal calibration supervision, receipts and Job Object cleanup to verify the observed workload.
 The first four-member arm kept complete worker and cleanup evidence but missed A03 timings.
-The matched replay collected those timings without changing the reader outputs. [Calibration evidence](../../../Changes/Research/Supervisor/CatalogueRescanThroughput.md)
+The matched replay collected those timings without changing the reader outputs. [Calibration evidence](../../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md)

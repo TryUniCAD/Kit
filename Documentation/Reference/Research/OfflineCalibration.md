@@ -8,7 +8,7 @@ python3 re/automation/Calibration.py --manifest CalibrationManifest.json --outpu
 
 The output directory must not exist.
 For a matched one-slot comparison with ordered archive grouping, use [the paired grouped mode](../../Changes/Research/Supervisor/GroupedOfflineCalibration.md).
-See the [catalogue throughput measurements](../../Changes/Research/Supervisor/CatalogueRescanThroughput.md) for a one-slot comparison of caps four, eight, sixteen and twenty.
+See the [catalogue throughput measurements](../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md) for a one-slot comparison of caps four, eight, sixteen and twenty.
 The tool creates private per-trial stores and does not attach to a live controller.
 Add `--max-concurrency 16` to append a sixteen-worker trial to the default sweep. Use the same manifest and resource reserves throughout. [Sixteen-worker calibration](../../Changes/Research/Supervisor/SixteenWorkerCalibration.md)
 Use an immutable checkout and inputs for the entire run.
