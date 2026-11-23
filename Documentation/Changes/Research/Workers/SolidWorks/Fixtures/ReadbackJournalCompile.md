@@ -13,4 +13,5 @@ Fixture setup compiles the pinned source and the test driver into a
 fresh assembly before starting the listener. The timed capture loads
 that assembly and drives the same managed journal through the child
 process. The queue assertions still check the intended report faults and
-the binding of the emitted journal to its native owner.
+the binding of the emitted journal to its native owner. Both fixture phases
+resolve PowerShell through the operating system's system directory API.

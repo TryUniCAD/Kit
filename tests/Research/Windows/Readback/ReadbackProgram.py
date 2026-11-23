@@ -8,8 +8,7 @@
 
 
 # the isolated host must use the provisioned operation and session configuration
-KHostSetup = """import os
-import json
+KHostSetup = """import json
 import subprocess
 import sys
 import time
@@ -24,6 +23,7 @@ from SolidWorksReadbackWorker import BUILD, DISCOVERY, OUTPUTS, PROVIDER, READBA
 config = configuration(Path(sys.argv[2]))
 fault = sys.argv[3]
 operation = sys.argv[4]
+powershell = Path(sys.argv[5])
 scope, count_field, count = READBACK_SCOPES[operation]
 host = ReadbackQueue(config, PROVIDER, operation)
 
@@ -106,7 +106,6 @@ KObservations = """    observations = [{'file': name, 'status': 'observed',
 # the managed journal fixture must receive the same owner as the report
 KProgressCapture = """    owner_path = output / 'fixture-owner.json'
     write_record(owner_path, owner)
-    powershell = Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe'
     journal_path = output / 'native-progress.jsonl'
     generated = subprocess.run([
         str(powershell), '-NoProfile', '-NonInteractive', '-File', str(Path(__file__).with_name('Progress.ps1')),

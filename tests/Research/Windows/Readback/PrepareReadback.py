@@ -7,7 +7,6 @@
 # to you under it immediately and permanently.
 
 from json import dumps as EncodeJson, loads as DecodeJson
-from os import environ as OsEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from time import time as WallTime
@@ -17,19 +16,16 @@ from tests.Research.Windows.Readback.ProgressProgram import KProgressScript
 
 
 # compiling the managed fixture before dispatch keeps setup out of its deadline
-def CompileProgress(TmpPath: FilePath, RootPath: FilePath) -> None:
+def CompileProgress(TmpPath: FilePath, RootPath: FilePath, ShellPath: FilePath) -> None:
     ProgressPath = TmpPath / "Progress.ps1"
     _ = ProgressPath.write_text(KProgressScript, encoding="utf-8")
     AssemblyPath = TmpPath / "ReadbackProgress.dll"
-    PowerShell = (
-        FilePath(OsEnv["SystemRoot"]) / "System32/WindowsPowerShell/v1.0/powershell.exe"
-    )
     SourcePath = (
         RootPath / "re/automation/CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs"
     )
     Result = RunProcess(
         [
-            str(PowerShell),
+            str(ShellPath),
             "-NoProfile",
             "-NonInteractive",
             "-File",
@@ -50,11 +46,15 @@ def CompileProgress(TmpPath: FilePath, RootPath: FilePath) -> None:
 
 # dispatch must consume an explicit operation and the same source snapshot as its listener
 def PrepareReadback(
-    TmpPath: FilePath, RootPath: FilePath, ConfigPath: FilePath, Operation: str
+    TmpPath: FilePath,
+    RootPath: FilePath,
+    ConfigPath: FilePath,
+    ShellPath: FilePath,
+    Operation: str,
 ) -> FilePath:
     ProgramPath = TmpPath / "ReadbackHost.py"
     _ = ProgramPath.write_text(KReadbackScript, encoding="utf-8")
-    CompileProgress(TmpPath, RootPath)
+    CompileProgress(TmpPath, RootPath, ShellPath)
     SessionPath = TmpPath / "Session"
     (SessionPath / "work").mkdir(parents=True)
     Revision = DecodeJson(ConfigPath.read_bytes())["source_revision"]

@@ -10,6 +10,7 @@ from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import Popen as OpenProcess, PIPE as PipeOutput, run as RunProcess
 from sys import executable as PythonExe
+from tests.Research.Inference.Authoring.SolidWorks.SystemShell import SystemShell
 from tests.Research.Windows.Readback.PrepareReadback import PrepareReadback
 from tests.Research.Windows.Readback.WaitReadback import WaitReadback
 
@@ -22,7 +23,8 @@ def QueueReadback(
     FaultName: str,
     Operation: str = "p02-readback",
 ) -> dict[str, object]:
-    ProgramPath = PrepareReadback(TmpPath, RootPath, ConfigPath, Operation)
+    ShellPath = SystemShell()
+    ProgramPath = PrepareReadback(TmpPath, RootPath, ConfigPath, ShellPath, Operation)
     SessionPath = TmpPath / "Session"
     WorkerRoot = RootPath / "re/automation/ApplicationWorkers"
     Listener = OpenProcess(
@@ -34,6 +36,7 @@ def QueueReadback(
             str(ConfigPath),
             FaultName,
             Operation,
+            str(ShellPath),
         ],
         stdout=PipeOutput,
         stderr=PipeOutput,
