@@ -106,7 +106,9 @@ def shared_request(
                     budget.finish(key, token, None, attempts[before:], uncertain=True)
                     raise
                 uncertain = proposal is None and any(
-                    attempt.get("status") == "timeout" for attempt in attempts[before:]
+                    attempt.get("status")
+                    in {"timeout", "provider_failed", "launch_failed"}
+                    for attempt in attempts[before:]
                 )
                 budget.finish(
                     key, token, proposal, attempts[before:], uncertain=uncertain
@@ -122,11 +124,6 @@ def shared_request(
                     return None
                 if proposal is not None:
                     return proposal if is_current() else None
-                if attempts and attempts[-1]["status"] in {
-                    "provider_failed",
-                    "launch_failed",
-                }:
-                    return None
             finally:
                 budget.leave(token)
         return None
