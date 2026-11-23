@@ -27,12 +27,22 @@ def CheckSignedRead(Output: FilePath, FixtureRoot: FilePath, CaseName: str) -> N
     assert Features[-1]["definition"]["along_parameter_id"] == Depth["id"]
     assert IsClose(
         Depth["value"]["value"], NativeDepth["value_internal"] * 10, rel_tol=1e-9
+    ), (
+        CaseName,
+        "depth_mm",
+        Depth["value"]["value"],
+        NativeDepth["value_internal"] * 10,
     )
     Bodies = Document["bodies"]["$tuple"]
     assert len(Bodies) == Sample["native"]["body_count"] == 1
     Topology = Bodies[0]["topology"]
     assert Topology["valid"] and Topology["solid_count"] == 1
-    assert IsClose(Topology["volume"], Sample["native"]["volume_mm3"], rel_tol=1e-9)
+    assert IsClose(Topology["volume"], Sample["native"]["volume_mm3"], rel_tol=1e-9), (
+        CaseName,
+        "volume_mm3",
+        Topology["volume"],
+        Sample["native"]["volume_mm3"],
+    )
     if "surface_area_mm2" in Sample["native"]:
         assert IsClose(
             Topology["surface_area"], Sample["native"]["surface_area_mm2"], rel_tol=1e-9
@@ -48,4 +58,10 @@ def CheckSignedRead(Output: FilePath, FixtureRoot: FilePath, CaseName: str) -> N
                 Amount,
                 rel_tol=1e-9,
                 abs_tol=1e-9,
+            ), (
+                CaseName,
+                RoleName,
+                AxisName,
+                Topology["bounding_box"][RoleName][AxisName],
+                Amount,
             )
