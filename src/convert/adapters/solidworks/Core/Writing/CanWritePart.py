@@ -16,6 +16,15 @@ from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
 from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.PlanTopCorner import (
+    PlanTopCorner,
+)
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.Readback.IsTopRead import (
+    IsTopRead,
+)
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.Readback.ReadTopInput import (
+    ReadTopInput,
+)
 from convert.adapters.solidworks.Core.Preparation.Imports.IsImportRead import (
     IsImportRead,
 )
@@ -81,6 +90,13 @@ def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     NameValue = (
         PathValue.stem if PathValue is not None else DocumentValue.sketches[0].name
     )
+    if IsTopRead(DocumentValue):
+        TopValue = PlanTopCorner(ReadTopInput(DocumentValue, NameValue))
+        return (
+            TopValue is not None
+            and IsPartTarget(TopValue[1].NameValue, TargetValue)
+            and (PathValue is None or not PathValue.is_dir())
+        )
     InputValue = ColdReadInput(DocumentValue, NameValue)
     PlanValue = (
         PlanEqPart(InputValue)[1]

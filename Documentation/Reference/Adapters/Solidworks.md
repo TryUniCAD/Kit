@@ -688,6 +688,13 @@ the existing neutral Windows self-locator rule. A Windows output must
 reproduce the measured encoded locator.
 [Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 
+The measured signed Top rectangle uses the same envelope with the
+authenticated held-out Top box report. It retains the fixed model-origin
+coincidence, two sketch lengths, one independent reversed blind height
+and the authored body name. Full strict readback can republish the same
+archive at the exact measured locator and epoch after complete semantic
+comparison. [Measured Top box publication](../../Changes/Solidworks/Construction/Part/SolidworksMeasuredTopBoxPublication.md)
+
 The measured width-to-depth equation uses the same envelope with its own
 authenticated report. It covers the single Front Plane, origin-anchored
 rectangle and forward blind boss whose depth is the local width divided by

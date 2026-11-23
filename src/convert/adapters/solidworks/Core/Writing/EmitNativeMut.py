@@ -81,6 +81,10 @@ from convert.adapters.solidworks.Core.Writing.RevolveEnds.HasOrdRevEnd import (
 from convert.adapters.solidworks.Core.Writing.RevolveEnds.HasRevEndMeas import (
     HasRevEndMeas,
 )
+from convert.adapters.solidworks.Core.Writing.TopBoxes.EmitTopMeasMut import (
+    EmitTopMeasMut,
+)
+from convert.adapters.solidworks.Core.Writing.TopBoxes.ReadTopMeas import HasTopMeas
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -140,6 +144,18 @@ def EmitNativeMut(
         return EmitEqMut(DocumentValue, TargetValue, OptionsValue)
     if not ReadbackValue and HasBareBrep(DocumentValue):
         return EmitImportMut(DocumentValue, TargetValue, OptionsValue)
+    if HasTopMeas(OptionsValue):
+        return EmitTopMeasMut(DocumentValue, TargetValue, OptionsValue)
+    return EmitPlainMut(DocumentValue, TargetValue, OptionsValue, ReadbackValue)
+
+
+# ordinary part publication keeps its independent measurement and output checks
+def EmitPlainMut(
+    DocumentValue: CadDocument,
+    TargetValue: KTargetType,
+    OptionsValue: WriteOptions | None,
+    ReadbackValue: bool,
+) -> WriteResult:
     SettingsValue = CheckPartOpts(OptionsValue)
     WrittenAt, Receipt = ReadPartMeas(SettingsValue)
     OutputPath = (
