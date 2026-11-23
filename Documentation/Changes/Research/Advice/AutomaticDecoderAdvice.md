@@ -40,7 +40,7 @@ Raw CAD bytes, credentials and holdout measurements do not enter the shared key 
 Different evidence remains independently verified; a cached model proposal is never a verified format rule.
 Queued callers wait for a bounded interval. Expired waiters cannot retain the front of the provider queue.
 
-A timeout or caller interruption can leave the remote request's completion uncertain.
+A timeout, transport/provider failure or caller interruption can leave the remote request's completion uncertain.
 That reservation stays charged and occupies capacity until the owner confirms the provider process has stopped.
 It is not resent automatically, and elapsed time alone does not clear it.
 Inspect and recover the exact reservation through the local operator tool:

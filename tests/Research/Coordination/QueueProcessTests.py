@@ -17,7 +17,8 @@ from pytest import mark as PytestMark
 
 # independent controller processes must preserve shared work and bounded resource ownership
 @PytestMark.parametrize(
-    "ScenarioName", ["races", "lifecycle", "scheduling", "supervisor", "notices"]
+    "ScenarioName",
+    ["races", "lifecycle", "scheduling", "supervisor", "notices", "metadata"],
 )
 def CheckQueueFlow(ScenarioName: str) -> None:
     SourceRoot = FilePath(__file__).resolve().parents[3]

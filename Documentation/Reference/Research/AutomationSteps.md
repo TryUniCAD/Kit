@@ -47,7 +47,7 @@ Dependencies are the A03 controller, A07 scheduling, A08 supervisor pools and th
 The scope is local shared request deduplication, subscriber-aware supersession, bounded priority queues and shared advisor admission.
 Independent instances explicitly select the same local controller store and advisor state; one supervisor owns the controller store.
 The exit requires real process-boundary concurrency, cancellation, recovery and provider-budget evidence, plus current-head PR checks and configured review.
-Five real-process queue scenarios and five disposable-provider advice groups passed locally with Python 3.14.7. The source and verification details are in the [change entry](../../Changes/Research/Supervisor/Coordination/SharedResearchScheduling.md).
+Six real-process queue scenarios and five disposable-provider advice groups passed locally with Python 3.14.7. The source and verification details are in the [change entry](../../Changes/Research/Supervisor/Coordination/SharedResearchScheduling.md).
 No CAD capability, native acceptance flag or production conversion route changes.
 
 #### A08h-LadderRecovery: recovered native corpus

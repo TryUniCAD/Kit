@@ -13,14 +13,27 @@ from pathlib import Path
 
 from LifecycleCases import check_dependents, check_invalidation, check_supersession
 from NoticeCases import check_notices
+from MetadataCases import check_metadata
 from RaceCases import check_graph, check_races
 from SchedulingCases import check_grouped, check_limits, check_priority, check_resources
 from SupervisorCases import check_supervisor
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Exercise shared queue behavior through concurrent controller processes")
-    parser.add_argument("scenario", choices=("races", "lifecycle", "scheduling", "supervisor", "notices"))
+    parser = argparse.ArgumentParser(
+        description="Exercise shared queue behavior through concurrent controller processes"
+    )
+    parser.add_argument(
+        "scenario",
+        choices=(
+            "races",
+            "lifecycle",
+            "scheduling",
+            "supervisor",
+            "notices",
+            "metadata",
+        ),
+    )
     args = parser.parse_args()
     scenarios = {
         "races": (check_races, check_graph),
@@ -28,11 +41,17 @@ def main():
         "scheduling": (check_limits, check_priority, check_resources, check_grouped),
         "supervisor": (check_supervisor,),
         "notices": (check_notices,),
+        "metadata": (check_metadata,),
     }
     with tempfile.TemporaryDirectory(prefix="kit-shared-queue-") as temporary:
         root = Path(temporary)
         reports = [scenario(root) for scenario in scenarios[args.scenario]]
-    print(json.dumps({"scenario": args.scenario, "status": "passed", "reports": reports}, sort_keys=True))
+    print(
+        json.dumps(
+            {"scenario": args.scenario, "status": "passed", "reports": reports},
+            sort_keys=True,
+        )
+    )
 
 
 if __name__ == "__main__":

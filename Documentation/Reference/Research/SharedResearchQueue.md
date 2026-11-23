@@ -92,6 +92,8 @@ This protects a new request from a delayed instance's stale submission.
 
 Submit the next revision of the same request to replace its subscriptions atomically.
 A superseded job stays available while another active request or a standalone dependent job still needs it.
+Admission and cancellation reconcile only the affected upstream dependency closure. Transactional counters enforce quotas without queue-wide recounts.
+The response fields `shared_reconciled_jobs` and `shared_reconcile_passes` expose the work examined in that transaction.
 Completed evidence remains available for reuse.
 
 Cancel an entire request with a newer revision:
@@ -107,10 +109,11 @@ See [shared cancellation and resource recovery](../../Gotchas/Research/Superviso
 
 ## Admission and scheduling
 
-The pending limit bounds unique unfinished shared work, including jobs waiting for evidence or applications.
+The pending limit controls admission of new shared requests using the count of unique unfinished work, including jobs waiting for evidence or applications.
 Duplicate subscribers do not consume another execution slot.
 A request that would exceed the limit is refused atomically; it does not cancel the previous revision or publish a partial graph.
 A request contains at most 1,000 jobs. Shared metadata retains at most 10,000 request names and 100,000 subscriptions.
+Evidence invalidation or a standalone consumer can make existing jobs pending again above the admission ceiling. Those jobs remain intact; subsequent admissions wait for capacity or an explicit limit change.
 The existing total controller metadata limits still apply to retained history.
 
 Request priority is between zero and one hundred; the default is fifty.
@@ -118,7 +121,11 @@ Waiting jobs gain priority over time. Both single and grouped claim paths use th
 Existing application reservations and priority-schedule lanes remain authoritative.
 A blocked application job does not consume an offline worker slot.
 
-Use `queue-status` to inspect active subscriptions, unique jobs, current states and waiting time.
+Use `queue-status` to inspect active subscriptions, unique jobs, recorded states and waiting time.
+It reports `scope: queue_metadata`, `acceptance_verified: false` and zero artifact bytes hashed.
+Status polling does not reconcile jobs or read CAD payloads while holding the controller transaction.
+Use the existing `controller status --job SHARED_JOB_ID` command for integrity-checked job inspection.
+Normal claim, heartbeat and finish operations retain their existing reconciliation and evidence checks.
 Treat job completion, evidence integrity, semantic verification and native target acceptance as separate outcomes.
 This feature does not change the production support matrix.
 

@@ -18,10 +18,12 @@ def queue_status(ledger, request=None, after=None):
         request = label(request)
     if after is not None:
         after = label(after)
-    ledger.refresh()
     if not installed(ledger):
         return {
             "queue_version": 1,
+            "scope": "queue_metadata",
+            "acceptance_verified": False,
+            "artifact_bytes_hashed": ledger.bytes_hashed,
             "max_pending": 1000,
             "requests": [],
             "next_after": None,
@@ -62,16 +64,15 @@ def queue_status(ledger, request=None, after=None):
     ).fetchone()
     if request is None:
         unique = ledger.db.execute(
-            "SELECT j.* FROM shared_jobs s JOIN jobs j ON j.id=s.job_id LEFT JOIN shared_cancelled c ON c.job_id=j.id WHERE c.job_id IS NULL"
+            "SELECT j.id,j.state,j.created FROM shared_jobs s JOIN jobs j ON j.id=s.job_id LEFT JOIN shared_cancelled c ON c.job_id=j.id WHERE c.job_id IS NULL"
         ).fetchall()
     else:
         unique = ledger.db.execute(
-            "SELECT DISTINCT j.* FROM shared_members m JOIN shared_requests r ON r.request=m.request JOIN jobs j ON j.id=m.job_id WHERE r.active=1 AND r.request=?",
+            "SELECT DISTINCT j.id,j.state,j.created FROM shared_members m JOIN shared_requests r ON r.request=m.request JOIN jobs j ON j.id=m.job_id WHERE r.active=1 AND r.request=?",
             (request,),
         ).fetchall()
     states = {}
     for row in unique:
-        ledger.verify_job(row)
         states[row["state"]] = states.get(row["state"], 0) + 1
     oldest = min(
         (row["created"] for row in unique if row["state"] == "queued"),
@@ -86,6 +87,9 @@ def queue_status(ledger, request=None, after=None):
     ).fetchone()[0]
     return {
         "queue_version": 1,
+        "scope": "queue_metadata",
+        "acceptance_verified": False,
+        "artifact_bytes_hashed": ledger.bytes_hashed,
         "max_pending": maximum,
         "requests": requests,
         "next_after": rows[99]["request"] if len(rows) > 100 else None,
