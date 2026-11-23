@@ -1,4 +1,4 @@
-from sys import executable as KPythonPath, platform as KPlatform, stderr as KErrorStream
+from sys import executable as KPythonPath, stderr as KErrorStream
 from typing import NoReturn
 
 from convert.Commands.CliOptions import CliOptions
@@ -6,20 +6,21 @@ from convert.Commands.CliOptions import CliOptions
 
 # research execution must use the selected checkout sdk and preserve downstream process outcomes
 def RunResearch(Options: CliOptions) -> NoReturn:
-    from subprocess import Popen as StartProcess
-
     from KitCli.ExitResearch import ExitResearch
     from KitCli.ResearchArgs import ResearchArgs
     from KitCli.ResearchScript import ResearchScript
     from KitCli.ResearchSignals import ResearchSignals
+    from KitCli.StartResearch import StartResearch
     from KitCli.WaitResearchMut import WaitResearchMut
 
     RootPath, ScriptPath = ResearchScript(Options)
     Arguments, LegacyReader = ResearchArgs(Options, RootPath, ScriptPath)
-    with ResearchSignals() as (ChildProcesses, PendingSignals):
-        with StartProcess(
+    with ResearchSignals(Options.ResearchTool == "supervisor") as (
+        ChildProcesses,
+        PendingSignals,
+    ):
+        with StartResearch(
             [KPythonPath, str(ScriptPath), *Arguments],
-            start_new_session=KPlatform != "win32",
         ) as ChildProcess:
             ChildProcesses.append(ChildProcess)
             ReturnCode = WaitResearchMut(ChildProcess, PendingSignals)

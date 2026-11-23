@@ -1073,6 +1073,8 @@ class Supervisor:
     def run_sessions(self, idle_seconds, max_seconds):
         signal.signal(signal.SIGTERM, self.shutdown)
         signal.signal(signal.SIGINT, self.shutdown)
+        if sys.platform == "win32":
+            signal.signal(signal.SIGBREAK, self.shutdown)
         self.acquire()
         self.capacity = CapacitySnapshot(
             self.config, self.registry.configuration_sha256
