@@ -66,8 +66,9 @@ const Github = {
           type: "merge_queue",
           parameters: {
             max_entries_to_build: CaseName === "budget-uncontrolled" ? 25 : 1,
-            min_entries_to_merge: 1,
-            min_entries_to_merge_wait_minutes: 0,
+            min_entries_to_merge: CaseName === "budget-minimum" ? 2 : 1,
+            min_entries_to_merge_wait_minutes:
+              CaseName === "budget-wait" ? 10 : 0,
           },
         },
       ];

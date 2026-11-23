@@ -13,6 +13,8 @@ import pytest as Pytest
         "budget-audit",
         "budget-legacy",
         "budget-uncontrolled",
+        "budget-minimum",
+        "budget-wait",
         "budget-rules-error",
         "budget-invalid",
         "budget-error",
@@ -50,13 +52,25 @@ def CheckScheduler(CaseName: str) -> None:
         assert Evidence["Outputs"]["runtime-target"] == (
             "0"
             if CaseName
-            in {"budget-legacy", "budget-uncontrolled", "budget-rules-error"}
+            in {
+                "budget-legacy",
+                "budget-uncontrolled",
+                "budget-minimum",
+                "budget-wait",
+                "budget-rules-error",
+            }
             else "1200"
         )
         assert Evidence["Outputs"]["max-tests"] == (
             "1200"
             if CaseName
-            in {"budget-legacy", "budget-uncontrolled", "budget-rules-error"}
+            in {
+                "budget-legacy",
+                "budget-uncontrolled",
+                "budget-minimum",
+                "budget-wait",
+                "budget-rules-error",
+            }
             else "1000"
         )
         return
