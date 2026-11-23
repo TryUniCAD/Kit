@@ -877,6 +877,12 @@ the display dimensions in reverse order.
 [Measured angle-distance publication](../../Changes/Solidworks/Construction/Chamfers/SolidworksMeasuredAngleChamferPublication.md) ·
 [Chamfer readback](../../Changes/Solidworks/Reading/Parts/SolidworksSignedChamferReadback.md)
 
+Internal chamfer construction can use a named signed annotation view and
+explicit independent D1 and D2 text placements. The exact measured
+publication profile uses the generated default view. Saved partition,
+stock scope and other warm source state have separate transfer requirements.
+[Explicit chamfer display inputs](../../Changes/Solidworks/Construction/Chamfers/SolidworksChamferDisplayInputs.md)
+
 ### Writing an equal-distance or two-distance edge chamfer
 
 Use the same blind rectangular stock and ordered physical selections. Set

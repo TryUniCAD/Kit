@@ -14,6 +14,9 @@ from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfDist impo
 from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import (
     DimensionGraph,
 )
+from convert.adapters.solidworks.Archive.Construction.Views.Annotations.AnnoViewInput import (
+    AnnoViewInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Views.Annotations.PutAnnoCatalog import (
     PutAnnoCatalog,
 )
@@ -33,22 +36,28 @@ def MakeOtherPlan(PlanValue: ChmfPlan, SetbackValue: float) -> ChmfPlan:
     )
 
 
-# the active mode decides which live driver chains the feature owns
-def MakeChmfDrivers(
+# the active mode decides which live driver chains and annotation catalog the feature installs
+def MakeChmfDimMut(
     ModelValue: ArchiveNode, Feature: ArchiveNode, PlanValue: ChmfPlan
 ) -> tuple[tuple[str, DimensionGraph], ...]:
-    BasisValue = MakeChmfFrame(PlanValue)
+    IntentValue = PlanValue.DisplayValue
     OtherSetback = PlanValue.OtherSetback
+    if IntentValue is not None and (
+        PlanValue.AngleValue is None or OtherSetback is not None
+    ):
+        raise ValueError(
+            "explicit chamfer displays require one live distance and one angle"
+        )
+    BasisValue = MakeChmfFrame(PlanValue)
+    Inputs: tuple[AnnoViewInput, ...] = (BasisValue.ViewInput,)
     OtherInput: tuple[ChmfPlan, ChmfFrame] | None = None
-    if OtherSetback is not None:
+    if IntentValue is not None:
+        Inputs = IntentValue.CatalogValue
+    elif OtherSetback is not None:
         OtherPlan = MakeOtherPlan(PlanValue, OtherSetback)
         OtherBasis = MakeChmfFrame(OtherPlan, "Chamfer Second Driver View")
         OtherInput = OtherPlan, OtherBasis
-    Inputs = (
-        (BasisValue.ViewInput,)
-        if OtherInput is None
-        else (BasisValue.ViewInput, OtherInput[1].ViewInput)
-    )
+        Inputs += (OtherBasis.ViewInput,)
     Views = PutAnnoCatalog(ModelValue, 19000, Inputs, None, (None,))
     ViewId = FieldInt(Views[BasisValue.ViewInput.NameValue].FieldsValue, "f360")
     Distance = ("f810", MakeChmfDist(Feature, PlanValue, BasisValue, ViewId))

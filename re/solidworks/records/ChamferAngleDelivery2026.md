@@ -83,6 +83,12 @@ still changed only Config-0 and refused publication.
 The positive evidence is tied to the earlier native runs. This change
 adds zero native launches and held-out lifecycles.
 
+The later internal constructor preserves the signed named display view
+and independent label placement of both driving dimensions through
+typed model synthesis. The original source partition, stock and
+retained display flags remain separately owned.
+[Saved display projection](ChamferSavedDisplays2026.md)
+
 - [Guarded measured SDK publication](../measurements/2026/SdkMeasuredAngleChamfer01.json)
 - [Guarded saved angle SDK readback](../measurements/2026/SdkSavedAngleChamfer01.json)
 - [Guarded linear compatibility](../measurements/2026/SdkAngleLinearCompat01.json)

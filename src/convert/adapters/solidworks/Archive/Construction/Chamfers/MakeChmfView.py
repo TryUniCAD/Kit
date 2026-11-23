@@ -1,5 +1,8 @@
 from struct import pack as PackValues
 
+from convert.adapters.solidworks.Archive.Construction.Chamfers.Views.ChmfViewInput import (
+    ChmfViewInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeCommonView import (
     MakeCommonView,
 )
@@ -20,8 +23,15 @@ def MakeChmfView(
     ViewId: int,
     Driver: float,
     Angular: bool,
+    IntentValue: ChmfViewInput | None = None,
 ) -> dict[str, object]:
-    Fields = MakeCommonView(Handle, False, -3 if Angular else -2, 13 if Angular else 18)
+    DesignIntent = False if IntentValue is None else IntentValue.DesignIntent
+    LeaderValue = (
+        (-3 if Angular else -2)
+        if IntentValue is None
+        else IntentValue.LeadersValue[int(Angular)]
+    )
+    Fields = MakeCommonView(Handle, DesignIntent, LeaderValue, 13 if Angular else 18)
     Style = ReadModelLinear(ArchiveNode.RequireNode(Feature.FieldsValue["owner"]))
     Fields.update(Style.ProjectionValue)
     Fields.update(

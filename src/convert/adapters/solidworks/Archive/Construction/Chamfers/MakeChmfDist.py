@@ -32,7 +32,29 @@ from convert.adapters.solidworks.Archive.Construction.Geometry.FrameXform import
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# the linear display derives both witness points and its first exterior label from the actual setback
+# the text clearance is independent of the linear value and follows the signed view axis
+def ChmfDistTail(PlanValue: ChmfPlan, Basis: ChmfFrame) -> dict[str, object]:
+    Depth = PlanValue.SetbackValue
+    IntentValue = PlanValue.DisplayValue
+    Station, Clearance = (
+        (1.375, PlanValue.EdgeValue.ShortSpan / 5)
+        if IntentValue is None
+        else IntentValue.DistanceText
+    )
+    SenseValue = Basis.SenseValue
+    return {
+        **MakeDistTail(),
+        "f880": DatumPoint((0.0, SenseValue, 0.0)),
+        "f8a8": Station,
+        "f8b0": abs(Clearance),
+        "f988": DatumPoint((Depth * SenseValue, 0.0, 0.0)),
+        "f9a0": DatumPoint((Depth * SenseValue, 0.0, 0.0)),
+        "fa38": DatumPoint((SenseValue, 0.0, 0.0)),
+        "fad0": Depth,
+    }
+
+
+# linear witnesses use the physical stock axes and project into the actual display view
 def MakeChmfDist(
     Feature: ArchiveNode,
     PlanValue: ChmfPlan,
@@ -53,20 +75,11 @@ def MakeChmfDist(
         fe0=DatumPoint(Frame.AxisU),
         fe8=DatumPoint(Frame.AxisV),
         has_ff0=1,
-        ff0=FrameXform(Frame),
+        ff0=FrameXform(Basis.ViewFrame),
     )
     Handle = MakeHandleMut(Feature, Dimension)
-    Fields = MakeChmfView(Feature, Handle, ViewId, Depth, False)
-    Fields.update(MakeDistTail())
-    Fields.update(
-        f880=DatumPoint((0.0, 1.0, 0.0)),
-        f8a8=1.375,
-        f8b0=PlanValue.EdgeValue.ShortSpan / 5,
-        f988=DatumPoint((Depth, 0.0, 0.0)),
-        f9a0=DatumPoint((Depth, 0.0, 0.0)),
-        fa38=DatumPoint((1.0, 0.0, 0.0)),
-        fad0=Depth,
-    )
+    Fields = MakeChmfView(Feature, Handle, ViewId, Depth, False, PlanValue.DisplayValue)
+    Fields.update(ChmfDistTail(PlanValue, Basis))
     return DimensionGraph(
         Parameter, Dimension, Handle, MakeChmfNode("moDisplayDistanceDim_c", Fields)
     )

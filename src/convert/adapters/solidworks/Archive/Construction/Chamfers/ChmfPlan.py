@@ -4,6 +4,9 @@ from typing import TypeAlias
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
 )
+from convert.adapters.solidworks.Archive.Construction.Chamfers.Views.ChmfViewInput import (
+    ChmfViewInput,
+)
 
 # stock extents retain each ordered principal interval in model metres
 KStockBounds: TypeAlias = tuple[
@@ -30,3 +33,4 @@ class ChmfPlan:
     SetbackValue: float
     AngleValue: float | None
     OtherSetback: float | None = None
+    DisplayValue: ChmfViewInput | None = None

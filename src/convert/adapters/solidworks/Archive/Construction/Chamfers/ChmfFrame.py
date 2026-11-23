@@ -3,6 +3,9 @@ from math import dist as Distance
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfPlan import ChmfPlan
+from convert.adapters.solidworks.Archive.Construction.Chamfers.Views.PickChmfView import (
+    PickChmfView,
+)
 from convert.adapters.solidworks.Archive.Construction.Datums.Angles.DatumVector import (
     DatumOffset,
     KDatumVector,
@@ -27,6 +30,12 @@ class ChmfFrame:
     FrameValue: PlaneFrame
     EdgeCenter: KDatumVector
     ViewInput: AnnoViewInput
+    SenseValue: float
+
+    # inverse projection belongs to the named display view while world witnesses stay in the stock frame
+    @property
+    def ViewFrame(self) -> PlaneFrame:
+        return PlaneFrame(self.FrameValue.OriginValue, *self.ViewInput.BasisValue)
 
 
 # the selected signed carrier supplies its outward normal and the positive setback orientation
@@ -61,6 +70,17 @@ def MakeChmfFrame(PlanValue: ChmfPlan, NameValue: str = KChmfViewName) -> ChmfFr
             for Index in range(3)
         ),
     )
+    return BindChmfFrame(PlanValue, Center, AxisU, AxisV, NameValue)
+
+
+# the construction anchor and optional display basis are separately derived and validated
+def BindChmfFrame(
+    PlanValue: ChmfPlan,
+    Center: KDatumVector,
+    AxisU: KDatumVector,
+    AxisV: KDatumVector,
+    NameValue: str,
+) -> ChmfFrame:
     Normal = CrossVector(AxisU, AxisV)
     Anchor = DatumOffset(Center, AxisU, -PlanValue.SetbackValue)
     if (
@@ -70,8 +90,11 @@ def MakeChmfFrame(PlanValue: ChmfPlan, NameValue: str = KChmfViewName) -> ChmfFr
         raise ValueError(
             "chamfer display anchor must retain the modeled setback distance"
         )
-    return ChmfFrame(
-        PlaneFrame(Anchor, AxisU, AxisV, Normal),
-        Center,
-        AnnoViewInput(NameValue, (AxisU, AxisV, Normal)),
+    StockBasis = AxisU, AxisV, Normal
+    IntentValue = PlanValue.DisplayValue
+    ViewValue, Sense = (
+        (AnnoViewInput(NameValue, StockBasis), 1.0)
+        if IntentValue is None
+        else PickChmfView(IntentValue, StockBasis)
     )
+    return ChmfFrame(PlaneFrame(Anchor, *StockBasis), Center, ViewValue, Sense)

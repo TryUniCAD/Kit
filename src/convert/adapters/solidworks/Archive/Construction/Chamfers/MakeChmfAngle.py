@@ -10,14 +10,14 @@ from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfRefOwners imp
 from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfView import (
     MakeChmfView,
 )
+from convert.adapters.solidworks.Archive.Construction.Chamfers.Views.PickArcStation import (
+    PickArcStation,
+)
 from convert.adapters.solidworks.Archive.Construction.Datums.Angles.DatumVector import (
-    DatumDot,
     DatumOffset,
     DatumPoint,
     DatumUnit,
-)
-from convert.adapters.solidworks.Archive.Construction.Datums.Angles.MakeAngleArc import (
-    KArcTolerance,
+    KDatumVector,
 )
 from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import (
     DimensionGraph,
@@ -27,9 +27,6 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeHandleMut i
 )
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeAngleValue import (
     MakeAngleValue,
-)
-from convert.adapters.solidworks.Archive.Construction.Geometry.CrossVector import (
-    CrossVector,
 )
 from convert.adapters.solidworks.Archive.Construction.Geometry.FrameXform import (
     FrameXform,
@@ -71,34 +68,35 @@ def MakeChmfAngDim(
         fa0=DatumPoint(Other),
         fc0=DatumPoint(Anchor),
         has_ff0=1,
-        ff0=FrameXform(Frame),
+        ff0=FrameXform(Basis.ViewFrame),
     )
     return Param, Dimension
 
 
-# the independent cold arc uses its proved first exterior branch and stock relative text clearance
-def ChmfAngleTail(Angle: float, ShortSpan: float, Radius: float) -> dict[str, object]:
-    Label = (0.0, -ShortSpan / 3, 0.0)
+# the exterior station follows the ordered witnesses and actual text point in the signed display frame
+def ChmfAngleTail(
+    Angle: float, Radius: float, SenseValue: float, Label: KDatumVector
+) -> dict[str, object]:
     Direction = DatumUnit(Label)
-    FirstIn = (Cosine(Angle), -SineValue(Angle), 0.0)
-    OtherIn = (1.0, 0.0, 0.0)
-    Crossing = CrossVector(FirstIn, OtherIn)
+    FirstIn = (SenseValue * Cosine(Angle), -SenseValue * SineValue(Angle), 0.0)
+    OtherIn = (SenseValue, 0.0, 0.0)
+    Station = PickArcStation(FirstIn, OtherIn, Direction)
     Chord = 2 * Radius * SineValue(Angle / 2)
-    if (
-        Crossing[2] <= KArcTolerance
-        or DatumDot(CrossVector(FirstIn, Direction), Crossing) >= -KArcTolerance
-        or Chord <= 0
-    ):
-        raise ValueError(
-            "chamfer angle label is outside the proved first-exterior witness branch"
-        )
+    if Chord <= 0:
+        raise ValueError("chamfer angle requires distinct ordered angular witnesses")
     return dict(
         f880=DatumPoint(Direction),
-        f8a8=-0.5,
+        f8a8=Station,
         f8b0=Hypot(*Label),
         fad0=Chord,
-        f958=DatumPoint((Radius * -Cosine(Angle), Radius * SineValue(Angle), 0.0)),
-        f988=DatumPoint((-Radius, 0.0, 0.0)),
+        f958=DatumPoint(
+            (
+                SenseValue * (Radius * -Cosine(Angle)),
+                SenseValue * (Radius * SineValue(Angle)),
+                0.0,
+            )
+        ),
+        f988=DatumPoint((-SenseValue * Radius, 0.0, 0.0)),
         f100c=0,
         f1010=1,
         f1008=1,
@@ -122,11 +120,17 @@ def MakeChmfAngle(
     ShortSpan, Angle = PlanValue.EdgeValue.ShortSpan, PlanValue.AngleValue
     if Angle is None:
         raise ValueError("the angular chamfer display requires its actual angle")
-    Radius = ShortSpan / 4
+    IntentValue = PlanValue.DisplayValue
+    Radius = ShortSpan / 4 if IntentValue is None else IntentValue.WitnessLength
+    Label = (
+        (0.0, -ShortSpan / 3, 0.0)
+        if IntentValue is None
+        else (*IntentValue.AngleText, 0.0)
+    )
     Param, Dimension = MakeChmfAngDim(Feature, Basis, Angle, Radius)
     Handle = MakeHandleMut(Feature, Dimension)
-    Fields = MakeChmfView(Feature, Handle, ViewId, Angle, True)
-    Fields.update(ChmfAngleTail(Angle, ShortSpan, Radius))
+    Fields = MakeChmfView(Feature, Handle, ViewId, Angle, True, IntentValue)
+    Fields.update(ChmfAngleTail(Angle, Radius, Basis.SenseValue, Label))
     return DimensionGraph(
         Param, Dimension, Handle, MakeChmfNode("moDisplayAngularDim_c", Fields)
     )

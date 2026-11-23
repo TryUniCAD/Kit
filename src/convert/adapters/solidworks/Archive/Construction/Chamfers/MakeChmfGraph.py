@@ -14,7 +14,7 @@ from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfStockGeom imp
     MakeChmfStock,
 )
 from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfDrivers import (
-    MakeChmfDrivers,
+    MakeChmfDimMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfRefs import (
     MakeChmfRefs,
@@ -167,7 +167,7 @@ def MakeChmfMut(
     Roles = PickChmfRoles(MakeChmfStock(Stock), PlanValue.EdgeValue)
     Allocator = PersistentIds(StockId)
     Feature = InitChmfNode(Model, PlanValue, Settings)
-    Drivers = MakeChmfDrivers(Model, Feature, PlanValue)
+    Drivers = MakeChmfDimMut(Model, Feature, PlanValue)
     for SlotName, Driver in Drivers:
         _ = Allocator.AllocateMut(Driver.DimensionValue, "f50")
         Feature.FieldsValue[SlotName] = Driver.DisplayValue
