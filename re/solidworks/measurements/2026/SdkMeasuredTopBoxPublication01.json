@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "archive_sha256": "2a4a1e9a45197b2b93b4d63f8d054be460b4bd83be51ba18257e2c78d4c90b28",
+      "clock_refused_without_output": true,
+      "exact_guarded_file_stage_writes": 1,
+      "exact_guarded_stream_publications": 6,
+      "exact_streams": 10,
+      "runtime_input_reads": 0,
+      "slot": "Slot01"
+    },
+    {
+      "archive_sha256": "a9069ba24a39ea8f52380e7f63e287b8dfb4dd5d58829c7cf24f5fe79270d680",
+      "clock_refused_without_output": true,
+      "exact_guarded_file_stage_writes": 1,
+      "exact_guarded_stream_publications": 6,
+      "exact_streams": 10,
+      "runtime_input_reads": 0,
+      "slot": "Slot02"
+    }
+  ],
+  "method_sha256": "d4ab34b3de7516e4714c665d3a1ecca8026d7854c7ff54e6268754e8a800ccbb",
+  "native_processes_started": 0,
+  "original_native_sources_read": 0,
+  "prior_native_result_sha256": "21e671183cc6caf6b5c801e7de38f847d58f3bf2a299385e9abf4fe35a953189",
+  "qualification_receipt_sha256": "b50eb4668453ab4698f9bed0289809ba347b43a78c580a0646b8c3e0f3b6be38",
+  "schema": "kit.sw2026.exact-top-box-publication.v1",
+  "source_manifest_sha256": {
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/PrepTopPart.py": "6a27eb39603a7391d537ca6cbad1d36bc2cdbbcc8a8248f0ea891d43cb69774a",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Readback/IsTopRead.py": "87e4ab7708ea0177d2b88b3d11d72f79082e74943f1a48cacfb7a9e11eb1560c",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Readback/PrepColdTop.py": "24fcb6a806a0165839c5f65246c161508bc818bbb8abd44f593853c713c8b464",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "64d1191f8ea866abcaa0bda7de929eae973e277b69dc0dca4037f75e8adca110",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "97a5a3a08dc00d4b4bc60212e91864074d77dfa8d517844820566fb4dc72d94e",
+    "src/convert/adapters/solidworks/Core/Writing/TopBoxes/EmitTopMeasMut.py": "ae9af2eda2dd0c84c6a151acc516771f277fee333438aacefe860a216c73e62d",
+    "src/convert/adapters/solidworks/Core/Writing/TopBoxes/MatchTopMeas.py": "a4332b6275a32fb3058e45dd26bdd847f171d45f6d7081bf42373929ce7a4720",
+    "src/convert/adapters/solidworks/Core/Writing/TopBoxes/ReadTopMeas.py": "5f6a57c4a81773335261c6e45df5eb64b93d133cac96c4b8dc57d5819fb10695"
+  }
+}

@@ -86,3 +86,10 @@ input. Each also checks the exact file writer in a temporary,
 transaction-owned staging directory and leaves the original file intact.
 The published result contains only counts, verdicts and digests. This
 procedure introduces no native launches or original FCStd conversion credit.
+
+The exact Windows run completed both slots. Twelve stream publications and
+two transaction-owned file stage writes each reproduce the matching
+native-tested archive, with ten exact streams per slot. Both changed-epoch
+requests preserve their existing sinks. The proof binds the eight source
+files, reads zero runtime inputs during construction, and preserves the
+retained generated originals. [Windows publication receipt](../measurements/2026/SdkMeasuredTopBoxPublication01.json)
