@@ -50,7 +50,13 @@ def enqueue(ledger, value):
         ).fetchone()
         is not None
     }
-    ledger.submit_many(specs)
+    previous_members = {
+        row[0]
+        for row in ledger.db.execute(
+            "SELECT job_id FROM shared_members WHERE request=?", (plan["request"],)
+        )
+    }
+    ledger.submit_many(specs, reconcile_shared=False)
     ledger.db.executemany(
         "INSERT OR IGNORE INTO shared_jobs VALUES (?)",
         ((spec["id"],) for spec in specs),
@@ -66,16 +72,26 @@ def enqueue(ledger, value):
             time.time(),
         ),
     )
-    if ledger.db.execute("SELECT COUNT(*) FROM shared_requests").fetchone()[0] > 10000:
+    if (
+        ledger.db.execute(
+            "SELECT value FROM settings WHERE key='shared_request_count'"
+        ).fetchone()[0]
+        > 10000
+    ):
         raise ValueError("shared request metadata limit exceeded")
     ledger.db.execute("DELETE FROM shared_members WHERE request=?", (plan["request"],))
     ledger.db.executemany(
         "INSERT INTO shared_members VALUES (?,?,?)",
         ((plan["request"], local_id, job_id) for local_id, job_id in aliases.items()),
     )
-    if ledger.db.execute("SELECT COUNT(*) FROM shared_members").fetchone()[0] > 100000:
+    if (
+        ledger.db.execute(
+            "SELECT value FROM settings WHERE key='shared_subscription_count'"
+        ).fetchone()[0]
+        > 100000
+    ):
         raise ValueError("shared subscription metadata limit exceeded")
-    cancelled = reconcile_members(ledger)
+    cancelled = reconcile_members(ledger, previous_members | set(aliases.values()))
     reused = {
         spec["id"]
         for spec in specs
@@ -109,6 +125,8 @@ def enqueue(ledger, value):
         "shared_jobs": len(known),
         "reused_jobs": len(reused),
         "idempotent": idempotent,
+        "shared_reconciled_jobs": ledger.shared_reconciled,
+        "shared_reconcile_passes": ledger.shared_reconcile_passes,
     }
 
 
@@ -127,7 +145,13 @@ def cancel(ledger, request, revision):
         "UPDATE shared_requests SET revision=?,payload_hash=?,active=0,updated=? WHERE request=?",
         (revision, payload_hash, time.time(), request),
     )
-    cancelled = reconcile_members(ledger)
+    members = {
+        row[0]
+        for row in ledger.db.execute(
+            "SELECT job_id FROM shared_members WHERE request=?", (request,)
+        )
+    }
+    cancelled = reconcile_members(ledger, members)
     ledger.event(
         None,
         "shared_request_cancelled",
@@ -139,4 +163,6 @@ def cancel(ledger, request, revision):
         "active": False,
         "cancelled_jobs": cancelled,
         "idempotent": idempotent,
+        "shared_reconciled_jobs": ledger.shared_reconciled,
+        "shared_reconcile_passes": ledger.shared_reconcile_passes,
     }
