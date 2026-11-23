@@ -24,6 +24,7 @@ SHARED_POLICY = (
     "Ranking.py",
     "Report.py",
     "State.py",
+    "Stats.py",
     "Submit.py",
 )
 

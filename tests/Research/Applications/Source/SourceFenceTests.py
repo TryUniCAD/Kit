@@ -27,6 +27,6 @@ def CheckSourcePin() -> None:
     assert ProcessInfo.returncode == 0, ProcessInfo.stdout + ProcessInfo.stderr
     ReportInfo = CastValue(dict[str, object], ParseJson(ProcessInfo.stdout))
     assert ReportInfo["status"] == "passed"
-    assert ReportInfo["checked_members"] == (7 if HostPlatform == "darwin" else 0)
+    assert ReportInfo["checked_members"] == (8 if HostPlatform == "darwin" else 0)
     assert ReportInfo["missing_member_refused"] is (HostPlatform == "darwin")
     assert ReportInfo["native_application_started"] is False

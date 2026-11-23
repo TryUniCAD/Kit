@@ -33,6 +33,7 @@ POLICY_FILES = (
     "SharedQueue/Ranking.py",
     "SharedQueue/Report.py",
     "SharedQueue/State.py",
+    "SharedQueue/Stats.py",
     "SharedQueue/Submit.py",
     "Supervisor.py",
     "ApplicationWorkers/FusionLifecycleRegistration.py",

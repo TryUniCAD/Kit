@@ -10,6 +10,7 @@ import time
 
 from Records import label
 from SharedQueue.State import installed
+from SharedQueue.Stats import install_report
 
 
 # clients need bounded subscription summaries without reading private leases
@@ -36,10 +37,17 @@ def queue_status(ledger, request=None, after=None):
             "states": {},
             "oldest_queued_seconds": 0,
         }
-    rows = ledger.db.execute(
-        "SELECT r.*,(SELECT COUNT(*) FROM shared_members m WHERE m.request=r.request) AS job_count FROM shared_requests r WHERE (? IS NULL OR r.request=?) AND r.request>? ORDER BY r.request LIMIT 101",
-        (request, request, after or ""),
-    ).fetchall()
+    install_report(ledger)
+    if request is None:
+        rows = ledger.db.execute(
+            "SELECT r.*,p.job_count FROM shared_requests r JOIN shared_report_requests p ON p.request=r.request WHERE r.request>? ORDER BY r.request LIMIT 101",
+            (after or "",),
+        ).fetchall()
+    else:
+        rows = ledger.db.execute(
+            "SELECT r.*,p.job_count FROM shared_requests r JOIN shared_report_requests p ON p.request=r.request WHERE r.request=? AND r.request>?",
+            (request, after or ""),
+        ).fetchall()
     requests = []
     for row in rows[:100]:
         summary = {
@@ -58,32 +66,49 @@ def queue_status(ledger, request=None, after=None):
                 )
             }
         requests.append(summary)
-    counts = ledger.db.execute(
-        "SELECT COUNT(*),COUNT(DISTINCT m.job_id) FROM shared_members m JOIN shared_requests r ON r.request=m.request WHERE r.active=1 AND (? IS NULL OR r.request=?)",
-        (request, request),
-    ).fetchone()
     if request is None:
-        unique = ledger.db.execute(
-            "SELECT j.id,j.state,j.created FROM shared_jobs s JOIN jobs j ON j.id=s.job_id LEFT JOIN shared_cancelled c ON c.job_id=j.id WHERE c.job_id IS NULL"
-        ).fetchall()
+        totals = dict(ledger.db.execute("SELECT name,value FROM shared_report_totals"))
+        states = dict(
+            ledger.db.execute(
+                "SELECT state,count FROM shared_report_states WHERE count>0"
+            )
+        )
+        counts = (totals["subscriptions"], totals["active_jobs"])
+        unique_count = sum(states.values())
+        oldest_row = ledger.db.execute(
+            "SELECT created FROM shared_report_items WHERE cancelled=0 AND state='queued' ORDER BY created,job_id LIMIT 1"
+        ).fetchone()
+        oldest = oldest_row[0] if oldest_row is not None else time.time()
+        cancelled = totals["cancelled_jobs"]
     else:
-        unique = ledger.db.execute(
-            "SELECT DISTINCT j.id,j.state,j.created FROM shared_members m JOIN shared_requests r ON r.request=m.request JOIN jobs j ON j.id=m.job_id WHERE r.active=1 AND r.request=?",
+        active = ledger.db.execute(
+            "SELECT active FROM shared_requests WHERE request=?", (request,)
+        ).fetchone()
+        if active is not None and active[0]:
+            counts = ledger.db.execute(
+                "SELECT COUNT(*),COUNT(DISTINCT job_id) FROM shared_members WHERE request=?",
+                (request,),
+            ).fetchone()
+            unique = ledger.db.execute(
+                "SELECT DISTINCT j.id,j.state,j.created FROM shared_members m JOIN jobs j ON j.id=m.job_id WHERE m.request=?",
+                (request,),
+            ).fetchall()
+        else:
+            counts, unique = (0, 0), []
+        unique_count = len(unique)
+        states = {}
+        for row in unique:
+            states[row["state"]] = states.get(row["state"], 0) + 1
+        oldest = min(
+            (row["created"] for row in unique if row["state"] == "queued"),
+            default=time.time(),
+        )
+        cancelled = ledger.db.execute(
+            "SELECT COUNT(DISTINCT m.job_id) FROM shared_members m JOIN shared_cancelled c ON c.job_id=m.job_id WHERE m.request=?",
             (request,),
-        ).fetchall()
-    states = {}
-    for row in unique:
-        states[row["state"]] = states.get(row["state"], 0) + 1
-    oldest = min(
-        (row["created"] for row in unique if row["state"] == "queued"),
-        default=time.time(),
-    )
+        ).fetchone()[0]
     maximum = ledger.db.execute(
         "SELECT value FROM settings WHERE key='shared_queue_max_pending'"
-    ).fetchone()[0]
-    cancelled = ledger.db.execute(
-        "SELECT COUNT(*) FROM shared_cancelled c WHERE (? IS NULL OR EXISTS (SELECT 1 FROM shared_members m WHERE m.job_id=c.job_id AND m.request=?))",
-        (request, request),
     ).fetchone()[0]
     return {
         "queue_version": 1,
@@ -94,7 +119,7 @@ def queue_status(ledger, request=None, after=None):
         "requests": requests,
         "next_after": rows[99]["request"] if len(rows) > 100 else None,
         "subscriptions": counts[0],
-        "unique_jobs": len(unique),
+        "unique_jobs": unique_count,
         "pending_jobs": sum(
             count
             for state, count in states.items()
