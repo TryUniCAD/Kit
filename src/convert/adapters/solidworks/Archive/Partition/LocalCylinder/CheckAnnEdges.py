@@ -33,8 +33,11 @@ def RingUse(
 
 # a radius and cap orientation must agree with the actual circular edge incidence
 def CheckAnnEdge(
-    TopologyValue: BrepTopology, EdgeValue: BrepEdge, OuterRadius: float
-) -> tuple[str, str]:
+    TopologyValue: BrepTopology,
+    EdgeValue: BrepEdge,
+    OuterWall: CylinderSurface,
+    AllowInset: bool,
+) -> tuple[tuple[str, str], CircleCurve]:
     First, Second = (
         RingUse(TopologyValue, UseId)
         for UseId in TopologyValue.edge_coedges[EdgeValue.id]
@@ -54,14 +57,15 @@ def CheckAnnEdge(
         raise ValueError(
             "local annulus rim must pair an actual cap and cylindrical wall"
         )
-    Outside = WallValue.radius == OuterRadius
+    Outside = WallValue is OuterWall
     NormalParts = PrismVector(PlaneValue.normal)
     CircleParts = PrismVector(CircleValue.axis)
     CircleAxes = (NormalParts, tuple(-Value for Value in NormalParts))
     FollowsNormal = (CircleParts == NormalParts) == CapFace.same_sense
     if (
         CircleValue.radius != WallValue.radius
-        or CircleValue.center != PlaneValue.origin
+        or (Outside or not AllowInset)
+        and CircleValue.center != PlaneValue.origin
         or CircleParts not in CircleAxes
         or CapUse.reversed == SideUse.reversed
         or CapLoop.outer != Outside
@@ -71,18 +75,19 @@ def CheckAnnEdge(
     CheckSweepFrame(
         CircleValue.center, CircleValue.axis, CircleValue.reference_direction
     )
-    return CapFace.id, SideFace.id
+    return (PlaneValue.id, WallValue.id), CircleValue
 
 
-# every cap must meet both walls through distinct complete owned circles
+# each cap must meet every wall through a distinct completely owned rim
 def CheckAnnEdges(
     ModelValue: BrepModel,
     TopologyValue: BrepTopology,
-    OuterRadius: float,
+    OuterWall: CylinderSurface,
+    WallCount: int,
     *,
     CheckSeams: bool,
-) -> None:
-    PairsValue: set[tuple[str, str]] = set()
+) -> dict[tuple[str, str], CircleCurve]:
+    PairsValue: dict[tuple[str, str], CircleCurve] = {}
     for EdgeValue in ModelValue.edges:
         if (
             EdgeValue.start_vertex_id != EdgeValue.end_vertex_id
@@ -96,6 +101,10 @@ def CheckAnnEdges(
             raise ValueError("local annulus rim requires a circular carrier")
         if CheckSeams:
             CheckCylTrim(TopologyValue, EdgeValue, CurveValue)
-        PairsValue.add(CheckAnnEdge(TopologyValue, EdgeValue, OuterRadius))
-    if len(PairsValue) != 4:
-        raise ValueError("local annulus rims do not join both caps to both walls")
+        PairValue, RingValue = CheckAnnEdge(
+            TopologyValue, EdgeValue, OuterWall, WallCount > 2
+        )
+        PairsValue[PairValue] = RingValue
+    if len(PairsValue) != 2 * WallCount:
+        raise ValueError("local annulus rims do not join both caps to all walls")
+    return PairsValue

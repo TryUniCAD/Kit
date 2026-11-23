@@ -12,22 +12,30 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Revolves.ReadRevLo
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckCylRims import (
     CheckCylChain,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.Cylinder.CheckWireBores import (
+    CheckWireBores,
+)
 
 
 # the distinct wall inventory selects the closed annular branch of the periodic reader
 def HasAnnularWalls(NodesValue: Mapping[int, XmtNode]) -> bool:
-    return sum(Value.KindValue == 51 for Value in NodesValue.values()) == 2
+    return sum(Value.KindValue == 51 for Value in NodesValue.values()) >= 2
 
 
-# every face must exhaust its two attached periodic rings without substituting another owner
-def ReadAnnFins(NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode) -> set[int]:
+# each face must exhaust its attached periodic rings without substituting another owner
+def ReadAnnFins(
+    NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode, WallCount: int
+) -> set[int]:
     SurfaceValues: list[XmtNode] = []
     LoopIds: set[int] = set()
     FinIds: set[int] = set()
-    for FaceId in ReadBodyFaces(NodesValue, BodyValue, 4):
+    for FaceId in ReadBodyFaces(NodesValue, BodyValue, WallCount + 2):
         FaceValue = NodesValue[FaceId]
         Surface = NodesValue[FaceValue.Integer("surface")]
-        Loops, FinsValue = ReadRevLoops(NodesValue, FaceValue, True)
+        LoopCount = WallCount if Surface.KindValue == 50 else 2
+        Loops, FinsValue = ReadRevLoops(
+            NodesValue, FaceValue, True, FullLoopCount=LoopCount
+        )
         if (
             Surface.KindValue not in (50, 51)
             or Surface.Integer("owner") != FaceId
@@ -44,9 +52,11 @@ def ReadAnnFins(NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode) -> set[in
     return FinIds
 
 
-# the circular carrier chain must follow four actual edges and own their positive fins
-def CheckAnnGraph(NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode) -> None:
-    FinIds = ReadAnnFins(NodesValue, BodyValue)
+# each actual rim must occur on the carrier chain with its own positive fin
+def CheckAnnGraph(
+    NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode, WallCount: int
+) -> None:
+    FinIds = ReadAnnFins(NodesValue, BodyValue, WallCount)
     EdgeIds = WalkXmtChain(
         NodesValue,
         BodyValue.Integer("edge"),
@@ -54,8 +64,10 @@ def CheckAnnGraph(NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode) -> None
         OwnerField="owner",
         OwnerValue=BodyValue.IndexValue,
     )
-    if len(EdgeIds) != 4 or len(FinIds) != 8:
-        raise ValueError("local annulus requires four owned edges and eight fins")
+    if len(EdgeIds) != 2 * WallCount or len(FinIds) != 4 * WallCount:
+        raise ValueError(
+            "local annulus requires completely owned circular edges and fins"
+        )
     CurveValues: list[XmtNode] = []
     AllFins: set[int] = set()
     for IndexValue in EdgeIds:
@@ -76,3 +88,5 @@ def CheckAnnGraph(NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode) -> None
     if AllFins != FinIds:
         raise ValueError("local annulus edges do not own all periodic fins")
     CheckCylChain(BodyValue.Integer("boundary_curve"), tuple(CurveValues))
+    if WallCount > 2:
+        CheckWireBores(NodesValue, tuple(CurveValues))

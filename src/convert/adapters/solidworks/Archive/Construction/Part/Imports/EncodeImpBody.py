@@ -50,7 +50,7 @@ def EncodeImpBody(
         raise ValueError("local import attributes require a planar body")
     if IsPeriodic:
         NodesValue = (
-            MakeAnnularBody(ModelValue) if WallCount == 2 else MakeLocalCyl(ModelValue)
+            MakeAnnularBody(ModelValue) if WallCount >= 2 else MakeLocalCyl(ModelValue)
         )
     elif IsPocket:
         if OwnedBody:

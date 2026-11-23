@@ -11,10 +11,9 @@ from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismVectors impor
 from interchange.brep.Surfaces.BrepSurfaces import CylinderSurface, PlaneSurface
 
 
-# the two supported mantles must share both axial stations and a positive wall thickness
-def CheckAnnFrame(
+# both end planes must bound the exterior cylindrical carrier on the same axis
+def ReadAnnPlanes(
     OuterValue: CylinderSurface,
-    InnerValue: CylinderSurface,
     PlanesValue: tuple[PlaneSurface, ...],
 ) -> tuple[PlaneSurface, PlaneSurface]:
     First, Second = PlanesValue
@@ -29,6 +28,17 @@ def CheckAnnFrame(
         PrismVector(AxisValue),
         PrismVector(OuterValue.reference_direction),
     )
+    return NearPlane, FarPlane
+
+
+# the concentric profile preserves its exact coaxial and frame requirements
+def CheckAnnFrame(
+    OuterValue: CylinderSurface,
+    InnerValue: CylinderSurface,
+    PlanesValue: tuple[PlaneSurface, ...],
+) -> tuple[PlaneSurface, PlaneSurface]:
+    NearPlane, FarPlane = ReadAnnPlanes(OuterValue, PlanesValue)
+    AxisValue = OuterValue.axis
     AxisParts = PrismVector(AxisValue)
     AxesValue = (AxisParts, tuple(-Value for Value in AxisParts))
     if (

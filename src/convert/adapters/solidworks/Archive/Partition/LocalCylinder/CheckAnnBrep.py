@@ -5,18 +5,29 @@ from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckAnnEdges i
 )
 from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckAnnFrame import (
     CheckAnnFrame,
+    ReadAnnPlanes,
+)
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckAnnBores import (
+    CheckAnnBores,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismVectors import (
     PrismVector,
+)
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.LocalXmtProfile import (
+    KLocalLimit,
 )
 from interchange.brep.Surfaces.BrepSurfaces import CylinderSurface, PlaneSurface
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
 # the bare model must account for one analytic annular boundary and its full topology
-def CheckAnnSize(ModelValue: BrepModel) -> None:
+def CheckAnnSize(ModelValue: BrepModel, WallCount: int) -> None:
+    FaceCount = WallCount + 2
+    EdgeCount = 2 * WallCount
+    LoopCount = 2 * EdgeCount
     if (
-        tuple(
+        14 * WallCount + 9 > KLocalLimit
+        or tuple(
             len(Values)
             for Values in (
                 ModelValue.bodies,
@@ -33,7 +44,20 @@ def CheckAnnSize(ModelValue: BrepModel) -> None:
                 ModelValue.vertices,
             )
         )
-        != (1, 1, 1, 1, 4, 4, 4, 8, 8, 4, 4, 4)
+        != (
+            1,
+            1,
+            1,
+            1,
+            FaceCount,
+            FaceCount,
+            FaceCount,
+            LoopCount,
+            LoopCount,
+            EdgeCount,
+            EdgeCount,
+            EdgeCount,
+        )
         or not ModelValue.regions[0].solid
         or not ModelValue.shells[0].closed
         or ModelValue.shell_uses[0].reversed
@@ -43,11 +67,11 @@ def CheckAnnSize(ModelValue: BrepModel) -> None:
         or tuple(Value.face_id for Value in ModelValue.face_uses)
         != tuple(Value.id for Value in ModelValue.faces)
         or any(Value.reversed for Value in ModelValue.face_uses)
-        or len({Value.surface_id for Value in ModelValue.faces}) != 4
-        or len({Value.curve_id for Value in ModelValue.edges}) != 4
-        or len({Value.start_vertex_id for Value in ModelValue.edges}) != 4
-        or any(len(Value.loop_ids) != 2 for Value in ModelValue.faces)
-        or len({LoopId for Value in ModelValue.faces for LoopId in Value.loop_ids}) != 8
+        or len({Value.surface_id for Value in ModelValue.faces}) != FaceCount
+        or len({Value.curve_id for Value in ModelValue.edges}) != EdgeCount
+        or len({Value.start_vertex_id for Value in ModelValue.edges}) != EdgeCount
+        or len({LoopId for Value in ModelValue.faces for LoopId in Value.loop_ids})
+        != LoopCount
     ):
         raise ValueError("local annulus requires one complete analytic solid boundary")
 
@@ -58,6 +82,7 @@ def CheckAnnFaces(
     TopologyValue: BrepTopology,
     OuterValue: CylinderSurface,
     FarPlane: PlaneSurface,
+    WallCount: int,
 ) -> None:
     for FaceValue in ModelValue.faces:
         Carrier = TopologyValue.surface_by_id[FaceValue.surface_id]
@@ -65,7 +90,7 @@ def CheckAnnFaces(
             CheckSweepFrame(Carrier.origin, Carrier.normal, Carrier.reference_direction)
             SenseValue = 1 if FaceValue.same_sense else -1
             CapSign = 1 if Carrier is FarPlane else -1
-            if tuple(
+            if len(FaceValue.loop_ids) != WallCount or tuple(
                 SenseValue * Value for Value in PrismVector(Carrier.normal)
             ) != tuple(CapSign * Value for Value in PrismVector(OuterValue.axis)):
                 raise ValueError(
@@ -84,8 +109,6 @@ def CheckAnnFaces(
 
 # geometry admission must prove the shell and every circle from the supplied solid
 def CheckAnnBrep(ModelValue: BrepModel, *, CheckSeams: bool = False) -> None:
-    CheckAnnSize(ModelValue)
-    TopologyValue = BrepTopology(ModelValue)
     PlanesValue = tuple(
         Value for Value in ModelValue.surfaces if isinstance(Value, PlaneSurface)
     )
@@ -93,12 +116,23 @@ def CheckAnnBrep(ModelValue: BrepModel, *, CheckSeams: bool = False) -> None:
         (Value for Value in ModelValue.surfaces if isinstance(Value, CylinderSurface)),
         key=AnnWallRadius,
     )
-    if len(PlanesValue) != 2 or len(WallsValue) != 2:
-        raise ValueError("local annulus requires two planes and two cylindrical walls")
-    InnerValue, OuterValue = WallsValue
-    _, FarPlane = CheckAnnFrame(OuterValue, InnerValue, PlanesValue)
-    CheckAnnFaces(ModelValue, TopologyValue, OuterValue, FarPlane)
-    CheckAnnEdges(ModelValue, TopologyValue, OuterValue.radius, CheckSeams=CheckSeams)
+    WallCount = len(WallsValue)
+    CheckAnnSize(ModelValue, WallCount)
+    if len(PlanesValue) != 2 or WallCount < 2:
+        raise ValueError("local annulus requires two planes and cylindrical walls")
+    TopologyValue = BrepTopology(ModelValue)
+    *BoresValue, OuterWall = WallsValue
+    NearPlane, FarPlane = (
+        CheckAnnFrame(OuterWall, BoresValue[0], PlanesValue)
+        if WallCount == 2
+        else ReadAnnPlanes(OuterWall, PlanesValue)
+    )
+    CheckAnnFaces(ModelValue, TopologyValue, OuterWall, FarPlane, WallCount)
+    RimValues = CheckAnnEdges(
+        ModelValue, TopologyValue, OuterWall, WallCount, CheckSeams=CheckSeams
+    )
+    if WallCount > 2:
+        CheckAnnBores(OuterWall, BoresValue, (NearPlane, FarPlane), RimValues)
 
 
 # wall identity follows its actual radial ordering rather than face sequence
