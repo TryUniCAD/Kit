@@ -1,0 +1,885 @@
+{
+  "base": "4f3fe8ee989b7df7b15c9b87c29793617047e1aa",
+  "cases": {
+    "C017-P01": {
+      "exact_owned_shape_sha256": {
+        "freecad:brep:Body:Shape": "466cf3b915f469f3bd1587c18e63f2acbf92760248017d6405fb9592e6b87d81",
+        "freecad:brep:Pad:AddSubShape": "d05ce7b078f45aebe0d5668744410c6873e194350bc72163e0aee63a384ba360",
+        "freecad:brep:Pad:Shape": "fb585e1af4c400a34407ca471534c2a5d7135a72ba852e78da4b879407518bad",
+        "freecad:brep:Sketch:Shape": "ae4b0dc7d32167e2f21e4cef79da665bd37b0877200e7c65afb78813b57babc5"
+      },
+      "legacy_or_mapped": {
+        "body_child_map_id": 2,
+        "body_child_ranges": {
+          "Edge": {
+            "count": 12,
+            "first": 1,
+            "map_index": 1,
+            "offset": 0,
+            "postfix": ";:H77,E",
+            "tag": 119
+          },
+          "Face": {
+            "count": 6,
+            "first": 1,
+            "map_index": 1,
+            "offset": 0,
+            "postfix": ";:H77,F",
+            "tag": 119
+          },
+          "Vertex": {
+            "count": 8,
+            "first": 1,
+            "map_index": 1,
+            "offset": 0,
+            "postfix": ";:H77,V",
+            "tag": 119
+          }
+        },
+        "counts": {
+          "Edge": {
+            "aliases": 12,
+            "rows": 12
+          },
+          "Face": {
+            "aliases": 6,
+            "rows": 6
+          },
+          "Vertex": {
+            "aliases": 12,
+            "rows": 8
+          }
+        },
+        "full_decoded_pad_rows_sha256": "d32d12c8911cbb2d8403ee31496e4630273ebfec7f695dbbfb0927b7842448a6",
+        "full_decoded_sketch_rows_sha256": "5c20712428df2726c9f6c83220842b05d8a93270c6e096710eb8f506a356b157",
+        "map_sha256": {
+          "freecad:brep:Body:Shape": "890323b48287f17efa392cfde5f8d1c8683c5350666408c1e3e34cfdcc485ecf",
+          "freecad:brep:Pad:AddSubShape": "ee3421e9aa7281018bb3a962161b365b1358ba3dc4e8fa270632b44cf80483c4",
+          "freecad:brep:Pad:Shape": "074f05b63e3b7eda392c36f4938a8e638c040e9f938c324d7c25db6132a076b2",
+          "freecad:brep:Sketch:Shape": "3122a2e70dafbd5617afe7851c9a3864672cd03df3cc15e737748f470219b4a7"
+        },
+        "pad_owner_id": 119,
+        "physical_role_and_seed_join_sha256": "0720909618d7e152087219a86d72aab034dd65ed0b9d1160ed8940b8f1ed7ab5",
+        "selected_actual_rows": {
+          "Pad.Edge1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": 1,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 2,
+                "string_ids": [
+                  28,
+                  14,
+                  2,
+                  1
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H76,V",
+                  ";:G;XTR;:H76:7,E"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "00*"
+          },
+          "Pad.Edge3": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": null,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 1,
+                "string_ids": [
+                  11,
+                  1,
+                  10
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H76,E"
+                ]
+              }
+            ],
+            "ordinal": 3,
+            "physical_role": "*00"
+          },
+          "Pad.Face1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": null,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 1,
+                "string_ids": [
+                  13,
+                  12,
+                  11,
+                  1,
+                  10
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H76,E",
+                  ";:G;XTR;:H76:7,F"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "*0*"
+          },
+          "Pad.Face6": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": null,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 1,
+                "string_ids": [
+                  20,
+                  19,
+                  13,
+                  12,
+                  11,
+                  1,
+                  10
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H76,E",
+                  ";FAC;:H76:4,F",
+                  ";:G0;XTR;:H76:8,F"
+                ]
+              }
+            ],
+            "ordinal": 6,
+            "physical_role": "**1"
+          },
+          "Pad.Vertex1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": 1,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [
+                  2,
+                  1
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H76,V"
+                ]
+              },
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:3",
+                "endpoint": 2,
+                "geometry_id": 4,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [
+                  3,
+                  1
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H76,V"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "000"
+          },
+          "Sketch.Vertex1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": 1,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [],
+                "suffixes": [
+                  ";SKT"
+                ]
+              },
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:3",
+                "endpoint": 2,
+                "geometry_id": 4,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [],
+                "suffixes": [
+                  ";SKT"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "00"
+          }
+        },
+        "sketch_owner_id": 118,
+        "string_table_rows": 24,
+        "string_table_sha256": "14402e9cad279f4ef7bab7018cac677bd25d1ac2030bee1690fe30551a706e07"
+      },
+      "placed_counts": {
+        "freecad:brep:Body:Shape": {
+          "Edge": {
+            "raw_records": 12,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 6,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 8,
+            "used": 8
+          }
+        },
+        "freecad:brep:Pad:AddSubShape": {
+          "Edge": {
+            "raw_records": 8,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 5,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 4,
+            "used": 8
+          }
+        },
+        "freecad:brep:Pad:Shape": {
+          "Edge": {
+            "raw_records": 8,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 5,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 4,
+            "used": 8
+          }
+        }
+      },
+      "refine": true,
+      "runtime_data_reads_after_intake": 0,
+      "source_bundle_sha256": "b952c2e960f3c1faf32db31d1f87ef1be30518938cf82ed0df83bb4f3a7226b2",
+      "source_release": "1.1R20260928 (Git shallow)",
+      "source_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
+      "strict_body_owner_identity": true,
+      "synthetic_refusals": {
+        "changing_named_wire_edges_with_equal_archive_geometry": "sketch named ordinal points to a foreign physical geometry",
+        "numeric_identity_wrong_symbolic_occurrence": "distinct symbolic placements collapse to one matrix",
+        "right_geometry_wrong_pad_child_tag": "body map range does not name the actual Pad result owner",
+        "truncated_exact_pad_map": "truncated element map",
+        "truncated_exact_string_table": "invalid element string table framing"
+      }
+    },
+    "C123-P01": {
+      "exact_owned_shape_sha256": {
+        "freecad:brep:Body:Shape": "466cf3b915f469f3bd1587c18e63f2acbf92760248017d6405fb9592e6b87d81",
+        "freecad:brep:Pad:AddSubShape": "d05ce7b078f45aebe0d5668744410c6873e194350bc72163e0aee63a384ba360",
+        "freecad:brep:Pad:Shape": "fb585e1af4c400a34407ca471534c2a5d7135a72ba852e78da4b879407518bad",
+        "freecad:brep:Sketch:Shape": "ae4b0dc7d32167e2f21e4cef79da665bd37b0877200e7c65afb78813b57babc5"
+      },
+      "legacy_or_mapped": {
+        "body_child_map_id": 2,
+        "body_child_ranges": {
+          "Edge": {
+            "count": 12,
+            "first": 1,
+            "map_index": 1,
+            "offset": 0,
+            "postfix": ";:H649,E",
+            "tag": 1609
+          },
+          "Face": {
+            "count": 6,
+            "first": 1,
+            "map_index": 1,
+            "offset": 0,
+            "postfix": ";:H649,F",
+            "tag": 1609
+          },
+          "Vertex": {
+            "count": 8,
+            "first": 1,
+            "map_index": 1,
+            "offset": 0,
+            "postfix": ";:H649,V",
+            "tag": 1609
+          }
+        },
+        "counts": {
+          "Edge": {
+            "aliases": 12,
+            "rows": 12
+          },
+          "Face": {
+            "aliases": 6,
+            "rows": 6
+          },
+          "Vertex": {
+            "aliases": 12,
+            "rows": 8
+          }
+        },
+        "full_decoded_pad_rows_sha256": "6cbd54d830e790ad78efb353e12ee64466cd1bca8bece73d7d613f14ac46f52f",
+        "full_decoded_sketch_rows_sha256": "5c20712428df2726c9f6c83220842b05d8a93270c6e096710eb8f506a356b157",
+        "map_sha256": {
+          "freecad:brep:Body:Shape": "eef363bcc85fd3687d5e8831ede7d0513509e47262aaf777bd3799aa2e0a9e13",
+          "freecad:brep:Pad:AddSubShape": "20a3223a5af0987fecc963309a47dba673b38f322684f30f95f8e98c321f4241",
+          "freecad:brep:Pad:Shape": "7065abb491b18cd23005ef9b540e5aaed69bc2f9776aa0c6cd52874eed9cffb6",
+          "freecad:brep:Sketch:Shape": "3122a2e70dafbd5617afe7851c9a3864672cd03df3cc15e737748f470219b4a7"
+        },
+        "pad_owner_id": 1609,
+        "physical_role_and_seed_join_sha256": "0720909618d7e152087219a86d72aab034dd65ed0b9d1160ed8940b8f1ed7ab5",
+        "selected_actual_rows": {
+          "Pad.Edge1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": 1,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 2,
+                "string_ids": [
+                  29,
+                  14,
+                  2,
+                  1
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H648,V",
+                  ";:G;XTR;:H648:7,E"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "00*"
+          },
+          "Pad.Edge3": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": null,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 1,
+                "string_ids": [
+                  11,
+                  1,
+                  10
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H648,E"
+                ]
+              }
+            ],
+            "ordinal": 3,
+            "physical_role": "*00"
+          },
+          "Pad.Face1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": null,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 1,
+                "string_ids": [
+                  13,
+                  12,
+                  11,
+                  1,
+                  10
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H648,E",
+                  ";:G;XTR;:H648:7,F"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "*0*"
+          },
+          "Pad.Face6": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": null,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 1,
+                "string_ids": [
+                  20,
+                  19,
+                  13,
+                  12,
+                  11,
+                  1,
+                  10
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H648,E",
+                  ";FAC;:H648:4,F",
+                  ";:G0;XTR;:H648:8,F"
+                ]
+              }
+            ],
+            "ordinal": 6,
+            "physical_role": "**1"
+          },
+          "Pad.Vertex1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": 1,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [
+                  2,
+                  1
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H648,V"
+                ]
+              },
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:3",
+                "endpoint": 2,
+                "geometry_id": 4,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [
+                  3,
+                  1
+                ],
+                "suffixes": [
+                  ";SKT",
+                  ";:H648,V"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "000"
+          },
+          "Sketch.Vertex1": {
+            "aliases": [
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:0",
+                "endpoint": 1,
+                "geometry_id": 1,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [],
+                "suffixes": [
+                  ";SKT"
+                ]
+              },
+              {
+                "actual_sketch_entity": "freecad:sketch:Sketch:entity:3",
+                "endpoint": 2,
+                "geometry_id": 4,
+                "retained_related_ids": [],
+                "stored_subindex": 0,
+                "string_ids": [],
+                "suffixes": [
+                  ";SKT"
+                ]
+              }
+            ],
+            "ordinal": 1,
+            "physical_role": "00"
+          }
+        },
+        "sketch_owner_id": 1608,
+        "string_table_rows": 24,
+        "string_table_sha256": "edbdaf5877dbae4b791a5e3ba96c3977215487a1137bb131c9710cc985cb4cf9"
+      },
+      "placed_counts": {
+        "freecad:brep:Body:Shape": {
+          "Edge": {
+            "raw_records": 12,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 6,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 8,
+            "used": 8
+          }
+        },
+        "freecad:brep:Pad:AddSubShape": {
+          "Edge": {
+            "raw_records": 8,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 5,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 4,
+            "used": 8
+          }
+        },
+        "freecad:brep:Pad:Shape": {
+          "Edge": {
+            "raw_records": 8,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 5,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 4,
+            "used": 8
+          }
+        }
+      },
+      "refine": true,
+      "runtime_data_reads_after_intake": 0,
+      "source_bundle_sha256": "02f16e6ba990e92ed096da77020eaaa33bdd31051ae709a021dd2434ef6f5e4a",
+      "source_release": "1.0R39319 (Git)",
+      "source_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
+      "strict_body_owner_identity": true,
+      "synthetic_refusals": {
+        "changing_named_wire_edges_with_equal_archive_geometry": "sketch named ordinal points to a foreign physical geometry",
+        "numeric_identity_wrong_symbolic_occurrence": "distinct symbolic placements collapse to one matrix",
+        "right_geometry_wrong_pad_child_tag": "body map range does not name the actual Pad result owner",
+        "truncated_exact_pad_map": "truncated element map",
+        "truncated_exact_string_table": "invalid element string table framing"
+      }
+    },
+    "C130-P01": {
+      "exact_owned_shape_sha256": {
+        "freecad:brep:Body:Shape": "466cf3b915f469f3bd1587c18e63f2acbf92760248017d6405fb9592e6b87d81",
+        "freecad:brep:Pad:AddSubShape": "d05ce7b078f45aebe0d5668744410c6873e194350bc72163e0aee63a384ba360",
+        "freecad:brep:Pad:Shape": "fb585e1af4c400a34407ca471534c2a5d7135a72ba852e78da4b879407518bad",
+        "freecad:brep:Sketch:Shape": "ae4b0dc7d32167e2f21e4cef79da665bd37b0877200e7c65afb78813b57babc5"
+      },
+      "legacy_or_mapped": {
+        "body_and_pad_ordinals": {
+          "Edge": [
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-8",
+              "ordinal": 1,
+              "role": "00*",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:3",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:3",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:3"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-9",
+              "ordinal": 2,
+              "role": "10*",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:6",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:6",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:6"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-0",
+              "ordinal": 3,
+              "role": "*00",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:7",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:7",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:7"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-4",
+              "ordinal": 4,
+              "role": "*01",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:8",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:8",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:8"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-10",
+              "ordinal": 5,
+              "role": "11*",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:13",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:13",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:13"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-1",
+              "ordinal": 6,
+              "role": "1*0",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:14",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:14",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:14"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-5",
+              "ordinal": 7,
+              "role": "1*1",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:15",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:15",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:15"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-11",
+              "ordinal": 8,
+              "role": "01*",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:20",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:20",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:20"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-2",
+              "ordinal": 9,
+              "role": "*10",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:21",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:21",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:21"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-6",
+              "ordinal": 10,
+              "role": "*11",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:22",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:22",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:22"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-3",
+              "ordinal": 11,
+              "role": "0*0",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:25",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:25",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:25"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-edge-7",
+              "ordinal": 12,
+              "role": "0*1",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:edge:26",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:edge:26",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:edge:26"
+            }
+          ],
+          "Face": [
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-face-2",
+              "ordinal": 1,
+              "role": "*0*",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:face:10",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:face:10",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:face:10"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-face-3",
+              "ordinal": 2,
+              "role": "1**",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:face:17",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:face:17",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:face:17"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-face-4",
+              "ordinal": 3,
+              "role": "*1*",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:face:24",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:face:24",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:face:24"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-face-5",
+              "ordinal": 4,
+              "role": "0**",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:face:28",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:face:28",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:face:28"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-face-0",
+              "ordinal": 5,
+              "role": "**0",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:face:30",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:face:30",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:face:30"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-face-1",
+              "ordinal": 6,
+              "role": "**1",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:face:32",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:face:32",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:face:32"
+            }
+          ],
+          "Vertex": [
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-0",
+              "ordinal": 1,
+              "role": "000",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:1",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:1",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:1"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-4",
+              "ordinal": 2,
+              "role": "001",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:2",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:2",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:2"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-1",
+              "ordinal": 3,
+              "role": "100",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:4",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:4",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:4"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-5",
+              "ordinal": 4,
+              "role": "101",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:5",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:5",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:5"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-2",
+              "ordinal": 5,
+              "role": "110",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:11",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:11",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:11"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-6",
+              "ordinal": 6,
+              "role": "111",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:12",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:12",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:12"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-3",
+              "ordinal": 7,
+              "role": "010",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:18",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:18",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:18"
+            },
+            {
+              "generated_neutral_entity": "sldprt:body:1-prism-vertex-7",
+              "ordinal": 8,
+              "role": "011",
+              "source_body_entity": "freecad:occ:9f0529dc4037ba793b30:vertex:19",
+              "source_pad_result_entity": "freecad:occ:669830b23c95f67021b2:vertex:19",
+              "source_pad_tool_entity": "freecad:occ:6f11e800baf036b1c9e7:vertex:19"
+            }
+          ]
+        },
+        "generated_sha256": "5380e278a2bfd9745ddb5557b4f3584c21a96a2f26c5f243ce8b4065783093f9",
+        "generation_used_source_occurrences": false,
+        "publication_refusals": {
+          "fcstd": {
+            "adapter": "does not support the destination",
+            "registry": "does not support the destination"
+          },
+          "native_readback": {
+            "adapter": "does not support the destination",
+            "registry": "does not support the destination"
+          }
+        },
+        "stored_legacy_names": 0
+      },
+      "placed_counts": {
+        "freecad:brep:Body:Shape": {
+          "Edge": {
+            "raw_records": 12,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 6,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 8,
+            "used": 8
+          }
+        },
+        "freecad:brep:Pad:AddSubShape": {
+          "Edge": {
+            "raw_records": 8,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 5,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 4,
+            "used": 8
+          }
+        },
+        "freecad:brep:Pad:Shape": {
+          "Edge": {
+            "raw_records": 8,
+            "used": 12
+          },
+          "Face": {
+            "raw_records": 5,
+            "used": 6
+          },
+          "Vertex": {
+            "raw_records": 4,
+            "used": 8
+          }
+        }
+      },
+      "refine": false,
+      "runtime_data_reads_after_intake": 0,
+      "source_bundle_sha256": "6d0c04182c6fdfcee465022e8de0097b994a405a93d053b095d32f4616a04043",
+      "source_release": "0.21R33771 (Git)",
+      "source_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+      "strict_body_owner_identity": true,
+      "synthetic_refusals": {
+        "numeric_identity_wrong_symbolic_occurrence": "distinct symbolic placements collapse to one matrix"
+      }
+    }
+  },
+  "corpus_credit": 0,
+  "evidence_source_sha256": {
+    "re/tooling/sw2026/freecad_census/ancestry/PadElementMap.py": "5707962d20641e9486ba41c2f82a1d212043cb52084e7df7a50da3e09bd07e28",
+    "re/tooling/sw2026/freecad_census/ancestry/PadNameTable.py": "8e6c33d515ac4c5bef1ae8efaa6c9769765141159bf2605d020fd7aad7c6d792",
+    "re/tooling/sw2026/freecad_census/ancestry/PadOccurrences.py": "ea876e1728dfb3536111c538e78119296901ac5a0d0d64eaff1d7ec253b915eb",
+    "re/tooling/sw2026/freecad_census/ancestry/PadSourceNames.py": "a430c1f06115a6663e327efceb28f26c01f008389178d50b5ddc74b3c465ea8a",
+    "re/tooling/sw2026/freecad_census/ancestry/ProvePadAncestry.py": "b69aceff170f1c90faa1831a2b7ee97eff35100f924ea1943b8d8f058772f0e4"
+  },
+  "inventory_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
+  "native_processes": 0,
+  "native_symbolic_reference_publication": false,
+  "prior_owner_receipt_sha256": "160f60518f6e0e8a8137f90ce9171628f9908671f076e1a4f28cec870fc71ba3",
+  "sdk_processes": 6,
+  "source_members_exact": 4,
+  "source_tree": "88ab3f122fc515e9ae55ca024e07f8b517b67c6b",
+  "whole_source_publication": false
+}
