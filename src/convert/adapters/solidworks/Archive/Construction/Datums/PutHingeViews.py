@@ -18,19 +18,22 @@ def PutHingeViews(
     BoundsValue: tuple[tuple[float, float, float], tuple[float, float, float]],
 ) -> tuple[float, float]:
     Lower, Upper = BoundsValue
-    if (
-        Lower != (0.0, 0.0, 0.0)
-        or SystemValue.RootValue.ClassValue.NameValue != "moPart_c"
-    ):
-        raise ValueError("finite hinge sizing requires an origin joined part")
-    Width, Height, DepthValue = (RequireScalar(Value) for Value in Upper)
+    if Lower[2] != 0.0 or SystemValue.RootValue.ClassValue.NameValue != "moPart_c":
+        raise ValueError("finite datum sizing requires a joined Front-plane part")
+    Limits = tuple(
+        (RequireScalar(Start), RequireScalar(End))
+        for Start, End in zip(Lower, Upper, strict=True)
+    )
+    Width, Height, DepthValue = (RequireScalar(End - Start) for Start, End in Limits)
     if min(Width, Height, DepthValue) <= 1e-7 or set(
         SystemValue.SystemValues.PlaneValues
     ) != {"x", "y", "z"}:
         raise ValueError(
             "finite hinge sizing requires positive stock and actual canonical supports"
         )
-    CenterX, CenterY, CenterZ = Width * 0.5, Height * 0.5, DepthValue * 0.5
+    CenterX, CenterY, CenterZ = (
+        RequireScalar((Start + End) * 0.5) for Start, End in Limits
+    )
     MarginX, MarginY, MarginZ = (
         Value * 0.5 + Value * 0.05 for Value in (Width, Height, DepthValue)
     )

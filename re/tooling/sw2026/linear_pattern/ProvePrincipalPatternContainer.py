@@ -117,7 +117,8 @@ def dimensions(link, request):
 
 def predictions(request):
     plate, seed = [tuple(tuple(coord * 1000 for coord in point) for point in request[key]) for key in ("plate", "seed")]
-    width, height, depth = plate[1]
+    (plate_x0, plate_y0, _), (plate_x1, plate_y1, depth) = plate
+    width, height = plate_x1 - plate_x0, plate_y1 - plate_y0
     (x0, y0, _), (x1, y1, z1) = seed
     wide, high, rise = x1 - x0, y1 - y0, z1 - depth
     count = request["count"]
@@ -126,12 +127,12 @@ def predictions(request):
     volume_plate, volume_seed = width * height * depth, wide * high * rise
     volume = volume_plate + volume_seed * count
     area = 2 * (width * height + width * depth + height * depth) + count * 2 * (wide + high) * rise
-    plate_center = (width / 2, height / 2, depth / 2)
+    plate_center = ((plate_x0 + plate_x1) / 2, (plate_y0 + plate_y1) / 2, depth / 2)
     seed_center = ((x0 + x1) / 2, (y0 + y1) / 2, (z1 + depth) / 2)
     direction = AXES[request["axis"]]
     centroid = tuple((volume_plate * base + volume_seed * (count * center + repeat * sense * pitch)) / volume
                      for base, center, sense in zip(plate_center, seed_center, direction, strict=True))
-    return volume, area, centroid, (0.0, 0.0, 0.0, width, height, z1)
+    return volume, area, centroid, (plate_x0, plate_y0, 0.0, plate_x1, plate_y1, z1)
 
 
 def prove_solid(link, owner, request):

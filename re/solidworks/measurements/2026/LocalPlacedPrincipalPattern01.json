@@ -1,0 +1,1080 @@
+{
+  "build": "34.5.2.0604",
+  "complete_model_files": 6,
+  "fcstd_credit": 0,
+  "fresh_guarded_workers": 8,
+  "heldout_cases": 0,
+  "model_cases": {
+    "D01X": {
+      "count": {
+        "generated": {
+          "atom_lineage": [
+            101,
+            102,
+            103
+          ],
+          "drivers": {
+            "active_views": {
+              "D1": [
+                "*Front",
+                201
+              ],
+              "D3": [
+                "*Top",
+                200
+              ]
+            },
+            "catalog_ids": {
+              "*Front": 201,
+              "*Top": 200
+            },
+            "pitch_midpoint_word": "0x1.ffffffffffffep-2",
+            "pitch_world_extent_m": 0.027183000000000006,
+            "typed_driver_values": [
+              [
+                "D1",
+                4,
+                4.0,
+                11,
+                24
+              ],
+              [
+                "D3",
+                0.027183,
+                0.027183,
+                10,
+                25
+              ],
+              [
+                "D2",
+                1,
+                0.0,
+                0,
+                26
+              ],
+              [
+                "D4",
+                0.0,
+                0.0,
+                0,
+                27
+              ],
+              [
+                "D5",
+                0.0,
+                0.0,
+                0,
+                28
+              ],
+              [
+                "D6",
+                0.0,
+                0.0,
+                0,
+                29
+              ]
+            ]
+          },
+          "final_atom_map": 53,
+          "keywords": {
+            "datum_without_dimension": 16,
+            "framing": "compact",
+            "pattern_drivers": [
+              "D1",
+              "D3"
+            ],
+            "root_count": 22
+          },
+          "map_counters": [
+            94,
+            277
+          ],
+          "pattern_feature_id": 30,
+          "payload_bytes": 9481,
+          "payload_sha256": "4f3a9aebce22662bca92501f9474a76c35481faa8381c57876e8c02ba508840e",
+          "principal_direction": {
+            "creation_epoch": 2592000,
+            "display_centre_m": [
+              0.0,
+              0.031090000000000007,
+              0.00533
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "plane_id": 16,
+            "plane_role": 1,
+            "span": 1.0
+          },
+          "request_sha256": "fc741c5f65d2219bd56b1ba10df312335e51ae80a8f30551314d5691c29da28e",
+          "runtime_reads": 0,
+          "solid": {
+            "area_mm2": 97256.1488,
+            "body_count": 1,
+            "bounds_mm": [
+              -53.17,
+              -63.91,
+              0.0,
+              186.82999999999998,
+              126.09,
+              10.659999999999998
+            ],
+            "centroid_mm": [
+              66.99549718476455,
+              31.043421521116855,
+              3.20671082574964
+            ],
+            "edge_count": 60,
+            "face_count": 26,
+            "plate_hole_loops": 4,
+            "vertex_count": 40,
+            "volume_mm3": 291660.02626799996
+          },
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "444cf6a2e225c8f5d98c3ec26615925109bf14b1166120b8399f790ca1a6ec37"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "ccf9d81c8f6cda440a04d630407210bb1ded0f4dc1e88aabc96ce48279f93ab6"
+            },
+            "Contents/Config-0": {
+              "bytes": 23000,
+              "sha256": "968b2251d459dac17cdb5cafe8ecbda70a52ad2087e834a8476aaa67d7aba2c7"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1019,
+              "sha256": "6d478fc8d2613e2102b366dff84e6becc4a2477d1a343340f9b2b76f44a2c5c3"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 23823,
+              "sha256": "d787e145b2e466cf316ebe23ab6d106da763cae9dd2c7f250a4931b54bd4ac51"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 1019,
+              "sha256": "fb3ff7eccca932de2df7667983a025277d65201f54bc916978c6f95c8a2856c1"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "40ba19f3dbd9f0f9a3664ca4b78a518a71288f1ad9faa34f38a762d0064f3bac"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1736,
+              "sha256": "588e73dd67c6f850299b3fa87b2b42af65fd17e319ad20817b4d2422d76efca4"
+            }
+          }
+        },
+        "source": {
+          "body_count": 1,
+          "geometry_values_within_relative_2e_7": 5,
+          "native_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+          "record_sha256": "f5d53ff881e3dee31212b15acdd05404f221b0b6e1090b94701414dc5462c977"
+        }
+      },
+      "original": {
+        "generated": {
+          "atom_lineage": [
+            101,
+            102,
+            103
+          ],
+          "drivers": {
+            "active_views": {
+              "D1": [
+                "*Front",
+                201
+              ],
+              "D3": [
+                "*Top",
+                200
+              ]
+            },
+            "catalog_ids": {
+              "*Front": 201,
+              "*Top": 200
+            },
+            "pitch_midpoint_word": "0x1.ffffffffffffep-2",
+            "pitch_world_extent_m": 0.027183000000000006,
+            "typed_driver_values": [
+              [
+                "D1",
+                3,
+                3.0,
+                11,
+                24
+              ],
+              [
+                "D3",
+                0.027183,
+                0.027183,
+                10,
+                25
+              ],
+              [
+                "D2",
+                1,
+                0.0,
+                0,
+                26
+              ],
+              [
+                "D4",
+                0.0,
+                0.0,
+                0,
+                27
+              ],
+              [
+                "D5",
+                0.0,
+                0.0,
+                0,
+                28
+              ],
+              [
+                "D6",
+                0.0,
+                0.0,
+                0,
+                29
+              ]
+            ]
+          },
+          "final_atom_map": 53,
+          "keywords": {
+            "datum_without_dimension": 16,
+            "framing": "compact",
+            "pattern_drivers": [
+              "D1",
+              "D3"
+            ],
+            "root_count": 22
+          },
+          "map_counters": [
+            94,
+            277
+          ],
+          "pattern_feature_id": 30,
+          "payload_bytes": 9479,
+          "payload_sha256": "1fe3a847379599138e1e099457e93bda62084cc22e50f61d42008408f7f1e3c6",
+          "principal_direction": {
+            "creation_epoch": 2592000,
+            "display_centre_m": [
+              0.0,
+              0.031090000000000007,
+              0.00533
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "plane_id": 16,
+            "plane_role": 1,
+            "span": 1.0
+          },
+          "request_sha256": "58d90f0c8d608703c4e61eb18dc6564e1ec0bba891ae7a092c55f3c1c1e9a890",
+          "runtime_reads": 0,
+          "solid": {
+            "area_mm2": 97111.66159999999,
+            "body_count": 1,
+            "bounds_mm": [
+              -53.17,
+              -63.91,
+              0.0,
+              186.82999999999998,
+              126.09,
+              10.659999999999998
+            ],
+            "centroid_mm": [
+              66.91268513519788,
+              31.05503053032814,
+              3.2012997178269345
+            ],
+            "edge_count": 48,
+            "face_count": 21,
+            "plate_hole_loops": 3,
+            "vertex_count": 32,
+            "volume_mm3": 291363.01970099995
+          },
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "444cf6a2e225c8f5d98c3ec26615925109bf14b1166120b8399f790ca1a6ec37"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "ccf9d81c8f6cda440a04d630407210bb1ded0f4dc1e88aabc96ce48279f93ab6"
+            },
+            "Contents/Config-0": {
+              "bytes": 23000,
+              "sha256": "968b2251d459dac17cdb5cafe8ecbda70a52ad2087e834a8476aaa67d7aba2c7"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1019,
+              "sha256": "6d478fc8d2613e2102b366dff84e6becc4a2477d1a343340f9b2b76f44a2c5c3"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 23823,
+              "sha256": "d00391038eb5baf302a60b7eeb05a9b7a0b1d5261e680323dd04d9d5003d9c0e"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 1019,
+              "sha256": "fb3ff7eccca932de2df7667983a025277d65201f54bc916978c6f95c8a2856c1"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "40ba19f3dbd9f0f9a3664ca4b78a518a71288f1ad9faa34f38a762d0064f3bac"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1736,
+              "sha256": "1cd32a72ea3f28b5803d87b8e1929195ec7efd8d014c7f058588d25651e3eb3a"
+            }
+          }
+        },
+        "source": {
+          "body_count": 1,
+          "geometry_values_within_relative_2e_7": 5,
+          "native_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+          "record_sha256": "0d6241357e2465aa85ccd50ad10769d4a7d8fb964be10f352e72f4e96c262c22"
+        }
+      },
+      "pitch": {
+        "generated": {
+          "atom_lineage": [
+            101,
+            102,
+            103
+          ],
+          "drivers": {
+            "active_views": {
+              "D1": [
+                "*Front",
+                201
+              ],
+              "D3": [
+                "*Top",
+                200
+              ]
+            },
+            "catalog_ids": {
+              "*Front": 201,
+              "*Top": 200
+            },
+            "pitch_midpoint_word": "0x1.ffffffffffffep-2",
+            "pitch_world_extent_m": 0.031427000000000004,
+            "typed_driver_values": [
+              [
+                "D1",
+                3,
+                3.0,
+                11,
+                24
+              ],
+              [
+                "D3",
+                0.031427,
+                0.031427,
+                10,
+                25
+              ],
+              [
+                "D2",
+                1,
+                0.0,
+                0,
+                26
+              ],
+              [
+                "D4",
+                0.0,
+                0.0,
+                0,
+                27
+              ],
+              [
+                "D5",
+                0.0,
+                0.0,
+                0,
+                28
+              ],
+              [
+                "D6",
+                0.0,
+                0.0,
+                0,
+                29
+              ]
+            ]
+          },
+          "final_atom_map": 53,
+          "keywords": {
+            "datum_without_dimension": 16,
+            "framing": "compact",
+            "pattern_drivers": [
+              "D1",
+              "D3"
+            ],
+            "root_count": 22
+          },
+          "map_counters": [
+            94,
+            277
+          ],
+          "pattern_feature_id": 30,
+          "payload_bytes": 9483,
+          "payload_sha256": "ed61e8463cda440ad3289b3dd5ccad1cf664ce925741de5b82fc07bdecb7a8fc",
+          "principal_direction": {
+            "creation_epoch": 2592000,
+            "display_centre_m": [
+              0.0,
+              0.031090000000000007,
+              0.00533
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "plane_id": 16,
+            "plane_role": 1,
+            "span": 1.0
+          },
+          "request_sha256": "c6269c28dfe520ebe8a2e9376bff8307691fb46d7632be4630f77dd3a4edc7b4",
+          "runtime_reads": 0,
+          "solid": {
+            "area_mm2": 97111.66159999999,
+            "body_count": 1,
+            "bounds_mm": [
+              -53.17,
+              -63.91,
+              0.0,
+              186.82999999999998,
+              126.09,
+              10.659999999999998
+            ],
+            "centroid_mm": [
+              66.92566374729121,
+              31.055030530328125,
+              3.2012997178269345
+            ],
+            "edge_count": 48,
+            "face_count": 21,
+            "plate_hole_loops": 3,
+            "vertex_count": 32,
+            "volume_mm3": 291363.01970099995
+          },
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "444cf6a2e225c8f5d98c3ec26615925109bf14b1166120b8399f790ca1a6ec37"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "ccf9d81c8f6cda440a04d630407210bb1ded0f4dc1e88aabc96ce48279f93ab6"
+            },
+            "Contents/Config-0": {
+              "bytes": 23000,
+              "sha256": "968b2251d459dac17cdb5cafe8ecbda70a52ad2087e834a8476aaa67d7aba2c7"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1019,
+              "sha256": "6d478fc8d2613e2102b366dff84e6becc4a2477d1a343340f9b2b76f44a2c5c3"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 23823,
+              "sha256": "5194e648e7a859258a7b333883f3db3ff1f82c7077ba6e9c1d8dc52819cfbc12"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 1019,
+              "sha256": "fb3ff7eccca932de2df7667983a025277d65201f54bc916978c6f95c8a2856c1"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "40ba19f3dbd9f0f9a3664ca4b78a518a71288f1ad9faa34f38a762d0064f3bac"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1748,
+              "sha256": "1bfd76b07ca24f1c05352cf297279f824515746600305097ad9c6acd9f4490b0"
+            }
+          }
+        },
+        "source": {
+          "body_count": 1,
+          "geometry_values_within_relative_2e_7": 5,
+          "native_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+          "record_sha256": "3212c15962b82be4030d5050efe6b8830f98c7b2b92f66538028f42e8d16625e"
+        }
+      }
+    },
+    "D02Y": {
+      "count": {
+        "generated": {
+          "atom_lineage": [
+            101,
+            102,
+            103
+          ],
+          "drivers": {
+            "active_views": {
+              "D1": [
+                "*Front",
+                202
+              ],
+              "D3": [
+                "*Left",
+                201
+              ]
+            },
+            "catalog_ids": {
+              "*Front": 202,
+              "*Left": 201,
+              "*Top": 200
+            },
+            "pitch_midpoint_word": "0x1.0000000000001p-1",
+            "pitch_world_extent_m": 0.025163,
+            "typed_driver_values": [
+              [
+                "D1",
+                5,
+                5.0,
+                11,
+                24
+              ],
+              [
+                "D3",
+                0.025163,
+                0.025163,
+                10,
+                25
+              ],
+              [
+                "D2",
+                1,
+                0.0,
+                0,
+                26
+              ],
+              [
+                "D4",
+                0.0,
+                0.0,
+                0,
+                27
+              ],
+              [
+                "D5",
+                0.0,
+                0.0,
+                0,
+                28
+              ],
+              [
+                "D6",
+                0.0,
+                0.0,
+                0,
+                29
+              ]
+            ]
+          },
+          "final_atom_map": 53,
+          "keywords": {
+            "datum_without_dimension": 15,
+            "framing": "compact",
+            "pattern_drivers": [
+              "D1",
+              "D3"
+            ],
+            "root_count": 22
+          },
+          "map_counters": [
+            95,
+            278
+          ],
+          "pattern_feature_id": 30,
+          "payload_bytes": 9512,
+          "payload_sha256": "aa8d3c66b7fab776d3c087143583b1a69ea90048004f83fd41e5fe5b98a04b75",
+          "principal_direction": {
+            "creation_epoch": 2592000,
+            "display_centre_m": [
+              0.09673999999999999,
+              0.0,
+              0.0054199999999999995
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "plane_id": 15,
+            "plane_role": 2,
+            "span": 1.0
+          },
+          "request_sha256": "c9d47eb24e5a9734e434a5a4767aca331aefef82db121231ff222f31918ee0b7",
+          "runtime_reads": 0,
+          "solid": {
+            "area_mm2": 139014.38599999997,
+            "body_count": 1,
+            "bounds_mm": [
+              -18.259999999999998,
+              -83.28,
+              0.0,
+              211.74,
+              206.71999999999994,
+              10.839999999999998
+            ],
+            "centroid_mm": [
+              96.45765468570508,
+              61.12059506337408,
+              2.126668813357988
+            ],
+            "edge_count": 72,
+            "face_count": 31,
+            "plate_hole_loops": 5,
+            "vertex_count": 48,
+            "volume_mm3": 278641.3844149999
+          },
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "444cf6a2e225c8f5d98c3ec26615925109bf14b1166120b8399f790ca1a6ec37"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "ccf9d81c8f6cda440a04d630407210bb1ded0f4dc1e88aabc96ce48279f93ab6"
+            },
+            "Contents/Config-0": {
+              "bytes": 23258,
+              "sha256": "cd1a39f6ff1c9258102bb0c6866f6c97ee8bec7a7fa5e597b3c338eb25524149"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1019,
+              "sha256": "86f85ec1153c5e61330b48a344005b6d4653c5dca3131ae6d30df856fc84b0a3"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 23823,
+              "sha256": "9221ee437c45fa5cd5ca47b3d7dd3d4713a0cd5c94b26ed5601b172b2b249b22"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 1019,
+              "sha256": "4166fb7f85627abd1de6c7b0053527af695410509f5881315b5b7f1112bcc199"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "40ba19f3dbd9f0f9a3664ca4b78a518a71288f1ad9faa34f38a762d0064f3bac"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1736,
+              "sha256": "c989a357985fedb2cebe74b17a04d0c954e6f6b38f5ad67c3d449801801bc7a1"
+            }
+          }
+        },
+        "source": {
+          "body_count": 1,
+          "geometry_values_within_relative_2e_7": 5,
+          "native_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+          "record_sha256": "3b944a6c05a543d82c24ee89b00f473d616effd0b25b1a526b3535f107caf97a"
+        }
+      },
+      "original": {
+        "generated": {
+          "atom_lineage": [
+            101,
+            102,
+            103
+          ],
+          "drivers": {
+            "active_views": {
+              "D1": [
+                "*Front",
+                202
+              ],
+              "D3": [
+                "*Left",
+                201
+              ]
+            },
+            "catalog_ids": {
+              "*Front": 202,
+              "*Left": 201,
+              "*Top": 200
+            },
+            "pitch_midpoint_word": "0x1.0000000000001p-1",
+            "pitch_world_extent_m": 0.025163,
+            "typed_driver_values": [
+              [
+                "D1",
+                4,
+                4.0,
+                11,
+                24
+              ],
+              [
+                "D3",
+                0.025163,
+                0.025163,
+                10,
+                25
+              ],
+              [
+                "D2",
+                1,
+                0.0,
+                0,
+                26
+              ],
+              [
+                "D4",
+                0.0,
+                0.0,
+                0,
+                27
+              ],
+              [
+                "D5",
+                0.0,
+                0.0,
+                0,
+                28
+              ],
+              [
+                "D6",
+                0.0,
+                0.0,
+                0,
+                29
+              ]
+            ]
+          },
+          "final_atom_map": 53,
+          "keywords": {
+            "datum_without_dimension": 15,
+            "framing": "compact",
+            "pattern_drivers": [
+              "D1",
+              "D3"
+            ],
+            "root_count": 22
+          },
+          "map_counters": [
+            95,
+            278
+          ],
+          "pattern_feature_id": 30,
+          "payload_bytes": 9510,
+          "payload_sha256": "c5c3aebdb2c06290d942ce6f832913ef186c2126212d5d1c5e7e6d201efbe7b8",
+          "principal_direction": {
+            "creation_epoch": 2592000,
+            "display_centre_m": [
+              0.09673999999999999,
+              0.0,
+              0.0054199999999999995
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "plane_id": 15,
+            "plane_role": 2,
+            "span": 1.0
+          },
+          "request_sha256": "32a7356e4460074ec6b7762ae4dfe0996317d95c320d057be5a407bd884c5900",
+          "runtime_reads": 0,
+          "solid": {
+            "area_mm2": 138750.5488,
+            "body_count": 1,
+            "bounds_mm": [
+              -18.259999999999998,
+              -83.28,
+              0.0,
+              211.74,
+              206.71999999999994,
+              10.839999999999998
+            ],
+            "centroid_mm": [
+              96.51360857178426,
+              61.35416550168296,
+              2.1144475736824213
+            ],
+            "edge_count": 60,
+            "face_count": 26,
+            "plate_hole_loops": 4,
+            "vertex_count": 40,
+            "volume_mm3": 278007.30753199995
+          },
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "444cf6a2e225c8f5d98c3ec26615925109bf14b1166120b8399f790ca1a6ec37"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "ccf9d81c8f6cda440a04d630407210bb1ded0f4dc1e88aabc96ce48279f93ab6"
+            },
+            "Contents/Config-0": {
+              "bytes": 23258,
+              "sha256": "cd1a39f6ff1c9258102bb0c6866f6c97ee8bec7a7fa5e597b3c338eb25524149"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1019,
+              "sha256": "86f85ec1153c5e61330b48a344005b6d4653c5dca3131ae6d30df856fc84b0a3"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 23823,
+              "sha256": "0ae17a85a14eb2dee00997eb45130346288db2efccd5637cb0812171ffc28b85"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 1019,
+              "sha256": "4166fb7f85627abd1de6c7b0053527af695410509f5881315b5b7f1112bcc199"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "40ba19f3dbd9f0f9a3664ca4b78a518a71288f1ad9faa34f38a762d0064f3bac"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1736,
+              "sha256": "fa48c41c4e0284c1c336326aed90e4a1b03f317005fc2cdb121176b16f5d8979"
+            }
+          }
+        },
+        "source": {
+          "body_count": 1,
+          "geometry_values_within_relative_2e_7": 5,
+          "native_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+          "record_sha256": "d284791f3de576181c23f1618749d0db66f5b3f70bf502e370ec65d23c70e790"
+        }
+      },
+      "pitch": {
+        "generated": {
+          "atom_lineage": [
+            101,
+            102,
+            103
+          ],
+          "drivers": {
+            "active_views": {
+              "D1": [
+                "*Front",
+                202
+              ],
+              "D3": [
+                "*Left",
+                201
+              ]
+            },
+            "catalog_ids": {
+              "*Front": 202,
+              "*Left": 201,
+              "*Top": 200
+            },
+            "pitch_midpoint_word": "0x1.0000000000001p-1",
+            "pitch_world_extent_m": 0.029173,
+            "typed_driver_values": [
+              [
+                "D1",
+                4,
+                4.0,
+                11,
+                24
+              ],
+              [
+                "D3",
+                0.029173,
+                0.029173,
+                10,
+                25
+              ],
+              [
+                "D2",
+                1,
+                0.0,
+                0,
+                26
+              ],
+              [
+                "D4",
+                0.0,
+                0.0,
+                0,
+                27
+              ],
+              [
+                "D5",
+                0.0,
+                0.0,
+                0,
+                28
+              ],
+              [
+                "D6",
+                0.0,
+                0.0,
+                0,
+                29
+              ]
+            ]
+          },
+          "final_atom_map": 53,
+          "keywords": {
+            "datum_without_dimension": 15,
+            "framing": "compact",
+            "pattern_drivers": [
+              "D1",
+              "D3"
+            ],
+            "root_count": 22
+          },
+          "map_counters": [
+            95,
+            278
+          ],
+          "pattern_feature_id": 30,
+          "payload_bytes": 9515,
+          "payload_sha256": "4add7b10449610e081babdc57f74b53b21f1513f1f80023b49ea6f6f12556c4b",
+          "principal_direction": {
+            "creation_epoch": 2592000,
+            "display_centre_m": [
+              0.09673999999999999,
+              0.0,
+              0.0054199999999999995
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "plane_id": 15,
+            "plane_role": 2,
+            "span": 1.0
+          },
+          "request_sha256": "6ce2505b2e8f4605d522a56fc4646af770dded8b0175e3ee259a1b4a16c17fb4",
+          "runtime_reads": 0,
+          "solid": {
+            "area_mm2": 138750.5488,
+            "body_count": 1,
+            "bounds_mm": [
+              -18.259999999999998,
+              -83.28,
+              0.0,
+              211.74,
+              206.71999999999994,
+              10.839999999999998
+            ],
+            "centroid_mm": [
+              96.51360857178426,
+              61.299289642697744,
+              2.114447573682421
+            ],
+            "edge_count": 60,
+            "face_count": 26,
+            "plate_hole_loops": 4,
+            "vertex_count": 40,
+            "volume_mm3": 278007.30753199995
+          },
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "444cf6a2e225c8f5d98c3ec26615925109bf14b1166120b8399f790ca1a6ec37"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "ccf9d81c8f6cda440a04d630407210bb1ded0f4dc1e88aabc96ce48279f93ab6"
+            },
+            "Contents/Config-0": {
+              "bytes": 23258,
+              "sha256": "cd1a39f6ff1c9258102bb0c6866f6c97ee8bec7a7fa5e597b3c338eb25524149"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 1019,
+              "sha256": "86f85ec1153c5e61330b48a344005b6d4653c5dca3131ae6d30df856fc84b0a3"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 23823,
+              "sha256": "f4969f644f02ddee0e25e57c3f40a85e8bcf4ecdf301ab2340b56848d861e92f"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 1019,
+              "sha256": "4166fb7f85627abd1de6c7b0053527af695410509f5881315b5b7f1112bcc199"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "40ba19f3dbd9f0f9a3664ca4b78a518a71288f1ad9faa34f38a762d0064f3bac"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1748,
+              "sha256": "e985869881f92c4d5c76885101e8f547400eabe6966b6f9491aefa5ccc0d859e"
+            }
+          }
+        },
+        "source": {
+          "body_count": 1,
+          "geometry_values_within_relative_2e_7": 5,
+          "native_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+          "record_sha256": "b6ea3f49e37a95145613de137c33ac578ad5cc81b82fd91a468f7f2d12ca7d89"
+        }
+      }
+    }
+  },
+  "native_generated_launches": 0,
+  "native_source_rows": 6,
+  "present_streams": 60,
+  "runtime_reads": 0,
+  "schema": "kit.sw2026.placed-principal-pattern.v1",
+  "source_lock_sha256": "8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426",
+  "source_spec_sha256": "6249601e081a83d7d9456cd694118dfa30ca7270d84c17ce4c5a574e7b0314d7",
+  "tool_sha256": "5aaa714df7851d5c122741e6f1b2a11c3d7659499c92ed3bf1a6ab79c4aa22fa"
+}

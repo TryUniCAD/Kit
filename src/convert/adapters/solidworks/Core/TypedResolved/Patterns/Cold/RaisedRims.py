@@ -11,16 +11,16 @@ def RaisedRims(
     PlateValue: PrismPlan, SeedValue: PrismPlan, OwnerValue: PatternOwner
 ) -> tuple[tuple[LineGeometry, ...], ...]:
     StockPoints = tuple(EdgeValue.start for EdgeValue in PlateValue.LinesValue)
+    StockMinX = min(PointValue.x for PointValue in StockPoints)
+    StockMinY = min(PointValue.y for PointValue in StockPoints)
     StockMaxX = max(PointValue.x for PointValue in StockPoints)
     StockMaxY = max(PointValue.y for PointValue in StockPoints)
-    if (
-        min(PointValue.x for PointValue in StockPoints) != 0.0
-        or min(PointValue.y for PointValue in StockPoints) != 0.0
-        or not 0 < PlateValue.DepthValue < SeedValue.DepthValue
+    if not 0 < PlateValue.DepthValue < SeedValue.DepthValue:
+        raise ValueError("cache free pattern needs a positive plate and taller seed")
+    if OwnerValue.DatumValue.TiltValue is not None and (
+        StockMinX != 0.0 or StockMinY != 0.0
     ):
-        raise ValueError(
-            "cache free pattern needs an origin plate and a taller positive seed"
-        )
+        raise ValueError("cache free oblique pattern needs its measured origin plate")
     CountValue, PitchValue, *_ = OwnerValue.DriversValue
     Count = CountValue.LiveValue
     if type(Count) is not int:
@@ -50,7 +50,10 @@ def RaisedRims(
         for ShiftValue in Shifts
     )
     if any(
-        not (0 < LowerX < UpperX < StockMaxX and 0 < LowerY < UpperY < StockMaxY)
+        not (
+            StockMinX < LowerX < UpperX < StockMaxX
+            and StockMinY < LowerY < UpperY < StockMaxY
+        )
         for LowerX, LowerY, UpperX, UpperY in BoxesValue
     ) or any(
         not (
