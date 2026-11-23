@@ -65,3 +65,12 @@ The PR does not mutate repository settings, cancel other work, or change accepta
 See [manual audit contention](../../Gotchas/Ci/Scheduling/ManualAuditRunnerContention.md) and [concurrency validator support](../../Gotchas/Ci/Scheduling/ConcurrencyQueueValidator.md).
 
 See the [native report count gotcha](../../Gotchas/Ci/Shards/NativeReportShardCount.md) for five-shard reporting compatibility.
+
+## Queue acceptance fixture repair
+
+Two candidate attempts exposed a fixture parser that omitted every dynamic native shard check.
+The repair recognizes the native fallback expression, emits four or five explicit reports, and rejects unknown matrix definitions or absent target checks immediately.
+Queue aggregation process cases now cover both fifth native checks across all existing verdicts and workflow outcomes.
+Required native checks, complete workflow outcomes, security gates, and twenty‑second subprocess deadlines remain unchanged.
+Fresh combined‑revision remote acceptance is pending.
+See the [dynamic matrix fixture gotcha](../../Gotchas/Ci/Scheduling/DynamicMatrixAggregationFixtures.md).
