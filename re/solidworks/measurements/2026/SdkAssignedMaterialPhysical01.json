@@ -1,0 +1,73 @@
+{
+  "schema": "kit.sw2026.sdk-assigned-material-physical.v1",
+  "producer_commit": "52e340a743e59ea10df86f4efe15073a027bb39e",
+  "sdk_src_tree": "01c9d283f4e704c2182d080bfa187cc65a6eb20f",
+  "authority_report_sha256": "aad91110c0f3237576c813e2c61a0d7301b7ab0295275c637ee0d7979f770f55",
+  "guest": "Windows 11",
+  "oracle_build": "34.5.2.0604",
+  "guarded_workers": 2,
+  "exact_publications": 12,
+  "prewrite_refusals": 36,
+  "native_processes_started": 0,
+  "protected_source_archives_read": 0,
+  "protected_payloads_exported": 0,
+  "fcstd_corpus_outputs": 0,
+  "cases": [
+    {
+      "anchor": "corner",
+      "archive_sha256": "e475c61ee4dfd37a17ff4b9cccd987665405790629b2a8c76e27aef3b4cf7a89",
+      "bytes": 8874,
+      "case": "Candidate01",
+      "native_processes_started": 0,
+      "publication": {
+        "write_adapter": {
+          "exact_archives": 2,
+          "prewrite_refusals": 6
+        },
+        "write_direct": {
+          "exact_archives": 2,
+          "prewrite_refusals": 6
+        },
+        "write_registry": {
+          "exact_archives": 2,
+          "prewrite_refusals": 6
+        }
+      },
+      "runtime_reads": 0,
+      "streams": 10,
+      "typed_stream_replays": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ]
+    },
+    {
+      "anchor": "center",
+      "archive_sha256": "a261b781f0971528e06f8bf8f16b08ff5acfb131f5162fc661a3a5fc71f775c3",
+      "bytes": 8973,
+      "case": "Candidate02",
+      "native_processes_started": 0,
+      "publication": {
+        "write_adapter": {
+          "exact_archives": 2,
+          "prewrite_refusals": 6
+        },
+        "write_direct": {
+          "exact_archives": 2,
+          "prewrite_refusals": 6
+        },
+        "write_registry": {
+          "exact_archives": 2,
+          "prewrite_refusals": 6
+        }
+      },
+      "runtime_reads": 0,
+      "streams": 10,
+      "typed_stream_replays": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ]
+    }
+  ]
+}

@@ -32,3 +32,5 @@ After private custody validation, the oracle owner can run `CodeRoot/re/tooling/
 ## Scope left open
 
 The current source workflow assigns materials with their actual native appearance and saved catalog metadata. The bounded candidate uses fresh neutral presentation and no material XML. It neither allocates nor preserves the independently saved third-component catalog ID. The host observations do not establish semantic transfer for native material appearance, catalog curves, swatch and full MATERIALTREE contents or independent body/material overrides. A request for full source preservation fails before writing. Native edit and save/reopen as well as held-out qualification belong to the next measured stages.
+
+The later observer measured both held-out physical candidates on the designated oracle. The shared SDK composer reproduces those exact artifacts from the neutral models and publishes them through the public measured writer. [Physical material delivery](AssignedMaterialPhysicalDelivery2026.md)

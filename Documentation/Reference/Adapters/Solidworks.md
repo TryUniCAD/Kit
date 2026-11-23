@@ -691,6 +691,21 @@ rectangle and forward blind boss whose depth is the local width divided by
 two. Use the exact locator and epoch from that measurement.
 [Width-to-depth publication](../../Changes/Solidworks/Construction/Equations/SolidworksWidthDepthMeasurementGate.md)
 
+Measured physical material publication uses one `Default` configuration and
+a dimensioned Front Plane rectangle with a forward blind boss. The single
+result body references its `MaterialRecord` with the material name, density
+in kg/m³ and the default gray `(192/255, 192/255, 192/255, 1.0)`. Set
+`document.metadata["solidworks_material_catalog"]` to the catalog filename
+stem and `document.metadata["solidworks_origin_anchor"]` to `"corner"`
+or `"center"`. The corner uses an actual Origin coincidence. The center
+uses a local point and two construction diagonals tied to Origin.
+
+Supply the exact UTF-8 authority report in `receipt.native_report` and
+the measured `written_at` and final locator. The archive must match one of
+the two native-verified digests before public output. Full saved-source
+material transfer still requires native catalog ID, catalog appearance and
+material XML. [Physical material publication](../../Changes/Solidworks/Construction/Materials/SolidworksPhysicalMaterialPublication.md)
+
 The measured Top-plane rectangular revolves use the same option with
 the original generation, native result and inspection job as UTF-8 text.
 The exact output digest qualifies Single Direction, Mid Plane, and
@@ -719,8 +734,8 @@ standalone output requires an applicable exact native receipt. Today the
 ordinary line loop uses the version-1 standalone receipt. Ellipse, Standard
 sweep, distance chamfer, selected two-stock through cuts, the contained
 oblique linear pattern, principal and thin revolves, fixed-centre circles,
-principal offset-plane bosses and the width-depth equation have dedicated
-proof schemas. The other entries describe model
+principal offset-plane bosses, physically assigned origin rectangles and
+the width-depth equation have dedicated proof schemas. The other entries describe model
 preparation and native research coverage.
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
