@@ -274,19 +274,22 @@ def check_origin_fallback(representatives):
 
     origin_reader.ReadPlanePose = rotated_pose
     native_reader.ReadPlaneOwner = observed_owner
+    reads = 0
     try:
         for include_brep in (True, False):
+            before = parsed
             document = open_document(
                 raw, source_format="solidworks.sldprt", strict=True, include_brep=include_brep
             )
+            assert parsed > before and unavailable == parsed
             (sketch,) = document.sketches
             assert sketch.support_plane_id == "sldprt:plane:2"
             assert sketch.attributes["support_plane_source"] == "stream-order"
+            reads += 1
     finally:
         origin_reader.ReadPlanePose = read_pose
         native_reader.ReadPlaneOwner = read_owner
-    assert parsed == unavailable == 2
-    return unavailable
+    return reads
 
 
 def check_owner_scans():
