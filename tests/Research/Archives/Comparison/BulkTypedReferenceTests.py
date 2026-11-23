@@ -4,10 +4,10 @@ from typing import cast as CastValue
 
 from pytest import mark as MarkValue
 
-from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.serialization.JsonCodec import DumpJson
 from tests.Research.Archives.Comparison.BulkOrderDocuments import MakeOrderDocs
 from tests.Research.Archives.Comparison.BulkProcess import RunBulk
+from tests.Research.Archives.Comparison.BulkReferenceDeltas import MakeRefDeltas
 from tests.Research.Archives.Comparison.BulkTypedProcess import RunTypedBatch
 from tests.Research.Archives.Comparison.BulkCutDocument import MakeCutDoc
 from tests.Research.Archives.Comparison.BulkMissingReference import LoseTypedRef
@@ -126,32 +126,7 @@ def CheckTypedOrder(TmpPath: FilePath, Family: str, RoleName: str) -> None:
     Differences = CastValue(
         list[dict[str, object]], Comparison["reference_differences"]
     )
-    Before, After = First.feature_timeline[-1], Second.feature_timeline[-1]
-    LeftIds, RightIds = Before.OutputBodyIds, After.OutputBodyIds
-    if Family == "cut_targets":
-        assert isinstance(Before.definition, DistanceCut)
-        assert isinstance(After.definition, DistanceCut)
-        LeftIds, RightIds = (
-            Before.definition.TargetBodyIds,
-            After.definition.TargetBodyIds,
-        )
-    Expected = [
-        {
-            "left": Before.id,
-            "right": After.id,
-            "role": RoleName + "/" + str(Index),
-            "left_target": BodyId,
-            "right_target": BodyId,
-            "left_count": LeftCount,
-            "right_count": RightCount,
-            "reason": "target_multiplicity",
-        }
-        for Index, (LeftBody, RightBody) in enumerate(zip(LeftIds, RightIds))
-        for BodyId, LeftCount, RightCount in (
-            (LeftBody, 1, 0),
-            (RightBody, 0, 1),
-        )
-    ]
+    Expected = MakeRefDeltas(First, Second, Family, RoleName)
     assert len(Differences) == len(Expected) == 4
     assert sorted(
         EncodeJson(ItemValue, sort_keys=True) for ItemValue in Differences
