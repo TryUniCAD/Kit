@@ -12,13 +12,13 @@ from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordSource import CadSource
 
 # each regenerated cell retains its concrete geometry type
-CellType = TypeVar("CellType", bound=BrepEntity)
+KCellType = TypeVar("KCellType", bound=BrepEntity)
 
 
 # derived source annotations are verified after generation and never supply kernel fields
 def BareReadCells(
-    Values: tuple[CellType, ...],
-) -> tuple[CellType, ...]:
+    Values: tuple[KCellType, ...],
+) -> tuple[KCellType, ...]:
     return tuple(
         ReplaceValue(Value, provenance=None, attributes=FreezeMapping())
         for Value in Values

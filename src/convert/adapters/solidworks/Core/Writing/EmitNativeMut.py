@@ -90,6 +90,8 @@ def EmitFreshMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult | None:
+    if IsImportRead(DocumentValue):
+        return EmitImportMut(DocumentValue, TargetValue, OptionsValue)
     if IsPatPart(DocumentValue) or IsPatRead(DocumentValue):
         return EmitPatMut(DocumentValue, TargetValue, OptionsValue)
     if HasThinWrite(DocumentValue):
@@ -129,10 +131,8 @@ def EmitNativeMut(
         return EmitCircMut(DocumentValue, TargetValue, OptionsValue)
     if IsEllipRead(DocumentValue):
         return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
-    if IsImportRead(DocumentValue):
-        return EmitImportMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
-    if not ReadbackValue or IsPatRead(DocumentValue):
+    if not ReadbackValue or IsImportRead(DocumentValue) or IsPatRead(DocumentValue):
         FreshValue = EmitFreshMut(DocumentValue, TargetValue, OptionsValue)
         if FreshValue is not None:
             return FreshValue

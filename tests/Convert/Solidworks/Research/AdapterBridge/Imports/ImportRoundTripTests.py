@@ -5,7 +5,7 @@ from sys import executable as PythonExe
 
 
 # complete public import round trips need independent measured input and an isolated runtime guard
-def CheckColdImportRoundTrip() -> None:
+def CheckImportRead() -> None:
     RootPath = FilePath(__file__).resolve().parents[6]
     ProbePath = (
         RootPath / "re/tooling/sw2026/imported_body_source/VerifyColdImportRoundTrip.py"
@@ -23,10 +23,14 @@ def CheckColdImportRoundTrip() -> None:
     assert Report["passed"] is True
     assert Report["native_processes_started"] == 0
     assert set(Report["cases"]) == {"RectangularBare", "ConcaveOwned"}
-    for Row in Report["cases"].values():
-        assert Row["logical_streams"] == 12
-        assert Row["runtime_reads"] == 0
-        assert (Row["exact_writes"], Row["refusals"], Row["geometry_comparisons"]) in {
+    for CaseRow in Report["cases"].values():
+        assert CaseRow["logical_streams"] == 12
+        assert CaseRow["runtime_reads"] == 0
+        assert (
+            CaseRow["exact_writes"],
+            CaseRow["refusals"],
+            CaseRow["geometry_comparisons"],
+        ) in {
             (6, 21, 10),
             (0, 12, 15),
         }
