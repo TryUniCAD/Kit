@@ -23,7 +23,9 @@ Use `kit decode` for the installed production reader. `kit run --input` launches
 Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
 `--root` authorizes execution of that checkout's research code and SDK.
 The wheel contains the SDK and CLI, not research fixtures or the `re/` workspace.
-The supervisor requires Linux or macOS.
+On Windows, the supervisor requires Windows 10 or newer, Python 3.14 or newer, and the locked `pywin32` development extra.
+The selected checkout must advertise Windows CLI shutdown protocol 1.
+An older or incompatible checkout is rejected before worker dispatch; update the selected `--root` checkout when prompted.
 On Windows, reader, corpus, and controller commands wait for completion and return the tool's exit status.
 
 The examples use `/path/to/KitPr94` for the trusted research checkout.
@@ -132,6 +134,11 @@ On Linux and macOS the CLI starts a separate research session and owns signal ha
 Interrupt, termination, hangup, quit, and user signals are forwarded; terminal suspension stops both launcher and child, and continuation resumes the child.
 Startup signals wait for the child reference, and continuation cancels a queued suspension.
 It waits for cleanup, preserves output and exit statuses, and terminates with the child's signal when that child is killed.
+On Windows, the supervisor launcher creates a separate console process group.
+It forwards handled interrupt, termination, and break signals as `CTRL_BREAK_EVENT`, then waits for supervisor cleanup and preserves its exit status.
+The supervisor handles that event through its normal shutdown and worker settlement path.
+Console-event forwarding requires the launcher and supervisor to share a Windows console.
+Ordinary Windows reader and controller commands retain their existing wait-for-completion behavior.
 An uncatchable launcher kill cannot be forwarded; use the existing research lease and recovery controls after forced termination.
 Supervisor contention retains status `4`.
 

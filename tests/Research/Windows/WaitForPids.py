@@ -2,9 +2,12 @@ import json as JsonCodec
 import time as TimeClock
 from pathlib import Path as FilePath
 
+from convert.Security.PathBoundary import ResolveTemp
+
 
 # the test needs an independently recorded roster before it can verify tree cleanup
 def WaitForPids(RecordPath: FilePath) -> list[int]:
+    RecordPath = ResolveTemp(RecordPath)
     UntilTime = TimeClock.monotonic() + 30
     while TimeClock.monotonic() < UntilTime:
         try:
