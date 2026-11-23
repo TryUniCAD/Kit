@@ -51,11 +51,11 @@ def TestColdSweep() -> None:
         frozenset((BodyValue.id,))
     )
     assert len(FullValue.brep.faces) == 3 and len(FullValue.brep.pcurves) == 4
-    CheckColdJson(FullValue, Intent.OutputValue.PathName)
+    AssertColdJson(FullValue, Intent.OutputValue.PathName)
 
 
 # neutral json keeps editable history without authorizing an unmeasured native output
-def CheckColdJson(Document: CadDocument, Locator: str) -> None:
+def AssertColdJson(Document: CadDocument, Locator: str) -> None:
     Portable = BytesIO()
     _ = WriteDocument(
         Document, Portable, destination_format="interchange.json", allow_carrier=False
