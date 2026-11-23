@@ -1,9 +1,10 @@
 const Fs = require("node:fs");
 const Path = require("node:path");
+const { ExpandGroups } = require("./ExpandGroups.cjs");
 
 const WorkflowDir = Path.resolve(__dirname, "../../../.github/workflows");
 
-function ReadWorkflows(IsQueue) {
+function ReadWorkflows(IsQueue, NativeCount) {
   const Workflows = [];
   for (const File of Fs.readdirSync(WorkflowDir).sort()) {
     if (!/\.ya?ml$/.test(File) || File === "PullRequest.yml") continue;
@@ -28,11 +29,11 @@ function ReadWorkflows(IsQueue) {
       if (Block.includes(`outputs.phase == '${WrongPhase}'`))
         Deferred.add(Name);
       if (Name.includes(GroupMatrix)) {
-        const Expanded = [...Block.matchAll(/^\s+- group: ([\w-]+)$/gm)].map(
-          ([, Group]) => Name.replace(GroupMatrix, Group),
+        if ((!IsQueue && File === "MergeQueue.yml") || Deferred.has(Name))
+          return [Name];
+        return ExpandGroups(Block, NativeCount).map((Group) =>
+          Name.replace(GroupMatrix, Group),
         );
-        if (Deferred.has(Name)) Expanded.forEach((Item) => Deferred.add(Item));
-        return Expanded;
       }
       if (IsQueue && Name === ShardMatrix)
         return [1, 2, 3].map((Index) => `Test suite / Shard (${Index})`);
@@ -52,10 +53,10 @@ function ReadWorkflows(IsQueue) {
   return Workflows;
 }
 
-function BuildExpected(IsQueue, HeadSha) {
+function BuildExpected(IsQueue, HeadSha, NativeCount = 4) {
   const Runs = [];
   const Checks = [];
-  for (const Workflow of ReadWorkflows(IsQueue)) {
+  for (const Workflow of ReadWorkflows(IsQueue, NativeCount)) {
     const Suite = Runs.length + 10;
     Runs.push({
       id: Suite,
