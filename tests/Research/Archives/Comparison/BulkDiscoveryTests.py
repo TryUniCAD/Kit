@@ -1,5 +1,10 @@
 from json import loads as ParseJson
-from os import R_OK as KReadFlag, X_OK as KExecFlag, access as HasAccess
+from os import (
+    R_OK as KReadFlag,
+    X_OK as KExecFlag,
+    access as HasAccess,
+    environ as ProcessEnv,
+)
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExe
@@ -26,15 +31,12 @@ def CheckEntryLimit(TmpPath: FilePath) -> None:
     for Index in range(100002):
         (First / f"{Index:06d}.txt").touch()
     Output = TmpPath / "Output"
-    WitnessPath = TmpPath / "Discovery.json"
     Result = RunProcess(
         [
             PythonExe,
             "-B",
             "-m",
             "tests.Research.Archives.Comparison.BulkScanProcess",
-            str(First),
-            str(WitnessPath),
             "--left",
             str(First),
             "--right",
@@ -48,7 +50,11 @@ def CheckEntryLimit(TmpPath: FilePath) -> None:
             "--output",
             str(Output),
         ],
-        cwd=FilePath(__file__).resolve().parents[4],
+        cwd=TmpPath,
+        env={
+            **ProcessEnv,
+            "PYTHONPATH": str(FilePath(__file__).resolve().parents[4]),
+        },
         capture_output=True,
         text=True,
         check=False,
@@ -57,8 +63,8 @@ def CheckEntryLimit(TmpPath: FilePath) -> None:
     assert Result.returncode == 1, Result.stderr + Result.stdout
     assert "input directory exceeds its discovery budget" in Result.stderr
     assert not Output.exists()
-    Witness = ParseJson(WitnessPath.read_text(encoding="utf-8"))
-    assert Witness == {"consumed": 100000, "root": str(First.resolve())}
+    Witness = ParseJson(Result.stdout)
+    assert Witness == {"witness": "bulk_scan", "consumed": 100000}
     assert len(tuple(First.iterdir())) == 100002
 
 
