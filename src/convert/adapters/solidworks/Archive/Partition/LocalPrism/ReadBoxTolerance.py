@@ -1,3 +1,4 @@
+from collections.abc import Iterator
 from itertools import chain as ChainValues
 from struct import pack as PackValue
 
@@ -14,17 +15,21 @@ from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismVectors impor
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
+# the three boundary entity types supply the native tolerance fields
+def LocalTols(ModelValue: BrepModel) -> Iterator[float]:
+    return ChainValues(
+        (FaceValue.tolerance for FaceValue in ModelValue.faces),
+        (EdgeValue.tolerance for EdgeValue in ModelValue.edges),
+        (VertexValue.tolerance for VertexValue in ModelValue.vertices),
+    )
+
+
 # the measured box writer sources one shared positive length from every face edge and vertex
 def ReadBoxTol(ModelValue: BrepModel) -> float:
     if not HasBoxCorners(ModelValue):
         raise ValueError("local tolerances require an axis aligned rectangular solid")
     CheckBoxPlanes(ModelValue)
-    Values = {
-        Value.tolerance
-        for Value in ChainValues(
-            ModelValue.faces, ModelValue.edges, ModelValue.vertices
-        )
-    }
+    Values = set(LocalTols(ModelValue))
     if len(Values) != 1:
         raise ValueError("local box tolerances must agree across all owners")
     (Millimeters,) = Values

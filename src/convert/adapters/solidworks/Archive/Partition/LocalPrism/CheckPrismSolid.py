@@ -1,5 +1,8 @@
 from itertools import chain as ChainValues
 
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.ReadBoxTolerance import (
+    LocalTols,
+)
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.brep.Validation.BrepValidate import GetBrepErrors
 from interchange.geometry.Models.Transform import KTransformIdentity
@@ -80,12 +83,7 @@ def CheckBareCells(ModelValue: BrepModel, *, AllowTolerance: bool = False) -> No
     if (
         any(EdgeValue.degenerate for EdgeValue in ModelValue.edges)
         or not AllowTolerance
-        and any(
-            Value.tolerance
-            for Value in ChainValues(
-                ModelValue.faces, ModelValue.edges, ModelValue.vertices
-            )
-        )
+        and any(LocalTols(ModelValue))
     ):
         raise ValueError(
             "local prism does not admit local tolerances or degenerate edges"
