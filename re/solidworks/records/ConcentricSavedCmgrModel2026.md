@@ -89,8 +89,11 @@ python3.14 -I -B re/tooling/sw2026/para/concentric/ProveConcentricCmgrHistory.py
 ```
 
 The bounded assembly already preserves modeled root and child
-appearance and actual current mate geometry. Original root inventory
-admission, native header and feature creation history, and native
-validation of the newly composed saved-context bytes remain open.
+appearance and actual current mate geometry. A subsequent
+[owned chronology proof](ConcentricD01AssemblyChronology2026.md)
+constructs the original revision logs and feature instants alongside
+these retained context roles. Original root inventory admission,
+unclassified native metadata, update allocation, and native
+validation of the combined bytes remain open.
 `CheckAsmRoot` retains its whole-source refusal. This host work
 does not add public or held-out qualification.
