@@ -5,13 +5,15 @@ from subprocess import run as RunProcess
 
 from pytest import mark as TestMark
 
-from tests.Policy.ShardPlanTests import KRootPath, PlanSample, RunCommand
+from tests.Policy.ShardPlanTests import KRootPath, PlanSample
 from tests.Policy.Shards.FindTestShell import FindTestShell
+from tests.Policy.Shards.RunNativeShard import RunNativeShard
 
 
 # scheduling changes must retain actual pytest outcomes through the complete native reporting boundary
 @TestMark.parametrize("HasHistory", (False, True))
-def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
+@TestMark.parametrize("ShardCount", (4, 5))
+def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool, ShardCount: int) -> None:
     _, CollectedIds = PlanSample(TmpPath)
     TestIds = sorted(CollectedIds)
     HistoryPath = TmpPath / "History.json"
@@ -27,31 +29,18 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
                 }
             )
         )
-    for ShardIndex in range(4):
+    for ShardIndex in range(ShardCount):
         ReportRoot = TmpPath / f"Platform-shard-{ShardIndex + 1}-1"
         ReportRoot.mkdir()
-        CollectedPath = ReportRoot / "Collected.txt"
-        _ = CollectedPath.write_text("\n".join(TestIds) + "\n", newline="\n")
-        SelectArgs = ["-m", "tools.TestShards.Platform.SelectShard"]
-        SelectArgs += ["--collected", str(CollectedPath), "--history", str(HistoryPath)]
-        SelectArgs += ["--index", str(ShardIndex), "--count", "4"]
-        SelectArgs += ["--output", str(ReportRoot / "Selected.txt")]
-        Selected = RunCommand(SelectArgs, KRootPath)
-        assert Selected.returncode == 0, Selected.stderr
-        assert b"\r" not in (ReportRoot / "Selected.txt").read_bytes()
-        if HasHistory:
-            SelectedIds = (ReportRoot / "Selected.txt").read_text().splitlines()
-            assert not (TestIds[0] in SelectedIds and TestIds[4] in SelectedIds)
-        Outcome = RunCommand(
-            [
-                "-m",
-                "pytest",
-                f"--report-log={ReportRoot / 'Report.jsonl'}",
-                f"@{ReportRoot / 'Selected.txt'}",
-            ],
+        RunNativeShard(
             TmpPath,
+            ReportRoot,
+            TestIds,
+            HistoryPath,
+            ShardIndex,
+            ShardCount,
+            HasHistory,
         )
-        assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     DurationPath = TmpPath / "Durations.json"
     Reported = RunProcess(
         [
@@ -62,6 +51,7 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
             "1",
             "^test_sample.py::",
             DurationPath.as_posix(),
+            str(ShardCount),
         ],
         env={
             **KEnvironment,

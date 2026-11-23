@@ -26,6 +26,10 @@ import pytest as Pytest
         ("check", "Label first-time contributors"),
         ("check", "Test suite / Plan"),
         ("check", "Test suite / Report"),
+        ("check", "Test suite / Platform (windows-2025) / ${{ matrix.group }}"),
+        ("check", "Test suite / Platform (macos-26) / ${{ matrix.group }}"),
+        ("check", "Native file compatibility / ${{ matrix.group }}"),
+        ("check", "Research CLI Windows compatibility / ${{ matrix.group }}"),
         ("quality-fork", "Ruff"),
         ("quality-docs", "Ruff"),
     ),
@@ -71,6 +75,10 @@ def CheckReportFlow(CaseMode: str, CheckName: str) -> None:
         ("Mypy", 1),
         ("Python steering", 1),
         ("Research CLI compatibility", 0),
+        ("Test suite / Platform (windows-2025) / ${{ matrix.group }}", 0),
+        ("Test suite / Platform (macos-26) / ${{ matrix.group }}", 0),
+        ("Native file compatibility / ${{ matrix.group }}", 0),
+        ("Research CLI Windows compatibility / ${{ matrix.group }}", 0),
     ),
 )
 def CheckPhaseSkip(CheckName: str, ExitCode: int, TmpPath: FilePath) -> None:

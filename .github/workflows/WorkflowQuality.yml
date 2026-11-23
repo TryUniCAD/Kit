@@ -39,6 +39,10 @@ jobs:
     name: Verify CI policy and pytest compatibility
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    concurrency:
+      group: Kit-linux-0
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -71,6 +75,10 @@ jobs:
     name: Native file compatibility / ${{ matrix.group }}
     runs-on: ubuntu-24.04
     timeout-minutes: 12
+    concurrency:
+      group: Kit-linux-${{ matrix.index }}
+      cancel-in-progress: false
+      queue: max
     strategy:
       fail-fast: false
       matrix:
@@ -170,6 +178,10 @@ jobs:
     name: Qualify reader and writer patches
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    concurrency:
+      group: Kit-linux-1
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -198,6 +210,10 @@ jobs:
     timeout-minutes: 20
     env:
       KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
+    concurrency:
+      group: Kit-linux-2
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout candidate CLI source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -237,6 +253,10 @@ jobs:
     name: Research CLI Windows compatibility / ${{ matrix.group }}
     runs-on: windows-2025
     timeout-minutes: 20
+    concurrency:
+      group: Kit-windows-${{ matrix.group }}
+      cancel-in-progress: false
+      queue: max
     strategy:
       fail-fast: false
       matrix:
@@ -363,6 +383,10 @@ jobs:
     name: Zizmor
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    concurrency:
+      group: Kit-linux-3
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -390,25 +414,40 @@ jobs:
     name: actionlint
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    concurrency:
+      group: Kit-linux-4
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - name: Install pinned actionlint
+      - name: Checkout pinned actionlint concurrency support
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: rhysd/actionlint
+          ref: 644076a59742c2d1540ebd4686eab3c308f0e562
+          path: ActionlintSource
+          persist-credentials: false
+
+      - name: Restore the pinned workflow analyzer
+        id: analyzer
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/Actionlint
+          key: actionlint-${{ runner.os }}-${{ runner.arch }}-go1.26.0-644076a59742c2d1540ebd4686eab3c308f0e562
+
+      - name: Build pinned actionlint
+        if: steps.analyzer.outputs.cache-hit != 'true'
+        working-directory: ActionlintSource
         env:
-          ActionlintVersion: "1.7.12"
-          ActionlintSha256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
+          GOTOOLCHAIN: go1.26.0
+          CGO_ENABLED: "0"
         run: |
-          set -euo pipefail
-          ArchivePath="${RUNNER_TEMP}/actionlint_${ActionlintVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
-            --output "${ArchivePath}" \
-            "https://github.com/rhysd/actionlint/releases/download/v${ActionlintVersion}/actionlint_${ActionlintVersion}_linux_amd64.tar.gz"
-          echo "${ActionlintSha256}  ${ArchivePath}" | sha256sum --check --
-          tar --extract --gzip --file "${ArchivePath}" --directory "${RUNNER_TEMP}" actionlint
-          chmod u+x "${RUNNER_TEMP}/actionlint"
+          mkdir -p "$RUNNER_TEMP/Actionlint"
+          go build -mod=readonly -trimpath -o "$RUNNER_TEMP/Actionlint/actionlint" ./cmd/actionlint
 
       - name: Run actionlint workflow analysis
-        run: '"${RUNNER_TEMP}/actionlint"'
+        run: '"${RUNNER_TEMP}/Actionlint/actionlint"'
