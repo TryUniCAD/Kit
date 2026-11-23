@@ -42,12 +42,12 @@ from convert.adapters.solidworks.Core.Writing.Measured.Revolve.EmitPrincMut impo
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.HasPrincRev import (
     HasPrincRev,
 )
-from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfPart import IsChmfPart
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
-from convert.adapters.solidworks.Core.Writing.Chamfers.EmitPairMut import EmitPairMut
+from convert.adapters.solidworks.Core.Writing.Chamfers.EmitChmfMut import EmitChmfMut
 from convert.adapters.solidworks.Core.Writing.Circle.CanWriteCircle import HasCircWrite
 from convert.adapters.solidworks.Core.Writing.Circle.EmitCircMut import EmitCircMut
 from convert.adapters.solidworks.Core.Writing.OffsetPlanes.CanWriteOffset import (
@@ -96,8 +96,8 @@ def EmitFreshMut(
         return EmitPatMut(DocumentValue, TargetValue, OptionsValue)
     if IsSweepPart(DocumentValue):
         return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
-    if IsDistChmf(DocumentValue):
-        return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
+    if IsChmfPart(DocumentValue):
+        return EmitChmfMut(DocumentValue, TargetValue, OptionsValue)
     if IsEllipsePart(DocumentValue):
         return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
     if HasOffsetWrite(DocumentValue):

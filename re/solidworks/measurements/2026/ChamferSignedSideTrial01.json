@@ -1,0 +1,336 @@
+{
+  "cases": [
+    {
+      "archive_sha256": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a",
+      "branch": [
+        0,
+        "tan"
+      ],
+      "locator": "C:\\KitGeneratedChamferSigned01\\Packet\\Candidates\\ChamferComplementAxialC.SLDPRT",
+      "path": "Candidates/ChamferComplementAxialC.SLDPRT",
+      "reciprocal": true,
+      "writer_proof": {
+        "archive_bytes": 9298,
+        "archive_sha256": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a",
+        "component_f68_words": [
+          0,
+          0
+        ],
+        "driver_count": 2,
+        "face_roles": [
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            1,
+            null
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            0,
+            0
+          ]
+        ],
+        "feature_f860": 0,
+        "intent_sha256": "7be23cadbe089d7b9ebfadbe769d400e8aec4ef1d532720b6206ae502ff9ef04",
+        "linked_streams_exact": 2,
+        "ordinary_read_refusal": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "runtime_accesses": 0,
+        "schema": "kit.sw2026.disclosed-chamfer-signed-compiler.v1",
+        "selected_endpoints_m": [
+          [
+            0.0376875,
+            -0.0286875,
+            0.0
+          ],
+          [
+            0.0376875,
+            -0.0286875,
+            0.032875
+          ]
+        ],
+        "stream_sha256": {
+          "Contents/CMgr": "daf05db44ee6dbd9ec11cb7257e7945bc9becd46491ac289a7821c684c2c3c68",
+          "Contents/CMgrHdr2": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413",
+          "Contents/Config-0": "360fce2f310bf6bf0cc9cadd94a0e682c160278a98d4ba9102c69329352068d7",
+          "Contents/Config-0-ModelHeader": "5746aef336ad9bac5170a0fc5905e6d82577360e632cc4730142d1efb8d8f185",
+          "Contents/Config-0-ResolvedFeatures": "48d3d6e018e750815d098cdac4241b11ae93c5a4981ab5e363d653d6e5e2a46f",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "7eabfb4324c707e2812876b5caecf35c79930d87aaecf510fa04fbdfd8953b53",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284",
+          "swXmlContents/KeyWords": "e6cea83ca6e199ed7b4b12cb0dd3ab3dfc72187bab6b26dfa84f24bc502e8a33"
+        },
+        "streams": 10
+      }
+    },
+    {
+      "archive_sha256": "77d7292d2ccb45807479612f8f55e6f934e65a855d34213ffe4ed199193281ad",
+      "branch": [
+        1,
+        "tan"
+      ],
+      "locator": "C:\\KitGeneratedChamferSigned01\\Packet\\Candidates\\ChamferPrincipalTopD.SLDPRT",
+      "path": "Candidates/ChamferPrincipalTopD.SLDPRT",
+      "reciprocal": false,
+      "writer_proof": {
+        "archive_bytes": 9285,
+        "archive_sha256": "77d7292d2ccb45807479612f8f55e6f934e65a855d34213ffe4ed199193281ad",
+        "component_f68_words": [
+          0,
+          0
+        ],
+        "driver_count": 2,
+        "face_roles": [
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            3,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            4,
+            null
+          ]
+        ],
+        "feature_f860": 0,
+        "intent_sha256": "daf37f57727bad28425b33a9b9e85b71b47a03a45972bbfd1584566c6769ffff",
+        "linked_streams_exact": 2,
+        "ordinary_read_refusal": "unsupported SOLIDWORKS body class Chamfer_c schema 1",
+        "runtime_accesses": 0,
+        "schema": "kit.sw2026.disclosed-chamfer-signed-compiler.v1",
+        "selected_endpoints_m": [
+          [
+            -0.03531250000000001,
+            0.034,
+            0.031625
+          ],
+          [
+            0.0170625,
+            0.034,
+            0.031625
+          ]
+        ],
+        "stream_sha256": {
+          "Contents/CMgr": "13ad5f4724dde389895d138af7739705c761b102a39e7ad25da8af966268b808",
+          "Contents/CMgrHdr2": "a0a812cfe13e7161927549a140ff9b076213579734b25706cbe7692357db548c",
+          "Contents/Config-0": "8f531eabc6df9297e1d6d49588a4cf194418f43d276388980ba877164cb064f9",
+          "Contents/Config-0-ModelHeader": "232f93ae2c8909814e3fc577ef5b759d81064890450b143baf48fe02438242cb",
+          "Contents/Config-0-ResolvedFeatures": "b7aa3c87997e4795e823e3e46b697d62c8b15c4ce2bf64934a1c024762a9f812",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "fbaa8894e68d59934ff8f586f8358d5fc25a12d05591dc8e2612bc4236bc5061",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "bc3f500f1d4a5be34dc07b61c9c42326152420e107681a44918b1724bd317316",
+          "swXmlContents/KeyWords": "772a83453e655fdd29c06f4cd31ad436110925d3adf2b06f2fe9e0b899520346"
+        },
+        "streams": 10
+      }
+    }
+  ],
+  "construction_inputs": {
+    "re/tooling/sw2026/edge_chamfer_source/ChamferEdgeOwners.py": "8edf1d00ab218deaafd68683ecdec8d89c48a78eef8ba4842705f042ee4f6657",
+    "re/tooling/sw2026/edge_chamfer_source/LinkChamferGraph.py": "b868327ba026a8453c240be230f55378c1d134a9310a9c609a803322ae3ee6f2",
+    "re/tooling/sw2026/edge_chamfer_source/sealed/ChamferNeutralIntent.py": "fb03515c1adcf5e9238ebe1c2bb48d8183a98518aaa6d2ba9bb8b542adb15c5b",
+    "re/tooling/sw2026/edge_chamfer_source/sealed/CompileSealedChamfer.py": "56c8a8f6e24e75d7e6a8f3a7250942704f0322078e54c82a76ea060b8ce4f88a",
+    "re/tooling/sw2026/edge_chamfer_source/signed_side/ChamferSignedSideInputs.json": "841da7a229dc5baa8a1db6458a779c5688edc524fe19f62cbac318c7fe6490fa",
+    "re/tooling/sw2026/edge_chamfer_source/signed_side/CompileSignedChamferTrial.py": "df7ef06a9a366e3a1d47176924034839d13a28b82f07974cb1aee8d3ec5f8669",
+    "re/tooling/sw2026/edge_chamfer_source/signed_side/StageGeneratedChamferSigned.py": "f7f435c0aa5264a229eaf5201cb69d359af2737997db466e0c09ac4a5e71b1ee"
+  },
+  "construction_revision": "240492e95dcf7743c2847615fe28b83bd5adc78e",
+  "construction_src_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "disclosed_source_lock_sha256": "2bce5961120ea7d8ea95ceaa5c10f7cbdbe6338152833357304647f432b86ff8",
+  "files": {
+    "Candidates/ChamferComplementAxialC.SLDPRT": {
+      "bytes": 9298,
+      "sha256": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a"
+    },
+    "Candidates/ChamferPrincipalTopD.SLDPRT": {
+      "bytes": 9285,
+      "sha256": "77d7292d2ccb45807479612f8f55e6f934e65a855d34213ffe4ed199193281ad"
+    },
+    "Control.SLDPRT": {
+      "bytes": 62796,
+      "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0"
+    },
+    "Reference.json": {
+      "bytes": 84484,
+      "sha256": "1f99e4793fe6667d40399b1feaf1f818cfb983510f0cbf349e496da2f7e0b5df"
+    },
+    "Tool/AuthorBlindCutSources.py": {
+      "bytes": 23724,
+      "sha256": "cf401ffa7d1029fcdc4ed1f684352b37de3f304cb1552cba077e57660fe9cd87"
+    },
+    "Tool/AuthorCurves.py": {
+      "bytes": 70681,
+      "sha256": "06bbab2b0b1d641bb6197ed42458853c9fa48be857aafdf88d48cd8c751975f1"
+    },
+    "Tool/ChamferApi.py": {
+      "bytes": 5240,
+      "sha256": "b851ef9b1cf98e8db671a8d4b6ee2cdc52f30b2e5631a3d6e6063c10c0a51abf"
+    },
+    "Tool/ChamferAuthor.py": {
+      "bytes": 15427,
+      "sha256": "862caac95d332c19208107f00fdcd0418fd7dbeb2aac6ea9df4bbe039c4b2a1e"
+    },
+    "Tool/ChamferComparison.py": {
+      "bytes": 5174,
+      "sha256": "f1cd6c110018d7ccbebc605e59c7935418c334639a41123fa355bde56997db6b"
+    },
+    "Tool/ChamferModel.py": {
+      "bytes": 6229,
+      "sha256": "e1ebcff851b1c8eb781f796185273d4bf83204a8da2515338daed3eb2f081516"
+    },
+    "Tool/ChamferPacket.py": {
+      "bytes": 8097,
+      "sha256": "72f926ef62b66dca9864d8f00e68428812b652a0d8e9a511744d885775d1796f"
+    },
+    "Tool/FilletApi.py": {
+      "bytes": 4522,
+      "sha256": "7f69bb6d88d07c8ca7fb4e446eab78e3125bd454099bed57e801bfd1cff22a10"
+    },
+    "Tool/FilletAuthor.py": {
+      "bytes": 20265,
+      "sha256": "b299a2f4cab3db540a7f5a17d92b6c42574e8067130f72ff2a958c4f68c31ce8"
+    },
+    "Tool/FilletModel.py": {
+      "bytes": 5104,
+      "sha256": "47d224eb44afcda2916d1990116c3944cbf9c46d30da6ea85539b53e33fa8730"
+    },
+    "Tool/FilletPacket.py": {
+      "bytes": 4024,
+      "sha256": "32b021abded223392b9f8eac17b9b432d7702e456f2867efb0345ecaf6baaf3d"
+    },
+    "Tool/FilletSourcePhase.py": {
+      "bytes": 6622,
+      "sha256": "7127f83513d410f14bf3a1f866f904fe6adbaaaa4c1d0262c1e796c33f7f3d92"
+    },
+    "Tool/InspectFresh.py": {
+      "bytes": 4240,
+      "sha256": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de"
+    },
+    "Tool/OracleIdentity.py": {
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    "Tool/RunChamferSources.py": {
+      "bytes": 14472,
+      "sha256": "2f9436af9019d00ecaeecfe1672237fc91dd1c235ff72a61098a06f68bb2afcb"
+    },
+    "Tool/RunNativeChamferProbe.py": {
+      "bytes": 19070,
+      "sha256": "fa628f266d1498445385d9dfeb6871f864305482549a8e17638d34ceb13bdda9"
+    },
+    "Tool/SealChamferSources.py": {
+      "bytes": 8029,
+      "sha256": "ac31a56df640ecab9b364de60e8dc33d784e1bf4fafda8394ae5985b57af4df7"
+    },
+    "Tool/Swapp.py": {
+      "bytes": 15690,
+      "sha256": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  },
+  "guarded_generation_processes": 4,
+  "guarded_runtime_reads": 0,
+  "guest_output": "C:\\KitGeneratedChamferSigned01\\Run01",
+  "guest_packet": "C:\\KitGeneratedChamferSigned01\\Packet",
+  "heldout_credit": 0,
+  "heldout_inputs_read": 0,
+  "legacy_parity": [
+    {
+      "archive_sha256": "0a7be4aaff60f6293d0be6b09ea0d39041bdaa316e5f641bb616b598acba31f0",
+      "case": "NeutralAxial",
+      "guarded_runtime_reads": 0,
+      "identical_streams": 10,
+      "rejection_reasons": [
+        "foreign_body",
+        "contradicted_bounds",
+        "longitudinal_distance_side",
+        "default_reader_closed"
+      ]
+    },
+    {
+      "archive_sha256": "13c6042c1fd9f7af68e73a803b2e275f163d1d4f4f86e829d144aa9bb51a4351",
+      "case": "NeutralCross",
+      "guarded_runtime_reads": 0,
+      "identical_streams": 10,
+      "rejection_reasons": [
+        "foreign_body",
+        "contradicted_bounds",
+        "longitudinal_distance_side",
+        "default_reader_closed"
+      ]
+    }
+  ],
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.chamfer-cold-candidate-trial.v1",
+  "source_audit_sha256": "f1f841e2c6851522ce7c10bf5c469c92ded68db0fd50e1f3caed98a334aa89d7",
+  "spec": {
+    "cases": [
+      {
+        "angle_deg": 32.125,
+        "center_mm": [
+          3.375,
+          -5.625
+        ],
+        "corner": {
+          "x": "max",
+          "y": "min"
+        },
+        "distance_mm": 4.875,
+        "edge_axis": "z",
+        "edit": {
+          "distance_mm": 6.625
+        },
+        "name": "ChamferComplementAxialC",
+        "size_mm": [
+          68.625,
+          46.125,
+          32.875
+        ]
+      },
+      {
+        "angle_deg": 38.125,
+        "center_mm": [
+          -9.125,
+          12.375
+        ],
+        "corner": {
+          "y": "max",
+          "z": "max"
+        },
+        "distance_mm": 3.625,
+        "edge_axis": "x",
+        "edit": {
+          "angle_deg": 58.625
+        },
+        "name": "ChamferPrincipalTopD",
+        "size_mm": [
+          52.375,
+          43.25,
+          31.625
+        ]
+      }
+    ],
+    "cohort": "disclosed",
+    "schema": "kit.sw2026.edge-chamfer-source-spec.v1"
+  }
+}

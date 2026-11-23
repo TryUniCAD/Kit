@@ -820,7 +820,7 @@ destination must use the corresponding actual Windows path. The result
 reports unavailable editable history for the imported body.
 [Measured planar publication](../../Changes/Solidworks/Construction/Parts/SolidworksMeasuredPlanarImports.md)
 
-### Preparing one angle-distance edge chamfer
+### Writing one angle-distance edge chamfer
 
 Use a millimetre part with one active `Default` configuration and an ordinary
 forward blind rectangular boss on the canonical Front Plane. Add an active
@@ -838,17 +838,21 @@ normal defines the D1 setback direction into the stock. This supports either
 incident face. The geometry and the ordered feature bindings determine the
 support references.
 
-Preparation uses an ordinary part path or a named binary stream. An explicit Windows
-self locator uses the local C drive and the authored document basename. Kit
-generates the default chamfer display view and its model-relative witnesses.
+Publication requires the original `written_at` and exact offline
+`trial` and `native_result` through the `solidworks_native_measurement`
+option. Use the actual measured Windows path, or pass that path as
+`final_destination` for a binary stream. Kit generates the default
+chamfer display view and its model-relative witnesses from the model.
 Equal-distance and separate distance-pair modes, multiple edges, additional
 feature history and custom presentation are outside this profile. The same
 cache-free profile reads as a typed chamfer with both editable drivers and
 ordered physical selections. A default strict read reconstructs the seven-face
 solid from the live values and signed selected edge. Pass `include_brep=False`
-to return the same history and selections without a solid boundary. Existing
-native cache handling still applies when a file has stored geometry.
-[Chamfer writing](../../Changes/Solidworks/Writing/Parts/SolidworksSignedChamferWriting.md) ·
+to return the same history and selections without a solid boundary. The
+strict reader also retains the verified stock and active result partition
+for the measured saved angle profile, including native saves that list
+the display dimensions in reverse order.
+[Measured angle-distance publication](../../Changes/Solidworks/Construction/Chamfers/SolidworksMeasuredAngleChamferPublication.md) ·
 [Chamfer readback](../../Changes/Solidworks/Reading/Parts/SolidworksSignedChamferReadback.md)
 
 ### Writing an equal-distance or two-distance edge chamfer

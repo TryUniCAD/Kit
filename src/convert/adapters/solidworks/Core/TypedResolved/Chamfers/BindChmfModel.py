@@ -1,11 +1,10 @@
 from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Core.Native import NativeModel
-from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
-    BindDepth,
-    BindExtrude,
+from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import BindExtrude
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfRoots import (
+    BindChmfRoots,
 )
-from convert.adapters.solidworks.Core.TypedResolved.BindFeature import BindFeature
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import (
     ChmfPartRead,
 )
@@ -20,13 +19,8 @@ from convert.adapters.solidworks.Core.TypedResolved.ReportTyped import ReportTyp
 def BindChmfModel(ModelValue: NativeModel, PartValue: ChmfPartRead) -> NativeModel:
     StockValue, LinkValue = PartValue.StockValue, PartValue.LinkValue
     Nodes = {NativeNodeId(Value): Value for Value in PartValue.RootsValue}
-    Public = {Value.object_id: Value for Value in ModelValue.features}
-    Features = {
-        NativeId: BindFeature(Public[NativeId], Value, LinkValue)
-        for NativeId, Value in Nodes.items()
-    }
+    Features = BindChmfRoots(ModelValue, PartValue, Nodes)
     StockId = NativeNodeId(StockValue.NodeValue)
-    Features[StockId] = BindDepth(Features[StockId], StockValue)
     (SketchValue,) = ModelValue.sketches
     StockSketch = BindLineLoop(SketchValue, StockValue.ProfileValue, LinkValue)
     if StockSketch is None or StockSketch.TypedLines is None or StockSketch.dimensions:
@@ -75,7 +69,11 @@ def BindChmfModel(ModelValue: NativeModel, PartValue: ChmfPartRead) -> NativeMod
         TypedGraph={
             **Evidence,
             "status": (
-                "supplemented_saved_distance_chamfer"
+                (
+                    "supplemented_saved_angle_chamfer"
+                    if PartValue.OwnersValue.ModeWord == 1
+                    else "supplemented_saved_distance_chamfer"
+                )
                 if SavedValue is not None
                 else (
                     "supplemented_cold_signed_chamfer"

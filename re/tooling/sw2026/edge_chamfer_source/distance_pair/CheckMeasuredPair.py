@@ -30,6 +30,7 @@ OPTION = "solidworks_native_measurement"
 SCHEMA = "kit.sw2026.distance-pair-publication.v1"
 NATIVE_PIN = "6538bdc0dfa5d1b82fab03bde1d742f98fabd8c9299c1a18c2e55f5248b429c9"
 RUNNER_PIN = "9c331a7e6a8fa43dc483587d0447aeb27e11fe988c715079396a683f87b6a156"
+ANGLE_PIN = "d161909999b3ed8d72f0885dbb6dbc0dfa3866e712dc4dd390aef7406c236409"
 
 
 def canonical(value):
@@ -143,18 +144,15 @@ def warm_modules():
 def signed_control(payload):
     control = payload["angle_control"]
     document = authored(control["case"], control["side"])
-    emitter = import_module("convert.adapters.solidworks.Core.Writing.EmitNativeMut")
-    previous = emitter.ReadTime
-    emitter.ReadTime = lambda: EPOCH
-    try:
-        for direct in (False, True):
-            output = BytesIO()
-            result = publish(document, output, {"final_destination": control["locator"]}, direct)
-            require(digest(output.getvalue()) == control["expected_sha256"]
-                    and result.vendor_loadable and result.application_usable and OPTION not in result.metadata,
-                    "existing signed angle path was intercepted or changed")
-    finally:
-        emitter.ReadTime = previous
+    options = {"final_destination": control["locator"],
+               OPTION: {"written_at": EPOCH, "receipt": control["receipt"]}}
+    for direct in (False, True):
+        output = BytesIO()
+        result = publish(document, output, options, direct)
+        require(digest(output.getvalue()) == control["expected_sha256"]
+                and result.vendor_loadable and result.application_usable
+                and result.metadata[OPTION]["native_result_sha256"] == ANGLE_PIN,
+                "exact signed angle control changed under measured dispatch")
     return control["expected_sha256"]
 
 
@@ -163,8 +161,8 @@ def camera_contrast(document, options, exact, request):
     original = views.ViewRotation
     quarter_turn = abs(KViewPlans[3][1][0][1])
 
-    def adjacent(axis, angle):
-        x, y, z, cosine = original(axis, angle)
+    def adjacent(axis, angle, *, PlatformMath=False):
+        x, y, z, cosine = original(axis, angle, PlatformMath=PlatformMath)
         return (x, y, z, nextafter(cosine, inf)) if abs(angle) == quarter_turn else (x, y, z, cosine)
 
     views.ViewRotation = adjacent
@@ -239,6 +237,7 @@ def worker(payload):
 def supervise(args):
     envelope = evidence(args.compiled, args.native)
     trial = json.loads(pinned(args.signed_trial, TRIAL_SHA))
+    angle_terminal = json.loads(pinned(ROOT / "re/solidworks/measurements/2026/ChamferSignedSideNative01.json", ANGLE_PIN))
     angle = trial["cases"][0]
     results = []
     with TemporaryDirectory(prefix="KitMeasuredPair-") as name:
@@ -259,7 +258,8 @@ def supervise(args):
             payload = {"envelope": envelope, "request": request, "slot": slot, "host_path": str(target)}
             if slot == 0:
                 payload["angle_control"] = {"case": trial["spec"]["cases"][0], "side": angle["branch"][0],
-                                            "locator": angle["locator"], "expected_sha256": angle["archive_sha256"]}
+                                            "locator": angle["locator"], "expected_sha256": angle["archive_sha256"],
+                                            "receipt": {"trial": trial, "native_result": angle_terminal}}
             result = subprocess.run([sys.executable, "-I", "-B", str(HERE), "--worker"],
                                     input=json.dumps(payload), capture_output=True, text=True, timeout=90, check=False)
             require(result.returncode == 0 and not result.stderr, result.stderr + result.stdout)

@@ -40,6 +40,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfRows import
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.CheckWarmStock import (
     CheckWarmStock,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.OrderWarmDims import (
+    OrderWarmDims,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.ReadWarmBody import (
     ReadWarmBody,
 )
@@ -99,8 +102,8 @@ def ReadWarmChmf(
     LinkValue: NativeLink,
 ) -> ChmfPartRead:
     Owners = ReadChmfOwn(LinkValue, AllowDistancePair=True)
-    if Owners.ModeWord not in (2, 18):
-        raise ValueError("saved chamfer mode is outside the measured distance pair")
+    if Owners.ModeWord not in (1, 2, 18):
+        raise ValueError("saved chamfer mode is outside the measured edge scope")
     CheckWarmChmf(LinkValue, Owners)
     Roots, Nodes = ReadChmfRoots(
         LinkValue, ModelValue, Owners.FeatureValue, IsSaved=True
@@ -115,12 +118,11 @@ def ReadWarmChmf(
         or NativeNodeId(Owners.FeatureValue) != ChmfOp.object_id
         or NativeNodeId(StockValue.ProfileValue) != StockOp.profile_id
         or ChmfOp.dependencies != (StockOp.object_id,)
-        or tuple(Value.name for Value in Feature.dimensions)
-        != tuple(Value.NameValue for Value in Owners.DriversValue)
     ):
         raise ValueError(
             "saved chamfer does not own the active public operation and stock"
         )
+    _ = OrderWarmDims(Feature.dimensions, Owners)
     MgrValue = ReadCmgrMut(
         Archive.require("Contents/CMgr"), LinkValue.ConfigValue.VersionValue
     )
@@ -158,7 +160,7 @@ def ReadWarmChmf(
     )
 
 
-# actual marked distance modes fail strict admission on broken body or owner evidence
+# actual marked edge modes fail strict admission on broken body or owner evidence
 def TryWarmChmf(
     Archive: SldprtArchive,
     ModelValue: NativeModel,
@@ -185,7 +187,7 @@ def TryWarmChmf(
     if (
         Feature is None
         or Feature.ClassValue.NameValue != "Chamfer_c"
-        or Feature.FieldsValue.get("f8c0") not in (2, 18)
+        or Feature.FieldsValue.get("f8c0") not in (1, 2, 18)
         or (
             Feature.FieldsValue.get("has_f3d0") == 0
             and LinkValue.ConfigValue.RootValue.FieldsValue.get("fe38") is None
@@ -197,7 +199,8 @@ def TryWarmChmf(
         return ReadWarmChmf(Archive, ModelValue, LinkValue)
     except (KeyError, TypeError, ValueError, OverflowError, StopIteration) as Error:
         if Settings.strict:
+            Scope = "angle" if Feature.FieldsValue.get("f8c0") == 1 else "distance"
             raise SldprtFormatError(
-                f"saved distance chamfer ownership rejected: {Error}"
+                f"saved {Scope} chamfer ownership rejected: {Error}"
             ) from Error
         return None

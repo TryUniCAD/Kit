@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 single-edge angle-distance chamfer source protocol
 
-**Status: disclosed packets 01 and 02 stopped before a source save. Packet 03 corrects the recorded face-area comparison. Native source acquisition is pending.**
+**Status: disclosed packet 04 and the independent pre-writer lock passed. The shared typed reader and exactly measured publication have separate evidence.**
 
 This is the source-authoring slice of [B04-SW2026](../../../Documentation/Maintenance/ConversionBacklog.md#b04-sw2026-solidworks-2026-native-reading-and-writing) in [PR #121](https://github.com/TryUniCAD/Kit/pull/121). The oracle owner runs the method on SOLIDWORKS 2026 SP05.2 `34.5.2.0604`. The starting aggregate `745929bcc29cb861571d4a232f7f18847d420f17` has an unqualified chamfer authoring call. Its fillet disclosures and independent fillet pre-writer lock concern a different feature class. [Previous author hook](../../tooling/sw2026/Author.py) · [Fillet archive evidence](EdgeFilletArchive2026.md)
 
@@ -56,3 +56,8 @@ Python 3.12 compiled the 16-module transaction closure. An independent clipped-p
 ## Qualification boundary
 
 This method has no Kit-written CAD output and no writer validation credit. Feature serialization, stable selected edge and produced face owners, cold construction, generalization and all other chamfer modes remain outside this method. The next research step after a complete native disclosed lock is the read-only typed archive correlation of unchanged originals and their one-driver derivatives. [Generative corpus procedure](../../Playbook/GenerativeCorpus.md) · [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+
+The follow-up complete typed traversal and boundary owners are in
+[ChamferTypedArchive2026.md](ChamferTypedArchive2026.md). Exact public
+publication and the native-saved source join are in
+[ChamferAngleDelivery2026.md](ChamferAngleDelivery2026.md).
