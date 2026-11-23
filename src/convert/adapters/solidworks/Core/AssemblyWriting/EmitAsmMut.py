@@ -42,11 +42,11 @@ def EmitAsmMut(
         raise TypeError("assembly output requires a filesystem bundle destination")
     StagePath = FilePath(TargetValue).expanduser().resolve()
     FinalPath, NativePath = FinalAsmPath(StagePath, Settings)
+    CheckPairScope(DocumentValue)
     RequireAsm(
         StagePath != FinalPath and GetStagedFinal(StagePath) == FinalPath,
         "planar assembly publication requires a registry-owned stage",
     )
-    CheckPairScope(DocumentValue)
     ModelValue = ReadAsmModel(DocumentValue)
     RequireAsm(
         Settings.configuration
