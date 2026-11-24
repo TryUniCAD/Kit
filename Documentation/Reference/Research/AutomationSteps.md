@@ -40,6 +40,20 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A04-PlanePlacement: timestamp-independent principal references
+
+Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
+Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
+Dependencies are the native ladder inputs and measured source observations from merged PRs #263 and #267.
+The [change entry](../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the original offline evidence for 144 files, 288 public-reader comparisons, 24 timestamp variants, ten principal-pose refusals, and nine explicitly unqualified fallbacks.
+All captured centroids agree; the 58 older pinned part documents retain identical serialized output.
+Review found that accepted in-plane rotation was lost at the neutral datum reference. The owned-sketch reader now explicitly refuses that unsupported rotation.
+Origin owner lookup retains its existing unavailable-owner fallback. A scoped process witness checks this boundary without changing a captured archive.
+The circular and rectangle attachment corruption cases now require the documented format error in both public read modes.
+Status is checking. Fresh revision-bound CI, review, source-audit and merge-group evidence must cover these follow-ups before completion.
+The exit covers source placement and its shared-suite process regressions.
+Fresh native acceptance, complete typed rectangle admission, and conversion qualification remain outside this result.
+
 #### A08b-SharedQueue: shared research requests and advice budgets
 
 Codex owns this checking task on `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).
@@ -64,9 +78,9 @@ This child does not close conversion acceptance, XZ or reverse-YZ support, or th
 Codex published this evidence on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
 Delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`. Dependencies are merged PR #263, the existing research controller and licensed source captures.
 The [package](../../../re/solidworks/FeatureLadderRecovery/README.md) retains 37 complete native cases and 111 strict decodes, plus two failed-batch salvage files.
-Original controller failures remain recorded. Fifteen front-plane centroids match; 96 top/right placements remain wrong.
+Original controller failures remain recorded. The archived reports retain fifteen matching front-plane centroids and 96 wrong top/right placements.
 The exit requires verified artifact hashes, sanitized provenance, explicit semantic failures and current-head publication checks and review.
-Production placement repair is a separate follow-up; this evidence does not close conversion acceptance.
+The separately verified A04-PlanePlacement repair above preserves those historical reports; this evidence does not close conversion acceptance.
 
 #### A08h-Ladders2026: native campaign evidence
 

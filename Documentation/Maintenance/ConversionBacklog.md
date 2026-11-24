@@ -588,7 +588,8 @@ Native writing and full conversion acceptance remain open. SOLIDWORKS host recov
 Task `A08h-LadderRecovery` was published through the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
 Codex published the evidence on `feat/solidworks-ladder-recovery-20261122`; delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`.
 The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
-Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
+The archived reports retain 96 incorrect top/right placements.
+The separately scoped [principal-plane reader repair](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) now matches all 144 native ladder centroids in full and design-only reads.
 The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
 Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.
 
@@ -598,3 +599,15 @@ Task `A08h-Placement20261123` is owned by Codex in the [automation register](../
 The [fresh scope](../../re/NativePlacement2026/README.md) settled 48 native attempts and 255 strict committed-file replays. Capture is incomplete: 47 full batches plus two saved files from one COM failure yield 143 of 144 planned native inputs.
 Main retains 45 measured SOLIDWORKS placement mismatches. The separately owned [PR 270](https://github.com/TryUniCAD/Kit/pull/270) candidate passes 138 fresh source comparisons; [PR 269](https://github.com/TryUniCAD/Kit/pull/269) receives fresh decimal evidence for XZ and reverse-YZ refusals. Those contributions remain revision-bound and separate from production readiness.
 Dependencies are merged PRs #263/#265/#267, the existing controller and licensed source measurements. Publication exits on verified hashes, honest failure/semantic accounting and fresh CI/review. Existing writer ownership, including [PR 121](https://github.com/TryUniCAD/Kit/pull/121), remains separate; no donor writer is restored. B02/B03/B04/B05 remain unfinished and the production conversion boundary does not change.
+
+## Principal-plane reader placement repair
+
+Task `A04-PlanePlacement` is offline verified in the [owning register](../Reference/Research/AutomationSteps.md#a04-planeplacement-timestamp-independent-principal-references).
+Codex owns `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
+Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
+Dependencies are merged PRs #263 and #267 and their unchanged native source observations.
+The bounded exit requires correct public-reader placement, timestamp variability, malformed-reference guards, and unchanged older part output.
+The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the completed offline checks.
+Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
+Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
+Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
