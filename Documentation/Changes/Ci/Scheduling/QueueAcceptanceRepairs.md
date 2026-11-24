@@ -45,3 +45,17 @@ Formatting and static diff inspection are the local checks.
 Tests remain on the existing shared-suite planner and native platform shards.
 Remote verification of this repair revision is pending.
 See [provider identity](../../../Gotchas/Ci/Scheduling/ProviderCleanupIdentity.md) and [qualified grammar transitions](../../../Gotchas/Ci/Scheduling/QualifiedLiteralRefusals.md).
+
+## Deterministic report compatibility
+
+Candidate `640378100f7bfb0af414829042cd19235a718623` completed the strict geometry command but failed its historical report hash.
+The reported hash was `6452d4aa5148435e1ed6c790ddcb4b4ec46e415d274e2d813fb1581f6f1b13db`.
+The deliberate replacement of `unwrapped_literal` with `reverse_formula` changes that report entry.
+
+The archive comparison now requires exactly one new formula-refusal entry with one of the two known exact diagnostics.
+It also requires the obsolete refusal entry to be absent.
+Only that entry is normalized for comparison with the unchanged historical digest.
+The actual command report retains its real case name and diagnostic.
+Every other report byte, including geometry, capture custody, measurements, and all remaining refusal outcomes, remains pinned.
+The verifier still rejects a command that accepts the arithmetic formula.
+Fresh candidate acceptance must verify that this single deliberate delta explains the digest difference.
