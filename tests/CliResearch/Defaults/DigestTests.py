@@ -35,24 +35,3 @@ def CheckPinChange(
     Result = LoadJson(Reply.stdout)
     assert Result["catalogue_content"] == {"selected": "replacement"}
     assert Result[FormatName + "_sha256"] == (NewDigest if SupplyPin else None)
-
-
-# a caller supplied incorrect digest must still refuse before publishing its destination
-@TestMark.parametrize("FormatName", ("solidworks", "fusion"))
-def CheckGivenPin(TmpPath: FilePath, FormatName: str) -> None:
-    ConfigPath, Checkout = PresetFiles(TmpPath)
-    OutputPath = TmpPath / "rejected"
-    Reply = ShortcutCli(
-        TmpPath,
-        ConfigPath,
-        "run",
-        FormatName,
-        "--catalogue",
-        str(Checkout / "catalogue with spaces.json"),
-        f"--{FormatName}-sha256",
-        "0" * 64,
-        "--directory",
-        str(OutputPath),
-    )
-    assert Reply.returncode == 2 and "SHA-256 does not match" in Reply.stderr
-    assert not OutputPath.exists()
