@@ -20,6 +20,11 @@ using SolidWorks.Interop.sldworks;
 
 public static class SolidOwner
 {
+    public static bool ParallelCapture { get; set; }
+    public static bool KeepDimensionPreference { get; set; }
+
+    internal const int InputDimensionValue = 10;
+
     const int MissingObject = unchecked((int)0x800401E3);
     const int CallRejected = unchecked((int)0x80010001);
 
@@ -65,13 +70,17 @@ public static class SolidOwner
             Verify(process,executable,created,session);
             object found=null;
             try {
-                try { found=Marshal.GetActiveObject("SldWorks.Application"); }
-                catch(COMException error) {
-                    if(error.ErrorCode!=MissingObject) throw;
-                    missingGlobal++;
+                if(!ParallelCapture) {
+                    try { found=Marshal.GetActiveObject("SldWorks.Application"); }
+                    catch(COMException error) {
+                        if(error.ErrorCode!=MissingObject) throw;
+                        missingGlobal++;
+                    }
+                }
+                if(found==null) {
                     try { found=FindOwned(process.Id); }
-                    catch(COMException owned) {
-                        if(owned.ErrorCode!=MissingObject) throw;
+                    catch(COMException error) {
+                        if(error.ErrorCode!=MissingObject) throw;
                         missingOwned++;
                     }
                 }
@@ -93,6 +102,16 @@ public static class SolidOwner
         }
         throw new InvalidOperationException("Owned SOLIDWORKS automation unavailable global_rot="+missingGlobal+
             " owned_rot="+missingOwned+" rejected_calls="+rejected+" process_exited="+process.HasExited);
+    }
+
+    public static bool CanShareSession(Process process, string executable)
+    {
+        var application=AttachOwned(process,executable,120);
+        try {
+            if(application.GetDocumentCount()!=0)
+                throw new InvalidOperationException("The owned SOLIDWORKS process started with open documents");
+            return !application.GetUserPreferenceToggle(InputDimensionValue);
+        } finally { Marshal.ReleaseComObject(application); }
     }
 
     public static void RunOwned(Process process, string executable, string repository,

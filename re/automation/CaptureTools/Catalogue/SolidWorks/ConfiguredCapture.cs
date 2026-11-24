@@ -124,8 +124,10 @@ public sealed partial class SolidWorksCapture
             Check(first.ContainsKey("configuration_sha256") && (string)first["configuration_sha256"]==pin,
                 "Configured authoring changed between native phases");
         }
-        bool preference=owned.GetUserPreferenceToggle(10);
-        owned.SetUserPreferenceToggle(10,false);
+        bool preference=owned.GetUserPreferenceToggle(SolidOwner.InputDimensionValue);
+        if(SolidOwner.KeepDimensionPreference)
+            Check(!preference, "The dimension prompt setting changed after parallel admission");
+        else owned.SetUserPreferenceToggle(SolidOwner.InputDimensionValue,false);
         try {
             var specification=run.IsProgram()?null:run.ConfiguredRecipe(recipe);
             if(phase=="first") {
@@ -149,6 +151,9 @@ public sealed partial class SolidWorksCapture
                 Write(receipt,received);
             }
             Check(Hash(configuration)==pin, "Configured authoring input changed during execution");
-        } finally { owned.SetUserPreferenceToggle(10,preference); }
+        } finally {
+            if(!SolidOwner.KeepDimensionPreference)
+                owned.SetUserPreferenceToggle(SolidOwner.InputDimensionValue,preference);
+        }
     }
 }

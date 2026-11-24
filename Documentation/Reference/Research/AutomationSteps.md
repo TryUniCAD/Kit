@@ -768,3 +768,15 @@ The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact 
 The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
 Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
 Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+
+## A08h-ParallelSolidWorks: same-host catalogue capture
+
+Codex owns this scope on [codex/parallel-solidworks-capture](https://github.com/TryUniCAD/Kit/tree/codex/parallel-solidworks-capture).
+It depends on the A08h licensed catalogue runner, controller, and supervisor.
+PRs [#288](https://github.com/TryUniCAD/Kit/pull/288) and
+[#289](https://github.com/TryUniCAD/Kit/pull/289) retain their separate native
+batching and shutdown scopes. This delivery covers two default capture workers
+on one licensed Windows desktop. Exit requires overlapping owned native
+processes, independent normal exits and reopen evidence, unchanged source and
+archive pins, and current revision CI and review evidence.
+See the [change entry](../../Changes/Research/Supervisor/Catalogue/ParallelSolidWorksCaptures.md).

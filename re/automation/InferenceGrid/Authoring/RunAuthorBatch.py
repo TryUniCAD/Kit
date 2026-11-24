@@ -76,7 +76,7 @@ def RunAuthorBatch(
         with Ledger(Directory / "Store", create=True, max_running=64):
             pass
         ConfigPath, Resources = AuthorConfig(
-            Directory, SourceRoot, Workers, Native, HostPath
+            Directory, SourceRoot, Workers, Native, HostPath, AllowParallel=True
         )
         FusionConfig = (
             None
@@ -159,9 +159,12 @@ def FinishAuthor(
         )
     write_private(Directory / "AuthoringSubmissions.json", {"submissions": Submissions})
     if NativeReady:
+        Capacities = read_record(Path(RunValue["config"])).get("resources", {})
         with Ledger(Directory / "Store") as StateValue:
             for Resource in RunValue["resources"].values():
-                StateValue.resource(Resource, available=True, capacity=1)
+                StateValue.resource(
+                    Resource, available=True, capacity=Capacities.get(Resource, 1)
+                )
     Lifecycle = nullcontext()
     if RunValue["lifecycle"] is not None:
         from InferenceGrid.Authoring.FusionLifecycle import OwnFusionLife

@@ -278,6 +278,13 @@ See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/Reusable
 for exact identities, limits, and evidence requirements.
 
 SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
+New authoring runs allow two native workers on the same licensed desktop by
+default. Set `"capture_workers": 1` in the host JSON for an exclusive worker.
+`--workers` remains the offline worker cap. Kit admits the second native worker
+when resources allow and refuses unrelated SOLIDWORKS sessions. If **Input
+dimension value** is enabled in **System Options → General**, Kit runs phases
+exclusively while it temporarily changes and restores that setting. See
+[parallel SOLIDWORKS captures](../Changes/Research/Supervisor/Catalogue/ParallelSolidWorksCaptures.md).
 Fusion needs its native worker options and `--fusion-lifecycle` for automatic
 owned restart. Use the same source revision across workers and the selected
 checkout. Pause/resume keeps the existing native and decoder receipts.

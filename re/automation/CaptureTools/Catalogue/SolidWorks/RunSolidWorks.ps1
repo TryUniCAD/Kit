@@ -14,7 +14,9 @@ param(
     [Parameter(Mandatory)] [string]$ExecutablePath,
     [Parameter(Mandatory)] [ValidateSet('first', 'second')] [string]$Phase,
     [switch]$CompileOnly,
-    [switch]$Batch
+    [switch]$Batch,
+    [ValidatePattern('^[0-9a-f]{32}$')] [string]$ParallelGroup,
+    [ValidateRange(1, 300)] [int]$ParallelWaitSeconds = 300
 )
 
 $ErrorActionPreference = 'Stop'
@@ -52,6 +54,12 @@ if ($CompileOnly) {
     Write-Output 'Compiled configured SOLIDWORKS authoring without starting an application'
     return
 }
+$Parallel = [bool]$ParallelGroup
+[SolidOwner]::ParallelCapture = $Parallel
+$Shared = $false
+. (Join-Path $PSScriptRoot 'ParallelSolidSession.ps1')
+$Lease = $null
+$Peers = @()
 $Mutex = [Threading.Mutex]::new($false, 'Local\KitResearchControllerOracle')
 $Acquired = $false
 $Native = $null
@@ -59,15 +67,41 @@ $ExitObserved = $false
 $ForcedCleanup = $false
 $Failure = $null
 try {
-    try { $Acquired = $Mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $Acquired = $true }
+    $WaitMs = if ($Parallel) { $ParallelWaitSeconds * 1000 } else { 0 }
+    try { $Acquired = $Mutex.WaitOne($WaitMs) } catch [Threading.AbandonedMutexException] { $Acquired = $true }
     if (-not $Acquired) { throw 'The shared SOLIDWORKS oracle is owned by another operation.' }
-    if (Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue) {
+    if ($Parallel) {
+        $Peers = @(Get-ParallelSolidPeers $ParallelGroup)
+        if ($Peers.Count -ge 2) { throw 'The catalogue already owns two SOLIDWORKS processes.' }
+    } elseif (Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue) {
         throw 'Preserve the existing SOLIDWORKS session and use an idle native host.'
     }
     $Native = Start-Process -FilePath $Executable.FullName -WorkingDirectory $Executable.DirectoryName -WindowStyle Hidden -PassThru
     $Created = $Native.StartTime.ToUniversalTime().ToFileTimeUtc()
-    if (@(Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue).Count -ne 1 -or
-        $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created) {
+    if ($Native.HasExited -or $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created) {
+        throw 'The application identity changed before authoring.'
+    }
+    $Shared = $Parallel -and [SolidOwner]::CanShareSession($Native, $Executable.FullName)
+    if ($Parallel -and -not $Shared) {
+        if (@(Get-ParallelSolidPeers $ParallelGroup $Native.Id).Count -gt 0) {
+            throw 'The SOLIDWORKS dimension prompt is enabled while a catalogue peer is active.'
+        }
+        Write-Output 'The dimension prompt requires an exclusive SOLIDWORKS phase.'
+    }
+    [SolidOwner]::KeepDimensionPreference = $Shared
+    if ($Shared) {
+        $NewLease = $false
+        $LeaseName = Get-ParallelSolidLeaseName $ParallelGroup $Native.Id $Created
+        $LeaseHandle = [Threading.Mutex]::new($true, $LeaseName, [ref]$NewLease)
+        if (-not $NewLease) {
+            $LeaseHandle.Dispose()
+            throw 'A catalogue lease already exists for the new SOLIDWORKS process.'
+        }
+        $Lease = $LeaseHandle
+        $Peers = @(Get-ParallelSolidPeers $ParallelGroup $Native.Id)
+        $Mutex.ReleaseMutex()
+        $Acquired = $false
+    } elseif (@(Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue).Count -ne 1) {
         throw 'The application identity changed before authoring.'
     }
     if ($Batch) {
@@ -79,24 +113,35 @@ try {
     }
     else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
 } catch { $Failure = $_ } finally {
-    if ($null -ne $Native) {
-        $ExitObserved = $Native.WaitForExit(30000)
-        if (-not $ExitObserved -and $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
-            $Native.Kill()
-            $ForcedCleanup = $Native.WaitForExit(10000)
+    try {
+        if ($null -ne $Native) {
+            $ExitObserved = $Native.WaitForExit(30000)
+            if (-not $ExitObserved -and $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
+                $Native.Kill()
+                $ForcedCleanup = $Native.WaitForExit(10000)
+            }
+            $ProcessId = $Native.Id
+            $Native.Dispose()
+            if (-not (Test-Path -LiteralPath $Destination)) { [IO.Directory]::CreateDirectory($Destination) | Out-Null }
+            $OwnerPath = Join-Path $Destination ($Phase + '-owner.json')
+            $Owner = [ordered]@{ phase = $Phase; pid = $ProcessId; created = $Created; owned_process_exit_observed = $ExitObserved; forced_owned_cleanup = $ForcedCleanup }
+            if ($Parallel) {
+                $Owner.parallel_eligible = $Shared
+                $Owner.parallel_peer_pids = $Peers
+            }
+            $OwnerJson = ($Owner | ConvertTo-Json -Compress) + [Environment]::NewLine
+            $OwnerBytes = [Text.UTF8Encoding]::new($false).GetBytes($OwnerJson)
+            $OwnerStream = [IO.File]::Open($OwnerPath, [IO.FileMode]::CreateNew, [IO.FileAccess]::Write)
+            try { $OwnerStream.Write($OwnerBytes, 0, $OwnerBytes.Length); $OwnerStream.Flush($true) } finally { $OwnerStream.Dispose() }
         }
-        $ProcessId = $Native.Id
-        $Native.Dispose()
-        if (-not (Test-Path -LiteralPath $Destination)) { [IO.Directory]::CreateDirectory($Destination) | Out-Null }
-        $OwnerPath = Join-Path $Destination ($Phase + '-owner.json')
-        $Owner = [ordered]@{ phase = $Phase; pid = $ProcessId; created = $Created; owned_process_exit_observed = $ExitObserved; forced_owned_cleanup = $ForcedCleanup }
-        $OwnerJson = ($Owner | ConvertTo-Json -Compress) + [Environment]::NewLine
-        $OwnerBytes = [Text.UTF8Encoding]::new($false).GetBytes($OwnerJson)
-        $OwnerStream = [IO.File]::Open($OwnerPath, [IO.FileMode]::CreateNew, [IO.FileAccess]::Write)
-        try { $OwnerStream.Write($OwnerBytes, 0, $OwnerBytes.Length); $OwnerStream.Flush($true) } finally { $OwnerStream.Dispose() }
+    } finally {
+        if ($null -ne $Lease) {
+            $Lease.ReleaseMutex()
+            $Lease.Dispose()
+        }
+        if ($Acquired) { $Mutex.ReleaseMutex() }
+        $Mutex.Dispose()
     }
-    if ($Acquired) { $Mutex.ReleaseMutex() }
-    $Mutex.Dispose()
 }
 if ($null -ne $Failure) { throw $Failure }
 if (-not $ExitObserved) { throw 'The owned SOLIDWORKS process did not exit normally.' }

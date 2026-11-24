@@ -8,9 +8,11 @@
 
 from pathlib import Path
 from sys import executable
+from uuid import uuid4
 
 from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
-from InferenceGrid.Authoring.NativeEnvironment import CaptureNative, ValidateNative
+from CaptureTools.Catalogue.SolidWorks.SolidHost import ValidateSolidHost
+from InferenceGrid.Authoring.NativeEnvironment import CaptureNative
 from InferenceGrid.Authoring.AddSolidRunners import AddSolidRunners
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
@@ -42,33 +44,27 @@ def AddDecode(Directory, SourceRoot, ConfigPath):
     return ConfigValue, SchemaPath
 
 
-# application dispatch stays isolated from reader pools and retains capacity one ownership
-def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath):
+# application dispatch stays isolated from reader pools with a dedicated native capacity
+def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath, *, AllowParallel=False):
     ConfigPath, _, _ = PilotConfig(Directory, SourceRoot, Workers)
     ConfigValue, SchemaPath = AddDecode(Directory, SourceRoot, ConfigPath)
     Resources = {}
     if HostPath is not None:
         HostValue = read_record(HostPath)
-        if not {"interop_assembly", "executable"} <= set(HostValue) or set(
-            HostValue
-        ) - {"interop_assembly", "executable", "phase_seconds", "native_environment"}:
-            raise ValueError("SOLIDWORKS host requires interop_assembly and executable")
-        for NameValue in ("interop_assembly", "executable"):
-            FileValue = Path(HostValue[NameValue])
-            if not FileValue.is_absolute() or not FileValue.is_file():
-                raise ValueError(
-                    "SOLIDWORKS host paths must be absolute installed files"
-                )
-        HostValue["native_environment"] = (
-            ValidateNative(HostValue["native_environment"])
-            if "native_environment" in HostValue
-            else CaptureNative()
-        )
+        if AllowParallel:
+            HostValue.setdefault("capture_workers", 2)
+        CaptureWorkers = ValidateSolidHost(HostValue, Prepared=False)
+        if "native_environment" not in HostValue:
+            HostValue["native_environment"] = CaptureNative()
+        if CaptureWorkers == 2:
+            if not AllowParallel:
+                raise ValueError("two SOLIDWORKS workers require catalogue sample authoring")
+            HostValue["parallel_group"] = uuid4().hex
         HostFile = WriteRecord(Directory / "SolidWorksHost.json", HostValue)
         AddSolidRunners(ConfigValue, SourceRoot, SchemaPath, HostFile)
         Resources["solidworks"] = "application:solidworks:catalogue"
-        ConfigValue["pools"]["authoring-solidworks"] = {"max_sessions": 1}
-        ConfigValue["resources"] = {Resources["solidworks"]: 1}
+        ConfigValue["pools"]["authoring-solidworks"] = {"max_sessions": CaptureWorkers}
+        ConfigValue["resources"] = {Resources["solidworks"]: CaptureWorkers}
         write_private(ConfigPath, ConfigValue)
     if Native is not None:
         NativePath, KindValue, ResourceValue = Native

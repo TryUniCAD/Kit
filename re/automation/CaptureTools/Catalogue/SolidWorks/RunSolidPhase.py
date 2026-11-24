@@ -44,6 +44,18 @@ def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName, IsBatch=False):
     ]
     if IsBatch:
         Command.append("-Batch")
+    PhaseSeconds = HostConfig.get("phase_seconds", 600)
+    AdmissionSeconds = 0
+    if HostConfig.get("capture_workers", 1) == 2:
+        AdmissionSeconds = min(PhaseSeconds, 300)
+        Command.extend(
+            (
+                "-ParallelGroup",
+                HostConfig["parallel_group"],
+                "-ParallelWaitSeconds",
+                str(AdmissionSeconds),
+            )
+        )
     Environment = NativeSolidEnv(HostConfig)
     with (
         (OutputPath / (PhaseName + ".log")).open("xb") as Output,
@@ -53,7 +65,7 @@ def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName, IsBatch=False):
             Command, SourceRoot, Environment, Output.fileno(), Errors.fileno()
         )
         try:
-            ExitCode = Process.wait(timeout=HostConfig.get("phase_seconds", 600))
+            ExitCode = Process.wait(timeout=PhaseSeconds + AdmissionSeconds)
             Process.finish()
             if ExitCode:
                 Output.flush()

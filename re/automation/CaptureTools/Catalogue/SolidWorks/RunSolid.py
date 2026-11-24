@@ -13,7 +13,7 @@ from sys import platform
 from CaptureTools.Catalogue.SolidWorks.RunSolidPhase import RunSolidPhase
 from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
 from CaptureTools.Catalogue.SolidWorks.VerifySolid import VerifySolid
-from InferenceGrid.Authoring.NativeEnvironment import ValidateNative
+from CaptureTools.Catalogue.SolidWorks.SolidHost import ValidateSolidHost
 
 
 # explicit native configuration prevents catalogue data from choosing arbitrary executables
@@ -21,22 +21,7 @@ def RunSolid(CaseValue, OutputDirectory, HostConfig):
     CaseValue = ValidateSolid(CaseValue)
     if platform != "win32":
         raise ValueError("SOLIDWORKS authoring requires an isolated Windows host")
-    if (
-        not isinstance(HostConfig, dict)
-        or not {"interop_assembly", "executable"} <= HostConfig.keys()
-        or HostConfig.keys()
-        - {"interop_assembly", "executable", "phase_seconds", "native_environment"}
-    ):
-        raise ValueError("SOLIDWORKS host requires executable and interop paths")
-    if "native_environment" in HostConfig:
-        ValidateNative(HostConfig["native_environment"])
-    for PathName in ("interop_assembly", "executable"):
-        PathValue = Path(HostConfig[PathName])
-        if not PathValue.is_absolute() or not PathValue.is_file():
-            raise ValueError("SOLIDWORKS host paths must name existing absolute files")
-    PhaseSeconds = HostConfig.get("phase_seconds", 600)
-    if type(PhaseSeconds) is not int or not 1 <= PhaseSeconds <= 86400:
-        raise ValueError("SOLIDWORKS phase timeout must be between 1 and 86400 seconds")
+    ValidateSolidHost(HostConfig, Prepared=True)
     OutputPath = Path(OutputDirectory).resolve()
     SourceRoot = Path(__file__).resolve().parents[5]
     if OutputPath.is_relative_to(SourceRoot) or OutputPath.exists():

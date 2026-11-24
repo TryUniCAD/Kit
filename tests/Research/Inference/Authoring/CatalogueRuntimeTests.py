@@ -12,6 +12,8 @@ from sqlite3 import connect as ConnectState
 from subprocess import run as RunProcess
 from sys import executable as PythonExe
 
+from pytest import mark as CaseMark
+
 from tests.Research.Inference.Authoring.CataloguePlanTests import (
     KSourceRoot,
     WriteCatalog,
@@ -19,7 +21,8 @@ from tests.Research.Inference.Authoring.CataloguePlanTests import (
 
 
 # a configured but unavailable host exercises real queueing without launching a native application
-def CheckResume(TmpPath: FilePath) -> None:
+@CaseMark.parametrize("CaptureWorkers", (1, 2))
+def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
     HostPath = TmpPath / "Host.json"
     BinaryPaths = [
         TmpPath / "SLDWORKS.exe",
@@ -29,7 +32,11 @@ def CheckResume(TmpPath: FilePath) -> None:
         _ = BinaryPath.write_bytes(b"not executed unavailable native host")
     _ = HostPath.write_text(
         EncodeJson(
-            {"executable": str(BinaryPaths[0]), "interop_assembly": str(BinaryPaths[1])}
+            {
+                "executable": str(BinaryPaths[0]),
+                "interop_assembly": str(BinaryPaths[1]),
+                **({"capture_workers": 1} if CaptureWorkers == 1 else {}),
+            }
         ),
         encoding="utf-8",
     )
@@ -81,6 +88,14 @@ def CheckResume(TmpPath: FilePath) -> None:
     assert Result.returncode == 2, Result.stdout + Result.stderr
     PlanValue = DecodeJson((RunPath / "AuthoringPlan.json").read_bytes())
     assert len(PlanValue["samples"]) == 1
+    Config = DecodeJson((RunPath / "Supervisor.json").read_bytes())
+    assert Config["pools"]["authoring-solidworks"]["max_sessions"] == CaptureWorkers
+    assert Config["resources"]["application:solidworks:catalogue"] == CaptureWorkers
+    SavedHost = DecodeJson((RunPath / "SolidWorksHost.json").read_bytes())
+    if CaptureWorkers == 2:
+        assert len(SavedHost["parallel_group"]) == 32
+    else:
+        assert "parallel_group" not in SavedHost
     with ConnectState(RunPath / "Store/ledger.sqlite3") as Database:
         Initial = Database.execute(
             "SELECT id,state,attempts,receipt,result FROM jobs ORDER BY id"
@@ -100,6 +115,7 @@ def CheckResume(TmpPath: FilePath) -> None:
             "SELECT id,state,attempts,receipt,result FROM jobs ORDER BY id"
         ).fetchall()
     assert Final == Initial
+    assert DecodeJson((RunPath / "SolidWorksHost.json").read_bytes()) == SavedHost
     ConfigPath = RunPath / "SolidWorksHost.json"
     Settings = DecodeJson(ConfigPath.read_bytes())
     Settings["phase_seconds"] = 1
