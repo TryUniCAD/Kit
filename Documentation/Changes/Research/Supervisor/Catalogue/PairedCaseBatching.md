@@ -41,7 +41,7 @@ All three cases passed the existing native checks, including healthy controls, d
 The accepted batch automatically released three separate decoder jobs.
 Their measured process intervals overlapped at a peak of three.
 All four controller jobs completed on their first attempt, with no supervisor failures.
-The [sanitized acceptance summary](../../../../../../re/automation/BatchEvidence/PairedCaptureAcceptance.json) retains source fingerprints, native measurements, job identities, and receipt digests.
+The [sanitized acceptance summary](../../../../../re/automation/BatchEvidence/PairedCaptureAcceptance.json) retains source fingerprints, native measurements, job identities, and receipt digests.
 The native dependency fingerprints also match the later test-only revisions.
 
 The command returned `2`, `coverage_incomplete`, because the decoders retained unresolved semantic findings.
