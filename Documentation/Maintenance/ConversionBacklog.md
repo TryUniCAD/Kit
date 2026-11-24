@@ -58,6 +58,15 @@ B14 can qualify earlier subsets while B06–B09 continue.
 B03's parent is not complete merely because its deterministic scheduler has process evidence.
 B04's parent is not complete merely because controlled constructor probes exist.
 
+## B14-RecordDecodeCache: JSON reconstruction performance
+
+Codex owns the scoped type-information cache on `codex/cache-record-types`, based on main `625bdbf9efa35d0fdc4939c59f68561aa927db4b`.
+Delivery uses a separate PR for this branch.
+Dependencies are the existing interchange codec and public document APIs.
+The exit requires identical canonical JSON, preserved validation and compatibility behavior, current-head CI, and configured review.
+The [change entry](../Changes/Research/Readers/Performance/RecordLayoutCache.md) records the paired measurements and verification.
+This task does not change the supported format boundary or close B14 release qualification.
+
 ## Important gap boundaries
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK

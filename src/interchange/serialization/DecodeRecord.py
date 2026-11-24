@@ -1,13 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Mapping as MappingBase
-from dataclasses import fields as GetFields
 from types import MappingProxyType as FrozenMap
 from typing import Callable as CallableType
 from typing import cast as CastValue
-from typing import get_origin as GetOrigin
-from typing import get_type_hints as GetTypeHints
 
+from interchange.serialization.GetMapFields import GetMapFieldsMut
 from interchange.serialization.MigrationRegistry import KMigrationRegistry
 from interchange.serialization.RecordType import DataRecord, RecordCtor
 from interchange.serialization.Wire import ResolveField
@@ -19,6 +16,7 @@ def DecodeRecord(
     SourceValue: dict[str, KWireData],
     TargetType: type[DataRecord],
     DecoderFunc: CallableType[[object], object],
+    FieldCache: dict[type[DataRecord], tuple[str, ...]],
 ) -> object:
     WireArguments: dict[str, object] = {
         KeyValue: DecoderFunc(ItemValue)
@@ -32,12 +30,10 @@ def DecodeRecord(
         ResolveField(TargetType, KeyValue): ItemValue
         for KeyValue, ItemValue in WireArguments.items()
     }
-    TypeHints = CastValue(dict[str, object], GetTypeHints(TargetType))
-    for FieldValue in GetFields(TargetType):
-        FieldHint = TypeHints.get(FieldValue.name)
-        ArgumentValue = Arguments.get(FieldValue.name)
-        if isinstance(ArgumentValue, dict) and GetOrigin(FieldHint) is MappingBase:
+    for FieldName in GetMapFieldsMut(TargetType, FieldCache):
+        ArgumentValue = Arguments.get(FieldName)
+        if isinstance(ArgumentValue, dict):
             MapValue = CastValue(dict[object, object], ArgumentValue)
-            Arguments[FieldValue.name] = FrozenMap(MapValue)
+            Arguments[FieldName] = FrozenMap(MapValue)
     RecordFactory = CastValue(RecordCtor, TargetType)
     return RecordFactory(**Arguments)
