@@ -23,7 +23,6 @@ def LoadExportMut(
         and FindSpec(ChildName) is not None
     ):
         raise AttributeError(f"module {PackageName!r} has no attribute {NameText!r}")
-    # missing names fail first so attribute probes never start the registry package
     from convert.adapters.registry.AdapterDiscovery import LoadExportMod
 
     if ExportInfo is None:
