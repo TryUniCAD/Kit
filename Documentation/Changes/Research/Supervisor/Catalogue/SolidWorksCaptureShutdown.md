@@ -15,7 +15,10 @@ phases still request `ExitApp` for cleanup. If the process remains alive after
 the successful phase's exit request, the launcher rechecks its creation identity
 and verifies the recorded SOLIDWORKS frame belongs to it before posting a normal
 window close. Both requests share the existing 30-second exit deadline. The
-receipts record the native exit method and whether the frame close was posted.
+launcher can post one more normal close within the same deadline if the process
+remains alive. It verifies the frame and process again before the second
+request. The receipts record the native exit method and number of successful
+frame-close posts.
 The launcher still requires an observed normal exit through its original process
 handle before continuing to a fresh reopen. Forced cleanup remains a failure.
 
@@ -46,7 +49,28 @@ normal process exit. The two PIDs were distinct and neither required forced
 cleanup. The worker independently reopened 11 archives and the decoder
 recorded its results. The catalogue result SHA-256 is
 `66578828b46645927feb6686b0a72a2c31eb6f870bfde6b0475ed6a01385ecd7`.
-Broader paired and written-recipe verification is in progress.
+
+The combined replay at local revision
+`aae8b6498fa7e09e70ea0d1d3369705133ce884e` includes the shared shutdown
+code and the stock-control batching repair from PR #288. Two three-case
+batches covered the other five previously failed cut-extrude cases and a
+boss-extrude control. All six cases passed on their first attempt. Four
+independently owned processes exited normally, 63 archives passed the native
+checks, and all six decoder jobs recorded their results. The driving-dimension
+singleton saved its baseline and posted the frame close, but its process
+remained alive at the deadline. The worker forced cleanup and withheld the
+singleton from decoding. The result SHA-256 for this replay is
+`68a03e331f2e04f67992a87b45ed524008e67523010fe3e969ff637319ed8e3a`.
+All six original cut-extrude failures passed across the two replays. The
+singleton exposes a remaining shutdown case.
+
+The written-recipe replay reached both native phases and both processes exited
+normally. It saved and reopened 30 archives. Native admission failed because
+the thin-extrude one-sided wall extended opposite the specified sketch side.
+The offset-start and two-direction geometry checks passed on the preserved
+receipts. The catalogue result SHA-256 is
+`1b6e1e6bfbde418c66644f6c73ef698442d76c986e224d953da40ee6a8808c5a`.
+The written-recipe geometry correction requires separate acceptance.
 
 The shared Windows process probe checks that a window belonging to another
 live process is refused. It also checks that a verified window can receive the
@@ -55,3 +79,4 @@ the observed process state separately from the request.
 [Shutdown finding](../../../../Gotchas/Research/Workers/SolidWorks/CatalogueCaptureExitObservation.md)
 [Starting process image finding](../../../../Gotchas/Research/Workers/SolidWorks/StartingProcessModuleLookup.md)
 [SOLIDWORKS frame finding](../../../../Gotchas/Research/Workers/SolidWorks/HiddenFrameWindowSelection.md)
+[SOLIDWORKS welcome finding](../../../../Gotchas/Research/Workers/SolidWorks/WelcomeWindowClose.md)

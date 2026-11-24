@@ -128,9 +128,12 @@ the licensed SOLIDWORKS host and its exclusive application lease. [PR #288](http
 owns the separate paired-case batching work. Exit requires normal owned process
 exit, independent reopen and recorded decoder results for the failed P04 cases,
 plus batch and control coverage and the applicable CI and review gates.
-The exact 28 mm cut-extrude case passed capture, reopen and decoder execution
-at `8802a83fb0c8503cc7e979f977037af7d89ba015`. Broader native verification is
-in progress. [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
+All six previously failed cut-extrude cases passed capture, reopen and
+decoder execution across the exact and paired replays. The written-recipe
+replay completed both native process exits and reached a separate thin-wall
+geometry check. The driving-dimension singleton still timed out with the
+initial cleanup change. A second verified frame close is under native
+verification. [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
 
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)

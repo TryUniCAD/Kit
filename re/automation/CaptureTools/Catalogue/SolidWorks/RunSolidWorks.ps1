@@ -95,6 +95,7 @@ try {
         $OwnerPath = Join-Path $Destination ($Phase + '-owner.json')
         $Owner = [ordered]@{ phase = $Phase; pid = $ProcessId; created = $Created; owned_process_exit_observed = $ExitObserved; forced_owned_cleanup = $ForcedCleanup }
         $Owner.window_close_requested = $NativeExit.CloseRequested
+        $Owner.window_close_requests = $NativeExit.CloseRequests
         if ($null -ne $NativeExit.CloseError) { $Owner.window_close_error = $NativeExit.CloseError }
         $OwnerJson = ($Owner | ConvertTo-Json -Compress) + [Environment]::NewLine
         $OwnerBytes = [Text.UTF8Encoding]::new($false).GetBytes($OwnerJson)
