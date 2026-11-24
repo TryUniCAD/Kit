@@ -85,6 +85,11 @@ The focused review repair passed 18 cases on Python 3.11.15 and 39 cases on Pyth
 The nonliteral-import security rule reported zero findings across the discovery boundary and deferred facade loader.
 The offline pedantic workflow audit also reported zero findings.
 
+The final base integration uses main `6ed3c4023fe8f10c8011fbdbf2ebb2877fe65497`, after PRs #283 and #284 merged.
+Its six conflicts repeated PR #284 content already incorporated before the cache and plugin-discovery repairs.
+The integration retains those reviewed repairs and removes the two obsolete reconstruction helpers.
+The resulting tree passed 165 combined SDK and registry cases on Python 3.14.7 and 18 focused cases on Python 3.11.15.
+
 ## Scope and limits
 
 Task: B14-RecordDecodeCache. Owner: Codex. Delivery branch: `codex/cache-record-types`.
