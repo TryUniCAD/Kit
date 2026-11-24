@@ -6,11 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from dataclasses import is_dataclass as IsDataClass
 from enum import Enum as EnumBase
-from typing import cast as CastValue
 
-from interchange.serialization.RecordType import DataRecord
 from interchange.serialization.TypeRegistry import KTypeRegistry
 from interchange.serialization.WireData import KWireData
 
@@ -26,14 +23,3 @@ def GetEnumType(DataValue: dict[str, KWireData]) -> type[EnumBase]:
     if EnumType is None or not issubclass(EnumType, EnumBase):
         raise ValueError(f"unknown enum type {EnumName!r}")
     return EnumType
-
-
-# record resolution must finish before child decoding to preserve supported recursion depth
-def GetRecordType(DataValue: dict[str, KWireData]) -> type[DataRecord]:
-    WireType = DataValue["$type"]
-    if not isinstance(WireType, str) or not WireType:
-        raise ValueError("encoded record type must be nonempty text")
-    TargetType = KTypeRegistry.get(WireType)
-    if TargetType is None or not IsDataClass(TargetType):
-        raise ValueError(f"unknown data type {WireType!r}")
-    return CastValue(type[DataRecord], TargetType)

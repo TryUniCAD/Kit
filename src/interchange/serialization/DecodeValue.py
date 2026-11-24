@@ -9,10 +9,10 @@
 from __future__ import annotations
 
 import base64 as BaseCodec
-from functools import partial as BindArgs
 
-from interchange.serialization.DecodeRecord import DecodeRecord
-from interchange.serialization.DecodeTypes import GetEnumType, GetRecordType
+from interchange.serialization.DecodeRecord import DecodeRecordMut
+from interchange.serialization.GetEnumType import GetEnumType
+from interchange.serialization.GetRecordType import GetRecordType
 from interchange.serialization.RecordType import DataRecord
 from interchange.serialization.WireData import CheckWireData
 
@@ -52,9 +52,9 @@ def DecodeValue(
             KeyValue: DecodeValue(ItemValue, FieldCache)
             for KeyValue, ItemValue in DataValue.items()
         }
-    return DecodeRecord(
+    return DecodeRecordMut(
         DataValue,
         GetRecordType(DataValue),
-        BindArgs(DecodeValue, FieldCache=FieldCache),
+        DecodeValue,
         FieldCache,
     )

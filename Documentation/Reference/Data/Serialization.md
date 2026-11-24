@@ -37,6 +37,7 @@ See [read and write](../../Tasks/ReadWrite.md) for the public API procedure.
 
 Each top-level decode shares resolved mapping field names across records of the same class.
 The cache is discarded when the decode finishes.
+A migration callback invalidates the cache before reconstruction continues.
 A later read resolves annotations again, including changes to inherited or compatibility metadata.
 JSON and mapping reader APIs keep their existing signatures and validation.
 See the [record layout change and measurements](../../Changes/Research/Readers/Performance/RecordLayoutCache.md).

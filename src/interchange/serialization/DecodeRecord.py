@@ -12,20 +12,23 @@ from interchange.serialization.WireData import KWireData
 
 
 # record reconstruction applies migrations and mapping immutability before model construction
-def DecodeRecord(
+def DecodeRecordMut(
     SourceValue: dict[str, KWireData],
     TargetType: type[DataRecord],
-    DecoderFunc: CallableType[[object], object],
+    DecoderFunc: CallableType[
+        [object, dict[type[DataRecord], tuple[str, ...]]], object
+    ],
     FieldCache: dict[type[DataRecord], tuple[str, ...]],
 ) -> object:
     WireArguments: dict[str, object] = {
-        KeyValue: DecoderFunc(ItemValue)
+        KeyValue: DecoderFunc(ItemValue, FieldCache)
         for KeyValue, ItemValue in SourceValue.items()
         if KeyValue != "$type"
     }
     MigrationFunc = KMigrationRegistry.get(TargetType)
     if MigrationFunc is not None:
         WireArguments = dict(MigrationFunc(FrozenMap(WireArguments)))
+        FieldCache.clear()
     Arguments: dict[str, object] = {
         ResolveField(TargetType, KeyValue): ItemValue
         for KeyValue, ItemValue in WireArguments.items()
