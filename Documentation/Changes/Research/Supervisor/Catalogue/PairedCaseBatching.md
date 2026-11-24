@@ -32,11 +32,27 @@ The [repeated-control finding](../../../../Gotchas/Research/Workers/SolidWorks/R
 
 ## Verification
 
-Verification is in progress on `codex/solidworks-capture-batching`.
-Process checks cover new and saved-plan submissions, per-case artifact selection, mixed recipe preparation, duplicate rejection, and long-path rejection.
+The measured native run used source `231ffae38c7a9ca83705c6705e7d382d05c1e208` and SOLIDWORKS build `34.4.1` on Windows.
+One authoring process created P01, P03, and P04 baselines.
+A separate verification process reopened all 25 saved baseline, edit, and variant files.
+Both processes exited normally, with no forced cleanup.
+All three cases passed the existing native checks, including healthy controls, driving edits, restoration, and fresh-process reopening.
+
+The accepted batch automatically released three separate decoder jobs.
+Their measured process intervals overlapped at a peak of three.
+All four controller jobs completed on their first attempt, with no supervisor failures.
+The [sanitized acceptance summary](../../../../../../re/automation/BatchEvidence/PairedCaptureAcceptance.json) retains source fingerprints, native measurements, job identities, and receipt digests.
+The native dependency fingerprints also match the later test-only revisions.
+
+The command returned `2`, `coverage_incomplete`, because the decoders retained unresolved semantic findings.
+Portable completeness and conversion qualification remain false.
+This measurement establishes the three-case batch operation. Other native recipe modes retain their separate qualification requirements.
+It establishes two application launches for this batch. It does not establish a general throughput improvement.
+
+Process checks cover new and saved-plan submissions, a store created by pre-change code, per-case artifact selection, mixed preparation, duplicate rejection, and path limits.
 Native compiler checks exercise mixed P01–P05 and written-recipe batches through Windows PowerShell 5.1.
-Real native batch acceptance, automatic decoder execution, hosted CI, and configured review remain pending.
-No throughput or CAD conversion acceptance claim is made from these checks.
+Current-head CI and configured review are tracked on [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Merge-group acceptance remains separate.
 
 Task `A08h-PairedBatch`, owned by Codex, depends on the existing catalogue authoring, native ownership, and controller artifact contracts.
 Its exit requires native batch verification, separate accepted decoder receipts, and current-revision CI and review.

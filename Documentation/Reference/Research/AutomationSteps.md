@@ -131,7 +131,10 @@ for the nine bindings, parameter grid, retained attempts, and execution limits.
 Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
 It extends the existing three-case native batches to P01–P05, preserving independent reopen verification and per-case decoder artifacts.
 Dependencies are A08h/A08i, owned native lifetimes, and controller artifact admission.
-Status is active implementation. Delivery PR is pending publication.
+Native verification passed on source `231ffae38c7a9ca83705c6705e7d382d05c1e208`. Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+The measured P01/P03/P04 batch reused two application processes for 25 saved files and automatically completed three overlapping decoder jobs.
+Both native processes exited normally. Decoder semantic findings remain explicit.
+Current-head publication checks and configured review are tracked in the delivery PR.
 Exit requires measured native batching, automatic decoder receipts, and current-revision CI and configured review.
 Saved plans retain their original submissions. Full decoding and conversion qualification remain separate requirements.
 See [paired-case batching](../../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md).

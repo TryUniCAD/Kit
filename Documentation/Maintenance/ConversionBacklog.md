@@ -626,7 +626,9 @@ Fresh native acceptance, the broader typed scene path, and cross-format conversi
 Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
 The [owning register](../Reference/Research/AutomationSteps.md) records automatic P01–P05 batching through the existing native runner.
 Dependencies are catalogue authoring, native ownership, and accepted controller artifacts.
-Delivery PR is pending publication. Status is active implementation.
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Source `231ffae38c7a9ca83705c6705e7d382d05c1e208` passed the measured three-case native batch with two normal process exits and three automatically completed decoder jobs.
+Current-head publication checks and configured review are tracked in the delivery PR. Merge-group acceptance remains separate.
 The exit requires measured batch session reuse, independent reopening, per-case decoder receipts, and current-revision CI and configured review.
 The [change entry](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) retains verification limits.
 Production decoding and conversion qualification remain open.
