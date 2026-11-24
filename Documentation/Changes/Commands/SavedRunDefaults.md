@@ -34,6 +34,7 @@ The file is limited to 64 KiB.
 ```
 
 Use absolute `root` and `output_root` paths.
+Only the current user's `~` home syntax is expanded; named-user home paths are rejected consistently across platforms.
 The trusted checkout must contain the selected research implementation and SDK.
 Presets explicitly authorize the configured research options, including native dispatch when `--native-ready` is true.
 Keep these settings in a private user directory.

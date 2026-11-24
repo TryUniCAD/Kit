@@ -20,5 +20,5 @@ def CheckHomeError(TmpPath: FilePath, FieldName: str) -> None:
     _ = ConfigPath.write_text(DumpJson(Record), encoding="utf-8")
     Reply = ShortcutCli(TmpPath, ConfigPath, "run", "solidworks")
     assert Reply.returncode == 1
-    assert LoadJson(Reply.stderr)["error"] in {"RuntimeError", "ValueError"}
+    assert LoadJson(Reply.stderr)["error"] == "ValueError"
     assert "Traceback" not in Reply.stderr and not (TmpPath / "run outputs").exists()

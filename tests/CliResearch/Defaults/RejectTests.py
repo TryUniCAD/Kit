@@ -73,8 +73,5 @@ def CheckRelCatalog(TmpPath: FilePath, Option: str) -> None:
     Record["formats"]["solidworks"]["options"] = {Option: "relative.json"}
     _ = ConfigPath.write_text(DumpJson(Record), encoding="utf-8")
     Reply = ShortcutCli(TmpPath, ConfigPath, "run", "solidworks")
-    assert (
-        Reply.returncode == 1
-        and "Saved catalogue paths must be absolute" in Reply.stderr
-    )
+    assert Reply.returncode == 1 and "paths must be absolute" in Reply.stderr
     assert not (TmpPath / "run outputs").exists()

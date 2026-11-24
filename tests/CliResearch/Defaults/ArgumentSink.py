@@ -26,6 +26,10 @@ def ReceiveArgs() -> None:
     _ = Parser.add_argument("--pause", action="store_true")
     _ = Parser.add_argument("--resume", action="store_true")
     Options = Parser.parse_args()
+    if Options.advisor is not None and Options.author_samples:
+        Parser.error(
+            "authoring rejects decoder advice with grid " + str(Options.authoring_grid)
+        )
     Result = vars(Options)
     if Options.catalogue is not None:
         RawBytes = FilePath(Options.catalogue).read_bytes()

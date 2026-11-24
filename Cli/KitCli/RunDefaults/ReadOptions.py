@@ -1,6 +1,7 @@
-from pathlib import Path as FilePath
 from re import fullmatch as FullMatch
 from typing import cast as CastValue
+
+from KitCli.RunDefaults.PresetPath import PresetPath
 
 
 # saved catalogue arguments need stable file identities and must not silently choose another operation
@@ -32,11 +33,6 @@ def ReadOptions(Value: object) -> dict[str, str | bool]:
         ):
             raise ValueError("Run defaults values must contain printable bounded text")
         if Option in {"--catalogue", "--solidworks-catalogue", "--fusion-catalogue"}:
-            if (
-                not isinstance(Setting, str)
-                or not FilePath(Setting).expanduser().is_absolute()
-            ):
-                raise ValueError("Saved catalogue paths must be absolute")
-            Setting = str(FilePath(Setting).expanduser())
+            Setting = PresetPath(Setting)
         Options[Option] = Setting
     return Options

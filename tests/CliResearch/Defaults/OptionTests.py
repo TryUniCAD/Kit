@@ -30,7 +30,7 @@ def CheckAliases(TmpPath: FilePath, FormatName: str, PresetGeneric: bool) -> Non
     assert LoadJson(Reply.stdout)["catalogue_content"] == {"selected": "explicit"}
 
 
-# authentication is a separate complete option and must never disable configured authoring switches
+# incompatible advice must reach the authoring refusal instead of silently disabling configured native sample creation
 def CheckAuthFlag(TmpPath: FilePath) -> None:
     ConfigPath, _ = PresetFiles(TmpPath)
     Reply = ShortcutCli(
@@ -38,15 +38,14 @@ def CheckAuthFlag(TmpPath: FilePath) -> None:
         ConfigPath,
         "run",
         "solidworks",
+        "--advisor",
+        "codex",
         "--auth",
         "login",
     )
-    assert Reply.returncode == 7, Reply.stderr
-    Result = LoadJson(Reply.stdout)
-    assert (
-        Result["author_samples"] is True and Result["authoring_grid"] == "three-values"
-    )
-    assert Result["auth"] == "login" and Result["advisor"] is None
+    assert Reply.returncode == 2, Reply.stderr
+    assert "authoring rejects decoder advice with grid three-values" in Reply.stderr
+    assert not (TmpPath / "run outputs").exists()
 
 
 # catalogue digest pin options must survive saved defaults for each supported format
