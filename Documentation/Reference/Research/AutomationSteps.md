@@ -124,6 +124,7 @@ A08h-CatalogueChecklist is active, owned by Codex on
 It depends on the catalogue authoring ledger and accepted native capture receipts.
 It covers SOLIDWORKS checklist export, reuse after Git pull, and offline replay after reader changes.
 The exit requires process evidence across two checkouts and current-revision PR readiness.
+An installed CLI run replayed one historical capture offline, then reused its new receipt without queuing a job.
 See [catalogue receipt checklist](../../Changes/Research/Supervisor/Catalogue/CatalogueReceiptChecklist.md).
 
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only

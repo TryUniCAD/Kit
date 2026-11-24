@@ -27,3 +27,12 @@ The [process scenario](../../../../../tests/Research/Inference/Authoring/Recipes
 exercises two isolated Git checkouts, matching evidence, forced fresh capture, reader invalidation,
 offline decoder dispatch, and export of the new receipt.
 It uses fixture transport and supplies no licensed native measurement.
+
+On 2026-11-24, a local checkout combined the checklist change at `c1ce95125`
+with the SOLIDWORKS shutdown repair at `95afdb677`.
+The installed `kit run` replayed one previously accepted cut-extrude capture
+at runtime revision `b9f95402` with one offline decoder job and no native jobs.
+It recorded 11 files, 627 unresolved findings, and zero unsupported files.
+The next run at `b81248207` reused the exported result and queued zero jobs.
+This confirms local export and replay for that case.
+Hosted integration and conversion acceptance remain separate.
