@@ -40,6 +40,18 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A08b-CatalogueThroughput: catalogue rescan groups and A03 overhead
+
+Codex owns this checking task on [PR #282](https://github.com/TryUniCAD/Kit/pull/282) from `14570404846c8aa1f90b02e68d6f70a419719ca7`.
+Dependencies are A03 owner and lease fencing, A08b grouped sessions and the pinned offline calibration.
+The scope covers the fresh catalogue rescan cap, grouped staging renewal and grouped settlement lease checks.
+Exit requires matched calibration, equal per-archive output hashes, and coverage of grouped receipts, restart recovery and singleton retries.
+The Windows sweep and candidate replay accepted the same 64 archives once per arm with equal neutral hashes.
+The candidate cap-eight arm removed eight heartbeat calls, with higher total wall time in the replay.
+The short physical probe reached six simultaneous readers and did not sustain the requested overlaps.
+The matched P03 catalogue replay changed two groups of four into one group of eight and retained equal neutral outputs and job results.
+See [catalogue rescan throughput](../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md) for revisions, timings and limits.
+
 #### A04-PlanePlacement: timestamp-independent principal references
 
 Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
@@ -309,6 +321,17 @@ A05c needs independent source inventories and distinguishing evidence rather tha
 The public Fusion partial reader now carries the [saved principal-plane identity](../../Changes/Fusion/Adapter/FusionPrincipalSketchSupport.md) and [signed axis-dimension operand order](../../Changes/Fusion/Adapter/FusionAxisDimensionOrder.md) into the neutral document. The hosted archive step passed all 25 checks at `fa7e92d8`. The partial reader also preserves the [saved point coincidence arguments](../../Changes/Fusion/Adapter/FusionPointCoincidence.md). Its three public-reader cases passed at `011ddb8b`. The latest reader also checks the [saved selected-profile proxy and descriptor](../../Changes/Fusion/Adapter/FusionOwnedProfileSelection.md) for the witnessed P03 and P04 extrusion layouts and projects the [historical P04 cut target body](../../Changes/Fusion/Adapter/FusionCutTargetSelection.md). Those cases passed on `b6ce2ec9`. The [P04 sketch's saved face recipe](../../Changes/Fusion/Adapter/FusionSketchFaceProvenance.md) passed its hosted checks at `f15b9cea`. The partial reader now joins that recipe to the [exact saved face occurrence](../../Changes/Fusion/Adapter/FusionSavedFaceOccurrence.md) on the verified prior body. It reads the [saved blind and through-all cut ends](../../Changes/Fusion/Adapter/FusionSavedCutEnds.md) and retains the [projected origin and center expression operands](../../Changes/Fusion/Adapter/FusionSavedCutCenter.md). All eleven saved P04 controls corroborate these reads. Hosted public checks, fresh licensed readback and editable acceptance remain open. [Hosted archive checks](https://github.com/TryUniCAD/Kit/actions/runs/43728415623/job/132855298357)
 See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
+### A05a-DecodeEfficiency
+
+Codex owns the strict Fusion decoding and receipt efficiency follow-up on `codex/fusion-decoder-efficiency-pr`.
+Delivery PR is [#280](https://github.com/TryUniCAD/Kit/pull/280).
+It depends on the A05a pinned reader and A05b exact outcome contract.
+The exit requires byte-exact neutral documents, equivalent receipts, unchanged refusal diagnostics, measured offline timings, and current-head PR checks and review.
+Offline verification matched 16 reader outcomes and preserved the ordered native profiles.
+Three pinned strict inputs had 11% to 15% lower median receipt times.
+Native read medians were mixed.
+The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) records the implementation and evidence.
+
 ## A06 comparison implementation and qualification
 
 ### A06g-BulkDecodedComparison: standalone bulk command
@@ -320,6 +343,14 @@ The exit requires process evidence for matching, differences, ambiguity, invalid
 The [final source audit](https://github.com/TryUniCAD/Kit/actions/runs/45186955636) passed all 50 bulk process cases on `0a137c5e`.
 Status is complete for the standalone command. The [merge-group checks](https://github.com/TryUniCAD/Kit/actions/runs/45215523176) passed on `12b98c78`, the merged revision.
 This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
+
+#### A06g CLI follow-up
+
+Codex owns the shorter research command on `codex/bulk-comparison-cli`.
+Delivery is [PR #275](https://github.com/TryUniCAD/Kit/pull/275), now targeting `main` after [PR #273](https://github.com/TryUniCAD/Kit/pull/273) merged as `12b98c78`.
+The scope is positional folders, manifest mode, shared explicit units, short output syntax, trusted checkout dispatch and unified copies for exact resolved pairs.
+The exit requires installed-command process evidence for both pairing modes, copy provenance and refusal, older checkout diagnostics and current-revision CI and review.
+See the [bulk comparison CLI change](../../Changes/Commands/BulkComparisonCli.md).
 
 ### Existing comparison implementation
 
@@ -615,6 +646,12 @@ The [kernel OOM estimate](../../Changes/Research/Supervisor/KernelOomMemoryEstim
 
 The [A08b capacity status](../../Changes/Research/Supervisor/LiveSupervisorCapacity.md) reports the running supervisor's last admission decision and per-kind reservations. It validates owner identity, configuration, pause generation and freshness before returning the observations. At `648ddf5c`, the live status checks passed in the 59-case Linux, 92-case Windows and 143-case macOS supervisor runs. [Hosted workflow](https://github.com/TryUniCAD/Kit/actions/runs/43774889237)
 
+Codex owns the A08b Windows adaptive CPU follow-up on [PR #281](https://github.com/TryUniCAD/Kit/pull/281).
+It depends on the existing supervisor resource measurements and keeps the configured CPU and memory reserves.
+Exit requires a real Windows supervisor to observe a valid CPU interval and increase only when headroom and the existing interval permit it.
+The 256-job Windows replay observed increases from nine to eleven with equal neutral digests and intact reserves.
+[Windows adaptive CPU measurement](../../Changes/Research/Supervisor/Adaptive/WindowsAdaptiveCpu.md)
+
 The [A08b controller capacity refusal](../../Changes/Research/Supervisor/ControllerCapacityRefusal.md) at `c4526025` reports a real A03 concurrency refusal alongside the locally calculated headroom. The two-pool case passed on Linux, Windows and macOS at `b9efdb5e`. The Windows job failed an independent SOLIDWORKS rearm case. The [sampled A03 capacity view](../../Changes/Research/Supervisor/ControllerCapacitySnapshot.md) at `863c157b` counts shared logical slots separately from physical worker sessions. Its grouped-plus-singleton process check passed on hosted Linux and macOS at `3cd136ad`. [Earlier workflow](https://github.com/TryUniCAD/Kit/actions/runs/43779565898), [capacity process results](https://github.com/TryUniCAD/Kit/actions/runs/43781577583)
 
 The [A08b grouped offline calibration](../../Changes/Research/Supervisor/GroupedOfflineCalibration.md) accepted the same 64 pinned Fusion discovery archives once per arm and produced the same neutral output digest in two Windows runs at `50a4892b` and `ed0aa4bd`. The second run used 64 singleton sessions in 224.825 seconds and ten verified group sessions in 60.507 seconds. The grouped archive process case passed on hosted Linux and macOS at `f3e6b6cd`. Linux and macOS throughput remain unmeasured. [Hosted workflow](https://github.com/TryUniCAD/Kit/actions/runs/43777547783)
@@ -722,3 +759,12 @@ The [package](../../../re/NativePlacement2026/README.md) retains 47 complete nat
 Dependencies are merged PRs #263, #265 and #267, the deterministic controller and licensed source workers. All executable capture/replay work has settled; publication CI and configured review remain pending.
 [PR 270](https://github.com/TryUniCAD/Kit/pull/270) owns the SOLIDWORKS attachment implementation. Its exact `78a1367e81b5748702289c2b2e733f24576df46e` candidate passes 138 comparisons on 69 fresh complete-batch inputs. [PR 269](https://github.com/TryUniCAD/Kit/pull/269) owns the remaining Fusion placement/sign investigation; this scope supplies fresh decimal controls.
 The exit requires sealed hashes, sanitized provenance, native/neutral comparisons, retained refusals/failures and current-head publication readiness. Numerical source acceptance is limited to the recorded cuboids. Full semantics, generative writing and editable target conversion remain open under B02–B05; this task does not duplicate either owning PR or close those milestones.
+
+## A08h-CutsRevolutions20261123: cut and revolution evidence
+
+Task `A08h-CutsRevolutions20261123` is owned by Codex on `feat/native-feature-campaign-20261123b`. Delivery PR: [#278](https://github.com/TryUniCAD/Kit/pull/278).
+Dependencies are merged PRs #158/#207, the verified catalogues, existing controller and licensed personal API.
+The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact native scopes, cut sign failures, correction attempts, COM failures and strict reader outcomes.
+The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
+Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
+Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.

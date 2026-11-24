@@ -581,7 +581,7 @@ Task `A08h-Ladders2026` is a scoped evidence publication under the [owning regis
 Codex owns packaging on `feat/deterministic-campaign-20261122`; delivery PR is [#263](https://github.com/TryUniCAD/Kit/pull/263).
 Dependencies are merged PRs #158 and #207 and the licensed native workers.
 The exit requires a verified corpus manifest, sanitized records, explicit failure outcomes, and current-head publication readiness.
-The [campaign package](../../re/FeatureLadders2026/README.md) does not change the production snapshot or close B02, B03, B05 or B13.
+The [campaign summary](../../re/FeatureLadders2026/README.md) does not change the production snapshot or close B02, B03, B05 or B13.
 Native recovery and semantic qualification remain blocked as recorded in that package.
 
 ## Bounded Fusion rectangle reader follow-up

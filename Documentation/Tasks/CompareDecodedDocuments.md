@@ -1,5 +1,15 @@
 # Compare decoded documents in bulk
 
+From a trusted checkout, compare folders of decoded JSON:
+
+```sh
+kit research --root . compare SolidWorks Fusion --unit mm -o NewComparison
+```
+
+The command pairs files by matching relative paths.
+Either folder can go first. The first is labeled left in reports and the second is labeled right.
+Use the geometry unit declared for your exports and choose a new output directory.
+
 ## Purpose
 
 Compare existing Kit `CadDocument` JSON exports with one standalone command.
@@ -9,13 +19,16 @@ Feature correspondence uses typed fields and relationships, independently of nat
 
 ## Before you start
 
-Use a trusted source checkout containing `re/automation/CompareDecoded.py`.
-Install the locked Python environment with `uv sync --frozen --no-default-groups`.
-The standalone programme is source tooling, outside the installed wheel.
+Use a trusted source checkout containing this version of the comparison programme.
+Install Kit from this revision with `uv tool install .`.
+The installed launcher requires `--root` and runs the comparator from that checkout.
+You can also use `python -m KitCli research` in the installed environment.
+The comparator itself is source tooling outside the installed wheel.
 Raw vendor record dumps and reader receipts are not `CadDocument` inputs.
 
 Identify which exports describe corresponding source designs.
-Declare each side's geometry unit from the decoder contract.
+Use `--unit` when both sides share a geometry unit.
+For different units, use `--left-unit` and `--right-unit` together in place of `--unit`.
 Display units alone do not establish geometry units.
 Supported geometry units are `mm`, `cm`, `m`, `in`, and `ft`.
 
@@ -56,7 +69,7 @@ Pair identities describe the requested comparison; they do not select feature co
 Run from the trusted checkout:
 
 ```sh
-uv run --frozen --no-default-groups python re/automation/CompareDecoded.py --manifest /path/to/Pairs.json --left-unit mm --right-unit mm --output /path/to/NewComparison
+kit research --root . compare --manifest /path/to/Pairs.json --unit mm -o /path/to/NewComparison
 ```
 
 Replace the example paths with your actual paths.
@@ -65,13 +78,7 @@ The output directory must be unused.
 
 ### Pair matching directory layouts
 
-For export folders with matching relative paths, use directory mode:
-
-```sh
-uv run --frozen --no-default-groups python re/automation/CompareDecoded.py --left /path/to/Solidworks --right /path/to/Fusion --left-unit mm --right-unit mm --output /path/to/NewComparison
-```
-
-`Solidworks/Case/Part.json` pairs with `Fusion/Case/Part.json`.
+`SolidWorks/Case/Part.json` pairs with `Fusion/Case/Part.json`.
 Files without a counterpart remain `missing_input` outcomes.
 The programme does not infer matching designs from unrelated filenames.
 Feature matching happens within each requested document pair.
@@ -85,6 +92,11 @@ Add `--tolerances /path/to/Tolerances.json` to use your declared absolute limits
 Add `--max-candidates 50000` to change each pair's correspondence budget.
 The supported candidate range is 1 through 100000; the default is 20000.
 
+Run `kit research --root . compare --help` for all options.
+Existing direct invocations of `re/automation/CompareDecoded.py` still accept `--left`, `--right`, `--output` and both per-side unit flags.
+Use one pairing mode per run.
+Relative CLI inputs and outputs resolve from the command's working directory.
+
 ## Expected result
 
 The programme prints the output path, pair count, outcome totals, and exit code.
@@ -95,6 +107,22 @@ Inspect these artifacts:
 | `summary.txt`                                       | One readable outcome and feature-correspondence count per pair                                                         |
 | `summary.json`                                      | Complete pair roster, input paths, available input hashes, options, counts, and report hashes                          |
 | `reports/0000.json` and subsequent numbered reports | Detailed correspondence evidence, field differences, dependency differences, ambiguity, and unresolved source evidence |
+| `unified/`                                          | Original left JSON bytes for pairs that compare equal at zero tolerance with no unresolved issues                      |
+
+Use the `unified` field in each summary row to find the copy, its SHA-256, byte count and geometry unit.
+The numbered name uses the same pair index as the detailed report.
+The copy preserves the original document and any qualification markers.
+Both documents and their embedded documents must contain feature history before a unified copy is eligible.
+Each must also contain a design body with an active generating history accepted by the SDK feature preflight.
+Datum-only, unsupported, and inactive generator histories retain reports without unified copies.
+Historyless documents keep their comparison reports and `equal_observed_graph` status when their observed graphs agree.
+Their summary rows and detailed reports record per-side `unified_exclusions` diagnostics, and no copy is published.
+This history eligibility check does not establish geometry qualification or native acceptance.
+Pairs with differences, unresolved evidence or input failures get reports without copies.
+Any nonzero tolerance disables copying for the entire run.
+This keeps the folder limited to exact agreement within the comparator's observed scope.
+If a copy cannot be published, the report remains available, its summary row records `unified_error`, and the batch returns exit `1`.
+The direct script creates `unified/` when you supply `--unified`.
 
 A feature correspondence can contain differences.
 It does not mean the features are equal.
@@ -106,8 +134,8 @@ Unsupported domains remain explicit issues.
 
 | Exit | Meaning                                                                                                |
 | ---: | ------------------------------------------------------------------------------------------------------ |
-|    0 | Every selected pair has `equal_observed_graph` status                                                  |
-|    1 | Invalid setup, a missing input, or an input error                                                      |
+|    0 | Every selected pair has `equal_observed_graph` status and no copy failed                               |
+|    1 | Invalid setup, a missing input, an input error, or a failed unified copy                               |
 |    2 | Observed differences exist, without errors or unresolved outcomes                                      |
 |    3 | At least one pair is ambiguous, unresolved, incomplete, or retains source issues, without input errors |
 
@@ -115,9 +143,9 @@ Input errors take precedence over unresolved outcomes; unresolved outcomes take 
 Read the full outcome totals when a batch contains several statuses.
 Invalid documents do not stop later comparisons.
 Output-budget refusals retain an incomplete pair report and continue.
-Filesystem publication failures stop the batch.
+Filesystem failures that prevent writing reports or summaries stop the batch.
 The detailed engine status can remain `different` when unresolved source evidence also exists.
-Such batches return exit `3`; inspect each pair's `counts.source_issues` alongside its detailed differences.
+Without input or copy errors, such batches return exit `3`. Inspect each pair's `counts.source_issues` alongside its detailed differences.
 
 `summary.json` is published last and marks a completed observation batch.
 A directory without it is incomplete.
@@ -137,7 +165,7 @@ Directory discovery visits at most 100000 entries per side.
 Linked directories, linked selected files, and incomplete directory enumeration are refused.
 Each document and detailed report has a 32 MiB limit.
 Manifests have a 1 MiB limit; tolerance files have a 64 KiB limit.
-The batch output budget is 1 GiB, including reserved summary and error-report capacity.
+The batch output budget is 1 GiB, shared by reports, unified copies and reserved summary and error-report capacity.
 The [existing graph limits](../Reference/Research/SemanticComparison.md#limits-and-failures) also apply.
 
 For `missing_input`, correct the directory layout or manifest path.
@@ -153,3 +181,4 @@ Do not remove source evidence or increase tolerances merely to obtain equality.
 - [Exact topology unit factors](../Changes/Research/Readers/Comparison/ExactTopologyUnitFactors.md)
 - [Reader sidecar and path gotcha](../Gotchas/Research/Comparison/DecodedExportPairing.md)
 - [CAD acceptance criteria](../Reference/Operations/CadSuccessCriteria.md)
+- [Historyless unified exports](../Gotchas/Research/Comparison/HistorylessUnifiedExports.md)

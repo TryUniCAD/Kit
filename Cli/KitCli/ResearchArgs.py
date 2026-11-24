@@ -21,6 +21,8 @@ def ResearchArgs(
             raise ValueError("--offline cannot request native verification")
     if Options.Command == "run":
         Arguments = [*Arguments, "--batch-format", Options.ResearchTool]
+    elif Options.ResearchTool == "compare":
+        Arguments = ["--unified", *Arguments]
     elif Options.ResearchTool in ("solidworks", "fusion", "corpus"):
         if any(
             Value.split("=", 1)[0] in ("--r", "--ro", "--roo", "--root")

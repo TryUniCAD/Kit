@@ -1,5 +1,7 @@
 # Merge queue operations
 
+The [separate Linux test lanes](Documentation/Changes/Ci/Scheduling/SeparateTestLanes.md) increase the cooperating heavy-job budget to sixteen Linux lanes, five Windows lanes, and five macOS lanes, with two control slots. Eight Linux lanes serve candidate tests; the other eight serve scanners, policy jobs, and admitted audits. This fits the observed Team plan’s sixty-job allowance.
+
 The [shared runner budget](Documentation/Changes/Ci/RunnerBudgetScheduling.md) bounds cooperating heavy jobs and gives native merge acceptance priority over manual audits.
 Native shard expansion starts only after the trusted base includes its resource marker and updated CI allowlist.
 
@@ -177,7 +179,7 @@ Completed-result process checks remain; pending-process liveness and evidence pu
 See the [removal scope and evidence](Documentation/Changes/Ci/FlakyPendingGateRemoval.md).
 
 The checked-in desired queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
-one candidate at a time, and merges one entry at a time. Its
+up to two candidates at a time, and merges one entry at a time. Its
 90-minute response timeout allows the existing 60-minute analyses plus runner
 scheduling. Each candidate has its own concurrency group; a later PR update
 cannot cancel a different queue candidate. Heavy workflows do not repeat on
@@ -255,3 +257,7 @@ Do not describe this configuration as active until the settings are read back.
 
 The catalogue fixture roster and trusted native shell checks are described in
 [the fixture merge CI change](Documentation/Changes/Ci/Testing/FixtureMergeCi.md).
+
+The [abandoned workflow cleanup](Documentation/Changes/Ci/Scheduling/AbandonedWorkflowLanes.md) releases both known heavy workflow families.
+Deleted candidate branches can leave `WorkflowQuality.yml` jobs waiting on shared lanes after their native queue run stops.
+The same active-head, missing-ref, repository, event, and PR-entry checks protect current work.

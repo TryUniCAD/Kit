@@ -19,6 +19,7 @@ from interchange.geometry.Models.Sketch import Sketch, SketchRelation
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from interchange.Records.RecordParameter import Parameter
 from tests.Research.Archives.SwPlanarLoops import VerifySwExport, VerifySwLoops
+from tests.Research.Archives.SignedPrism.NormalizeSigned import NormalizeSigned
 
 # the prism call and its report comparison must use the same evidence path
 KPrismEvidence = "re/automation/FusionConstrainedPrismEvidence.py"
@@ -153,6 +154,8 @@ def CheckArchive(ScriptPath: str, Options: tuple[str, ...], ReportDigest: str) -
         )
         assert ReportBytes.count(CurrentRefusal) == 1
         ReportBytes = ReportBytes.replace(CurrentRefusal, HistoricRefusal, 1)
+    if ScriptPath == "re/automation/FusionSignedPrism/VerifySignedPrism.py":
+        ReportBytes = NormalizeSigned(ReportBytes)
     ActualDigest = Hashlib.sha256(ReportBytes).hexdigest()
     assert ActualDigest == ReportDigest, (ScriptPath, Options, ActualDigest)
 
