@@ -52,13 +52,19 @@ Every reconstructed document serialized to the original canonical JSON bytes.
 The SOLIDWORKS JSON SHA-256 is `7636513a3a18daa8e2546f58b868e998a2b3d67d036e7685aa44cd365628a958`.
 The Fusion JSON SHA-256 is `c5d945d47f525b017fa22272865ea841fc645d26398a1915a66d0214c2710862`.
 
-The focused interchange and registry compatibility run passed 147 cases.
+The focused interchange and registry compatibility run passed 148 cases.
 Added coverage reconstructs a complete document containing 300 parameters and checks canonical JSON equality.
 Registered extension coverage checks inherited annotations, replacement annotations, and in-place annotation changes between reads.
 Migration coverage changes mapping annotations between records within one decode.
+A separate case changes another class whose layout was cached before the migration.
+All five cache compatibility cases join the existing Python 3.11 native compatibility shards.
+The shared collector, allocator, reports, and completeness gate retain their existing execution path.
+Local Python 3.11 collection produced 663 cases across four shards.
+All five cache cases appeared exactly once across those selections.
+The workflow passed the local offline Zizmor pedantic audit with no findings.
 A linked assembly case preserves the 75-level public JSON roundtrip on CPython 3.11.15.
-The Python 3.11 selection passed 125 cases with the locked `typing-extensions==4.16.0`.
-The complete 147-case selection passed on Python 3.14.7.
+The Python 3.11 selection passed 126 cases with the locked `typing-extensions==4.16.0`.
+The complete 148-case selection passed on Python 3.14.7.
 The 22 existing Fusion face-offset cases require ZIP Zstandard support from Python 3.14.
 They fail on Python 3.11 before record reconstruction, including an independently reproduced baseline failure.
 Those cases remain in the unchanged suite and passed on Python 3.14.7.
