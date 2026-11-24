@@ -1,8 +1,8 @@
-function FixtureData(CaseName) {
+function FixtureData(CaseName, WorkflowName = "MergeQueue.yml") {
   const Current = {
     id: 42,
     event: "merge_group",
-    path: ".github/workflows/MergeQueue.yml",
+    path: `.github/workflows/${WorkflowName}`,
     repository: { id: 1 },
     head_repository: { id: 1 },
     head_branch: `gh-readonly-queue/main/pr-42-${"b".repeat(40)}`,
@@ -27,6 +27,7 @@ function FixtureData(CaseName) {
   Object.assign(Current, Changes[CaseName] ?? {});
   return {
     CaseName,
+    ListedPath: `.github/workflows/${WorkflowName}`,
     Current,
     Cancelled: [],
     Calls: [],

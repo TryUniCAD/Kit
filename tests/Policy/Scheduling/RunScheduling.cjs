@@ -1,3 +1,5 @@
+const { readFileSync: ReadFile } = require("node:fs");
+const { resolve: ResolvePath } = require("node:path");
 const Assert = require("node:assert/strict");
 const {
   SelectBudget,
@@ -42,11 +44,16 @@ const Github = {
           data: {
             content: Buffer.from(
               JSON.stringify({
-                Version: CaseName === "budget-invalid" ? 2 : 1,
-                Linux: 8,
-                Windows: 5,
-                Macos: 5,
-                Control: 2,
+                ...JSON.parse(
+                  ReadFile(
+                    ResolvePath(__dirname, "../../../.github/CiResources.json"),
+                    "utf8",
+                  ),
+                ),
+                ...(CaseName === "budget-audit"
+                  ? { Version: 1, Linux: 8 }
+                  : {}),
+                ...(CaseName === "budget-invalid" ? { Version: 3 } : {}),
               }),
             ).toString("base64"),
           },
@@ -65,7 +72,12 @@ const Github = {
         {
           type: "merge_queue",
           parameters: {
-            max_entries_to_build: CaseName === "budget-uncontrolled" ? 25 : 1,
+            max_entries_to_build:
+              CaseName === "budget-uncontrolled"
+                ? 25
+                : CaseName === "budget-audit"
+                  ? 1
+                  : 2,
             min_entries_to_merge: CaseName === "budget-minimum" ? 2 : 1,
             min_entries_to_merge_wait_minutes:
               CaseName === "budget-wait" ? 10 : 0,
