@@ -117,7 +117,10 @@ def refusal(operation, expected, error_type=ValueError):
     try:
         operation()
     except error_type as error:
-        require(str(error) == expected, f"Unexpected refusal: {error}")
+        require(
+            str(error) in expected if isinstance(expected, tuple) else str(error) == expected,
+            f"Unexpected refusal: {error}",
+        )
         return str(error)
     raise ValueError(f"Expected refusal: {expected}")
 
