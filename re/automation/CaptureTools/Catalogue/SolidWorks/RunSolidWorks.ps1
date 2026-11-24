@@ -52,6 +52,7 @@ if ($CompileOnly) {
     Write-Output 'Compiled configured SOLIDWORKS authoring without starting an application'
     return
 }
+. (Join-Path $PSScriptRoot 'WaitOwnedExit.ps1')
 $Mutex = [Threading.Mutex]::new($false, 'Local\KitResearchControllerOracle')
 $Acquired = $false
 $Native = $null
@@ -76,7 +77,8 @@ try {
     else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
 } catch { $Failure = $_ } finally {
     if ($null -ne $Native) {
-        $ExitObserved = $Native.WaitForExit(30000)
+        $NativeExit = Wait-OwnedExit -Process $Native -Created $Created -AllowClose ($null -eq $Failure)
+        $ExitObserved = $NativeExit.Observed
         if (-not $ExitObserved -and $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
             $Native.Kill()
             $ForcedCleanup = $Native.WaitForExit(10000)
@@ -86,6 +88,8 @@ try {
         if (-not (Test-Path -LiteralPath $Destination)) { [IO.Directory]::CreateDirectory($Destination) | Out-Null }
         $OwnerPath = Join-Path $Destination ($Phase + '-owner.json')
         $Owner = [ordered]@{ phase = $Phase; pid = $ProcessId; created = $Created; owned_process_exit_observed = $ExitObserved; forced_owned_cleanup = $ForcedCleanup }
+        $Owner.window_close_requested = $NativeExit.CloseRequested
+        if ($null -ne $NativeExit.CloseError) { $Owner.window_close_error = $NativeExit.CloseError }
         $OwnerJson = ($Owner | ConvertTo-Json -Compress) + [Environment]::NewLine
         $OwnerBytes = [Text.UTF8Encoding]::new($false).GetBytes($OwnerJson)
         $OwnerStream = [IO.File]::Open($OwnerPath, [IO.FileMode]::CreateNew, [IO.FileAccess]::Write)

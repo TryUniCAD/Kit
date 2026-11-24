@@ -7,6 +7,10 @@ cleanup between cases while retaining the owned application for the next case.
 The apartment thread finishes before the PowerShell launcher waits for the
 application process. Startup reads the executable path through the original
 process handle while separately verifying the creation time and session.
+If the empty owned session remains alive after `ExitApp`, the launcher verifies
+its creation identity again and asks its main window to close. Both requests
+share the existing 30-second exit deadline. The owner receipt records whether
+the second close request was delivered.
 The launcher still requires an observed normal exit through its original process
 handle before continuing to a fresh reopen. Forced cleanup remains a failure.
 
@@ -22,6 +26,9 @@ observed the owned process exiting normally. Six cases exhausted their retries.
 The first cleanup candidate recovered two cases and still reproduced the
 timeout on the 7 mm cut-width case. The stock-control repair from PR #288
 also reproduced that case's exit timeout in a combined local probe.
-Native verification of the separate apartment is pending.
+The dedicated apartment recovered the exact 7 mm cut case and its 11 archives
+at `95afdb67740e377cc33882f12fb3e5a90d2558d1`. A boss-extrude control still
+timed out twice. The owned process had a responding main window after its exit
+request. Verification of the guarded second request is pending.
 [Shutdown finding](../../../../Gotchas/Research/Workers/SolidWorks/CatalogueCaptureExitObservation.md)
 [Starting process image finding](../../../../Gotchas/Research/Workers/SolidWorks/StartingProcessModuleLookup.md)

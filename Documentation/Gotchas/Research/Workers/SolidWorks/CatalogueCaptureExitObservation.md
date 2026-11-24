@@ -13,6 +13,14 @@ cases passed on later attempts; six exhausted three attempts. A separate
 three-case written-recipe batch reached its phase deadline after the first save.
 Its last saved report did not locate the blocked call.
 
+At `95afdb67740e377cc33882f12fb3e5a90d2558d1`, an owned boss-extrude control
+also timed out after saving and requesting exit. Read-only Windows observation
+found a responding main window on the exact owned PID before the timeout.
+After the empty-document check and successful COM exit request, the launcher
+can ask the verified process's main window to close within the original
+deadline. A posted close request requires separate process exit evidence.
+[Windows normal window close](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.closemainwindow?view=netframework-4.8)
+
 Keep `first-native.json`, `first-owner.json`, and `first.stderr.log` together
 under `NativeAttempts` when diagnosing shutdown. Use a fresh directory to
 compare a revised worker, and retain the independent reopen and exit checks.
