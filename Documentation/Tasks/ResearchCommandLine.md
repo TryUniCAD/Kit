@@ -194,6 +194,12 @@ Run `kit run --root . auto --input /path/to/unknown --directory /tmp/KitUnknownR
 
 ## Run a CAD catalogue with optional advice
 
+For a repeated catalogue setup, configure [saved run defaults](../Changes/Commands/SavedRunDefaults.md).
+Then use `kit run solidworks` or `kit run fusion` for the configured format.
+The installed executable reads the private defaults directly.
+Each new catalogue run gets a unique output directory.
+Explicit options override defaults; explicit `--root` bypasses the preset.
+
 Use a clean checkout with the catalogue runner and install Kit from that revision with
 `uv tool install --python 3.14 .`. Obtain [Fusion Catalog.sqlite](https://github.com/TryUniCAD/Kit/pull/163)
 or [SOLIDWORKS FeaturePlan.json](https://github.com/TryUniCAD/Kit/pull/164).

@@ -69,6 +69,16 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### B10-RunDefaults
+
+Codex owns the profile-independent catalogue shortcut on `codex/desktop-run-defaults`.
+It depends on the installed CLI bridge and the explicitly selected trusted research checkout.
+The [change entry](../Changes/Commands/SavedRunDefaults.md) defines configuration and limits.
+Its exit requires actual installed-command checks without a shell profile, current-head CI and configured review.
+The delivery PR records the revision and verification evidence.
+This child task does not claim the broader B10 usability exit or CAD conversion acceptance.
+Native batch execution remains separately owned by [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction
