@@ -1,6 +1,19 @@
 import os
 
 from SemanticComparison import DOCUMENT_BYTES, pinned_bytes
+from convert.Commands.Qualified.CheckDocHistory import CheckDocHistory
+from interchange.document.Models.DocumentWalk import WalkDocuments
+
+
+def export_exclusions(documents):
+    exclusions = {}
+    for side, document in documents.items():
+        try:
+            for part in WalkDocuments(document):
+                CheckDocHistory(part)
+        except ValueError as error:
+            exclusions[side] = str(error)[:4096]
+    return exclusions
 
 
 def publish_copy(target, source, pin, unit, available):
@@ -38,6 +51,7 @@ def publish_unified(folder, pairs, rows, tolerances, unit, available):
             not exact
             or row["status"] != "equal_observed_graph"
             or row["counts"]["source_issues"]
+            or row.get("unified_exclusions")
         ):
             continue
         try:

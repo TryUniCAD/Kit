@@ -14,7 +14,7 @@ from SemanticComparison import (
     document_input,
     tolerance_input,
 )
-from UnifiedExports import publish_unified
+from UnifiedExports import export_exclusions, publish_unified
 
 MAX_BATCH_BYTES = 1024 * 1024 * 1024
 ERRORS = (LookupError, OSError, TypeError, ValueError, OverflowError, RecursionError)
@@ -82,6 +82,8 @@ def compare_pair(pair, args, tolerances, tolerance_pin, pins):
             raise
         report = {"status": "incomplete", "reason": str(error)}
     report["input_sha256"] = {**pins, "tolerances": tolerance_pin}
+    if args.unified:
+        report["unified_exclusions"] = export_exclusions(documents)
     for side, path in paths.items():
         file_pin_now = file_pin(path, DOCUMENT_BYTES)
         if file_pin_now != pins[side]:
@@ -199,6 +201,7 @@ def run_batch(args):
             },
             "input_sha256": report.get("input_sha256"),
             "counts": result_counts(report), "report": artifact,
+            "unified_exclusions": report.get("unified_exclusions", {}),
         })
     outcomes = Counter(row["status"] for row in rows)
     exit_code = batch_exit(outcomes, rows)

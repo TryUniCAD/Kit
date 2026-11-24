@@ -17,6 +17,13 @@ Nonzero tolerances disable unified copying. Every pair still receives its detail
 Copies use the existing bounded batch budget and a new output directory. If a copy fails, its row records the failure and the batch exits with status `1`.
 Existing direct invocations can opt in with `--unified`.
 
+Both inputs must retain feature history, including embedded documents, before unified publication.
+The publisher shares the conversion preflight history rule.
+Historyless matches keep their reports and equality status, with per-side `unified_exclusions` diagnostics and no copy.
+The [historyless export gotcha](../../Gotchas/Research/Comparison/HistorylessUnifiedExports.md) describes the original defect.
+An installed-command smoke run confirmed that equal parameter-only documents retain exit `0` and publish zero unified copies.
+This is an export eligibility rule, not proof of native conversion acceptance.
+
 The installed CLI selects the existing comparison script from the trusted checkout identified by `--root`.
 It preserves the comparator's reports, input evidence and output refusal.
 A checkout that predates unified publication reports the missing capability.
