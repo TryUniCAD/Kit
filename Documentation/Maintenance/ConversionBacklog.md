@@ -81,8 +81,8 @@ cut-extrude cases passed both native phases and ran the decoder. The
 driving-dimension singleton passed after the standalone worker retried a
 shutdown timeout. The combined probe passed the singleton on the first
 attempt after the empty-session exit request. The final worker and batch
-retry are under native verification. The
-written-recipe geometry repair has separate delivery in
+retry recovered the same case on a third fresh attempt after two timeouts.
+The written-recipe geometry repair has separate delivery in
 [PR #291](https://github.com/TryUniCAD/Kit/pull/291).
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK

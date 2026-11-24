@@ -134,7 +134,9 @@ replay completed both native process exits and reached a separate thin-wall
 geometry check. PR #291 recovered all three written recipes. The standalone
 driving-dimension case passed after a retry. The combined probe verified
 both phases on the first attempt after adding the empty-session exit request.
-The final worker and batch retry are under native verification.
+The final combined batch worker reproduced two shutdown timeouts and
+recovered on the third fresh attempt with six reopened archives and a
+completed decoder job. The applicable PR and queue gates remain separate.
 [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
 
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only

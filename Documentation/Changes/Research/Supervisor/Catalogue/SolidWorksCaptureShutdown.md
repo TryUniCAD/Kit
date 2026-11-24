@@ -75,9 +75,21 @@ At `67c44a8a54c3271198135a1d0c90e2f6d944a8a1`, both singleton phases
 reported an empty session after `QuitDoc` and exited after the vendor
 `ExitApp` call without a window close. Six archives passed on the first
 attempt and the dependent decoder recorded its results. The final worker
-replay and batch retry are under native verification.
+replay reproduced the intermittent timeout and verified bounded recovery.
 The singleton probe result SHA-256 is
 `162b00d1577164ab84f1d3b49c698c9d7870a75fff3d93ff363c97f180557f21`.
+
+The final shutdown sources and batch attempt limit were replayed with
+the paired batching checkout at local revision
+`d2cadf4f773eff1f0d713dea9425451d0cc15eb7`. Two singleton attempts
+timed out after `QuitDoc`, an empty-session `ExitApp`, and a frame close.
+The controller retained both failures and retried in a fresh directory.
+The third attempt verified all six archives, recorded both independent
+process exits without forced cleanup or a frame close, and released the
+decoder job. The result SHA-256 is
+`1940ae9e09767c36de4dd448cd127acf96e6473faf575d6db48a12e595e33504`.
+The observed timeout can still occur. The replay verifies recovery within
+the attempt limit. [Supplemental replay in PR #289](https://github.com/TryUniCAD/Kit/pull/289)
 
 The written-recipe replay reached both native phases and both processes exited
 normally. It saved and reopened 30 archives. Native admission failed because
