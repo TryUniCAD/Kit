@@ -46,8 +46,13 @@ def MainProbe() -> int:
         else {}
     )
     ChildPid = ChildInfo.get("child_pid")
+    ChildStart = ChildInfo.get("child_start")
+    if ModeName in {"descendant", "parentexit"}:
+        assert isinstance(ChildPid, int) and isinstance(ChildStart, str)
     ResultInfo["child_still_live"] = (
-        isinstance(ChildPid, int) and LiveStart(ChildPid) is not None
+        isinstance(ChildPid, int)
+        and isinstance(ChildStart, str)
+        and LiveStart(ChildPid) == ChildStart
     )
     print(EncodeJson(ResultInfo), flush=True)
     return 0
