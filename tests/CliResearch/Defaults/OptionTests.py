@@ -38,8 +38,6 @@ def CheckAuthFlag(TmpPath: FilePath) -> None:
         ConfigPath,
         "run",
         "solidworks",
-        "--advisor",
-        "codex",
         "--auth",
         "login",
     )
@@ -48,7 +46,7 @@ def CheckAuthFlag(TmpPath: FilePath) -> None:
     assert (
         Result["author_samples"] is True and Result["authoring_grid"] == "three-values"
     )
-    assert Result["auth"] == "login" and Result["advisor"] == "codex"
+    assert Result["auth"] == "login" and Result["advisor"] is None
 
 
 # catalogue digest pin options must survive saved defaults for each supported format

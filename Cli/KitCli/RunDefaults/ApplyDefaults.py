@@ -27,6 +27,8 @@ def ApplyDefaults(Arguments: list[str]) -> list[str]:
             continue
         if Option in CatalogueFlags and Names & CatalogueFlags:
             continue
+        if Option == f"--{FormatName}-sha256" and Names & CatalogueFlags:
+            continue
         ExtraArgs.append(Option)
         if isinstance(Setting, str):
             ExtraArgs.append(Setting)

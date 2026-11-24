@@ -10,7 +10,7 @@ from KitCli.RunDefaults.ApplyDefaults import ApplyDefaults
 def MainEntry() -> int:
     try:
         ArgValues[1:] = ApplyDefaults(ArgValues[1:])
-    except (OSError, ValueError, TypeError) as Error:
+    except (OSError, ValueError, TypeError, RuntimeError) as Error:
         print(
             DumpJson({"error": type(Error).__name__, "message": str(Error)}),
             file=KErrorStream,

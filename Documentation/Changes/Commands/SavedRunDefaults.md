@@ -43,6 +43,8 @@ Option names must be full long flags in presets and shortcut overrides.
 Saved catalogue paths must be absolute, including format-specific catalogue options.
 Use strings for values, `true` for enabled switches, and `false` to omit switches.
 Explicit command arguments replace the corresponding defaults.
+An explicit catalogue path replaces its saved path and saved digest together.
+Supply an explicit format-specific digest to pin the replacement file.
 Each catalogue invocation generates a unique output directory below `output_root`, unless `--directory` is supplied.
 
 `--input`, `--pause`, `--resume`, and help use only the configured root.

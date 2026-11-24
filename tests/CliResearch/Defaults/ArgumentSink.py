@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from hashlib import sha256 as HashBytes
 from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
 
@@ -25,11 +26,15 @@ def ReceiveArgs() -> None:
     _ = Parser.add_argument("--pause", action="store_true")
     _ = Parser.add_argument("--resume", action="store_true")
     Options = Parser.parse_args()
-    if Options.directory is not None:
-        FilePath(Options.directory).mkdir(parents=True, exist_ok=False)
     Result = vars(Options)
     if Options.catalogue is not None:
-        Result["catalogue_content"] = LoadJson(FilePath(Options.catalogue).read_bytes())
+        RawBytes = FilePath(Options.catalogue).read_bytes()
+        Expected = getattr(Options, Options.batch_format + "_sha256")
+        if Expected is not None and HashBytes(RawBytes).hexdigest() != Expected:
+            Parser.error("catalogue SHA-256 does not match")
+        Result["catalogue_content"] = LoadJson(RawBytes)
+    if Options.directory is not None:
+        FilePath(Options.directory).mkdir(parents=True, exist_ok=False)
     print(DumpJson(Result))
     raise SystemExit(7)
 
