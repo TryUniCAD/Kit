@@ -40,6 +40,18 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A08b-CatalogueThroughput: catalogue rescan groups and A03 overhead
+
+Codex owns this checking task on [PR #282](https://github.com/TryUniCAD/Kit/pull/282) from `14570404846c8aa1f90b02e68d6f70a419719ca7`.
+Dependencies are A03 owner and lease fencing, A08b grouped sessions and the pinned offline calibration.
+The scope covers the fresh catalogue rescan cap, grouped staging renewal and grouped settlement lease checks.
+Exit requires matched calibration, equal per-archive output hashes, and coverage of grouped receipts, restart recovery and singleton retries.
+The Windows sweep and candidate replay accepted the same 64 archives once per arm with equal neutral hashes.
+The candidate cap-eight arm removed eight heartbeat calls, with higher total wall time in the replay.
+The short physical probe reached six simultaneous readers and did not sustain the requested overlaps.
+The matched P03 catalogue replay changed two groups of four into one group of eight and retained equal neutral outputs and job results.
+See [catalogue rescan throughput](../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md) for revisions, timings and limits.
+
 #### A04-PlanePlacement: timestamp-independent principal references
 
 Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
