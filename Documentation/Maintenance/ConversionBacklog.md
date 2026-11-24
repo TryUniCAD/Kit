@@ -61,7 +61,7 @@ B04's parent is not complete merely because controlled constructor probes exist.
 ## B14-RecordDecodeCache: JSON reconstruction performance
 
 Codex owns the scoped type-information cache on `codex/cache-record-types`, based on main `625bdbf9efa35d0fdc4939c59f68561aa927db4b`.
-Delivery uses a separate PR for this branch.
+Delivery is [PR #286](https://github.com/TryUniCAD/Kit/pull/286).
 Dependencies are the existing interchange codec and public document APIs.
 The exit requires identical canonical JSON, preserved validation and compatibility behavior, current-head CI, and configured review.
 The [change entry](../Changes/Research/Readers/Performance/RecordLayoutCache.md) records the paired measurements and verification.
