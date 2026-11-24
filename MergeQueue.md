@@ -255,3 +255,7 @@ Do not describe this configuration as active until the settings are read back.
 
 The catalogue fixture roster and trusted native shell checks are described in
 [the fixture merge CI change](Documentation/Changes/Ci/Testing/FixtureMergeCi.md).
+
+The [abandoned workflow cleanup](Documentation/Changes/Ci/Scheduling/AbandonedWorkflowLanes.md) releases both known heavy workflow families.
+Deleted candidate branches can leave `WorkflowQuality.yml` jobs waiting on shared lanes after their native queue run stops.
+The same active-head, missing-ref, repository, event, and PR-entry checks protect current work.
