@@ -107,6 +107,14 @@ public static class SolidOwner
         RunOwnedCore(process,executable,repository,output,configuration,phase,true);
     }
 
+    internal static void CollectNativeReferences()
+    {
+        for(int pass=0;pass<2;pass++) {
+            GC.Collect();
+            Marshal.CleanupUnusedObjectsInCurrentContext();
+        }
+    }
+
     static void RunOwnedCore(Process process, string executable, string repository,
         string output, string configuration, string phase, bool batch)
     {
@@ -135,12 +143,16 @@ public static class SolidOwner
         } finally {
             if(application!=null) {
                 try {
+                    CollectNativeReferences();
                     if(application.GetProcessID()==process.Id && application.GetDocumentCount()==0) {
                         application.ExitApp();
                         record["normal_exit_requested"]=true;
                     }
                 } catch(Exception error) { cleanup.Add(error.ToString()); }
-                try { Marshal.FinalReleaseComObject(application); }
+                try {
+                    Marshal.FinalReleaseComObject(application);
+                    CollectNativeReferences();
+                }
                 catch(Exception error) { cleanup.Add(error.ToString()); }
             }
             Directory.CreateDirectory(output);

@@ -119,6 +119,17 @@ remaining native and process acceptance is recorded in
 This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
 requirements.
 
+#### A08h-OwnedExit: catalogue capture shutdown
+
+Codex owns the shutdown repair on
+[`codex/solidworks-capture-shutdown`](https://github.com/TryUniCAD/Kit/compare/main...codex/solidworks-capture-shutdown),
+with a separate delivery PR. It depends on PR #207's configured native worker,
+the licensed SOLIDWORKS host and its exclusive application lease. [PR #288](https://github.com/TryUniCAD/Kit/pull/288)
+owns the separate paired-case batching work. Exit requires normal owned process
+exit, independent reopen and recorded decoder results for the failed P04 cases,
+plus batch and control coverage and the applicable CI and review gates.
+Native verification is pending. [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
+
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
 on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,
