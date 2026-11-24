@@ -37,8 +37,11 @@ separate output files. Verification continues comparing each native file to its
 save-time hash. Offline decode still waits for the corresponding accepted
 capture.
 
-The process coverage exercises same-run admission and refuses a live process
-with a foreign or released lease. Controller coverage exercises the pinned
-worker and resource settings through catalogue resume. Licensed overlap,
-independent normal exits and archive verification are tracked under
+On Windows at `d98da3b803e6c767bca27efae70784f8ff51f7c7`, all three process
+checks passed in 48.51 seconds. The lease probe accepted the same-run process
+and refused foreign and released leases. The two catalogue runs verified the
+default, the exclusive override, and the original settings after resume. The
+launcher also compiled against the installed SOLIDWORKS API without starting
+the application. Licensed overlap, independent normal exits and archive
+verification are tracked under
 [A08h-ParallelSolidWorks](../../../../Reference/Research/AutomationSteps.md#a08h-parallelsolidworks-same-host-catalogue-capture).
