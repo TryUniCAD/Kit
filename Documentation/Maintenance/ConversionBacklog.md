@@ -536,8 +536,10 @@ No row below declares readiness, successful queue acceptance or permission to me
 
 ### A08i-ThinWall
 
-The SOLIDWORKS catalogue correction is active. It requires source-pinned
-native wall-side measurements, independent reopen and decoder receipts.
+The SOLIDWORKS catalogue correction passed source-pinned wall-side checks,
+independent reopen and decoder execution for the three written cases.
+Portable semantic findings remain open.
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
 [Owning register](../Reference/Research/AutomationSteps.md#a08i-thinwall)
 
 ## Choose and maintain a task

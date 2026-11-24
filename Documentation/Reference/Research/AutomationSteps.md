@@ -134,7 +134,10 @@ Codex owns the correction on `codex/solidworks-thin-wall-side`. The
 correction depends on the written-recipe worker from PR #207 and the
 licensed SOLIDWORKS measurement host. Its exit requires matching wall side
 with XY, YZ and XZ controls, edits, independent reopen and downstream
-decoder receipts. [Thin-wall change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+decoder receipts plus the applicable publication gates. The combined native
+replay passed all three written recipes and ran the three dependent decoders.
+[Thin-wall change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
 
 A08j, owned by Codex on the same local branch, is checking the
 [written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
