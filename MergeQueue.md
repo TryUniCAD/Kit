@@ -136,6 +136,8 @@ See [Windows platform sharding](Documentation/Changes/Ci/Testing/WindowsPlatform
 See [platform sharding and queue timings](Documentation/Changes/Ci/Testing/WindowsResearchCliShards.md).
 Each Windows CLI shard retains two pytest workers with file-level scheduling and case-name output.
 See [Windows CLI scheduling](Documentation/Changes/Ci/WindowsCliScheduling.md).
+The capture-history downloader retries temporary upstream fixture errors before failing setup.
+See [sealed fixture downloads](Documentation/Gotchas/Ci/Windows/SealedFixtureHttpFailures.md) for the limit and diagnostics.
 PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).

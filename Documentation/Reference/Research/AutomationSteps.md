@@ -52,6 +52,20 @@ The short physical probe reached six simultaneous readers and did not sustain th
 The matched P03 catalogue replay changed two groups of four into one group of eight and retained equal neutral outputs and job results.
 See [catalogue rescan throughput](../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md) for revisions, timings and limits.
 
+#### A04-PlanePlacement: timestamp-independent principal references
+
+Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
+Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
+Dependencies are the native ladder inputs and measured source observations from merged PRs #263 and #267.
+The [change entry](../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the original offline evidence for 144 files, 288 public-reader comparisons, 24 timestamp variants, ten principal-pose refusals, and nine explicitly unqualified fallbacks.
+All captured centroids agree; the 58 older pinned part documents retain identical serialized output.
+Review found that accepted in-plane rotation was lost at the neutral datum reference. The owned-sketch reader now explicitly refuses that unsupported rotation.
+Origin owner lookup retains its existing unavailable-owner fallback. A scoped process witness checks this boundary without changing a captured archive.
+The circular and rectangle attachment corruption cases now require the documented format error in both public read modes.
+Status is checking. Fresh revision-bound CI, review, source-audit and merge-group evidence must cover these follow-ups before completion.
+The exit covers source placement and its shared-suite process regressions.
+Fresh native acceptance, complete typed rectangle admission, and conversion qualification remain outside this result.
+
 #### A08b-SharedQueue: shared research requests and advice budgets
 
 Codex owns this checking task on `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).
@@ -76,9 +90,9 @@ This child does not close conversion acceptance, XZ or reverse-YZ support, or th
 Codex published this evidence on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
 Delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`. Dependencies are merged PR #263, the existing research controller and licensed source captures.
 The [package](../../../re/solidworks/FeatureLadderRecovery/README.md) retains 37 complete native cases and 111 strict decodes, plus two failed-batch salvage files.
-Original controller failures remain recorded. Fifteen front-plane centroids match; 96 top/right placements remain wrong.
+Original controller failures remain recorded. The archived reports retain fifteen matching front-plane centroids and 96 wrong top/right placements.
 The exit requires verified artifact hashes, sanitized provenance, explicit semantic failures and current-head publication checks and review.
-Production placement repair is a separate follow-up; this evidence does not close conversion acceptance.
+The separately verified A04-PlanePlacement repair above preserves those historical reports; this evidence does not close conversion acceptance.
 
 #### A08h-Ladders2026: native campaign evidence
 
@@ -311,17 +325,12 @@ See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
 ### A06g-BulkDecodedComparison: standalone bulk command
 
-Codex owns this separately requested programme on `codex/bulk-semantic-comparison`, based on main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`.
-Delivery is the separate normal [PR #273](https://github.com/TryUniCAD/Kit/pull/273) for the [bulk comparison command](../../Tasks/CompareDecodedDocuments.md).
+Codex delivered the [standalone bulk comparison command](../../Tasks/CompareDecodedDocuments.md) in [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
 Dependencies are the existing A06a comparator and interchange codec, integrated through merged PR #158 (`22075ee5e77c3db9b56bd8c2bc8c415d6baf237d`).
 Scope is bulk comparison of existing decoded JSON, directory or manifest pairing, retained correspondence evidence, and outcome summaries.
-Delivery continuation uses the isolated `codex/bulk-comparison-delivery` branch and preserves the same PR head.
-Follow-up scope includes real committed export envelopes, mixed-error exit precedence, and exact topology unit factors.
-The exit requires process-boundary evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, and current-head CI and configured review.
-Status is checking. Scoped formatting, steering, Pyright, path policy, and Python 3.11 syntax checks passed locally.
-The [first source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) verified source `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`: 7,782 tests scheduled fresh, 7,394 passed and 388 skipped, including all 47 bulk cases exactly once.
-Subsequent ordering, streaming-witness and helper changes require fresh revision-bound process evidence, current-head CI and configured review before pre-enrollment readiness.
-Native merge-group acceptance remains pending and is separate from a manual source audit.
+The exit requires process evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, CI and review.
+The [final source audit](https://github.com/TryUniCAD/Kit/actions/runs/45186955636) passed all 50 bulk process cases on `0a137c5e`.
+Status is complete for the standalone command. The [merge-group checks](https://github.com/TryUniCAD/Kit/actions/runs/45215523176) passed on `12b98c78`, the merged revision.
 This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
 
 ### Existing comparison implementation
