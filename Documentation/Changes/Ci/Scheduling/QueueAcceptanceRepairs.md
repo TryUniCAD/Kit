@@ -59,3 +59,13 @@ The actual command report retains its real case name and diagnostic.
 Every other report byte, including geometry, capture custody, measurements, and all remaining refusal outcomes, remains pinned.
 The verifier still rejects a command that accepts the arithmetic formula.
 Fresh candidate acceptance must verify that this single deliberate delta explains the digest difference.
+
+## Report ordering and path-policy follow-up
+
+The report is emitted with sorted keys.
+Renaming the formula refusal in place leaves it before `reverse_inch_display`, which differs from the historical order.
+The comparator now removes the exact new entry and inserts the historical entry immediately before `wrapped_taper`.
+It requires unique entries, the exact indentation and comma, and the expected relative order.
+All other bytes remain unchanged, and the historical geometry digest stays fixed.
+The helper lives in `tests/Research/Archives/SignedPrism/` to retain the parent directory’s thirty-two-file limit.
+The [sorted report gotcha](../../../Gotchas/Ci/Scheduling/SortedRefusalDigest.md) records the observed failure.

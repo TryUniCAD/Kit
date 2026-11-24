@@ -19,7 +19,7 @@ from interchange.geometry.Models.Sketch import Sketch, SketchRelation
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from interchange.Records.RecordParameter import Parameter
 from tests.Research.Archives.SwPlanarLoops import VerifySwExport, VerifySwLoops
-from tests.Research.Archives.NormalizeSigned import NormalizeSigned
+from tests.Research.Archives.SignedPrism.NormalizeSigned import NormalizeSigned
 
 # the prism call and its report comparison must use the same evidence path
 KPrismEvidence = "re/automation/FusionConstrainedPrismEvidence.py"
