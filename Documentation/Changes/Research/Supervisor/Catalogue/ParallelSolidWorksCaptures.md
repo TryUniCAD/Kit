@@ -40,11 +40,12 @@ separate output files. Verification continues comparing each native file to its
 save-time hash. Offline decode still waits for the corresponding accepted
 capture.
 
-On Windows at `d98da3b803e6c767bca27efae70784f8ff51f7c7`, all three process
-checks passed in 48.51 seconds. The lease probe accepted the same-run process
-and refused foreign and released leases. The catalogue runs verified the former
-two-worker default, the exclusive override, and the original settings after resume. The
-launcher also compiled against the installed SOLIDWORKS API without starting
-the application. Licensed overlap, independent normal exits and archive
-verification are tracked under
+On Windows at `f5318eb1313de0e0309ec1b8f4b1f2ca92a4118c`, all four process
+checks passed in 71.62 seconds. The lease probe accepted the same-run process
+and refused foreign and released leases. Catalogue runs verified the
+five-worker default, one- and two-worker overrides, the native timeout budget,
+and the saved settings after resume. The launcher compiled against the
+installed SOLIDWORKS API with the five-worker limit and 20-minute startup wait
+budget without starting the application. Licensed overlap, independent normal
+exits and archive verification are tracked under
 [A08h-ParallelSolidWorks](../../../../Reference/Research/AutomationSteps.md#a08h-parallelsolidworks-same-host-catalogue-capture).
