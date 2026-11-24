@@ -1,3 +1,5 @@
+const { KWorkflowPaths } = require("./WorkflowPaths.cjs");
+
 async function CancelStale(Github, Context, RunInfo, Heads) {
   const BranchMatch =
     /^gh-readonly-queue\/main\/pr-([1-9][0-9]*)-[0-9a-f]{40}$/.exec(
@@ -5,10 +7,7 @@ async function CancelStale(Github, Context, RunInfo, Heads) {
     );
   if (
     RunInfo.event !== "merge_group" ||
-    ![
-      ".github/workflows/MergeQueue.yml",
-      ".github/workflows/WorkflowQuality.yml",
-    ].includes(RunInfo.path) ||
+    !KWorkflowPaths.includes(RunInfo.path) ||
     RunInfo.repository?.id !== Context.payload.repository.id ||
     RunInfo.head_repository?.id !== Context.payload.repository.id ||
     !BranchMatch ||

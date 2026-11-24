@@ -11,6 +11,7 @@ import pytest as Pytest
     "CaseName",
     (
         "abandoned",
+        "unrelated-flood",
         "queued",
         "waiting",
         "pending",
@@ -71,7 +72,15 @@ def CheckCleanup(CaseName: str, WorkflowName: str) -> None:
         else (
             [42]
             if CaseName
-            in {"abandoned", "queued", "waiting", "pending", "requested", "replacement"}
+            in {
+                "abandoned",
+                "unrelated-flood",
+                "queued",
+                "waiting",
+                "pending",
+                "requested",
+                "replacement",
+            }
             else []
         )
     )

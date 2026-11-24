@@ -69,25 +69,28 @@ const Github = {
   rest: {
     actions: {
       listWorkflowRunsForRepo: "list",
-      getWorkflowRun: async (Request) => ({
-        data: {
-          ...Fixture.Current,
-          id: Request.run_id,
-          head_branch:
-            Fixture.CaseName === "multiple"
-              ? Fixture.Current.head_branch.replace(
-                  "pr-42-",
-                  `pr-${Request.run_id}-`,
-                )
-              : Fixture.CaseName === "replacement" && Request.run_id === 43
-                ? `gh-readonly-queue/main/pr-42-${"d".repeat(40)}`
-                : Fixture.Current.head_branch,
-          head_sha:
-            Fixture.CaseName === "replacement" && Request.run_id === 43
-              ? "c".repeat(40)
-              : Fixture.Current.head_sha,
-        },
-      }),
+      getWorkflowRun: async (Request) => {
+        Assert.ok([42, 43].includes(Request.run_id));
+        return {
+          data: {
+            ...Fixture.Current,
+            id: Request.run_id,
+            head_branch:
+              Fixture.CaseName === "multiple"
+                ? Fixture.Current.head_branch.replace(
+                    "pr-42-",
+                    `pr-${Request.run_id}-`,
+                  )
+                : Fixture.CaseName === "replacement" && Request.run_id === 43
+                  ? `gh-readonly-queue/main/pr-42-${"d".repeat(40)}`
+                  : Fixture.Current.head_branch,
+            head_sha:
+              Fixture.CaseName === "replacement" && Request.run_id === 43
+                ? "c".repeat(40)
+                : Fixture.Current.head_sha,
+          },
+        };
+      },
       cancelWorkflowRun: async (Request) => {
         Fixture.Calls.push("cancel");
         Assert.ok([42, 43].includes(Request.run_id));
@@ -112,11 +115,29 @@ const Github = {
     Assert.equal(Method, "list");
     Assert.equal(Request.workflow_id, undefined);
     Assert.equal(Request.event, "merge_group");
-    return Request.status === "in_progress"
-      ? ["multiple", "replacement"].includes(Fixture.CaseName)
-        ? [{ id: 42 }, { id: 43 }]
-        : [{ id: 42 }]
-      : [];
+    const ExpectedStatus = [
+      "queued",
+      "waiting",
+      "pending",
+      "requested",
+    ].includes(Fixture.CaseName)
+      ? Fixture.CaseName
+      : "in_progress";
+    if (Request.status !== ExpectedStatus) return [];
+    if (Fixture.CaseName === "unrelated-flood")
+      return [
+        ...Array.from({ length: 1000 }, (Value, Index) => ({
+          id: Index + 1000,
+          path: ".github/workflows/Other.yml",
+        })),
+        { id: 42, path: Fixture.Current.path },
+      ];
+    return ["multiple", "replacement"].includes(Fixture.CaseName)
+      ? [
+          { id: 42, path: Fixture.Current.path },
+          { id: 43, path: Fixture.Current.path },
+        ]
+      : [{ id: 42, path: Fixture.Current.path }];
   },
 };
 

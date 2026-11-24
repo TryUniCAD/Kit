@@ -33,3 +33,11 @@ The former cleanup excluded these runs because it queried only `MergeQueue.yml` 
 Formatting and diff checks are the local validation.
 Remote policy execution, configured approval, and acceptance remain pending at publication.
 Live queue-setting changes remain blocked by the separate administration-connection issue recorded in PR 285.
+
+## Review hardening
+
+The workflow list is filtered against the shared two-path allowlist before any per-run refetch.
+The fresh response still passes every independent cancellation check.
+A process case includes one thousand unrelated workflow rows and rejects any attempt to refetch them.
+Queued, pending, waiting, and requested fixtures appear only in their matching discovery queries.
+Removing one of those queries therefore fails the corresponding process case.
