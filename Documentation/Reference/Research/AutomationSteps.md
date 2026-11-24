@@ -309,6 +309,17 @@ A05c needs independent source inventories and distinguishing evidence rather tha
 The public Fusion partial reader now carries the [saved principal-plane identity](../../Changes/Fusion/Adapter/FusionPrincipalSketchSupport.md) and [signed axis-dimension operand order](../../Changes/Fusion/Adapter/FusionAxisDimensionOrder.md) into the neutral document. The hosted archive step passed all 25 checks at `fa7e92d8`. The partial reader also preserves the [saved point coincidence arguments](../../Changes/Fusion/Adapter/FusionPointCoincidence.md). Its three public-reader cases passed at `011ddb8b`. The latest reader also checks the [saved selected-profile proxy and descriptor](../../Changes/Fusion/Adapter/FusionOwnedProfileSelection.md) for the witnessed P03 and P04 extrusion layouts and projects the [historical P04 cut target body](../../Changes/Fusion/Adapter/FusionCutTargetSelection.md). Those cases passed on `b6ce2ec9`. The [P04 sketch's saved face recipe](../../Changes/Fusion/Adapter/FusionSketchFaceProvenance.md) passed its hosted checks at `f15b9cea`. The partial reader now joins that recipe to the [exact saved face occurrence](../../Changes/Fusion/Adapter/FusionSavedFaceOccurrence.md) on the verified prior body. It reads the [saved blind and through-all cut ends](../../Changes/Fusion/Adapter/FusionSavedCutEnds.md) and retains the [projected origin and center expression operands](../../Changes/Fusion/Adapter/FusionSavedCutCenter.md). All eleven saved P04 controls corroborate these reads. Hosted public checks, fresh licensed readback and editable acceptance remain open. [Hosted archive checks](https://github.com/TryUniCAD/Kit/actions/runs/43728415623/job/132855298357)
 See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
+### A05a-DecodeEfficiency
+
+Codex owns the strict Fusion decoding and receipt efficiency follow-up on `codex/fusion-decoder-efficiency-pr`.
+Delivery PR is [#280](https://github.com/TryUniCAD/Kit/pull/280).
+It depends on the A05a pinned reader and A05b exact outcome contract.
+The exit requires byte-exact neutral documents, equivalent receipts, unchanged refusal diagnostics, measured offline timings, and current-head PR checks and review.
+Offline verification matched 16 reader outcomes and preserved the ordered native profiles.
+Three pinned strict inputs had 11% to 15% lower median receipt times.
+Native read medians were mixed.
+The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) records the implementation and evidence.
+
 ## A06 comparison implementation and qualification
 
 ### A06g-BulkDecodedComparison: standalone bulk command
