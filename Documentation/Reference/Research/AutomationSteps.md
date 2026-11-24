@@ -128,6 +128,14 @@ decoder qualification remains incomplete. The focused process checks passed 103 
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
 
+#### A08i-ThinWall
+
+Codex owns the correction on `codex/solidworks-thin-wall-side`. The
+correction depends on the written-recipe worker from PR #207 and the
+licensed SOLIDWORKS measurement host. Its exit requires matching wall side
+with XY, YZ and XZ controls, edits, independent reopen and downstream
+decoder receipts. [Thin-wall change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+
 A08j, owned by Codex on the same local branch, is checking the
 [written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
 It depends on A08h/A08i and drives every written recipe through the existing

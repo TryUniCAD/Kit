@@ -79,7 +79,8 @@ public sealed partial class SolidWorksCapture
         IFeature Feature;
         if(Operation["thin"]!=null) {
             var Thin=MapValue(Operation["thin"]);
-            int ThinCode=TextValue(Thin,"side")=="midplane"?2:0;
+            int ThinCode=FrameFlip?0:1;
+            if(TextValue(Thin,"side")=="midplane") ThinCode=2;
             Feature=Document.FeatureManager.FeatureExtrusionThin2(Single,false,Reverse,EndCode,0,FirstDepth,SecondDepth,
                 false,false,false,false,0,0,false,false,false,false,Merge,Millimetres(Thin,"thickness_mm"),0,0,ThinCode,0,false,0,true,true,StartCode,Offset,FlipOffset);
         } else Feature=Document.FeatureManager.FeatureExtrusion3(Single,false,Reverse,EndCode,0,FirstDepth,SecondDepth,
