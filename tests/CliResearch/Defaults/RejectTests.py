@@ -61,3 +61,20 @@ def CheckBadPreset(TmpPath: FilePath, Change: dict[str, object]) -> None:
     Reply = ShortcutCli(TmpPath, ConfigPath, "run", "solidworks")
     assert Reply.returncode == 1 and LoadJson(Reply.stderr)["error"] == "ValueError"
     assert not (TmpPath / "run outputs").exists()
+
+
+# saved catalogue files must not change with the callers directory under any supported catalogue spelling
+@TestMark.parametrize(
+    "Option", ("--catalogue", "--solidworks-catalogue", "--fusion-catalogue")
+)
+def CheckRelCatalog(TmpPath: FilePath, Option: str) -> None:
+    ConfigPath, _ = PresetFiles(TmpPath)
+    Record = LoadJson(ConfigPath.read_bytes())
+    Record["formats"]["solidworks"]["options"] = {Option: "relative.json"}
+    _ = ConfigPath.write_text(DumpJson(Record), encoding="utf-8")
+    Reply = ShortcutCli(TmpPath, ConfigPath, "run", "solidworks")
+    assert (
+        Reply.returncode == 1
+        and "Saved catalogue paths must be absolute" in Reply.stderr
+    )
+    assert not (TmpPath / "run outputs").exists()

@@ -39,7 +39,8 @@ Presets explicitly authorize the configured research options, including native d
 Keep these settings in a private user directory.
 Do not put licensed software in the checkout.
 
-Option names must be full long flags.
+Option names must be full long flags in presets and shortcut overrides.
+Saved catalogue paths must be absolute, including format-specific catalogue options.
 Use strings for values, `true` for enabled switches, and `false` to omit switches.
 Explicit command arguments replace the corresponding defaults.
 Each catalogue invocation generates a unique output directory below `output_root`, unless `--directory` is supplied.

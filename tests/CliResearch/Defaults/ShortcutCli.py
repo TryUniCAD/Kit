@@ -6,12 +6,16 @@ from sys import executable as KPythonPath
 
 # the shortcut must work in an isolated interpreter without powershell profiles or shell functions
 def ShortcutCli(
-    Directory: FilePath, ConfigPath: FilePath, *Arguments: str
+    Directory: FilePath, ConfigPath: FilePath, *Arguments: str, UseHome: bool = False
 ) -> CompletedProcess[str]:
+    Environment = {**KEnvironment, "KIT_RUN_DEFAULTS": str(ConfigPath)}
+    if UseHome:
+        _ = Environment.pop("KIT_RUN_DEFAULTS")
+        Environment.update({"USERPROFILE": str(Directory), "HOME": str(Directory)})
     return RunProcess(
         (KPythonPath, "-I", "-m", "KitCli", *Arguments),
         cwd=Directory,
-        env={**KEnvironment, "KIT_RUN_DEFAULTS": str(ConfigPath)},
+        env=Environment,
         capture_output=True,
         text=True,
         check=False,

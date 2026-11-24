@@ -15,13 +15,16 @@ def PresetFiles(Directory: FilePath) -> tuple[FilePath, FilePath]:
         FilePath(__file__).with_name("ArgumentSink.py").read_bytes()
     )
     ConfigPath = Directory / "RunDefaults.json"
+    Catalogue = Checkout / "catalogue with spaces.json"
+    _ = Catalogue.write_text(DumpJson({"selected": "saved preset"}), encoding="utf-8")
     Preset = {
         "root": str(Checkout),
         "output_root": str(Directory / "run outputs"),
         "options": {
-            "--catalogue": "catalogue with spaces.json",
+            "--catalogue": str(Catalogue),
             "--workers": "18",
             "--author-samples": True,
+            "--authoring-grid": "three-values",
         },
     }
     _ = ConfigPath.write_text(

@@ -21,18 +21,16 @@ def ApplyDefaults(Arguments: list[str]) -> list[str]:
     Prefix = ["run", "--root", Preset.RootPath, FormatName]
     if Names & {"--input", "--pause", "--resume", "--help", "-h"}:
         return [*Prefix, *ExtraArgs]
+    CatalogueFlags = {"--catalogue", f"--{FormatName}-catalogue"}
     for Option, Setting in Preset.Options.items():
-        if any(Option.startswith(FlagName) for FlagName in Names) or Setting is False:
+        if Option in Names or Setting is False:
             continue
-        if Option == "--catalogue" and Names & {
-            "--solidworks-catalogue",
-            "--fusion-catalogue",
-        }:
+        if Option in CatalogueFlags and Names & CatalogueFlags:
             continue
         ExtraArgs.append(Option)
         if isinstance(Setting, str):
             ExtraArgs.append(Setting)
-    if not any("--directory".startswith(FlagName) for FlagName in Names):
+    if "--directory" not in Names:
         OutputPath = FilePath(Preset.OutputRoot) / (
             FormatName + "-" + NewIdentity().hex
         )

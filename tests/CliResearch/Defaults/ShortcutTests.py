@@ -10,13 +10,15 @@ from tests.CliResearch.Defaults.ShortcutCli import ShortcutCli
 # both configured formats must cross the installed cli and research process boundary with fresh output paths
 @TestMark.parametrize("FormatName", ("solidworks", "fusion"))
 def CheckShortcut(TmpPath: FilePath, FormatName: str) -> None:
-    ConfigPath, _ = PresetFiles(TmpPath)
+    ConfigPath, Checkout = PresetFiles(TmpPath)
+    _ = (TmpPath / "catalogue with spaces.json").write_text("{}", encoding="utf-8")
     Paths: list[str] = []
     for _ in range(2):
         Reply = ShortcutCli(TmpPath, ConfigPath, "run", FormatName)
         assert Reply.returncode == 7, Reply.stderr
         Result = LoadJson(Reply.stdout)
-        assert Result["catalogue"] == "catalogue with spaces.json"
+        assert Result["catalogue"] == str(Checkout / "catalogue with spaces.json")
+        assert Result["catalogue_content"] == {"selected": "saved preset"}
         assert Result["workers"] == "18" and Result["author_samples"] is True
         assert Result["batch_format"] == FormatName
         OutputPath = FilePath(Result["directory"])
@@ -29,6 +31,7 @@ def CheckShortcut(TmpPath: FilePath, FormatName: str) -> None:
 @TestMark.parametrize("WorkerArgs", (("--workers", "3"), ("--workers=3",)))
 def CheckOverrides(TmpPath: FilePath, WorkerArgs: tuple[str, ...]) -> None:
     ConfigPath, _ = PresetFiles(TmpPath)
+    _ = (TmpPath / "other.json").write_text("{}", encoding="utf-8")
     OutputPath = TmpPath / "chosen output"
     Reply = ShortcutCli(
         TmpPath,
