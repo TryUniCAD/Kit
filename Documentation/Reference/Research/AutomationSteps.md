@@ -131,9 +131,11 @@ plus batch and control coverage and the applicable CI and review gates.
 All six previously failed cut-extrude cases passed capture, reopen and
 decoder execution across the exact and paired replays. The written-recipe
 replay completed both native process exits and reached a separate thin-wall
-geometry check. The driving-dimension singleton still timed out with the
-initial cleanup change. A second verified frame close is under native
-verification. [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
+geometry check. PR #291 recovered all three written recipes. The standalone
+driving-dimension case passed after a retry. The combined probe verified
+both phases on the first attempt after adding the empty-session exit request.
+The final worker and batch retry are under native verification.
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
 
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)

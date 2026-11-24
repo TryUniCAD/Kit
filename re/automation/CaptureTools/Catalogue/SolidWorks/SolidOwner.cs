@@ -150,7 +150,8 @@ public static class SolidOwner
         finally { Marshal.ReleaseComObject(frame); }
     }
 
-    static void CloseLastControl(ISldWorks application, string repository)
+    static void CloseLastControl(ISldWorks application, Process process, string repository,
+        Dictionary<string,object> record)
     {
         string path=Path.Combine(repository,"re","solidworks","examples",".SLDPRT","example.SLDPRT");
         application.DocumentVisible(false,1);
@@ -168,6 +169,15 @@ public static class SolidOwner
         if(application.UserControlBackground || application.UserControl)
             throw new InvalidOperationException("The final stock control requires program-owned background mode");
         application.QuitDoc(title);
+        if(process.HasExited) return;
+        try {
+            int remaining=application.GetDocumentCount();
+            record["documents_after_final_quit"]=remaining;
+            if(remaining==0) {
+                application.ExitApp();
+                record["empty_session_exit_app_requested"]=true;
+            }
+        } catch(COMException error) { record["post_quit_transport_error"]=error.ErrorCode; }
     }
 
     static void RunOwnedCore(Process process, string executable, string repository,
@@ -203,7 +213,7 @@ public static class SolidOwner
                         try { record["frame_handle"]=ReadFrameHandle(application); }
                         catch(COMException error) { record["frame_query_error"]=error.Message; }
                         if(failure==null) {
-                            CloseLastControl(application,repository);
+                            CloseLastControl(application,process,repository,record);
                             record["normal_exit_method"]="last_background_document";
                         } else {
                             application.ExitApp();

@@ -17,32 +17,16 @@ function Wait-OwnedExit {
     )
 
     $Observed = $Process.WaitForExit($ExitWaitMilliseconds)
-    $CloseRequests = 0
+    $CloseRequested = $false
     $CloseError = $null
-    $CloseWait = [Diagnostics.Stopwatch]::StartNew()
     if (-not $Observed -and $AllowClose) {
-        for ($Request = 0; $Request -lt 2; $Request++) {
-            try {
-                $Process.Refresh()
-                if ($Process.HasExited -or $Process.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created -or
-                    -not [OwnedFrameClose]::Request($FrameHandle, $Process.Id)) { break }
-                $CloseRequests++
-            } catch {
-                $CloseError = $_.Exception.Message
-                break
+        try {
+            $Process.Refresh()
+            if (-not $Process.HasExited -and $Process.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
+                $CloseRequested = [OwnedFrameClose]::Request($FrameHandle, $Process.Id)
             }
-            if ($Request -eq 1) { break }
-            $RetryWait = [int]([Math]::Floor($CloseWaitMilliseconds / 2) - $CloseWait.ElapsedMilliseconds)
-            if ($RetryWait -le 0) { break }
-            $Observed = $Process.WaitForExit($RetryWait)
-            if ($Observed -or $CloseWait.ElapsedMilliseconds -ge $CloseWaitMilliseconds) { break }
-        }
+        } catch { $CloseError = $_.Exception.Message }
     }
-    if (-not $Observed) {
-        $Remaining = [int][Math]::Max(0, $CloseWaitMilliseconds - $CloseWait.ElapsedMilliseconds)
-        $Observed = $Process.WaitForExit($Remaining)
-    }
-    [pscustomobject]@{
-        Observed = $Observed; CloseRequested = $CloseRequests -gt 0; CloseRequests = $CloseRequests; CloseError = $CloseError
-    }
+    if (-not $Observed) { $Observed = $Process.WaitForExit($CloseWaitMilliseconds) }
+    [pscustomobject]@{ Observed = $Observed; CloseRequested = $CloseRequested; CloseError = $CloseError }
 }
