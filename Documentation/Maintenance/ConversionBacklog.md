@@ -69,6 +69,15 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### A08h-OwnedExit: SOLIDWORKS catalogue shutdown repair
+
+Task `A08h-OwnedExit` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ownedexit-catalogue-capture-shutdown).
+Codex owns the scoped repair on `codex/solidworks-capture-shutdown`, with
+delivery in [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
+The exit requires licensed native replay of the failed P04 captures and batch
+controls, normal process exits, independent reopen and dependent decoder
+receipts, plus the applicable publication gates. Native checks are pending.
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction
@@ -620,11 +629,3 @@ The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlaceme
 Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
 Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
-
-## SOLIDWORKS catalogue shutdown repair
-
-Task `A08h-OwnedExit` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ownedexit-catalogue-capture-shutdown).
-Codex owns the scoped repair on `codex/solidworks-capture-shutdown`.
-The exit requires licensed native replay of the failed P04 captures and batch
-controls, normal process exits, independent reopen and dependent decoder
-receipts, plus the applicable publication gates. Native checks are pending.

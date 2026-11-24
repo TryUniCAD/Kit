@@ -121,9 +121,9 @@ requirements.
 
 #### A08h-OwnedExit: catalogue capture shutdown
 
-Codex owns the shutdown repair on
-[`codex/solidworks-capture-shutdown`](https://github.com/TryUniCAD/Kit/compare/main...codex/solidworks-capture-shutdown),
-with a separate delivery PR. It depends on PR #207's configured native worker,
+Codex owns the shutdown repair on `codex/solidworks-capture-shutdown`.
+Delivery is [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
+It depends on PR #207's configured native worker,
 the licensed SOLIDWORKS host and its exclusive application lease. [PR #288](https://github.com/TryUniCAD/Kit/pull/288)
 owns the separate paired-case batching work. Exit requires normal owned process
 exit, independent reopen and recorded decoder results for the failed P04 cases,

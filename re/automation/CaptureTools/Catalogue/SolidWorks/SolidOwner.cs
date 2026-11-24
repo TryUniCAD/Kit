@@ -7,15 +7,18 @@
 // to you under it immediately and permanently.
 
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
 using System.Collections.Generic;
 using System.Text;
 using System.Web.Script.Serialization;
+using Microsoft.Win32.SafeHandles;
 using SolidWorks.Interop.sldworks;
 
 public static class SolidOwner
@@ -28,6 +31,10 @@ public static class SolidOwner
 
     [DllImport("ole32.dll", CharSet = CharSet.Unicode, ExactSpelling = true)]
     static extern int CreateItemMoniker(string separator, string item, out IMoniker moniker);
+
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
+    static extern bool QueryFullProcessImageNameW(SafeProcessHandle process, uint flags,
+        StringBuilder path, ref int length);
 
     static object FindOwned(int pid)
     {
@@ -49,8 +56,14 @@ public static class SolidOwner
     static void Verify(Process process, string expected, long created, int session)
     {
         if(process.HasExited || process.StartTime.ToUniversalTime().ToFileTimeUtc()!=created
-            || process.SessionId!=session || !String.Equals(Path.GetFullPath(process.MainModule.FileName),
-                Path.GetFullPath(expected),StringComparison.OrdinalIgnoreCase))
+            || process.SessionId!=session)
+            throw new InvalidOperationException("The held SOLIDWORKS process identity changed during passive attachment");
+        var image=new StringBuilder(32768);
+        int length=image.Capacity;
+        if(!QueryFullProcessImageNameW(process.SafeHandle,0,image,ref length))
+            throw new Win32Exception(Marshal.GetLastWin32Error(),"Could not read the held SOLIDWORKS process image");
+        if(!String.Equals(Path.GetFullPath(image.ToString()),Path.GetFullPath(expected),
+            StringComparison.OrdinalIgnoreCase))
             throw new InvalidOperationException("The held SOLIDWORKS process identity changed during passive attachment");
     }
 
@@ -98,13 +111,27 @@ public static class SolidOwner
     public static void RunOwned(Process process, string executable, string repository,
         string output, string configuration, string phase)
     {
-        RunOwnedCore(process,executable,repository,output,configuration,phase,false);
+        RunInApartment(process,executable,repository,output,configuration,phase,false);
     }
 
     public static void RunBatch(Process process, string executable, string repository,
         string output, string configuration, string phase)
     {
-        RunOwnedCore(process,executable,repository,output,configuration,phase,true);
+        RunInApartment(process,executable,repository,output,configuration,phase,true);
+    }
+
+    static void RunInApartment(Process process, string executable, string repository,
+        string output, string configuration, string phase, bool batch)
+    {
+        ExceptionDispatchInfo failure=null;
+        var thread=new Thread(() => {
+            try { RunOwnedCore(process,executable,repository,output,configuration,phase,batch); }
+            catch(Exception error) { failure=ExceptionDispatchInfo.Capture(error); }
+        });
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        thread.Join();
+        if(failure!=null) failure.Throw();
     }
 
     internal static void CollectNativeReferences()
