@@ -27,6 +27,8 @@ The three-case limit bounds the retained batch and its failure scope.
 A failed native phase prevents that batch's decoder jobs from consuming unverified files.
 Native path checks include a conservative bound for legacy edit-value filenames.
 The single-case worker remains available for existing plans.
+The existing hidden read-only control close path now applies to leading controls in empty owned sessions.
+The [repeated-control finding](../../../../Gotchas/Research/Workers/SolidWorks/RepeatedStockControlClose.md) records the stalled native proof and the repair.
 
 ## Verification
 

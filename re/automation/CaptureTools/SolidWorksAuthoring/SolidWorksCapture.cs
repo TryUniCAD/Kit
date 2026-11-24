@@ -430,7 +430,7 @@ public sealed partial class SolidWorksCapture
     }
     Dictionary<string,object> Control(string label)
     {
-        if (label != "after" || app.GetDocumentCount() != 0)
+        if (app.GetDocumentCount() != 0)
             return ReadControl(label, false);
 
         // a stock part opened without a window avoids the final document close stall
@@ -455,7 +455,7 @@ public sealed partial class SolidWorksCapture
         }
         finally
         {
-            // the sole read-only final control can close without entering the save path
+            // the sole read-only stock control can close without entering the save path
             if (discard && doc.IsOpenedReadOnly() && app.GetDocumentCount() == 1
                 && string.Equals(doc.GetPathName(), path, StringComparison.OrdinalIgnoreCase))
             {
