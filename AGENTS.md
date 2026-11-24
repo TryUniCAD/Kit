@@ -160,8 +160,10 @@ before writer work.
 
 A typed field program is donor data when its values or offsets come from a vendor
 save. Zero opaque bytes proves that each byte has a typed owner. It does not prove
-that Kit generated the value. Kit's SOLIDWORKS writer was built from recorded
-programs of this kind, so it was removed and SOLIDWORKS is a read-only format. CI runs
+that Kit generated the value. Kit removed the SOLIDWORKS writer that used recorded
+programs. The current [bounded part writer](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+generates a part from the supported model and requires exact offline measurement evidence.
+SOLIDWORKS assembly support is read-only. CI runs
 `tools/Donors/CheckReplays.py` on `src` and fails on any recorded field operation or
 recorded payload re-emission call. Do not restore the removed programs or add a
 SOLIDWORKS writer family as a recorded program. Build the generative serializer
@@ -208,7 +210,9 @@ kit research --root /path/to/KitPr94 supervisor --config /path/to/Supervisor.jso
 Configure actual trusted worker programs before using the supervisor; the CLI does not supply a production decode runner or model provider.
 Controller leases, retries, pool controls, and worker dispatch remain owned by PR #94's tools.
 Models remain disabled by default. Model execution retains the plan's explicit authorization requirements.
-The supervisor requires Linux or macOS; Fusion research requires Python 3.14.
+The supervisor supports Linux, macOS, and compatible Windows checkouts.
+Windows supervision requires Windows 10 or later, Python 3.14 or later, the locked `pywin32` development extra, and Windows shutdown protocol 1.
+Fusion research requires Python 3.14.
 Use `kit research --root /path/to/KitPr94 TOOL --help` for tool-specific commands.
 Use `kit decode SOURCE` for working-file inspection and `kit convert SOURCE DESTINATION` for supported conversion.
 Read [the deterministic CLI procedure](Documentation/Tasks/ResearchCommandLine.md) before changing these workflows.

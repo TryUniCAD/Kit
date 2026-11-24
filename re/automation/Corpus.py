@@ -6,7 +6,9 @@ import re
 import subprocess
 import sys
 from collections import Counter
+from contextlib import contextmanager
 from pathlib import Path
+from threading import Event, Timer
 
 from Evidence import inspect_evidence
 
@@ -35,6 +37,66 @@ def git(root, *args, input_data=None):
         input=input_data,
     )
     return result.stdout
+
+
+def start_blob_batch(root, *, stderr=None):
+    return subprocess.Popen(
+        [
+            "git", "--no-replace-objects", "--no-optional-locks", "-C", str(root),
+            "cat-file", "--batch",
+        ],
+        env=git_environment(),
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=stderr,
+    )
+
+
+@contextmanager
+def open_blob_batch(root):
+    with start_blob_batch(root, stderr=subprocess.DEVNULL) as process:
+        try:
+            yield process
+            process.stdin.close()
+            if process.wait(timeout=120):
+                raise ValueError("Git object read failed")
+        except BaseException:
+            process.kill()
+            process.wait(timeout=30)
+            raise
+
+
+def read_pinned_blob(process, asset):
+    oid = asset["git_blob"].encode("ascii")
+    expired = Event()
+
+    def interrupt_read():
+        expired.set()
+        process.kill()
+
+    timer = Timer(120, interrupt_read)
+    timer.start()
+    try:
+        process.stdin.write(oid + b"\n")
+        process.stdin.flush()
+        header = process.stdout.readline(128)
+        match = re.fullmatch(rb"([0-9a-f]{40}) blob ([0-9]+)\n", header)
+        if match is None or match[1] != oid:
+            raise ValueError("invalid Git blob response")
+        size = int(match[2])
+        if not 8 <= size <= 256 * 1024 * 1024 or size != asset["size_bytes"]:
+            raise ValueError("asset size mismatch or input exceeds 256 MiB")
+        content = process.stdout.read(size)
+        if len(content) != size or process.stdout.read(1) != b"\n":
+            raise ValueError("truncated Git blob")
+    finally:
+        timer.cancel()
+        timer.join()
+        if expired.is_set():
+            raise subprocess.TimeoutExpired(process.args, 120)
+    if hashlib.sha256(content).hexdigest() != asset["sha256"] or content[:16].hex() != asset["prefix_hex"]:
+        raise ValueError("asset bytes differ from the pinned digest/prefix")
+    return content
 
 
 def load_json(path):
@@ -122,20 +184,7 @@ def snapshot(root, revision, specs_path):
     paths = sorted(path for path in entries if asset_kind(path))
     assets = []
     evidence = []
-    with subprocess.Popen(
-        [
-            "git",
-            "--no-replace-objects",
-            "--no-optional-locks",
-            "-C",
-            str(root),
-            "cat-file",
-            "--batch",
-        ],
-        env=git_environment(),
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-    ) as process:
+    with start_blob_batch(root) as process:
         try:
             for path in paths:
                 process.stdin.write((entries[path] + "\n").encode())
