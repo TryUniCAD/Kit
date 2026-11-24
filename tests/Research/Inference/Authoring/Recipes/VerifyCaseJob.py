@@ -6,7 +6,6 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from tests.Research.Inference.Authoring.Recipes.RecipeTargets import KRecipeTargets
 from tests.Research.Inference.Authoring.Contracts.ReadObject import ReadObject
 from tests.Research.Inference.Authoring.Contracts.ReadText import ReadText
 from tests.Research.Inference.Authoring.Contracts.ReadValues import ReadValues
@@ -21,13 +20,20 @@ def VerifyCaseJob(
     Records: dict[str, object],
 ) -> None:
     ArtifactRole = ReadText(Selector["artifact"])
-    if ReadText(Selection["recipe"]) in KRecipeTargets:
-        assert Capture["kind"] == "capture.catalogue.solidworks.batch"
+    if Capture["kind"] == "capture.catalogue.solidworks.batch":
         Bound = ReadObject(Records[ReadText(ReadObject(Capture["inputs"])["cases"])])
         BoundSamples = ReadValues(Bound["samples"])
         assert Bound["schema_version"] == 1 and 1 <= len(BoundSamples) <= 3
         assert Identity in {ReadObject(Entry)["sample"] for Entry in BoundSamples}
         assert ArtifactRole in {"bundle.0", "bundle.1", "bundle.2"}
+        Position = int(ArtifactRole.split(".")[1])
+        Member = ReadObject(BoundSamples[Position])
+        assert Member["sample"] == Identity
+        assert Member["case"] == {
+            FieldName: FieldValue
+            for FieldName, FieldValue in Selection.items()
+            if FieldName != "id"
+        }
     else:
         assert Capture["kind"] == "capture.catalogue.solidworks"
         assert ArtifactRole == "bundle"

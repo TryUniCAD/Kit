@@ -620,3 +620,13 @@ The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlaceme
 Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
 Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
+
+## Automatic SOLIDWORKS paired-case batching
+
+Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
+The [owning register](../Reference/Research/AutomationSteps.md) records automatic P01–P05 batching through the existing native runner.
+Dependencies are catalogue authoring, native ownership, and accepted controller artifacts.
+Delivery PR is pending publication. Status is active implementation.
+The exit requires measured batch session reuse, independent reopening, per-case decoder receipts, and current-revision CI and configured review.
+The [change entry](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) retains verification limits.
+Production decoding and conversion qualification remain open.

@@ -64,4 +64,6 @@ def BuildAuthorPlan(
     }
     if GridValue != "baseline":
         ResultValue["parameter_grid"] = GridValue
+    if "solidworks" in Catalogues:
+        ResultValue["solidworks_batch_version"] = 1
     return ResultValue

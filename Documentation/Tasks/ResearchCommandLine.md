@@ -274,6 +274,11 @@ across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
 recipes share native batches of at most three cases, with separate decoder jobs.
 Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
+New SOLIDWORKS authoring plans automatically share application startup across batches of up to three P01–P05 or written-recipe cases.
+Each batch uses one authoring process and a separate fresh verification process.
+Per-case decoder jobs start after native acceptance.
+Saved plans retain their original job definitions.
+See [paired-case batching](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) for limits and verification.
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
 

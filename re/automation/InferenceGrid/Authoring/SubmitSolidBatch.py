@@ -25,7 +25,10 @@ def SubmitBatch(Directory, PlanValue, Resource):
         }
         for Identity, Selection in sorted(PlanValue["samples"].items())
         if Selection["application"] == "solidworks"
-        and Selection["case"]["recipe"] in KRecipeBuilders
+        and (
+            PlanValue.get("solidworks_batch_version") == 1
+            or Selection["case"]["recipe"] in KRecipeBuilders
+        )
     ]
     Submissions = []
     with Ledger(Directory / "Store") as StateValue:

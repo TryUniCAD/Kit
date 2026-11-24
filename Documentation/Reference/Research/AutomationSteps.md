@@ -128,6 +128,14 @@ decoder qualification remains incomplete. The focused process checks passed 103 
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
 
+Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
+It extends the existing three-case native batches to P01–P05, preserving independent reopen verification and per-case decoder artifacts.
+Dependencies are A08h/A08i, owned native lifetimes, and controller artifact admission.
+Status is active implementation. Delivery PR is pending publication.
+Exit requires measured native batching, automatic decoder receipts, and current-revision CI and configured review.
+Saved plans retain their original submissions. Full decoding and conversion qualification remain separate requirements.
+See [paired-case batching](../../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md).
+
 A08j, owned by Codex on the same local branch, is checking the
 [written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
 It depends on A08h/A08i and drives every written recipe through the existing
