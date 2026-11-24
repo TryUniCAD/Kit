@@ -116,6 +116,7 @@ jobs:
           uv run --no-sync --python 3.11 python -m pytest --collect-only -q -p no:cacheprovider \
             tests/Convert/Solidworks tests/Convert/Formats/ParasolidTests.py \
             tests/Interchange/Compatibility/DecodeDepthTests.py \
+            tests/Interchange/Assembly/DeepJsonTests.py \
             tests/Interchange/Compatibility/JsonCacheTests.py \
             tests/Interchange/Compatibility/HintChangeTests.py \
             tests/Interchange/Compatibility/MigrationCacheTests.py \

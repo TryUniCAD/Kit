@@ -75,6 +75,16 @@ Six cache and deep assembly cases passed on Python 3.11.15, including the 80-lev
 A public decoding profile confirmed one root wire-validation call across 165 wire values.
 These checks verify the combined behavior without a new performance measurement.
 
+The follow-up review repair restricts deferred discovery to the two known Kit facades and their declared exports.
+Third-party plugins retain direct namespace discovery when unrelated optional exports cannot load.
+The [optional export gotcha](../../../../Gotchas/Conversion/Runtime/OptionalFacadeDiscovery.md) records this boundary and its filesystem integration coverage.
+Deferred imports now share the original audited plugin import call without another security-rule suppression.
+The Python 3.11 compatibility roster also includes the actual 80-level `CheckDeepJson` case in its existing four shards.
+The revised roster collected 664 cases and selected that case exactly once across the four complete shards.
+The focused review repair passed 18 cases on Python 3.11.15 and 39 cases on Python 3.14.7.
+The nonliteral-import security rule reported zero findings across the discovery boundary and deferred facade loader.
+The offline pedantic workflow audit also reported zero findings.
+
 ## Scope and limits
 
 Task: B14-RecordDecodeCache. Owner: Codex. Delivery branch: `codex/cache-record-types`.
