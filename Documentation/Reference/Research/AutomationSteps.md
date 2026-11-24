@@ -703,6 +703,18 @@ The two compatibility jobs for `a006c275` independently checked the installed CL
 
 PR head `b9efdb5ee15da0f802880b97816a8422865545b4` repeated the installed CLI verification on exact tested merge `e60486e0532b92b66a5637a490acea934cb03959`. Both jobs asserted that the installed source and the physically separate research checkout matched the candidate SHA. Linux passed 27 cases with one Windows-only skip. Windows passed 17 cases. The result completes the installed CLI compatibility milestone for the selected reader, receipt, controller and supervisor contracts. Native qualification remains open under its owning steps. [Linux compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013443659), [Windows compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013444080)
 
+### A08d-PinnedReaderBatches: pinned corpus reader overhead
+
+Codex owns this checking task on `codex/pinned-decoder-batches`, based on main `14570404846c8aa1f90b02e68d6f70a419719ca7`.
+Delivery is [PR #279](https://github.com/TryUniCAD/Kit/pull/279).
+Dependencies are the A04a and A05a readers, the sealed A02 corpus, and the A08d CLI bridge.
+The scope covers Git transport for both formats, the additive SOLIDWORKS batch, and the feature inventory session.
+The exit requires public CLI timings, exact neutral byte comparisons, intact pin and refusal behavior, current-head CI and configured review.
+At reader revision `654f00108c3e151c28b5e3e84eb48bd2ff7f9f2a`, the three-part SOLIDWORKS median fell from 37.20 s to 17.97 s.
+The eight-part Fusion median moved from 16.93 s to 17.01 s with fifteen fewer blob processes.
+The measured neutral documents matched exactly in both comparisons.
+See the [change entry](../../Changes/Research/Offline/PinnedReaderBatches.md).
+
 ## A08h-Placement20261123: decimal native reader evidence
 
 Codex owns this evidence publication on `feat/native-placement-decoding-20261123`, from main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`. Delivery PR is [#274](https://github.com/TryUniCAD/Kit/pull/274).

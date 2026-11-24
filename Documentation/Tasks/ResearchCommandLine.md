@@ -50,6 +50,26 @@ The CLI refuses conversion of those marked documents, including marked nested co
 Keep the marker and receipt; the CLI does not promote research results into qualified conversion inputs.
 The separate receipt binds source, SDK, tools, options, hashes, and unresolved evidence.
 
+For several SOLIDWORKS parts, use a checkout with batch support.
+Add `--batch` and repeat `--asset` for up to 1000 distinct pinned parts.
+
+```sh
+kit research --offline --root /path/to/KitPr94 solidworks --batch \
+  --asset re/solidworks/examples/.SLDPRT/example.SLDPRT \
+  --asset "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/CUBIERTA.SLDPRT" \
+  --output /tmp/KitPinnedSwBatch
+```
+
+Batch `summary.json` lists the paths and their document directories in request order.
+Keep each directory's `document.json` and `receipt.json` together.
+One `--configuration` value applies to every part.
+A failed pin or decode returns status `1` and publishes no batch.
+The batch can write up to 4 GiB of documents and receipts.
+Use fewer assets if the run exceeds this limit.
+Omit `--offline` to request native verification for the complete batch.
+Use `--batch` every time you intend to decode several SOLIDWORKS assets.
+See [legacy SOLIDWORKS asset selection](../Gotchas/Research/Offline/LegacySolidWorksAssetSelection.md).
+
 For Fusion, use Python 3.14 and select one or more committed assets:
 
 ```sh
