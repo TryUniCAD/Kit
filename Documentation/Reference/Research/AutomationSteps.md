@@ -344,6 +344,14 @@ The [final source audit](https://github.com/TryUniCAD/Kit/actions/runs/451869556
 Status is complete for the standalone command. The [merge-group checks](https://github.com/TryUniCAD/Kit/actions/runs/45215523176) passed on `12b98c78`, the merged revision.
 This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
 
+#### A06g CLI follow-up
+
+Codex owns the shorter research command on `codex/bulk-comparison-cli`.
+Delivery is [PR #275](https://github.com/TryUniCAD/Kit/pull/275), now targeting `main` after [PR #273](https://github.com/TryUniCAD/Kit/pull/273) merged as `12b98c78`.
+The scope is positional folders, manifest mode, shared explicit units, short output syntax, trusted checkout dispatch and unified copies for exact resolved pairs.
+The exit requires installed-command process evidence for both pairing modes, copy provenance and refusal, older checkout diagnostics and current-revision CI and review.
+See the [bulk comparison CLI change](../../Changes/Commands/BulkComparisonCli.md).
+
 ### Existing comparison implementation
 
 The [portable graph comparator](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md) reads sealed neutral documents through the actual codec and validator.

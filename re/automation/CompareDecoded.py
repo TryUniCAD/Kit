@@ -14,13 +14,14 @@ from SemanticComparison import (
     document_input,
     tolerance_input,
 )
+from UnifiedExports import export_exclusions, publish_unified
 
 MAX_BATCH_BYTES = 1024 * 1024 * 1024
 ERRORS = (LookupError, OSError, TypeError, ValueError, OverflowError, RecursionError)
 UNITS = ("mm", "cm", "m", "in", "ft")
 PROGRAMME_PINS = {
     name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-    for name in ("CompareDecoded.py", "DecodedPairs.py")
+    for name in ("CompareDecoded.py", "DecodedPairs.py", "UnifiedExports.py")
 }
 
 
@@ -81,6 +82,8 @@ def compare_pair(pair, args, tolerances, tolerance_pin, pins):
             raise
         report = {"status": "incomplete", "reason": str(error)}
     report["input_sha256"] = {**pins, "tolerances": tolerance_pin}
+    if args.unified:
+        report["unified_exclusions"] = export_exclusions(documents)
     for side, path in paths.items():
         file_pin_now = file_pin(path, DOCUMENT_BYTES)
         if file_pin_now != pins[side]:
@@ -198,9 +201,17 @@ def run_batch(args):
             },
             "input_sha256": report.get("input_sha256"),
             "counts": result_counts(report), "report": artifact,
+            "unified_exclusions": report.get("unified_exclusions", {}),
         })
     outcomes = Counter(row["status"] for row in rows)
     exit_code = batch_exit(outcomes, rows)
+    unified = None
+    if args.unified:
+        unified = publish_unified(
+            output / "unified", pairs, rows, tolerances, args.left_unit, remaining
+        )
+        if unified["errors"]:
+            exit_code = 1
     summary = {
         "batch_version": 1,
         "scope": "bulk_portable_semantic_graph_observation",
@@ -216,9 +227,15 @@ def run_batch(args):
         "pair_count": len(rows), "outcomes": dict(outcomes),
         "exit_code": exit_code, "pairs": rows,
     }
+    if unified is not None:
+        summary["unified"] = unified
     lines = [
         f"Compared {len(rows)} pairs; exit {exit_code}",
         "Semantic qualification: unverified; native acceptance: not established",
+        *(
+            [f"Unified exports: {unified['count']}; copy errors: {unified['errors']}"]
+            if unified is not None else []
+        ),
         *(
             f"{json.dumps(row['id'], ensure_ascii=True)}: {row['status']} "
             f"({row['counts']['matched_features']} feature correspondences) "
@@ -241,21 +258,44 @@ def run_batch(args):
     return exit_code
 
 
+def comparison_args(parser):
+    args = parser.parse_intermixed_args()
+    if args.folders:
+        if len(args.folders) != 2 or any(
+            value is not None for value in (args.manifest, args.left, args.right)
+        ):
+            parser.error("supply exactly two folders, --left and --right, or --manifest")
+        args.left, args.right = args.folders
+    if args.unit is not None:
+        if args.left_unit is not None or args.right_unit is not None:
+            parser.error("--unit cannot be combined with --left-unit or --right-unit")
+        args.left_unit = args.right_unit = args.unit
+    elif args.left_unit is None and args.right_unit is None:
+        parser.error("declare geometry units with --unit or both --left-unit and --right-unit")
+    elif args.left_unit is None or args.right_unit is None:
+        missing = "--left-unit" if args.left_unit is None else "--right-unit"
+        parser.error(f"the following arguments are required: {missing}")
+    return args
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Compare decoded CadDocument JSON in bulk without running either decoder"
     )
+    parser.add_argument("folders", nargs="*", type=Path, metavar="FOLDER", help="two export folders, left then right")
     parser.add_argument("--left", type=Path, help="first export directory")
     parser.add_argument("--right", type=Path, help="second export directory")
     parser.add_argument("--manifest", type=Path, help="version 1 explicit JSON pair list")
     parser.add_argument("--pattern", default="*.json", help="relative path selection glob")
-    parser.add_argument("--left-unit", choices=UNITS, required=True)
-    parser.add_argument("--right-unit", choices=UNITS, required=True)
+    parser.add_argument("--unit", choices=UNITS, help="declared geometry unit for both sides")
+    parser.add_argument("--left-unit", choices=UNITS, help="declared left geometry unit with --right-unit")
+    parser.add_argument("--right-unit", choices=UNITS, help="declared right geometry unit with --left-unit")
     parser.add_argument("--tolerances", type=Path, help="five absolute tolerances; default exact")
     parser.add_argument("--max-candidates", type=int, default=20000)
-    parser.add_argument("--output", type=Path, required=True, help="unused output directory")
+    parser.add_argument("--unified", action="store_true", help="copy the left export for exact resolved matches")
+    parser.add_argument("-o", "--output", type=Path, required=True, help="unused output directory")
     try:
-        args = parser.parse_args()
+        args = comparison_args(parser)
     except SystemExit as error:
         if error.code == 2:
             return 1
