@@ -25,8 +25,9 @@ Native queue [run 45387083821](https://github.com/TryUniCAD/Kit/actions/runs/453
 The facade resolves deferred modules through `LoadExportMod` in the existing canonical boundary.
 The gateway accepts valid module names within the production packages only.
 It rejects external package roots and malformed module-name segments before dynamic import.
-The facade imports the gateway only when an export is requested.
+The facade imports the gateway only when an export or child package exists.
+Missing-name probes such as `hasattr` raise `AttributeError` before the registry package loads.
 
 The unchanged dependency policy checks the complete production source tree.
-A fresh isolated interpreter checks discovery deferral, public object identity, caching, named child-package fallback, and invalid-module rejection.
+A fresh isolated interpreter checks discovery deferral, missing-name probes without registry startup, public object identity, caching, direct facade child-package lookup, and invalid-module rejection.
 Runtime import compatibility does not establish native CAD acceptance.
