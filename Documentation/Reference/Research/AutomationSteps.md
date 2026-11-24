@@ -733,3 +733,12 @@ The [package](../../../re/NativePlacement2026/README.md) retains 47 complete nat
 Dependencies are merged PRs #263, #265 and #267, the deterministic controller and licensed source workers. All executable capture/replay work has settled; publication CI and configured review remain pending.
 [PR 270](https://github.com/TryUniCAD/Kit/pull/270) owns the SOLIDWORKS attachment implementation. Its exact `78a1367e81b5748702289c2b2e733f24576df46e` candidate passes 138 comparisons on 69 fresh complete-batch inputs. [PR 269](https://github.com/TryUniCAD/Kit/pull/269) owns the remaining Fusion placement/sign investigation; this scope supplies fresh decimal controls.
 The exit requires sealed hashes, sanitized provenance, native/neutral comparisons, retained refusals/failures and current-head publication readiness. Numerical source acceptance is limited to the recorded cuboids. Full semantics, generative writing and editable target conversion remain open under B02–B05; this task does not duplicate either owning PR or close those milestones.
+
+## A08h-CutsRevolutions20261123: cut and revolution evidence
+
+Task `A08h-CutsRevolutions20261123` is owned by Codex on `feat/native-feature-campaign-20261123b`. Delivery PR: [#278](https://github.com/TryUniCAD/Kit/pull/278).
+Dependencies are merged PRs #158/#207, the verified catalogues, existing controller and licensed personal API.
+The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact native scopes, cut sign failures, correction attempts, COM failures and strict reader outcomes.
+The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
+Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
+Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
