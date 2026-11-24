@@ -76,6 +76,8 @@ reported an empty session after `QuitDoc` and exited after the vendor
 `ExitApp` call without a window close. Six archives passed on the first
 attempt and the dependent decoder recorded its results. The final worker
 replay and batch retry are under native verification.
+The singleton probe result SHA-256 is
+`162b00d1577164ab84f1d3b49c698c9d7870a75fff3d93ff363c97f180557f21`.
 
 The written-recipe replay reached both native phases and both processes exited
 normally. It saved and reopened 30 archives. Native admission failed because
@@ -87,8 +89,8 @@ The separate thin-wall correction recovered all three recipes and their
 decoder jobs. [Thin-wall replay and receipts](https://github.com/TryUniCAD/Kit/pull/291)
 
 The shared Windows process probe checks that a window belonging to another
-live process is refused. It also checks that a verified window can receive the
-close request while its owning process remains alive. The exit receipt records
+live process is refused. It also checks that a verified window receives just
+one close request while its owning process remains alive. The exit receipt records
 the observed process state separately from the request.
 [Shutdown finding](../../../../Gotchas/Research/Workers/SolidWorks/CatalogueCaptureExitObservation.md)
 [Starting process image finding](../../../../Gotchas/Research/Workers/SolidWorks/StartingProcessModuleLookup.md)

@@ -20,7 +20,7 @@ if ($env:KIT_PHASE_EXIT_ACK) {
     $Window.add_FormClosing({
         param($Sender, $EventArgs)
         $EventArgs.Cancel = $true
-        [IO.File]::WriteAllText($env:KIT_PHASE_EXIT_ACK, 'close received')
+        [IO.File]::AppendAllText($env:KIT_PHASE_EXIT_ACK, "close received`n")
     })
 }
 [System.Windows.Forms.Application]::Run($Window)
@@ -63,7 +63,8 @@ try {
         failed_phase_refused = -not ($Failed.Observed -or $Failed.CloseRequested)
         missing_frame_refused = -not ($Missing.Observed -or $Missing.CloseRequested)
         foreign_frame_refused = -not ($Foreign.Observed -or $Foreign.CloseRequested)
-        posted_without_exit = $Kept.CloseRequested -and -not $Kept.Observed -and (Test-Path -LiteralPath $Ack)
+        posted_without_exit = $Kept.CloseRequested -and -not $Kept.Observed -and
+            (Test-Path -LiteralPath $Ack) -and [IO.File]::ReadAllLines($Ack).Length -eq 1
         close_requested = $Closed.CloseRequested
         exit_observed = $Closed.Observed
         exit_code = if ($Closed.Observed) { $Child.ExitCode }
