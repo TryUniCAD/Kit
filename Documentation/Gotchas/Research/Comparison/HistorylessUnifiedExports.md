@@ -31,4 +31,7 @@ Read each report or summary row's `unified_exclusions` for the per-side diagnost
 Installed-command regression coverage compares independently written parameter-only exports.
 Equal inputs return exit `0`, retain detailed reports, and produce zero unified copies.
 Documents with history retain the existing publication path.
+Additional installed-command cases retain history at both roots and remove history from one embedded document.
+The report identifies only the affected input side, checking left and right independently.
+Assembly comparison remains unresolved in these cases; its existing status and exit code remain unchanged.
 Neither equality nor this history check establishes native application acceptance.
