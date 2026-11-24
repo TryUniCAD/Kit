@@ -1,5 +1,6 @@
 const { CancelStale } = require("./CancelStale.cjs");
 const { QueueHeads } = require("./QueueHeads.cjs");
+const { KWorkflowPaths } = require("./WorkflowPaths.cjs");
 
 async function CleanRuns({ Github, Context, Logger }) {
   const Heads = await QueueHeads(Github, Context.repo);
@@ -11,16 +12,16 @@ async function CleanRuns({ Github, Context, Logger }) {
     "requested",
   ]) {
     const RunList = await Github.paginate(
-      Github.rest.actions.listWorkflowRuns,
+      Github.rest.actions.listWorkflowRunsForRepo,
       {
         ...Context.repo,
-        workflow_id: "MergeQueue.yml",
         event: "merge_group",
         status: Status,
         per_page: 100,
       },
     );
     for (const Listed of RunList) {
+      if (!KWorkflowPaths.includes(Listed.path)) continue;
       const { data: Current } = await Github.rest.actions.getWorkflowRun({
         ...Context.repo,
         run_id: Listed.id,

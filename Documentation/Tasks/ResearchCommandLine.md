@@ -67,6 +67,26 @@ The CLI refuses conversion of those marked documents, including marked nested co
 Keep the marker and receipt; the CLI does not promote research results into qualified conversion inputs.
 The separate receipt binds source, SDK, tools, options, hashes, and unresolved evidence.
 
+For several SOLIDWORKS parts, use a checkout with batch support.
+Add `--batch` and repeat `--asset` for up to 1000 distinct pinned parts.
+
+```sh
+kit research --offline --root /path/to/KitPr94 solidworks --batch \
+  --asset re/solidworks/examples/.SLDPRT/example.SLDPRT \
+  --asset "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/CUBIERTA.SLDPRT" \
+  --output /tmp/KitPinnedSwBatch
+```
+
+Batch `summary.json` lists the paths and their document directories in request order.
+Keep each directory's `document.json` and `receipt.json` together.
+One `--configuration` value applies to every part.
+A failed pin or decode returns status `1` and publishes no batch.
+The batch can write up to 4 GiB of documents and receipts.
+Use fewer assets if the run exceeds this limit.
+Omit `--offline` to request native verification for the complete batch.
+Use `--batch` every time you intend to decode several SOLIDWORKS assets.
+See [legacy SOLIDWORKS asset selection](../Gotchas/Research/Offline/LegacySolidWorksAssetSelection.md).
+
 For Fusion, use Python 3.14 and select one or more committed assets:
 
 ```sh
@@ -282,15 +302,15 @@ Conversion and inspection do not import its process launcher dependencies.
 
 ## If the command fails
 
-| Symptom                           | Action and stop condition                                          |
-| --------------------------------- | ------------------------------------------------------------------ |
-| Missing research script           | Select the intended trusted PR #94 checkout                        |
-| Missing pinned Git object         | Fetch the manifest's committed revision before retrying            |
-| Hash or prefix mismatch           | Restore or review the intended pin; do not relax checks            |
-| Existing output directory         | Choose an unused path; no overwrite bypass is exposed              |
-| Fusion requires Python 3.14       | Install or run the CLI with that interpreter                       |
-| Supervisor unavailable on Windows | Use Linux or macOS for orchestration                               |
-| Runner unavailable                | Configure an implemented runner or retain the blocked prerequisite |
+| Symptom                              | Action and stop condition                                                                      |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| Missing research script              | Select the intended trusted PR #94 checkout                                                    |
+| Missing pinned Git object            | Fetch the manifest's committed revision before retrying                                        |
+| Hash or prefix mismatch              | Restore or review the intended pin; do not relax checks                                        |
+| Existing output directory            | Choose an unused path; no overwrite bypass is exposed                                          |
+| Fusion requires Python 3.14          | Install or run the CLI with that interpreter                                                   |
+| Windows supervisor checkout rejected | Use a trusted checkout with Windows CLI shutdown protocol 1 and the Windows dependencies above |
+| Runner unavailable                   | Configure an implemented runner or retain the blocked prerequisite                             |
 
 Tests execute only in remote CI.
 The Linux and Windows [compatibility jobs](../Changes/Commands/ResearchCandidateCompatibility.md) install the CLI from the workflow candidate and select a separate research checkout at the same revision.
