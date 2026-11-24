@@ -780,3 +780,6 @@ on one licensed Windows desktop. Exit requires overlapping owned native
 processes, independent normal exits and reopen evidence, unchanged source and
 archive pins, and current revision CI and review evidence.
 See the [change entry](../../Changes/Research/Supervisor/Catalogue/ParallelSolidWorksCaptures.md).
+A licensed desktop run confirmed overlapping authoring, then hit a
+[shared journal dialog during concurrent reopen](../../Gotchas/Research/Workers/SolidWorks/SharedJournalBlocksConcurrentCapture.md).
+Licensed parallel acceptance remains blocked on journal isolation for the shared profile.

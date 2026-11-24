@@ -53,3 +53,7 @@ catalogue resume checks passed in 24.48 seconds. The launcher compiled against
 the installed API with the six-worker limit and 25-minute startup wait budget.
 Licensed overlap, independent normal exits and archive verification are tracked under
 [A08h-ParallelSolidWorks](../../../../Reference/Research/AutomationSteps.md#a08h-parallelsolidworks-same-host-catalogue-capture).
+
+The [shared-journal gotcha](../../../../Gotchas/Research/Workers/SolidWorks/SharedJournalBlocksConcurrentCapture.md)
+records the licensed run that blocked during concurrent reopen. Use the
+one-worker override on that shared profile until journal isolation is verified.
