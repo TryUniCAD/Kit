@@ -62,4 +62,5 @@ This feature configures startup and does not qualify CAD output or decoder seman
 
 Task `B10-RunDefaults`, owned by Codex, depends on the installed CLI bridge and trusted catalogue checkout.
 Its exit requires profile-free command verification, current-head CI, and configured review.
+Delivery is tracked on [PR #290](https://github.com/TryUniCAD/Kit/pull/290).
 Native batching remains owned by [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
