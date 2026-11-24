@@ -1,9 +1,3 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so would be a material breach of the PolyForm Strict License 1.0.0.
-
 from json import loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
