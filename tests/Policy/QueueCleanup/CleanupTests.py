@@ -6,6 +6,7 @@ import pytest as Pytest
 
 
 # cleanup must preserve current acceptance while releasing abandoned runners through the complete workflow entry point
+@Pytest.mark.parametrize("WorkflowName", ("MergeQueue.yml", "WorkflowQuality.yml"))
 @Pytest.mark.parametrize(
     "CaseName",
     (
@@ -38,10 +39,15 @@ import pytest as Pytest
         "replacement",
     ),
 )
-def CheckCleanup(CaseName: str) -> None:
+def CheckCleanup(CaseName: str, WorkflowName: str) -> None:
     RootPath = FilePath(__file__).resolve().parents[3]
     Outcome = RunProcess(
-        ["node", str(RootPath / "tests/Policy/QueueCleanup/RunCleanup.cjs"), CaseName],
+        [
+            "node",
+            str(RootPath / "tests/Policy/QueueCleanup/RunCleanup.cjs"),
+            CaseName,
+            WorkflowName,
+        ],
         capture_output=True,
         text=True,
         check=False,

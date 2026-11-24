@@ -5,7 +5,10 @@ async function CancelStale(Github, Context, RunInfo, Heads) {
     );
   if (
     RunInfo.event !== "merge_group" ||
-    RunInfo.path !== ".github/workflows/MergeQueue.yml" ||
+    ![
+      ".github/workflows/MergeQueue.yml",
+      ".github/workflows/WorkflowQuality.yml",
+    ].includes(RunInfo.path) ||
     RunInfo.repository?.id !== Context.payload.repository.id ||
     RunInfo.head_repository?.id !== Context.payload.repository.id ||
     !BranchMatch ||

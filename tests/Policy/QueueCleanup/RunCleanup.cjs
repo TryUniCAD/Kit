@@ -1,7 +1,7 @@
 const Assert = require("node:assert/strict");
 const { CleanRuns } = require("../../../.github/scripts/Queue/CleanRuns.cjs");
 const { FixtureData } = require("./FixtureData.cjs");
-const Fixture = FixtureData(process.argv[2]);
+const Fixture = FixtureData(process.argv[2], process.argv[3]);
 const Github = {
   graphql: async (Query, Variables) => {
     if (Query.includes("pullRequest(number:")) {
@@ -68,7 +68,7 @@ const Github = {
   },
   rest: {
     actions: {
-      listWorkflowRuns: "list",
+      listWorkflowRunsForRepo: "list",
       getWorkflowRun: async (Request) => ({
         data: {
           ...Fixture.Current,
@@ -110,7 +110,7 @@ const Github = {
   },
   paginate: async (Method, Request) => {
     Assert.equal(Method, "list");
-    Assert.equal(Request.workflow_id, "MergeQueue.yml");
+    Assert.equal(Request.workflow_id, undefined);
     Assert.equal(Request.event, "merge_group");
     return Request.status === "in_progress"
       ? ["multiple", "replacement"].includes(Fixture.CaseName)
