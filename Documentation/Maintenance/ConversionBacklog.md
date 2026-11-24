@@ -544,13 +544,12 @@ Keep remaining gaps, parked tasks and limitations visible.
 
 ## Immediate handoff
 
-The separately requested `A06g-BulkDecodedComparison` programme is checking under the [owning register](../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command).
-Codex owns `codex/bulk-semantic-comparison`; delivery is [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
-It depends on the existing semantic comparator and codec and compares decoded JSON without running either decoder.
-The exit requires process evidence, output-preservation checks, current-head CI, and configured review.
-The [change entry](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md) preserves scope and qualification limits.
-The [first manual source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) passed on `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`, including 47 bulk process cases; later review follow-ups require fresh source-bound evidence.
-The production snapshot and conversion milestones remain unchanged.
+`A06g-BulkDecodedComparison` delivered the standalone command in [PR #273](https://github.com/TryUniCAD/Kit/pull/273), merged as `12b98c78`.
+It depends on the existing semantic comparator and codec and reads decoded JSON without running either decoder.
+The [owning register](../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command) links the final process evidence and queue acceptance.
+The [change entry](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md) records the qualification limits.
+The installed comparison command and unified folder are separate work in [PR #275](https://github.com/TryUniCAD/Kit/pull/275).
+The production writer snapshot records the measured [.SLDPRT part scope](../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md). The cross-format milestones remain open.
 
 The next critical-path task is B02: fresh native Fusion readback and paired semantic qualification on PR #94.
 The inspected register names that missing evidence before A06 can qualify its graph comparisons.
@@ -589,7 +588,8 @@ Native writing and full conversion acceptance remain open. SOLIDWORKS host recov
 Task `A08h-LadderRecovery` was published through the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
 Codex published the evidence on `feat/solidworks-ladder-recovery-20261122`; delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`.
 The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
-Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
+The archived reports retain 96 incorrect top/right placements.
+The separately scoped [principal-plane reader repair](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) now matches all 144 native ladder centroids in full and design-only reads.
 The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
 Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.
 
@@ -600,11 +600,14 @@ The [fresh scope](../../re/NativePlacement2026/README.md) settled 48 native atte
 Main retains 45 measured SOLIDWORKS placement mismatches. The separately owned [PR 270](https://github.com/TryUniCAD/Kit/pull/270) candidate passes 138 fresh source comparisons; [PR 269](https://github.com/TryUniCAD/Kit/pull/269) receives fresh decimal evidence for XZ and reverse-YZ refusals. Those contributions remain revision-bound and separate from production readiness.
 Dependencies are merged PRs #263/#265/#267, the existing controller and licensed source measurements. Publication exits on verified hashes, honest failure/semantic accounting and fresh CI/review. Existing writer ownership, including [PR 121](https://github.com/TryUniCAD/Kit/pull/121), remains separate; no donor writer is restored. B02/B03/B04/B05 remain unfinished and the production conversion boundary does not change.
 
-## Cut and revolution native evidence follow-up
+## Principal-plane reader placement repair
 
-Task `A08h-CutsRevolutions20261123` is owned by Codex on `feat/native-feature-campaign-20261123b`. Delivery PR: [#278](https://github.com/TryUniCAD/Kit/pull/278).
-Dependencies are merged PRs #158/#207, the verified catalogues, existing controller and licensed personal API.
-The [campaign summary](../../re/CutsRevolutions2026/README.md) retains exact native scopes, cut sign failures, correction attempts, COM failures and strict reader outcomes.
-The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
-Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
-Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+Task `A04-PlanePlacement` is offline verified in the [owning register](../Reference/Research/AutomationSteps.md#a04-planeplacement-timestamp-independent-principal-references).
+Codex owns `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
+Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
+Dependencies are merged PRs #263 and #267 and their unchanged native source observations.
+The bounded exit requires correct public-reader placement, timestamp variability, malformed-reference guards, and unchanged older part output.
+The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the completed offline checks.
+Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
+Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
+Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
