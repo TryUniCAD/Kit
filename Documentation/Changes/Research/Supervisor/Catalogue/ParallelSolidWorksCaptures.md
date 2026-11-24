@@ -10,20 +10,23 @@ to you under it immediately and permanently.
 
 # Parallel SOLIDWORKS catalogue captures
 
-New SOLIDWORKS authoring runs allow two native workers on the same licensed
-Windows desktop. Set `"capture_workers": 1` in the JSON passed through
-`--solidworks-host` to request one exclusive worker. This setting is independent
-of `--workers`, which controls offline decoding. Kit pins the native worker
-count and group identifier with the run. Use a new run directory to change this
-setting. Older runs retain their recorded settings.
+New SOLIDWORKS authoring runs allow up to five native workers on the same
+licensed Windows desktop. Set `capture_workers` to an integer from 1 to 5 in
+the JSON passed through `--solidworks-host` to lower the cap. This setting is
+independent of `--workers`, which controls offline decoding. Kit pins the native
+worker count and group identifier with the run. Use a new run directory to
+change this setting. Older runs retain their recorded settings.
 
 When **Input dimension value** is enabled in **System Options → General**, Kit
 holds the exclusive phase lock while it suppresses and restores the prompt.
-When the prompt is already disabled, Kit can run two phases concurrently
-without writing the preference. The worker checks this setting on its own
-instance before allowing overlap.
+When the prompt is already disabled, Kit can run phases concurrently without
+writing the preference. The worker checks this setting on its own instance
+before allowing overlap. The native startup wait budget accounts for other
+configured workers that may need the exclusive lock.
 
-The supervisor admits the second worker when its CPU and memory checks allow.
+The supervisor increases native concurrency as CPU and memory allow. Five is
+the configured cap. The default 4 GiB host reserve, current available memory,
+and measured or estimated worker memory can reduce the active count.
 Each authoring and reopen phase launches its own process and attaches through
 that PID's COM registration. The Windows launcher requires a live same-run
 lease for every other SOLIDWORKS process it sees. An unrelated session or
@@ -39,8 +42,8 @@ capture.
 
 On Windows at `d98da3b803e6c767bca27efae70784f8ff51f7c7`, all three process
 checks passed in 48.51 seconds. The lease probe accepted the same-run process
-and refused foreign and released leases. The two catalogue runs verified the
-default, the exclusive override, and the original settings after resume. The
+and refused foreign and released leases. The catalogue runs verified the former
+two-worker default, the exclusive override, and the original settings after resume. The
 launcher also compiled against the installed SOLIDWORKS API without starting
 the application. Licensed overlap, independent normal exits and archive
 verification are tracked under

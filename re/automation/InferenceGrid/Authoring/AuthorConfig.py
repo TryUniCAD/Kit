@@ -11,7 +11,10 @@ from sys import executable
 from uuid import uuid4
 
 from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
-from CaptureTools.Catalogue.SolidWorks.SolidHost import ValidateSolidHost
+from CaptureTools.Catalogue.SolidWorks.SolidHost import (
+    KDefaultSolidCaptureWorkers,
+    ValidateSolidHost,
+)
 from InferenceGrid.Authoring.NativeEnvironment import CaptureNative
 from InferenceGrid.Authoring.AddSolidRunners import AddSolidRunners
 from Pilot.PilotConfig import PilotConfig
@@ -52,13 +55,13 @@ def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath, *, AllowParal
     if HostPath is not None:
         HostValue = read_record(HostPath)
         if AllowParallel:
-            HostValue.setdefault("capture_workers", 2)
+            HostValue.setdefault("capture_workers", KDefaultSolidCaptureWorkers)
         CaptureWorkers = ValidateSolidHost(HostValue, Prepared=False)
         if "native_environment" not in HostValue:
             HostValue["native_environment"] = CaptureNative()
-        if CaptureWorkers == 2:
+        if CaptureWorkers > 1:
             if not AllowParallel:
-                raise ValueError("two SOLIDWORKS workers require catalogue sample authoring")
+                raise ValueError("parallel SOLIDWORKS workers require catalogue sample authoring")
             HostValue["parallel_group"] = uuid4().hex
         HostFile = WriteRecord(Directory / "SolidWorksHost.json", HostValue)
         AddSolidRunners(ConfigValue, SourceRoot, SchemaPath, HostFile)

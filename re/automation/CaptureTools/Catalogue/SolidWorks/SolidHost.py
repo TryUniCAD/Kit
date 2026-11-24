@@ -12,6 +12,15 @@ from re import fullmatch
 from InferenceGrid.Authoring.NativeEnvironment import ValidateNative
 
 
+# the default capacity is bounded by the measured host budget before supervisor admission
+KDefaultSolidCaptureWorkers = 5
+
+
+# exclusive phases can leave siblings waiting ahead of the next native launch
+def SolidAdmissionSeconds(Host):
+    return min(Host.get("phase_seconds", 600), 300) * (Host.get("capture_workers", 1) - 1)
+
+
 # only a saved catalogue configuration may authorize native workers to share a campaign
 def ValidateSolidHost(Host, *, Prepared):
     Expected = {"interop_assembly", "executable"}
@@ -32,11 +41,11 @@ def ValidateSolidHost(Host, *, Prepared):
     if type(Timeout) is not int or not 1 <= Timeout <= 86400:
         raise ValueError("SOLIDWORKS phase timeout must be between 1 and 86400 seconds")
     Workers = Host.get("capture_workers", 1)
-    if type(Workers) is not int or Workers not in (1, 2):
-        raise ValueError("SOLIDWORKS capture_workers must be 1 or 2")
+    if type(Workers) is not int or not 1 <= Workers <= KDefaultSolidCaptureWorkers:
+        raise ValueError(f"SOLIDWORKS capture_workers must be between 1 and {KDefaultSolidCaptureWorkers}")
     if Prepared:
         Group = Host.get("parallel_group")
-        if Workers == 2:
+        if Workers > 1:
             if not isinstance(Group, str) or fullmatch("[0-9a-f]{32}", Group) is None:
                 raise ValueError("parallel SOLIDWORKS workers require their prepared catalogue group")
         elif "parallel_group" in Host:

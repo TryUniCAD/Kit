@@ -13,7 +13,7 @@ from Records import digest
 
 
 # a native batch amortizes process startup without sharing accepted bundles or decoder verdicts between cases
-def SubmitBatch(Directory, PlanValue, Resource):
+def SubmitBatch(Directory, PlanValue, Resource, *, AdditionalWait=0):
     Samples = [
         {
             "sample": Identity,
@@ -51,7 +51,7 @@ def SubmitBatch(Directory, PlanValue, Resource):
                     "inputs": {"cases": Binding},
                     "resources": [Resource],
                     "options": {"cases_sha256": CasePin},
-                    "timeout_seconds": 3600,
+                    "timeout_seconds": 3600 + AdditionalWait,
                     "max_attempts": 1,
                 }
             ]

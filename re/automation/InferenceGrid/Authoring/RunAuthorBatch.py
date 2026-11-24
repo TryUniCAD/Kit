@@ -9,6 +9,7 @@
 from pathlib import Path
 from contextlib import nullcontext
 
+from CaptureTools.Catalogue.SolidWorks.SolidHost import SolidAdmissionSeconds
 from InferenceGrid.Authoring.AuthorConfig import AuthorConfig
 from InferenceGrid.Authoring.AuthorOutcome import AuthorOutcome
 from InferenceGrid.Authoring.BuildAuthorPlan import BuildAuthorPlan
@@ -149,8 +150,17 @@ def FinishAuthor(
 ):
     Submissions = []
     if "solidworks" in RunValue["resources"]:
+        SolidHost = read_record(Directory / "SolidWorksHost.json")
+        AdditionalWait = 0
+        if SolidHost.get("capture_workers", 1) > 2:
+            AdditionalWait = 2 * SolidAdmissionSeconds(SolidHost)
         Submissions.extend(
-            SubmitSolid(Directory, PlanValue, RunValue["resources"]["solidworks"])
+            SubmitSolid(
+                Directory,
+                PlanValue,
+                RunValue["resources"]["solidworks"],
+                AdditionalWait=AdditionalWait,
+            )
         )
     if RunValue["native"] is not None:
         Native = RunValue["native"]

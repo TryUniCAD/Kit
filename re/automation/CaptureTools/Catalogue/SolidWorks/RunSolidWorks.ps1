@@ -16,7 +16,8 @@ param(
     [switch]$CompileOnly,
     [switch]$Batch,
     [ValidatePattern('^[0-9a-f]{32}$')] [string]$ParallelGroup,
-    [ValidateRange(1, 300)] [int]$ParallelWaitSeconds = 300
+    [ValidateRange(2, 5)] [int]$ParallelWorkerLimit = 5,
+    [ValidateRange(1, 1200)] [int]$ParallelWaitSeconds = 300
 )
 
 $ErrorActionPreference = 'Stop'
@@ -72,7 +73,9 @@ try {
     if (-not $Acquired) { throw 'The shared SOLIDWORKS oracle is owned by another operation.' }
     if ($Parallel) {
         $Peers = @(Get-ParallelSolidPeers $ParallelGroup)
-        if ($Peers.Count -ge 2) { throw 'The catalogue already owns two SOLIDWORKS processes.' }
+        if ($Peers.Count -ge $ParallelWorkerLimit) {
+            throw "The catalogue already owns $ParallelWorkerLimit SOLIDWORKS processes."
+        }
     } elseif (Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue) {
         throw 'Preserve the existing SOLIDWORKS session and use an idle native host.'
     }

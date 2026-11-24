@@ -775,7 +775,7 @@ Codex owns this scope on [codex/parallel-solidworks-capture](https://github.com/
 It depends on the A08h licensed catalogue runner, controller, and supervisor.
 PRs [#288](https://github.com/TryUniCAD/Kit/pull/288) and
 [#289](https://github.com/TryUniCAD/Kit/pull/289) retain their separate native
-batching and shutdown scopes. This delivery covers two default capture workers
+batching and shutdown scopes. This delivery covers a default cap of five capture workers
 on one licensed Windows desktop. Exit requires overlapping owned native
 processes, independent normal exits and reopen evidence, unchanged source and
 archive pins, and current revision CI and review evidence.

@@ -11,6 +11,7 @@ from pathlib import Path
 
 from CaptureTools.Catalogue.SolidWorks.NativeSolidEnv import NativeSolidEnv
 from CaptureTools.Catalogue.SolidWorks.SolidPhaseFault import SolidPhaseFault
+from CaptureTools.Catalogue.SolidWorks.SolidHost import SolidAdmissionSeconds
 
 
 # a dedicated job bounds native descendants without touching other application sessions
@@ -45,13 +46,14 @@ def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName, IsBatch=False):
     if IsBatch:
         Command.append("-Batch")
     PhaseSeconds = HostConfig.get("phase_seconds", 600)
-    AdmissionSeconds = 0
-    if HostConfig.get("capture_workers", 1) == 2:
-        AdmissionSeconds = min(PhaseSeconds, 300)
+    AdmissionSeconds = SolidAdmissionSeconds(HostConfig)
+    if AdmissionSeconds:
         Command.extend(
             (
                 "-ParallelGroup",
                 HostConfig["parallel_group"],
+                "-ParallelWorkerLimit",
+                str(HostConfig["capture_workers"]),
                 "-ParallelWaitSeconds",
                 str(AdmissionSeconds),
             )

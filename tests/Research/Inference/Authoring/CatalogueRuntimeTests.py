@@ -21,7 +21,7 @@ from tests.Research.Inference.Authoring.CataloguePlanTests import (
 
 
 # a configured but unavailable host exercises real queueing without launching a native application
-@CaseMark.parametrize("CaptureWorkers", (1, 2))
+@CaseMark.parametrize("CaptureWorkers", (1, 2, 5))
 def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
     HostPath = TmpPath / "Host.json"
     BinaryPaths = [
@@ -35,7 +35,7 @@ def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
             {
                 "executable": str(BinaryPaths[0]),
                 "interop_assembly": str(BinaryPaths[1]),
-                **({"capture_workers": 1} if CaptureWorkers == 1 else {}),
+                **({"capture_workers": CaptureWorkers} if CaptureWorkers != 5 else {}),
             }
         ),
         encoding="utf-8",
@@ -92,7 +92,8 @@ def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
     assert Config["pools"]["authoring-solidworks"]["max_sessions"] == CaptureWorkers
     assert Config["resources"]["application:solidworks:catalogue"] == CaptureWorkers
     SavedHost = DecodeJson((RunPath / "SolidWorksHost.json").read_bytes())
-    if CaptureWorkers == 2:
+    assert SavedHost["capture_workers"] == CaptureWorkers
+    if CaptureWorkers > 1:
         assert len(SavedHost["parallel_group"]) == 32
     else:
         assert "parallel_group" not in SavedHost
@@ -100,6 +101,13 @@ def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
         Initial = Database.execute(
             "SELECT id,state,attempts,receipt,result FROM jobs ORDER BY id"
         ).fetchall()
+        CaptureDefinition = Database.execute(
+            "SELECT definition FROM jobs WHERE kind = 'capture.catalogue.solidworks'"
+        ).fetchone()
+    assert CaptureDefinition is not None
+    assert DecodeJson(CaptureDefinition[0])["timeout_seconds"] == (
+        3900 if CaptureWorkers == 5 else 1500
+    )
     assert len(Initial) == 2 and all(Entry[2] == 0 for Entry in Initial)
     Resumed = RunProcess(
         [*Command, "--resume", "--max-seconds", "1"],

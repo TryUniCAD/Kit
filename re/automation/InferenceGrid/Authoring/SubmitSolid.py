@@ -15,7 +15,7 @@ from Records import digest, read_record
 
 
 # a captured native bundle becomes a decoder dependency without reopening a user document
-def SubmitSolid(Directory, PlanValue, Resource):
+def SubmitSolid(Directory, PlanValue, Resource, *, AdditionalWait=0):
     Submissions = []
     for Identity, Selection in PlanValue["samples"].items():
         if Selection["application"] != "solidworks":
@@ -51,7 +51,7 @@ def SubmitSolid(Directory, PlanValue, Resource):
                 "inputs": {"case": CaseBinding},
                 "resources": [Resource],
                 "options": {"case_sha256": CaseHash},
-                "timeout_seconds": 1500,
+                "timeout_seconds": 1500 + AdditionalWait,
             },
             {
                 **Common,
@@ -72,4 +72,7 @@ def SubmitSolid(Directory, PlanValue, Resource):
         Submissions.append(
             {"samples": [Identity], "capture": [CaptureJob], "decode": DecodeJob}
         )
-    return [*Submissions, *SubmitBatch(Directory, PlanValue, Resource)]
+    return [
+        *Submissions,
+        *SubmitBatch(Directory, PlanValue, Resource, AdditionalWait=AdditionalWait),
+    ]
