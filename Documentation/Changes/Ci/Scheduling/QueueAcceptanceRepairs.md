@@ -7,11 +7,14 @@ Exit: current-head PR checks and configured approval, then successful native que
 
 ## Provider identity
 
-The cleanup fixture now records a child PID and creation identity before the provider exits.
+On Windows, the cleanup fixture now records a child PID and creation identity before the provider exits.
 Its independent probe compares both values after cleanup.
 A reused PID cannot identify an unrelated process as a surviving provider child.
 The existing job-object containment, verified-termination receipt, and no-surviving-child assertions remain required.
-Missing identity evidence fails the probe.
+Missing Windows identity evidence fails the probe.
+Other platforms retain their existing post-cleanup live-process check.
+The timed provider does not start a new macOS `ps` identity query.
+A missing provider receipt fails explicitly without increasing the one-second provider timeout.
 
 The [failed Windows job](https://github.com/TryUniCAD/Kit/actions/runs/45384866420/job/138413726421) reported a live PID after verified job termination.
 The old fixture recorded no creation identity, so its log cannot distinguish PID reuse from a surviving child.
@@ -34,7 +37,7 @@ No product parser, native writer, or conversion qualification changes here.
 The requested live values are two candidate builds, one minimum merge entry, zero batching wait, and the documented ninety-minute response timeout.
 All required checks, review rules, grouping strategy, bypass actors, and other protections must remain unchanged.
 The authenticated API connection rejected the minimal ruleset update with HTTP 404 on 24 November 2026.
-No browser session was available for an alternative authenticated update.
+The available browser was signed out and could not apply an authenticated update.
 The prepared request is `/tmp/KitQueueRulesPatch.json`; it contains the existing rules with only those four queue parameters changed.
 The live queue therefore remains uncorrected until an authorized administration connection applies and reads back those values.
 
