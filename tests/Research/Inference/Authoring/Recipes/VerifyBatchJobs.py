@@ -45,5 +45,12 @@ def VerifyBatchJobs(Report: dict[str, object], PlanValue: dict[str, object]) -> 
         CaptureId = ReadText(Capture["id"])
         assert (CaptureId, ArtifactRole) not in SeenRoles
         SeenRoles.add((CaptureId, ArtifactRole))
-        VerifyCaseJob(Identity, Selection, Capture, Selector, Records)
+        VerifyCaseJob(
+            Identity,
+            Selection,
+            Capture,
+            Selector,
+            Records,
+            PlanValue.get("solidworks_batch_version") == 1,
+        )
     assert SeenSamples == set(Samples)

@@ -9,6 +9,7 @@
 from tests.Research.Inference.Authoring.Contracts.ReadObject import ReadObject
 from tests.Research.Inference.Authoring.Contracts.ReadText import ReadText
 from tests.Research.Inference.Authoring.Contracts.ReadValues import ReadValues
+from tests.Research.Inference.Authoring.Recipes.RecipeTargets import KRecipeTargets
 
 
 # emitted capture jobs must retain the exact registered or legacy artifact transport contract
@@ -18,9 +19,11 @@ def VerifyCaseJob(
     Capture: dict[str, object],
     Selector: dict[str, object],
     Records: dict[str, object],
+    BatchPaired: bool,
 ) -> None:
     ArtifactRole = ReadText(Selector["artifact"])
-    if Capture["kind"] == "capture.catalogue.solidworks.batch":
+    if BatchPaired or ReadText(Selection["recipe"]) in KRecipeTargets:
+        assert Capture["kind"] == "capture.catalogue.solidworks.batch"
         Bound = ReadObject(Records[ReadText(ReadObject(Capture["inputs"])["cases"])])
         BoundSamples = ReadValues(Bound["samples"])
         assert Bound["schema_version"] == 1 and 1 <= len(BoundSamples) <= 3
