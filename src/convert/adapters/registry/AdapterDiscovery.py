@@ -16,6 +16,17 @@ from convert.adapters.registry.RegistryErrors import DiscoveryError
 KInternalPackages = frozenset({"base", "registry", "Staging"})
 
 
+# deferred exports must share the audited import boundary without loading discovery before first use
+def LoadExportMod(ModuleName: str) -> ModuleType:
+    NameParts = ModuleName.split(".")
+    if NameParts[0] not in {"convert", "interchange"} or not all(
+        PartName.isidentifier() for PartName in NameParts
+    ):
+        raise ValueError("deferred exports require a production module name")
+    # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
+    return ImportModule(ModuleName)
+
+
 # internal filtering applies only to the built in root so third party package names remain unrestricted
 def IsInternalPack(PackageName: str, ItemName: str) -> bool:
     return (
@@ -71,12 +82,16 @@ def GetAdapterType(CandidateData: object, PackageName: str) -> type[object] | No
     return CandidateData if IsReader or IsWriter else None
 
 
-# module inspection deduplicates imported symbols while preserving deterministic class ordering
+# module inspection resolves deferred facade exports so lazy packages still contribute every adapter they publish
 def GetModuleTypes(ModuleData: ModuleType) -> tuple[type[object], ...]:
     AdapterTypes = {
         AdapterType
-        for CandidateData in vars(ModuleData).values()
-        if (AdapterType := GetAdapterType(CandidateData, ModuleData.__name__))
+        for NameValue in sorted({*vars(ModuleData), *dir(ModuleData)})
+        if (
+            AdapterType := GetAdapterType(
+                getattr(ModuleData, NameValue, None), ModuleData.__name__
+            )
+        )
         is not None
     }
     return tuple(
