@@ -11,7 +11,7 @@ from tests.Research.SupervisorClient import KRepoRoot
 
 # a real window process distinguishes a normal close from a mistaken or forced teardown
 @CaseMark.skipif(HostPlatform != "win32", reason="Windows process exit integration")
-def CheckOwnedExit() -> None:
+def CheckOwnedExit(TmpPath: FilePath) -> None:
     ProbePath = FilePath(__file__).with_name("PhaseExitProbe.ps1")
     HelperPath = (
         KRepoRoot / "re/automation/CaptureTools/Catalogue/SolidWorks/WaitOwnedExit.ps1"
@@ -28,6 +28,8 @@ def CheckOwnedExit() -> None:
             str(ProbePath),
             "-HelperPath",
             str(HelperPath),
+            "-ProbeDirectory",
+            str(TmpPath),
         ],
         cwd=KRepoRoot,
         capture_output=True,
@@ -40,6 +42,8 @@ def CheckOwnedExit() -> None:
         "identity_refused": True,
         "failed_phase_refused": True,
         "missing_frame_refused": True,
+        "foreign_frame_refused": True,
+        "posted_without_exit": True,
         "close_requested": True,
         "exit_observed": True,
         "exit_code": 0,

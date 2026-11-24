@@ -47,6 +47,11 @@ cleanup. The worker independently reopened 11 archives and the decoder
 recorded its results. The catalogue result SHA-256 is
 `66578828b46645927feb6686b0a72a2c31eb6f870bfde6b0475ed6a01385ecd7`.
 Broader paired and written-recipe verification is in progress.
+
+The shared Windows process probe checks that a window belonging to another
+live process is refused. It also checks that a verified window can receive the
+close request while its owning process remains alive. The exit receipt records
+the observed process state separately from the request.
 [Shutdown finding](../../../../Gotchas/Research/Workers/SolidWorks/CatalogueCaptureExitObservation.md)
 [Starting process image finding](../../../../Gotchas/Research/Workers/SolidWorks/StartingProcessModuleLookup.md)
 [SOLIDWORKS frame finding](../../../../Gotchas/Research/Workers/SolidWorks/HiddenFrameWindowSelection.md)
