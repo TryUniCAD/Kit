@@ -28,6 +28,10 @@ It rejects external package roots and malformed module-name segments before dyna
 The facade imports the gateway only when an export or child package exists.
 Missing-name probes such as `hasattr` raise `AttributeError` before the registry package loads.
 
+The gateway delegates to the existing audited plugin import call.
+The three original discovery call sites share that call without adding another suppression for deferred exports.
+Production-root and module-name validation remains mandatory before a facade can reach it.
+
 The unchanged dependency policy checks the complete production source tree.
 A fresh isolated interpreter checks discovery deferral, missing-name probes without registry startup, public object identity, caching, direct facade child-package lookup, and invalid-module rejection.
 Runtime import compatibility does not establish native CAD acceptance.
