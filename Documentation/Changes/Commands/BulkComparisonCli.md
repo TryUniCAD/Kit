@@ -19,6 +19,8 @@ Existing direct invocations can opt in with `--unified`.
 
 Both inputs must retain feature history, including embedded documents, before unified publication.
 The publisher shares the conversion preflight history rule.
+It also uses the SDK feature preflight and requires a generated design body in each document.
+Datum-only histories and inactive body generators remain comparison evidence and receive per-side exclusions.
 Historyless matches keep their reports and equality status, with per-side `unified_exclusions` diagnostics and no copy.
 The [historyless export gotcha](../../Gotchas/Research/Comparison/HistorylessUnifiedExports.md) describes the original defect.
 An installed-command smoke run confirmed that equal parameter-only documents retain exit `0` and publish zero unified copies.

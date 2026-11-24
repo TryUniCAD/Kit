@@ -113,9 +113,11 @@ Use the `unified` field in each summary row to find the copy, its SHA-256, byte 
 The numbered name uses the same pair index as the detailed report.
 The copy preserves the original document and any qualification markers.
 Both documents and their embedded documents must contain feature history before a unified copy is eligible.
+Each must also contain a design body with an active generating history accepted by the SDK feature preflight.
+Datum-only, unsupported, and inactive generator histories retain reports without unified copies.
 Historyless documents keep their comparison reports and `equal_observed_graph` status when their observed graphs agree.
 Their summary rows and detailed reports record per-side `unified_exclusions` diagnostics, and no copy is published.
-This history check does not establish conversion qualification or native acceptance.
+This history eligibility check does not establish geometry qualification or native acceptance.
 Pairs with differences, unresolved evidence or input failures get reports without copies.
 Any nonzero tolerance disables copying for the entire run.
 This keeps the folder limited to exact agreement within the comparator's observed scope.

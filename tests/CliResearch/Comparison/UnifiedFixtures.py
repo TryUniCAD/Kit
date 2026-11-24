@@ -1,5 +1,6 @@
 from pathlib import Path as FilePath
 
+from tests.CliResearch.Comparison.UnifiedDocument import UnifiedDocument
 from tests.Research.Archives.Comparison.SemanticComparisonTests import WriteDocument
 from tests.Research.Archives.Comparison.SemanticDocuments import (
     ChangeSemantic,
@@ -15,9 +16,9 @@ def MakeInputs(WorkPath: FilePath, IncludeIssues: bool) -> dict[FilePath, bytes]
     First.mkdir()
     Second.mkdir()
     LeftEqual = First / "AEqual.json"
-    WriteDocument(LeftEqual, MakeDocument("left"))
+    WriteDocument(LeftEqual, UnifiedDocument("left"))
     _ = LeftEqual.write_bytes(LeftEqual.read_bytes() + b"\n \n")
-    WriteDocument(Second / "AEqual.json", PermuteModel(MakeDocument("other")))
+    WriteDocument(Second / "AEqual.json", PermuteModel(UnifiedDocument("other")))
     if IncludeIssues:
         WriteDocument(First / "BChanged.json", MakeDocument())
         WriteDocument(Second / "BChanged.json", ChangeSemantic(MakeDocument(), "role"))

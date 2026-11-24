@@ -1,6 +1,7 @@
 import os
 
 from SemanticComparison import DOCUMENT_BYTES, pinned_bytes
+from convert.Commands.CheckFeatures import CheckFeatures
 from convert.Commands.Qualified.CheckDocHistory import CheckDocHistory
 from interchange.document.Models.DocumentWalk import WalkDocuments
 
@@ -11,6 +12,12 @@ def export_exclusions(documents):
         try:
             for part in WalkDocuments(document):
                 CheckDocHistory(part)
+                CheckFeatures(part)
+                if not part.bodies:
+                    raise ValueError(
+                        "MissingBodyHistory records have no generated design body; "
+                        "retain them as comparison reports instead of unified exports"
+                    )
         except ValueError as error:
             exclusions[side] = str(error)[:4096]
     return exclusions

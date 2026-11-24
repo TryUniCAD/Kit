@@ -13,12 +13,12 @@ from interchange.assembly.ComponentDefinition import ComponentDef
 from interchange.document.Models.DocumentModel import AssemblyData
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentModel import ComponentDoc
-from tests.Research.Archives.Comparison.SemanticDocuments import MakeDocument
+from tests.CliResearch.Comparison.UnifiedDocument import UnifiedDocument
 
 
 # nested inputs must isolate missing component history from an otherwise populated root history
 def MakeEmbedded(HasHistory: bool) -> CadDocument:
-    Nested = MakeDocument("child")
+    Nested = UnifiedDocument("child")
     if not HasHistory:
         Nested = ReplaceValue(
             Nested,
@@ -30,7 +30,7 @@ def MakeEmbedded(HasHistory: bool) -> CadDocument:
             bodies=(),
         )
     return ReplaceValue(
-        MakeDocument("root"),
+        UnifiedDocument("root"),
         assembly=AssemblyData(
             "assemblyroot",
             (ComponentDef("assemblyroot", "Root", ComponentKind.KAssembly),),
