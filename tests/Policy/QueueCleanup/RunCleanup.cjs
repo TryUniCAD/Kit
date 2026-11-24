@@ -126,18 +126,18 @@ const Github = {
     if (Request.status !== ExpectedStatus) return [];
     if (Fixture.CaseName === "unrelated-flood")
       return [
-        ...Array.from({ length: 1000 }, (Value, Index) => ({
+        ...Array.from({ length: 999 }, (Value, Index) => ({
           id: Index + 1000,
           path: ".github/workflows/Other.yml",
         })),
-        { id: 42, path: Fixture.Current.path },
+        { id: 42, path: Fixture.ListedPath },
       ];
     return ["multiple", "replacement"].includes(Fixture.CaseName)
       ? [
-          { id: 42, path: Fixture.Current.path },
-          { id: 43, path: Fixture.Current.path },
+          { id: 42, path: Fixture.ListedPath },
+          { id: 43, path: Fixture.ListedPath },
         ]
-      : [{ id: 42, path: Fixture.Current.path }];
+      : [{ id: 42, path: Fixture.ListedPath }];
   },
 };
 

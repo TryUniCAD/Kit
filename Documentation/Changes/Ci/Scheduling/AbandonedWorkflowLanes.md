@@ -38,6 +38,9 @@ Live queue-setting changes remain blocked by the separate administration-connect
 
 The workflow list is filtered against the shared two-path allowlist before any per-run refetch.
 The fresh response still passes every independent cancellation check.
-A process case includes one thousand unrelated workflow rows and rejects any attempt to refetch them.
+A process case includes 999 unrelated workflow rows and rejects any attempt to refetch them.
 Queued, pending, waiting, and requested fixtures appear only in their matching discovery queries.
 Removing one of those queries therefore fails the corresponding process case.
+
+The flood fixture retains its eligible target within the API’s 1,000-result filtered-search limit.
+A separate listed-path value admits the workflow case to refetch, where its fresh unsupported path must still prevent cancellation.

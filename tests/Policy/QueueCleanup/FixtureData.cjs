@@ -27,6 +27,7 @@ function FixtureData(CaseName, WorkflowName = "MergeQueue.yml") {
   Object.assign(Current, Changes[CaseName] ?? {});
   return {
     CaseName,
+    ListedPath: `.github/workflows/${WorkflowName}`,
     Current,
     Cancelled: [],
     Calls: [],
