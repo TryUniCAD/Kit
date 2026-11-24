@@ -21,7 +21,7 @@ from tests.Research.Inference.Authoring.CataloguePlanTests import (
 
 
 # a configured but unavailable host exercises real queueing without launching a native application
-@CaseMark.parametrize("CaptureWorkers", (1, 2, 5))
+@CaseMark.parametrize("CaptureWorkers", (1, 2, 6))
 def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
     HostPath = TmpPath / "Host.json"
     BinaryPaths = [
@@ -35,7 +35,7 @@ def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
             {
                 "executable": str(BinaryPaths[0]),
                 "interop_assembly": str(BinaryPaths[1]),
-                **({"capture_workers": CaptureWorkers} if CaptureWorkers != 5 else {}),
+                **({"capture_workers": CaptureWorkers} if CaptureWorkers != 6 else {}),
             }
         ),
         encoding="utf-8",
@@ -106,7 +106,7 @@ def CheckResume(TmpPath: FilePath, CaptureWorkers: int) -> None:
         ).fetchone()
     assert CaptureDefinition is not None
     assert DecodeJson(CaptureDefinition[0])["timeout_seconds"] == (
-        3900 if CaptureWorkers == 5 else 1500
+        4500 if CaptureWorkers == 6 else 1500
     )
     assert len(Initial) == 2 and all(Entry[2] == 0 for Entry in Initial)
     Resumed = RunProcess(

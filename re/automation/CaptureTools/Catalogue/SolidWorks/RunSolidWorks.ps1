@@ -16,8 +16,8 @@ param(
     [switch]$CompileOnly,
     [switch]$Batch,
     [ValidatePattern('^[0-9a-f]{32}$')] [string]$ParallelGroup,
-    [ValidateRange(2, 5)] [int]$ParallelWorkerLimit = 5,
-    [ValidateRange(1, 1200)] [int]$ParallelWaitSeconds = 300
+    [ValidateRange(2, 6)] [int]$ParallelWorkerLimit = 6,
+    [ValidateRange(1, 1500)] [int]$ParallelWaitSeconds = 300
 )
 
 $ErrorActionPreference = 'Stop'

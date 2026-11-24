@@ -13,7 +13,7 @@ from InferenceGrid.Authoring.NativeEnvironment import ValidateNative
 
 
 # the default capacity is bounded by the measured host budget before supervisor admission
-KDefaultSolidCaptureWorkers = 5
+KDefaultSolidCaptureWorkers = 6
 
 
 # exclusive phases can leave siblings waiting ahead of the next native launch

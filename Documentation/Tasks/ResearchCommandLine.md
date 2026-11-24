@@ -278,8 +278,8 @@ See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/Reusable
 for exact identities, limits, and evidence requirements.
 
 SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
-New authoring runs allow up to five native workers on the same licensed desktop
-by default. Set `capture_workers` to an integer from 1 to 5 in the host JSON
+New authoring runs allow up to six native workers on the same licensed desktop
+by default. Set `capture_workers` to an integer from 1 to 6 in the host JSON
 to lower the cap. `--workers` remains the offline worker cap. Kit increases
 native concurrency as CPU and memory allow and refuses unrelated SOLIDWORKS
 sessions. If **Input

@@ -10,8 +10,8 @@ to you under it immediately and permanently.
 
 # Parallel SOLIDWORKS catalogue captures
 
-New SOLIDWORKS authoring runs allow up to five native workers on the same
-licensed Windows desktop. Set `capture_workers` to an integer from 1 to 5 in
+New SOLIDWORKS authoring runs allow up to six native workers on the same
+licensed Windows desktop. Set `capture_workers` to an integer from 1 to 6 in
 the JSON passed through `--solidworks-host` to lower the cap. This setting is
 independent of `--workers`, which controls offline decoding. Kit pins the native
 worker count and group identifier with the run. Use a new run directory to
@@ -24,7 +24,7 @@ writing the preference. The worker checks this setting on its own instance
 before allowing overlap. The native startup wait budget accounts for other
 configured workers that may need the exclusive lock.
 
-The supervisor increases native concurrency as CPU and memory allow. Five is
+The supervisor increases native concurrency as CPU and memory allow. Six is
 the configured cap. The default 4 GiB host reserve, current available memory,
 and measured or estimated worker memory can reduce the active count.
 Each authoring and reopen phase launches its own process and attaches through
@@ -43,7 +43,7 @@ capture.
 On Windows at `f5318eb1313de0e0309ec1b8f4b1f2ca92a4118c`, all four process
 checks passed in 71.62 seconds. The lease probe accepted the same-run process
 and refused foreign and released leases. Catalogue runs verified the
-five-worker default, one- and two-worker overrides, the native timeout budget,
+former five-worker default, one- and two-worker overrides, the native timeout budget,
 and the saved settings after resume. The launcher compiled against the
 installed SOLIDWORKS API with the five-worker limit and 20-minute startup wait
 budget without starting the application. Licensed overlap, independent normal
