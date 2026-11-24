@@ -285,6 +285,31 @@ checkout. Pause/resume keeps the existing native and decoder receipts.
 See [catalogue sample authoring](../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md)
 for the case format, native host requirements, limitations, and evidence rules.
 
+#### Share SOLIDWORKS catalogue results between devices
+
+When a SOLIDWORKS authoring run stops, export its accepted case records to the selected checkout.
+Use a checkout that contains the run's source commit.
+The following paths are examples.
+
+```sh
+kit run --root . solidworks --directory /path/to/CompletedRun --export-checklist
+```
+
+Commit the generated files under `re/CatalogueChecklist/` through a regular PR.
+After pulling that commit on another device, run catalogue authoring as usual.
+Kit checks the committed records before it schedules work.
+Matching results retain their original status, including unresolved findings.
+Use `--fresh-samples` to request fresh native captures.
+
+For offline replay after a reader change, add `--checklist-objects /path/to/Objects` to the export.
+Copy that object directory to the other device or use an available shared directory.
+Supply its path with `--checklist-objects` when you start the new run.
+Kit verifies the capture receipts and bundle hashes before replay.
+If the necessary objects are absent, supply a configured SOLIDWORKS host to capture those cases again.
+See [catalogue receipt checklist](../Changes/Research/Supervisor/Catalogue/CatalogueReceiptChecklist.md).
+
+### Command contracts
+
 | Command                                       | Contract                                                   |
 | --------------------------------------------- | ---------------------------------------------------------- |
 | `kit convert SOURCE DESTINATION`              | User conversion through the SDK and its output policy      |

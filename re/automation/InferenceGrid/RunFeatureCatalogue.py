@@ -63,6 +63,11 @@ def MainRun():
     Mode.add_argument(
         "--resume", action="store_true", help="Continue a prepared catalogue directory"
     )
+    Mode.add_argument(
+        "--export-checklist",
+        action="store_true",
+        help="Export accepted SOLIDWORKS receipts from the run as Git checklist records",
+    )
     Parser.add_argument("--solidworks-catalogue", type=Path)
     Parser.add_argument("--solidworks-sha256")
     Parser.add_argument("--fusion-catalogue", type=Path)
@@ -94,7 +99,17 @@ def MainRun():
     Parser.add_argument(
         "--author-samples",
         action="store_true",
-        help="Author fresh executable recipe cases before decoding their native files",
+        help="Author executable recipe cases that need fresh native captures",
+    )
+    Parser.add_argument(
+        "--fresh-samples",
+        action="store_true",
+        help="Ignore published case evidence and author fresh samples",
+    )
+    Parser.add_argument(
+        "--checklist-objects",
+        type=Path,
+        help="Optional directory for exporting or replaying content-addressed capture evidence",
     )
     Parser.add_argument(
         "--authoring-cases",
@@ -153,6 +168,26 @@ def MainRun():
             raise ValueError("codec promotion requires a running or resumed catalogue")
         SourceRoot = Path(__file__).resolve().parents[3]
         Directory = Args.directory.resolve()
+        if Args.export_checklist:
+            from InferenceGrid.Authoring.ChecklistExport import ExportChecklist
+
+            Objects = Args.checklist_objects
+            Args.checklist_objects = None
+            CheckSavedArgs(Args)
+            if (
+                Args.batch_format not in (None, "solidworks")
+                or Args.max_seconds is not None
+                or Args.native_ready
+                or any(Promotion)
+            ):
+                raise ValueError(
+                    "use --export-checklist with a saved SOLIDWORKS authoring run"
+                )
+            Output = ExportChecklist(
+                SourceRoot, Directory, None if Objects is None else Objects.resolve()
+            )
+            sys.stdout.buffer.write((canonical(Output) + "\n").encode("utf-8"))
+            return 0
         if Args.pause or Args.resume:
             CheckSavedArgs(Args)
             if Args.pause:
@@ -234,10 +269,12 @@ def CheckSavedArgs(Args):
                 Args.authoring_grid,
                 Args.solidworks_host,
                 Args.fusion_lifecycle,
+                Args.checklist_objects,
             )
         )
         or Args.author_samples
         or Args.prepare_only
+        or Args.fresh_samples
         or Args.input is not None
         or Args.control
         or (Args.pause and (Args.native_ready or Args.max_seconds is not None))
@@ -305,6 +342,12 @@ def StartNewRun(Args, SourceRoot):
             raise ValueError(
                 "native sample authoring uses deterministic recipes without model advice"
             )
+        if Args.fresh_samples and Args.checklist_objects is not None:
+            raise ValueError("--fresh-samples cannot reuse checklist objects")
+        if Args.batch_format == "fusion" and (
+            Args.fresh_samples or Args.checklist_objects is not None
+        ):
+            raise ValueError("checklist options require SOLIDWORKS authoring")
         from InferenceGrid.Authoring.RunAuthorBatch import RunAuthorBatch
 
         return RunAuthorBatch(
@@ -320,6 +363,12 @@ def StartNewRun(Args, SourceRoot):
             HostPath=Args.solidworks_host,
             Reserve=Reserve,
             LifecyclePath=Args.fusion_lifecycle,
+            ChecklistObjects=(
+                None
+                if Args.checklist_objects is None
+                else Args.checklist_objects.resolve()
+            ),
+            FreshSamples=Args.fresh_samples,
             Workers=(
                 4
                 if Args.workers is None
@@ -337,9 +386,11 @@ def StartNewRun(Args, SourceRoot):
                 Args.authoring_grid,
                 Args.solidworks_host,
                 Args.fusion_lifecycle,
+                Args.checklist_objects,
             )
         )
         or Args.prepare_only
+        or Args.fresh_samples
     ):
         raise ValueError("authoring options require --author-samples")
     return RunCatalogueBatch(

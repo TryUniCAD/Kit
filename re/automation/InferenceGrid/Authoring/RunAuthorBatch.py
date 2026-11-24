@@ -12,6 +12,8 @@ from contextlib import nullcontext
 from InferenceGrid.Authoring.AuthorConfig import AuthorConfig
 from InferenceGrid.Authoring.AuthorOutcome import AuthorOutcome
 from InferenceGrid.Authoring.BuildAuthorPlan import BuildAuthorPlan
+from InferenceGrid.Authoring.ChecklistExport import ReadRunReuse
+from InferenceGrid.Authoring.ChecklistReuse import SelectReuse, SubmitReuse
 from InferenceGrid.Authoring.SubmitFusion import SubmitFusion
 from InferenceGrid.Authoring.SubmitSolid import SubmitSolid
 from InferenceGrid.CatalogueBatch import RunSupervisor
@@ -41,12 +43,27 @@ def RunAuthorBatch(
     NativeReady=False,
     PrepareOnly=False,
     LifecyclePath=None,
+    ChecklistObjects=None,
+    FreshSamples=False,
 ):
     Directory = Path(Directory).resolve()
     if Directory.is_relative_to(SourceRoot):
         raise ValueError("use an authoring run directory outside the source checkout")
     PlanValue = BuildAuthorPlan(Catalogues, Revision, CasePath, ModeValue, GridValue)
-    Applications = {Value["application"] for Value in PlanValue["samples"].values()}
+    if not PrepareOnly:
+        CheckRevision(Revision)
+    if ChecklistObjects is not None and ChecklistObjects.is_relative_to(SourceRoot):
+        raise ValueError("keep checklist capture objects outside the checkout")
+    Reuse = (
+        {}
+        if PrepareOnly or FreshSamples
+        else SelectReuse(SourceRoot, PlanValue, ChecklistObjects)
+    )
+    Applications = {
+        Value["application"]
+        for Identity, Value in PlanValue["samples"].items()
+        if Identity not in Reuse
+    }
     if not PrepareOnly and (
         ("fusion" in Applications and Native is None)
         or ("solidworks" in Applications and HostPath is None)
@@ -58,8 +75,6 @@ def RunAuthorBatch(
         raise ValueError(
             "Fusion authoring requires --fusion-lifecycle for automatic fresh process verification"
         )
-    if not PrepareOnly:
-        CheckRevision(Revision)
     Directory.mkdir(mode=0o700)
     with HoldCatalogue(Directory):
         WriteRecord(Directory / "AuthoringPlan.json", PlanValue)
@@ -75,8 +90,13 @@ def RunAuthorBatch(
             return ResultValue
         with Ledger(Directory / "Store", create=True, max_running=64):
             pass
+        WriteRecord(Directory / "AuthoringReuse.json", Reuse)
         ConfigPath, Resources = AuthorConfig(
-            Directory, SourceRoot, Workers, Native, HostPath
+            Directory,
+            SourceRoot,
+            Workers,
+            Native,
+            HostPath if "solidworks" in Applications else None,
         )
         FusionConfig = (
             None
@@ -88,7 +108,7 @@ def RunAuthorBatch(
             str(ConfigPath): digest(ConfigValue),
             ConfigValue["registry"]: digest(read_record(Path(ConfigValue["registry"]))),
         }
-        if HostPath is not None:
+        if "solidworks" in Resources:
             RuntimePins[str(Directory / "SolidWorksHost.json")] = digest(
                 read_record(Directory / "SolidWorksHost.json")
             )
@@ -114,6 +134,10 @@ def RunAuthorBatch(
             "installation": InstallationFile,
             "max_seconds": MaxSeconds,
             "reserve": Reserve,
+            "checklist_sha256": digest(Reuse),
+            "checklist_objects": (
+                None if ChecklistObjects is None else str(ChecklistObjects)
+            ),
         }
         WriteRecord(Directory / "AuthoringRun.json", RunValue)
         return FinishAuthor(
@@ -147,15 +171,26 @@ def ResumeAuthor(Directory, SourceRoot, FormatValue, MaxSeconds, NativeReady):
 def FinishAuthor(
     Directory, SourceRoot, PlanValue, RunValue, MaxSeconds, NativeReady, *, Resume
 ):
-    Submissions = []
+    Reuse = ReadRunReuse(Directory, RunValue)
+    Pending = {
+        **PlanValue,
+        "samples": {
+            Identity: Value
+            for Identity, Value in PlanValue["samples"].items()
+            if Identity not in Reuse
+        },
+    }
+    Submissions = SubmitReuse(
+        Directory, PlanValue, Reuse, RunValue.get("checklist_objects")
+    )
     if "solidworks" in RunValue["resources"]:
         Submissions.extend(
-            SubmitSolid(Directory, PlanValue, RunValue["resources"]["solidworks"])
+            SubmitSolid(Directory, Pending, RunValue["resources"]["solidworks"])
         )
     if RunValue["native"] is not None:
         Native = RunValue["native"]
         Submissions.extend(
-            SubmitFusion(Directory, PlanValue, (Path(Native[0]), Native[1], Native[2]))
+            SubmitFusion(Directory, Pending, (Path(Native[0]), Native[1], Native[2]))
         )
     write_private(Directory / "AuthoringSubmissions.json", {"submissions": Submissions})
     if NativeReady:
@@ -175,21 +210,26 @@ def FinishAuthor(
             Resume=Resume,
         )
     with Lifecycle as GuardValue:
-        FailureValue = RunSupervisor(
-            Directory,
-            SourceRoot,
-            Path(RunValue["config"]),
-            MaxSeconds,
-            "Authoring",
-            Reserve=RunValue["reserve"],
-            Resume=Resume,
-            CheckRunning=None if GuardValue is None else GuardValue.CheckAlive,
+        FailureValue = (
+            RunSupervisor(
+                Directory,
+                SourceRoot,
+                Path(RunValue["config"]),
+                MaxSeconds,
+                "Authoring",
+                Reserve=RunValue["reserve"],
+                Resume=Resume,
+                CheckRunning=None if GuardValue is None else GuardValue.CheckAlive,
+            )
+            if Submissions
+            else None
         )
     ResultValue = AuthorOutcome(
         Directory,
         PlanValue,
         Submissions,
         [] if FailureValue is None else [FailureValue],
+        Reuse,
     )
     if (Directory / "CataloguePause.json").is_file() and ResultValue[
         "status"
@@ -216,4 +256,5 @@ def ReadAuthorRun(Directory, SourceRoot, FormatValue=None):
     ):
         raise ValueError("saved authoring worker configuration changed")
     CheckRevision(PlanValue["source_revision"])
+    ReadRunReuse(Directory, RunValue)
     return PlanValue, RunValue

@@ -13,8 +13,18 @@ from InferenceGrid.Authoring.NativeProofs import ReadNativeProof
 
 
 # native capture completion and unresolved decoding must remain separate observable outcomes
-def AuthorOutcome(Directory, PlanValue, Submissions, Failures):
-    Samples = {}
+def AuthorOutcome(Directory, PlanValue, Submissions, Failures, Reuse=None):
+    Reuse = {} if Reuse is None else Reuse
+    Samples = {
+        Identity: {
+            "status": Value["entry"]["decode"]["status"],
+            "native_verified": False,
+            "jobs": [],
+            "checklist": Value,
+        }
+        for Identity, Value in Reuse.items()
+        if Value["mode"] == "result"
+    }
     with Ledger(Directory / "Store") as StateValue:
         NativeVerified = ReadNativeProof(StateValue, PlanValue, Submissions)
         for Submission in Submissions:
@@ -50,6 +60,8 @@ def AuthorOutcome(Directory, PlanValue, Submissions, Failures):
                     "native_verified": Identity in NativeVerified,
                     "jobs": JobsValue,
                 }
+                if Identity in Reuse:
+                    Samples[Identity]["checklist"] = Reuse[Identity]
     CountsValue = {}
     for Application, FeaturesValue in PlanValue["features"].items():
         CountsValue[Application] = {}

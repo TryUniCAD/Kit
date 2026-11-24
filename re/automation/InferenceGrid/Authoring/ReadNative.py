@@ -29,7 +29,17 @@ def ReadNative(SessionPath, PacketValue):
         if RoleValue == "native.accepted":
             continue
         Binding = Descriptor["binding"]
-        Artifact = Manifest[Binding["artifact"]]
+        if isinstance(Binding, str):
+            Prefix, Role, Pin = Binding.split(":")
+            if (
+                RoleValue != "bundle"
+                or Prefix != "checklist-bundle"
+                or Pin != Descriptor["sha256"]
+            ):
+                raise ValueError("invalid checklist capture binding")
+        else:
+            Role = Binding["artifact"]
+        Artifact = Manifest[Role]
         Content = read_input(SessionPath, Descriptor, 256 * 1024 * 1024)
         if Artifact != {
             "sha256": sha256(Content).hexdigest(),
@@ -39,7 +49,7 @@ def ReadNative(SessionPath, PacketValue):
         if RoleValue == "bundle":
             RecordsValue = Accepted["result"]["records"]
             Expected = (
-                RecordsValue["bundles"][Binding["artifact"]]
+                RecordsValue["bundles"][Role]
                 if "bundles" in RecordsValue
                 else RecordsValue["archives"]
             )

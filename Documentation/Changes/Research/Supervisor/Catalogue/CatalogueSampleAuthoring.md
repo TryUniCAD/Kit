@@ -92,6 +92,9 @@ Accepted native phases and decoder receipts are reused. The supervisor remains
 alive through application restart and final acknowledgement waits. Coordinator
 failure stops further supervised work and leaves the native recovery fences.
 
+For reuse between SOLIDWORKS runs on different devices, see the
+[catalogue receipt checklist](CatalogueReceiptChecklist.md).
+
 ## Task and validation
 
 A08h, owner Codex, delivery [PR #207](https://github.com/TryUniCAD/Kit/pull/207)

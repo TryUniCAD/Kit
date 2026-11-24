@@ -119,6 +119,13 @@ remaining native and process acceptance is recorded in
 This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
 requirements.
 
+A08h-CatalogueChecklist is active, owned by Codex on
+[`codex/catalogue-receipt-checklist`](https://github.com/TryUniCAD/Kit/compare/main...codex/catalogue-receipt-checklist).
+It depends on the catalogue authoring ledger and accepted native capture receipts.
+It covers SOLIDWORKS checklist export, reuse after Git pull, and offline replay after reader changes.
+The exit requires process evidence across two checkouts and current-revision PR readiness.
+See [catalogue receipt checklist](../../Changes/Research/Supervisor/Catalogue/CatalogueReceiptChecklist.md).
+
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
 on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,

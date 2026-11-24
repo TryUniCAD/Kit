@@ -577,6 +577,10 @@ This work changes research scheduling only; B02, B03, B05 and native conversion 
 
 ## Native feature ladder evidence follow-up
 
+Task `A08h-CatalogueChecklist` is active in the
+[owning register](../Reference/Research/AutomationSteps.md).
+It shares completed SOLIDWORKS catalogue case evidence between checkouts and leaves the production conversion boundary unchanged.
+
 Task `A08h-Ladders2026` is a scoped evidence publication under the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladders2026-native-campaign-evidence).
 Codex owns packaging on `feat/deterministic-campaign-20261122`; delivery PR is [#263](https://github.com/TryUniCAD/Kit/pull/263).
 Dependencies are merged PRs #158 and #207 and the licensed native workers.
