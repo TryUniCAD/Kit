@@ -57,6 +57,8 @@ The complete suite exercises scheduler entry processes with simulated GitHub met
 Remote execution remains pending.
 Source and process coverage do not establish GitHub scheduling fairness or an end-to-end speedup.
 Measure setup, runner wait, execution, and final aggregation after rollout.
+The [workflow progress observation](../../Gotchas/Ci/Scheduling/PendingWorkflowJobProgress.md) records an audit whose workflow status stayed pending while its job inventory advanced.
+Follow the job inventory and final gates when checking that run.
 
 The live queue remains separately configured.
 The shared concurrency queues retain at most one hundred pending jobs per lane; they are not unlimited admission queues.

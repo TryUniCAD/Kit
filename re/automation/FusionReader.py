@@ -11,7 +11,7 @@ from collections import Counter
 from dataclasses import replace
 from pathlib import Path, PurePosixPath
 
-from Corpus import git, read_tree
+from Corpus import git, open_blob_batch, read_pinned_blob, read_tree
 from ReaderEvidence import reader_evidence
 
 MANIFEST_LIMIT = 32 * 1024 * 1024
@@ -35,7 +35,7 @@ def load_manifest(manifest_path):
     return manifest, manifest_bytes
 
 
-def pinned_content(root, manifest, entries, asset_path):
+def pinned_asset(manifest, entries, asset_path):
     if not 1 <= len(asset_path) <= 4096 or PurePosixPath(asset_path).is_absolute() or ".." in PurePosixPath(asset_path).parts:
         raise ValueError("asset must be a bounded repository-relative path")
     matches = [asset for asset in manifest["assets"] if asset.get("path") == asset_path]
@@ -47,13 +47,7 @@ def pinned_content(root, manifest, entries, asset_path):
         raise ValueError("this reader accepts pinned F3D and F3Z files only")
     if not re.fullmatch(r"[0-9a-f]{40}", asset["git_blob"]) or entries.get(asset_path) != asset["git_blob"]:
         raise ValueError("asset blob does not match its pinned revision/path")
-    size = int(git(root, "cat-file", "-s", asset["git_blob"]))
-    if not 8 <= size <= 256 * 1024 * 1024 or size != asset["size_bytes"]:
-        raise ValueError("asset size mismatch or input exceeds 256 MiB")
-    content = git(root, "cat-file", "blob", asset["git_blob"])
-    if len(content) != size or hashlib.sha256(content).hexdigest() != asset["sha256"] or content[:16].hex() != asset["prefix_hex"]:
-        raise ValueError("asset bytes differ from the pinned digest/prefix")
-    return asset, content
+    return asset
 
 
 def source_digests(root):
@@ -177,14 +171,16 @@ def decode(root, manifest_path, asset_paths, allow_partial, output):
         sys.path.insert(0, str(root / "src"))
         results = []
         written = 0
-        for asset_path in asset_paths:
-            asset, content = pinned_content(root, manifest, entries, asset_path)
-            entry, size = decode_asset(asset, content, identity, allow_partial, staging)
-            del content
-            written += size
-            if written > RUN_LIMIT:
-                raise ValueError("run output exceeds 4 GiB; select fewer assets")
-            results.append(entry)
+        with open_blob_batch(root) as process:
+            for asset_path in asset_paths:
+                asset = pinned_asset(manifest, entries, asset_path)
+                content = read_pinned_blob(process, asset)
+                entry, size = decode_asset(asset, content, identity, allow_partial, staging)
+                del content
+                written += size
+                if written > RUN_LIMIT:
+                    raise ValueError("run output exceeds 4 GiB; select fewer assets")
+                results.append(entry)
         if source_files != source_digests(root):
             raise ValueError("SDK source changed during decoding; retry against a stable checkout")
         outcomes = Counter(entry["outcome"] for entry in results)
