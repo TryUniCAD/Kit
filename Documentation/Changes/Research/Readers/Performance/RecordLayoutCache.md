@@ -24,6 +24,7 @@ It avoids a process-wide cache that could retain obsolete model metadata.
 Each independent or nested public decode creates its own cache.
 
 The recursive decoder retains wire validation, enum checks, migrations, field aliases, constructor calls, and mapping immutability.
+After integration with PR #284, wire validation runs once at the root before the cache is shared across recursive reconstruction.
 Type lookup completes before recursive record construction to preserve the existing recursion structure.
 There is no new option or dependency.
 Use the existing JSON and mapping reader APIs.
@@ -69,6 +70,11 @@ The 22 existing Fusion face-offset cases require ZIP Zstandard support from Pyth
 They fail on Python 3.11 before record reconstruction, including an independently reproduced baseline failure.
 Those cases remain in the unchanged suite and passed on Python 3.14.7.
 
+The combined PR #284 conflict repair passed 163 interchange, registry, JSON format, deep assembly, and production import policy cases on Python 3.14.7.
+Six cache and deep assembly cases passed on Python 3.11.15, including the 80-level linked assembly roundtrip.
+A public decoding profile confirmed one root wire-validation call across 165 wire values.
+These checks verify the combined behavior without a new performance measurement.
+
 ## Scope and limits
 
 Task: B14-RecordDecodeCache. Owner: Codex. Delivery branch: `codex/cache-record-types`.
@@ -78,8 +84,8 @@ The exit requires unchanged canonical bytes, preserved rejection behavior, scope
 The measurements cover two documents on one host.
 The SOLIDWORKS reconstruction reduction is about 64 percent.
 The Fusion reduction is about 3 percent and does not establish a broad Fusion throughput gain.
-This change does not include PR #284's root-validation or import optimizations.
-Combined performance with that PR remains unmeasured.
+The conflict repair integrates PR #284's root-validation and import optimizations.
+Combined performance remains unmeasured.
 Native application acceptance and merge-group acceptance remain separate.
 
 See the [serialization reference](../../../../Reference/Data/Serialization.md).

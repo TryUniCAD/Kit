@@ -16,7 +16,7 @@ def DecodeRecordMut(
     SourceValue: dict[str, KWireData],
     TargetType: type[DataRecord],
     DecoderFunc: CallableType[
-        [object, dict[type[DataRecord], tuple[str, ...]]], object
+        [KWireData, dict[type[DataRecord], tuple[str, ...]]], object
     ],
     FieldCache: dict[type[DataRecord], tuple[str, ...]],
 ) -> object:

@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from interchange.serialization.DecodeValue import DecodeValue
+from interchange.serialization.DecodeChecked import DecodeChecked
+from interchange.serialization.WireData import CheckWireData
 
 
-# separate decode operations must not reuse metadata changed by compatibility binding
+# untrusted input is validated once at the root before typed records are rebuilt from it
 def FromData(SourceValue: object) -> object:
-    return DecodeValue(SourceValue, {})
+    return DecodeChecked(CheckWireData(SourceValue), {})
