@@ -46,6 +46,10 @@ and refused foreign and released leases. Catalogue runs verified the
 former five-worker default, one- and two-worker overrides, the native timeout budget,
 and the saved settings after resume. The launcher compiled against the
 installed SOLIDWORKS API with the five-worker limit and 20-minute startup wait
-budget without starting the application. Licensed overlap, independent normal
-exits and archive verification are tracked under
+budget without starting the application.
+
+At `b0f342ccac22a9f600a9de13c03933a0de422ad2`, the Windows lease and six-worker
+catalogue resume checks passed in 24.48 seconds. The launcher compiled against
+the installed API with the six-worker limit and 25-minute startup wait budget.
+Licensed overlap, independent normal exits and archive verification are tracked under
 [A08h-ParallelSolidWorks](../../../../Reference/Research/AutomationSteps.md#a08h-parallelsolidworks-same-host-catalogue-capture).
