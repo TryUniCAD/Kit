@@ -21,6 +21,13 @@ can ask the verified process's main window to close within the original
 deadline. A posted close request requires separate process exit evidence.
 [Windows normal window close](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.closemainwindow?view=netframework-4.8)
 
+The verified SOLIDWORKS frame alone left the 28 mm cut-extrude process alive.
+The replay at `8802a83fb0c8503cc7e979f977037af7d89ba015` used `QuitDoc` to
+close the sole read-only stock control in program-owned background mode. The
+guarded frame request then finished both phases with observed normal exits.
+Require the process receipts and independent reopen before using this result.
+[SOLIDWORKS last-document close](https://help.solidworks.com/2021/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.ISldWorks~QuitDoc.html)
+
 Keep `first-native.json`, `first-owner.json`, and `first.stderr.log` together
 under `NativeAttempts` when diagnosing shutdown. Use a fresh directory to
 compare a revised worker, and retain the independent reopen and exit checks.

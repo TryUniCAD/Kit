@@ -150,6 +150,26 @@ public static class SolidOwner
         finally { Marshal.ReleaseComObject(frame); }
     }
 
+    static void CloseLastControl(ISldWorks application, string repository)
+    {
+        string path=Path.Combine(repository,"re","solidworks","examples",".SLDPRT","example.SLDPRT");
+        application.DocumentVisible(false,1);
+        int errors=0,warnings=0;
+        var control=application.OpenDoc6(path,1,3,"",ref errors,ref warnings);
+        if(control==null) throw new InvalidOperationException("The final read-only stock control could not open");
+        string title;
+        try {
+            if(errors!=0 || (warnings!=0 && warnings!=2) || application.GetDocumentCount()!=1
+                || !control.IsOpenedReadOnly() || !String.Equals(control.GetPathName(),path,StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("The final stock control is not the sole read-only owned document");
+            title=control.GetTitle();
+        } finally { Marshal.ReleaseComObject(control); }
+        application.UserControlBackground=false;
+        if(application.UserControlBackground || application.UserControl)
+            throw new InvalidOperationException("The final stock control requires program-owned background mode");
+        application.QuitDoc(title);
+    }
+
     static void RunOwnedCore(Process process, string executable, string repository,
         string output, string configuration, string phase, bool batch)
     {
@@ -182,7 +202,13 @@ public static class SolidOwner
                     if(application.GetProcessID()==process.Id && application.GetDocumentCount()==0) {
                         try { record["frame_handle"]=ReadFrameHandle(application); }
                         catch(COMException error) { record["frame_query_error"]=error.Message; }
-                        application.ExitApp();
+                        if(failure==null) {
+                            CloseLastControl(application,repository);
+                            record["normal_exit_method"]="last_background_document";
+                        } else {
+                            application.ExitApp();
+                            record["normal_exit_method"]="exit_app";
+                        }
                         record["normal_exit_requested"]=true;
                     }
                 } catch(Exception error) { cleanup.Add(error.ToString()); }

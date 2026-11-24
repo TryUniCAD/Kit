@@ -76,7 +76,8 @@ Codex owns the scoped repair on `codex/solidworks-capture-shutdown`, with
 delivery in [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
 The exit requires licensed native replay of the failed P04 captures and batch
 controls, normal process exits, independent reopen and dependent decoder
-receipts, plus the applicable publication gates. Native checks are pending.
+receipts, plus the applicable publication gates. The 28 mm cut-extrude replay
+passed both native phases. Broader native verification is in progress.
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
