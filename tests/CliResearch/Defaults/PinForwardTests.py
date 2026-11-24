@@ -21,3 +21,4 @@ def CheckPinForward(TmpPath: FilePath, FormatName: str) -> None:
         "0" * 64,
     )
     assert Reply.returncode == 2 and "SHA-256 does not match" in Reply.stderr
+    assert not (TmpPath / "run outputs").exists()

@@ -5,9 +5,15 @@ from pathlib import Path as FilePath
 def PresetPath(Value: object) -> str:
     if not isinstance(Value, str):
         raise ValueError("Run defaults paths must be absolute")
-    if Value.startswith("~") and len(Value) > 1 and Value[1] not in "/\\":
+    Parsed = FilePath(Value)
+    if (
+        not Parsed.anchor
+        and Parsed.parts
+        and Parsed.parts[0].startswith("~")
+        and Parsed.parts[0] != "~"
+    ):
         raise ValueError("Run defaults only expand the current user home")
-    Expanded = FilePath(Value).expanduser()
+    Expanded = Parsed.expanduser()
     if not Expanded.is_absolute():
         raise ValueError("Run defaults paths must be absolute")
     return str(Expanded)

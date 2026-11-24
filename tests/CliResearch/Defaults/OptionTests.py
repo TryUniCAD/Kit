@@ -45,6 +45,7 @@ def CheckAuthFlag(TmpPath: FilePath) -> None:
     )
     assert Reply.returncode == 2, Reply.stderr
     assert "authoring rejects decoder advice with grid three-values" in Reply.stderr
+    assert "and authentication login" in Reply.stderr
     assert not (TmpPath / "run outputs").exists()
 
 

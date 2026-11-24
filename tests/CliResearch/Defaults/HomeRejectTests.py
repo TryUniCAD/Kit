@@ -9,14 +9,17 @@ from tests.CliResearch.Defaults.ShortcutCli import ShortcutCli
 
 # unresolved account home paths must keep the normal structured error contract without starting research
 @TestMark.parametrize("FieldName", ("root", "output_root", "catalogue"))
-def CheckHomeError(TmpPath: FilePath, FieldName: str) -> None:
+@TestMark.parametrize("Prefix", ("", "./", "././"), ids=("plain", "dot", "dots"))
+def CheckHomeError(TmpPath: FilePath, FieldName: str, Prefix: str) -> None:
     ConfigPath, _ = PresetFiles(TmpPath)
     Record = LoadJson(ConfigPath.read_bytes())
     Preset = Record["formats"]["solidworks"]
     if FieldName == "catalogue":
-        Preset["options"]["--catalogue"] = "~kitmissinguserc25a43e8/catalogue.json"
+        Preset["options"]["--catalogue"] = (
+            Prefix + "~kitmissinguserc25a43e8/catalogue.json"
+        )
     else:
-        Preset[FieldName] = "~kitmissinguserc25a43e8"
+        Preset[FieldName] = Prefix + "~kitmissinguserc25a43e8"
     _ = ConfigPath.write_text(DumpJson(Record), encoding="utf-8")
     Reply = ShortcutCli(TmpPath, ConfigPath, "run", "solidworks")
     assert Reply.returncode == 1

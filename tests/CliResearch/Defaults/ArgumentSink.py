@@ -28,7 +28,10 @@ def ReceiveArgs() -> None:
     Options = Parser.parse_args()
     if Options.advisor is not None and Options.author_samples:
         Parser.error(
-            "authoring rejects decoder advice with grid " + str(Options.authoring_grid)
+            "authoring rejects decoder advice with grid "
+            + str(Options.authoring_grid)
+            + " and authentication "
+            + str(Options.auth)
         )
     Result = vars(Options)
     if Options.catalogue is not None:
