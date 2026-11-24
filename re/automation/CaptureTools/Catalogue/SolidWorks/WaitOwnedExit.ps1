@@ -4,11 +4,14 @@
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of the PolyForm Strict License 1.0.0.
 
+Add-Type -Path (Join-Path $PSScriptRoot 'OwnedFrameClose.cs')
+
 function Wait-OwnedExit {
     param(
         [Parameter(Mandatory)] [Diagnostics.Process]$Process,
         [Parameter(Mandatory)] [long]$Created,
         [Parameter(Mandatory)] [bool]$AllowClose,
+        [long]$FrameHandle = 0,
         [int]$ExitWaitMilliseconds = 10000,
         [int]$CloseWaitMilliseconds = 20000
     )
@@ -20,7 +23,7 @@ function Wait-OwnedExit {
         try {
             $Process.Refresh()
             if (-not $Process.HasExited -and $Process.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
-                $CloseRequested = $Process.CloseMainWindow()
+                $CloseRequested = [OwnedFrameClose]::Request($FrameHandle, $Process.Id)
             }
         } catch { $CloseError = $_.Exception.Message }
     }

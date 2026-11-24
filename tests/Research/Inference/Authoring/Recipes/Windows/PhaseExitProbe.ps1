@@ -31,12 +31,15 @@ try {
         Start-Sleep -Milliseconds 50
     } while ($true)
 
-    $Wrong = Wait-OwnedExit -Process $Child -Created ($Created + 1) -AllowClose $true -ExitWaitMilliseconds 0 -CloseWaitMilliseconds 0
-    $Failed = Wait-OwnedExit -Process $Child -Created $Created -AllowClose $false -ExitWaitMilliseconds 0 -CloseWaitMilliseconds 0
-    $Closed = Wait-OwnedExit -Process $Child -Created $Created -AllowClose $true -ExitWaitMilliseconds 0 -CloseWaitMilliseconds 8000
+    $Frame = $Child.MainWindowHandle.ToInt64()
+    $Wrong = Wait-OwnedExit -Process $Child -Created ($Created + 1) -AllowClose $true -FrameHandle $Frame -ExitWaitMilliseconds 0 -CloseWaitMilliseconds 0
+    $Failed = Wait-OwnedExit -Process $Child -Created $Created -AllowClose $false -FrameHandle $Frame -ExitWaitMilliseconds 0 -CloseWaitMilliseconds 0
+    $Missing = Wait-OwnedExit -Process $Child -Created $Created -AllowClose $true -FrameHandle 0 -ExitWaitMilliseconds 0 -CloseWaitMilliseconds 0
+    $Closed = Wait-OwnedExit -Process $Child -Created $Created -AllowClose $true -FrameHandle $Frame -ExitWaitMilliseconds 0 -CloseWaitMilliseconds 8000
     [ordered]@{
         identity_refused = -not ($Wrong.Observed -or $Wrong.CloseRequested)
         failed_phase_refused = -not ($Failed.Observed -or $Failed.CloseRequested)
+        missing_frame_refused = -not ($Missing.Observed -or $Missing.CloseRequested)
         close_requested = $Closed.CloseRequested
         exit_observed = $Closed.Observed
         exit_code = if ($Closed.Observed) { $Child.ExitCode }

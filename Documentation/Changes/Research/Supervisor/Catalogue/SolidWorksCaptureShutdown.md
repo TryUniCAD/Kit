@@ -8,9 +8,10 @@ The apartment thread finishes before the PowerShell launcher waits for the
 application process. Startup reads the executable path through the original
 process handle while separately verifying the creation time and session.
 If the empty owned session remains alive after `ExitApp`, the launcher verifies
-its creation identity again and asks its main window to close. Both requests
-share the existing 30-second exit deadline. The owner receipt records whether
-the second close request was delivered.
+its creation identity again and asks the SOLIDWORKS frame recorded by the COM
+client to close. It checks the frame's process identity before posting the
+request. Both requests share the existing 30-second exit deadline. The owner
+receipt records whether the second close request was posted.
 The launcher still requires an observed normal exit through its original process
 handle before continuing to a fresh reopen. Forced cleanup remains a failure.
 
@@ -29,6 +30,9 @@ also reproduced that case's exit timeout in a combined local probe.
 The dedicated apartment recovered the exact 7 mm cut case and its 11 archives
 at `95afdb67740e377cc33882f12fb3e5a90d2558d1`. A boss-extrude control still
 timed out twice. The owned process had a responding main window after its exit
-request. Verification of the guarded second request is pending.
+request. The subsequent replay found that the Windows main-window lookup had
+selected an embedded browser window. Verification of the guarded SOLIDWORKS
+frame request is pending.
 [Shutdown finding](../../../../Gotchas/Research/Workers/SolidWorks/CatalogueCaptureExitObservation.md)
 [Starting process image finding](../../../../Gotchas/Research/Workers/SolidWorks/StartingProcessModuleLookup.md)
+[SOLIDWORKS frame finding](../../../../Gotchas/Research/Workers/SolidWorks/HiddenFrameWindowSelection.md)

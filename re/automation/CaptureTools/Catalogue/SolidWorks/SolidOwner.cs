@@ -142,6 +142,14 @@ public static class SolidOwner
         }
     }
 
+    static long ReadFrameHandle(ISldWorks application)
+    {
+        var frame=application.Frame() as IFrame;
+        if(frame==null) return 0;
+        try { return frame.GetHWndx64(); }
+        finally { Marshal.ReleaseComObject(frame); }
+    }
+
     static void RunOwnedCore(Process process, string executable, string repository,
         string output, string configuration, string phase, bool batch)
     {
@@ -172,6 +180,8 @@ public static class SolidOwner
                 try {
                     CollectNativeReferences();
                     if(application.GetProcessID()==process.Id && application.GetDocumentCount()==0) {
+                        try { record["frame_handle"]=ReadFrameHandle(application); }
+                        catch(COMException error) { record["frame_query_error"]=error.Message; }
                         application.ExitApp();
                         record["normal_exit_requested"]=true;
                     }

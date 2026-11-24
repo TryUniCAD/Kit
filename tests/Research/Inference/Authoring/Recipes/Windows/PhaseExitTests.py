@@ -45,6 +45,7 @@ def CheckOwnedExit() -> None:
     assert DecodeJson(Process.stdout) == {
         "identity_refused": True,
         "failed_phase_refused": True,
+        "missing_frame_refused": True,
         "close_requested": True,
         "exit_observed": True,
         "exit_code": 0,

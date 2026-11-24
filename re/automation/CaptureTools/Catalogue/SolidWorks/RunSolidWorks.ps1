@@ -48,17 +48,18 @@ Add-Type -Path (@((Join-Path $PSScriptRoot '../../SolidWorksAuthoring/SolidWorks
     (Join-Path $PSScriptRoot 'SolidOwner.cs')) + $ProgramSources) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
 if ($Batch) { [SolidWorksCapture]::CheckBatch($CaseFile, $Destination) }
 else { [SolidWorksCapture]::CheckConfigured($CaseFile) }
+. (Join-Path $PSScriptRoot 'WaitOwnedExit.ps1')
 if ($CompileOnly) {
     Write-Output 'Compiled configured SOLIDWORKS authoring without starting an application'
     return
 }
-. (Join-Path $PSScriptRoot 'WaitOwnedExit.ps1')
 $Mutex = [Threading.Mutex]::new($false, 'Local\KitResearchControllerOracle')
 $Acquired = $false
 $Native = $null
 $ExitObserved = $false
 $ForcedCleanup = $false
 $Failure = $null
+$FrameHandle = 0
 try {
     try { $Acquired = $Mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $Acquired = $true }
     if (-not $Acquired) { throw 'The shared SOLIDWORKS oracle is owned by another operation.' }
@@ -75,9 +76,14 @@ try {
         [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase)
     }
     else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
+    $Receipt = Get-Content -LiteralPath (Join-Path $Destination ($Phase + '-native.json')) -Raw | ConvertFrom-Json
+    if ($Receipt.pid -ne $Native.Id -or $Receipt.normal_exit_requested -ne $true) {
+        throw 'The native exit request receipt does not identify the owned application.'
+    }
+    $FrameHandle = [long]$Receipt.frame_handle
 } catch { $Failure = $_ } finally {
     if ($null -ne $Native) {
-        $NativeExit = Wait-OwnedExit -Process $Native -Created $Created -AllowClose ($null -eq $Failure)
+        $NativeExit = Wait-OwnedExit -Process $Native -Created $Created -AllowClose ($null -eq $Failure) -FrameHandle $FrameHandle
         $ExitObserved = $NativeExit.Observed
         if (-not $ExitObserved -and $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
             $Native.Kill()
