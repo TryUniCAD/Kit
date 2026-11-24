@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from interchange.serialization.DecodeEnum import DecodeEnum
-from interchange.serialization.DecodeTagged import DecodeTagged, KTagNames
+from interchange.serialization.DecodeRecord import DecodeRecord
+from interchange.serialization.DecodeTagged import DecodeTagged
+from interchange.serialization.DecodeTagged import KTagNames
 from interchange.serialization.DecodeTyped import DecodeTyped
 from interchange.serialization.WireData import KWireData
 
@@ -13,7 +15,15 @@ def DecodeChecked(DataValue: KWireData) -> object:
     if not isinstance(DataValue, dict):
         return DataValue
     if len(DataValue) == 1 and next(iter(DataValue)) in KTagNames:
-        return DecodeTagged(DataValue, DecodeChecked)
+        TagName = next(iter(DataValue))
+        TagValue = DataValue[TagName]
+        if TagName == "$bytes":
+            return DecodeTagged(TagName, TagValue)
+        if not isinstance(TagValue, list):
+            raise ValueError(f"{TagName} value must be a list")
+        return DecodeTagged(
+            TagName, [DecodeChecked(ItemValue) for ItemValue in TagValue]
+        )
     if "$enum" in DataValue:
         return DecodeEnum(DataValue, DecodeChecked)
     if "$type" not in DataValue:
@@ -21,4 +31,4 @@ def DecodeChecked(DataValue: KWireData) -> object:
             KeyValue: DecodeChecked(ItemValue)
             for KeyValue, ItemValue in DataValue.items()
         }
-    return DecodeTyped(DataValue, DecodeChecked)
+    return DecodeRecord(DataValue, DecodeTyped(DataValue), DecodeChecked)

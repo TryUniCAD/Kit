@@ -9,6 +9,9 @@ if TYPE_CHECKING:
         SldprtWriter as SldprtWriter,
     )
 
+# wildcard imports must retain the writer without exposing deferred facade implementation helpers
+__all__ = ("SldprtWriter",)
+
 # the writer stays deferred because part readers must not load native authoring on import
 KPublicExports: KExportTable = {
     "SldprtWriter": (

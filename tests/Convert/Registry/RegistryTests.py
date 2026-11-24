@@ -22,9 +22,11 @@ from tests.Convert.Registry.RegistryTestSupport import (
 
 
 # nested module discovery must not depend on packages reexporting their adapter class
+@Pytest.mark.parametrize("HasHiddenTypes", (False, True))
 def CheckNestedPack(
     TmpPath: FilePath,
     MonkeyPatch: Pytest.MonkeyPatch,
+    HasHiddenTypes: bool,
 ) -> None:
     PackageName = f"kitnested{TmpPath.name.replace('-', '')}"
     PackagePath = TmpPath / PackageName
@@ -34,7 +36,8 @@ def CheckNestedPack(
     _ = (FormatPath / "__init__.py").write_text("", encoding="utf-8")
     _ = (FormatPath / "implementation.py").write_text(
         "from convert.adapters.json.Adapter import JsonAdapter\n"
-        + "class NestedAdapter(JsonAdapter):\n    Discovered = True\n",
+        + "class NestedAdapter(JsonAdapter):\n    Discovered = True\n"
+        + ("\ndef __dir__():\n    return []\n" if HasHiddenTypes else ""),
         encoding="utf-8",
     )
     MonkeyPatch.setattr(SysModule, "path", [str(TmpPath), *SysModule.path])

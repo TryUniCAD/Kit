@@ -5,7 +5,7 @@ from collections.abc import MutableMapping
 from importlib import import_module as ImportModule
 from importlib.util import find_spec as FindSpec
 
-# export tables pair each public name with its defining module and attribute
+# shared export contracts keep deferred facades consistent without importing sibling adapter implementations
 KExportTable = Mapping[str, tuple[str, str]]
 
 

@@ -75,7 +75,7 @@ def GetAdapterType(CandidateData: object, PackageName: str) -> type[object] | No
 def GetModuleTypes(ModuleData: ModuleType) -> tuple[type[object], ...]:
     AdapterTypes = {
         AdapterType
-        for NameValue in dir(ModuleData)
+        for NameValue in sorted({*vars(ModuleData), *dir(ModuleData)})
         if (
             AdapterType := GetAdapterType(
                 getattr(ModuleData, NameValue, None), ModuleData.__name__

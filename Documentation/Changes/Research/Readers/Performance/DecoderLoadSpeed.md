@@ -22,6 +22,11 @@ Adapter discovery resolves deferred facade names, so the registry still finds ev
 Fusion strict projection loads its authoring code only after a native profile qualifies.
 Every public name that resolved before this change still resolves to the same object.
 
+Typed record resolution and tagged-container construction finish outside child traversal.
+This preserves the supported assembly nesting range without increasing the interpreter recursion limit.
+Adapter discovery includes namespace classes even when a plugin customizes `__dir__`.
+The SOLIDWORKS writer facade retains its explicit wildcard export.
+
 ## Verification
 
 The host was an Apple M4 with macOS 26.6, CPython 3.14.7 and Git 2.50.1.
@@ -70,3 +75,11 @@ Each module in `convert` and `interchange` imported in a fresh process.
 `python -m convert --help`, `kit --help` and `kit formats` output matched the baseline.
 Performance and byte comparisons establish offline compatibility only.
 Native application acceptance and semantic qualification remain separate.
+
+## Follow-up verification
+
+The original head saved a 100-level linked assembly but raised `RecursionError` when reopening its JSON on Python 3.14.7.
+The repaired decoder reopens that document and preserves its canonical JSON.
+The regression also passed at 80 levels on Python 3.11.15.
+The focused interchange, registry, and JSON adapter run passed 154 cases, including the hidden-plugin case.
+The [assembly depth gotcha](../../../../Gotchas/Conversion/Json/AssemblyJsonDepth.md) records the failure and repair.
