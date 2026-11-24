@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from collections.abc import MutableMapping
-from importlib import import_module as ImportModule
 from importlib.util import find_spec as FindSpec
 
 # shared export contracts keep deferred facades consistent without importing sibling adapter implementations
@@ -16,18 +15,18 @@ def LoadExportMut(
     ExportTable: KExportTable,
     NameText: str,
 ) -> object:
+    from convert.adapters.registry.AdapterDiscovery import LoadExportMod
+
     ExportInfo = ExportTable.get(NameText)
     if ExportInfo is not None:
         ModuleName, SymbolName = ExportInfo
-        # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
-        ExportValue: object = getattr(ImportModule(ModuleName), SymbolName)
+        ExportValue: object = getattr(LoadExportMod(ModuleName), SymbolName)
         PackageScope[NameText] = ExportValue
         return ExportValue
     if NameText.isidentifier() and not NameText.startswith("__"):
         ChildName = f"{PackageName}.{NameText}"
         if FindSpec(ChildName) is not None:
-            # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
-            return ImportModule(ChildName)
+            return LoadExportMod(ChildName)
     raise AttributeError(f"module {PackageName!r} has no attribute {NameText!r}")
 
 

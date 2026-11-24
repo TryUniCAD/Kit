@@ -27,6 +27,11 @@ This preserves the supported assembly nesting range without increasing the inter
 Adapter discovery includes namespace classes even when a plugin customizes `__dir__`.
 The SOLIDWORKS writer facade retains its explicit wildcard export.
 
+Deferred exports load modules through the existing audited adapter-discovery boundary.
+That boundary validates production package roots and module-name segments before import.
+The facade loads this boundary on first lookup, so importing `convert` alone still leaves discovery unloaded.
+Named child-package fallback and cached public object identities remain supported.
+
 ## Verification
 
 The host was an Apple M4 with macOS 26.6, CPython 3.14.7 and Git 2.50.1.
@@ -83,3 +88,10 @@ The repaired decoder reopens that document and preserves its canonical JSON.
 The regression also passed at 80 levels on Python 3.11.15.
 The focused interchange, registry, and JSON adapter run passed 154 cases, including the hidden-plugin case.
 The [assembly depth gotcha](../../../../Gotchas/Conversion/Json/AssemblyJsonDepth.md) records the failure and repair.
+
+Native queue execution exposed a separate runtime-policy failure in `LazyExport.py`.
+The existing production dependency check permits dynamic imports only inside `AdapterDiscovery.py`.
+The repair routes deferred imports through that canonical boundary without changing the policy or its assertions.
+Three complete-source policy checks, one isolated facade process check, and two filesystem package-discovery integration cases passed locally.
+Scoped Black, Prettier, Pyright, Mypy, and Python steering checks also passed.
+The [deferred import boundary gotcha](../../../../Gotchas/Conversion/Runtime/LazyExportImportBoundary.md) records the failure and repair.

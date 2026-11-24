@@ -16,6 +16,17 @@ from convert.adapters.registry.RegistryErrors import DiscoveryError
 KInternalPackages = frozenset({"base", "registry", "Staging"})
 
 
+# deferred exports must share the audited import boundary without loading discovery before first use
+def LoadExportMod(ModuleName: str) -> ModuleType:
+    NameParts = ModuleName.split(".")
+    if NameParts[0] not in {"convert", "interchange"} or not all(
+        PartName.isidentifier() for PartName in NameParts
+    ):
+        raise ValueError("deferred exports require a production module name")
+    # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
+    return ImportModule(ModuleName)
+
+
 # internal filtering applies only to the built in root so third party package names remain unrestricted
 def IsInternalPack(PackageName: str, ItemName: str) -> bool:
     return (
