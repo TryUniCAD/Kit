@@ -11,17 +11,19 @@
 KDeferredProgram = """import sys
 sys.path.insert(0, sys.argv[1])
 import convert
-assert 'convert.adapters.registry.AdapterDiscovery' not in sys.modules
+assert not hasattr(convert, 'AbsentModule')
+assert 'AbsentModule' not in vars(convert)
+assert 'convert.adapters.registry' not in sys.modules
 assert 'CarrierReason' in dir(convert)
 assert 'convert.adapters.registry.AdapterDiscovery' not in sys.modules
 from convert import CarrierReason
 from convert.adapters.base.TransferContract import CarrierReason as DeclaredReason
 assert CarrierReason is DeclaredReason
-assert 'convert.adapters.solidworks.Core.Writing.SldprtWriter' not in sys.modules
-from convert.adapters.solidworks.Core import Writing
-from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.solidworks import Core
-assert Core.Writing is Writing
+assert 'convert.adapters.solidworks.Core.Writing' not in sys.modules
+Writing = getattr(Core, 'Writing')
+assert sys.modules['convert.adapters.solidworks.Core.Writing'] is Writing
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 assert Core.SldprtWriter is SldprtWriter
 assert vars(Core)['SldprtWriter'] is SldprtWriter
 from convert.adapters.registry.AdapterDiscovery import LoadExportMod
@@ -31,10 +33,4 @@ for ModuleName in ('socket', 'adsk.core', 'convert..api'):
     except ValueError:
         continue
     raise AssertionError('invalid deferred module was admitted: ' + ModuleName)
-try:
-    getattr(convert, 'AbsentModule')
-except AttributeError:
-    assert 'AbsentModule' not in vars(convert)
-else:
-    raise AssertionError('unknown package child was resolved')
 """
