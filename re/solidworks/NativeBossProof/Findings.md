@@ -39,7 +39,7 @@ The dependency reader investigation remains separate.
 [The tracked ledger](Evidence/InventoryLedger.json) contains nine compact case entries with source, definition, capture, neutral, full-inventory and typed-inventory hashes.
 It preserves the process outcomes, precision contrasts, topology summaries and ownership divergences.
 Complete inventories are retained byte for byte in ignored task-owned output at `.rescratch/NativeBossProofFullEvidence/a2c1abb/`.
-The ledger also records their immutable Git blob identities from origin commit `a2c1abb380db02cbdbb7018284e244857fbc2d5e`.
+The ledger also records their immutable Git blob identities from origin commit `6a7a0b71da037534ab6612cccbf7ff56fb218447`.
 Saved-file and Git-file hashes remain separate because repository line-ending normalization changes text bytes.
 The [summary command](SummarizeEvidence.py) verifies canonical JSON identity against the origin blobs before producing the ledger.
 Full inventories still compare each depth pair, no-op pair or independent contrast without ignoring fields.
@@ -67,7 +67,7 @@ The default comparison requires exact identity and ignores no fields. It does no
 Produce full role inventories into ignored output, then summarize them for review:
 
 ```powershell
-python re/solidworks/NativeBossProof/SummarizeEvidence.py --input-directory .rescratch/NativeBossProofFullEvidence/a2c1abb --inventory-commit a2c1abb380db02cbdbb7018284e244857fbc2d5e --output .rescratch/NativeBossInventoryLedger.json
+python re/solidworks/NativeBossProof/SummarizeEvidence.py --input-directory .rescratch/NativeBossProofFullEvidence/a2c1abb --inventory-commit 6a7a0b71da037534ab6612cccbf7ff56fb218447 --output .rescratch/NativeBossInventoryLedger.json
 ```
 
 The summary operation reads existing evidence and Git objects only. It performs no SDK or native application rerun.

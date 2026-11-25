@@ -1454,7 +1454,7 @@
     "GraphInventory.py": "63389cb39897ffb85dc5bbf4f7dcf1cbdb60fe21addf5201661efd84455fac4a"
   },
   "full_inventory_storage": "ignored task-owned output plus immutable origin Git blobs",
-  "inventory_origin_commit": "a2c1abb380db02cbdbb7018284e244857fbc2d5e",
+  "inventory_origin_commit": "6a7a0b71da037534ab6612cccbf7ff56fb218447",
   "native_acceptance": "not_established",
   "native_definition_records": {
     "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda": {

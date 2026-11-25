@@ -96,8 +96,10 @@ all nine discovery sources.
 The four Author04 cases and five Discovery01 cases are calibration inputs.
 A separately authored, healthy source was sealed before rule derivation at
 SHA-256 `0de0b983f46e1a0a2553efd192f916b13227b23a95a62b806e1795a7fa8ff3f1`.
-No vendor-authored part received source admission or a writer receipt in
-this comparison.
+The frozen body probe passed all 11 checks on that
+[held-out body](../measurements/2026/VendorBlindBossHeldoutBodyOwnership.json)
+without tuning. No vendor-authored part received source admission or a writer
+receipt in this comparison.
 
 ## Writer boundary
 
@@ -112,6 +114,18 @@ alone give no grounds for omitting any of them from a claimed lossless
 vendor-source round trip. Establish which independently regenerate, which
 encode authored state, and which remain unsupported before changing source
 admission.
+
+Four additional read-only processes compared the earlier 19.87 mm vendor
+depth control and the native-saved Kit edit, bracketed by the stock control.
+All reopened, rebuilt and exited normally. Both files retained the same
+measured geometry, four equivalent lights and the same public assigned
+material state. The vendor file exposed two annotation views. The native-saved
+Kit file exposed one. The extra source view was assigned, hidden and had the
+same top-oriented rotation as the typed `*Top` Config-0 record. The saved
+Kit file had no matching typed record. Display-state naming and the global
+construct-plane visibility flag also differed. These are native observations
+about one exact pair. The [presentation verification record](../measurements/2026/VendorBossCorpus/PresentationContrast.json)
+binds the comparison and its controls.
 
 ## PMI and exchange records
 
