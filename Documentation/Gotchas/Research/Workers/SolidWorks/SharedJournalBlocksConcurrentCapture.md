@@ -33,6 +33,27 @@ from completing in the observation window. A safe concurrent worker count
 for that shared profile remains unverified.
 [Vendor SOLIDWORKS journal documentation](https://help.solidworks.com/2024/English/SWConnected/swdotworks/c_SOLIDWORKS_Journal_File.htm)
 
+## Controlled desktop readback
+
+A November 25 Windows check used byte-identical read-only copies of an
+already verified part, a private temporary directory per process, and the same
+SOLIDWORKS 2026 profile. Each level reached the requested simultaneous process
+count. The journal warning appeared at every concurrent level.
+
+| Simultaneous instances | Processes showing the journal warning | Parts rebuilt |
+| ---------------------- | ------------------------------------- | ------------- |
+| 2                      | 1                                     | 2 of 2        |
+| 3                      | 2                                     | 2 of 3        |
+| 4                      | 3                                     | 4 of 4        |
+| 5                      | 4                                     | 4 of 5        |
+| 6                      | 4                                     | 0 of 6        |
+
+At six, five COM clients attached by PID and the synchronization barrier
+prevented opening until the sixth attached. The serial controls before and
+after rebuilt without a journal warning, but both application processes
+crashed during shutdown. The original and all scratch copies retained their
+SHA-256 hashes. The probes did not repeat full catalogue capture and acceptance.
+
 ## Workaround
 
 Use `"capture_workers": 1` for a new catalogue on a shared profile unless
