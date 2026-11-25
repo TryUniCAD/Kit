@@ -323,7 +323,7 @@ public sealed partial class SolidWorksCapture
                 Check(String.Equals(Path.GetFullPath(doc.GetPathName()),Path.GetFullPath(path),StringComparison.OrdinalIgnoreCase),
                     "Open returned a different document "+path);
                 Check(Hash(path)==pin,"Open changed saved bytes "+path);
-                status=Row("errors",errors,"warnings",warnings,"attempts",attempts,"seconds",elapsed.Elapsed.TotalSeconds);
+                status=Row("errors",errors,"warnings",warnings);
                 record["opened"]=true;
                 return doc;
             } catch(Exception failure) {
@@ -341,6 +341,7 @@ public sealed partial class SolidWorksCapture
                 record["errors"]=errors;
                 record["warnings"]=warnings;
                 record["seconds"]=clock.Elapsed.TotalSeconds;
+                record["total_seconds"]=elapsed.Elapsed.TotalSeconds;
                 attempts.Add(record);
                 Directory.CreateDirectory(output);
                 File.AppendAllText(Path.Combine(output,"open-attempts.jsonl"),

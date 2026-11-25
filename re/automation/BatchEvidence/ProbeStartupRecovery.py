@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from json import dumps, loads
 from os import environ
 from pathlib import Path
-from subprocess import Popen, run
+from subprocess import Popen, run, TimeoutExpired
 from sys import executable
 from time import monotonic, sleep
 
@@ -55,7 +55,7 @@ def Main():
             for queue in output.glob('SolidWorksQueue/*'):
                 if queue.is_dir(): (queue/'stop').touch()
             try: process.wait(timeout=45)
-            except TimeoutError: process.terminate(); process.wait(timeout=15)
+            except TimeoutExpired: process.terminate(); process.wait(timeout=15)
 
 
 if __name__=='__main__':
