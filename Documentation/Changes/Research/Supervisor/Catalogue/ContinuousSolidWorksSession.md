@@ -29,8 +29,20 @@ Only the process launched by the owner enters its cleanup scope.
 
 The installed SOLIDWORKS interop compiler accepted the implementation.
 Two consecutive P01 batches passed document reopening in the same process.
-Wider native comparisons, concurrent decoding, process checks, CI, review and queue acceptance remain pending.
+At `5c3ae3810c`, two consecutive three-case batches shared one process and passed all document-reopen checks.
+Public decoding overlapped the second batch.
+The same saved P01, P03 and P04 baselines produced equivalent recorded measurements in a separate fresh process.
+The complete probe took 387.78 seconds, including the comparison process.
+The [sanitized observation](../../../../../re/automation/BatchEvidence/ContinuousSessionObservation.json) records the tolerance and qualification limits.
+A separate thin-extrusion probe failed its existing body-measurement check and remains unaccepted.
+Its original and reopened volumes both measured 560 cubic millimetres.
+The final controller pipeline, current-head CI and review, and queue acceptance remain pending.
 No general equivalence or throughput improvement is claimed.
+
+For a native comparison, run `python re/automation/BatchEvidence/ProbeRoutine.py --cases CASES.json --host HOST.json --output OUTPUT`.
+The case file contains a JSON list of validated configured cases.
+Use the existing private host settings and a new output directory outside the checkout.
+The probe retains native files, comparisons and decoder output together.
 
 Task `A08c-ContinuousSolidWorks` is owned by Codex on `codex/solidworks-warm-session`, delivered through [PR #295](https://github.com/TryUniCAD/Kit/pull/295).
 It depends on the twelve-case batching delivery in PR #288.
