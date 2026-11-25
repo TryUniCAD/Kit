@@ -108,6 +108,15 @@ Actual process interruption and complete native acceptance remain unmeasured by 
 Documentation was inspected as source.
 Rendered usability and complete language conformance remain unverified.
 
+## Integrated CLI verification
+
+The normal research CLI passed for both formats at integration revision `a529ff98cb7624982bb05a41c1ab7c07eaed6a38`.
+Both runs used Python 3.14.6 with zlib-ng and recorded `models_used: false`.
+SOLIDWORKS generated both candidates in 17.82 seconds, including 14.41 seconds for source decoding and JSON persistence.
+Fusion generated both candidates in 43.32 seconds, including 9.22 seconds for source decoding and JSON persistence.
+Both manifests retained `awaiting_native` status.
+These process measurements cover the integrated command and its declared bounded inputs.
+
 ## Ownership
 
 The shared orchestration belongs to assignment 1 of `Encoder20261125`.
