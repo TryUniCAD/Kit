@@ -8,15 +8,38 @@
 
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
+from subprocess import run as RunProcess
+from sys import executable as PythonExe
 
 from pytest import mark as CaseMark
 
 from tests.Research.Inference.Authoring.SolidWorks.CompileCapture import CompileCapture
 from tests.Research.Inference.Authoring.Recipes.CompileCases import KCompileCases
 from tests.Research.Inference.Authoring.Recipes.RunProbe import RunProbe
+from tests.Research.SupervisorClient import KRepoRoot
 from tests.Research.Inference.Authoring.Recipes.Windows.RunBatchProbe import (
     RunBatchProbe,
 )
+
+
+# native owner transport must reject stopped processes and stale revisions at the actual interpreter boundary
+def CheckRoutineTransport(TmpPath: FilePath) -> None:
+    Result = RunProcess(
+        [
+            PythonExe,
+            "-B",
+            str(KRepoRoot / "re/automation/BatchEvidence/ProbeRoutineTransport.py"),
+            "check",
+            str(TmpPath),
+        ],
+        cwd=KRepoRoot,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=45,
+    )
+    assert Result.returncode == 0, Result.stdout + Result.stderr
+    assert "transport custody and stopped owner checks passed" in Result.stdout
 
 
 # registered native interop must compile and validate every typed program before any application startup

@@ -262,6 +262,11 @@ To retry a parked native job after its owner restores the application, add `--na
 
 ### Author new catalogue samples
 
+New SOLIDWORKS runs keep an owned application session open across batches.
+Document close and reopen checks release completed bundles to the separate decoder pool.
+Set `verification_mode` to `fresh_process` in the private host configuration for independent-process evidence.
+See [continuous SOLIDWORKS capture](../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md) for lifecycle and evidence limits.
+
 Add `--author-samples` to a catalogue run to create new native samples before
 decoding them. `--authoring-cases` selects catalogue identities and validated
 parameter overrides. `--prepare-only` writes the plan without launching CAD.

@@ -63,6 +63,7 @@ def RunBatchJob(SessionPath, HostPath):
         [Sample["case"] for Sample in Samples],
         MakeNativePath(SessionPath, HostPath),
         read_record(HostPath),
+        Revision=JobValue["tool_version"],
     )
     if not isinstance(Reports, list) or len(Reports) != len(Samples):
         raise ValueError("native batch lacks a verified report for every case")
@@ -77,7 +78,8 @@ def RunBatchJob(SessionPath, HostPath):
             "case": Sample["case"],
             "bundle_artifact": RoleValue,
             "archives": Manifest,
-            "native_verified": True,
+            "native_verified": Report.get("verification_mode") != "document_reopen",
+            "verification_mode": Report.get("verification_mode", "fresh_process"),
         }
         Content = BundlePath.read_bytes()
         Artifacts[RoleValue] = {
@@ -97,7 +99,7 @@ def RunBatchJob(SessionPath, HostPath):
         SessionPath / "result.json",
         {
             "outcome": "completed",
-            "reason": "verified every native case in two independently owned processes",
+            "reason": "captured and measured every native case using the recorded verification mode",
             "records": {
                 "application": "solidworks",
                 "bundles": Bundles,

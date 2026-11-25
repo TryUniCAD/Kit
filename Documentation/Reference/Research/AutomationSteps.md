@@ -2,6 +2,13 @@
 
 ## Status and ownership
 
+Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-warm-session`.
+It depends on PR #288's batch preparation, existing measured readback and the serial native resource.
+Scope: persistent capture, document close/reopen verification, independent decoder dispatch and retained owner generations.
+Delivery PR is pending publication.
+Exit: consecutive same-process native batches, same-file fresh-process comparison, decoder overlap, recovery checks and current-revision CI and review.
+See [continuous SOLIDWORKS capture](../../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md).
+
 PR #158 is based on main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b`. Its follow-on phase commits carry the remaining non-DLL work from the original PR #94 checkpoint `fb723e0a920b4d03ad2d5635882860b800a9b61c`. The entries below record the original programme and its revision-bound evidence. The licensed restart, native qualification, supplemental Fusion handoff, pending CI batch authority and two-week pilot retain their open exit criteria.
 
 This register belongs to the [neutral-first plan](AutomationPlan.md).

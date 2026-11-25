@@ -14,7 +14,9 @@ param(
     [Parameter(Mandatory)] [string]$ExecutablePath,
     [Parameter(Mandatory)] [ValidateSet('first', 'second')] [string]$Phase,
     [switch]$CompileOnly,
-    [switch]$Batch
+    [switch]$Batch,
+    [string]$QueueDirectory,
+    [string]$SourceRevision
 )
 
 $ErrorActionPreference = 'Stop'
@@ -46,7 +48,11 @@ $ProgramSources = @(Get-ChildItem -LiteralPath (Join-Path $PSScriptRoot 'Program
 Add-Type -Path (@((Join-Path $PSScriptRoot '../../SolidWorksAuthoring/SolidWorksCapture.cs'),
     (Join-Path $PSScriptRoot 'ConfiguredCapture.cs'),
     (Join-Path $PSScriptRoot 'SolidOwner.cs')) + $ProgramSources) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
-if ($Batch) { [SolidWorksCapture]::CheckBatch($CaseFile, $Destination) }
+if ($QueueDirectory) {
+    if ($SourceRevision -cnotmatch '^[0-9a-f]{40}$' -or
+        (Resolve-Path -LiteralPath $QueueDirectory).Path -cne $Destination) { throw 'Invalid routine queue identity.' }
+}
+elseif ($Batch) { [SolidWorksCapture]::CheckBatch($CaseFile, $Destination) }
 else { [SolidWorksCapture]::CheckConfigured($CaseFile) }
 if ($CompileOnly) {
     Write-Output 'Compiled configured SOLIDWORKS authoring without starting an application'
@@ -70,7 +76,10 @@ try {
         $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created) {
         throw 'The application identity changed before authoring.'
     }
-    if ($Batch) {
+    if ($QueueDirectory) {
+        [SolidWorksCapture]::ServeRoutineOwned($Native, $Executable.FullName, $Repository, $Destination, $SourceRevision)
+    }
+    elseif ($Batch) {
         [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase)
         [GC]::Collect()
         [GC]::WaitForPendingFinalizers()

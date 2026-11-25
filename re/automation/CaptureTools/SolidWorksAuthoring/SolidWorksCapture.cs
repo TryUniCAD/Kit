@@ -9,6 +9,7 @@ using SolidWorks.Interop.sldworks;
 
 public sealed partial class SolidWorksCapture
 {
+    [ThreadStatic] internal static bool RoutineReadback;
     static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
     static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
     readonly ISldWorks app;
@@ -294,7 +295,15 @@ public sealed partial class SolidWorksCapture
         Check(manager.Add2(-1,equation,true) >= 0,"Add " + equation);
     }
     static void Rebuild(IModelDoc2 doc) { Check(doc.ForceRebuild3(false),"Rebuild " + doc.GetTitle()); }
-    void Close(IModelDoc2 doc) { app.CloseDoc(doc.GetTitle()); }
+    void Close(IModelDoc2 doc) {
+        string path=doc.GetPathName();
+        app.CloseDoc(doc.GetTitle());
+        if(RoutineReadback) {
+            Check(app.GetDocumentCount()==0,"Routine document close retained an open document");
+            Check(String.IsNullOrEmpty(path) || app.GetOpenDocumentByName(path)==null,
+                "Routine document close retained the saved model in memory");
+        }
+    }
     IModelDoc2 Open(string path, out object status, bool readOnly = false)
     {
         int errors=0, warnings=0;
@@ -517,7 +526,7 @@ public sealed partial class SolidWorksCapture
         string basis=Basis(id);
         Func<string,string> path=suffix=>Path.Combine(dir,Filename(id,suffix));
         object status;
-        Check(Convert.ToInt32(first["authoring_process_id"])!=app.GetProcessID(),"Baseline repeat requires a fresh SOLIDWORKS process");
+        Check(RoutineReadback || Convert.ToInt32(first["authoring_process_id"])!=app.GetProcessID(),"Baseline repeat requires a fresh SOLIDWORKS process");
         Check(Hash(path("baseline-a"))==(string)saves[0]["sha256"],"Baseline A hash changed");
         var doc=Open(path("baseline-a"),out status);
         try

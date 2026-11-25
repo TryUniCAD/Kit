@@ -174,7 +174,20 @@ def FinishAuthor(
             Path(RunValue["lifecycle"]),
             Resume=Resume,
         )
-    with Lifecycle as GuardValue:
+    from InferenceGrid.Authoring.SolidRoutine import OwnSolidRoutine
+
+    SolidLife = (
+        OwnSolidRoutine(Directory, SourceRoot, Directory / "SolidWorksHost.json", PlanValue["source_revision"])
+        if "solidworks" in RunValue["resources"] else nullcontext()
+    )
+    with SolidLife as SolidOwner, Lifecycle as GuardValue:
+        # both native coordinators must remain alive while the independent decoder pool executes
+        def CheckOwners():
+            if SolidOwner is not None and SolidOwner.poll() is not None:
+                raise RuntimeError("persistent SOLIDWORKS owner exited; inspect SolidWorksQueue")
+            if GuardValue is not None:
+                GuardValue.CheckAlive()
+
         FailureValue = RunSupervisor(
             Directory,
             SourceRoot,
@@ -183,7 +196,7 @@ def FinishAuthor(
             "Authoring",
             Reserve=RunValue["reserve"],
             Resume=Resume,
-            CheckRunning=None if GuardValue is None else GuardValue.CheckAlive,
+            CheckRunning=CheckOwners,
         )
     ResultValue = AuthorOutcome(
         Directory,

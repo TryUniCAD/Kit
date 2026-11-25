@@ -40,7 +40,7 @@ public sealed partial class SolidWorksCapture
     {
         string Recipe=TextValue(configuredCase,"recipe"), DirectoryName=Path.Combine(output,Recipe);
         var First=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(Path.Combine(DirectoryName,"first.json")));
-        Check(Convert.ToInt32(First["authoring_process_id"])!=app.GetProcessID(),"Recipe reopen requires a fresh process");
+        Check(RoutineReadback || Convert.ToInt32(First["authoring_process_id"])!=app.GetProcessID(),"Recipe reopen requires a fresh process");
         var Observed=MapValue(First["observations"]);
         var Saves=new List<Dictionary<string,object>> { MapValue(First["first_save"]) };
         var Programs=new Dictionary<string,Dictionary<string,object>>();
