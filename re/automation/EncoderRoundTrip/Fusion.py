@@ -30,7 +30,11 @@ from convert import open_document, write_document
 from convert.adapters.Fusion import MakeFusionDoc
 from convert.adapters.Fusion.Bridge.CheckContract import CheckContract
 from convert.adapters.Fusion.Projection.CompareNative import KUuidPattern
-from convert.adapters.Fusion.Projection.NativeIndex import MakeIndex
+from convert.adapters.Fusion.Projection.NativeIndex import (
+    MakeIndex,
+    NativeNumber,
+    NativeText,
+)
 from convert.adapters.Fusion.Projection.NativeProfile import NativeProfile
 from convert.adapters.Fusion.State.EncodeState import EncodeState
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
@@ -114,6 +118,40 @@ def _authoring_spec(document: CadDocument) -> DocumentSpec:
     return spec
 
 
+def _literal_length(fields: dict[str, object]) -> int | float:
+    literal = NativeText(fields["expression"]).removesuffix(" mm")
+    try:
+        value = (
+            int(literal) if literal.isascii() and literal.isdecimal() else float(literal)
+        )
+        if (
+            fields["expression"] == f"{value} mm"
+            and math.isfinite(value)
+            and value > 0
+            and value / 10.0 == NativeNumber(fields["value"])
+        ):
+            return value
+    except (OverflowError, ValueError):
+        pass
+    raise ValueError("Fusion cuboid driver lacks an exact constructor length literal")
+
+
+def _native_cuboid_spec(model: DocumentModel) -> DocumentSpec:
+    index = MakeIndex(model)
+    spec = _cuboid(NativeProfile(index, model))
+    drivers = {
+        fields["userName"]: fields
+        for identity in index.Names.get("Parameter", ())
+        if (fields := index.Fields[identity]).get("isUserDefined") is True
+    }
+    return replace(
+        spec,
+        LengthMm=_literal_length(drivers[spec.ParamName]),
+        WidthMm=_literal_length(drivers[spec.WidthParamName]),
+        DepthMm=_literal_length(drivers[spec.DepthParamName]),
+    )
+
+
 def _edit_height(spec: DocumentSpec, edit: dict[str, object] | None) -> DocumentSpec:
     if edit is None:
         return spec
@@ -132,7 +170,7 @@ def _edit_height(spec: DocumentSpec, edit: dict[str, object] | None) -> Document
         raise ValueError("Fusion extrusion height must be finite and positive") from error
     if not math.isfinite(value_mm) or value_mm <= 0:
         raise ValueError("Fusion extrusion height must be finite and positive")
-    if value_mm == spec.LengthMm:
+    if value_mm / 10.0 == spec.LengthMm / 10.0:
         raise ValueError("Fusion extrusion height edit must change the driving value")
     return replace(spec, LengthMm=value_mm)
 
@@ -324,7 +362,7 @@ def generate_candidate(
         model = _native_model(document)
         if model.Configurations or model.Snapshots or model.Graphics is not None:
             raise ValueError("Fusion encoder requires constructor-profile native state")
-        spec = _cuboid(NativeProfile(MakeIndex(model), model))
+        spec = _native_cuboid_spec(model)
         _write(document)
         base, identities = _seeded_write(
             MakeFusionDoc(spec), native_locator=native_locator, written_at=written_at
@@ -338,12 +376,24 @@ def generate_candidate(
     else:
         raise ValueError("Fusion encoder requires a complete versioned Fusion semantic contract")
 
-    desired = MakeFusionDoc(_edit_height(spec, edit))
+    desired_spec = _edit_height(spec, edit)
+    desired = MakeFusionDoc(desired_spec)
     candidate, _ = _seeded_write(
         desired, native_locator=native_locator, written_at=written_at
     )
     projected = open_document(candidate, source_format="f3d")
-    if replace(desired, source=projected.source, metadata=projected.metadata) != projected:
+    projected_spec = replace(
+        desired_spec,
+        LengthMm=desired_spec.LengthMm / 10.0 * 10.0,
+        WidthMm=desired_spec.WidthMm / 10.0 * 10.0,
+        DepthMm=desired_spec.DepthMm / 10.0 * 10.0,
+    )
+    expected = replace(
+        MakeFusionDoc(projected_spec),
+        source=projected.source,
+        metadata=projected.metadata,
+    )
+    if expected != projected:
         raise ValueError("Strict Fusion output projection and regenerated cuboid disagree")
     return candidate
 

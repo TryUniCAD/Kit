@@ -53,6 +53,7 @@ It then emits a new source-free candidate with a complete, consistent native con
 Dropping native metadata is not an edit strategy.
 The [contract guidance](../../../Gotchas/Conversion/Fusion/Api/FusionSemanticContracts.md) continues to apply.
 The [constructor-equivalence gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionEncoderConstructorEquivalence.md) explains the stricter encoder admission boundary.
+The [length-conversion gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionEncoderLengthConversion.md) explains exact native unit handling for inputs such as 5.3 mm.
 
 The output is generated through the existing field-based codecs.
 The new research path does not load a donor archive, captured payload, or vendor runtime.
@@ -63,7 +64,7 @@ These source inspections do not replace held-out native acceptance or the comple
 The [boundary smoke](../../../../re/Fusion/EncoderRoundTrip/BoundarySmoke.py) exercises actual SDK serialization and native archive boundaries.
 Its scope includes fixed-input reproducibility, strict native reconstruction, a driving edit, unsupported contracts, and historical JSON.
 
-The [boundary evidence](../../../../re/Fusion/EncoderRoundTrip/BoundaryEvidence.md) records 17 passing checks on native Windows with Python 3.14.6.
+The [boundary evidence](../../../../re/Fusion/EncoderRoundTrip/BoundaryEvidence.md) records 20 passing checks on Windows with Python 3.14.6.
 It binds the unchanged adapter and smoke source hashes to the retained report.
 The strict SDK projection reports one solid, two features, one sketch, and seven parameters.
 The driving edit changes volume from 12870.65625 to 17481.796875 mm³.

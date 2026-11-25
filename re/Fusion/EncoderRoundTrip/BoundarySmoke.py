@@ -114,6 +114,29 @@ def main() -> int:
     assert digest(seed_json.read_bytes()) == source_hash
     record("persisted_native_driving_edit", source_sha256=digest(native_json.read_bytes()), observation=changed_summary, sha256=digest(changed))
 
+    decimal = generate_candidate(
+        native,
+        {"dimension": "depth", "value_mm": 5.3},
+        native_locator=locator,
+        written_at=written_at,
+    )
+    decimal_doc = open_document(decimal, source_format="f3d")
+    decimal_summary = summary(decimal_doc)
+    assert math.isclose(decimal_summary["volume_mm3"], 17.25 * 23.5 * 5.3, rel_tol=1e-12)
+    decimal_json = output / "Decimal.json"
+    decimal_json.write_text(decimal_doc.to_json(), encoding="utf-8")
+    restored_decimal = type(seed).from_json(decimal_json.read_text(encoding="utf-8"))
+    assert generate_candidate(restored_decimal, native_locator=locator, written_at=written_at) == decimal
+    record("decimal_depth_survives_native_unit_conversion", sha256=digest(decimal), observation=decimal_summary)
+    reject("EquivalentNativeDepthEdit", decimal_json, {"dimension": "depth", "value_mm": 5.3 / 10.0 * 10.0})
+    decimal_text = decimal_json.read_text(encoding="utf-8")
+    assert decimal_text.count('"Value": "5.3 mm"') == 1
+    inconsistent_decimal = output / "InconsistentDecimal.json"
+    inconsistent_decimal.write_text(
+        decimal_text.replace('"Value": "5.3 mm"', '"Value": "5.4 mm"'), encoding="utf-8"
+    )
+    reject("native_decimal_expression_must_match_encoded_value", inconsistent_decimal)
+
     reject(
         "unsupported_parameter",
         seed_json,
