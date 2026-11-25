@@ -73,7 +73,7 @@ def reconstruct(document, native_locator, *, depth_mm=None):
     if document.source.format_id == KPartFormatId:
         document = _project_cold_source(document)
         document = replace(document, metadata={"name": PureWindowsPath(locator).stem})
-    PlanPartWrite(document)
+    original_plan = PlanPartWrite(document)
     if depth_mm is None:
         return document
 
@@ -85,7 +85,8 @@ def reconstruct(document, native_locator, *, depth_mm=None):
         parameters=(replace(driver, value=length),),
         feature_timeline=(replace(boss, definition=replace(boss.definition, length=length)),),
     )
-    PlanPartWrite(changed)
+    if PlanPartWrite(changed).DepthValue == original_plan.DepthValue:
+        raise ValueError("the SOLIDWORKS depth edit must change the native driving value")
     return changed
 
 
