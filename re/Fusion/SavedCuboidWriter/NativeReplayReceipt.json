@@ -1,0 +1,238 @@
+{
+  "schema": "kit.fusion.saved-cuboid-experimental-replay-sanitized/1",
+  "oracle_scope": "same-source typed replay, geometry and editable history",
+  "fusion_build": "2706.1.17",
+  "source_sha256": "b6726c11bd4e67155035de7fc6bcda3b559682fc9c4f496c2b35a05d84184752",
+  "persisted_json_sha256": "e8ed6e2b9d96c54e2fc6f7008ce2b49b0cb162d21a2d13938169cb3f81a5c38a",
+  "candidate_sha256": "c05251997755d8c68a0e8ba14db5ccf248a6ca5b1a610434f51a9801b4d0ce32",
+  "native_batch_sha256": "02c72a069f7c45f7db921934730e2c6a12c020cd89bbc45fc7aaae957065b9cb",
+  "measurement_script_sha256": "2b00f06d5861be06cbaf9f3b8dcc8924d7f452dd39f0efe35e27dc19983d9e8a",
+  "private_evidence_index_sha256": "c235001dbf6b0e90af98e616bf6d0e10a5336444e4020986619172a76e1fb7f6",
+  "secondary_strict_reader_revision": "43b2a10c4bd3f02832b98404878be8c738ec1625",
+  "source_dimensions_mm": [
+    16.4,
+    27.1,
+    13.8
+  ],
+  "native_edit_mm": 28.3,
+  "stages": [
+    {
+      "process_ordinal": 1,
+      "stage": "ControlBefore",
+      "receipt_sha256": "eb590e51690f80545f265273e0992ead5cc51d6aba6f40cd1b7e266cafac15fa",
+      "status": "passed",
+      "documents": [
+        0,
+        0
+      ],
+      "archives": {
+        "VendorControl.f3d": "5f9ad382c5e4b15313a59bebe4201ccd5b87137a3f20ebe85f5e3fba79148ca0"
+      },
+      "states": {
+        "opened": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.355,
+            0.69
+          ],
+          "material": "Steel",
+          "mass_kg": 0.0481461852,
+          "density_kg_per_cm3": 0.00785
+        },
+        "rebuilt": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.355,
+            0.69
+          ],
+          "material": "Steel",
+          "mass_kg": 0.0481461852,
+          "density_kg_per_cm3": 0.00785
+        }
+      }
+    },
+    {
+      "process_ordinal": 2,
+      "stage": "Candidate",
+      "receipt_sha256": "c6730e8506216539cac410fa1989dd21d86b90a01751c54fcf09318797d269d5",
+      "status": "passed",
+      "documents": [
+        0,
+        0
+      ],
+      "archives": {
+        "Baseline.f3d": "c05251997755d8c68a0e8ba14db5ccf248a6ca5b1a610434f51a9801b4d0ce32",
+        "VendorEdited.f3d": "24f2c0e7714e3c234ead298c842b118a828ac7a3d6f6b48b9f924a8af0926ac5",
+        "VendorRestored.f3d": "98341de3b091096939a86b8b00f5da016f76b2acffdd5e8ff5e2a636797972df"
+      },
+      "states": {
+        "opened": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.3550000000000002,
+            0.69
+          ],
+          "material": "Kit Generic Material",
+          "mass_kg": 0.006133272,
+          "density_kg_per_cm3": 0.001
+        },
+        "rebuilt": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.3550000000000002,
+            0.69
+          ],
+          "material": "Kit Generic Material",
+          "mass_kg": 0.006133272,
+          "density_kg_per_cm3": 0.001
+        },
+        "rolled_forward": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.3550000000000002,
+            0.69
+          ],
+          "material": "Kit Generic Material",
+          "mass_kg": 0.006133272,
+          "density_kg_per_cm3": 0.001
+        },
+        "edited": {
+          "volume_cm3": 12.577652,
+          "center_cm": [
+            0.82,
+            1.3549999999999998,
+            1.4150000000000003
+          ],
+          "material": "Kit Generic Material",
+          "mass_kg": 0.012577652,
+          "density_kg_per_cm3": 0.001
+        },
+        "restored": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.3550000000000002,
+            0.69
+          ],
+          "material": "Kit Generic Material",
+          "mass_kg": 0.006133272,
+          "density_kg_per_cm3": 0.001
+        }
+      }
+    },
+    {
+      "process_ordinal": 3,
+      "stage": "Reopen",
+      "receipt_sha256": "229c108ad84f47fe5ce8da94810a413c31339022eb7acb05196e6ed82e0647c8",
+      "status": "passed",
+      "documents": [
+        0,
+        0
+      ],
+      "archives": {
+        "VendorEdited.f3d": "24f2c0e7714e3c234ead298c842b118a828ac7a3d6f6b48b9f924a8af0926ac5",
+        "VendorRestored.f3d": "98341de3b091096939a86b8b00f5da016f76b2acffdd5e8ff5e2a636797972df"
+      },
+      "states": {
+        "edited_reopened": {
+          "volume_cm3": 12.577652,
+          "center_cm": [
+            0.82,
+            1.3549999999999998,
+            1.4150000000000003
+          ],
+          "material": "Kit Generic Material",
+          "mass_kg": 0.012577652,
+          "density_kg_per_cm3": 0.001
+        },
+        "restored_reopened": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.3550000000000002,
+            0.69
+          ],
+          "material": "Kit Generic Material",
+          "mass_kg": 0.006133272,
+          "density_kg_per_cm3": 0.001
+        }
+      }
+    },
+    {
+      "process_ordinal": 4,
+      "stage": "ControlAfter",
+      "receipt_sha256": "9a8ebc4430e167f2d3ecc45363b595d615ffb3d24bd4be420405f827a82c722e",
+      "status": "passed",
+      "documents": [
+        0,
+        0
+      ],
+      "archives": {
+        "VendorControl.f3d": "5f9ad382c5e4b15313a59bebe4201ccd5b87137a3f20ebe85f5e3fba79148ca0"
+      },
+      "states": {
+        "opened": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.355,
+            0.69
+          ],
+          "material": "Steel",
+          "mass_kg": 0.0481461852,
+          "density_kg_per_cm3": 0.00785
+        },
+        "rebuilt": {
+          "volume_cm3": 6.133272,
+          "center_cm": [
+            0.82,
+            1.355,
+            0.69
+          ],
+          "material": "Steel",
+          "mass_kg": 0.0481461852,
+          "density_kg_per_cm3": 0.00785
+        },
+        "edited": {
+          "volume_cm3": 12.577652,
+          "center_cm": [
+            0.82,
+            1.355,
+            1.4150000000000003
+          ],
+          "material": "Steel",
+          "mass_kg": 0.0987345682,
+          "density_kg_per_cm3": 0.00785
+        }
+      }
+    }
+  ],
+  "saved_strict_readback": {
+    "VendorEdited.f3d": {
+      "sha256": "24f2c0e7714e3c234ead298c842b118a828ac7a3d6f6b48b9f924a8af0926ac5",
+      "height_mm": 28.3,
+      "expression": "28.3 mm",
+      "volume_mm3": 12577.652,
+      "snapshots": 1,
+      "graphics": true,
+      "preview_count": 2
+    },
+    "VendorRestored.f3d": {
+      "sha256": "98341de3b091096939a86b8b00f5da016f76b2acffdd5e8ff5e2a636797972df",
+      "height_mm": 13.8,
+      "expression": "13.8 mm",
+      "volume_mm3": 6133.272,
+      "snapshots": 1,
+      "graphics": true,
+      "preview_count": 2
+    }
+  },
+  "native_replay_status": "native_measurements_passed",
+  "auxiliary_capture_status": "failed before authoring; retry blocked before launch",
+  "product_writer_qualification": "unfinished"
+}

@@ -10,7 +10,7 @@ The affected scope is a positive, axis-aligned XY cuboid with two directly drive
 
 ## Limits
 
-This profile remains read-only. The bounded research encoder admits only its qualified constructor profile. The native-state writer and research encoder still refuse edits and native output for the new saved fixed-corner branch. Fresh native evidence on reconstructed archives and the complete dependency rules for generated edits are pending.
+This profile remains read-only. The bounded research encoder admits only its qualified constructor profile. The native-state writer and research encoder still refuse edits and native output for the new saved fixed-corner branch. The separate [research replay](../../../../re/Fusion/SavedCuboidWriter/NativeSameSourceReplay.md) has measured native geometry and feature history for one exact archive. Native presentation checks and the complete dependency rules for generated edits are pending.
 
 Some Fusion-saved graphics bounds retain an earlier height. The reader keeps those graphics values and validates their links while using the typed solid and snapshot for current geometry. See the [display bounds gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionSavedGraphicsBounds.md).
 
