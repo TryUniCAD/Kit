@@ -5,6 +5,8 @@
 The research CLI adds `encoder-round-trip` through the existing trusted-checkout launcher.
 The pipeline reads a native source with the checkout's SDK and records each stage separately.
 It persists neutral JSON, source identity, document identity, a run fingerprint, timing, and precise failure outcomes.
+The fingerprint binds SDK `.py`, `.json`, and `.xz` inputs, shared helper files, pipeline files, and the selected adapter.
+Runtime identity includes the interpreter, platform, architecture, zlib, and Fusion's standard-library Zstandard version.
 Format adapters receive the neutral document and the requested bounded edit.
 The source, reconstruction, and edited candidate retain separate statuses.
 
@@ -88,11 +90,15 @@ This change does not complete the production conversion roadmap.
 Installed CLI process coverage lives in `tests/CliResearch/EncoderRoundTrip/`.
 It covers malformed native input, blocked candidates, disabled models, invalid driving values, occupied destinations, and preservation of settled outcomes.
 The strict saved-cuboid Fusion control checks neutral JSON and fingerprint consistency across two independent processes.
+Fresh SDK-authored constrained cuboids add positive installed-CLI coverage for reconstruction and a changed driving height.
+Both candidate files are read strictly and checked against independently calculated volume and eight corner coordinates.
+The checks also require the driving parameter link and the cuboid's solid, face, edge, and vertex counts.
+A no-op edit must retain the reconstruction, refuse the edited candidate, and preserve the source and settled output on retry.
 An abandoned-directory fixture checks retry behavior without claiming an actual interrupted-process measurement.
 These cases use the existing complete-suite collector, merge-queue planner, shards, and completeness report.
 No workflow or CI job is added.
 
-Black 26.10.1 formatted and checked all eight coverage files with exit `0`.
+Black 26.10.1 formatted and checked all nine coverage files with exit `0`.
 Python 3.11 syntax parsing passed for those files.
 Prettier 3.10.1 formatted and checked this change entry with exit `0`.
 A Python 3.14.6 CLI process decoded the tracked `SavedCuboid.f3d` source with SHA-256 `49f92bbe4f33fc7c1413ca8a8d433ff3ba948c1822c6513363934425f626ec31`.
@@ -103,8 +109,15 @@ The older `PublicAdapter/cuboid.f3d` control was explicitly rejected.
 A separate synthetic-package CLI smoke checked candidate digest refusal, consistent receipt ingress, idempotent attachment, and conflicting-receipt preservation.
 The synthetic observations retained both acceptance flags as false and provide no vendor measurement evidence.
 No local tests, test collection, or licensed native measurements were executed for this entry.
+An instrumented Python 3.14.6 CLI child was held before opening its staged manifest after neutral JSON was written.
+The owning harness terminated that research child; the outer process returned `15` and the final destination remained absent.
+The private stage remained unpublished.
+A normal retry to the same output returned incomplete exit `3` on the shared-only checkout without a format adapter.
+The retry retained the same neutral JSON digest.
+The process observation used SDK revision `82339a9892238ab3f0dcf841bd2295a6f54008a9` with the shared provenance changes present.
+It establishes interrupted publication and retry behavior, with native qualification unchanged.
 Remote process results, current-revision CI, configured review, and merge-group acceptance remain pending.
-Actual process interruption and complete native acceptance remain unmeasured by this shared package.
+Complete native acceptance remains unmeasured by this shared package.
 Documentation was inspected as source.
 Rendered usability and complete language conformance remain unverified.
 
