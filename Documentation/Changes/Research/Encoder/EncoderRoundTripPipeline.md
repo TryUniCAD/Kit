@@ -97,7 +97,8 @@ This change does not complete the production conversion roadmap.
 
 Installed CLI process coverage lives in `tests/CliResearch/EncoderRoundTrip/`.
 It covers malformed native input, blocked candidates, disabled models, invalid driving values, occupied destinations, and preservation of settled outcomes.
-The strict saved-cuboid Fusion control checks neutral JSON and fingerprint consistency across two independent processes.
+The fresh constrained Fusion control requires successful generation in two independent installed CLI processes.
+It checks matching candidate bytes, canonical JSON, and source/runtime fingerprints.
 Fresh SDK-authored constrained cuboids add positive installed-CLI coverage for reconstruction and a changed driving height.
 Both candidate files are read strictly and checked against independently calculated volume and eight corner coordinates.
 The checks also require the driving parameter link and the cuboid's solid, face, edge, and vertex counts.
@@ -128,7 +129,10 @@ The process verified wrong-role, wrong-build, changed-epoch, changed-locator and
 Identical retries returned the same bindings and preserved the original manifests and envelopes.
 The installed CLI regression prepares the held-out input and checks the exact envelope path against the measured digest.
 When the active compressor generates different bytes, the genuine receipt must refuse publication of a receipt sidecar.
-No local tests, test collection, or licensed native measurements were executed for this entry.
+The isolated installed-wheel CLI suite passed all fourteen cases in 248.27 seconds at revision `9b944f277f`.
+The package and separate research checkout used the same pinned revision with Python 3.14.6.
+After the receipt validation repair, the affected installed CLI case passed in 53.39 seconds at `0f08f80eed`.
+Both public SOLIDWORKS publication cases passed after the central SDK numeric repair.
 An instrumented Python 3.14.6 CLI child was held before opening its staged manifest after neutral JSON was written.
 The owning harness terminated that research child; the outer process returned `15` and the final destination remained absent.
 The private stage remained unpublished.
@@ -149,6 +153,8 @@ SOLIDWORKS generated both candidates in 17.82 seconds, including 14.41 seconds f
 Fusion generated both candidates in 43.32 seconds, including 9.22 seconds for source decoding and JSON persistence.
 Both manifests retained `awaiting_native` status.
 These process measurements cover the integrated command and its declared bounded inputs.
+The strengthened installed replay case passed in 76.25 seconds at revision `6eaaa3cd63`.
+Both independent runs produced matching non-null native candidate hashes and preserved their source.
 
 ## Ownership
 
