@@ -7,7 +7,9 @@ from tests.CliResearch.EncoderRoundTrip.RunEncoder import RunEncoder
 
 
 # invalid native inputs must retain explicit failed scope without claiming application acceptance
-@TestMark.parametrize("Application,Extension", (("solidworks", ".SLDPRT"), ("fusion", ".f3d")))
+@TestMark.parametrize(
+    "Application,Extension", (("solidworks", ".SLDPRT"), ("fusion", ".f3d"))
+)
 def CheckBadSource(TmpPath: FilePath, Application: str, Extension: str) -> None:
     SourcePath = TmpPath / ("Invalid" + Extension)
     _ = SourcePath.write_bytes(b"this is not a native cad document")

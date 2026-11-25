@@ -14,6 +14,9 @@ def CheckOrphanRetry(TmpPath: FilePath) -> None:
     OutputPath = TmpPath / "Retried"
     Result = RunEncoder(TmpPath, "solidworks", SourcePath, OutputPath)
     assert Result.returncode == 3, Result.stderr
-    assert DecodeJson((OutputPath / "manifest.json").read_bytes())["status"] == "incomplete"
+    assert (
+        DecodeJson((OutputPath / "manifest.json").read_bytes())["status"]
+        == "incomplete"
+    )
     assert (StagePath / "Partial.bin").read_bytes() == b"unpublished evidence"
     assert list(StagePath.iterdir()) == [StagePath / "Partial.bin"]

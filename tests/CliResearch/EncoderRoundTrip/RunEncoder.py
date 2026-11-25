@@ -15,9 +15,7 @@ def RunEncoder(
     LocatorValue: str | None = None,
 ) -> CompletedProcess[str]:
     LocatorArgs = (
-        ()
-        if LocatorValue is None
-        else ("--native-locator-directory", LocatorValue)
+        () if LocatorValue is None else ("--native-locator-directory", LocatorValue)
     )
     return ResearchCli(
         TmpPath,
