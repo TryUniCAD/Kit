@@ -132,6 +132,8 @@ This change does not complete the production conversion roadmap.
 
 The final installed-wheel suite passed all fourteen cases in 333.17 seconds at revision `a99e9561ea`.
 The physically separate research checkout used that same revision with Python 3.14.6.
+The expanded installed exact-receipt case passed in 107.78 seconds at `d850e5c2f5`.
+It separately attached the authentic SDK receipt twice to a schema `1` package with no writer artifacts or original source, retaining identical bindings and preserving both packages.
 The replay check removed its test-owned native source before generating both SOLIDWORKS roles in independent processes from their saved writer inputs, locators, and epoch.
 Both replays reproduced the archived candidates and recorded digests, and exact receipt attachment succeeded with the source still absent.
 Receipt intake refused replacement writer inputs with recalculated custody hashes when their generated native bytes differed.
