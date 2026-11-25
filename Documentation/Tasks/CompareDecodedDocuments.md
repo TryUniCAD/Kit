@@ -132,6 +132,12 @@ This preserves equivalent feet/millimetre topology measurements at zero toleranc
 Full B-rep, meshes, retained payloads, and assembly graphs remain outside its semantic comparison scope.
 Unsupported domains remain explicit issues.
 
+For eligible SOLIDWORKS sources, inspect `sources.left.observations` or `sources.right.observations` in the detailed report.
+The `reader_reported_native_sketch_owner` observation identifies a feature and its unique typed sketch with matching native provenance.
+It lists each sketch constraint and its ordered references.
+The source inventory and native acceptance require separate evidence.
+See the [native sketch ownership change entry](../Changes/Research/Encoder/NativeSketchOwnership.md).
+
 | Exit | Meaning                                                                                                |
 | ---: | ------------------------------------------------------------------------------------------------------ |
 |    0 | Every selected pair has `equal_observed_graph` status and no copy failed                               |

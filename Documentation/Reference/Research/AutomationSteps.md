@@ -421,6 +421,17 @@ This observation does not replace current-head hosted A06c/A06d checks or A06b q
 The subsequent [fresh P03 replay at `880bf0be`](../../Changes/Research/Readers/Comparison/SemanticSketchReferences.md#verification-evidence) removed only the false sketch-definition finding in both reader inventories and dependent comparisons, retaining `different` and `ambiguous` results and preserving the original `7317092e` run.
 A07 acceptance and A09 continue to depend on A06b.
 
+### A06d-NativeSketchOwnership: saved SOLIDWORKS sketch ownership in comparison
+
+The Codex shared encoder worker owns this checking task on `codex/native-sketch-ownership`.
+Delivery is a separate PR based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The task depends on A04c typed saved source reads, A06a comparison, and A06d reader evidence.
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains ownership of its SOLIDWORKS reader changes.
+The exit requires a real comparison report that relates one uniquely typed sketch to its same-source native timeline owner.
+The report must preserve ordered constraint references and keep the original unresolved findings and verdict.
+The P01 and P03 sources remain discovery evidence. Independent source inventory and native acceptance remain open.
+The [change entry](../../Changes/Research/Encoder/NativeSketchOwnership.md) records the observed report and comparison boundary.
+
 ## A09 scoped codec research
 
 Stephen316's accepted research constructs the [two configured atom owners](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadConfigAtoms.md), the upper sketch's [ordered same-length relation](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadEqualRelation.md) and the earlier boss's [cap and boundary occurrences](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadCapRefs.md).
@@ -446,6 +457,19 @@ The owned licensed witness still needs driving edits, restoration, rebuild, save
 Neither the scoped constructor nor its observation receipt closes A11 or qualifies a conversion route.
 
 ## A12 SOLIDWORKS writer research
+
+### A12b: vendor-authored blind boss admission
+
+The Codex SOLIDWORKS encoder worker owns this active task on `codex/solidworks-vendor-boss-admission`.
+[PR #300](https://github.com/TryUniCAD/Kit/pull/300) delivers the research evidence and a safe manifest for exact private replay.
+The task depends on A04, A06, A08, A12a, A14, and [PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains property-reader ownership at `c0a401a607`.
+[PR #288](https://github.com/TryUniCAD/Kit/pull/288) retains ownership of catalogue capture supervision.
+The scope is ordinary version-19000 parts with one supported straight-line loop and a driving blind boss.
+Whole-source admission requires complete feature, manager, partition, and presentation semantics in archive-free JSON.
+Generation, independent held-out native verification, and the exact SDK publication evidence remain open.
+
+### Existing A12 evidence
 
 The [caller-supplied rectangular Boss candidate](../../Changes/Research/Writers/SolidWorks/Metadata/SolidWorksPortableBossCandidate.md) accepts a validated neutral document and explicit typed target state for the bounded Front/Right, signed blind-extrusion scope.
 It refuses unsupported required state and independently reads the complete generated archive before optional no-replace publication.
