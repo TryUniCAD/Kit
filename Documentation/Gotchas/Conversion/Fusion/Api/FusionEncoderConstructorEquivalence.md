@@ -23,6 +23,10 @@ The encoder's `written_at` argument is a nonnegative integer count of Unix secon
 An integer-only native provenance check rejected the encoder's own generated cuboid.
 The boundary smoke exposed that rejection before publication.
 
+Fusion 2706.1.17 reopened and rebuilt the edited and restored cuboids saved by its own API.
+The current strict SDK reader refused those four saved variants with `Native constrained rectangle requires five rules and two dimensions`.
+Keep the native save-and-reopen observation separate from SDK admission of the saved archive.
+
 ## Workaround
 
 Use a complete supported constructor graph for bounded encoder work.
@@ -32,3 +36,4 @@ Do not remove metadata, ignore previews, or relax the complete-state comparison.
 
 See the [encoder change entry](../../../../Changes/Research/FusionEncoderRoundTrip.md) and its revision-bound verification record.
 The [boundary smoke](../../../../../re/Fusion/EncoderRoundTrip/BoundarySmoke.py) covers the custom-preview and provenance cases.
+The [native measurement record](../../../../../re/Fusion/EncoderRoundTrip/NativeEvidence.md) identifies the affected saved variants.
