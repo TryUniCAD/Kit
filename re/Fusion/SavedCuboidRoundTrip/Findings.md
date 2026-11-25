@@ -20,12 +20,20 @@ For example, the saved edit with SHA-256 `1e7584c59f898b41af2ea3d5accf0c5c44e793
 
 All eight native edited and restored saves in the reached groups had a 12-edge, six-face solid display node whose typed bounds kept the previous height. For example, a 28.3 mm saved solid carried a 13.8 mm graphics Z bound and its 13.8 mm restored solid carried a 28.3 mm graphics Z bound. The typed snapshot and BRep history both followed the current dimensions. Four restored saves also carried a zero-height sketch display node. Graphics references remain part of the saved graph, while current body dimensions come from modeled geometry.
 
+## Analytic height prediction
+
+[PrismFramePrediction.py](PrismFramePrediction.py) takes native edited and restored `--pair BEFORE AFTER` inputs. It uses the target driving value from Design and predicts both solid frames from the original topology. It moves the four upper corners, the four top horizontal edge origins and the top plane origin. It changes each positive vertical edge's upper parameter with its unit carrier direction preserved.
+
+Four prior native edit and restore pairs gave eight exact frame matches, covering the history and snapshot for each pair. The existing prism frame guard independently validated every predicted frame. The four restored extrusion values were 13.8 mm, 22.6 mm, 22.6 mm and 31.4 mm. This experiment predicts analytic geometry only. It does not emit a modified document.
+
+The scalar search isolated the same three height values in each of the eight edited and restored Design graphs. The user driver, owning model parameter and `DcDoubleParameter` each store the value in centimetres. The body cache stores the corresponding volume, area and centroid. The holdout's procedural wood mapping carried a nonzero origin at the previous centroid across a native edit; the baseline mapping stayed at zero. That contrast requires a material/display ownership rule before an edited archive can be qualified.
+
 ## Height-edit dependency map
 
 | Dependency | Existing evidence | Open measurement |
 | --- | --- | --- |
 | Driving user value and expression, owning model parameter, and numeric extrusion field | Native Design references connect the four parameter slots and three user drivers. Slot allocation changes across saves. | Measure changed and unchanged values by owning reference in same-document native exports. |
-| Solved BRep history, prism snapshot and mass cache | The codecs verify the closed cuboid, carrier endpoints, identity joins and exact typed equality. The mass checks use the cuboid volume, centroid and inertia tensor. | Recompute affected carriers and cache fields after a deliberate height edit and compare with the separately measured model. |
+| Solved BRep history, prism snapshot and mass cache | The codecs verify the closed cuboid, carrier endpoints, identity joins and exact typed equality. The mass checks use the cuboid volume, centroid and inertia tensor. | The analytic solid frame matches eight of eight. Recompute the mass cache and verify the complete candidate and stored associations. |
 | Graphics body bounds and draw data | The scene codec interprets typed entity links and mesh data. Every original graphics member re-emits byte-identically in the unchanged audit. | Isolate depth-dependent fields from camera, visibility and ordinary export variation. |
 | Configuration, preview and material state | Two empty configuration sidecars remain bound to their Design references. All contents remain present in the unchanged decoded model. | Determine which preview and display fields change on a height edit and whether Fusion regenerates them. |
 
