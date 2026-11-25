@@ -89,7 +89,7 @@
     "--scratch",
     "<fresh directory>"
   ],
-  "replay_sha256": "015c8a8052175558340d68d5ebb59a4d2ce1b865e5fdb249b1c7cee70aceda28",
+  "replay_sha256": "a471047036865f04aea83f784ce9ac83631f78368ba7237d541c993b2f7ec64a",
   "runtime": {
     "machine": "AMD64",
     "python": "3.14.6",
@@ -98,11 +98,6 @@
   },
   "sdk_depth_mm": 14.31,
   "sdk_volume_mm3": 7584.3,
-  "strict_sdk_archive_relocations": {
-    "compact_class_tags": 13,
-    "owner_indexes": 17,
-    "retained_records": 4
-  },
   "strict_sdk_fields_compared": [
     "configurations",
     "parameters",
@@ -111,5 +106,10 @@
     "feature_timeline",
     "bodies",
     "brep"
-  ]
+  ],
+  "strict_sdk_readback_deltas": {
+    "compact_layout_delta_offsets": 13,
+    "retained_records": 4,
+    "typed_owner_indexes": 17
+  }
 }

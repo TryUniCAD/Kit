@@ -52,7 +52,7 @@ def replay(request: Path, scratch: Path, locator: str, epoch: int) -> tuple[byte
 
 
 def compare_readback(before, after, scope: tuple[str, ...], delta: int) -> dict:
-    report = {"owner_indexes": 0, "retained_records": 0, "compact_class_tags": 0}
+    report = {"typed_owner_indexes": 0, "retained_records": 0, "compact_layout_delta_offsets": 0}
 
     def compare(left, right, path):
         if left == right:
@@ -72,7 +72,7 @@ def compare_readback(before, after, scope: tuple[str, ...], delta: int) -> dict:
         point_handle_index = "native_point_rows" in path and "line_handles" in path and path[-1] == "object_index"
         if archive_owner_index or point_handle_index:
             if type(left) is int and type(right) is int and right - left == delta:
-                report["owner_indexes"] += 1
+                report["typed_owner_indexes"] += 1
                 return
         if path[0] == "feature_timeline" and path[-4:] == ("definition", "object_data", "record_data", "$bytes"):
             original, relocated = b64decode(left, validate=True), b64decode(right, validate=True)
@@ -82,7 +82,7 @@ def compare_readback(before, after, scope: tuple[str, ...], delta: int) -> dict:
                        and unpack_from("<H", relocated, i)[0] - unpack_from("<H", original, i)[0] == delta
                        for i in offsets):
                     report["retained_records"] += 1
-                    report["compact_class_tags"] += len(offsets)
+                    report["compact_layout_delta_offsets"] += len(offsets)
                     return
         raise ValueError(f"strict SDK readback differs outside expected archive relocation at {path}")
 
@@ -130,7 +130,7 @@ def run(scratch: Path) -> dict:
         "plain_archive_sha256": digest(plain.BytesValue),
         "plain_config_next_slot": plain.ConfigValue.MapValue.CounterValue,
         "strict_sdk_fields_compared": compared,
-        "strict_sdk_archive_relocations": relocation,
+        "strict_sdk_readback_deltas": relocation,
         "sdk_depth_mm": candidate.parameters[0].value.value,
         "sdk_volume_mm3": candidate.bodies[0].topology.volume,
     }
