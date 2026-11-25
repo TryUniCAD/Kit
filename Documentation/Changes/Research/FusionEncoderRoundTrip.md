@@ -1,7 +1,7 @@
 # Bounded Fusion encoder round trip
 
-Two edited cuboid candidates passed native open, edit, rebuild, and fresh-process reopen measurements in Fusion 2706.1.17.
-Their recorded scope is the edited role on the constructor profile.
+The integrated CLI's reconstructed and edited cuboid candidates passed fresh-process native measurements in Fusion 2706.1.17.
+Two separately generated edited candidates also passed on the same build.
 The complete [CAD success criteria](../../Reference/Operations/CadSuccessCriteria.md) remain required.
 
 ## Behavior
@@ -70,10 +70,9 @@ The driving edit changes volume from 12870.65625 to 17481.796875 mm³.
 The profile is 17.25 by 23.5 mm.
 The extrusion depth changes from 31.75 to 43.125 mm.
 Fresh-process native open, edit, rebuild, save, and reopen measurements remain separate evidence.
-The [native measurement record](../../../re/Fusion/EncoderRoundTrip/NativeEvidence.md) binds both edited candidates to their exact source and receipt hashes.
+The [native measurement record](../../../re/Fusion/EncoderRoundTrip/NativeEvidence.md) binds each measured candidate to its exact source and receipt hashes.
 Independent Fusion controls passed before and after each candidate.
-Native verification for unchanged reconstruction remains open.
-The strict SDK reader refused the four variants that Fusion saved after the native edit or restoration.
+The strict SDK reader refused variants that Fusion saved after the native edits and restorations.
 Admission of those saved variants requires reader work.
 The [Windows oracle startup record](../../Gotchas/Conversion/Fusion/Api/FusionWindowsOracleStartup.md) describes the observed launcher and process behavior.
 PR checks and merge-group acceptance also remain separate gates.

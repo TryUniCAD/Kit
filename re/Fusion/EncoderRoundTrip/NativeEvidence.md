@@ -42,9 +42,48 @@ Both bracketing controls passed for each case. Each stage closed all opened docu
 
 The source archives, persisted JSON, candidates and stage receipts are retained in the task scratch directory `.rescratch/FusionEncoderNativeCandidateArtifacts` of the original checkout.
 The measured seed archives use the Kit constructor profile. Vendor-authored controls establish the measured geometry independently.
-Native verification of unchanged reconstruction and qualification against additional source graphs remain open.
+Qualification against additional source graphs remains open.
 
 The strict SDK reader reopened both Kit-emitted candidates in Python 3.14.6 before native measurement.
 The same reader refused the four `VendorEdited.f3d` and `VendorRestored.f3d` variants after Fusion saved and reopened them.
 It reported `Native constrained rectangle requires five rules and two dimensions` for each one.
+The checked records retain four horizontal and vertical rules, two dimensions, and a fixed corner at the origin position.
+On save, Fusion adds graphics, one snapshot, and two configuration records.
+Those records select the strict vendor projection, which expects a fifth rule for explicit coincidence with the sketch origin.
 The native observations establish the edited candidates' application behavior. The saved variants still need a separate strict reader qualification.
+
+## Integrated CLI reconstruction and edit
+
+The normal research CLI on integration revision `a529ff98cb7624982bb05a41c1ab7c07eaed6a38` used the same baseline seed archive.
+Both output roles passed native open, rebuild, independent height edit, restore, export, and fresh-process reopen.
+The installed build was Fusion 2706.1.17. Each role had healthy independent before and after controls.
+
+| Role           | Candidate SHA-256                                                  | Initial height (mm) | Initial volume (mm³) | Initial centre (mm) | Volume at 28.3 mm native edit (mm³) |
+| -------------- | ------------------------------------------------------------------ | ------------------: | -------------------: | ------------------- | ----------------------------------: |
+| Reconstruction | `bb662739916ed12c21680f9e4b53f553625ea799f066ba4e7d2f88417ea55112` |                13.8 |             6133.272 | 8.2, 13.55, 6.9     |                           12577.652 |
+| Edited         | `8865a3153326e52034c9110ccfe5c14ec857d2bde524a723c8144bd8907abc8a` |                22.6 |            10044.344 | 8.2, 13.55, 11.3    |                           12577.652 |
+
+| Role           | Stage          |   PID | Receipt SHA-256                                                    |
+| -------------- | -------------- | ----: | ------------------------------------------------------------------ |
+| Reconstruction | Control before | 25000 | `99c5649dc3e04c40582bcd0dc0d9587edb2e7a0e4f4bdcb87c2fb5258e48f24e` |
+| Reconstruction | Candidate      | 34032 | `7560b4f5a920e61f0c97377d52609d4b03ccfd9946d30c48317a3965014ed71c` |
+| Reconstruction | Reopen         | 13964 | `c86e76b10d8763cfeaa1b3206d0bc146b0b4b96e117365476535c3c25a617c8a` |
+| Reconstruction | Control after  | 24112 | `8bf2da5d1a4f9b0671eb48b70a7228188ffa81c7fc293d7576262542b44f09c9` |
+| Edited         | Control before | 25000 | `36c8e345083eec73692ce44f662067945efbac85415ad096a2eda5dc58714c30` |
+| Edited         | Candidate      | 26152 | `c493581624bb8004ffd887a82df40c7381c16f5d2960d90065b2ed333a3b200f` |
+| Edited         | Reopen         |  1460 | `fd900bac6e48665f5de523b951df9096f6387e2123d9ea979cf63362179f0e8d` |
+| Edited         | Control after  | 24112 | `0eb6ea9dbbcbf73653c962b3b344a718a7bf08ac15ef9df8ef5330e51f9e2cf8` |
+
+The raw readings, independent controls, saved variants, source hash, and exact generated artifacts remain under `.rescratch/EncoderIntegratedFusion01`.
+The shared research CLI attached both receipts and reported `measurement_status: observed` and `native_qualification: pending` for each one.
+The immutable manifest SHA-256 remained `974e6fa32c7db89aa27e64f6a669b38c2b6ad59143002cfe9d5b8a88dc347ecc`.
+The reconstruction receipt SHA-256 is `5f2d54b0efe634bde01930c98ae6494fba5db3c467fc37059cfbca5df8727356`.
+The edited receipt SHA-256 is `8e69751b17e255350f74fb92c47dcc294c3b33fb854f991c9f91044c26345106`.
+The strict SDK reader also refused the four variants that Fusion saved in this integrated run.
+
+| Oracle role    | Saved archive        | SHA-256                                                            |
+| -------------- | -------------------- | ------------------------------------------------------------------ |
+| Reconstruction | `VendorEdited.f3d`   | `1e7584c59f898b41af2ea3d5accf0c5c44e793bcd0ab7c5486a08feb55443aa2` |
+| Reconstruction | `VendorRestored.f3d` | `b6726c11bd4e67155035de7fc6bcda3b559682fc9c4f496c2b35a05d84184752` |
+| Edited         | `VendorEdited.f3d`   | `303c02e4b3853dbaf709900f3611348dc1df9f22019f61e5d1af875c86c2a3f4` |
+| Edited         | `VendorRestored.f3d` | `ebd4cdc0e1802e5f3ba13c660dd3e99c90d930fbcfb62f36565b972302737361` |
