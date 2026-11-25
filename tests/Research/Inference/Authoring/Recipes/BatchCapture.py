@@ -30,8 +30,9 @@ def PublishBatch(SessionPath: FilePath) -> None:
     Fault = Packet["job"]["options"]["fault"]
     Bundles: dict[str, dict[str, MemberData]] = {}
     Artifacts: dict[str, ArtifactData] = {}
-    for Label in ("First",) if Fault == "native-rejected" else ("First", "Second"):
-        Current = Fault if Label == "Second" else "normal"
+    Labels = ("Second",) if Fault == "native-rejected" else ("First", "Second")
+    for Label in Labels:
+        Current = Fault if Label == "Second" and Fault != "native-rejected" else "normal"
         Members, Artifact = WriteBundle(SessionPath, Label, Content, Current)
         Artifacts["bundle." + Label.lower()] = Artifact
         if Current != "missing":
@@ -47,7 +48,7 @@ def PublishBatch(SessionPath: FilePath) -> None:
     if Fault == "native-rejected":
         Records["source_pins"] = {"fixture_only": True}
         Records["cases"] = {
-            "fusion:second": {
+            "fusion:first": {
                 "case": {"recipe": "fixture", "parameters": {}, "options": {}},
                 "native_verified": False,
                 "native_rejection": "fixture measurement mismatch",

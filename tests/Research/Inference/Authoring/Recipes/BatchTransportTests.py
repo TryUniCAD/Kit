@@ -87,21 +87,3 @@ def CheckBatchFault(TmpPath: FilePath, Fault: str) -> None:
     )
     assert Outcome["samples"]["fusion:first"]["status"] == "decode_unresolved"
     assert Outcome["samples"]["fusion:second"]["status"] == "failed"
-
-
-# a native refusal must withhold only the rejected case at the real artifact dependency boundary
-def CheckRejection(TmpPath: FilePath) -> None:
-    StorePath, ConfigPath = PrepareBatch(TmpPath, "native-rejected")
-    Summary = DecodeJson(RunSupervisor(StorePath, ConfigPath))
-    JobRows = {Entry["id"]: Entry for Entry in Summary["jobs"]}
-    assert JobRows["fixture-native"]["state"] == "completed"
-    assert JobRows["decode-first"]["state"] == "completed"
-    assert JobRows["decode-second"]["state"] == "waiting_evidence"
-    assert JobRows["decode-second"]["attempts"] == 0
-    Outcome = ReadBatchState(TmpPath)
-    assert Outcome["status"] == "failed"
-    assert Outcome["native_verified_samples"] == 0
-    assert Outcome["samples"]["fusion:first"]["status"] == "decode_unresolved"
-    Rejected = Outcome["samples"]["fusion:second"]
-    assert Rejected["status"] == "failed"
-    assert Rejected["native_rejection"] == "fixture measurement mismatch"

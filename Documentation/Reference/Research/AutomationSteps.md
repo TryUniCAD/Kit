@@ -147,7 +147,7 @@ and artifact intake from PR #207. Delivery combines the changes from PRs
 #289 and #291. Exit requires proven shutdown recovery, held-out thin-wall
 measurements, and a process check showing that a refused case cannot block
 or supply evidence to a healthy sibling decoder.
-[Delivery PR](https://github.com/TryUniCAD/Kit/pulls?q=is%3Apr+head%3Acodex%2Fsolidworks-capture-resilience)
+[Delivery PR #292](https://github.com/TryUniCAD/Kit/pull/292)
 [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
 
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
