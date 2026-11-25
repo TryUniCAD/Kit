@@ -48,5 +48,13 @@ def TestJsonReplay() -> None:
             "inconsistent_depth",
             "extra_metadata",
         }
+        assert (
+            CaseValue["case_variant_locator"]
+            == CaseValue["case_variant_header_locator"]
+        )
+        assert CastValue(str, CaseValue["case_variant_locator"]).endswith(
+            ("EDITED.SLDPRT", "RECONSTRUCTION.SLDPRT")
+        )
+        assert CaseValue["case_variant_sha256"] != CaseValue["sha256"]
         if ReportValue["exact_measured_runtime"] is True:
             assert CaseValue["measured_match"] is True

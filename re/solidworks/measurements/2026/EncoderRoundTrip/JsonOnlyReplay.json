@@ -1,13 +1,16 @@
 {
   "exact_measured_runtime": true,
   "fresh_processes": 4,
-  "method_sha256": "379bd7d89572cc3e1bff3266d741058dea05cceef29a894bc1bc3b98e87bc617",
+  "method_sha256": "a42bed00d561f93a3e5be5d051d1579f0411be39f5c30aba81643a9cdd7552a6",
   "native_launches": 0,
   "native_source_files_written": 0,
   "passed": true,
   "results": [
     {
       "bytes": 9338,
+      "case_variant_header_locator": "C:\\KitEncoderRoundTrip\\RECONSTRUCTION.SLDPRT",
+      "case_variant_locator": "C:\\KitEncoderRoundTrip\\RECONSTRUCTION.SLDPRT",
+      "case_variant_sha256": "0009dffc8b13c3df5c32e8961abe13a22c05918a2b0c3b4958c55964d4e5c551",
       "external_access_attempts": 0,
       "measured_match": true,
       "measured_sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
@@ -18,6 +21,9 @@
     },
     {
       "bytes": 9288,
+      "case_variant_header_locator": "C:\\KitEncoderRoundTrip\\EDITED.SLDPRT",
+      "case_variant_locator": "C:\\KitEncoderRoundTrip\\EDITED.SLDPRT",
+      "case_variant_sha256": "05b3f10d242844d696c2e21a19bf2845d8702b3981c269704282e39e1395d6a2",
       "external_access_attempts": 0,
       "measured_match": true,
       "measured_sha256": "38fe98ae5975626a6362f1a1ae72a030a7d78a18c4fdc36db64dd35938232f33",
@@ -28,6 +34,9 @@
     },
     {
       "bytes": 9462,
+      "case_variant_header_locator": "C:\\KitEncoderRoundTrip\\RECONSTRUCTION.SLDPRT",
+      "case_variant_locator": "C:\\KitEncoderRoundTrip\\RECONSTRUCTION.SLDPRT",
+      "case_variant_sha256": "1fda714321c1fb3673fb8b5b6e89aa9f17cb5aa345b3e65338a7e9a2f50a3162",
       "external_access_attempts": 0,
       "measured_match": true,
       "measured_sha256": "0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9",
@@ -38,6 +47,9 @@
     },
     {
       "bytes": 9406,
+      "case_variant_header_locator": "C:\\KitEncoderRoundTrip\\EDITED.SLDPRT",
+      "case_variant_locator": "C:\\KitEncoderRoundTrip\\EDITED.SLDPRT",
+      "case_variant_sha256": "d99dd3237b13cfd48a59e9c05c8806bc7900b23168c7704afc829c2816f0feec",
       "external_access_attempts": 0,
       "measured_match": true,
       "measured_sha256": "d670154e2eca290eba02440d24b28ac1ca11f0ef390aa01c7668909fba930bfd",
@@ -55,7 +67,7 @@
   },
   "schema": "kit.sw2026.json-only-constructor-replay.v1",
   "source_sha256": {
-    "re/automation/EncoderRoundTrip/Solidworks.py": "9ac3ed3debec8c07a838bedb828f50dfef270a35ae2bc7b58d4feb9c0e1b0621",
+    "re/automation/EncoderRoundTrip/Solidworks.py": "9986732c3b4221ab0dcfaef9f927ba1035831d1e9af413690ac5605bce773494",
     "re/tooling/sw2026/PreparePlainPartEvidence.py": "983b7f84a8188175111c22dc515e768dd39111549653af259ebdb06df6d61473",
     "src/convert/adapters/solidworks/Core/Preparation/PlanPartWrite.py": "ba3c47c7efade29cf4cd066f79fc712dab186e0181b754f5de922aa62f11ca5a"
   }

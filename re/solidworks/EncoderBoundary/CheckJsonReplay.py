@@ -3,7 +3,7 @@ from codecs import lookup
 from dataclasses import replace
 from hashlib import sha256
 import json
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 import platform
 import subprocess
 import sys
@@ -24,6 +24,10 @@ def setup(root):
 def replay(root, request):
     setup(root)
     import EncoderRoundTrip.Solidworks as adapter
+    from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersion
+    from convert.adapters.solidworks.Archive.Header.ReadFileTable import GetFileRef
+    from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
+    from convert.adapters.solidworks.Container.Container import SldprtArchive
     from interchange.document.Models.DocumentModel import CadDocument
 
     prepared = CadDocument.from_json(request["prepared_json"])
@@ -34,6 +38,8 @@ def replay(root, request):
     driver, = prepared.parameters
     inconsistent = replace(prepared, parameters=(replace(driver, value=replace(driver.value, value=driver.value.value + 1)),))
     extra = replace(prepared, metadata={**prepared.metadata, "unmodeled": True})
+    original_locator = PureWindowsPath(request["native_locator"])
+    case_locator = str(original_locator.with_name(original_locator.stem.upper() + original_locator.suffix))
     admission = {
         adapter.prepare_generation_input.__code__, adapter.reconstruct.__code__,
         adapter._project_cold_source.__code__,
@@ -68,6 +74,9 @@ def replay(root, request):
         actual = sha256(payload).hexdigest()
         if actual != request["expected_sha256"]:
             raise ValueError("fresh JSON replay differs from the independently generated candidate")
+        case_payload = adapter.generate_prepared_candidate(
+            prepared, native_locator=case_locator, written_at=request["written_at"],
+        )
         refused = []
         for label, mutation in (("inconsistent_depth", inconsistent), ("extra_metadata", extra)):
             try:
@@ -83,11 +92,18 @@ def replay(root, request):
         sys.setprofile(None)
     if denied or source_calls or any(name.startswith(("win32com", "pythoncom")) for name in sys.modules):
         raise ValueError("prepared generation crossed the offline replay boundary")
+    case_archive = SldprtArchive.from_bytes(case_payload, "<case-variant-memory>")
+    case_header = ReadHeaderGraph(case_archive.require("Header2"), KHeaderVersion).FieldsValue
+    saved_locator = GetFileRef(case_header.get("f38")).PathValue
+    if saved_locator != case_locator or sha256(case_payload).hexdigest() == actual:
+        raise ValueError("prepared case variant lost its intentional native header locator")
     return {
         "role": request["role"], "sha256": actual, "bytes": len(payload),
         "measured_sha256": request["measured_sha256"],
         "measured_match": actual == request["measured_sha256"],
         "external_access_attempts": len(denied), "source_admission_calls": len(source_calls),
+        "case_variant_locator": case_locator, "case_variant_header_locator": saved_locator,
+        "case_variant_sha256": sha256(case_payload).hexdigest(),
         "refusals": refused,
     }
 
