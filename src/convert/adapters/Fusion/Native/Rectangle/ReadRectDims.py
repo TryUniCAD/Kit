@@ -201,6 +201,7 @@ def ReadRectDim(
     Anchor: NativeNode,
     KindValue: ConstraintKind,
     YzDatum: bool = False,
+    Fixed: bool = False,
 ) -> SketchRelation:
     IsWidth = KindValue is ConstraintKind.KDistanceX
     AxisValue = int(IsWidth) if YzDatum else int(not IsWidth)
@@ -231,8 +232,8 @@ def ReadRectDim(
             "Native rectangle dimension does not measure its exact ordered anchored side"
         )
     Points = tuple(PointCoords(NodeValue.Fields["point"]) for NodeValue in Nodes)
-    CheckDimCache(Dimension.Fields, Param, Points, IsWidth, YzDatum)
-    CheckDimFrame(Graph, Dimension, Nodes, Anchor, IsWidth)
+    CheckDimCache(Dimension.Fields, Param, Points, IsWidth, YzDatum, Fixed)
+    CheckDimFrame(Graph, Dimension, Nodes, Anchor, IsWidth, Fixed)
     return SketchRelation(
         Dimension.Identity,
         ConstraintKind.KDistanceY if AxisValue else ConstraintKind.KDistanceX,
@@ -248,6 +249,7 @@ def CheckDimCache(
     Points: tuple[tuple[float, float, float], ...],
     IsWidth: bool,
     YzDatum: bool = False,
+    Fixed: bool = False,
 ) -> None:
     InfoValue = ObjectFields(Fields["LinearDimensionInfo"])
     Start, Finish = Points
@@ -269,7 +271,7 @@ def CheckDimCache(
         InfoValue["bDriven"] is not False
         or InfoValue["hasTextPoint"] is not True
         or InfoValue["isSingleArrow"] is not False
-        or InfoValue["prefix"] != ""
+        or InfoValue["prefix"] != ("fx: " if Fixed else "")
         or InfoValue["text"] != Param.Fields["expression"]
         or Plane["normalReversed"] is not False
         or PointCoords(Plane["origin"]) != (0.0, 0.0, 0.0)
@@ -278,7 +280,7 @@ def CheckDimCache(
         or SeriesItems(Fields["RefPositions"]) != (0.0, 1.0)
         or Extension[1 - AxisValue] != 0.0
         or Extension[2] != 0.0
-        or (YzDatum and Extension != Start)
+        or ((YzDatum or Fixed) and Extension != Start)
     ):
         raise ValueError(
             "Native rectangle dimension has inconsistent literal or annotation placement"
@@ -318,6 +320,7 @@ def CheckDimFrame(
     Nodes: tuple[NativeNode, ...],
     Anchor: NativeNode,
     IsWidth: bool,
+    Fixed: bool = False,
 ) -> None:
     Settings = Graph.OneClass("CommonDataAssetSettings")
     Other = Nodes[int(IsWidth)]
@@ -329,10 +332,11 @@ def CheckDimFrame(
         (Subject.FieldName, Subject.TypeName, Subject.Value)
         for Subject in Dimension.Frame.Metadata or ()
     )
+    AnchorRank = int(not IsWidth) + int(not Fixed)
     if (
         len(Subjects) != 3
         or Subjects[0][0] != Settings
-        or Subjects[1:] != ((Anchor, 1 if IsWidth else 2), (Other, 0))
+        or Subjects[1:] != ((Anchor, AnchorRank), (Other, 0))
         or Metadata != (("EntityGenesis", "IntrinsicMetaTypeuint64", 0),)
     ):
         raise ValueError(

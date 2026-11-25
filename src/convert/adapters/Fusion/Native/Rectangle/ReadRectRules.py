@@ -153,7 +153,7 @@ def ReadRectAxes(
     Graph: NativeGraph,
     Context: ExtrudeContext,
     Rules: tuple[NativeNode, ...],
-    AnchorRule: NativeNode,
+    AnchorRule: NativeNode | None,
     Lines: tuple[NativeNode, ...],
 ) -> tuple[SketchRelation, ...]:
     ByLine: dict[str, SketchRelation] = {}

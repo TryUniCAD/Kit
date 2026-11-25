@@ -23,12 +23,12 @@ from convert.adapters.Fusion.Native.Projection.ProjectRectangle import (
     ProjectSketch,
 )
 from convert.adapters.Fusion.Native.Projection.ReadMaterial import ReadMaterial
+from convert.adapters.Fusion.Native.Projection.ReadPrismRules import ReadPrismRules
 from convert.adapters.Fusion.Native.Rectangle.CheckBodyJoins import CheckBodyJoins
 from convert.adapters.Fusion.Native.Rectangle.CheckOperations import CheckOperations
 from convert.adapters.Fusion.Native.Rectangle.CheckRegion import CheckRegion
 from convert.adapters.Fusion.Native.Rectangle.CheckPrismTags import CheckPrismTags
 from convert.adapters.Fusion.Native.Rectangle.ReadRectangle import ReadRectangle
-from convert.adapters.Fusion.Native.Rectangle.ReadRectRules import ReadRectRules
 from convert.adapters.Fusion.Native.Graph.SelectExtrusion import SelectExtrusion
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
@@ -72,7 +72,7 @@ def ProjectPrism(
     Station = GenericStation(Model, Context)
     Reverse = Station < 0.0
     YzDatum = Station > 0.0 and Context.Plane.Fields["transform"] == KYzMatrix
-    Rectangle = ReadRectRules(Graph, Context, Reverse, YzDatum)
+    Rectangle = ReadPrismRules(Graph, Context, Reverse, YzDatum)
     CheckGraph(Graph, Context, Rectangle, YzDatum)
     CheckScopes(Graph, Context, Model.Asset.AssetId)
     FrameValue = ReadDatumFrame(Graph, Context) if YzDatum else KTransformIdentity
