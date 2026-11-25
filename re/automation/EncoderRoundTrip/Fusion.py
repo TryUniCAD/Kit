@@ -26,7 +26,6 @@ from unittest.mock import patch
 from uuid import NAMESPACE_URL, UUID, uuid5
 
 import convert
-from convert import open_document, write_document
 from convert.adapters.Fusion import MakeFusionDoc
 from convert.adapters.Fusion.Bridge.CheckContract import CheckContract
 from convert.adapters.Fusion.Projection.CompareNative import KUuidPattern
@@ -84,7 +83,7 @@ def make_cuboid(
 
 def _write(document: CadDocument) -> bytes:
     output = io.BytesIO()
-    result = write_document(
+    result = convert.write_document(
         document, output, destination_format="f3d", allow_carrier=False
     )
     if result.dropped or result.carrier_capabilities:
@@ -367,7 +366,7 @@ def generate_candidate(
         base, identities = _seeded_write(
             MakeFusionDoc(spec), native_locator=native_locator, written_at=written_at
         )
-        base_projection = open_document(base, source_format="f3d")
+        base_projection = convert.open_document(base, source_format="f3d")
         _require_same_constructor_state(
             model, _native_model(base_projection), identities
         )
@@ -381,7 +380,7 @@ def generate_candidate(
     candidate, _ = _seeded_write(
         desired, native_locator=native_locator, written_at=written_at
     )
-    projected = open_document(candidate, source_format="f3d")
+    projected = convert.open_document(candidate, source_format="f3d")
     projected_spec = replace(
         desired_spec,
         LengthMm=desired_spec.LengthMm / 10.0 * 10.0,
