@@ -1,0 +1,14 @@
+{
+  "discovery-01": "refused",
+  "discovery-02": "refused",
+  "discovery-03": "refused",
+  "discovery-04": "refused",
+  "discovery-05": "refused",
+  "discovery-06": "refused",
+  "holdout-01": "passed",
+  "holdout-02": "passed",
+  "holdout-03": "passed",
+  "holdout-04": "passed",
+  "holdout-05": "refused",
+  "holdout-06": "passed"
+}

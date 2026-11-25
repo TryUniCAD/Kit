@@ -620,3 +620,10 @@ The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlaceme
 Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
 Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
+
+## Circular rim fillet qualification packs
+
+`A08h-RimFillet20261125` is a checking B06 child owned by Codex on `feat/native-conversion-campaign-20261125`.
+The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-circular-rim-fillet-readwrite-packs) records dependencies and delivery.
+The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
+Seven snapshot-width refusals and all public neutral conversion refusals remain open. The production boundary and PRs #121/#297 remain unchanged.
