@@ -31,6 +31,13 @@ APPLICATIONS = {
 ROLES = ("reconstruction", "edited")
 WRITTEN_AT = 1767225600
 LOCATOR_ROOT = PureWindowsPath(r"C:\KitEncoderRoundTrip")
+SDK_INPUT_SUFFIXES = {".py", ".json", ".xz"}
+SHARED_INPUTS = (
+    "re/automation/ApplicationWorkers/ApplicationProtocol.py",
+    "re/automation/Corpus.py",
+    "re/automation/NativeAcceptance/Records.py",
+    "re/automation/NativeAcceptance/WindowsSnapshot.py",
+)
 IDENTITY_FIELDS = (
     "schema",
     "application",
@@ -136,7 +143,10 @@ def _candidate(document, edit, locator, module_name, directory, reconstruction_s
 
 def _checkout_identity(root, module_name):
     module_path = root / "re" / "automation" / (module_name.replace(".", "/") + ".py")
-    files = set((root / "src").rglob("*.py"))
+    files = {
+        path for path in (root / "src").rglob("*") if path.suffix in SDK_INPUT_SUFFIXES
+    }
+    files.update(root / name for name in SHARED_INPUTS)
     files.update(Path(__file__).parent / name for name in ("Artifacts.py", "Command.py", "Pipeline.py", "Receipts.py", "Source.py"))
     if module_path.is_file():
         files.add(module_path)
@@ -153,19 +163,30 @@ def _checkout_identity(root, module_name):
     }
 
 
+def _runtime_identity(application):
+    runtime = {
+        "python": sys.version,
+        "implementation": sys.implementation.name,
+        "platform": sys.platform,
+        "machine": platform.machine(),
+        "zlib_build": zlib.ZLIB_VERSION,
+        "zlib_runtime": zlib.ZLIB_RUNTIME_VERSION,
+    }
+    if application == "fusion":
+        try:
+            from compression.zstd import zstd_version
+        except ImportError:
+            zstd_version = None
+        runtime["stdlib_zstd"] = zstd_version
+    return runtime
+
+
 def _identity(checkout, application, source, candidates, edit, locators):
     return {
         "schema": 1,
         "application": application,
         **checkout,
-        "runtime": {
-            "python": sys.version,
-            "implementation": sys.implementation.name,
-            "platform": sys.platform,
-            "machine": platform.machine(),
-            "zlib_build": zlib.ZLIB_VERSION,
-            "zlib_runtime": zlib.ZLIB_RUNTIME_VERSION,
-        },
+        "runtime": _runtime_identity(application),
         "source_sha256": source.get("sha256"),
         "neutral_sha256": source.get("neutral", {}).get("sha256"),
         "candidate_sha256": {

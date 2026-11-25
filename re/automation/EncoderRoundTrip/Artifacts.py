@@ -1,5 +1,6 @@
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import stat
@@ -59,7 +60,18 @@ def read_record(payload):
     def reject_constant(value):
         raise ValueError(f"JSON record contains a nonfinite number: {value}")
 
-    value = json.loads(payload, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            reject_constant(value)
+        return number
+
+    value = json.loads(
+        payload,
+        object_pairs_hook=unique_pairs,
+        parse_constant=reject_constant,
+        parse_float=finite_float,
+    )
     if not isinstance(value, dict):
         raise ValueError("JSON record must be an object")
     return value

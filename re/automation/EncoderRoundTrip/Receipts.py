@@ -78,6 +78,14 @@ def _healthy(record):
     ):
         raise ValueError("measured native receipt has missing records")
     try:
+        for key in ("opened", "rebuilt"):
+            bodies = record[key]["bodies"]
+            if not isinstance(bodies, list) or any(
+                type(value) not in (int, float)
+                for body in bodies
+                for value in (body["volume_mm3"], *body["center_mm"])
+            ):
+                raise ValueError("measured body volume and center must use JSON numbers")
         return bool(CheckMeasurement(record))
     except (AttributeError, KeyError, OverflowError, TypeError) as error:
         raise ValueError("measured native receipt has malformed observation records") from error
@@ -113,7 +121,9 @@ def _validate(receipt, manifest, role):
         raise ValueError("candidate and both controls must report one application build")
     if len({record["pid"] for record in measurements.values()}) != len(measurements):
         raise ValueError("candidate and both controls must report distinct process IDs")
-    controls_healthy = _healthy(before) and _healthy(after) and SameValues(before["rebuilt"], after["rebuilt"])
+    before_healthy = _healthy(before)
+    after_healthy = _healthy(after)
+    controls_healthy = before_healthy and after_healthy and SameValues(before["rebuilt"], after["rebuilt"])
     candidate_healthy = _healthy(candidate)
     measurement_status = (
         "invalid_controls" if not controls_healthy
