@@ -25,4 +25,16 @@ It depends on the continuous capture implementation in [PR #288](https://github.
 Its exit requires native compilation, bounded failed-launch evidence, a recovered native launch, stage measurements and current-revision CI and review.
 Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
 Eleven Windows process and installed-interop compiler checks passed before publication.
-Native recovery and stage measurements remain pending.
+At `d36d7d4806`, an injected first-launch exit recovered on attempt two.
+Two P03 batches then shared the recovered process, with public decoding overlapping the second batch.
+A separate process matched the same saved baseline measurements, and both completed processes exited without forced cleanup.
+The complete comparison took 145.25 seconds.
+Startup, including the failed attempt and delay, took 6.47 seconds.
+The warmed second case spent 3.36 seconds authoring its baseline, 2.98 seconds generating edits and the unit variant, and 6.67 seconds building other variants.
+Verification of all eight saved files took 14.56 seconds.
+Its initial baseline reopen, rebuild and repeat save took another 2.19 seconds.
+These P03 timings do not establish a general instance ratio.
+See the [sanitized observation](../../../../../re/automation/BatchEvidence/OpenRetryTimingObservation.json).
+A forced part-open failure was not induced.
+The original receipt-shape rejection and its correction are [recorded separately](../../../../Gotchas/Research/Workers/SolidWorks/NativeOpenStatusShape.md).
+Current-head CI, configured approval and merge-group acceptance remain separate gates.

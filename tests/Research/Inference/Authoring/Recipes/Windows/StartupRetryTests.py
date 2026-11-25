@@ -1,6 +1,3 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
-
 from json import loads as ReadJson
 from os import environ as SystemEnv
 from pathlib import Path

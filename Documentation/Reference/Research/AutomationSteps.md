@@ -8,6 +8,8 @@ It depends on continuous capture in [PR #288](https://github.com/TryUniCAD/Kit/p
 Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), alongside its continuous capture dependency.
 Exit: native compilation, bounded launch rejection, recovered native startup, measured stages and current-revision CI and review.
 See [retry and timing behavior](../../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md).
+At `d36d7d4806`, the injected first startup exit recovered on attempt two, two P03 batches shared the new process, and same-file independent-process measurements matched.
+Current-head CI and review remain open; a forced part-open failure was not induced.
 
 Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-capture-batching`.
 It depends on the shared batch preparation, existing measured readback and the serial native resource.
