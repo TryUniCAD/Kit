@@ -271,7 +271,10 @@ and the four registered revolution recipes.
 
 Add `--authoring-grid three-values` to vary each exposed parameter independently
 across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
-recipes share native batches of at most three cases, with separate decoder jobs.
+recipes share one native authoring launch and one fresh verification launch
+per batch of up to twelve cases, with separate decoder jobs. Existing saved
+plans keep their recorded grouping. See
+[larger SOLIDWORKS batches](../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
 Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
 New SOLIDWORKS authoring plans automatically share application startup across batches of up to three P01–P05 or written-recipe cases.

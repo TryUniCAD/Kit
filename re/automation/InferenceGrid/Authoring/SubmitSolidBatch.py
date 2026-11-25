@@ -7,6 +7,11 @@
 # to you under it immediately and permanently.
 
 from CaptureTools.Catalogue.Recipes.RecipeRegistry import KRecipeBuilders
+from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import (
+    KLegacySolidBatchCases,
+    KSolidBatchCases,
+    SolidBatchScale,
+)
 from InferenceGrid.Resume import BindGrid
 from Ledger import Ledger
 from Records import digest
@@ -30,10 +35,13 @@ def SubmitBatch(Directory, PlanValue, Resource):
             or Selection["case"]["recipe"] in KRecipeBuilders
         )
     ]
+    BatchSize = PlanValue.get("solidworks_batch_size", KLegacySolidBatchCases)
+    if type(BatchSize) is not int or not 1 <= BatchSize <= KSolidBatchCases:
+        raise ValueError("invalid saved SOLIDWORKS batch size")
     Submissions = []
     with Ledger(Directory / "Store") as StateValue:
-        for Offset in range(0, len(Samples), 3):
-            Batch = Samples[Offset : Offset + 3]
+        for Offset in range(0, len(Samples), BatchSize):
+            Batch = Samples[Offset : Offset + BatchSize]
             CaseRecord = {"schema_version": 1, "samples": Batch}
             CasePin = digest(CaseRecord)
             Binding = "catalogue-cases:" + CasePin
@@ -54,7 +62,7 @@ def SubmitBatch(Directory, PlanValue, Resource):
                     "inputs": {"cases": Binding},
                     "resources": [Resource],
                     "options": {"cases_sha256": CasePin},
-                    "timeout_seconds": 3600,
+                    "timeout_seconds": 3600 * SolidBatchScale(len(Batch)),
                     "max_attempts": 1,
                 }
             ]

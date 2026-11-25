@@ -10,6 +10,7 @@ from hashlib import sha256
 from json import dumps
 from pathlib import Path
 
+from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import KSolidBatchCases
 from CaptureTools.Catalogue.SolidWorks.ValidateSolid import ValidateSolid
 
 
@@ -44,8 +45,10 @@ def CheckBatchPaths(CaseValue, CaseOutput):
 
 # real disk preparation can be verified without launching the native application boundary
 def PrepareBatch(Cases, OutputDirectory):
-    if not isinstance(Cases, list) or not 1 <= len(Cases) <= 3:
-        raise ValueError("SOLIDWORKS native batch requires one to three configured cases")
+    if not isinstance(Cases, list) or not 1 <= len(Cases) <= KSolidBatchCases:
+        raise ValueError(
+            f"SOLIDWORKS native batch requires one to {KSolidBatchCases} configured cases"
+        )
     Normal = [ValidateSolid(CaseValue) for CaseValue in Cases]
     OutputPath = Path(OutputDirectory).resolve()
     SourceRoot = Path(__file__).resolve().parents[5]

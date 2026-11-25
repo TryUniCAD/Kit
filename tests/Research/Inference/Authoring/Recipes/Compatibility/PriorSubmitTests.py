@@ -10,6 +10,8 @@ from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 
+from pytest import mark as CaseMark
+
 from tests.CliResearch.OpenLegacy import OpenLegacy
 from tests.Research.SupervisorClient import KRepoRoot
 from tests.Research.Inference.Authoring.Recipes.RunCatalogue import RunCatalogue
@@ -17,17 +19,24 @@ from tests.Research.Inference.Authoring.Recipes.RunProbe import RunProbe
 
 
 # previously committed submission code must create a store that the candidate reuses without replacing any original job definitions
-def CheckPriorJobs(TmpPath: FilePath) -> None:
+@CaseMark.parametrize(
+    "Revision,BatchPaired",
+    (
+        ("66d4f5b856833833bbf67fe62a61c3450d8dc76f", False),
+        ("d2478698bc97864f371b6eef0b7f1745ffa2672d", True),
+    ),
+)
+def CheckPriorJobs(TmpPath: FilePath, Revision: str, BatchPaired: bool) -> None:
     Prepared = RunCatalogue(TmpPath, "--capture-mode", "discovery")
     assert Prepared.returncode == 0, Prepared.stdout + Prepared.stderr
     PlanPath = TmpPath / "Run/AuthoringPlan.json"
     PlanValue = DecodeJson(PlanPath.read_bytes())
-    del PlanValue["solidworks_batch_version"]
+    del PlanValue["solidworks_batch_size"]
+    if not BatchPaired:
+        del PlanValue["solidworks_batch_version"]
     _ = PlanPath.write_text(EncodeJson(PlanValue), encoding="utf-8")
     Payload = {"directory": str(TmpPath / "Queue"), "plan": str(PlanPath)}
-    with OpenLegacy(
-        KRepoRoot, TmpPath, "66d4f5b856833833bbf67fe62a61c3450d8dc76f"
-    ) as Checkout:
+    with OpenLegacy(KRepoRoot, TmpPath, Revision) as Checkout:
         Populated = RunProcess(
             ["git", "-C", str(Checkout), "sparse-checkout", "add", "tests"],
             capture_output=True,

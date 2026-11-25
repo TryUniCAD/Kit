@@ -11,6 +11,7 @@ from pathlib import Path
 from sys import platform
 
 from CaptureTools.Catalogue.SolidWorks.RunSolidPhase import RunSolidPhase
+from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import SolidBatchScale
 from CaptureTools.Catalogue.SolidWorks.PrepareBatch import PrepareBatch
 from CaptureTools.Catalogue.SolidWorks.VerifySolid import VerifySolid
 from InferenceGrid.Authoring.NativeEnvironment import ValidateNative
@@ -38,6 +39,8 @@ def RunSolidBatch(Cases, OutputDirectory, HostConfig):
         raise ValueError("SOLIDWORKS phase timeout must be between 1 and 86400 seconds")
     Prepared = PrepareBatch(Cases, OutputDirectory)
     Normal, CasePaths = Prepared["cases"], Prepared["outputs"]
+    if "phase_seconds" not in HostConfig:
+        HostConfig = {**HostConfig, "phase_seconds": 600 * SolidBatchScale(len(Normal))}
     ManifestPath, ManifestPin = Prepared["manifest"], Prepared["manifest_sha256"]
     OutputPath = ManifestPath.parent
     for PhaseName in ("first", "second"):
