@@ -801,11 +801,12 @@ See the [change entry](../../Changes/Research/Offline/PinnedReaderBatches.md).
 
 ### A08d-FileScopeAttribution: stream provenance for strict Fusion inputs
 
-The Codex shared encoder worker owns this active task on `codex/deterministic-encoder-admission`.
+The Codex shared encoder worker owns this checking task on `codex/deterministic-encoder-admission`.
 Delivery is a separate PR based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 Dependencies are the A08d file-driven CLI, source-bound Fusion decode layers, and the container member inventory.
 The exit requires a real CLI run with strict features, source-bound partial spans, and both saved reports.
 The existing partial-only P04 run must preserve its recipe selection and incomplete coverage result.
+Both installed CLI cases passed on Windows at `d3b2cb982c` in 84.79 seconds. Hosted verification and review remain pending.
 See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) for the range and qualification limits.
 
 ## A08h-Placement20261123: decimal native reader evidence
