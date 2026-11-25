@@ -20,6 +20,16 @@ An edit that leaves the native driving value unchanged refuses reconstruction.
 Pass this request to the research preparer.
 For public output, use the complete strict SDK readback of the measured candidate with its exact receipt.
 
+`prepare_generation_input(document, edit=None, *, native_locator, written_at)` verifies the source and produces a typed writer input.
+Save each role's writer input as JSON with the generation locator and epoch.
+It retains the source format, path, and digest as provenance.
+The decoded document remains separate evidence for the original graph and its record provenance.
+
+In a fresh process, load the writer input with `CadDocument.from_json`.
+Pass it to `generate_prepared_candidate(prepared, *, native_locator, written_at)` with the original generation settings.
+The prepared model supplies every required generation value.
+The original native archive serves as evidence only during source admission.
+
 ## Source qualification
 
 An authored neutral request must pass the existing bounded writer plan.
