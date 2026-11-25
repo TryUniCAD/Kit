@@ -1,0 +1,4315 @@
+{
+  "cases": {
+    "BaselineEdited": {
+      "cold": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": null,
+          "edges": 12,
+          "faces": 6,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 8,
+          "volume_mm3": 10531.1
+        },
+        "bytes": 9288,
+        "configuration_names": [
+          "modeled default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "sldprt.native_record_unresolved",
+            "native name records unavailable for 9:Lights and Cameras"
+          ]
+        ],
+        "neutral_sha256": "56bfa7f001eeb14b13ccb775605f817fe9183faf799de0c6e664eceb9925534c",
+        "parameters": [
+          {
+            "archive_owned": true,
+            "name": "D1",
+            "native_role": "driving",
+            "native_value": 0.01987,
+            "owner": "sldprt:feature:19",
+            "role": "driving",
+            "value_mm": 19.869999999999997
+          }
+        ],
+        "payloads": [],
+        "sha256": "38fe98ae5975626a6362f1a1ae72a030a7d78a18c4fdc36db64dd35938232f33",
+        "sketches": [
+          {
+            "entities": 4,
+            "profiles": [
+              4
+            ],
+            "relations": 0,
+            "support": "sldprt:plane:14",
+            "typed_line_loop": true
+          }
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "sha256": "54a2b573b2e1872241a69da8b8edf0b043cc968176fed7fddc7359263a90005c"
+          },
+          "Contents/Config-0": {
+            "bytes": 22246,
+            "sha256": "005bed68da44e472952a5e7216a4338bf0dab1fea2dfad59de50076f90f58798"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 601,
+            "sha256": "22f6324025fa689a9dea44eaa4a5f615e92694ffc41b204ef86df7b9e40a60ae"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 13867,
+            "sha256": "2acb6d41e3e4633c3fafdfc342899fc155150c54e2a9788f7bb9e2d190482d0e"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 601,
+            "sha256": "eadd4af6392a2cf9c5f1c04a7a370cc7ea7716706e88996410bb88ff460a559a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "c5b956d9132f844e37faec23c53e6d25963dc318a533d1dd8a573463bf2e8459"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1431,
+            "sha256": "3fc8ac93af748ada000e004e7748262104413ff66c190c71e2e6dbe80d4b8bf8"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:14"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "create",
+            "owners": [
+              "sldprt:feature:18"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": null,
+          "linked_model": {
+            "result": "NativeLink"
+          },
+          "manager": {
+            "result": "CmgrGraph"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": null
+        }
+      },
+      "vendor": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": "sldprt:brep:0",
+          "edges": 0,
+          "faces": 0,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 0,
+          "volume_mm3": null
+        },
+        "bytes": 45703,
+        "configuration_names": [
+          "Default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "solidworks.part_text_properties_unavailable",
+            "part properties require an empty compatible native manager"
+          ]
+        ],
+        "neutral_sha256": "e74195c09960e81fff3b802d66cc0acea764ba6f18e2d672a4f8f816d2099bb4",
+        "parameters": [
+          {
+            "archive_owned": false,
+            "name": "D1",
+            "native_role": "native",
+            "native_value": 0.01987,
+            "owner": "sldprt:feature:32",
+            "role": "driving",
+            "value_mm": 19.87
+          }
+        ],
+        "payloads": [
+          {
+            "id": "sldprt:brep:0",
+            "role": "brep"
+          },
+          {
+            "id": "sldprt:brep:1",
+            "role": "brep"
+          }
+        ],
+        "sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+        "sketches": [
+          {
+            "entities": 4,
+            "profiles": [],
+            "relations": 0,
+            "support": "sldprt:plane:2",
+            "typed_line_loop": false
+          }
+        ],
+        "streams": {
+          "Contents/3DExperienceExchange2": {
+            "bytes": 12288,
+            "sha256": "607d987ee3fd28d9895bad460861e63be4b0cf513af137257a32b03c61724b97"
+          },
+          "Contents/3DExperienceExchange_ConfigHeader": {
+            "bytes": 12288,
+            "sha256": "1afc3eb5a036263d292848886cbe0f849c044705f8416ad46730ef14b65987e8"
+          },
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "c908dd57919f26b50f8a780d3a263a2773e0be2251644cb75dfd0ec43e23bf39"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "a624cdcb8c3d64e88027bb85a7d435f9552640ba4ee625a7a31fc448d6a4697b"
+          },
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "adcbb62f1fca1d12713c2423867a0ec4b82a0567d82361bab593ae1ae642df6b"
+          },
+          "Contents/Config-0-LWDATA": {
+            "bytes": 1437,
+            "sha256": "4fa0025293065b23770550692bee3acc29758a77f99a7ccf5475b431e2249a84"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2317,
+            "sha256": "19f91ed9213aa456617389babebf31b39d7d78eff3ab7075fe283d8a1d889025"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 3882,
+            "sha256": "72993d9c9c23d26cdb1eb09329c1cce91f1be621697c40914b5fb44911347c37"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 10619,
+            "sha256": "9a0c35a76907580584215da8c97453d13f429ab64f386c1c6d835110e5c112ec"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "240a3d857a91287f724116b0546f4da9f079a81ec816529414ac803c32c3581e"
+          },
+          "Contents/DisplayLists": {
+            "bytes": 12572,
+            "sha256": "379950d7ed203758444ddd0d4c931a6db67dcfc17bde0283dbb411e8fe76ae8e"
+          },
+          "Contents/OleItems": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Contents/PMISemanticDataDB": {
+            "bytes": 12288,
+            "sha256": "aacd0764172e843f3216b3f8be5c80646521f3810ab6fda57e0a457e088ed538"
+          },
+          "Contents/eModelLic": {
+            "bytes": 4,
+            "sha256": "fb5e512425fc9449316ec95969ebe71e2d576dbab833d61e2a5b9330fd70ee02"
+          },
+          "Header2": {
+            "bytes": 2317,
+            "sha256": "19f91ed9213aa456617389babebf31b39d7d78eff3ab7075fe283d8a1d889025"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "ed74482a9ef2ee8845bff4bd6b387700ca6508edd98d127e2aa40ac1593c021a"
+          },
+          "OleItemInformation/OLE_Item_Data": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Preview": {
+            "bytes": 19018,
+            "sha256": "c15c0a60e9b26068d06f0878f91f3fa0d1c4ff97ea4a6a04757c3ff71a335ed5"
+          },
+          "PreviewPNG": {
+            "bytes": 8502,
+            "sha256": "ede9ca313c56115f6d12e2b466fba673d96ac9feafd721023cba2fcad0f2c419"
+          },
+          "SwDocContentMgr/SwDocContentMgrInfo": {
+            "bytes": 471,
+            "sha256": "e2728b9c17a803ffecc395c64267c9193e498e0098555550351e8c1e0761a6d7"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1789,
+            "sha256": "0affd01902299bcbaa7694aacf4dcdb19164f0e158d32c120fed2d1a2be0d920"
+          },
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 1501,
+            "sha256": "2b0b8b1360558063151739cd364db9634b5d88c97b067e50c8d04e047c01a265"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 101,
+            "sha256": "23d510d313d0387081df259d9b8bfa2d6feb717f33ac31e8fd4d7a52b39c70da"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 10520,
+            "sha256": "23c374c8721966b441845ef04e346404a5b9814848a171906ac75e166e0a9c6f"
+          },
+          "docProps/OpenTime.xml": {
+            "bytes": 403,
+            "sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          },
+          "docProps/core.xml": {
+            "bytes": 523,
+            "sha256": "6f16344d4fc28853b02f7c25c68ec16e3df9f2b30848ed730cababd75b140c9b"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          },
+          "swXmlContents/Features": {
+            "bytes": 776,
+            "sha256": "dcdff30a4e099868f09e885003308fabfc159b6bab1dbfeee2efa26c0f183e76"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1664,
+            "sha256": "ef940790ecba8955535525089e963c6ff9cf293d6da94d14143215c2ad9f5879"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:23",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:24",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:25",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:22",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Notes",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "native",
+            "name": "Notes1___EndTag___",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:21",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "reference",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Ambient",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Directional1",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "native",
+            "name": "Directional2",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "native",
+            "name": "Directional3",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "native",
+            "name": "Exploded Views 19",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:26",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:2"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:32",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "join",
+            "owners": [
+              "sldprt:feature:26"
+            ],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": {
+            "result": "NoneType"
+          },
+          "linked_model": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "manager": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": {
+            "error_type": "ValueError",
+            "refused": "part properties require an empty compatible native manager"
+          }
+        }
+      },
+      "vendor_oracle_tree": [
+        [
+          "Comments",
+          "CommentsFolder"
+        ],
+        [
+          "Favorites",
+          "FavoriteFolder"
+        ],
+        [
+          "History",
+          "HistoryFolder"
+        ],
+        [
+          "Selection Sets",
+          "SelectionSetFolder"
+        ],
+        [
+          "Sensors",
+          "SensorFolder"
+        ],
+        [
+          "Design Binder",
+          "DocsFolder"
+        ],
+        [
+          "Annotations",
+          "DetailCabinet"
+        ],
+        [
+          "Surface Bodies",
+          "SurfaceBodyFolder"
+        ],
+        [
+          "Solid Bodies",
+          "SolidBodyFolder"
+        ],
+        [
+          "Lights and Cameras",
+          "EnvFolder"
+        ],
+        [
+          "Markups",
+          "InkMarkupFolder"
+        ],
+        [
+          "Equations",
+          "EqnFolder"
+        ],
+        [
+          "Material <not specified>",
+          "MaterialFolder"
+        ],
+        [
+          "Front Plane",
+          "RefPlane"
+        ],
+        [
+          "Top Plane",
+          "RefPlane"
+        ],
+        [
+          "Right Plane",
+          "RefPlane"
+        ],
+        [
+          "Origin",
+          "OriginProfileFeature"
+        ],
+        [
+          "Sketch1",
+          "ProfileFeature"
+        ],
+        [
+          "Boss-Extrude1",
+          "Extrusion"
+        ]
+      ]
+    },
+    "BaselineReconstruction": {
+      "cold": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": null,
+          "edges": 12,
+          "faces": 6,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 8,
+          "volume_mm3": 7584.3
+        },
+        "bytes": 9338,
+        "configuration_names": [
+          "modeled default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "sldprt.native_record_unresolved",
+            "native name records unavailable for 9:Lights and Cameras"
+          ]
+        ],
+        "neutral_sha256": "4241c7aff03533a87651994eef6c4a36b3c72f21129e00842573317f57723e4c",
+        "parameters": [
+          {
+            "archive_owned": true,
+            "name": "D1",
+            "native_role": "driving",
+            "native_value": 0.014310000000000002,
+            "owner": "sldprt:feature:19",
+            "role": "driving",
+            "value_mm": 14.31
+          }
+        ],
+        "payloads": [],
+        "sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+        "sketches": [
+          {
+            "entities": 4,
+            "profiles": [
+              4
+            ],
+            "relations": 0,
+            "support": "sldprt:plane:14",
+            "typed_line_loop": true
+          }
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "sha256": "54a2b573b2e1872241a69da8b8edf0b043cc968176fed7fddc7359263a90005c"
+          },
+          "Contents/Config-0": {
+            "bytes": 22262,
+            "sha256": "bcb4e81e87beba77d4e9af9e88da625a1fe521032a77e1fd5355a9f88e75b1d7"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 649,
+            "sha256": "05d2175c61358f5bf75eca4cde9b52b800b8051f60c575c9f9b43d36d5590963"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 13867,
+            "sha256": "13300a27f0da8f95e0c07302d79d09f66c5b951fd772399183c5ef4c04a4c323"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 649,
+            "sha256": "9c052d4e30e36d21113aad7b8c43d9ebb0c17c95389c034c171de9491ef34309"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "c5b956d9132f844e37faec23c53e6d25963dc318a533d1dd8a573463bf2e8459"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1426,
+            "sha256": "1dc54450c7ce28787c444cdb48f6efb894e0904cc43ff88a62cb0d9e2586ec5a"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:14"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "create",
+            "owners": [
+              "sldprt:feature:18"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": null,
+          "linked_model": {
+            "result": "NativeLink"
+          },
+          "manager": {
+            "result": "CmgrGraph"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": null
+        }
+      },
+      "vendor": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": "sldprt:brep:0",
+          "edges": 0,
+          "faces": 0,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 0,
+          "volume_mm3": null
+        },
+        "bytes": 45007,
+        "configuration_names": [
+          "Default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "solidworks.part_text_properties_unavailable",
+            "part properties require an empty compatible native manager"
+          ]
+        ],
+        "neutral_sha256": "eff547f5c3d78008f8fdba12fb76e7d6e8b65ad0fa2add009e0ff2023884cc51",
+        "parameters": [
+          {
+            "archive_owned": false,
+            "name": "D1",
+            "native_role": "native",
+            "native_value": 0.01431,
+            "owner": "sldprt:feature:32",
+            "role": "driving",
+            "value_mm": 14.31
+          }
+        ],
+        "payloads": [
+          {
+            "id": "sldprt:brep:0",
+            "role": "brep"
+          },
+          {
+            "id": "sldprt:brep:1",
+            "role": "brep"
+          }
+        ],
+        "sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "sketches": [
+          {
+            "entities": 4,
+            "profiles": [],
+            "relations": 0,
+            "support": "sldprt:plane:2",
+            "typed_line_loop": false
+          }
+        ],
+        "streams": {
+          "Contents/3DExperienceExchange2": {
+            "bytes": 12288,
+            "sha256": "fd94aae3d06323749dfc224e31099a2609338f2e5a15bf196d3e9725900827a6"
+          },
+          "Contents/3DExperienceExchange_ConfigHeader": {
+            "bytes": 12288,
+            "sha256": "15e92b1806b2bd3189b24eb753f3e423074049ebcec7042f85e5e5f3786d54b4"
+          },
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "5bd75e97426af5cdcd1c12b82aa2472820eef9e7350e99c7c702891767b54566"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "278f436e0591e1cf73de3ee83b230aa59b812e16a50d58297ac08e0feb6731e3"
+          },
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "53219df31eba0cd8420ae48c113c007aaaf4b3460261252968423206696c899d"
+          },
+          "Contents/Config-0-LWDATA": {
+            "bytes": 1437,
+            "sha256": "93d0aea554582bba442ceec7bdb33270bce6b4be711d7e14204a954257225851"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2317,
+            "sha256": "ed3b4c39f6e22b4904f453d8397e9e8b2e1124b7f7eae379fe2fb48da5ab4a9b"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 3867,
+            "sha256": "942fba4b7aa2904c6b3c94b999a51225ee918ba13f0e52fc590e3e1f69643668"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 10619,
+            "sha256": "65937a95e01902e87b1c0307a4b544cd5a67cd2fba28682f688a9fdfb9c7a298"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "5e19dc3a406a7a33c056be3553ad5e9d03ccb8f7bc177917e2b5c7954165c5e0"
+          },
+          "Contents/DisplayLists": {
+            "bytes": 12572,
+            "sha256": "38a9873a17364d8adca55421d88fb9d338d47b37865938defe34d64c748d729b"
+          },
+          "Contents/OleItems": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Contents/PMISemanticDataDB": {
+            "bytes": 12288,
+            "sha256": "115e572b19a121f1477ff59c2160cbd6e64f0bc6258e2d17b1dbb2a48966f295"
+          },
+          "Contents/eModelLic": {
+            "bytes": 4,
+            "sha256": "fb5e512425fc9449316ec95969ebe71e2d576dbab833d61e2a5b9330fd70ee02"
+          },
+          "Header2": {
+            "bytes": 2317,
+            "sha256": "ed3b4c39f6e22b4904f453d8397e9e8b2e1124b7f7eae379fe2fb48da5ab4a9b"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "b70405bc6a28f514c34303e91a453cc613ab5883375d514bc154e262702582d2"
+          },
+          "OleItemInformation/OLE_Item_Data": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Preview": {
+            "bytes": 18514,
+            "sha256": "82ffbcedb75fc719f8e7f9e27ab9e367287193a72290829141b047f9c208ac11"
+          },
+          "PreviewPNG": {
+            "bytes": 8470,
+            "sha256": "91ee8347a3c6e09fb3cdedc922fc6fb8aebd68ee41403fdb473155276b997fda"
+          },
+          "SwDocContentMgr/SwDocContentMgrInfo": {
+            "bytes": 471,
+            "sha256": "e6edb12703edab51bb51dd3f2508f87de199f55fc6b3b1215682b1c86ee94920"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1789,
+            "sha256": "0a578b2ed70098172cdef92f66756f1cb76cbe8ae87f86890dd773529d7ef1cf"
+          },
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 1487,
+            "sha256": "1f0592e5655ff2469aeb59ca4632df0516cfdf7c78a19b7e9b03a3f1b41aeaca"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 101,
+            "sha256": "23d510d313d0387081df259d9b8bfa2d6feb717f33ac31e8fd4d7a52b39c70da"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 10513,
+            "sha256": "5bd592aa1fd7323c790b0440abefe3a326a0a6df83b66f522e051665b5d09f9d"
+          },
+          "docProps/OpenTime.xml": {
+            "bytes": 403,
+            "sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          },
+          "docProps/core.xml": {
+            "bytes": 523,
+            "sha256": "e8c03856653082dbe3dfc6d3057345c3c7af79baa22e0b1a5b8cdb1a976d38df"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          },
+          "swXmlContents/Features": {
+            "bytes": 762,
+            "sha256": "ea93132ccf1bed8077482cffabcea897fc023f12466b337b5ed2bcfa68170c44"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1664,
+            "sha256": "bc55a1ae08fc724b258f9c983ea4aae3f54c2839a0f8307af7a8d741fd2110d5"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:23",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:24",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:25",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:22",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Notes",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "native",
+            "name": "Notes1___EndTag___",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:21",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "reference",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Ambient",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Directional1",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "native",
+            "name": "Directional2",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "native",
+            "name": "Directional3",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "native",
+            "name": "Exploded Views 19",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:26",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:2"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:32",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "join",
+            "owners": [
+              "sldprt:feature:26"
+            ],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": {
+            "result": "NoneType"
+          },
+          "linked_model": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "manager": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": {
+            "error_type": "ValueError",
+            "refused": "part properties require an empty compatible native manager"
+          }
+        }
+      },
+      "vendor_oracle_tree": [
+        [
+          "Comments",
+          "CommentsFolder"
+        ],
+        [
+          "Favorites",
+          "FavoriteFolder"
+        ],
+        [
+          "History",
+          "HistoryFolder"
+        ],
+        [
+          "Selection Sets",
+          "SelectionSetFolder"
+        ],
+        [
+          "Sensors",
+          "SensorFolder"
+        ],
+        [
+          "Design Binder",
+          "DocsFolder"
+        ],
+        [
+          "Annotations",
+          "DetailCabinet"
+        ],
+        [
+          "Surface Bodies",
+          "SurfaceBodyFolder"
+        ],
+        [
+          "Solid Bodies",
+          "SolidBodyFolder"
+        ],
+        [
+          "Lights and Cameras",
+          "EnvFolder"
+        ],
+        [
+          "Markups",
+          "InkMarkupFolder"
+        ],
+        [
+          "Equations",
+          "EqnFolder"
+        ],
+        [
+          "Material <not specified>",
+          "MaterialFolder"
+        ],
+        [
+          "Front Plane",
+          "RefPlane"
+        ],
+        [
+          "Top Plane",
+          "RefPlane"
+        ],
+        [
+          "Right Plane",
+          "RefPlane"
+        ],
+        [
+          "Origin",
+          "OriginProfileFeature"
+        ],
+        [
+          "Sketch1",
+          "ProfileFeature"
+        ],
+        [
+          "Boss-Extrude1",
+          "Extrusion"
+        ]
+      ]
+    },
+    "HeldOutEdited": {
+      "cold": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": null,
+          "edges": 21,
+          "faces": 9,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 14,
+          "volume_mm3": 9166.880000000001
+        },
+        "bytes": 9406,
+        "configuration_names": [
+          "modeled default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "sldprt.native_record_unresolved",
+            "native name records unavailable for 9:Lights and Cameras"
+          ]
+        ],
+        "neutral_sha256": "297ab1f701859dbe6cd96945cc9dd85936b6deb75987c523996296828034f666",
+        "parameters": [
+          {
+            "archive_owned": true,
+            "name": "D1",
+            "native_role": "driving",
+            "native_value": 0.01219,
+            "owner": "sldprt:feature:19",
+            "role": "driving",
+            "value_mm": 12.19
+          }
+        ],
+        "payloads": [],
+        "sha256": "d670154e2eca290eba02440d24b28ac1ca11f0ef390aa01c7668909fba930bfd",
+        "sketches": [
+          {
+            "entities": 7,
+            "profiles": [
+              7
+            ],
+            "relations": 0,
+            "support": "sldprt:plane:14",
+            "typed_line_loop": true
+          }
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "sha256": "54a2b573b2e1872241a69da8b8edf0b043cc968176fed7fddc7359263a90005c"
+          },
+          "Contents/Config-0": {
+            "bytes": 22246,
+            "sha256": "005bed68da44e472952a5e7216a4338bf0dab1fea2dfad59de50076f90f58798"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 601,
+            "sha256": "22f6324025fa689a9dea44eaa4a5f615e92694ffc41b204ef86df7b9e40a60ae"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 14629,
+            "sha256": "c2cf3b1cd6078a653b8fbff9d5bc74f7b075f90589654ecf990540aa16052196"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 601,
+            "sha256": "eadd4af6392a2cf9c5f1c04a7a370cc7ea7716706e88996410bb88ff460a559a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "c5b956d9132f844e37faec23c53e6d25963dc318a533d1dd8a573463bf2e8459"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1418,
+            "sha256": "34aad43b3944c6e3bcbe17c57fb2875276f361e7539998d72015f931607938b1"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:14"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "create",
+            "owners": [
+              "sldprt:feature:18"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": null,
+          "linked_model": {
+            "result": "NativeLink"
+          },
+          "manager": {
+            "result": "CmgrGraph"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": null
+        }
+      },
+      "vendor": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": "sldprt:brep:0",
+          "edges": 0,
+          "faces": 0,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 0,
+          "volume_mm3": null
+        },
+        "bytes": 50710,
+        "configuration_names": [
+          "Default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "solidworks.part_text_properties_unavailable",
+            "part properties require an empty compatible native manager"
+          ]
+        ],
+        "neutral_sha256": "8c0bac5966a46710b5c2da6b88c525a2d34da0e66870d096ada1c677e6f3e862",
+        "parameters": [
+          {
+            "archive_owned": false,
+            "name": "D1",
+            "native_role": "native",
+            "native_value": 0.01219,
+            "owner": "sldprt:feature:32",
+            "role": "driving",
+            "value_mm": 12.19
+          }
+        ],
+        "payloads": [
+          {
+            "id": "sldprt:brep:0",
+            "role": "brep"
+          },
+          {
+            "id": "sldprt:brep:1",
+            "role": "brep"
+          }
+        ],
+        "sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+        "sketches": [
+          {
+            "entities": 7,
+            "profiles": [],
+            "relations": 0,
+            "support": "sldprt:plane:2",
+            "typed_line_loop": false
+          }
+        ],
+        "streams": {
+          "Contents/3DExperienceExchange2": {
+            "bytes": 12288,
+            "sha256": "b49fae42816aba610d2e00180de477340d3d33c47fd2a861caa289b313f80200"
+          },
+          "Contents/3DExperienceExchange_ConfigHeader": {
+            "bytes": 12288,
+            "sha256": "c41ea2019bdb521165d95f8068b07a0830ad1b1e97749713494206a411ae7311"
+          },
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "beb280bc51a3292f5603ce33e421f5bbe0d295e562b560e2707c0003d19ada95"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "77b0477beb0a49c9a61fd557baded4ca8063fd00e198a6da6d9d6e6e8b2ab52b"
+          },
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "601a6d008231fe30582bac979380e32cf45a5e47cfa56d0f435cc37bb5e5e22a"
+          },
+          "Contents/Config-0-LWDATA": {
+            "bytes": 1437,
+            "sha256": "f6a5b58f4a2dadfb752b7d5841964d98273ada8eebc15a3e83fa689a1ff22fa5"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2317,
+            "sha256": "4edbf7a8764a98bcd1961343cb2c84e6c892f9fca9224d93fd8664f9bfaa0d74"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 5224,
+            "sha256": "006172ab8963db727cd4a4af2781abe4761547ccda8a17bd176a705f82f97a4a"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 11525,
+            "sha256": "2a7f7b9137555807724daf13fdf21eb84cd98f6e2bbb7fbe42d01329ad403b17"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "56ff768a8b63490b418dded3c617879c4b04de18954ee48701949438abe23e02"
+          },
+          "Contents/DisplayLists": {
+            "bytes": 15872,
+            "sha256": "549828f8acb7a1cac7565b0dc676b9adf56b908053d0b6eca756486d9d0f0f5c"
+          },
+          "Contents/OleItems": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Contents/PMISemanticDataDB": {
+            "bytes": 12288,
+            "sha256": "c3d6808ecbe7035262da5728e3242c9f0b978cde34abfde72ecf1e4e55f34ed3"
+          },
+          "Contents/eModelLic": {
+            "bytes": 4,
+            "sha256": "fb5e512425fc9449316ec95969ebe71e2d576dbab833d61e2a5b9330fd70ee02"
+          },
+          "Header2": {
+            "bytes": 2317,
+            "sha256": "4edbf7a8764a98bcd1961343cb2c84e6c892f9fca9224d93fd8664f9bfaa0d74"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "32561ac671ee7b5fef935a375e62c9f41dabc879a7d71c1f41bfb5a140b1d3db"
+          },
+          "OleItemInformation/OLE_Item_Data": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Preview": {
+            "bytes": 20294,
+            "sha256": "ed58810b6de22ce3928b25fada97fa1ff2588fd183196c6085737718f0dd8024"
+          },
+          "PreviewPNG": {
+            "bytes": 9999,
+            "sha256": "229b0a6adfee97866bc46ad9eba98bcded948f56ef84ae0ad488746d4ef2f87e"
+          },
+          "SwDocContentMgr/SwDocContentMgrInfo": {
+            "bytes": 471,
+            "sha256": "49a698177fce9e9b0fc96fa1143d3e68bf1e67a961c67f936c059fa31e54d585"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1789,
+            "sha256": "5ad78e04e9d935f91f86d76f484bfec079ca0b4acc1933833c97ec6925c8675c"
+          },
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 1499,
+            "sha256": "5137a486f7fc8b61cf3d49653313bd62791a8f27cbfcb4d9c47446512ee96456"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 101,
+            "sha256": "23d510d313d0387081df259d9b8bfa2d6feb717f33ac31e8fd4d7a52b39c70da"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 10519,
+            "sha256": "599cf48924421feae345f499a3746165fabfe19f6d9cc75b91d641411d63b0ff"
+          },
+          "docProps/OpenTime.xml": {
+            "bytes": 403,
+            "sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          },
+          "docProps/core.xml": {
+            "bytes": 523,
+            "sha256": "af57b176a43efbcc303c2b21ad816544e53888d3c4f535e115b11552de82a1ea"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          },
+          "swXmlContents/Features": {
+            "bytes": 774,
+            "sha256": "9c0584062e188a252598a4fba89793c01862c19b7b7fcb0925f9f66cd1cade80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1664,
+            "sha256": "eb80d69018302500542b39e5137b8b88e2b31bfb5b4044f596d583c68b2ce94f"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:23",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:24",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:25",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:22",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Notes",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "native",
+            "name": "Notes1___EndTag___",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:21",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "reference",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Ambient",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Directional1",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "native",
+            "name": "Directional2",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "native",
+            "name": "Directional3",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "native",
+            "name": "Exploded Views 19",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:26",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:2"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:32",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "join",
+            "owners": [
+              "sldprt:feature:26"
+            ],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": {
+            "result": "NoneType"
+          },
+          "linked_model": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "manager": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": {
+            "error_type": "ValueError",
+            "refused": "part properties require an empty compatible native manager"
+          }
+        }
+      },
+      "vendor_oracle_tree": [
+        [
+          "Comments",
+          "CommentsFolder"
+        ],
+        [
+          "Favorites",
+          "FavoriteFolder"
+        ],
+        [
+          "History",
+          "HistoryFolder"
+        ],
+        [
+          "Selection Sets",
+          "SelectionSetFolder"
+        ],
+        [
+          "Sensors",
+          "SensorFolder"
+        ],
+        [
+          "Design Binder",
+          "DocsFolder"
+        ],
+        [
+          "Annotations",
+          "DetailCabinet"
+        ],
+        [
+          "Surface Bodies",
+          "SurfaceBodyFolder"
+        ],
+        [
+          "Solid Bodies",
+          "SolidBodyFolder"
+        ],
+        [
+          "Lights and Cameras",
+          "EnvFolder"
+        ],
+        [
+          "Markups",
+          "InkMarkupFolder"
+        ],
+        [
+          "Equations",
+          "EqnFolder"
+        ],
+        [
+          "Material <not specified>",
+          "MaterialFolder"
+        ],
+        [
+          "Front Plane",
+          "RefPlane"
+        ],
+        [
+          "Top Plane",
+          "RefPlane"
+        ],
+        [
+          "Right Plane",
+          "RefPlane"
+        ],
+        [
+          "Origin",
+          "OriginProfileFeature"
+        ],
+        [
+          "Sketch1",
+          "ProfileFeature"
+        ],
+        [
+          "Boss-Extrude1",
+          "Extrusion"
+        ]
+      ]
+    },
+    "HeldOutReconstruction": {
+      "cold": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": null,
+          "edges": 21,
+          "faces": 9,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 14,
+          "volume_mm3": 7316.96
+        },
+        "bytes": 9462,
+        "configuration_names": [
+          "modeled default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "sldprt.native_record_unresolved",
+            "native name records unavailable for 9:Lights and Cameras"
+          ]
+        ],
+        "neutral_sha256": "f29cfaf8220e44374f3e378db81c190634d019061b6f28de0700fec009ea18c2",
+        "parameters": [
+          {
+            "archive_owned": true,
+            "name": "D1",
+            "native_role": "driving",
+            "native_value": 0.00973,
+            "owner": "sldprt:feature:19",
+            "role": "driving",
+            "value_mm": 9.73
+          }
+        ],
+        "payloads": [],
+        "sha256": "0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9",
+        "sketches": [
+          {
+            "entities": 7,
+            "profiles": [
+              7
+            ],
+            "relations": 0,
+            "support": "sldprt:plane:14",
+            "typed_line_loop": true
+          }
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "sha256": "54a2b573b2e1872241a69da8b8edf0b043cc968176fed7fddc7359263a90005c"
+          },
+          "Contents/Config-0": {
+            "bytes": 22262,
+            "sha256": "bcb4e81e87beba77d4e9af9e88da625a1fe521032a77e1fd5355a9f88e75b1d7"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 649,
+            "sha256": "05d2175c61358f5bf75eca4cde9b52b800b8051f60c575c9f9b43d36d5590963"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 14629,
+            "sha256": "75b83098c77976945ebbca385ef9204deeb428ba8048b5d73dd366983308ea43"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 649,
+            "sha256": "9c052d4e30e36d21113aad7b8c43d9ebb0c17c95389c034c171de9491ef34309"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "c5b956d9132f844e37faec23c53e6d25963dc318a533d1dd8a573463bf2e8459"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1439,
+            "sha256": "cb662e4cc4d7f81eed2519c82c9a6b6ca223fa7d173934f471c3b73ba51ebc01"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:14"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "create",
+            "owners": [
+              "sldprt:feature:18"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": null,
+          "linked_model": {
+            "result": "NativeLink"
+          },
+          "manager": {
+            "result": "CmgrGraph"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": null
+        }
+      },
+      "vendor": {
+        "archive_version": 19000,
+        "body": {
+          "active_payload": "sldprt:brep:0",
+          "edges": 0,
+          "faces": 0,
+          "name": "Body 1",
+          "solids": 1,
+          "vertices": 0,
+          "volume_mm3": null
+        },
+        "bytes": 49306,
+        "configuration_names": [
+          "Default"
+        ],
+        "container": 4,
+        "diagnostics": [
+          [
+            "solidworks.part_text_properties_unavailable",
+            "part properties require an empty compatible native manager"
+          ]
+        ],
+        "neutral_sha256": "28fe8587d8325a407d9a2fcbae5fec656d5cac3a84eaa493fadda4608a0780ef",
+        "parameters": [
+          {
+            "archive_owned": false,
+            "name": "D1",
+            "native_role": "native",
+            "native_value": 0.00973,
+            "owner": "sldprt:feature:32",
+            "role": "driving",
+            "value_mm": 9.73
+          }
+        ],
+        "payloads": [
+          {
+            "id": "sldprt:brep:0",
+            "role": "brep"
+          },
+          {
+            "id": "sldprt:brep:1",
+            "role": "brep"
+          }
+        ],
+        "sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+        "sketches": [
+          {
+            "entities": 7,
+            "profiles": [],
+            "relations": 0,
+            "support": "sldprt:plane:2",
+            "typed_line_loop": false
+          }
+        ],
+        "streams": {
+          "Contents/3DExperienceExchange2": {
+            "bytes": 12288,
+            "sha256": "3cee99922142c2377bcdc0534a9de13f3235854a15a2f9ba4d71bd38b9856d44"
+          },
+          "Contents/3DExperienceExchange_ConfigHeader": {
+            "bytes": 12288,
+            "sha256": "5b47e2e4ec8e6d6cb6a1c556147896be974b5f070df9cac47309c786e9d6be38"
+          },
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "47bb72680d6a6a661c9421bb15abb69a5959d9b035b6d99efe5efe0b2cc97274"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "5a4c04b186d321359e05f20363a04ec276c0e8f01d1fad6e0bd4f255bb0decd8"
+          },
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "e5de35ea785ecbee51c8d2fda0c7bebd018355a34269b26f029d0ba4bc1a40d8"
+          },
+          "Contents/Config-0-LWDATA": {
+            "bytes": 1437,
+            "sha256": "f213d8412ea9540340e1939cd42b8723d5ba77cb25f50c6382369ccf2159c472"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2317,
+            "sha256": "3642d1489526a6234b36a03f182076d7180c0adef4652460ca1adafcee271b34"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 5234,
+            "sha256": "224d4d4d4f1038ee838ac860e11e3234b99f96790a1028b3ba999c4bd4addc62"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 11525,
+            "sha256": "510c0a5df87935429f7bee1f6270001ce5bcb1a7663443f9d5cb4f34bdb6e002"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "sha256": "565330a541d798f88bc1788934043aae33c406ca226b73b7c62c0237338bd716"
+          },
+          "Contents/DisplayLists": {
+            "bytes": 15872,
+            "sha256": "749231b1bbcbcd13bbc20b210cf7d93779b937fb7c2754f1e24670052e40fa39"
+          },
+          "Contents/OleItems": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Contents/PMISemanticDataDB": {
+            "bytes": 12288,
+            "sha256": "a1fe3461260d0d65d6fb3b5768f71dee8ef76c8c0451264eb307d2106436e39c"
+          },
+          "Contents/eModelLic": {
+            "bytes": 4,
+            "sha256": "fb5e512425fc9449316ec95969ebe71e2d576dbab833d61e2a5b9330fd70ee02"
+          },
+          "Header2": {
+            "bytes": 2317,
+            "sha256": "3642d1489526a6234b36a03f182076d7180c0adef4652460ca1adafcee271b34"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "3e49398ab87a633e087e5e4c75c89c0e1e88ebfdc18bf23e7a4217fd383a99ac"
+          },
+          "OleItemInformation/OLE_Item_Data": {
+            "bytes": 4,
+            "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          },
+          "Preview": {
+            "bytes": 20116,
+            "sha256": "0accd41be3126dcb36b5818848169061bf8de80f6972a4792f4180427ea950bb"
+          },
+          "PreviewPNG": {
+            "bytes": 9958,
+            "sha256": "46d45d6aad55c3056f183c1d4e47ee764710f3e35a3516e188ca28680772e57b"
+          },
+          "SwDocContentMgr/SwDocContentMgrInfo": {
+            "bytes": 471,
+            "sha256": "6aca0bc7f6a812f1787e75fd314ff1e34d1fe2492b6f9f01fceb2bd969d0a864"
+          },
+          "ThirdPtyStore/VisualStates": {
+            "bytes": 1789,
+            "sha256": "85209c7bd09572a757be583aa3573154b28cdd2953ff19eab94c7cd338e433ac"
+          },
+          "[Content_Types].xml": {
+            "bytes": 556,
+            "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 1485,
+            "sha256": "a851f46f7959cee71be4ebb614c4a1771768f3b3ecf09d86fe3198c22a5ecd22"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 101,
+            "sha256": "23d510d313d0387081df259d9b8bfa2d6feb717f33ac31e8fd4d7a52b39c70da"
+          },
+          "_rels/.rels": {
+            "bytes": 597,
+            "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b"
+          },
+          "docProps/Config-0-Properties.xml": {
+            "bytes": 699,
+            "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 10512,
+            "sha256": "ba3f75af454b54d2f5f1072b79877d1f8a35f1a0915ed337fe8c94f6ef13f9db"
+          },
+          "docProps/OpenTime.xml": {
+            "bytes": 403,
+            "sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec"
+          },
+          "docProps/app.xml": {
+            "bytes": 570,
+            "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51"
+          },
+          "docProps/core.xml": {
+            "bytes": 523,
+            "sha256": "6c8618e753d34e1522c64342c755b18c83347db1a8b5bc3caa4580939f80d8d3"
+          },
+          "docProps/custom.xml": {
+            "bytes": 853,
+            "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+          },
+          "swXmlContents/Features": {
+            "bytes": 760,
+            "sha256": "3dd52168dcb3445f0c2ec5a3b1524eba0c110ba383d8636056ddaf0fc4abf5da"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1663,
+            "sha256": "87b9ea3759abeb7cb9cb4ce4d9eb6d219ff3991ae398cb2e0811ef7f80eb2aa0"
+          }
+        },
+        "tree": [
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:8",
+            "kind": "native",
+            "name": "Comments",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:23",
+            "kind": "native",
+            "name": "Favorites",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:24",
+            "kind": "native",
+            "name": "History",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:25",
+            "kind": "native",
+            "name": "Selection Sets",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:22",
+            "kind": "native",
+            "name": "Sensors",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:7",
+            "kind": "native",
+            "name": "Design Binder",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:1",
+            "kind": "native",
+            "name": "Annotations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:17",
+            "kind": "native",
+            "name": "Notes",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:18",
+            "kind": "native",
+            "name": "Notes1___EndTag___",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:10",
+            "kind": "native",
+            "name": "Surface Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:9",
+            "kind": "native",
+            "name": "Solid Bodies",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:21",
+            "kind": "native",
+            "name": "Markups",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:16",
+            "kind": "native",
+            "name": "Equations",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:11",
+            "kind": "native",
+            "name": "Material <not specified>",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:2",
+            "kind": "reference",
+            "name": "Front Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:3",
+            "kind": "reference",
+            "name": "Top Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:4",
+            "kind": "reference",
+            "name": "Right Plane",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:5",
+            "kind": "reference",
+            "name": "Origin",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:6",
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:12",
+            "kind": "native",
+            "name": "Ambient",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:13",
+            "kind": "native",
+            "name": "Directional1",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:14",
+            "kind": "native",
+            "name": "Directional2",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:15",
+            "kind": "native",
+            "name": "Directional3",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:19",
+            "kind": "native",
+            "name": "Exploded Views 19",
+            "operation": "None",
+            "owners": [],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "native_object_id",
+              "native_properties",
+              "native_type",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:26",
+            "kind": "reference",
+            "name": "Sketch1",
+            "operation": "None",
+            "owners": [
+              "sldprt:feature:2"
+            ],
+            "selection_ids": []
+          },
+          {
+            "attribute_keys": [
+              "direction_code",
+              "direction_multiplier",
+              "end_condition",
+              "family_code",
+              "length_mm",
+              "mode",
+              "native_dependencies",
+              "native_object_id",
+              "native_properties",
+              "native_selection_offsets",
+              "native_selection_references",
+              "native_type",
+              "operation_code",
+              "profile_native_id",
+              "schema_code",
+              "selected_local_ids",
+              "selection_kind",
+              "termination_code",
+              "xml_tag"
+            ],
+            "id": "sldprt:feature:32",
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "operation": "join",
+            "owners": [
+              "sldprt:feature:26"
+            ],
+            "selection_ids": []
+          }
+        ],
+        "typed_reads": {
+          "legacy_property_profile": {
+            "result": "NoneType"
+          },
+          "linked_model": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "manager": {
+            "error_type": "BodyUnsupported",
+            "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+          },
+          "part_config": {
+            "result": "ConfigGraph"
+          },
+          "property_manager": {
+            "error_type": "ValueError",
+            "refused": "part properties require an empty compatible native manager"
+          }
+        }
+      },
+      "vendor_oracle_tree": [
+        [
+          "Comments",
+          "CommentsFolder"
+        ],
+        [
+          "Favorites",
+          "FavoriteFolder"
+        ],
+        [
+          "History",
+          "HistoryFolder"
+        ],
+        [
+          "Selection Sets",
+          "SelectionSetFolder"
+        ],
+        [
+          "Sensors",
+          "SensorFolder"
+        ],
+        [
+          "Design Binder",
+          "DocsFolder"
+        ],
+        [
+          "Annotations",
+          "DetailCabinet"
+        ],
+        [
+          "Surface Bodies",
+          "SurfaceBodyFolder"
+        ],
+        [
+          "Solid Bodies",
+          "SolidBodyFolder"
+        ],
+        [
+          "Lights and Cameras",
+          "EnvFolder"
+        ],
+        [
+          "Markups",
+          "InkMarkupFolder"
+        ],
+        [
+          "Equations",
+          "EqnFolder"
+        ],
+        [
+          "Material <not specified>",
+          "MaterialFolder"
+        ],
+        [
+          "Front Plane",
+          "RefPlane"
+        ],
+        [
+          "Top Plane",
+          "RefPlane"
+        ],
+        [
+          "Right Plane",
+          "RefPlane"
+        ],
+        [
+          "Origin",
+          "OriginProfileFeature"
+        ],
+        [
+          "Sketch1",
+          "ProfileFeature"
+        ],
+        [
+          "Boss-Extrude1",
+          "Extrusion"
+        ]
+      ]
+    }
+  },
+  "oracle": {
+    "build": "34.4.1.1011",
+    "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f"
+  },
+  "python": "3.14.6",
+  "source_author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+  "zlib": "1.3.1.zlib-ng"
+}
