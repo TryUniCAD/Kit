@@ -1,3 +1,4 @@
+from pathlib import PureWindowsPath
 import re
 
 from ApplicationWorkers.ApplicationProtocol import write_new
@@ -30,6 +31,7 @@ def _check_artifact(output, name, evidence, expected, limit):
     data = ReadBytes(output / name, limit)
     if evidence.get("bytes") != len(data) or digest(data) != expected:
         raise ValueError(f"{name} bytes do not match the round-trip manifest")
+    return data
 
 
 def _load_run(output, role):
@@ -46,8 +48,8 @@ def _load_run(output, role):
             raise ValueError("round-trip source hash is invalid")
         _, suffix, _ = APPLICATIONS[manifest["application"]]
         _check_artifact(output, "document.json", manifest["source"]["neutral"], manifest["neutral_sha256"], DOCUMENT_LIMIT)
-        _check_artifact(output, role + suffix, manifest[role]["artifact"], manifest["candidate_sha256"][role], NATIVE_LIMIT)
-        return manifest
+        candidate = _check_artifact(output, role + suffix, manifest[role]["artifact"], manifest["candidate_sha256"][role], NATIVE_LIMIT)
+        return manifest, candidate
     except (AttributeError, KeyError, TypeError) as error:
         raise ValueError("round-trip manifest has invalid records") from error
 
@@ -91,8 +93,8 @@ def _healthy(record):
         raise ValueError("measured native receipt has malformed observation records") from error
 
 
-def _validate(receipt, manifest, role):
-    expected = {
+def _binding(manifest, role):
+    return {
         "application": manifest["application"],
         "role": role,
         "run_fingerprint": manifest["run_fingerprint"],
@@ -100,6 +102,10 @@ def _validate(receipt, manifest, role):
         "candidate_sha256": manifest["candidate_sha256"][role],
         "sdk_revision": manifest["sdk_revision"],
     }
+
+
+def _validate(receipt, manifest, role):
+    expected = _binding(manifest, role)
     if type(receipt.get("schema")) is not int or receipt["schema"] != 1:
         raise ValueError("unsupported encoder round-trip receipt schema")
     for field, value in expected.items():
@@ -133,14 +139,70 @@ def _validate(receipt, manifest, role):
     return {**expected, "application_build": candidate["build"], "measurement_status": measurement_status}
 
 
+def _validate_solidworks_exact(envelope, manifest, role, candidate):
+    if manifest["application"] != "solidworks":
+        raise ValueError("the exact SOLIDWORKS SDK receipt requires a SOLIDWORKS round trip")
+
+    from convert.adapters.base.WriteOptions import WriteOptions
+    from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersion
+    from convert.adapters.solidworks.Archive.Header.ReadFileTable import GetFileRef
+    from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
+    from convert.adapters.solidworks.Container.Container import SldprtArchive
+    from convert.adapters.solidworks.Core.Writing.Measured.MatchMeasCase import MatchMeasCase
+    from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import MatchPartMeas
+    from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import KPartMeasureOpt
+    from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import ReadPartMeas
+
+    written_at, receipt = ReadPartMeas(WriteOptions(values={KPartMeasureOpt: envelope}))
+    manifest_epoch = manifest["written_at"]
+    if type(manifest_epoch) is not int or written_at != manifest_epoch:
+        raise ValueError("exact SOLIDWORKS receipt epoch does not bind this round-trip role")
+    locators = manifest["native_locators"]
+    locator = locators.get(role) if isinstance(locators, dict) else None
+    if (
+        not isinstance(locator, str)
+        or not PureWindowsPath(locator).is_absolute()
+        or PureWindowsPath(locator).name != role + ".SLDPRT"
+    ):
+        raise ValueError("round-trip SOLIDWORKS locator does not identify this role")
+
+    archive = SldprtArchive.from_bytes(candidate, "<memory>")
+    fields = ReadHeaderGraph(archive.require("Header2"), KHeaderVersion).FieldsValue
+    if GetFileRef(fields.get("f38")).PathValue != locator:
+        raise ValueError("candidate SOLIDWORKS header locator differs from the round-trip role")
+    if type(fields.get("f70")) is not int or fields["f70"] != written_at:
+        raise ValueError("candidate SOLIDWORKS header epoch differs from the exact receipt")
+
+    binding = _binding(manifest, role)
+    evidence = dict(MatchPartMeas(receipt, candidate)[KPartMeasureOpt])
+    case = MatchMeasCase(receipt, binding["candidate_sha256"], len(candidate))
+    return {
+        **binding,
+        "application_build": evidence["oracle_build"],
+        "measurement_status": "exact_sdk_candidate_bound",
+        "receipt_kind": "solidworks_exact_sdk",
+        "sdk_publication": {
+            "receipt_option": KPartMeasureOpt,
+            "native_locator": locator,
+            "written_at": written_at,
+            "oracle_case": case,
+            **evidence,
+        },
+    }
+
+
 def attach_receipt(output, role, receipt):
     if role not in ROLES:
         raise ValueError("unknown round-trip candidate role")
     output = absolute(output)
     require_directory(output)
-    manifest = _load_run(output, role)
+    manifest, candidate = _load_run(output, role)
     content = ReadBytes(absolute(receipt), RECORD_LIMIT)
-    evidence = _validate(read_record(content), manifest, role)
+    record = read_record(content)
+    if "schema" not in record and {"written_at", "receipt"} & record.keys():
+        evidence = _validate_solidworks_exact(record, manifest, role, candidate)
+    else:
+        evidence = _validate(record, manifest, role)
     destination = output / (role + "-receipt.json")
     try:
         write_new(destination, content)

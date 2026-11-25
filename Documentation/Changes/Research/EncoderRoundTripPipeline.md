@@ -53,7 +53,7 @@ kit research --root /absolute/KitResearch encoder-round-trip attach-receipt \
 ```
 
 Use `--role edited` for the edited candidate.
-The receipt requires schema `1`, application, role, SDK revision, run fingerprint, source digest, and candidate digest.
+The generic native receipt requires schema `1`, application, role, SDK revision, run fingerprint, source digest, and candidate digest.
 It also requires a candidate observation and before-and-after observations of one independent control.
 All observations must report one application build and distinct positive process identifiers.
 Each observation uses the existing native measurement record contract.
@@ -61,6 +61,14 @@ The importer rechecks the persisted neutral and candidate bytes against their ma
 It retains an accepted receipt as `<role>-receipt.json` without modifying the manifest.
 An identical attachment is idempotent.
 A different receipt for an occupied role is refused.
+
+For SOLIDWORKS, the same command also accepts the exact SDK envelope containing `written_at` and `receipt`.
+The importer applies the SDK's oracle identity and exact candidate checks.
+It compares the candidate header's creation epoch and locator with the manifest.
+The response records `measurement_status: exact_sdk_candidate_bound` and supplies the receipt option and locator for SDK publication.
+Pass the unchanged envelope as `values["solidworks_native_measurement"]` when publishing a complete strict cold readback of that candidate.
+Use the exact measured locator for the destination.
+
 Keep the source and candidate files with their manifest and receipts.
 Follow the [deterministic research procedure](../../Tasks/ResearchCommandLine.md) for the existing entry points.
 
@@ -108,6 +116,11 @@ This observation establishes source transport only.
 The older `PublicAdapter/cuboid.f3d` control was explicitly rejected.
 A separate synthetic-package CLI smoke checked candidate digest refusal, consistent receipt ingress, idempotent attachment, and conflicting-receipt preservation.
 The synthetic observations retained both acceptance flags as false and provide no vendor measurement evidence.
+An isolated CLI process attached both authentic SP04.1 held-out receipts using the exact candidate bytes and SDK gate.
+The process verified wrong-role, wrong-build, changed-epoch, changed-locator and conflicting-receipt refusals.
+Identical retries returned the same bindings and preserved the original manifests and envelopes.
+The installed CLI regression prepares the held-out input and checks the exact envelope path against the measured digest.
+When the active compressor generates different bytes, the genuine receipt must refuse publication of a receipt sidecar.
 No local tests, test collection, or licensed native measurements were executed for this entry.
 An instrumented Python 3.14.6 CLI child was held before opening its staged manifest after neutral JSON was written.
 The owning harness terminated that research child; the outer process returned `15` and the final destination remained absent.
