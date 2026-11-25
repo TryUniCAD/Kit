@@ -1,5 +1,7 @@
 from convert.adapters.Fusion.Native.FixedPrism.CheckFixBind import CheckFixBind
+from convert.adapters.Fusion.Native.FixedPrism.CheckFixCompute import CheckFixCompute
 from convert.adapters.Fusion.Native.FixedPrism.CheckFixTable import CheckFixTable
+from convert.adapters.Fusion.Native.FixedPrism.BindFixAxes import BindFixAxes
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     LinkedNodes,
@@ -10,9 +12,6 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
-from convert.adapters.Fusion.Native.Rectangle.CheckRectDeps import CheckRectDeps
-from convert.adapters.Fusion.Native.Rectangle.ReadRectDim import ReadRectDim
-from interchange.Enums.EnumGeometry import ConstraintKind
 from interchange.geometry.Models.Sketch import SketchRelation
 
 
@@ -46,31 +45,21 @@ def ReadFixedDims(
         for Index, (Binding, Owner) in enumerate(zip(Bindings, Owners, strict=True))
     )
     CheckFixTable(Graph, Table, Params)
-    CheckRectDeps(Graph, Context, SketchBindings)
-    Relations = tuple(
-        ReadRectDim(
-            Graph,
-            Context,
-            Dimension,
-            Binding,
-            Param,
-            Lines,
-            Anchor,
-            KindValue,
-            Fixed=True,
-        )
-        for Dimension, Binding, Param, KindValue in zip(
-            Dimensions,
-            SketchBindings,
-            Params[:2],
-            (ConstraintKind.KDistanceX, ConstraintKind.KDistanceY),
-            strict=True,
-        )
+    CheckFixCompute(Graph, Context, SketchBindings)
+    Relations = BindFixAxes(
+        Graph,
+        Context,
+        Dimensions,
+        tuple(zip(SketchBindings, Params[:2], strict=True)),
+        Lines,
+        Anchor,
     )
     Ranks = tuple(
-        Dimension.Frame.Subjects[0].ObserverIndex
-        for Dimension in Dimensions
-        if Dimension.Frame.Subjects
+        sorted(
+            Dimension.Frame.Subjects[0].ObserverIndex
+            for Dimension in Dimensions
+            if Dimension.Frame.Subjects
+        )
     )
     if Ranks not in ((0, 1), (4, 5)):
         raise ValueError(

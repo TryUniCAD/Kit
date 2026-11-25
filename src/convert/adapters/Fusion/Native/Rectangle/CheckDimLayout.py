@@ -11,26 +11,26 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
 from convert.Formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 
 
-# the dimension carrier stays on the source axis with a consistent text and extension offset
+# saved captions can move along the dimension line without changing the anchored geometry
 def CheckDimLayout(
     InfoValue: dict[str, KEntityValue],
     Start: tuple[float, float, float],
     Finish: tuple[float, float, float],
     AxisValue: int,
+    FixedCorner: bool,
 ) -> None:
     First = PointCoords(InfoValue["DimStartPoint"])
     Second = PointCoords(InfoValue["DimEndPoint"])
     Caption = PointCoords(InfoValue["textPosition"])
     SideAxis = 1 - AxisValue
     SameNumbers(
-        (First[AxisValue], Second[AxisValue], Caption[AxisValue]),
-        (
-            Start[AxisValue],
-            Finish[AxisValue],
-            (Start[AxisValue] + Finish[AxisValue]) / 2,
-        ),
+        (First[AxisValue], Second[AxisValue]), (Start[AxisValue], Finish[AxisValue])
     )
     SameNumbers(
         (First[2], Second[2], Caption[2], Second[SideAxis], Caption[SideAxis]),
         (0.0, 0.0, 0.0, First[SideAxis], First[SideAxis]),
     )
+    if not FixedCorner:
+        SameNumbers(
+            (Caption[AxisValue],), ((Start[AxisValue] + Finish[AxisValue]) / 2,)
+        )

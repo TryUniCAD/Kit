@@ -19,7 +19,7 @@ from convert.Formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 from convert.adapters.Fusion.Native.Rectangle.CheckDimLayout import CheckDimLayout
 
 
-# stale presentation extension points stay in source state while the measured carrier is checked
+# presentation coordinates stay in typed source state while the measured carrier is checked
 def CheckDimCache(
     Fields: dict[str, KEntityValue],
     Param: NativeNode,
@@ -57,9 +57,9 @@ def CheckDimCache(
         or SeriesItems(Fields["RefPositions"]) != (0.0, 1.0)
         or Extension[1 - AxisValue] != 0.0
         or Extension[2] != 0.0
-        or ((YzDatum or Fixed) and Extension != Start)
+        or (YzDatum and Extension != Start)
     ):
         raise ValueError(
             "Native rectangle dimension has inconsistent literal or annotation placement"
         )
-    CheckDimLayout(InfoValue, Start, Finish, AxisValue)
+    CheckDimLayout(InfoValue, Start, Finish, AxisValue, Fixed)
