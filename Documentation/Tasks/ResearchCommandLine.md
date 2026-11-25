@@ -10,7 +10,7 @@ For multiple local instances, use the [shared research queue](../Reference/Resea
 to submit revisioned requests to one controller and supervisor.
 Existing private catalogue runs retain their own stores unless their jobs are explicitly submitted through that endpoint.
 
-For bounded SOLIDWORKS and Fusion reconstruction, use the [encoder round-trip workflow](../Changes/Research/EncoderRoundTripPipeline.md).
+For bounded SOLIDWORKS and Fusion reconstruction, use the [encoder round-trip workflow](../Changes/Research/Encoder/EncoderRoundTripPipeline.md).
 It persists neutral JSON, generates reconstruction and depth-edited candidates, and records their runtime, hashes, and stage timings.
 Attach native observations with the workflow's separate receipt command.
 The manifest keeps native qualification pending until the format's acceptance requirements are measured.

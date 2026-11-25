@@ -9,21 +9,22 @@ This register belongs to the [neutral-first plan](AutomationPlan.md).
 ## Deterministic encoder work
 
 The user assigned the first two-format encoder milestone to Codex on 2026-11-25.
-The delivery branch is `codex/deterministic-encoder-roundtrip`.
+The delivery is [PR #297](https://github.com/TryUniCAD/Kit/pull/297), branch `codex/deterministic-encoder-roundtrip`.
 Three worker chats own the shared pipeline, SOLIDWORKS adapter, and Fusion adapter respectively.
 Each worker uses three subagents. Routine encoder jobs keep model advice disabled.
 PR #158 is closed. Its retained programme requirements and evidence remain the basis for these child steps.
 
-| ID   | Scope                                                         | Owner                   | Depends on                                    | Status | Exit condition                                                                                                                                |
-| ---- | ------------------------------------------------------------- | ----------------------- | --------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| A11c | Qualified cuboid JSON reconstruction and extrusion-depth edit | Codex Fusion worker     | A05, A06, qualified public Fusion writer, A14 | active | Generated candidates pass deterministic process checks and independent native open, edit, rebuild, save, and reopen measurements.             |
-| A12a | Bounded line-loop boss JSON reconstruction and depth edit     | Codex SOLIDWORKS worker | A04, A06, measured part writer, A14           | active | Held-out candidates pass native measurements and the public SDK publishes bytes bound to a valid exact-build receipt.                         |
-| A13a | Shared encoder jobs and receipt handling                      | Codex shared worker     | A03, A11c, A12a, A14                          | active | The existing research CLI generates both formats, preserves evidence through retries, and distinguishes generation from native qualification. |
+| ID   | Scope                                                         | Owner                   | Depends on                                    | Status   | Exit condition                                                                                                                                |
+| ---- | ------------------------------------------------------------- | ----------------------- | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| A11c | Qualified cuboid JSON reconstruction and extrusion-depth edit | Codex Fusion worker     | A05, A06, qualified public Fusion writer, A14 | checking | Generated candidates pass deterministic process checks and independent native open, edit, rebuild, save, and reopen measurements.             |
+| A12a | Bounded line-loop boss JSON reconstruction and depth edit     | Codex SOLIDWORKS worker | A04, A06, measured part writer, A14           | checking | Held-out candidates pass native measurements and the public SDK publishes bytes bound to a valid exact-build receipt.                         |
+| A13a | Shared encoder jobs and receipt handling                      | Codex shared worker     | A03, A11c, A12a, A14                          | active   | The existing research CLI generates both formats, preserves evidence through retries, and distinguishes generation from native qualification. |
 
 The SOLIDWORKS starting scope is a qualified cold part or supported authored graph.
 Ordinary vendor partition layouts still need reader semantics before they can enter this path.
-The public SOLIDWORKS measurement gate currently requires build `34.5.2.0604`.
-The observed local build is `34.4.1.1011`. Fresh measurements must qualify any additional build explicitly.
+The [measured SOLIDWORKS build extension](../../Changes/Solidworks/Construction/SolidworksEncoderOracleBuild.md) qualifies exact build `34.4.1.1011` alongside `34.5.2.0604`.
+Four candidates passed twenty owned process lifetimes and 616 numeric comparisons on the observed SP04.1 executable.
+Eight SDK publications reproduced those measured archives through the registry and direct writer.
 Fusion measurements target the observed installed build `2706.1.17`.
 Native execution, output acceptance, public publication, PR checks, and merge-queue acceptance each retain their own evidence.
 

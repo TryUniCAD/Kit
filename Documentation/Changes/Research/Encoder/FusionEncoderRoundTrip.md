@@ -2,12 +2,12 @@
 
 The integrated CLI's reconstructed and edited cuboid candidates passed fresh-process native measurements in Fusion 2706.1.17.
 Two separately generated edited candidates also passed on the same build.
-The complete [CAD success criteria](../../Reference/Operations/CadSuccessCriteria.md) remain required.
+The complete [CAD success criteria](../../../Reference/Operations/CadSuccessCriteria.md) remain required.
 
 ## Behavior
 
 Task `A11c` delivers this bounded research integration.
-The [Fusion research adapter](../../../re/automation/EncoderRoundTrip/Fusion.py) exercises the existing qualified public adapter through persisted neutral JSON.
+The [Fusion research adapter](../../../../re/automation/EncoderRoundTrip/Fusion.py) exercises the existing qualified public adapter through persisted neutral JSON.
 Its bounded model is one constrained XY rectangle and one positive blind cuboid extrusion.
 The graph includes user parameters, dependent model parameters, sketch dimensions, constraints, analytic topology, and a material.
 
@@ -51,8 +51,8 @@ It requires equivalence to the supported constructor graph, including previews a
 Only recognized generated identities and validated provenance fields can differ.
 It then emits a new source-free candidate with a complete, consistent native contract.
 Dropping native metadata is not an edit strategy.
-The [contract guidance](../../Gotchas/Conversion/Fusion/Api/FusionSemanticContracts.md) continues to apply.
-The [constructor-equivalence gotcha](../../Gotchas/Conversion/Fusion/Api/FusionEncoderConstructorEquivalence.md) explains the stricter encoder admission boundary.
+The [contract guidance](../../../Gotchas/Conversion/Fusion/Api/FusionSemanticContracts.md) continues to apply.
+The [constructor-equivalence gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionEncoderConstructorEquivalence.md) explains the stricter encoder admission boundary.
 
 The output is generated through the existing field-based codecs.
 The new research path does not load a donor archive, captured payload, or vendor runtime.
@@ -60,23 +60,23 @@ These source inspections do not replace held-out native acceptance or the comple
 
 ## Verification
 
-The [boundary smoke](../../../re/Fusion/EncoderRoundTrip/BoundarySmoke.py) exercises actual SDK serialization and native archive boundaries.
+The [boundary smoke](../../../../re/Fusion/EncoderRoundTrip/BoundarySmoke.py) exercises actual SDK serialization and native archive boundaries.
 Its scope includes fixed-input reproducibility, strict native reconstruction, a driving edit, unsupported contracts, and historical JSON.
 
-The [boundary evidence](../../../re/Fusion/EncoderRoundTrip/BoundaryEvidence.md) records 17 passing checks on native Windows with Python 3.14.6.
+The [boundary evidence](../../../../re/Fusion/EncoderRoundTrip/BoundaryEvidence.md) records 17 passing checks on native Windows with Python 3.14.6.
 It binds the unchanged adapter and smoke source hashes to the retained report.
 The strict SDK projection reports one solid, two features, one sketch, and seven parameters.
 The driving edit changes volume from 12870.65625 to 17481.796875 mm³.
 The profile is 17.25 by 23.5 mm.
 The extrusion depth changes from 31.75 to 43.125 mm.
 Fresh-process native open, edit, rebuild, save, and reopen measurements remain separate evidence.
-The [native measurement record](../../../re/Fusion/EncoderRoundTrip/NativeEvidence.md) binds each measured candidate to its exact source and receipt hashes.
+The [native measurement record](../../../../re/Fusion/EncoderRoundTrip/NativeEvidence.md) binds each measured candidate to its exact source and receipt hashes.
 Independent Fusion controls passed before and after each candidate.
 The receipt projector checks the candidate archive hash and verifies both saved archive hashes again at fresh-process reopen.
 The strict SDK reader refused variants that Fusion saved after the native edits and restorations.
 Admission of those saved variants requires reader work.
-The [Windows oracle startup record](../../Gotchas/Conversion/Fusion/Api/FusionWindowsOracleStartup.md) describes the observed launcher and process behavior.
+The [Windows oracle startup record](../../../Gotchas/Conversion/Fusion/Api/FusionWindowsOracleStartup.md) describes the observed launcher and process behavior.
 PR checks and merge-group acceptance also remain separate gates.
 
-The earlier [public adapter evidence](../Fusion/Adapter/FusionPublicAdapter.md) describes its own artifacts and measured revision.
+The earlier [public adapter evidence](../../Fusion/Adapter/FusionPublicAdapter.md) describes its own artifacts and measured revision.
 It does not qualify new candidates or this workflow revision automatically.

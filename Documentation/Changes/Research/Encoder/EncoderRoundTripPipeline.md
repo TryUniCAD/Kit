@@ -70,7 +70,7 @@ Pass the unchanged envelope as `values["solidworks_native_measurement"]` when pu
 Use the exact measured locator for the destination.
 
 Keep the source and candidate files with their manifest and receipts.
-Follow the [deterministic research procedure](../../Tasks/ResearchCommandLine.md) for the existing entry points.
+Follow the [deterministic research procedure](../../../Tasks/ResearchCommandLine.md) for the existing entry points.
 
 ## Limits and acceptance
 
@@ -89,7 +89,7 @@ Byte identity, successful SDK reads, and attached receipt files do not establish
 
 The shared manifest and receipt attachment results retain `vendor_loadable: false` and `application_usable: false`.
 Complete independent native acceptance remains a separate obligation.
-Apply every [CAD success criterion](../../Reference/Operations/CadSuccessCriteria.md) before claiming a format milestone.
+Apply every [CAD success criterion](../../../Reference/Operations/CadSuccessCriteria.md) before claiming a format milestone.
 Required evidence includes fresh-process loading, healthy controls, rebuild results, body measurements, feature history, and a driving edit.
 This change does not complete the production conversion roadmap.
 

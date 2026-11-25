@@ -12,4 +12,4 @@ Include those resource types and the shared research helpers in the checkout fin
 Compare the fingerprint before and after the run. Discard the result if it changes.
 The run also records the zlib build and runtime versions and the standard-library Zstd version used for Fusion input.
 Existing artifact digests still bind the exact candidate bytes.
-See the [encoder workflow](../../Changes/Research/EncoderRoundTripPipeline.md).
+See the [encoder workflow](../../Changes/Research/Encoder/EncoderRoundTripPipeline.md).

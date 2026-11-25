@@ -34,6 +34,6 @@ Retain the entire typed native contract when persisting JSON.
 Record and resolve an admission diagnostic before requesting broader reconstruction support.
 Do not remove metadata, ignore previews, or relax the complete-state comparison.
 
-See the [encoder change entry](../../../../Changes/Research/FusionEncoderRoundTrip.md) and its revision-bound verification record.
+See the [encoder change entry](../../../../Changes/Research/Encoder/FusionEncoderRoundTrip.md) and its revision-bound verification record.
 The [boundary smoke](../../../../../re/Fusion/EncoderRoundTrip/BoundarySmoke.py) covers the custom-preview and provenance cases.
 The [native measurement record](../../../../../re/Fusion/EncoderRoundTrip/NativeEvidence.md) identifies the affected saved variants.
