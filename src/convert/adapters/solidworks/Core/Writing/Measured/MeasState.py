@@ -1,8 +1,6 @@
 from typing import cast as CastValue
-from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasNum import (
-    ReadMeasNum,
-    ReadMeasReal,
-)
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasNum import ReadMeasNum
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasReal import ReadMeasReal
 
 
 # recorded frame and solid measurements must be present for every accepted observation
