@@ -54,6 +54,16 @@ after rebuilt without a journal warning, but both application processes
 crashed during shutdown. The original and all scratch copies retained their
 SHA-256 hashes. The probes did not repeat full catalogue capture and acceptance.
 
+## Staggered desktop readback
+
+A separate November 25 check started the second instance 45.5 seconds after
+the first and 30.1 seconds after the first had rebuilt its scratch part.
+Both processes were still alive when the second instance displayed the
+journal warning. The second rebuilt during cleanup after the probe released
+the first. The first required forced cleanup. Both scratch copies and the
+original retained their hashes. A delayed launch alone did not prevent the
+shared-profile journal warning while the earlier process remained open.
+
 ## Workaround
 
 Use `"capture_workers": 1` for a new catalogue on a shared profile unless
