@@ -19,9 +19,15 @@ and decoder job. The existing per-batch artifact budgets and native acceptance
 checks continue to apply. A native phase failure can still block the entire
 batch before its files are released to the decoder.
 
-Process checks cover complete twelve-case groups, the final partial group,
-saved jobs from the previous implementations, per-case artifact routing, and
-the native manifest at its upper bound. Licensed acceptance requires both
-owned process exits, successful reopen and rebuild of every file, and
-unchanged archive hashes. See
+At revision `1afeb59cc9a86f5e8a7ce981126a254073a806ac`, nine Windows process
+checks passed. They covered full and partial groups, saved jobs from the two
+previous implementations, per-case artifact routing, and compiled manifest
+validation for twelve cases.
+
+A licensed Windows run on SOLIDWORKS 2026 build 34.4.1 accepted twelve selected
+cases in a single batch in 695 seconds. One owned process authored them and
+one fresh process reopened, rebuilt and measured all 111 archives. Both
+processes exited normally, and all archive and measurement hashes matched.
+All twelve offline decoder jobs completed. The catalogue retained unresolved
+decoder findings and returned `coverage_incomplete`. See
 [A08h-LargeSolidWorksBatches](../../../../Reference/Research/AutomationSteps.md#a08h-largesolidworksbatches-larger-fresh-verification-groups).

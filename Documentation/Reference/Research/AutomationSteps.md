@@ -791,3 +791,6 @@ revision-bound Windows preparation, previous-job compatibility, native
 authoring and independent reopen of a full batch, and current CI and review.
 See the
 [change entry](../../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
+A licensed run accepted 12 selected cases and 111 archives at
+`1afeb59cc9a86f5e8a7ce981126a254073a806ac` with two normal process exits.
+All twelve offline decoder jobs completed. Hosted CI and review remain open.
