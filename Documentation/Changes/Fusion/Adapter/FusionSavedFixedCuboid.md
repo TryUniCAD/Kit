@@ -20,4 +20,6 @@ The original strict reader refused 12 prior native controls, edits and restores 
 
 The [local capture and replay tooling](../../../../re/Fusion/LocalOracle/SavedCuboidRoundTrip/README.md) prepares public-API captures and exact candidate/control requests. The [readiness report](../../../../re/Fusion/LocalOracle/SavedCuboidRoundTrip/Readiness.md) records why the native runs did not dispatch.
 
+The [public boundary evidence](../../../../re/Fusion/SavedCuboidRoundTrip/PublicBoundaryEvidence.md) records 17 SDK integration checks and four fresh CLI decode checks. The [boundary harness](../../../../re/Fusion/SavedCuboidRoundTrip/PublicBoundaryCheck.py) persists the complete JSON and verifies the explicit public write refusal.
+
 See the [source observations, exact sample hashes and audit procedure](../../../../re/Fusion/SavedCuboidRoundTrip/Findings.md). Product conversion acceptance and the broader Fusion reader and writer remain open.
