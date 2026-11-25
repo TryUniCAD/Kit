@@ -47,7 +47,7 @@ def VerifyOverflow(
     assert Diagnostic["error_type"] == "ValueError"
     if HashContent(Snapshot["edited.SLDPRT"]).hexdigest() == MeasuredSha:
         assert Diagnostic["error"] == (
-            "exact SOLIDWORKS receipt contains an oversized numeric observation"
+            "native measurement requires finite scalar observations"
         )
     else:
         assert "no unique exact native measurement" in Diagnostic["error"]
