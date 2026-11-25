@@ -104,7 +104,14 @@ The checks also require the driving parameter link and the cuboid's solid, face,
 A no-op edit must retain the reconstruction, refuse the edited candidate, and preserve the source and settled output on retry.
 An abandoned-directory fixture checks retry behavior without claiming an actual interrupted-process measurement.
 These cases use the existing complete-suite collector, merge-queue planner, shards, and completeness report.
+The existing Windows research CLI compatibility roster also collects the encoder tests.
+Its shards use the installed CLI and a separate research checkout at the candidate revision.
 No workflow or CI job is added.
+
+On Windows, pinned Python 3.14.6 collected all 14 encoder cases.
+Git Bash validated the Windows roster script syntax.
+The existing sort and partition steps assigned the collected encoder cases across four disjoint shards of 4, 4, 3, and 3.
+Hosted Windows execution remains separate evidence.
 
 Black 26.10.1 formatted and checked all nine coverage files with exit `0`.
 Python 3.11 syntax parsing passed for those files.
