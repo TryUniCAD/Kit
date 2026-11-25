@@ -164,24 +164,24 @@ def _seeded_write(
             timeout=60,
         )
     except subprocess.TimeoutExpired as error:
-        raise ValueError("Fusion authored emitter exceeded 60 seconds") from error
+        raise RuntimeError("Fusion authored emitter exceeded 60 seconds") from error
     if child.returncode != 0:
         error = child.stderr.decode("utf-8", errors="replace").strip().splitlines()
         detail = f" ({error[-1][:500]})" if error else ""
-        raise ValueError("Fusion authored emitter failed" + detail)
+        raise RuntimeError("Fusion authored emitter failed" + detail)
     if len(child.stdout) < 8:
-        raise ValueError("Fusion authored emitter response is incomplete")
+        raise RuntimeError("Fusion authored emitter response is incomplete")
     count = struct.unpack_from("!I", child.stdout)[0]
     payload_at = 4 + 16 * count
     payload = child.stdout[payload_at:]
     if not 0 < count <= 256 or not payload.startswith(b"PK\x03\x04"):
-        raise ValueError("Fusion authored emitter response does not frame a native ZIP")
+        raise RuntimeError("Fusion authored emitter response does not frame a native ZIP")
     identities = frozenset(
         str(UUID(bytes=child.stdout[index : index + 16]))
         for index in range(4, payload_at, 16)
     )
     if len(identities) != count:
-        raise ValueError("Fusion authored emitter produced duplicate identities")
+        raise RuntimeError("Fusion authored emitter produced duplicate identities")
     return payload, identities
 
 

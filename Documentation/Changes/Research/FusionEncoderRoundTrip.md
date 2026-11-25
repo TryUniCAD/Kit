@@ -72,6 +72,7 @@ The extrusion depth changes from 31.75 to 43.125 mm.
 Fresh-process native open, edit, rebuild, save, and reopen measurements remain separate evidence.
 The [native measurement record](../../../re/Fusion/EncoderRoundTrip/NativeEvidence.md) binds each measured candidate to its exact source and receipt hashes.
 Independent Fusion controls passed before and after each candidate.
+The receipt projector checks the candidate archive hash and verifies both saved archive hashes again at fresh-process reopen.
 The strict SDK reader refused variants that Fusion saved after the native edits and restorations.
 Admission of those saved variants requires reader work.
 The [Windows oracle startup record](../../Gotchas/Conversion/Fusion/Api/FusionWindowsOracleStartup.md) describes the observed launcher and process behavior.

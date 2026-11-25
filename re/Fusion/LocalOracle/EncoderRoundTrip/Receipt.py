@@ -1,7 +1,7 @@
 import argparse
 from hashlib import sha256
 import json
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 
 def read(path):
@@ -75,7 +75,8 @@ def make_receipt(batch, run):
         if name == "Reopen" and not path.exists() and stages["Candidate"]["status"] != "passed":
             continue
         raw, stage_hash = read(path)
-        if (raw["stage"] != name or raw["status"] == "running" or raw["batch_sha256"] != config_sha
+        if (raw["stage"] != name or raw["status"] not in ("passed", "failed")
+                or type(raw["pid"]) is not int or raw["pid"] <= 0 or raw["batch_sha256"] != config_sha
                 or raw["source_sha256"] != source_sha or raw["candidate_sha256"] != candidate_sha
                 or raw["measurement_script_sha256"] != config["measurement_script_sha256"]):
             raise ValueError(f"{name} receipt does not bind this completed oracle stage")
@@ -90,11 +91,18 @@ def make_receipt(batch, run):
     observed = stages["Candidate"]
     candidate = record(observed, candidate_sha)
     if observed["status"] == "passed":
+        candidate_name = PureWindowsPath(config["candidate"]).name
+        if observed["archives"].get(candidate_name) != candidate_sha:
+            raise ValueError("candidate stage measured different archive bytes")
         reopened = stages["Reopen"]
         if reopened["status"] != "passed":
             candidate["status"] = "failed"
             candidate["error"] = "Fusion could not rebuild both saved variants in a new process"
         else:
+            for archive in ("VendorEdited.f3d", "VendorRestored.f3d"):
+                saved_sha = observed["archives"].get(archive)
+                if saved_sha is None or reopened["archives"].get(archive) != saved_sha:
+                    raise ValueError(f"{archive} changed between save and fresh-process reopen")
             edited = observed["measurements"]["edited"]
             restored = observed["measurements"]["restored"]
             candidate["edits"].append({
