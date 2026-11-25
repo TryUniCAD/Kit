@@ -182,7 +182,9 @@ def author_cases(base, app, request, folder, result):
         return
 
     def mutate(document, args, working, status):
-        record_capture(base, document, samples, folder, "NoOpBefore", REFERENCE, DEPTH, None, args, working, status)
+        result["initial_save_status"] = status
+        record_capture(base, document, samples, folder, "NoOpBefore", REFERENCE, DEPTH, None,
+                       args, working, save_current(base, document))
         record_capture(base, document, samples, folder, "NoOpAfter", REFERENCE, DEPTH, None,
                        args, working, save_current(base, document))
         manager = document.Extension.CustomPropertyManager("")
@@ -193,8 +195,9 @@ def author_cases(base, app, request, folder, result):
 
     create_document(base, app, template, workspace / "SingleFactor/Prism.SLDPRT", REFERENCE, DEPTH, mutate)
     for name, points, depth, text in CONTRASTS[3:]:
-        def capture(doc, args, working, status):
-            record_capture(base, doc, samples, folder, name, points, depth, text, args, working, status)
+        def capture(doc, args, working, _):
+            record_capture(base, doc, samples, folder, name, points, depth, text,
+                           args, working, save_current(base, doc))
         create_document(base, app, template, workspace / name / "Prism.SLDPRT", points, depth, capture)
 
 
