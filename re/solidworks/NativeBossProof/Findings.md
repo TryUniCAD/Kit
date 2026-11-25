@@ -36,12 +36,17 @@ The dependency reader investigation remains separate.
 
 ## Evidence
 
-[Evidence](Evidence/) contains nine source-specific records with native hashes, definition hashes, capture fingerprints, complete collection inventories, retained-span hashes and ownership links.
-The records compare each depth pair, no-op pair or independent contrast without ignoring document fields.
-Opaque bytes are represented only by their size and digest in these reports.
+[The tracked ledger](Evidence/InventoryLedger.json) contains nine compact case entries with source, definition, capture, neutral, full-inventory and typed-inventory hashes.
+It preserves the process outcomes, precision contrasts, topology summaries and ownership divergences.
+Complete inventories are retained byte for byte in ignored task-owned output at `.rescratch/NativeBossProofFullEvidence/a2c1abb/`.
+The ledger also records their immutable Git blob identities from origin commit `a2c1abb380db02cbdbb7018284e244857fbc2d5e`.
+Saved-file and Git-file hashes remain separate because repository line-ending normalization changes text bytes.
+The [summary command](SummarizeEvidence.py) verifies canonical JSON identity against the origin blobs before producing the ledger.
+Full inventories still compare each depth pair, no-op pair or independent contrast without ignoring fields.
+Opaque bytes remain represented only by size and digest in the reports.
 No source archive or CAD fixture is copied into the SDK.
 
-The fresh-process [NoOpBefore record](Evidence/DiscoveryNoOpBefore.json) records the research child's actual exit code `3`.
+The ledger's `DiscoveryNoOpBefore` entry preserves the research child's actual exit code `3`.
 It verifies that the settled capture remains unchanged.
 The failure occurs before encoder entry. This record does not assert candidate generation or native acceptance.
 The comparison commands for the other eight records also completed successfully as offline evidence operations.
@@ -58,6 +63,14 @@ Use `--document` for caller-supplied SDK JSON from the explicitly selected trust
 That mode reports an external snapshot and does not claim that this command executed its original decoder.
 Use `--compare-document` to compare another complete typed snapshot.
 The default comparison requires exact identity and ignores no fields. It does not infer ID mappings, normalize native rows, or establish conversion acceptance.
+
+Produce full role inventories into ignored output, then summarize them for review:
+
+```powershell
+python re/solidworks/NativeBossProof/SummarizeEvidence.py --input-directory .rescratch/NativeBossProofFullEvidence/a2c1abb --inventory-commit a2c1abb380db02cbdbb7018284e244857fbc2d5e --output .rescratch/NativeBossInventoryLedger.json
+```
+
+The summary operation reads existing evidence and Git objects only. It performs no SDK or native application rerun.
 
 No new pytest roster entry was added for these existing source refusals.
 A frozen, generative admission rule and separately authored heldout inputs are still required before positive A12b process coverage.

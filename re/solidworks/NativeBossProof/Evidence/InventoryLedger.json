@@ -1,0 +1,1484 @@
+{
+  "application_usable": false,
+  "case_count": 9,
+  "cases": {
+    "AuthorBaseline": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 24,
+        "curves": 12,
+        "edges": 12,
+        "face_uses": 6,
+        "faces": 6,
+        "loops": 6,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 6,
+        "vertices": 8,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 98700,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "050b7f651ead8a5cc4b66a87af5273eabef43a92e62f1bc8829309584fcbce66",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 12440500,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "701c0b9b12a2c30a1b842dd5b9f1e7762d9b02f8677b1e66c94fd70606deb74c",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 18,
+          "parameters": 1
+        },
+        "changed_records": 21,
+        "equal": false,
+        "other_document_sha256": "e74195c09960e81fff3b802d66cc0acea764ba6f18e2d672a4f8f816d2099bb4",
+        "other_source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "620152ad1cbfd59da06ac394a0ed834fd67c43616c1e08c9e481a551bf0b82ff"
+      },
+      "definition": {
+        "case": "BaselineSource.SLDPRT",
+        "sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.014310000000000002,
+          "driver_matches": true,
+          "feature_depth_m": 0.014310000000000002,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": true,
+          "oracle_depth_m": 0.01431,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.01431
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 77483,
+        "file_sha256": "f3bab66f5290993797c986ea563c760991cf8ab3923f69bfe8f0514a774d849d",
+        "git_blob": "47e5370baa3f6e133477c85c36a5f2b3ce0338e2",
+        "git_file_sha256": "16f6e97e45ff524fd5c8100b2ee57af983a057d026d4189d59c538f8c4ccef61"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "eff547f5c3d78008f8fdba12fb76e7d6e8b65ad0fa2add009e0ff2023884cc51",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:6715",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "occurrences": null,
+        "status": "not_observed"
+      },
+      "retained_spans": {
+        "bytes": 17132,
+        "count": 46,
+        "sha256": "a0c657c7aecc996c23885a189666e484f69f13c70875223bf6859f432c527e6e"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 45007,
+        "name": "BaselineSource.SLDPRT",
+        "sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+      },
+      "typed_document_sha256": "9b5439c259e13df9507f6ed4e66a57423a80b5d875da0d1e551a61d0f9cc0d28",
+      "typed_inventory_sha256": "ae0cf00cc1cf78d6ae71441d80c99789bedcd0135eb9e611abf3d10f96cbc319",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "AuthorBaselineEdited": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 24,
+        "curves": 12,
+        "edges": 12,
+        "face_uses": 6,
+        "faces": 6,
+        "loops": 6,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 6,
+        "vertices": 8,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 71400,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "13b4a09ca82289615dbfe5c800a67a70e265e60cc00b3dee4cb337fa13ae34a0",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 11277700,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "6420f95abcee2f012841097a15299447b9f62204b7ef4e9cee540c176ccc3449",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 18,
+          "parameters": 1
+        },
+        "changed_records": 21,
+        "equal": false,
+        "other_document_sha256": "eff547f5c3d78008f8fdba12fb76e7d6e8b65ad0fa2add009e0ff2023884cc51",
+        "other_source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "ac819e000380aee62a595a9220535c440d1a4064b3ba763fae7b80127e518a5c"
+      },
+      "definition": {
+        "case": "BaselineEditedControl.SLDPRT",
+        "sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.019870000000000002,
+          "driver_matches": true,
+          "feature_depth_m": 0.019870000000000002,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": true,
+          "oracle_depth_m": 0.01987,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.01987
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 77498,
+        "file_sha256": "03fbde1ea4adbf0e604d1b6cfaed491717575bebe156905a0a734b01a0dbdff3",
+        "git_blob": "01aa3742c30283892baf25def8168dfcd3d775a2",
+        "git_file_sha256": "dc8ce6bf05d1d5c6101151bd4ae7e96d926dcdf602b0811eeb313ebaa301a742"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "e74195c09960e81fff3b802d66cc0acea764ba6f18e2d672a4f8f816d2099bb4",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:6715",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "occurrences": null,
+        "status": "not_observed"
+      },
+      "retained_spans": {
+        "bytes": 17132,
+        "count": 46,
+        "sha256": "b3703686ae3a35eb64a269c8907a727c361fcaf76a8ea589fc0b958147124aa9"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 45703,
+        "name": "BaselineEditedControl.SLDPRT",
+        "sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a"
+      },
+      "typed_document_sha256": "90b66f2208fc2b28bf72d88ee9b2da7cba41110d33eb8cd1a3ec76f51b6156b7",
+      "typed_inventory_sha256": "7f5f2e6851f5584ace769fa408e9579f0e6e1e1498e5dfe803c42476b31fbf11",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "AuthorOtherProfile": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 42,
+        "curves": 21,
+        "edges": 21,
+        "face_uses": 9,
+        "faces": 9,
+        "loops": 9,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 9,
+        "vertices": 14,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 83000,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "4b57b1d7fb6b7db0ccd8ac0a58785fdd34c73dc207af5eec9cc24bdbce78541a",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 15503100,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "4bf2db7383a553ac06e3daf3a2ae75be99b387bb1c2f6dedc33d0b34e2e622c1",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 18,
+          "parameters": 1
+        },
+        "changed_records": 21,
+        "equal": false,
+        "other_document_sha256": "8c0bac5966a46710b5c2da6b88c525a2d34da0e66870d096ada1c677e6f3e862",
+        "other_source_sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "321dda1d0013fad6a4ac3d51374ac270fc6ea83f5e42ae40614a01450aff1357"
+      },
+      "definition": {
+        "case": "HeldOutSource.SLDPRT",
+        "sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.00973,
+          "driver_matches": true,
+          "feature_depth_m": 0.00973,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": true,
+          "oracle_depth_m": 0.00973,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.00973
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 81600,
+        "file_sha256": "ea78107481993c36b8aae18ec52ca5c8a931b9a93f50569549ecaa6d520f5822",
+        "git_blob": "fc14b4cea3185706a47b2bf677a9d99e56fe4f47",
+        "git_file_sha256": "b3f0f9ae2149ffc9e59c6c4be086cb98ae45a55b9b4b13f79da3999cf7543bd3"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "28fe8587d8325a407d9a2fcbae5fec656d5cac3a84eaa493fadda4608a0780ef",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:7477",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "occurrences": null,
+        "status": "not_observed"
+      },
+      "retained_spans": {
+        "bytes": 21785,
+        "count": 58,
+        "sha256": "be876b3aea887cc3c9cd2e01a8a2d2c7492bff66b48ce4f75a1ce5bf2a482bee"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 49306,
+        "name": "HeldOutSource.SLDPRT",
+        "sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f"
+      },
+      "typed_document_sha256": "3e389206d952b8da72f0c1d9e7832aaf9e05131b6fb64dd0b115142c1a6bb399",
+      "typed_inventory_sha256": "e4151e2d87b19dc03dccd27d1b5efe01d008c9f8942ce14a06a7b7eec91a3fe8",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "AuthorOtherProfileEdited": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 42,
+        "curves": 21,
+        "edges": 21,
+        "face_uses": 9,
+        "faces": 9,
+        "loops": 9,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 9,
+        "vertices": 14,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 73000,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "2be25977656b8e795e79b59c845be5e979e0dd944acb4b92bbb1e36fe1eab367",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 11696500,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "064ddc23e0b557b4cf1ebf97989172fc3fe4c4b88f37aad4cd585db8cc676d5c",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 18,
+          "parameters": 1
+        },
+        "changed_records": 21,
+        "equal": false,
+        "other_document_sha256": "28fe8587d8325a407d9a2fcbae5fec656d5cac3a84eaa493fadda4608a0780ef",
+        "other_source_sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "ad0d3bf06407b4b091c50222a4513dd00a9da57c4c33c74e123cf3dbc4c60d75"
+      },
+      "definition": {
+        "case": "HeldOutEditedControl.SLDPRT",
+        "sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.01219,
+          "driver_matches": true,
+          "feature_depth_m": 0.01219,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": true,
+          "oracle_depth_m": 0.01219,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.01219
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 81619,
+        "file_sha256": "10ab771f7c0d707283178e96a59ded99462dee7347b3655de1d6ac8eea59f1ac",
+        "git_blob": "e727dec6ccc1626f5a69e2c3f1fd142cb1573e4e",
+        "git_file_sha256": "2405a2ddad813bc49c4b1bdf3c124457286c4fe147122096165eb24246a40881"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "8c0bac5966a46710b5c2da6b88c525a2d34da0e66870d096ada1c677e6f3e862",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:7477",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "occurrences": null,
+        "status": "not_observed"
+      },
+      "retained_spans": {
+        "bytes": 21785,
+        "count": 58,
+        "sha256": "1cfbf6790feb507f0546142be9bdaa3f78a66ad23a9bb84919495d10a78e78dc"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 50710,
+        "name": "HeldOutEditedControl.SLDPRT",
+        "sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb"
+      },
+      "typed_document_sha256": "fafd397aee02f2262841edc34ae029d8a1d867fe6f62cfff792f792ea307e0fd",
+      "typed_inventory_sha256": "be3c39d65a62afd846c948cff8664f65dba1c1e8464e58b58774ce8c03396374",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "DiscoveryCustomText": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 30,
+        "curves": 15,
+        "edges": 15,
+        "face_uses": 7,
+        "faces": 7,
+        "loops": 7,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 7,
+        "vertices": 10,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 134700,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "47fbab49efba69587852f235ba9365048b06f8ea02e223c6ef6dc7ebb8d9c322",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 13671000,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "528323bad714e91e6a8b6a71d5cb6cfb5cbe97183f554e4a324e7301fe4e895b",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 1,
+          "parameters": 1
+        },
+        "changed_records": 4,
+        "equal": false,
+        "other_document_sha256": "796410a7ac8bb5653c97c78614a6e45a16a826f7080f918c71e34fd6a4c9b8c5",
+        "other_source_sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "33b78b82e2de7e50486f097918360d30530de1d3f97043f788562478235515c7"
+      },
+      "definition": {
+        "case": "CustomText",
+        "sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.01337,
+          "driver_matches": false,
+          "feature_depth_m": 0.01337,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": false,
+          "oracle_depth_m": 0.013371,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.01337
+        }
+      ],
+      "expected_native_property": [
+        "A12bProbe",
+        "only this authored literal should differ"
+      ],
+      "full_inventory": {
+        "bytes": 80843,
+        "file_sha256": "8669bf1a06abbb5b33006f04dc925a8d6353611cf4712d513cbe8df5e0541dfc",
+        "git_blob": "6498c20975226fb40c426375f3a8fc0474584456",
+        "git_file_sha256": "5db2832f8739041795d13b056f27a2aa419768614a31c044aa309f22b59f56e6"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "SOLIDWORKS body moCusPropMgr_c field f20 at 103: SOLIDWORKS body moCusPropMgr_c field f20/o at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c/moFilePropContainer_c field f20/o/f08/f08 at 103: part property manager has unsupported owner placement",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "0717a7bb070d7d8328208ec69227e2a32742f91f541ac4538d9c7a0ac302a697",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:6969",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "native_only_ids": [],
+        "occurrences": 26,
+        "sdk_only_ids": [
+          19
+        ],
+        "status": "recorded_native_observation",
+        "unique_native_ids": 25
+      },
+      "retained_spans": {
+        "bytes": 18683,
+        "count": 50,
+        "sha256": "89b26e5f467fd185f98c62efc84a69c6e004c4a3cb55cf558813a7a818d1ba5b"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 47899,
+        "name": "Prism.SLDPRT",
+        "sha256": "fc27be9236f286777726cc2dcc2b38049295b2d52d4375c583ebf3823e49f5f2"
+      },
+      "typed_document_sha256": "c23ec546003d09a3914e4783262416272772e473c530e61c4a57c4510c664640",
+      "typed_inventory_sha256": "b01017832861bce69755bf9faa201911c49454d49a7b58d5024563a6dc3760b1",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_driving_depth_not_preserved",
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "DiscoveryDepthContrast": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 30,
+        "curves": 15,
+        "edges": 15,
+        "face_uses": 7,
+        "faces": 7,
+        "loops": 7,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 7,
+        "vertices": 10,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 65500,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "6773698461f4eb08e3261c817780575b9df1498cfd7b1a78417e082ff296e397",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 8831400,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "d72c3fa30da3190b29b9ca8095dd7b3e6dd741b14be25c158b289b2e88bb9b09",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 18,
+          "parameters": 1
+        },
+        "changed_records": 21,
+        "equal": false,
+        "other_document_sha256": "796410a7ac8bb5653c97c78614a6e45a16a826f7080f918c71e34fd6a4c9b8c5",
+        "other_source_sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "472e914aaa74ea2d7cbbda73634bfe185b235514611b4608a168d4fe9ca0d2a6"
+      },
+      "definition": {
+        "case": "DepthContrast",
+        "sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.02146,
+          "driver_matches": false,
+          "feature_depth_m": 0.02146,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": false,
+          "oracle_depth_m": 0.021463,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.02146
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 90460,
+        "file_sha256": "483c4aa3eb5994b1394d09c1baeb3b88f9d5cd521999324741d7154314003c78",
+        "git_blob": "3f541791978ac6da4b1d2c86667a9594f0db02fa",
+        "git_file_sha256": "5c7c061869c956b725ad86c8320f7eaf9ad18ed1a2009b4921b6062b67323e8a"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "97e3a53eeb794f85f1667234c9014d9dcaa548204ec30b25f3adcba828ea8b43",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:6969",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "native_only_ids": [],
+        "occurrences": 26,
+        "sdk_only_ids": [
+          19
+        ],
+        "status": "recorded_native_observation",
+        "unique_native_ids": 25
+      },
+      "retained_spans": {
+        "bytes": 18562,
+        "count": 50,
+        "sha256": "3f0e5602db6d0569c818fc585f82c300e1755243fece264706406429f0f4798d"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 47516,
+        "name": "Prism.SLDPRT",
+        "sha256": "49b9afe5366d6af21dd848f7bcb68cb81d01a6f7f2b2a1dc404778c66db3467e"
+      },
+      "typed_document_sha256": "d2440de3cc24efe37908a7b1a62da05dacedf958772b61be1917749552c03e53",
+      "typed_inventory_sha256": "49f8e773e528c9b31362fe91342e97e44c6ed55b20a0030ce2da32007ed9df17",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_driving_depth_not_preserved",
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "DiscoveryNoOpAfter": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 30,
+        "curves": 15,
+        "edges": 15,
+        "face_uses": 7,
+        "faces": 7,
+        "loops": 7,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 7,
+        "vertices": 10,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 80300,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "1b0646fdb9e39fdec3379f9581b6ea3a127157084833f1fd02d5c61d917fa6e8",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 14010600,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "eaf044262e06ecf9e26b7f18cb9d330fcdd5e640b020370796aac50cefc850a2",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 1,
+          "parameters": 1
+        },
+        "changed_records": 4,
+        "equal": false,
+        "other_document_sha256": "796410a7ac8bb5653c97c78614a6e45a16a826f7080f918c71e34fd6a4c9b8c5",
+        "other_source_sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "4b742677b9ba184df7ecc1ba7fd6695397033d7ba684800234d1d9d977aea880"
+      },
+      "definition": {
+        "case": "NoOpAfter",
+        "sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.01337,
+          "driver_matches": false,
+          "feature_depth_m": 0.01337,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": false,
+          "oracle_depth_m": 0.013371,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.01337
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 79977,
+        "file_sha256": "fff6b2714b7157328b68c98898a89eb527e5f6b17d702d57858d39c83d1372c1",
+        "git_blob": "db018e925f32c163bfd2ffb138b3c7e3fc045bd5",
+        "git_file_sha256": "1a513a940337c30e14e5da40b0167ddefcc53e17f9ec6bbf6119443ad64f66d3"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "dcf149e443dae1256ff1e4d74010f340d22648bb8e51f1260f3374e9c0dff470",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:6969",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "native_only_ids": [],
+        "occurrences": 26,
+        "sdk_only_ids": [
+          19
+        ],
+        "status": "recorded_native_observation",
+        "unique_native_ids": 25
+      },
+      "retained_spans": {
+        "bytes": 18683,
+        "count": 50,
+        "sha256": "f019c2359b52c882f5011914068c1303f2b5ebd4c06290b3551fa6537470b337"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 47572,
+        "name": "Prism.SLDPRT",
+        "sha256": "ed5193322a7166ed8d0cdca9e0fe3abe46233e11c7368f0b42fdabaed60c3269"
+      },
+      "typed_document_sha256": "b2c79a7275a6fc58a34e5d06b940439325b19ec70aa28f84b3da9a6b73fab095",
+      "typed_inventory_sha256": "3dbdd4fc242bbedd3a5a29fabf694f09cb5913c2143992b635db9f352582d919",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_driving_depth_not_preserved",
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "DiscoveryNoOpBefore": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 30,
+        "curves": 15,
+        "edges": 15,
+        "face_uses": 7,
+        "faces": 7,
+        "loops": 7,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 7,
+        "vertices": 10,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": 3,
+        "edited": {
+          "elapsed_ns": 55700,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "9b17846d566d354f57b64023601a1a469fa6c0d4562d1256c6c2d9cc2e08ec32",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 4571400,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "00502f7bf62c6ec7fd5406f36bf6a4cc7a5493018ceac1bbaa8ece83bb1cd725",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 1,
+          "parameters": 1
+        },
+        "changed_records": 4,
+        "equal": false,
+        "other_document_sha256": "dcf149e443dae1256ff1e4d74010f340d22648bb8e51f1260f3374e9c0dff470",
+        "other_source_sha256": "ed5193322a7166ed8d0cdca9e0fe3abe46233e11c7368f0b42fdabaed60c3269",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "614048d3f282bb5ae9ca117dcb6e91d508de95f8384eee9d8bdd212c9d5cd54f"
+      },
+      "definition": {
+        "case": "NoOpBefore",
+        "sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.01337,
+          "driver_matches": false,
+          "feature_depth_m": 0.01337,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": false,
+          "oracle_depth_m": 0.013371,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.01337
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 79982,
+        "file_sha256": "ecea44c3ccc1193c64fbd17345bb8baea560f257b2784b26c2cd285c48f46d1b",
+        "git_blob": "2736f37c36d8fd68794edfe2938bd11f35c2ea03",
+        "git_file_sha256": "412aa046e27ee2e00121c0522a3c850ced176f95b6a27d655fd9eb9d7b042eb6"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "796410a7ac8bb5653c97c78614a6e45a16a826f7080f918c71e34fd6a4c9b8c5",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:6969",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "native_only_ids": [],
+        "occurrences": 26,
+        "sdk_only_ids": [
+          19
+        ],
+        "status": "recorded_native_observation",
+        "unique_native_ids": 25
+      },
+      "retained_spans": {
+        "bytes": 18562,
+        "count": 50,
+        "sha256": "067b988802f9471e02a471cdd4e18fe59a22c9f1f5dad7991e435e790b5eff33"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 47174,
+        "name": "Prism.SLDPRT",
+        "sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246"
+      },
+      "typed_document_sha256": "46aa985163b91d2fa3f528993fdbae8d9706477451f147a46e33482ce1ee259a",
+      "typed_inventory_sha256": "664ddff6243bc0bcdebd029a7480a69310f0b2e36ba62f7e1f97308718e76eb3",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_driving_depth_not_preserved",
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    },
+    "DiscoveryProfileContrast": {
+      "brep_counts": {
+        "bodies": 1,
+        "coedges": 30,
+        "curves": 15,
+        "edges": 15,
+        "face_uses": 7,
+        "faces": 7,
+        "loops": 7,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 7,
+        "vertices": 10,
+        "wires": 0
+      },
+      "capture": {
+        "child_exit_code": null,
+        "edited": {
+          "elapsed_ns": 79100,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "manifest_sha256": "5d2fc3cdb20c00eaa20361bc960a830aecd30892b9eb88d427495e54c49eb752",
+        "models_used": false,
+        "reconstruction": {
+          "elapsed_ns": 14994000,
+          "error_type": "ValueError",
+          "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+          "stage": "prepare_writer_input",
+          "status": "unsupported"
+        },
+        "run_fingerprint": "50c560a8bb16efc3b6d6d175f1ccff94482b60bf7488f96ffc2c76f8f6e31001",
+        "status": "incomplete"
+      },
+      "capture_unchanged": true,
+      "collection_counts": {
+        "bodies": 1,
+        "brep_payloads": 2,
+        "configurations": 1,
+        "feature_timeline": 26,
+        "materials": 0,
+        "meshes": 0,
+        "parameters": 1,
+        "selections": 1,
+        "sketches": 1,
+        "support_planes": 3
+      },
+      "comparison": {
+        "changed_collections": {
+          "brep_payloads": 2,
+          "feature_timeline": 17,
+          "sketches": 1
+        },
+        "changed_records": 20,
+        "equal": false,
+        "other_document_sha256": "796410a7ac8bb5653c97c78614a6e45a16a826f7080f918c71e34fd6a4c9b8c5",
+        "other_source_sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246",
+        "ownership_changed": false,
+        "policy": "exact_typed_identity_without_ignored_fields",
+        "root_fields_changed": false,
+        "sha256": "6d3460e2ad068638fb9a36458e57055107a1a7a279dda607b5b5c2c253044a7e"
+      },
+      "definition": {
+        "case": "ProfileContrast",
+        "sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda"
+      },
+      "driving_depth_comparison": [
+        {
+          "driver_depth_m": 0.01337,
+          "driver_matches": false,
+          "feature_depth_m": 0.01337,
+          "feature_id": "sldprt:feature:32",
+          "feature_matches": false,
+          "oracle_depth_m": 0.013371,
+          "parameter_id": "sldprt:parameter:32:D1",
+          "retained_native_unit": "m",
+          "retained_native_value": 0.01337
+        }
+      ],
+      "expected_native_property": null,
+      "full_inventory": {
+        "bytes": 89813,
+        "file_sha256": "3e4612f67e37f0968d5861538386f588d4b83a230e46cdf766e7000f88b88c36",
+        "git_blob": "22b929b7bf5206a5fd5b84a53dd7af6b4860690a",
+        "git_file_sha256": "fe78a7219c0d5118e0004f6f27a1af3c89b7c901f8fd698acedee738332bc830"
+      },
+      "native_api_top_rows": 19,
+      "native_property_status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "neutral_sha256": "d5559fdce683fc30b73dbb6d445b75347e0b21ae63bbecb723e93eb0cd86ba6f",
+      "opaque_sketch_entities": [
+        {
+          "geometry_type": "NativeGeometry",
+          "id": "sldprt:sketch:26:native:6969",
+          "kind": "native"
+        }
+      ],
+      "public_body_topology": [
+        {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      ],
+      "recursive_api": {
+        "native_only_ids": [],
+        "occurrences": 26,
+        "sdk_only_ids": [
+          19
+        ],
+        "status": "recorded_native_observation",
+        "unique_native_ids": 25
+      },
+      "retained_spans": {
+        "bytes": 18562,
+        "count": 50,
+        "sha256": "ecd3e28475aebe35160361e12c898da95e35f1b8f9f9a5ae228147eb161dcca7"
+      },
+      "sdk_only_top_view_names": [
+        "Notes",
+        "Notes1___EndTag___",
+        "Ambient",
+        "Directional1",
+        "Directional2",
+        "Directional3",
+        "Exploded Views 19"
+      ],
+      "source": {
+        "bytes": 46056,
+        "name": "Prism.SLDPRT",
+        "sha256": "acedc181f6da5b8d4a0a17521d957b89250e71a1be865533958bd2f5f298195c"
+      },
+      "typed_document_sha256": "90c72346d20dee6aa175b3ca41f3201d858346a2f19649e8ce21839f452f340b",
+      "typed_inventory_sha256": "cbbff155a673f7b1170da18b30b906d8f37061517d8c2c2b828bdec09c79bb4a",
+      "unresolved_ownership": {
+        "brep_design_body": 1,
+        "final_feature_backlink": 1
+      },
+      "unresolved_requirements": [
+        "native_driving_depth_not_preserved",
+        "native_property_scope_unqualified",
+        "retained_native_payloads_require_typed_ownership",
+        "typed_body_or_graph_ownership_incomplete",
+        "native_feature_definitions_require_format_rules",
+        "closed_profile_binding_unavailable",
+        "opaque_sketch_geometry",
+        "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+      ]
+    }
+  },
+  "comparison_method_sha256": {
+    "CompareSource.py": "34e70899402ce8cd5b369e6649d3d23683b04c7835d780292fd1f19393c997ea",
+    "GraphInventory.py": "63389cb39897ffb85dc5bbf4f7dcf1cbdb60fe21addf5201661efd84455fac4a"
+  },
+  "full_inventory_storage": "ignored task-owned output plus immutable origin Git blobs",
+  "inventory_origin_commit": "a2c1abb380db02cbdbb7018284e244857fbc2d5e",
+  "native_acceptance": "not_established",
+  "native_definition_records": {
+    "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda": {
+      "build": "34.4.1.1011",
+      "pid": 10836,
+      "revision": "34.4.1",
+      "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+      "started": "windows:134401205929581923"
+    },
+    "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a": {
+      "build": "34.4.1.1011",
+      "pid": 2108,
+      "revision": "34.4.1",
+      "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+      "started": "windows:134401147745622559"
+    }
+  },
+  "portable_complete": false,
+  "sample_role": "discovery_only",
+  "schema": "kit.sw2026.native-boss-inventory-ledger.v1",
+  "sdk_identity": {
+    "sdk_revision": "c4e8a34186bdd173dad37d843b79bc8a3a59ebb9",
+    "sdk_sources_sha256": "a90d459d214cf7ec717d9f1ad31fc38605be35f3de9416d9a3901c4bb5078407"
+  },
+  "summary_method_sha256": "bc0f72d22c6572a66860fb5e6b296d6807028a260bd6fcf216bc637997078e56",
+  "vendor_loadable": false
+}

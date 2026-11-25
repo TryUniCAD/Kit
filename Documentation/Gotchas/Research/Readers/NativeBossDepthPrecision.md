@@ -18,4 +18,4 @@ Keep the input unqualified when those values differ beyond the stated tolerance.
 Do not recover missing precision by formatting display text or fitting known controls.
 Use the separately evidenced native parameter grammar before qualifying a reader change.
 
-See the [recorded precision comparisons](../../../../re/solidworks/NativeBossProof/Evidence/DiscoveryDepthContrast.json).
+See `DiscoveryDepthContrast` in the [recorded comparison ledger](../../../../re/solidworks/NativeBossProof/Evidence/InventoryLedger.json).

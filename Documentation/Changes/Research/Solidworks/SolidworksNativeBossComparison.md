@@ -26,15 +26,20 @@ Use `--compare-document` to include another complete typed JSON document.
 Source and settled capture hashes are checked before evidence publication.
 An existing evidence output refuses replacement.
 
+Keep complete role inventories in ignored task-owned output.
+The [summary command](../../../../re/solidworks/NativeBossProof/SummarizeEvidence.py) checks them against their immutable origin Git records.
+It creates a compact ledger with source, typed-inventory, capture and complete-inventory hashes.
+It preserves process outcomes and measured divergences without rerunning the SDK or CAD application.
+
 ## Verification and limits
 
-The [findings](../../../../re/solidworks/NativeBossProof/Findings.md) bind nine c4 discovery captures to their independent authoring records.
+The [findings](../../../../re/solidworks/NativeBossProof/Findings.md) and [ledger](../../../../re/solidworks/NativeBossProof/Evidence/InventoryLedger.json) bind nine c4 discovery captures to their independent authoring records.
 All nine decode to JSON but refuse preparation before encoder entry.
 A fresh child records incomplete exit `3`, with the capture unchanged.
 The source identity is `c4e8a34186bdd173dad37d843b79bc8a3a59ebb9`.
 Python 3.14.6 and zlib-ng were used.
 
-The evidence retains 26 SDK rows, 19 API top-level rows, opaque closing geometry, unsupported properties and incomplete body ownership.
+The compact evidence retains the full inventory hashes and summaries of 26 SDK rows, 19 API top-level rows, opaque closing geometry, unsupported properties and incomplete body ownership.
 Recursive API observations retain occurrence counts, distinct IDs and parent relationships separately.
 Five discovery controls also expose rounded driving-depth values on this c4 reader.
 The [tree-view gotcha](../../../Gotchas/Research/Readers/NativeBossTreeCountsNeedOwnership.md) and [precision gotcha](../../../Gotchas/Research/Readers/NativeBossDepthPrecision.md) describe these boundaries.
