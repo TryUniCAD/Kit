@@ -116,6 +116,16 @@ def writer_input_name(role):
     return role + "-writer-input.json"
 
 
+def prepared_writer_hooks(adapter):
+    prepare = getattr(adapter, "prepare_generation_input", None)
+    emit = getattr(adapter, "generate_prepared_candidate", None)
+    if (prepare is not None or emit is not None) and (
+        not callable(prepare) or not callable(emit)
+    ):
+        raise TypeError("candidate adapter must provide both prepared writer hooks")
+    return prepare, emit
+
+
 def _candidate(document, edit, locator, module_name, directory, reconstruction_sha256=None):
     started = perf_counter_ns()
     stage = "load_generator"
@@ -128,14 +138,11 @@ def _candidate(document, edit, locator, module_name, directory, reconstruction_s
                 raise
             raise ValueError(f"candidate generator unavailable: {module_name}") from error
         settings = {"native_locator": str(locator), "written_at": WRITTEN_AT}
-        prepare = getattr(adapter, "prepare_generation_input", None)
-        emit = getattr(adapter, "generate_prepared_candidate", None)
-        if prepare is None and emit is None:
+        prepare, emit = prepared_writer_hooks(adapter)
+        if prepare is None:
             stage = "generate_candidate"
             payload = adapter.generate_candidate(document, edit, **settings)
         else:
-            if not callable(prepare) or not callable(emit):
-                raise TypeError("candidate adapter must provide both prepared writer hooks")
             stage = "prepare_writer_input"
             prepared = prepare(document, edit, **settings)
             stage = "validate_writer_input"

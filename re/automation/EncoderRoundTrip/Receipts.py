@@ -1,3 +1,4 @@
+from importlib import import_module
 from pathlib import PureWindowsPath
 import re
 
@@ -13,7 +14,14 @@ from EncoderRoundTrip.Artifacts import (
     read_record,
     require_directory,
 )
-from EncoderRoundTrip.Pipeline import APPLICATIONS, IDENTITY_FIELDS, ROLES, WRITER_INPUT_HASHES, writer_input_name
+from EncoderRoundTrip.Pipeline import (
+    APPLICATIONS,
+    IDENTITY_FIELDS,
+    ROLES,
+    WRITER_INPUT_HASHES,
+    prepared_writer_hooks,
+    writer_input_name,
+)
 from EncoderRoundTrip.Source import decode_writer_input
 from NativeAcceptance.CompareDocument import SameValues
 from NativeAcceptance.Records import ReadBytes
@@ -63,8 +71,55 @@ def _writer_hashes(manifest):
     return hashes
 
 
-def _check_writer_inputs(output, manifest, hashes, format_id):
-    for role, expected in hashes.items():
+def _prepared_emitter(module_name):
+    try:
+        _, emit = prepared_writer_hooks(import_module(module_name))
+    except (ImportError, TypeError) as error:
+        raise ValueError("round-trip adapter lacks valid prepared writer hooks") from error
+    if emit is None:
+        raise ValueError("round-trip adapter lacks valid prepared writer hooks")
+    return emit
+
+
+def _check_candidate(output, manifest, role, suffix):
+    return _check_artifact(
+        output,
+        role + suffix,
+        manifest[role]["artifact"],
+        manifest["candidate_sha256"][role],
+        NATIVE_LIMIT,
+    )
+
+
+def _verify_prepared_candidate(emit, prepared, manifest, role, suffix, candidate):
+    locators = manifest["native_locators"]
+    locator = locators.get(role) if isinstance(locators, dict) else None
+    if (
+        not isinstance(locator, str)
+        or not PureWindowsPath(locator).is_absolute()
+        or ".." in PureWindowsPath(locator).parts
+        or PureWindowsPath(locator).name.casefold() != (role + suffix).casefold()
+    ):
+        raise ValueError(f"round-trip role {role} has an invalid native locator")
+    written_at = manifest["written_at"]
+    if type(written_at) is not int or not 0 <= written_at <= 0xFFFFFFFF:
+        raise ValueError("round-trip manifest has an invalid writer epoch")
+
+    mismatch = f"round-trip role {role} writer input does not reproduce its native candidate"
+    try:
+        regenerated = emit(prepared, native_locator=locator, written_at=written_at)
+    except Exception as error:
+        raise ValueError(mismatch) from error
+    if type(regenerated) is not bytes or regenerated != candidate:
+        raise ValueError(mismatch)
+
+
+def _check_writer_inputs(output, manifest, hashes, application, selected_role):
+    format_id, suffix, module_name = application
+    emit = _prepared_emitter(module_name) if manifest["schema"] == 2 else None
+    selected_candidate = None
+    for role in ROLES:
+        expected = hashes[role]
         name = writer_input_name(role)
         if expected is None:
             if "writer_input" in manifest[role] or exists(output / name):
@@ -76,7 +131,14 @@ def _check_writer_inputs(output, manifest, hashes, format_id):
         if not isinstance(artifact, dict):
             raise ValueError(f"round-trip role {role} is missing its declared writer input")
         payload = _check_artifact(output, name, artifact, expected, DOCUMENT_LIMIT)
-        decode_writer_input(payload, format_id, manifest["source_sha256"])
+        prepared = decode_writer_input(payload, format_id, manifest["source_sha256"])
+        if manifest[role]["status"] != "awaiting_native":
+            raise ValueError(f"round-trip role {role} has a writer input without a generated candidate")
+        candidate = _check_candidate(output, manifest, role, suffix)
+        _verify_prepared_candidate(emit, prepared, manifest, role, suffix, candidate)
+        if role == selected_role:
+            selected_candidate = candidate
+    return selected_candidate
 
 
 def _load_run(output, role):
@@ -94,11 +156,13 @@ def _load_run(output, role):
             raise ValueError(f"round-trip role {role} has no generated candidate")
         if not _sha(manifest["source_sha256"]) or manifest["source"]["sha256"] != manifest["source_sha256"]:
             raise ValueError("round-trip source hash is invalid")
-        format_id, suffix, _ = APPLICATIONS[manifest["application"]]
+        application = APPLICATIONS[manifest["application"]]
+        format_id, suffix, _ = application
         neutral = _check_artifact(output, "document.json", manifest["source"]["neutral"], manifest["neutral_sha256"], DOCUMENT_LIMIT)
         _check_neutral_source(neutral, format_id, manifest["source_sha256"])
-        _check_writer_inputs(output, manifest, writer_hashes, format_id)
-        candidate = _check_artifact(output, role + suffix, manifest[role]["artifact"], manifest["candidate_sha256"][role], NATIVE_LIMIT)
+        candidate = _check_writer_inputs(output, manifest, writer_hashes, application, role)
+        if candidate is None:
+            candidate = _check_candidate(output, manifest, role, suffix)
         return manifest, candidate
     except (AttributeError, KeyError, TypeError) as error:
         raise ValueError("round-trip manifest has invalid records") from error
