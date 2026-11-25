@@ -14,6 +14,7 @@ from pytest import mark as CaseMark
 from tests.Research.Inference.Authoring.Recipes.RunCatalogue import RunCatalogue
 from tests.Research.Inference.Authoring.Recipes.RunProbe import RunProbe
 from tests.Research.Inference.Authoring.Recipes.VerifyBatchJobs import VerifyBatchJobs
+from tests.Research.Inference.Authoring.Contracts.ReadObject import ReadObject
 
 
 # native startup must be shared for new plans while saved plans retain their original immutable jobs
@@ -60,7 +61,7 @@ def VerifyRepeat(TmpPath: FilePath, Payload: object, Report: dict[str, object]) 
     Again = DecodeJson(Repeated.stdout)
     assert Again["submissions"] == Report["submissions"]
     assert Again["definitions"] == Report["definitions"]
-    assert Again["status"]["jobs"] == Report["status"]["jobs"]
+    assert Again["status"]["jobs"] == ReadObject(Report["status"])["jobs"]
 
 
 # a full native group must provide one controller artifact dependency per case
