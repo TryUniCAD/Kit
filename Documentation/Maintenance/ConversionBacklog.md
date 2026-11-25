@@ -85,6 +85,11 @@ retry recovered the same case on a third fresh attempt after two timeouts.
 The written-recipe geometry repair has separate delivery in
 [PR #291](https://github.com/TryUniCAD/Kit/pull/291).
 
+Task `A08h-CaseIsolation` consolidates the shutdown and thin-wall repair and
+adds per-case catalogue rejection handling. Its exit requires real process
+evidence that healthy sibling decoders can run when a bad bundle is withheld.
+[Owning register](../Reference/Research/AutomationSteps.md#a08h-caseisolation)
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction
@@ -549,6 +554,14 @@ No row below declares readiness, successful queue acceptance or permission to me
 | [#149](https://github.com/TryUniCAD/Kit/pull/149) | odinglyn0                                     | SOLIDWORKS drawing dimension parameter decoding. It does not rewrite dimensions.                                                        | [d08040da](https://github.com/TryUniCAD/Kit/commit/d08040da58e2907e6ab0c7abb3e19fcba5906b6f)  |
 | [#150](https://github.com/TryUniCAD/Kit/pull/150) | odinglyn0                                     | Bounded removal of historically flaky pending-gate cases. It does not qualify CAD conversion.                                           | [3c92c155](https://github.com/TryUniCAD/Kit/commit/3c92c15575cb807a1c118765d3a2bb7c0925dd7e)  |
 | [#151](https://github.com/TryUniCAD/Kit/pull/151) | odinglyn0                                     | Fusion design import, local native export and Kit readback. Cloud save and broader acceptance remain separate.                          | [c4d7173d](https://github.com/TryUniCAD/Kit/commit/c4d7173d0f5ddb570470af493050d27107e146fe)  |
+
+### A08i-ThinWall
+
+The SOLIDWORKS catalogue correction passed source-pinned wall-side checks,
+independent reopen and decoder execution for the three written cases.
+Portable semantic findings remain open.
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
+[Owning register](../Reference/Research/AutomationSteps.md#a08i-thinwall)
 
 ## Choose and maintain a task
 

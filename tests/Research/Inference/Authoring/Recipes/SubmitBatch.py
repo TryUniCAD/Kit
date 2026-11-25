@@ -25,7 +25,11 @@ def SubmitBatch(TmpPath: FilePath, StorePath: FilePath, Fault: str) -> None:
         {
             **Common,
             "id": "fixture-native",
-            "kind": "fixture.capture.catalogue",
+            "kind": (
+                "capture.catalogue.solidworks.batch"
+                if Fault == "native-rejected"
+                else "fixture.capture.catalogue"
+            ),
             "inputs": {"source": "fixture-native"},
             "options": {"fault": Fault},
         }

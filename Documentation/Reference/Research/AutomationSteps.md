@@ -139,6 +139,17 @@ recovered on the third fresh attempt with six reopened archives and a
 completed decoder job. The applicable PR and queue gates remain separate.
 [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
 
+#### A08h-CaseIsolation
+
+Codex owns the consolidated SOLIDWORKS repair and case isolation on
+`codex/solidworks-capture-resilience`. It depends on the catalogue worker
+and artifact intake from PR #207. Delivery combines the changes from PRs
+#289 and #291. Exit requires proven shutdown recovery, held-out thin-wall
+measurements, and a process check showing that a refused case cannot block
+or supply evidence to a healthy sibling decoder.
+[Delivery PR](https://github.com/TryUniCAD/Kit/pulls?q=is%3Apr+head%3Acodex%2Fsolidworks-capture-resilience)
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
+
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
 on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,
@@ -147,6 +158,17 @@ with unresolved findings. One of the nine new bindings is native verified; full
 decoder qualification remains incomplete. The focused process checks passed 103 cases.
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
+
+#### A08i-ThinWall
+
+Codex owns the correction on `codex/solidworks-thin-wall-side`. The
+correction depends on the written-recipe worker from PR #207 and the
+licensed SOLIDWORKS measurement host. Its exit requires matching wall side
+with XY, YZ and XZ controls, edits, independent reopen and downstream
+decoder receipts plus the applicable publication gates. The combined native
+replay passed all three written recipes and ran the three dependent decoders.
+[Thin-wall change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
 
 A08j, owned by Codex on the same local branch, is checking the
 [written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
