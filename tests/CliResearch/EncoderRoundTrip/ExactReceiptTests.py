@@ -66,7 +66,7 @@ def ReadOutputs(OutputPath: FilePath) -> dict[str, bytes]:
 
 
 # the matching compressor must reproduce measured bytes while every other runtime still exercises the exact gate
-def CheckEnvelope(
+def VerifyEnvelope(
     TmpPath: FilePath, OutputPath: FilePath, InputsPath: FilePath
 ) -> None:
     Snapshot = ReadOutputs(OutputPath)
@@ -88,7 +88,7 @@ def CheckEnvelope(
         assert CandidateSha == MeasuredSha
     Result = AttachEdited(TmpPath, OutputPath, ExactPath)
     if CandidateSha == MeasuredSha:
-        CheckBinding(Result, ExactBytes, CandidateSha)
+        VerifyBinding(Result, ExactBytes, CandidateSha)
         Snapshot["edited-receipt.json"] = ExactBytes
     else:
         assert Result.returncode == 1, Result.stdout + Result.stderr
@@ -103,7 +103,7 @@ def CheckEnvelope(
 
 
 # research attachment must identify sdk publication evidence without claiming publication occurred
-def CheckBinding(
+def VerifyBinding(
     Result: CompletedProcess[str], ExactBytes: bytes, CandidateSha: str
 ) -> None:
     assert Result.returncode == 0, Result.stdout + Result.stderr
@@ -127,7 +127,7 @@ def CheckBinding(
 
 
 # independently measured held out evidence must survive regeneration and attach only to its measured role
-def CheckExactReceipt(TmpPath: FilePath) -> None:
+def CheckSdkReceipt(TmpPath: FilePath) -> None:
     RootPath = ResearchRoot()
     InputsPath = RootPath / "re/solidworks/measurements/2026/EncoderRoundTrip"
     SourcePath = BuildColdSource(TmpPath, RootPath, InputsPath)
@@ -141,4 +141,4 @@ def CheckExactReceipt(TmpPath: FilePath) -> None:
         LocatorValue=KNativeLocator,
     )
     assert Result.returncode == 0, Result.stdout + Result.stderr
-    CheckEnvelope(TmpPath, OutputPath, InputsPath)
+    VerifyEnvelope(TmpPath, OutputPath, InputsPath)
