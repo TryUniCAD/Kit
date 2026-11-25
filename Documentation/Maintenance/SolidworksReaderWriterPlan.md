@@ -84,7 +84,8 @@ Omit `--advisor` and leave `--codex-on-stall` disabled.
 A stalled job retains its evidence while independent work continues. See the [research CLI procedure](../Tasks/ResearchCommandLine.md).
 
 Consider one authorized advisory call only when a named gap blocks progress and all applicable deterministic experiments are exhausted.
-First check whether an existing experiment or human investigator can distinguish the remaining explanations.
+When new controls or rules become available, automatically retry affected findings.
+If advice is disabled or yields no testable prediction, keep the finding parked and continue independent work.
 If advice is necessary, request one experiment and a prediction for each explanation.
 Record the advice against the finding to avoid duplicate calls. Run the experiment through the same independent verification process.
 Only measured evidence can qualify a rule.
