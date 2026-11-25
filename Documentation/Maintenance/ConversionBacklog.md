@@ -570,7 +570,8 @@ No new research implementation, application run, user evaluation or conversion q
 ## Encoder follow-up research
 
 The Fusion worker owns [A05c-FusionSavedCuboid20261125](../Reference/Research/AutomationSteps.md#a05c-fusionsavedcuboid20261125-vendor-resaved-cuboid-reading-and-writing).
-The task covers the supported vendor-resaved constrained cuboid family and requires independent held-out native verification.
+[PR #299](https://github.com/TryUniCAD/Kit/pull/299) is checking the read-only reader for the scoped vendor-resaved constrained cuboid family.
+Saved-graph writing and independent held-out native verification remain open.
 The SOLIDWORKS worker owns [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
 The task covers vendor-authored blind bosses and requires complete source semantics, archive-free JSON, and independently measured native output.
 The shared encoder worker owns [A08d-FileScopeAttribution](../Reference/Research/AutomationSteps.md#a08d-filescopeattribution-stream-provenance-for-strict-fusion-inputs).

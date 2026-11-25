@@ -360,7 +360,9 @@ The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.
 ### A05c-FusionSavedCuboid20261125: vendor-resaved cuboid reading and writing
 
 The Codex Fusion encoder worker owns this active task on `codex/fusion-saved-cuboid-roundtrip`.
-Delivery PR is pending. Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+[PR #299](https://github.com/TryUniCAD/Kit/pull/299) delivers the read-only reader and is checking.
+The saved-graph writer and independent native acceptance remain open.
+Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 The scope is the supported vendor-resaved constrained cuboid family.
 The exit requires exact saved-state reading and deterministic native generation from JSON alone.
 Independent source controls and held-out native open, edit, rebuild, save, and reopen evidence remain required.
