@@ -34,5 +34,7 @@ def TestQualified() -> None:
         "HeldOutEdited",
     }
     for CaseValue in CaseRows:
-        assert CaseValue["accepted"] in (0, 2)
+        Accepted = CastValue(int, CaseValue["accepted"])
+        assert Accepted in (0, 2)
         assert CaseValue["unknown_identity_refused"] == 2
+        assert CaseValue["oversized_measurement_refused"] == 2 * Accepted

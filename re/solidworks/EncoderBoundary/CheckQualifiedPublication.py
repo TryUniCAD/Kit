@@ -60,7 +60,14 @@ def check(root):
         options = {"final_destination": locator, "solidworks_native_measurement": envelope}
         edited_identity = deepcopy(envelope)
         edited_identity["receipt"]["oracle"]["sha256"] = "0" * 64
+        edited_volume = deepcopy(envelope)
+        edited_center = deepcopy(envelope)
+        initial_volume = next(phase for phase in edited_volume["receipt"]["phases"] if phase["role"] == role + "Generated")["states"][0]
+        initial_center = next(phase for phase in edited_center["receipt"]["phases"] if phase["role"] == role + "Generated")["states"][0]
+        initial_volume["volume_m3"] = 10**400
+        initial_center["centre_of_mass_m"][0] = -(10**400)
         accepted = 0
+        oversized_refused = 0
         for write in (registry, direct):
             refuse(
                 write, document, {**options, "solidworks_native_measurement": edited_identity},
@@ -71,6 +78,12 @@ def check(root):
                     raise ValueError(f"measured compression runtime failed to reproduce {role}")
                 refuse(write, document, options, "no unique exact native measurement")
                 continue
+            for malformed in (edited_volume, edited_center):
+                refuse(
+                    write, document, {**options, "solidworks_native_measurement": malformed},
+                    "finite scalar observations",
+                )
+                oversized_refused += 1
             stream = BytesIO()
             result = write(document, stream, options)
             measured = result.metadata["solidworks_native_measurement"]
@@ -81,7 +94,10 @@ def check(root):
             ):
                 raise ValueError(f"publication lost archive or oracle binding: {role}")
             accepted += 1
-        results.append({"role": role, "accepted": accepted, "unknown_identity_refused": 2})
+        results.append({
+            "role": role, "accepted": accepted, "unknown_identity_refused": 2,
+            "oversized_measurement_refused": oversized_refused,
+        })
     return {"results": results, "zlib_runtime": ZLIB_RUNTIME_VERSION}
 
 

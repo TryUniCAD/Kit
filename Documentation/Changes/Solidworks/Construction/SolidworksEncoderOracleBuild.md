@@ -16,6 +16,8 @@ SOLIDWORKS passed 616 numeric checks across 20 fresh processes, with healthy ind
 Each candidate opened, rebuilt, accepted a driving dimension edit, saved, and reopened in a fresh process.
 The named stream check reproduced all four measured archives through both public entry points on Windows Python 3.14.6 with zlib-ng.
 Tampering with the executable digest refused all eight writes before any stream change.
+Out-of-range integers in volume or centre-of-mass observations refused all sixteen writes before any stream change.
+[Receipt number limits](../../../Gotchas/Research/Workers/SolidWorks/ReceiptIntegersCanOverflow.md)
 [Native measurement envelopes and requests](../../../../re/solidworks/measurements/2026/EncoderRoundTrip/)
 
 The new qualification covers exact measured archives from the existing line-loop blind boss profile.
