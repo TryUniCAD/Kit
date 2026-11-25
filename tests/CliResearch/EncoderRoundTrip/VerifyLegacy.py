@@ -60,9 +60,14 @@ def VerifyLegacy(
                 False,
                 False,
             )
-            assert (Binding["candidate_sha256"], Binding["receipt"]["sha256"]) == (
+            assert (
+                Binding["candidate_sha256"],
+                Binding["receipt"]["sha256"],
+                Binding["run_fingerprint"],
+            ) == (
                 CandidateSha,
                 HashContent(ReceiptBytes).hexdigest(),
+                DecodeJson(Snapshot["manifest.json"])["run_fingerprint"],
             )
             Snapshot["edited-receipt.json"] = ReceiptBytes
             Bindings.append(Binding)
