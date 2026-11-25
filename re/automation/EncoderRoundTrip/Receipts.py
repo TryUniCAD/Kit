@@ -34,6 +34,17 @@ def _check_artifact(output, name, evidence, expected, limit):
     return data
 
 
+def _check_neutral_source(payload, format_id, source_sha256):
+    from interchange.document.Models.DocumentModel import CadDocument
+
+    try:
+        document = CadDocument.from_dict(read_record(payload))
+    except (AttributeError, KeyError, OverflowError, TypeError, ValueError) as error:
+        raise ValueError("round-trip neutral document is not a valid CadDocument") from error
+    if document.source.format_id != format_id or document.source.sha256 != source_sha256:
+        raise ValueError("round-trip neutral document source does not match the manifest")
+
+
 def _load_run(output, role):
     try:
         manifest = read_record(ReadBytes(output / "manifest.json", RECORD_LIMIT))
@@ -46,8 +57,9 @@ def _load_run(output, role):
             raise ValueError(f"round-trip role {role} has no generated candidate")
         if not _sha(manifest["source_sha256"]) or manifest["source"]["sha256"] != manifest["source_sha256"]:
             raise ValueError("round-trip source hash is invalid")
-        _, suffix, _ = APPLICATIONS[manifest["application"]]
-        _check_artifact(output, "document.json", manifest["source"]["neutral"], manifest["neutral_sha256"], DOCUMENT_LIMIT)
+        format_id, suffix, _ = APPLICATIONS[manifest["application"]]
+        neutral = _check_artifact(output, "document.json", manifest["source"]["neutral"], manifest["neutral_sha256"], DOCUMENT_LIMIT)
+        _check_neutral_source(neutral, format_id, manifest["source_sha256"])
         candidate = _check_artifact(output, role + suffix, manifest[role]["artifact"], manifest["candidate_sha256"][role], NATIVE_LIMIT)
         return manifest, candidate
     except (AttributeError, KeyError, TypeError) as error:
@@ -174,7 +186,10 @@ def _validate_solidworks_exact(envelope, manifest, role, candidate):
         raise ValueError("candidate SOLIDWORKS header epoch differs from the exact receipt")
 
     binding = _binding(manifest, role)
-    evidence = dict(MatchPartMeas(receipt, candidate)[KPartMeasureOpt])
+    try:
+        evidence = dict(MatchPartMeas(receipt, candidate)[KPartMeasureOpt])
+    except OverflowError as error:
+        raise ValueError("exact SOLIDWORKS receipt contains an oversized numeric observation") from error
     case = MatchMeasCase(receipt, binding["candidate_sha256"], len(candidate))
     return {
         **binding,

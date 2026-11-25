@@ -5,6 +5,8 @@ from subprocess import CompletedProcess, run as RunProcess
 from sys import executable as PythonExec
 
 from tests.CliResearch.EncoderRoundTrip.RunEncoder import RunEncoder
+from tests.CliResearch.EncoderRoundTrip.VerifyOverflow import VerifyOverflow
+from tests.CliResearch.EncoderRoundTrip.VerifySourcePin import VerifySourcePin
 from tests.CliResearch.ResearchClient import ResearchCli
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
@@ -142,3 +144,5 @@ def CheckSdkReceipt(TmpPath: FilePath) -> None:
     )
     assert Result.returncode == 0, Result.stdout + Result.stderr
     VerifyEnvelope(TmpPath, OutputPath, InputsPath)
+    VerifyOverflow(TmpPath, OutputPath, InputsPath)
+    VerifySourcePin(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json")
