@@ -20,16 +20,20 @@ def VerifyCaseJob(
     Selector: dict[str, object],
     Records: dict[str, object],
     BatchPaired: bool,
+    BatchLimit: int,
 ) -> None:
     ArtifactRole = ReadText(Selector["artifact"])
     if BatchPaired or ReadText(Selection["recipe"]) in KRecipeTargets:
         assert Capture["kind"] == "capture.catalogue.solidworks.batch"
         Bound = ReadObject(Records[ReadText(ReadObject(Capture["inputs"])["cases"])])
         BoundSamples = ReadValues(Bound["samples"])
-        assert Bound["schema_version"] == 1 and 1 <= len(BoundSamples) <= 3
+        assert Bound["schema_version"] == 1 and 1 <= len(BoundSamples) <= BatchLimit
+        assert Capture["timeout_seconds"] == 3600 * ((len(BoundSamples) + 2) // 3)
         assert Identity in {ReadObject(Entry)["sample"] for Entry in BoundSamples}
-        assert ArtifactRole in {"bundle.0", "bundle.1", "bundle.2"}
-        Position = int(ArtifactRole.split(".")[1])
+        Prefix, _, Index = ArtifactRole.partition(".")
+        assert Prefix == "bundle" and Index.isdecimal()
+        Position = int(Index)
+        assert 0 <= Position < len(BoundSamples) and ArtifactRole == f"bundle.{Position}"
         Member = ReadObject(BoundSamples[Position])
         assert Member["sample"] == Identity
         assert Member["case"] == {

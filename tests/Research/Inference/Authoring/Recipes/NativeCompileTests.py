@@ -35,14 +35,22 @@ def CheckInterop(TmpPath: FilePath, RecipeKey: str, Params: dict[str, float]) ->
 
 # the native batch consumer must validate paired and written cases together before launching any application
 @CaseMark.parametrize(
-    "Recipes",
-    (("P01", "P03", "P04"), ("P02", "extrude-midplane", "P05")),
+    "Recipes,ExtraDepths",
+    (
+        (("P01", "P03", "P04"), ()),
+        (("P02", "extrude-midplane", "P05"), tuple(range(12, 21))),
+    ),
 )
-def CheckBatchTypes(TmpPath: FilePath, Recipes: tuple[str, ...]) -> None:
+def CheckBatchTypes(
+    TmpPath: FilePath, Recipes: tuple[str, ...], ExtraDepths: tuple[int, ...]
+) -> None:
     OutputPath = TmpPath / "Capture"
-    Prepared = RunBatchProbe(
-        TmpPath, OutputPath, [{"recipe": Recipe} for Recipe in Recipes]
+    Cases: list[dict[str, object]] = [{"recipe": Recipe} for Recipe in Recipes]
+    Cases.extend(
+        {"recipe": "extrude-midplane", "parameters": {"depth_mm": Depth}}
+        for Depth in ExtraDepths
     )
+    Prepared = RunBatchProbe(TmpPath, OutputPath, Cases)
     assert Prepared.returncode == 0, Prepared.stderr
     Manifest = FilePath(DecodeJson(Prepared.stdout)["manifest"])
     Process = CompileCapture(Manifest, OutputPath, BatchMode=True)

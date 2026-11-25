@@ -15,6 +15,7 @@ from sys import path
 path[:0] = [str(Path(__file__).resolve().parents[2])]
 
 from CaptureTools.Catalogue.SolidWorks.RunSolidBatch import RunSolidBatch
+from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import KSolidBatchCases
 from InferenceGrid.Authoring.PackNative import PackNative
 from InferenceGrid.Authoring.NativeAttempt import MakeNativePath
 from InferenceGrid.Authoring.SolidSources import ReadSolidPins
@@ -41,7 +42,7 @@ def RunBatchJob(SessionPath, HostPath):
         or type(CaseRecord["schema_version"]) is not int
         or CaseRecord["schema_version"] != 1
         or not isinstance(CaseRecord["samples"], list)
-        or not 1 <= len(CaseRecord["samples"]) <= 3
+        or not 1 <= len(CaseRecord["samples"]) <= KSolidBatchCases
         or digest(CaseRecord) != JobValue["options"]["cases_sha256"]
     ):
         raise ValueError("native batch differs from its scheduled input")

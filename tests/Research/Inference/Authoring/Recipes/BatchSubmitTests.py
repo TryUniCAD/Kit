@@ -29,11 +29,13 @@ def CheckSubmitPlan(
     PlanPath = TmpPath / "Run/AuthoringPlan.json"
     PlanValue = DecodeJson(PlanPath.read_bytes())
     assert PlanValue["solidworks_batch_version"] == 1
+    assert PlanValue["solidworks_batch_size"] == 12
     if SavedLegacy:
         del PlanValue["solidworks_batch_version"]
+        del PlanValue["solidworks_batch_size"]
         _ = PlanPath.write_text(EncodeJson(PlanValue), encoding="utf-8")
     else:
-        BatchCount = (len(PlanValue["samples"]) + 2) // 3
+        BatchCount = (len(PlanValue["samples"]) + 11) // 12
         OldCount = 0
     Payload = {"directory": str(TmpPath / "Queue"), "plan": str(PlanPath)}
     Submitted = RunProbe(TmpPath, "submit", Payload)
@@ -54,3 +56,30 @@ def CheckSubmitPlan(
     assert Again["submissions"] == Report["submissions"]
     assert Again["definitions"] == Report["definitions"]
     assert Again["status"]["jobs"] == Report["status"]["jobs"]
+
+
+# a full native group must provide one controller artifact dependency per case
+def CheckLargePlan(TmpPath: FilePath) -> None:
+    Prepared = RunCatalogue(TmpPath, "--authoring-grid", "three-values")
+    assert Prepared.returncode == 0, Prepared.stdout + Prepared.stderr
+    PlanPath = TmpPath / "Run/AuthoringPlan.json"
+    PlanValue = DecodeJson(PlanPath.read_bytes())
+    SampleCount = len(PlanValue["samples"])
+    assert SampleCount > 12 and PlanValue["solidworks_batch_size"] == 12
+    Submitted = RunProbe(
+        TmpPath,
+        "submit",
+        {"directory": str(TmpPath / "Queue"), "plan": str(PlanPath)},
+    )
+    assert Submitted.returncode == 0, Submitted.stderr
+    Report = DecodeJson(Submitted.stdout)
+    Counts = sorted(
+        len(Entry["record"]["samples"])
+        for Entry in Report["bindings"]
+        if Entry["name"].startswith("catalogue-cases:")
+    )
+    Expected = [12] * (SampleCount // 12)
+    if SampleCount % 12:
+        Expected.append(SampleCount % 12)
+    assert Counts == sorted(Expected)
+    VerifyBatchJobs(Report, PlanValue)

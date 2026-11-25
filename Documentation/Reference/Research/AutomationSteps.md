@@ -779,3 +779,18 @@ The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact 
 The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
 Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
 Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+
+## A08h-LargeSolidWorksBatches: larger fresh verification groups
+
+Codex owns the scope on
+[`codex/solidworks-large-verification-batches`](https://github.com/TryUniCAD/Kit/tree/codex/solidworks-large-verification-batches).
+It builds on the paired-case batching delivery in
+[PR #288](https://github.com/TryUniCAD/Kit/pull/288). New plans group up to
+twelve cases while older plans retain their immutable jobs. The exit requires
+revision-bound Windows preparation, previous-job compatibility, native
+authoring and independent reopen of a full batch, and current CI and review.
+See the
+[change entry](../../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
+A licensed run accepted 12 selected cases and 111 archives at
+`1afeb59cc9a86f5e8a7ce981126a254073a806ac` with two normal process exits.
+All twelve offline decoder jobs completed. Hosted CI and review remain open.
