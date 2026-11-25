@@ -1,6 +1,4 @@
 from collections import Counter
-from hashlib import sha256 as HashBytes
-from json import loads as ParseJson
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 
@@ -10,6 +8,7 @@ from convert import open_document as OpenDocument
 from convert.adapters.Fusion.State.DecodeState import DecodeState
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from interchange import CadDocument
+from tests.Convert.Api.Fusion.SavedCuboid.CheckCustody import CheckCustody
 from tests.Convert.Api.Fusion.SavedCuboid.SavedCase import SavedCase
 from tests.Convert.Api.Fusion.SavedCuboid.SavedCases import KSavedCases
 from tests.Convert.Api.Fusion.SavedCuboid.SavedSource import SavedSource
@@ -20,18 +19,7 @@ from tests.Convert.Api.Fusion.SavedCuboid.SavedSource import SavedSource
 def TestSavedRead(TmpPath: FilePath, CaseValue: SavedCase) -> None:
     Source = SavedSource(CaseValue)
     Payload = Source.read_bytes()
-    assert HashBytes(Payload).hexdigest() == CaseValue.DigestValue
-    Manifest = ParseJson((Source.parent / "Manifest.json").read_text())
-    Capture = next(
-        Value for Value in Manifest["fixtures"] if Value["file"] == CaseValue.FileName
-    )
-    ReceiptPath = Source.parent / Capture["custody_record"]
-    assert ReceiptPath.resolve().is_relative_to(Source.parent.resolve())
-    ReceiptBytes = ReceiptPath.read_bytes()
-    assert HashBytes(ReceiptBytes).hexdigest() == Capture["custody_record_sha256"]
-    Receipt = ParseJson(ReceiptBytes)
-    assert Receipt["archives"][Capture["custody_archive_key"]] == CaseValue.DigestValue
-    assert Capture["sha256"] == CaseValue.DigestValue
+    CheckCustody(Source, CaseValue, Payload)
     Model = ReadDocument(Payload)
     Document = OpenDocument(Payload, source_format="f3d")
     assert not Document.diagnostics and not Document.brep_payloads
