@@ -6,7 +6,7 @@ from typing import cast as CastValue
 
 
 # fresh native receipts must bind the actual measured compression and executable at both public writer boundaries
-def TestQualifiedPublication() -> None:
+def TestQualified() -> None:
     RootPath = FilePath(__file__).resolve().parents[3]
     Outcome = RunProcess(
         (
