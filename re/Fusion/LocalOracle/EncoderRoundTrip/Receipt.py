@@ -80,6 +80,11 @@ def make_receipt(batch, run):
                 or raw["source_sha256"] != source_sha or raw["candidate_sha256"] != candidate_sha
                 or raw["measurement_script_sha256"] != config["measurement_script_sha256"]):
             raise ValueError(f"{name} receipt does not bind this completed oracle stage")
+        if raw["status"] == "passed":
+            for count_key in ("documents_before", "documents_after"):
+                count = raw.get(count_key)
+                if type(count) is not int or count != 0:
+                    raise ValueError(f"{name} passed receipt requires zero open documents")
         stages[name], stage_hashes[name] = raw, stage_hash
     before, after = stages["ControlBefore"], stages["ControlAfter"]
     control_sha = before["archives"]["VendorControl.f3d"]
