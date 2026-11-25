@@ -24,8 +24,8 @@ The installed comparison command processed the same strict P03 SOLIDWORKS and Fu
 It reported `different` and exit 3 in both runs. The comparison and both source issue inventories matched exactly.
 The new source observation reported 11 ordered constraints and the 6,437-byte common span at byte 5,578.
 All 191 SOLIDWORKS issues remained, including 25 native-only records.
-The focused process regression also changed the sketch's reader-reported native identity in a copy of the JSON.
-The mismatched side kept the same issue inventory and reported no ownership observation.
-The [process case](../../../../tests/Research/Archives/Comparison/NativeSketchOwnership/NativeSketchOwnerTests.py) passed locally in 9.14 seconds on Python 3.14.6.
+Two focused process cases changed the sketch's reported native identity or source span in a copy of the JSON.
+The source span case kept the original native identity. Both mismatches preserved the same issue inventory and withheld the ownership observation.
+The [process cases](../../../../tests/Research/Archives/Comparison/NativeSketchOwnership/NativeSketchOwnerTests.py) passed locally in 15.95 seconds on Python 3.14.6.
 
 The detailed comparison reports reader evidence. It leaves independent qualification, native acceptance, and the production writer guard in place.

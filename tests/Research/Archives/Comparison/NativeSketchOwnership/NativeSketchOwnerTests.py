@@ -3,6 +3,8 @@ from json import dumps as EncodeJson
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 
+from pytest import mark as MarkValue
+
 from tests.Research.Archives.Comparison.NativeSketchOwnership.ChangeSketch import (
     ChangeSketch,
 )
@@ -24,9 +26,10 @@ KIssueSha = "f16942ef8814b6fb53b45a98cd9414f53665d40f2de1ab864f37deae7a74fb5c"
 
 
 # comparison must retain all preexisting issues while withholding the unsupported ownership observation
-def CheckOwnerLink(TmpPath: FilePath) -> None:
+@MarkValue.parametrize("ModeName", ("identity", "span"))
+def CheckOwnerLink(TmpPath: FilePath, ModeName: str) -> None:
     Document = ReadSketchPart()
-    Arguments = WriteInputs(TmpPath, Document, ChangeSketch(Document))
+    Arguments = WriteInputs(TmpPath, Document, ChangeSketch(Document, ModeName))
     Report = ReadReport(RunComparison(Arguments), "different", 2)
     Sources = CastValue(dict[str, dict[str, object]], Report["sources"])
     for Source in Sources.values():
