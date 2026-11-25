@@ -12,6 +12,8 @@ The [native presentation protocol](../../../../re/Fusion/SavedCuboidWriter/Prese
 
 The [Design report](../../../../re/Fusion/SavedCuboidWriter/DesignHeightEvidence.md) records four pinned graph checks, five negative probes, and identical reports from two fresh Python processes. The [display report](../../../../re/Fusion/SavedCuboidWriter/DisplayHeightEvidence.md) records eight prior saves and fourteen new research contrasts. A second baseline preparation reproduced all seven variant digests. A mismatched source digest refused before creating output.
 
+The [material and texture mapping audit](../../../../re/Fusion/SavedCuboidWriter/MaterialHeightEvidence.md) verifies eight archived saves. It follows body material assignments to their package assets and the OGS mapping to its Design owner. Both textures and the aggregate display box reflect the preceding solved frame. An initialized origin remains fixed across subsequent saves. The initialization and package identity rules remain pending.
+
 The original and canonical history allocations differ even when the complete decoded model compares equal. The native presentation effect remains unmeasured. See the [physical display order gotcha](../../../Gotchas/Conversion/Fusion/Api/FusionGraphicsPhysicalOrder.md).
 
 Fresh native checks did not dispatch while the host was occupied. The complete writer still needs generation from persisted authored semantics with the source unavailable, correct graphics and dependent state, and independent native open, rebuild, edit, save and reopen evidence.
