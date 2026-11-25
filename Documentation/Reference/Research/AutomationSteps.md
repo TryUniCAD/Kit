@@ -777,4 +777,4 @@ Dependencies are the native API, source-free constructor, controller and typed c
 The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native checks, 12 exact generated-payload cycles, five native-source cycles and seven snapshot-width refusals.
 All strict neutral and public conversion refusals remain explicit.
 The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
-Additional depth-edit checks and the bounded width repair remain under qualification. B02–B05 and complete neutral conversion remain unfinished.
+The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.

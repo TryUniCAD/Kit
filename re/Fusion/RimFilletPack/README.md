@@ -1,6 +1,6 @@
 # Circular rim fillet feature packs
 
-This checkpoint qualifies source-free construction and typed reconstruction. Public neutral conversion remains unsupported.
+This campaign qualifies source-free construction and bounded typed reconstruction. Public neutral conversion remains unsupported.
 
 ## Completed evidence
 
@@ -16,7 +16,22 @@ All 12 generated files passed complete typed read/write with byte-identical outp
 `Outcomes/GeneratedCycleProgress.json` binds those digests to earlier fresh-process native measurements. Receipt reuse is not a new native measurement.
 All 24 initial files passed typed-native CLI decoding. All 24 strict neutral inputs and all 48 public conversion attempts refused.
 Five native-saved sources reconstructed. Seven retained the explicit four-byte snapshot-header refusal.
-Original failures remain in `Cycles/` and `Failures/`. A width-preserving repair is under qualification outside this checkpoint.
+Original failures remain in `Cycles/` and `Failures/`.
+
+## Qualified snapshot-width repair
+
+At SDK `d4b580b5a65229d0f345609592a2b87b0262be9b`, the specialized cylinder writer preserves validated four-byte integer framing through the existing generic serializer.
+All 22 complete typed cycles passed: the original 12 sources, six independently depth-edited files and four post-freeze parameter inputs.
+All 22 reconstructed payloads have measured native acceptance; exact prior receipts are reused only for matching SHA-256 payloads.
+`Qualification/Cases.json` distinguishes fresh native checks from reused receipts. `Qualification/Audit.json` compares complete native geometry, parameters, feature health, controls and edit restoration.
+The six depth edits produced the predicted cylinder volume increments, restored their original measurements and survived typed reconstruction plus fresh-process reopening.
+The four fresh cases were captured after the repair source hashes were frozen. They vary parameters, not topology; the original corpus had already informed the repair.
+Six malformed snapshot-header cases still refused complete archive emission without changing an existing destination.
+`Qualification/Manifest.json` binds the new source and reconstructed archives. `Qualification/Provenance.json` binds the qualified source and retained full hash map.
+
+The installed Python 3.14.6 launcher executed the deterministic processes with models disabled.
+The optional `codec-patch` Docker bridge was unavailable because no daemon or immutable qualification image was configured; direct codec processes and the existing native API supplied these measurements.
+Shared-suite process regressions include these archives and header guards on the existing Linux/macOS/Windows compatibility paths; remote suite execution and merge-group acceptance remain separate.
 
 ## Replay without CAD
 
@@ -39,9 +54,9 @@ Those jobs do not establish complete fillet semantics. SOLIDWORKS build 34.4.1 p
 PR #297 owns encoder workflow implementation. PR #121 owns broader SOLIDWORKS construction; neither scope changes here.
 
 The native verifier fenced an orphaned Fusion process. User-authorized Tailscale recovery closed only that verified orphan.
-The five blocked reconstruction checks subsequently passed. Independent depth-edit checks continue while the PC is available.
+The five blocked reconstruction checks subsequently passed. All six independent depth-edit checks settled successfully.
 A removed task checkout interrupted one offline step; external evidence survived and the same branch was restored in a registered workspace.
 
-`Summary.json` is a dated checkpoint. `Evidence/ArtifactIndex.json` records retained external hashes and sanitization.
+`Summary.json` preserves the original checkpoint counts separately from the qualified repair counts. `Evidence/ArtifactIndex.json` records retained external hashes and sanitization.
 Published JSON replaces private paths; CAD bytes remain unchanged. No production module loads these research fixtures.
-Complete semantic recovery, editable cross-format conversion and the snapshot-width repair remain unfinished at this checkpoint.
+Complete semantic recovery and editable cross-format conversion remain unfinished. The repair enables lossless typed same-document transport for the measured family; it does not add neutral fillet projection.

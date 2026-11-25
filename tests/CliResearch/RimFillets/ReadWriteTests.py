@@ -11,11 +11,21 @@ from tests.CliResearch.RimFillets.CaseNames import KCaseNames
 
 
 # real native archives must retain their complete typed model across a fresh reader writer process
-@TestMark.parametrize("CaseName", KCaseNames)
+@TestMark.parametrize(
+    "CaseName",
+    KCaseNames
+    + tuple("depth-" + Value for Value in KCaseNames if Value.startswith("holdout-"))
+    + ("fresh-01", "fresh-02", "fresh-03", "fresh-04"),
+)
 def CheckRimCycle(TmpPath: FilePath, CaseName: str) -> None:
     RootPath = ResearchRoot()
     PackPath = RootPath / "re/Fusion/RimFilletPack"
-    SourcePath = PackPath / "Sources" / CaseName / "Native.f3d"
+    SourcePath = (
+        PackPath
+        / ("Sources" if CaseName in KCaseNames else "Qualification/Archives")
+        / CaseName
+        / "Native.f3d"
+    )
     SourceHash = HashBytes(SourcePath.read_bytes()).hexdigest()
     OutputPath = TmpPath / "Cycle"
     Result = RunProcess(
@@ -31,15 +41,9 @@ def CheckRimCycle(TmpPath: FilePath, CaseName: str) -> None:
         timeout=180,
         check=False,
     )
-    Receipt = LoadJson((OutputPath / "Receipt.json").read_bytes())
-    Expected = LoadJson((PackPath / "ReadWriteContract.json").read_bytes())[CaseName]
-    if Expected == "refused":
-        assert Result.returncode == 2, Result.stderr
-        assert "Unsupported Fusion snapshot header" in Receipt["traceback"]
-        assert not (OutputPath / "Reconstructed.f3d").exists()
-        return
     assert Result.returncode == 0, Result.stderr
-    assert Receipt["model_equal"] is True
+    Receipt = LoadJson((OutputPath / "Receipt.json").read_bytes())
+    assert Receipt["status"] == "passed" and Receipt["model_equal"] is True
     assert Receipt["source_sha256"] == SourceHash
     assert Receipt["source_snapshot_widths"] == Receipt["output_snapshot_widths"]
     assert HashBytes(SourcePath.read_bytes()).hexdigest() == SourceHash

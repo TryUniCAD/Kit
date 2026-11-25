@@ -13,9 +13,10 @@ Five native-saved files reconstructed; seven retained the four-byte snapshot-hea
 Five blocked reconstruction checks passed after user-authorized owned-session recovery.
 
 Shared-suite process regressions cover construction, complete archive cycling and protected conversion. They have not run locally.
-Current-head CI/review and merge-group acceptance remain separate evidence. Native depth-edit work and the bounded width repair continue.
+The [bounded snapshot-width repair](../../Fusion/Serialization/FusionNarrowSnapshotTransport.md) subsequently passed 22 complete-model cycles and corresponding native verification, including six independent depth edits and four post-freeze cases.
+Original refusals remain visible. Current-head CI/review and merge-group acceptance remain separate evidence.
 No complete semantic recovery or editable cross-format conversion is claimed. SOLIDWORKS evidence establishes API health only.
 
 Task `A08h-RimFillet20261125` is owned by Codex on `feat/native-conversion-campaign-20261125`.
 Dependencies are the existing controller, typed codecs, source-free constructor and licensed personal CAD API.
-The owning register links delivery after publication. PRs #121 and #297 retain their independent implementation scopes.
+Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). PRs #121 and #297 retain their independent implementation scopes.
