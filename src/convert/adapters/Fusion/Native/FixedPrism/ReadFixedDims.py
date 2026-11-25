@@ -10,10 +10,8 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
-from convert.adapters.Fusion.Native.Rectangle.ReadRectDims import (
-    CheckRectDeps,
-    ReadRectDim,
-)
+from convert.adapters.Fusion.Native.Rectangle.CheckRectDeps import CheckRectDeps
+from convert.adapters.Fusion.Native.Rectangle.ReadRectDim import ReadRectDim
 from interchange.Enums.EnumGeometry import ConstraintKind
 from interchange.geometry.Models.Sketch import SketchRelation
 

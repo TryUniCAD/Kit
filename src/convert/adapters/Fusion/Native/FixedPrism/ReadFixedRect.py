@@ -4,10 +4,8 @@ from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.GraphChecks import LinkedNodes, SameNodes
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Rectangle.OrderLines import OrderLines
-from convert.adapters.Fusion.Native.Rectangle.ReadRectRules import (
-    ReadRectAxes,
-    ReadRectUnits,
-)
+from convert.adapters.Fusion.Native.Rectangle.ReadRectAxes import ReadRectAxes
+from convert.adapters.Fusion.Native.Rectangle.ReadRectUnits import ReadRectUnits
 from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
 from interchange.Enums.EnumUnits import UnitSystem
 
