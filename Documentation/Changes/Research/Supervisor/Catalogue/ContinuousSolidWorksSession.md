@@ -4,6 +4,9 @@ New catalogue runs use one owned SOLIDWORKS process across native batches.
 The application stays open while separate controller decoder jobs consume completed bundles.
 Each native batch closes its documents before reopening and measuring the saved files.
 The native application resource remains serial with capacity one.
+Persistent runs dispatch one case per controller capture job.
+Each completed case can start decoding while SOLIDWORKS handles the next case.
+Application startup is shared across those jobs.
 
 The private host configuration accepts `verification_mode`.
 The default, `document_reopen`, enables the persistent owner.
@@ -29,6 +32,6 @@ Two consecutive P01 batches passed document reopening in the same process.
 Wider native comparisons, concurrent decoding, process checks, CI, review and queue acceptance remain pending.
 No general equivalence or throughput improvement is claimed.
 
-Task `A08c-ContinuousSolidWorks` is owned by Codex on `codex/solidworks-warm-session`.
+Task `A08c-ContinuousSolidWorks` is owned by Codex on `codex/solidworks-warm-session`, delivered through [PR #295](https://github.com/TryUniCAD/Kit/pull/295).
 It depends on the twelve-case batching delivery in PR #288.
 Its exit requires consecutive native batches sharing one process, same-file fresh-process comparisons, concurrent decoding, recovery checks and current-revision CI and review.

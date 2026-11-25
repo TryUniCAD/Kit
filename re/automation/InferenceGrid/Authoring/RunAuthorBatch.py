@@ -46,6 +46,13 @@ def RunAuthorBatch(
     if Directory.is_relative_to(SourceRoot):
         raise ValueError("use an authoring run directory outside the source checkout")
     PlanValue = BuildAuthorPlan(Catalogues, Revision, CasePath, ModeValue, GridValue)
+    if (
+        HostPath is not None
+        and read_record(HostPath).get("verification_mode", "document_reopen")
+        == "document_reopen"
+    ):
+        PlanValue["solidworks_batch_size"] = 1
+        PlanValue["solidworks_verification_mode"] = "document_reopen"
     Applications = {Value["application"] for Value in PlanValue["samples"].values()}
     if not PrepareOnly and (
         ("fusion" in Applications and Native is None)
@@ -177,14 +184,22 @@ def FinishAuthor(
     from InferenceGrid.Authoring.SolidRoutine import OwnSolidRoutine
 
     SolidLife = (
-        OwnSolidRoutine(Directory, SourceRoot, Directory / "SolidWorksHost.json", PlanValue["source_revision"])
-        if "solidworks" in RunValue["resources"] else nullcontext()
+        OwnSolidRoutine(
+            Directory,
+            SourceRoot,
+            Directory / "SolidWorksHost.json",
+            PlanValue["source_revision"],
+        )
+        if "solidworks" in RunValue["resources"]
+        else nullcontext()
     )
     with SolidLife as SolidOwner, Lifecycle as GuardValue:
         # both native coordinators must remain alive while the independent decoder pool executes
         def CheckOwners():
             if SolidOwner is not None and SolidOwner.poll() is not None:
-                raise RuntimeError("persistent SOLIDWORKS owner exited; inspect SolidWorksQueue")
+                raise RuntimeError(
+                    "persistent SOLIDWORKS owner exited; inspect SolidWorksQueue"
+                )
             if GuardValue is not None:
                 GuardValue.CheckAlive()
 

@@ -81,7 +81,7 @@ def RequestRoutine(Manifest, Host, Revision):
     Temporary = Queue / (Identity + ".tmp")
     write_private(Temporary, Packet)
     Temporary.rename(Queue / (Identity + ".request.json"))
-    Response = Queue / (Identity + ".response.json")
+    Response = Queue / "completed" / (Identity + ".response.json")
     while not Response.exists():
         if time() >= Deadline or (Queue / "stop").exists() or not peer_matches(Ready["listener"], Ready["listener_created"]):
             (Queue / "stop").touch(exist_ok=True)

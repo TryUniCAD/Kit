@@ -4,7 +4,7 @@
 
 `A08c-ContinuousSolidWorks` is active under the [automation register](../Reference/Research/AutomationSteps.md#status-and-ownership).
 Codex owns persistent research capture and document reopening on `codex/solidworks-warm-session`, depending on PR #288.
-Delivery PR, wider native comparisons, decoder overlap and current-revision readiness remain pending.
+Delivery is [PR #295](https://github.com/TryUniCAD/Kit/pull/295); wider native comparisons, decoder overlap and current-revision readiness remain pending.
 The production conversion boundary and fresh-process acceptance requirements are unchanged.
 
 Use this register to find work on the path from the current SDK to the [completion roadmap](../../Roadmap.md).

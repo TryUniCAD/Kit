@@ -14,6 +14,7 @@ from InferenceGrid.Authoring.SolidRoutine import RequestRoutine
 def Serve(queue):
     import os
 
+    (queue / "completed").mkdir()
     ready = {"revision": "a" * 40, "pid": os.getpid(), "created": 1,
              "listener": os.getpid(), "listener_created": process_start(os.getpid())}
     (queue / "ready.json").write_text(dumps(ready))
@@ -24,7 +25,8 @@ def Serve(queue):
             response = {"status": "completed", "revision": packet["revision"], "sha256": packet["sha256"], "pid": ready["pid"], "created": ready["created"]}
             temporary = queue / "reply.tmp"
             temporary.write_text(dumps(response))
-            temporary.rename(request.with_name(request.name.replace(".request.json", ".response.json")))
+            request.rename(queue / "completed" / request.name)
+            temporary.rename(queue / "completed" / request.name.replace(".request.json", ".response.json"))
             return
         sleep(0.01)
     raise TimeoutError("transport request not received")
@@ -44,8 +46,17 @@ def Check(directory):
                 raise TimeoutError("transport listener not ready")
             sleep(0.01)
         host = {"routine_queue": str(queue.parent), "phase_seconds": 10}
+        try:
+            RequestRoutine(manifest, host, "c" * 40)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("stale source revision accepted while owner alive")
+        assert child.poll() is None and not (queue / "stop").exists()
+        assert not list(queue.glob("*.request.json"))
         result = RequestRoutine(manifest, host, "a" * 40)
         assert result["sha256"] == sha256(manifest.read_bytes()).hexdigest()
+        assert not list(queue.glob("*.request.json"))
         assert child.wait(timeout=10) == 0
         try:
             RequestRoutine(manifest, host, "a" * 40)

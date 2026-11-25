@@ -47,6 +47,8 @@ public sealed partial class SolidWorksCapture
     public static void ServeRoutine(ISldWorks app, Process process, string repository, string queue, string revision)
     {
         string attempts=Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(queue)),"NativeAttempts")+Path.DirectorySeparatorChar;
+        string completed=Path.Combine(queue,"completed");
+        Directory.CreateDirectory(completed);
         long created=process.StartTime.ToUniversalTime().ToFileTimeUtc();
         Check(app.GetProcessID()==process.Id && app.GetDocumentCount()==0,"Routine owner requires an empty owned application");
         app.UserControlBackground=true;
@@ -60,7 +62,7 @@ public sealed partial class SolidWorksCapture
             while(!File.Exists(Path.Combine(queue,"stop"))) {
                 Check(!process.HasExited && app.GetProcessID()==process.Id,"Routine owner lost its native process");
                 foreach(string request in Directory.GetFiles(queue,"*.request.json").OrderBy(path=>path)) {
-                    string response=request.Replace(".request.json",".response.json");
+                    string response=Path.Combine(completed,Path.GetFileName(request).Replace(".request.json",".response.json"));
                     if(File.Exists(response)) continue;
                     var packet=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(request));
                     string manifest=Path.GetFullPath((string)packet["manifest"]);
@@ -89,6 +91,7 @@ public sealed partial class SolidWorksCapture
                             "baseline_unloaded",true,"baseline_sha256",Hash(baseline),"build",app.RevisionNumber()));
                     }
                     Check(Hash(manifest)==(string)packet["sha256"],"Routine manifest changed during capture");
+                    File.Move(request,Path.Combine(completed,Path.GetFileName(request)));
                     PublishRoutine(response,Row("status","completed","revision",revision,"sha256",packet["sha256"],"pid",process.Id,"created",created));
                 }
                 Thread.Sleep(50);
