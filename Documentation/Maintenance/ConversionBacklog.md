@@ -567,6 +567,16 @@ Check that register again before running or claiming anything.
 The next independent available task is B01, followed by B10/B11 work that can use already qualified examples.
 No new research implementation, application run, user evaluation or conversion qualification is claimed by this planning change.
 
+## Encoder follow-up research
+
+The Fusion worker owns [A05c-FusionSavedCuboid20261125](../Reference/Research/AutomationSteps.md#a05c-fusionsavedcuboid20261125-vendor-resaved-cuboid-reading-and-writing).
+The task covers the supported vendor-resaved constrained cuboid family and requires independent held-out native verification.
+The SOLIDWORKS worker owns [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
+The task covers vendor-authored blind bosses and requires complete source semantics, archive-free JSON, and independently measured native output.
+The shared encoder worker owns [A08d-FileScopeAttribution](../Reference/Research/AutomationSteps.md#a08d-filescopeattribution-stream-provenance-for-strict-fusion-inputs).
+The task corrects physical stream coverage reporting for strict Fusion reads and keeps the existing native qualification requirements.
+These follow-ups depend on the [bounded round-trip work in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+
 ## Shared research queue coordination
 
 Task `A08b-SharedQueue` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08b-sharedqueue-shared-research-requests-and-advice-budgets).

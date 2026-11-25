@@ -357,6 +357,14 @@ Three pinned strict inputs had 11% to 15% lower median receipt times.
 Native read medians were mixed.
 The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) records the implementation and evidence.
 
+### A05c-FusionSavedCuboid20261125: vendor-resaved cuboid reading and writing
+
+The Codex Fusion encoder worker owns this active task on `codex/fusion-saved-cuboid-roundtrip`.
+Delivery PR is pending. Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The scope is the supported vendor-resaved constrained cuboid family.
+The exit requires exact saved-state reading and deterministic native generation from JSON alone.
+Independent source controls and held-out native open, edit, rebuild, save, and reopen evidence remain required.
+
 ## A06 comparison implementation and qualification
 
 ### A06g-BulkDecodedComparison: standalone bulk command
@@ -446,6 +454,20 @@ The owned licensed witness still needs driving edits, restoration, rebuild, save
 Neither the scoped constructor nor its observation receipt closes A11 or qualifies a conversion route.
 
 ## A12 SOLIDWORKS writer research
+
+### A12b: vendor-authored blind boss admission
+
+The Codex SOLIDWORKS encoder worker owns this active task on `codex/solidworks-vendor-boss-admission`.
+Delivery PR is pending. Dependencies are A04, A06, A08, A12a, A14, and [PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The scope is ordinary version-19000 parts with one supported straight-line loop and a driving blind boss.
+The exit requires complete vendor state, including feature tree, manager, and partition ownership, in archive-free JSON.
+Generation must use that JSON alone and refuse sources with unresolved required state.
+The worker must verify fresh native open, rebuild, edit, save, and reopen on held-out inputs with healthy controls.
+Exact public SDK evidence remains required where the measured publication gate applies.
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains ownership of its property-reader changes at `c0a401a607`.
+[PR #288](https://github.com/TryUniCAD/Kit/pull/288) retains ownership of catalogue capture supervision.
+
+### Existing A12 evidence
 
 The [caller-supplied rectangular Boss candidate](../../Changes/Research/Writers/SolidWorks/Metadata/SolidWorksPortableBossCandidate.md) accepts a validated neutral document and explicit typed target state for the bounded Front/Right, signed blind-extrusion scope.
 It refuses unsupported required state and independently reads the complete generated archive before optional no-replace publication.
@@ -776,6 +798,15 @@ At reader revision `654f00108c3e151c28b5e3e84eb48bd2ff7f9f2a`, the three-part SO
 The eight-part Fusion median moved from 16.93 s to 17.01 s with fifteen fewer blob processes.
 The measured neutral documents matched exactly in both comparisons.
 See the [change entry](../../Changes/Research/Offline/PinnedReaderBatches.md).
+
+### A08d-FileScopeAttribution: stream provenance for strict Fusion inputs
+
+The Codex shared encoder worker owns this active task on `codex/deterministic-encoder-admission`.
+Delivery is a separate PR based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+Dependencies are the A08d file-driven CLI, source-bound Fusion decode layers, and the container member inventory.
+The exit requires a real CLI run with strict features, source-bound partial spans, and both saved reports.
+The existing partial-only P04 run must preserve its recipe selection and incomplete coverage result.
+See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) for the range and qualification limits.
 
 ## A08h-Placement20261123: decimal native reader evidence
 

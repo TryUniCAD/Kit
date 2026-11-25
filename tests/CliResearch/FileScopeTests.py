@@ -45,6 +45,7 @@ def CheckFileScope(TmpPath: FilePath) -> None:
     Audit = LoadJson((RunPath / "FileScope.json").read_bytes())
     with InputPath.open("rb") as Stream:
         assert Audit["source_sha256"] == FileDigest(Stream, "sha256").hexdigest()
+    assert (Audit["feature_layer"], Audit["provenance_layer"]) == ("partial", "partial")
     assert Audit["member_count"] > 0 and Audit["unattributed_stream_ranges"]
     assert "family:extrude:cut-extrude" in Audit["selected_experiments"]
     assert "rRecipe" in Audit["native_classes"]["classes"][
