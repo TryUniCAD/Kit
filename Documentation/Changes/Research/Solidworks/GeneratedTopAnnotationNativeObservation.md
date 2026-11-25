@@ -22,4 +22,6 @@ The [native evidence](../../../../re/solidworks/measurements/2026/VendorBossCorp
 
 SOLIDWORKS 2026 SP04.1 `34.4.1.1011` opened and rebuilt the original candidate with zero errors and warnings. It reported two annotation views, including the hidden Top view, and one solid with a volume of 7,584.3 mm³. Changing D1 from 14.31 mm to 19.87 mm produced a volume of 10,531.1 mm³. The saved edit reopened and rebuilt at the new depth with the same feature tree and annotation views. The saved configuration retained a typed `*Top` record with the exact rotation. Each of the eight distinct owned processes exited normally.
 
+A separate check of all 17 retained states verified the exact regenerated initial depth bits against the writer's millimetre conversion and the exact edited and reopened bits against the actual API edit operand. It also checked the view counts and hidden Top status. The observer's bounded comparison accounts for the independent SI control. The retained edited states establish exact native edit persistence for this case.
+
 For this exact stopped preflight, `--preflight` and `--preflight-sha256` identify the existing result and its digest. The observer verifies the retained per-phase records, inputs, process exits and native measurements before using the latest control as the leading observation. Use the plain invocation for a new campaign.
