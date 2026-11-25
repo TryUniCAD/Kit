@@ -88,9 +88,10 @@ not make the compared graphs identical.
 It accepted the five- and seven-edge source geometry, with 203 and 255 typed
 kernel nodes respectively. The body-name proof then refused them at its
 six-face requirement. The typed kernel records and archive atom identity
-provide inputs for a fuller boundary proof. Completing that proof requires
-the linked shell and ring inventories, matching sketch and extrusion owners,
-and the contents of both physical payloads.
+provide inputs for a fuller boundary proof. The separate
+[active body ownership probe](VendorBlindBossSourceAdmission.md#active-body-ownership-at-the-reader-dependency)
+then bound both packets, the linked owners and the directed closed shell in
+all nine discovery sources.
 
 The four Author04 cases and five Discovery01 cases are calibration inputs.
 A separately authored, healthy source was sealed before rule derivation at
