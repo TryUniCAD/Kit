@@ -282,6 +282,11 @@ Fusion needs its native worker options and `--fusion-lifecycle` for automatic
 owned restart. Use the same source revision across workers and the selected
 checkout. Pause/resume keeps the existing native and decoder receipts.
 
+If the SOLIDWORKS launcher reports an unobserved normal exit, inspect the
+native and owner receipts under `NativeAttempts`. Retain the run directory and
+use a fresh directory to verify a changed worker on the same case parameters.
+See [catalogue capture shutdown](../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md).
+
 See [catalogue sample authoring](../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md)
 for the case format, native host requirements, limitations, and evidence rules.
 

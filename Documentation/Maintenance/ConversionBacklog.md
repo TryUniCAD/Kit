@@ -69,6 +69,22 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### A08h-OwnedExit: SOLIDWORKS catalogue shutdown repair
+
+Task `A08h-OwnedExit` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ownedexit-catalogue-capture-shutdown).
+Codex owns the scoped repair on `codex/solidworks-capture-shutdown`, with
+delivery in [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
+The exit requires licensed native replay of the failed P04 captures and batch
+controls, normal process exits, independent reopen and dependent decoder
+receipts, plus the applicable publication gates. Six previously failed
+cut-extrude cases passed both native phases and ran the decoder. The
+driving-dimension singleton passed after the standalone worker retried a
+shutdown timeout. The combined probe passed the singleton on the first
+attempt after the empty-session exit request. The final worker and batch
+retry recovered the same case on a third fresh attempt after two timeouts.
+The written-recipe geometry repair has separate delivery in
+[PR #291](https://github.com/TryUniCAD/Kit/pull/291).
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction
