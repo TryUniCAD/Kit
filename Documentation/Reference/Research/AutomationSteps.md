@@ -772,7 +772,7 @@ Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate deliver
 #### A08h-RimFillet20261125: circular rim fillet read/write packs
 
 Codex owns this checking task on `feat/native-conversion-campaign-20261125`, based on main `66d4f5b856833833bbf67fe62a61c3450d8dc76f`.
-Delivery: this task's scoped checkpoint PR, linked after publication.
+Delivery: [PR #301](https://github.com/TryUniCAD/Kit/pull/301).
 Dependencies are the native API, source-free constructor, controller and typed codecs.
 The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native checks, 12 exact generated-payload cycles, five native-source cycles and seven snapshot-width refusals.
 All strict neutral and public conversion refusals remain explicit.

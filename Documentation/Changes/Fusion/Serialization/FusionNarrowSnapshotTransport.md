@@ -14,4 +14,4 @@ The bounded repair is undergoing deterministic complete-model comparison and fre
 Post-freeze parameter controls are declared separately from the original observed corpus.
 Current qualification receipts will be linked after execution; no complete semantic or cross-format conversion is claimed.
 
-The [feature pack](../../../re/Fusion/RimFilletPack/README.md) records the original boundary and evidence lineage.
+The [feature pack](../../../../re/Fusion/RimFilletPack/README.md) records the original boundary and evidence lineage.

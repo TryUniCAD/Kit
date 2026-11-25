@@ -1,6 +1,6 @@
 # Circular rim fillet research packs
 
-The [feature packs](../../../re/Fusion/RimFilletPack/README.md) provide executable writer and reconstruction cases with independent native measurements.
+The [feature packs](../../../../re/Fusion/RimFilletPack/README.md) provide executable writer and reconstruction cases with independent native measurements.
 They cover 12 circular blind extrusions with a top constant-radius fillet, including six parameter holdouts.
 Use the package replay commands with Python 3.14 and unused output directories.
 
