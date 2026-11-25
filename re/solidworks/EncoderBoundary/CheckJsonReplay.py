@@ -23,7 +23,7 @@ def setup(root):
 
 def replay(root, request):
     setup(root)
-    import EncoderRoundTrip.Solidworks as adapter
+    from EncoderRoundTrip import Solidworks as adapter
     from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersion
     from convert.adapters.solidworks.Archive.Header.ReadFileTable import GetFileRef
     from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
