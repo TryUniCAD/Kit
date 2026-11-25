@@ -40,6 +40,8 @@ The dependency reader investigation remains separate.
 It preserves the process outcomes, precision contrasts, topology summaries and ownership divergences.
 Complete inventories are retained byte for byte in ignored task-owned output at `.rescratch/NativeBossProofFullEvidence/a2c1abb/`.
 The ledger also records their immutable Git blob identities from origin commit `6a7a0b71da037534ab6612cccbf7ff56fb218447`.
+The [private replay instructions](../../../Documentation/Changes/Research/Solidworks/VendorBossPrivateReplay.md)
+bind the exact discovery CAD inputs, authoring definitions and body-proof holdout.
 Saved-file and Git-file hashes remain separate because repository line-ending normalization changes text bytes.
 The [summary command](SummarizeEvidence.py) verifies canonical JSON identity against the origin blobs before producing the ledger.
 Full inventories still compare each depth pair, no-op pair or independent contrast without ignoring fields.
