@@ -41,7 +41,15 @@ def CheckRimCycle(TmpPath: FilePath, CaseName: str) -> None:
         timeout=180,
         check=False,
     )
-    assert Result.returncode == 0, Result.stderr
+    assert Result.returncode == 0, (
+        Result.stderr
+        + Result.stdout
+        + (
+            (OutputPath / "Receipt.json").read_text()
+            if (OutputPath / "Receipt.json").is_file()
+            else ""
+        )
+    )
     Receipt = LoadJson((OutputPath / "Receipt.json").read_bytes())
     assert Receipt["status"] == "passed" and Receipt["model_equal"] is True
     assert Receipt["source_sha256"] == SourceHash
