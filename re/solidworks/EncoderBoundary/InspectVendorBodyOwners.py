@@ -225,10 +225,13 @@ def main():
             except (TypeError, ValueError, KeyError) as error:
                 row["refused"] = f"{type(error).__name__}: {error}"
             report[case] = row
+    if not report:
+        parser.exit(1, "body proof requires at least one recorded case\n")
     with args.output.open("x", encoding="utf-8", newline="\n") as stream:
         json.dump({"dependency": REVISION, "cases": report}, stream, indent=2, sort_keys=True, allow_nan=False)
         stream.write("\n")
+    return 3 if any("refused" in row for row in report.values()) else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -6,7 +6,9 @@ The A12b investigation starts at `c4e8a34186bdd173dad37d843b79bc8a3a59ebb9`. [PR
 
 ## Base reader and independent controls
 
-The four pinned SP04.1 Author04 inputs have four or seven ordinary lines and a single forward blind depth. The SDK-generated counterparts were regenerated from each committed neutral request and checked against the exact published native measurement digest. The generated inputs are comparison controls. The vendor saves remain the independent source observations. [Normalized stream inventory](../measurements/2026/VendorBlindBossInventory.json)
+The four pinned SP04.1 Author04 inputs have four or seven ordinary lines and a single forward blind depth. The SDK-generated counterparts were regenerated from each committed neutral request and checked against the exact published native measurement digest. The generated inputs are comparison controls. The vendor saves remain the independent source observations. [Normalized stream inventory digest](../measurements/2026/VendorBlindBossInventory.json)
+
+The digest record preserves the full inventory SHA-256, case row hashes, source lineage, and the five relevant clear streams per case. The census reproduces the complete 127,427-byte inventory outside the commit. The full report also remains at the pinned proof revision recorded in the digest.
 
 | Observation | Vendor save at A12b starting revision | Exact cold control |
 | --- | --- | --- |
@@ -36,11 +38,19 @@ The seven five- and seven-line inputs retain a byte-derived B-rep model identica
 
 The custom-text contrast passes the body proof. It remains a negative control for whole-source admission. Equivalent body geometry is insufficient to qualify document scope, auxiliary owners, property state, or historical data.
 
+## Frozen holdout and process outcomes
+
+The proof was frozen at `ae2df5a0ef8fc7a5c63815afe40f5b17173b6a3d` before the independent source was released. The unchanged proof and PR #121 dependency matched the selected active body and all 11 API observations. The 11-line part had 13 faces, 33 edges, 22 vertices, and 31,847.030315 mm³ volume. The result records the exact source, receipt, row and report digests. [Frozen holdout outcomes](../measurements/2026/VendorBlindBossHeldoutBodyOwnership.json)
+
+The inspector writes all rows before deciding the exit status. Exit 0 requires a nonempty cohort with every row passing. Exit 3 leaves the report available for any refused case. An empty cohort exits 1 before the report is created.
+
 ## Loader trace and reproducibility
 
-The observed SP04.1 `sldmodu.dll` has SHA-256 `2201734ebe0106efde5a93e306067b4b5e2fdb0ba70bf38ce9a59242b283cb99`. The PE identity is recorded by REA 6.7.0 as `ev_5a69aa021f2e26527301fc76e8050dfb3ec1839e1896564db04ea521ffc95c95`. Its x64 RTTI complete-object locator ties the schema-1 class's primary vtable to slot 5 at serializer RVA `0x427d50` (VA `0x4b567d50`, PE file offset `0x427150`). REA's full Ghidra provider import hit its 330,000 ms startup deadline and produced no analysis snapshot.
+The observed SP04.1 `sldmodu.dll` has SHA-256 `2201734ebe0106efde5a93e306067b4b5e2fdb0ba70bf38ce9a59242b283cb99`. The PE identity is recorded by REA 6.7.0 as `ev_5a69aa021f2e26527301fc76e8050dfb3ec1839e1896564db04ea521ffc95c95`. The `moLinkedAtomIdNode_c` primary vtable at RVA `0x1ce0ed8` provides the class serializer through slot 5. The loader entry is RVA `0x427d50`, VA `0x4b567d50`, and PE file offset `0x427150`. The focused project labels this entry `LinkedAtomSerializer`.
 
-A separate Ghidra 12.1.2 headless import with `-noanalysis` completed after defining and disassembling that one function. This static result identifies member offsets `+08`, `+90`, `+d0`, `+f0`, `+100`, `+110`, and `+120`. They agree with the signed scalar, two counted DWORD arrays, and four keyed object arrays already present in the PR #121 grammar. The local headless result has SHA-256 `51be115894cda3c1ea16b9e230d5bed1b5cf28fc8b102560b528dc0ba63e2c84`. The installed executable and decompilation remain outside the repository. This experiment supplies field ownership and does not establish a new writer rule. [Focused batch import gotcha](../../../Documentation/Gotchas/Research/Workers/SolidWorks/SolidworksGhidraBatchImportPath.md)
+REA's full Ghidra provider import hit its 330,000 ms startup deadline and produced no analysis snapshot. A separate Ghidra 12.1.2 headless import with `-noanalysis` completed after defining and disassembling that one function. The fallback covers static member ownership in this build. A fresh runtime trace and whole-loader analysis remain outside this result.
+
+The static result identifies member offsets `+08`, `+90`, `+d0`, `+f0`, `+100`, `+110`, and `+120`. They agree with the signed scalar, two counted DWORD arrays, and four keyed object arrays already present in the PR #121 grammar. The local headless result has SHA-256 `51be115894cda3c1ea16b9e230d5bed1b5cf28fc8b102560b528dc0ba63e2c84`. The installed executable and decompilation remain outside the repository. [Focused batch import gotcha](../../../Documentation/Gotchas/Research/Workers/SolidWorks/SolidworksGhidraBatchImportPath.md)
 
 Run the [census](../EncoderBoundary/CompareVendorBoss.py) using the isolated A12b checkout and the original authoring record. Its cold archive identity requires the measured Python 3.14.6 compression runtime. Pass the census `Vendor` and `Cold` exports to [the bulk document comparator](../../automation/CompareDecoded.py) with `--unit mm` and a fresh output directory.
 
