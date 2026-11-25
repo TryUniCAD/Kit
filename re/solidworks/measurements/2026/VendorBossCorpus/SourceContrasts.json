@@ -8,7 +8,9 @@
   },
   "distinct_native_processes": 20,
   "method_snapshots": {
-    "Discovery01": "29dd96b2faff3d4e61ae1633825a674369ca61b8:re/tooling/sw2026/ObserveVendorBossCorpus.py"
+    "Discovery01": "9a6ca9b4cd486b7431d4f7badb231cac8bf89372:re/tooling/sw2026/ObserveVendorBossCorpus.py",
+    "Discovery02": "7e93b3cc6e2fe94ce64c14e18c699b02e8cb1368:re/tooling/sw2026/ObserveVendorBossCorpus.py",
+    "Reserved01": "7e93b3cc6e2fe94ce64c14e18c699b02e8cb1368:re/tooling/sw2026/ObserveVendorBossCorpus.py"
   },
   "outside_checkout": [
     "Author records and originals",

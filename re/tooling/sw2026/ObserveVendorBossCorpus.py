@@ -201,19 +201,19 @@ def author_cases(base, app, request, folder, result):
         create_document(base, app, template, workspace / name / "Prism.SLDPRT", points, depth, capture)
 
 
-def inspect_saved(base, app, request, observation):
+def inspect_saved(base, app, request, observation, *, observe=observe_part, open_options=1):
     source = Path(request["path"]).resolve(strict=True)
     original_digest = digest(source)
     demand(original_digest == request["sha256"], "native input changed before open")
     errors, warnings = base.statuses()
-    document = app.OpenDoc6(str(source), 1, 1, "", errors, warnings)
+    document = app.OpenDoc6(str(source), 1, open_options, "", errors, warnings)
     observation.update(open_errors=errors.value, open_warnings=warnings.value)
     demand(document is not None, f"SOLIDWORKS did not open the saved part: {errors.value}")
     try:
         demand(errors.value == warnings.value == 0, "SOLIDWORKS returned load errors or warnings")
-        observation["initial"] = observe_part(base, document)
+        observation["initial"] = observe(base, document)
         demand(document.ForceRebuild3(False), "native document failed to rebuild")
-        observation["rebuilt"] = observe_part(base, document)
+        observation["rebuilt"] = observe(base, document)
         points = tuple(map(tuple, request["profile_m"]))
         for state in ("initial", "rebuilt"):
             verify_part(base, observation[state], points, request["depth_m"], request["property"])
@@ -222,7 +222,7 @@ def inspect_saved(base, app, request, observation):
     demand(digest(source) == original_digest, "native input changed during observation")
 
 
-def phase(root, request, output):
+def phase(root, request, output, *, inspect=inspect_saved):
     import pythoncom
     import win32api
     from win32com.client import DispatchEx
@@ -259,7 +259,7 @@ def phase(root, request, output):
                         if request["operation"] in ("author", "seal"):
                             author_cases(base, app, request, output.parent, result)
                         else:
-                            inspect_saved(base, app, request, result)
+                            inspect(base, app, request, result)
                     finally:
                         if not base.member(app, "GetDocumentCount"):
                             app.ExitApp()
