@@ -119,6 +119,7 @@ def _authoring_spec(document: CadDocument) -> DocumentSpec:
 
 def _literal_length(fields: dict[str, object]) -> int | float:
     literal = NativeText(fields["expression"]).removesuffix(" mm")
+    invalid = "Fusion cuboid driver lacks an exact constructor length literal"
     try:
         value = (
             int(literal) if literal.isascii() and literal.isdecimal() else float(literal)
@@ -131,8 +132,8 @@ def _literal_length(fields: dict[str, object]) -> int | float:
         ):
             return value
     except (OverflowError, ValueError):
-        pass
-    raise ValueError("Fusion cuboid driver lacks an exact constructor length literal")
+        raise ValueError(invalid) from None
+    raise ValueError(invalid)
 
 
 def _native_cuboid_spec(model: DocumentModel) -> DocumentSpec:
