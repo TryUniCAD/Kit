@@ -32,7 +32,9 @@ def PublishBatch(SessionPath: FilePath) -> None:
     Artifacts: dict[str, ArtifactData] = {}
     Labels = ("Second",) if Fault == "native-rejected" else ("First", "Second")
     for Label in Labels:
-        Current = Fault if Label == "Second" and Fault != "native-rejected" else "normal"
+        Current = (
+            Fault if Label == "Second" and Fault != "native-rejected" else "normal"
+        )
         Members, Artifact = WriteBundle(SessionPath, Label, Content, Current)
         Artifacts["bundle." + Label.lower()] = Artifact
         if Current != "missing":

@@ -7,6 +7,9 @@ decoder jobs for the cases that passed independent reopen and verification.
 It preserves their original bundle roles even when a neighboring case fails.
 
 Use the existing SOLIDWORKS catalogue authoring command with a new run directory.
+The installed research launcher requires an explicit `--root` pointing to a
+trusted source checkout. The catalogue worker and its SOLIDWORKS oracle run
+from that checkout. Ordinary inspection and conversion use the installed SDK.
 The catalogue result reports a rejected case as `failed` with
 `native_rejection`. Its decoder remains blocked by the absent evidence.
 Launch, shutdown, manifest, and unexpected infrastructure failures still retry
