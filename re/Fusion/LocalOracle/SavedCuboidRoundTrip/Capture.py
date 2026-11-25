@@ -50,7 +50,6 @@ def author(document, dims_mm, anchor_mode, offset_mm=(0.0, 0.0)):
     design = design_for(document)
     design.designType = adsk.fusion.DesignTypes.ParametricDesignType
     root = design.rootComponent
-    root.name = "Saved Cuboid Study"
     for name, value in zip(("kitWidth", "kitDepth", "kitHeight"), dims_mm, strict=True):
         require(design.userParameters.add(name, adsk.core.ValueInput.createByString(f"{value:g} mm"), "mm", "") is not None, f"Could not add {name}")
     x, y = (value / 10.0 for value in offset_mm)
