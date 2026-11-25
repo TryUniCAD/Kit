@@ -23,7 +23,7 @@ from tests.Research.Inference.Authoring.Recipes.Windows.RunBatchProbe import (
 
 
 # native owner transport must reject stopped processes and stale revisions at the actual interpreter boundary
-def CheckRoutineTransport(TmpPath: FilePath) -> None:
+def CheckRoutine(TmpPath: FilePath) -> None:
     Result = RunProcess(
         [
             PythonExe,

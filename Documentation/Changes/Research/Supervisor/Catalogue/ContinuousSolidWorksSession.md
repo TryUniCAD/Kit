@@ -36,7 +36,14 @@ The complete probe took 387.78 seconds, including the comparison process.
 The [sanitized observation](../../../../../re/automation/BatchEvidence/ContinuousSessionObservation.json) records the tolerance and qualification limits.
 A separate thin-extrusion probe failed its existing body-measurement check and remains unaccepted.
 Its original and reopened volumes both measured 560 cubic millimetres.
-The final controller pipeline, current-head CI and review, and queue acceptance remain pending.
+At `18d72e23ee`, the real catalogue controller completed two capture jobs and two decoder jobs on their first attempts.
+Both captures used one application process, and the first decoder overlapped the second capture.
+Shutdown observed normal process exit without forced cleanup.
+Resume created a new owner generation and retained all completed receipts without starting another job.
+The [pipeline observation](../../../../../re/automation/BatchEvidence/ContinuousPipelineObservation.json) records the actual intervals and outcomes.
+The command returned exit code 1 with `coverage_incomplete` because existing decoder findings remain unresolved.
+It recorded no supervisor failure, orphan or stale result.
+Current-head CI and review, and merge-group acceptance remain separate gates.
 No general equivalence or throughput improvement is claimed.
 
 For a native comparison, run `python re/automation/BatchEvidence/ProbeRoutine.py --cases CASES.json --host HOST.json --output OUTPUT`.

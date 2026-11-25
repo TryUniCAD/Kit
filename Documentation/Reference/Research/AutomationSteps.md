@@ -8,6 +8,9 @@ Scope: persistent capture, document close/reopen verification, independent decod
 Delivery is [PR #295](https://github.com/TryUniCAD/Kit/pull/295), stacked on PR #288.
 Exit: consecutive same-process native batches, same-file fresh-process comparison, decoder overlap, recovery checks and current-revision CI and review.
 See [continuous SOLIDWORKS capture](../../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md).
+The `5c3ae3810c` native comparison matched P01/P03/P04 same-file measurements across routine and fresh processes.
+The `18d72e23ee` controller run completed four jobs, overlapped decoding with capture and preserved receipts across resume.
+Current-head readiness, broader feature qualification and merge-group acceptance remain open.
 
 PR #158 is based on main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b`. Its follow-on phase commits carry the remaining non-DLL work from the original PR #94 checkpoint `fb723e0a920b4d03ad2d5635882860b800a9b61c`. The entries below record the original programme and its revision-bound evidence. The licensed restart, native qualification, supplemental Fusion handoff, pending CI batch authority and two-week pilot retain their open exit criteria.
 

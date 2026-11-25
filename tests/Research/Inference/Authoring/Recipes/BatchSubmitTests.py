@@ -50,6 +50,11 @@ def CheckSubmitPlan(
         Entry["attempts"] == 0 and Entry["result"] is None
         for Entry in Report["status"]["jobs"]
     )
+    VerifyRepeat(TmpPath, Payload, Report)
+
+
+# repeat submission must preserve existing controller definitions and accepted attempt history
+def VerifyRepeat(TmpPath: FilePath, Payload: object, Report: dict[str, object]) -> None:
     Repeated = RunProbe(TmpPath, "submit", Payload)
     assert Repeated.returncode == 0, Repeated.stderr
     Again = DecodeJson(Repeated.stdout)
