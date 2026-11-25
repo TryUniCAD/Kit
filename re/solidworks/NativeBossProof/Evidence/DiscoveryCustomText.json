@@ -1,0 +1,2574 @@
+{
+  "admission_rule_confidence": "not found",
+  "analysis_checkout_revision": "c4e8a34186bdd173dad37d843b79bc8a3a59ebb9",
+  "application_usable": false,
+  "capture": {
+    "application_usable": false,
+    "child_exit_code": null,
+    "edited": {
+      "elapsed_ns": 134700,
+      "error_type": "ValueError",
+      "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+      "stage": "prepare_writer_input",
+      "status": "unsupported"
+    },
+    "manifest_sha256": "47fbab49efba69587852f235ba9365048b06f8ea02e223c6ef6dc7ebb8d9c322",
+    "models_used": false,
+    "neutral_sha256": "0717a7bb070d7d8328208ec69227e2a32742f91f541ac4538d9c7a0ac302a697",
+    "reconstruction": {
+      "elapsed_ns": 13671000,
+      "error_type": "ValueError",
+      "reason": "SOLIDWORKS source requires a complete ordinary cold part readback",
+      "stage": "prepare_writer_input",
+      "status": "unsupported"
+    },
+    "run_fingerprint": "528323bad714e91e6a8b6a71d5cb6cfb5cbe97183f554e4a324e7301fe4e895b",
+    "sdk_revision": "c4e8a34186bdd173dad37d843b79bc8a3a59ebb9",
+    "sdk_sources_sha256": "a90d459d214cf7ec717d9f1ad31fc38605be35f3de9416d9a3901c4bb5078407",
+    "source_sha256": "fc27be9236f286777726cc2dcc2b38049295b2d52d4375c583ebf3823e49f5f2",
+    "status": "incomplete",
+    "vendor_loadable": false
+  },
+  "capture_unchanged": true,
+  "comparison": {
+    "changed_records": [
+      {
+        "collection": "parameters",
+        "id": "sldprt:parameter:32:D1",
+        "left": {
+          "id": "sldprt:parameter:32:D1",
+          "kind": null,
+          "name": "D1",
+          "type": "Parameter",
+          "wire_sha256": "0bf2ec331354c2a706f952379ab7f556d8dbbe64fa6d509f7e46d598cf0b5db1"
+        },
+        "right": {
+          "id": "sldprt:parameter:32:D1",
+          "kind": null,
+          "name": "D1",
+          "type": "Parameter",
+          "wire_sha256": "1ab466e58fc81431ee559a6434e217e94753d0e47352a953753913b43e981ebe"
+        }
+      },
+      {
+        "collection": "feature_timeline",
+        "id": "sldprt:feature:32",
+        "left": {
+          "id": "sldprt:feature:32",
+          "kind": "extrusion",
+          "name": "Boss-Extrude1",
+          "type": "FeatureStep",
+          "wire_sha256": "7ff02df3dad87056b67d6a0cae6f63f11ab1b842c55fe98c62bd9e16b8996e1b"
+        },
+        "right": {
+          "id": "sldprt:feature:32",
+          "kind": "extrusion",
+          "name": "Boss-Extrude1",
+          "type": "FeatureStep",
+          "wire_sha256": "96047161c52155a3f075ecbf6ab5c62040af7df7fdfe83786936c0d76ca97a02"
+        }
+      },
+      {
+        "collection": "brep_payloads",
+        "id": "sldprt:brep:0",
+        "left": {
+          "id": "sldprt:brep:0",
+          "kind": "partition",
+          "name": null,
+          "type": "BrepPayload",
+          "wire_sha256": "69a180c92acdd9c01eeadff6dbea794437c0e6eb4ca7b58750564a3e6a2add66"
+        },
+        "right": {
+          "id": "sldprt:brep:0",
+          "kind": "partition",
+          "name": null,
+          "type": "BrepPayload",
+          "wire_sha256": "6a93ed56d28e35c82b333d83ea39c1ffaf3b774bfbd59eb2f09ee32d9b7cc655"
+        }
+      },
+      {
+        "collection": "brep_payloads",
+        "id": "sldprt:brep:1",
+        "left": {
+          "id": "sldprt:brep:1",
+          "kind": "deltas",
+          "name": null,
+          "type": "BrepPayload",
+          "wire_sha256": "7d0f9f9f2d98b1068c2b4dc1103c756072c032ddeb0f8067dd73467af9c4e59c"
+        },
+        "right": {
+          "id": "sldprt:brep:1",
+          "kind": "deltas",
+          "name": null,
+          "type": "BrepPayload",
+          "wire_sha256": "ce1deaae64adf98647e7c08a57f624a616e6ff56fdb133b5e75d6a24ae0fff05"
+        }
+      }
+    ],
+    "equal": false,
+    "other_document_sha256": "796410a7ac8bb5653c97c78614a6e45a16a826f7080f918c71e34fd6a4c9b8c5",
+    "other_source_sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246",
+    "ownership_changed": false,
+    "policy": "exact_typed_identity_without_ignored_fields",
+    "root_fields_changed": false
+  },
+  "definition_case": "CustomText",
+  "definition_sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda",
+  "driving_depth_comparison": [
+    {
+      "driver_depth_m": 0.01337,
+      "driver_matches": false,
+      "feature_depth_m": 0.01337,
+      "feature_id": "sldprt:feature:32",
+      "feature_matches": false,
+      "oracle_depth_m": 0.013371,
+      "parameter_id": "sldprt:parameter:32:D1",
+      "retained_native_unit": "m",
+      "retained_native_value": 0.01337
+    }
+  ],
+  "external_json_snapshot": false,
+  "inventory": {
+    "body_summaries": [
+      {
+        "$type": "Body",
+        "attributes": {
+          "native_object_id": null,
+          "parasolid_active_payload_id": "sldprt:brep:0",
+          "parasolid_payload_ids": {
+            "$tuple": [
+              "sldprt:brep:0",
+              "sldprt:brep:1"
+            ]
+          }
+        },
+        "final_feature_id": "sldprt:feature:32",
+        "id": "sldprt:body:1",
+        "material_id": null,
+        "name": "Body 1",
+        "provenance": null,
+        "topology": {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 1,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      }
+    ],
+    "brep_counts": {
+      "bodies": 1,
+      "coedges": 30,
+      "curves": 15,
+      "edges": 15,
+      "face_uses": 7,
+      "faces": 7,
+      "loops": 7,
+      "pcurves": 0,
+      "regions": 1,
+      "shell_uses": 1,
+      "shells": 1,
+      "surfaces": 7,
+      "vertices": 10,
+      "wires": 0
+    },
+    "counts": {
+      "bodies": 1,
+      "brep_payloads": 2,
+      "configurations": 1,
+      "feature_timeline": 26,
+      "materials": 0,
+      "meshes": 0,
+      "parameters": 1,
+      "selections": 1,
+      "sketches": 1,
+      "support_planes": 3
+    },
+    "diagnostics": {
+      "$tuple": [
+        {
+          "$type": "Diagnostic",
+          "attributes": {},
+          "code": "solidworks.part_text_properties_unavailable",
+          "entity_id": "",
+          "message": "SOLIDWORKS body moCusPropMgr_c field f20 at 103: SOLIDWORKS body moCusPropMgr_c field f20/o at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c/moFilePropContainer_c field f20/o/f08/f08 at 103: part property manager has unsupported owner placement",
+          "provenance": null,
+          "severity": {
+            "$enum": "Severity",
+            "value": "info"
+          }
+        }
+      ]
+    },
+    "document_sha256": "c23ec546003d09a3914e4783262416272772e473c530e61c4a57c4510c664640",
+    "duplicate_ids": [],
+    "features": [
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:8",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Comments",
+        "native_class": "moCommentsFolder_c",
+        "native_id": 8,
+        "native_type": "Comments",
+        "operation": null,
+        "order": 0,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:23",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Favorites",
+        "native_class": "moFavoriteFolder_c",
+        "native_id": 23,
+        "native_type": "Favorites",
+        "operation": null,
+        "order": 1,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:24",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "History",
+        "native_class": "moHistoryFolder_c",
+        "native_id": 24,
+        "native_type": "History",
+        "operation": null,
+        "order": 2,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:25",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Selection Sets",
+        "native_class": "moSelectionSetFolder_c",
+        "native_id": 25,
+        "native_type": "Selection Sets",
+        "operation": null,
+        "order": 3,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:22",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Sensors",
+        "native_class": "moSensorFolder_c",
+        "native_id": 22,
+        "native_type": "Sensors",
+        "operation": null,
+        "order": 4,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:7",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Design Binder",
+        "native_class": "moDocsFolder_c",
+        "native_id": 7,
+        "native_type": "Design Binder",
+        "operation": null,
+        "order": 5,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:1",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Annotations",
+        "native_class": "moDetailCabinet_c",
+        "native_id": 1,
+        "native_type": "Annotations",
+        "operation": null,
+        "order": 6,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:17",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Notes",
+        "native_class": "moNotesAreaFtrFolder_c",
+        "native_id": 17,
+        "native_type": "Notes",
+        "operation": null,
+        "order": 7,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:18",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Notes1___EndTag___",
+        "native_class": "",
+        "native_id": 18,
+        "native_type": "Notes",
+        "operation": null,
+        "order": 8,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:10",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Surface Bodies",
+        "native_class": "moSurfaceBodyFolder_c",
+        "native_id": 10,
+        "native_type": "Surface Bodies",
+        "operation": null,
+        "order": 9,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:9",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Solid Bodies",
+        "native_class": "moSolidBodyFolder_c",
+        "native_id": 9,
+        "native_type": "Solid Bodies",
+        "operation": null,
+        "order": 10,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:21",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Markups",
+        "native_class": "moInkMarkupFolder_c",
+        "native_id": 21,
+        "native_type": "Markups",
+        "operation": null,
+        "order": 11,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:16",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Equations",
+        "native_class": "moEqnFolder_c",
+        "native_id": 16,
+        "native_type": "Equations",
+        "operation": null,
+        "order": 12,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:11",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Material <not specified>",
+        "native_class": "moMaterialFolder_c",
+        "native_id": 11,
+        "native_type": "SOLIDWORKS Materials",
+        "operation": null,
+        "order": 13,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:2",
+        "input_feature_ids": [],
+        "kind": "reference",
+        "name": "Front Plane",
+        "native_class": "moRefPlane_c",
+        "native_id": 2,
+        "native_type": "Plane",
+        "operation": null,
+        "order": 14,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:3",
+        "input_feature_ids": [],
+        "kind": "reference",
+        "name": "Top Plane",
+        "native_class": "",
+        "native_id": 3,
+        "native_type": "Plane",
+        "operation": null,
+        "order": 15,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:4",
+        "input_feature_ids": [],
+        "kind": "reference",
+        "name": "Right Plane",
+        "native_class": "",
+        "native_id": 4,
+        "native_type": "Plane",
+        "operation": null,
+        "order": 16,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:5",
+        "input_feature_ids": [],
+        "kind": "reference",
+        "name": "Origin",
+        "native_class": "moOriginProfileFeature_c",
+        "native_id": 5,
+        "native_type": "Sketch",
+        "operation": null,
+        "order": 17,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:6",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Lights and Cameras",
+        "native_class": "",
+        "native_id": 6,
+        "native_type": "Lights and Cameras",
+        "operation": null,
+        "order": 18,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:12",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Ambient",
+        "native_class": "",
+        "native_id": 12,
+        "native_type": "Ambient",
+        "operation": null,
+        "order": 19,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:13",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Directional1",
+        "native_class": "",
+        "native_id": 13,
+        "native_type": "Directional",
+        "operation": null,
+        "order": 20,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:14",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Directional2",
+        "native_class": "",
+        "native_id": 14,
+        "native_type": "Directional",
+        "operation": null,
+        "order": 21,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:15",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Directional3",
+        "native_class": "",
+        "native_id": 15,
+        "native_type": "Directional",
+        "operation": null,
+        "order": 22,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:19",
+        "input_feature_ids": [],
+        "kind": "native",
+        "name": "Exploded Views 19",
+        "native_class": "",
+        "native_id": 19,
+        "native_type": "Exploded Views",
+        "operation": null,
+        "order": 23,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": null,
+        "suppressed": false
+      },
+      {
+        "definition_length": null,
+        "definition_type": "NativeFeatureDefinition",
+        "id": "sldprt:feature:26",
+        "input_feature_ids": [
+          "sldprt:feature:2"
+        ],
+        "kind": "reference",
+        "name": "Sketch1",
+        "native_class": "moProfileFeature_c",
+        "native_id": 26,
+        "native_type": "Sketch",
+        "operation": null,
+        "order": 24,
+        "output_body_ids": [],
+        "parameter_ids": [],
+        "sketch_id": "sldprt:sketch:26",
+        "suppressed": false
+      },
+      {
+        "definition_length": {
+          "$type": "ParameterValue",
+          "kind": {
+            "$enum": "ValueKind",
+            "value": "length"
+          },
+          "unit": "mm",
+          "value": 13.37
+        },
+        "definition_type": "ExtrusionFeature",
+        "id": "sldprt:feature:32",
+        "input_feature_ids": [
+          "sldprt:feature:26"
+        ],
+        "kind": "extrusion",
+        "name": "Boss-Extrude1",
+        "native_class": null,
+        "native_id": 32,
+        "native_type": "Extrusion",
+        "operation": "join",
+        "order": 25,
+        "output_body_ids": [],
+        "parameter_ids": [
+          "sldprt:parameter:32:D1"
+        ],
+        "sketch_id": "sldprt:sketch:26",
+        "suppressed": false
+      }
+    ],
+    "native_property_status": {
+      "diagnostic": "SOLIDWORKS body moCusPropMgr_c field f20 at 103: SOLIDWORKS body moCusPropMgr_c field f20/o at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c/moFilePropContainer_c field f20/o/f08/f08 at 103: part property manager has unsupported owner placement",
+      "profile": "compatible_literal_text",
+      "status": "unsupported"
+    },
+    "ownership_links": [
+      {
+        "owner": "sldprt:feature:26",
+        "relation": "input_feature",
+        "resolved": true,
+        "target": "sldprt:feature:2"
+      },
+      {
+        "owner": "sldprt:feature:26",
+        "relation": "sketch",
+        "resolved": true,
+        "target": "sldprt:sketch:26"
+      },
+      {
+        "owner": "sldprt:feature:32",
+        "relation": "input_feature",
+        "resolved": true,
+        "target": "sldprt:feature:26"
+      },
+      {
+        "owner": "sldprt:feature:32",
+        "relation": "driving_parameter",
+        "resolved": true,
+        "target": "sldprt:parameter:32:D1"
+      },
+      {
+        "owner": "sldprt:feature:32",
+        "relation": "sketch",
+        "resolved": true,
+        "target": "sldprt:sketch:26"
+      },
+      {
+        "owner": "sldprt:sketch:26",
+        "relation": "support_plane",
+        "resolved": true,
+        "target": "sldprt:plane:2"
+      },
+      {
+        "owner": "sldprt:body:1",
+        "relation": "final_feature",
+        "resolved": true,
+        "target": "sldprt:feature:32"
+      },
+      {
+        "owner": "sldprt:body:1",
+        "relation": "final_feature_backlink",
+        "resolved": false,
+        "target": "sldprt:feature:32"
+      },
+      {
+        "owner": "sldprt:brep:body:derived:1",
+        "relation": "brep_design_body",
+        "resolved": false,
+        "target": ""
+      }
+    ],
+    "parameters": [
+      {
+        "$type": "Parameter",
+        "attributes": {
+          "dimension_kind": "length",
+          "native_operands": {
+            "$tuple": []
+          },
+          "native_role": "unresolved",
+          "native_unit": "m",
+          "native_value": 0.01337,
+          "source_text": "13.37"
+        },
+        "expression": null,
+        "id": "sldprt:parameter:32:D1",
+        "name": "D1",
+        "owner_id": "sldprt:feature:32",
+        "provenance": {
+          "$type": "Provenance",
+          "adapter": "solidworks.sldprt",
+          "attributes": {},
+          "confidence": 1.0,
+          "native_id": "32",
+          "spans": {
+            "$tuple": [
+              {
+                "$type": "ProvenanceSpan",
+                "length": 3438,
+                "offset": 7647,
+                "record_kind": "feature-record",
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          }
+        },
+        "role": {
+          "$enum": "ParameterRole",
+          "value": "driving"
+        },
+        "value": {
+          "$type": "ParameterValue",
+          "kind": {
+            "$enum": "ValueKind",
+            "value": "length"
+          },
+          "unit": "mm",
+          "value": 13.37
+        }
+      }
+    ],
+    "records": {
+      "bodies": [
+        {
+          "id": "sldprt:body:1",
+          "kind": null,
+          "name": "Body 1",
+          "type": "Body",
+          "wire_sha256": "75cb4279eb2823806bf43566c4fe35689060b4dc95e87a252d602e48eaa36293"
+        }
+      ],
+      "brep_payloads": [
+        {
+          "id": "sldprt:brep:0",
+          "kind": "partition",
+          "name": null,
+          "type": "BrepPayload",
+          "wire_sha256": "69a180c92acdd9c01eeadff6dbea794437c0e6eb4ca7b58750564a3e6a2add66"
+        },
+        {
+          "id": "sldprt:brep:1",
+          "kind": "deltas",
+          "name": null,
+          "type": "BrepPayload",
+          "wire_sha256": "7d0f9f9f2d98b1068c2b4dc1103c756072c032ddeb0f8067dd73467af9c4e59c"
+        }
+      ],
+      "configurations": [
+        {
+          "id": "sldprt:configuration:0",
+          "kind": null,
+          "name": "Default",
+          "type": "Configuration",
+          "wire_sha256": "6d620dea5281e1039cab34ac6c73e3b0517530a06079aa541ddaf0a926551bed"
+        }
+      ],
+      "feature_timeline": [
+        {
+          "id": "sldprt:feature:8",
+          "kind": "native",
+          "name": "Comments",
+          "type": "FeatureStep",
+          "wire_sha256": "b85a0222cef6b18ff88d1d22ddfff83a009b8e77ea4593a93fa921b92a037638"
+        },
+        {
+          "id": "sldprt:feature:23",
+          "kind": "native",
+          "name": "Favorites",
+          "type": "FeatureStep",
+          "wire_sha256": "2891a0a9f5f719fff0f6e877e685d3ba7c5731daee5352bdc2ebb0a83a86fa30"
+        },
+        {
+          "id": "sldprt:feature:24",
+          "kind": "native",
+          "name": "History",
+          "type": "FeatureStep",
+          "wire_sha256": "e9d498545f612fd10a48d548d5e6f8f758dddb1740576eeba2a50e1a6d046055"
+        },
+        {
+          "id": "sldprt:feature:25",
+          "kind": "native",
+          "name": "Selection Sets",
+          "type": "FeatureStep",
+          "wire_sha256": "71279072afad6f7dc36669fd787e99920437013ee2e8d01945190bf2845ee093"
+        },
+        {
+          "id": "sldprt:feature:22",
+          "kind": "native",
+          "name": "Sensors",
+          "type": "FeatureStep",
+          "wire_sha256": "f39e91b67868a9232f45d86827a00e9efbcdbb256711c3d2649745c260d6084e"
+        },
+        {
+          "id": "sldprt:feature:7",
+          "kind": "native",
+          "name": "Design Binder",
+          "type": "FeatureStep",
+          "wire_sha256": "beced6ee4e66fccba64a199b7eaaf91a0f875619e47d1f7891ce81d60f721a60"
+        },
+        {
+          "id": "sldprt:feature:1",
+          "kind": "native",
+          "name": "Annotations",
+          "type": "FeatureStep",
+          "wire_sha256": "874b4ab630bbc7654dc9151415b486aaab029ddb01fd2a95c30f358bac0079fe"
+        },
+        {
+          "id": "sldprt:feature:17",
+          "kind": "native",
+          "name": "Notes",
+          "type": "FeatureStep",
+          "wire_sha256": "8dfe72982df32093ea1436e6bc48603c3fd0d937b1ff17bfdb11f9d85202c285"
+        },
+        {
+          "id": "sldprt:feature:18",
+          "kind": "native",
+          "name": "Notes1___EndTag___",
+          "type": "FeatureStep",
+          "wire_sha256": "1146bec9abc69858a74a61fb6f97725a52789d3d5c1f2b1bf8812c39fbedfe80"
+        },
+        {
+          "id": "sldprt:feature:10",
+          "kind": "native",
+          "name": "Surface Bodies",
+          "type": "FeatureStep",
+          "wire_sha256": "aa79f98db5e653856f9f6f41fb91d6a79413d1025284a08be12e1a2c8cdd92cb"
+        },
+        {
+          "id": "sldprt:feature:9",
+          "kind": "native",
+          "name": "Solid Bodies",
+          "type": "FeatureStep",
+          "wire_sha256": "757514b74c0f48be878acc6c1f7d31ddf2f77ea0b770500461874411fbc78ab6"
+        },
+        {
+          "id": "sldprt:feature:21",
+          "kind": "native",
+          "name": "Markups",
+          "type": "FeatureStep",
+          "wire_sha256": "12123528ae0c26ad7f1e94c5667d93baf817cacaae36e706307985c0b2377f24"
+        },
+        {
+          "id": "sldprt:feature:16",
+          "kind": "native",
+          "name": "Equations",
+          "type": "FeatureStep",
+          "wire_sha256": "a876adac2459f38516df806e5aa2b1b2bbd3dfabcf2938617f327fe181d7db76"
+        },
+        {
+          "id": "sldprt:feature:11",
+          "kind": "native",
+          "name": "Material <not specified>",
+          "type": "FeatureStep",
+          "wire_sha256": "60304a2e9d6e2615f05b53209a9a2d403c057148eb6b1eb11c219dd3754c7cfe"
+        },
+        {
+          "id": "sldprt:feature:2",
+          "kind": "reference",
+          "name": "Front Plane",
+          "type": "FeatureStep",
+          "wire_sha256": "e962467d14844519feb137c35813ea6791defcb29eb1f592d74179a564d7b321"
+        },
+        {
+          "id": "sldprt:feature:3",
+          "kind": "reference",
+          "name": "Top Plane",
+          "type": "FeatureStep",
+          "wire_sha256": "4ae1789a8de55469d01df885ada32b272c89f7e352970302fc376523056a3bb9"
+        },
+        {
+          "id": "sldprt:feature:4",
+          "kind": "reference",
+          "name": "Right Plane",
+          "type": "FeatureStep",
+          "wire_sha256": "334fa8f9ab3dee137cb2d355bb792cd419c364682b0c924c72110baf47f670f0"
+        },
+        {
+          "id": "sldprt:feature:5",
+          "kind": "reference",
+          "name": "Origin",
+          "type": "FeatureStep",
+          "wire_sha256": "f4dea4669404d5fe3cc76b2490d75d92b47b79623150f84c0a164e79db43dcb1"
+        },
+        {
+          "id": "sldprt:feature:6",
+          "kind": "native",
+          "name": "Lights and Cameras",
+          "type": "FeatureStep",
+          "wire_sha256": "2dc83eae9cc2ed06a8b4ee68b358a402528be72440eb49fcf20b6260d46ac6de"
+        },
+        {
+          "id": "sldprt:feature:12",
+          "kind": "native",
+          "name": "Ambient",
+          "type": "FeatureStep",
+          "wire_sha256": "ef69229c963ca96ac528a50d3c5fafd312d7e2d6bc914f2e63dde328c07d5d53"
+        },
+        {
+          "id": "sldprt:feature:13",
+          "kind": "native",
+          "name": "Directional1",
+          "type": "FeatureStep",
+          "wire_sha256": "5c040141a37c2fed4cc3be437edf7af1609ff2ceccf6c723c3a1910ed583a835"
+        },
+        {
+          "id": "sldprt:feature:14",
+          "kind": "native",
+          "name": "Directional2",
+          "type": "FeatureStep",
+          "wire_sha256": "827b1b847700e5f2fb4bb04479638e4956bc7bf4fff663bc0c378825f6c53fa7"
+        },
+        {
+          "id": "sldprt:feature:15",
+          "kind": "native",
+          "name": "Directional3",
+          "type": "FeatureStep",
+          "wire_sha256": "ec3ed0e04004aeaa7b7d4a0fb8832c796198f6449ad96751233f398884db8c6c"
+        },
+        {
+          "id": "sldprt:feature:19",
+          "kind": "native",
+          "name": "Exploded Views 19",
+          "type": "FeatureStep",
+          "wire_sha256": "9e94bbe33ebed15405a15c74ce0efecf5020528b0b6335d9ce89029dadf90c59"
+        },
+        {
+          "id": "sldprt:feature:26",
+          "kind": "reference",
+          "name": "Sketch1",
+          "type": "FeatureStep",
+          "wire_sha256": "d39bddc983404d7176297fd373cafdb18b3704d218f71f627b4db4b5588740e2"
+        },
+        {
+          "id": "sldprt:feature:32",
+          "kind": "extrusion",
+          "name": "Boss-Extrude1",
+          "type": "FeatureStep",
+          "wire_sha256": "7ff02df3dad87056b67d6a0cae6f63f11ab1b842c55fe98c62bd9e16b8996e1b"
+        }
+      ],
+      "materials": [],
+      "meshes": [],
+      "parameters": [
+        {
+          "id": "sldprt:parameter:32:D1",
+          "kind": null,
+          "name": "D1",
+          "type": "Parameter",
+          "wire_sha256": "0bf2ec331354c2a706f952379ab7f556d8dbbe64fa6d509f7e46d598cf0b5db1"
+        }
+      ],
+      "selections": [
+        {
+          "id": "sldprt:selection:32:axis:26:N_Axis",
+          "kind": null,
+          "name": "Boss-Extrude1 direction N_Axis",
+          "type": "Selection",
+          "wire_sha256": "92af3215d2875fa42546dd4c1984aa16569ffa3b8ca121e274bf9b5a3d8273db"
+        }
+      ],
+      "sketches": [
+        {
+          "id": "sldprt:sketch:26",
+          "kind": null,
+          "name": "Sketch1",
+          "type": "Sketch",
+          "wire_sha256": "a3c212d582aaa7c454bc922fb3e96e7dc5c3f30adea6604aa723b67d87364b9c"
+        }
+      ],
+      "support_planes": [
+        {
+          "id": "sldprt:plane:2",
+          "kind": null,
+          "name": "Front Plane",
+          "type": "SupportPlane",
+          "wire_sha256": "ca6d00e6c1d9887537187ae2851f22086b3643b731f7cb4e2cc771ca22c1418d"
+        },
+        {
+          "id": "sldprt:plane:3",
+          "kind": null,
+          "name": "Top Plane",
+          "type": "SupportPlane",
+          "wire_sha256": "6316fd897bf6ebe53bd59b32cbaaad4948b4181998469aed0122edecca48598e"
+        },
+        {
+          "id": "sldprt:plane:4",
+          "kind": null,
+          "name": "Right Plane",
+          "type": "SupportPlane",
+          "wire_sha256": "206c1bf1fc8bb1c23c3100111ef20b207604bd7771b70c742e9a398b9bcc10e9"
+        }
+      ]
+    },
+    "retained_byte_spans": [
+      {
+        "bytes": 68,
+        "path": "/brep/curves/$tuple/0/attributes/carrier_record",
+        "sha256": "ce7110e9b571584cf413b833034a5b775ee0720c147a2ce3b47f36a53fa0948e"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/1/attributes/carrier_record",
+        "sha256": "8d2e3ffd0ddbd5764323a225cc45084ce742990bc64e577469b7c98093b504fa"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/2/attributes/carrier_record",
+        "sha256": "39b528c971bf0a6bae45f18edca37c5a2eeaac9271a364ae9533aeca45e80baf"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/3/attributes/carrier_record",
+        "sha256": "2cff65f61873e0291faec44cd713ba97da35098e0e246c02287165d1242ffb77"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/4/attributes/carrier_record",
+        "sha256": "5e123819ed6d277cb73555c61e36d9535f155a13ffb71d431125e593ec2745df"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/5/attributes/carrier_record",
+        "sha256": "2f0d9cbc9148602dddffc39c062f55f6cfb8e44e86d41348635b6d1ef66fcf48"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/6/attributes/carrier_record",
+        "sha256": "677046a56e6e2fbae5e931c06b8e165152217b9013b7bc59ae7fd6f538f0547c"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/7/attributes/carrier_record",
+        "sha256": "3e05446aaad1d5f5b0b27b30dd6e317a67fa77be45419dc8f697577862ac7edf"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/8/attributes/carrier_record",
+        "sha256": "74db5bd9dad6509c4d0b43600e911150c4dfb38555f2517ece1fc43bc55cf390"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/9/attributes/carrier_record",
+        "sha256": "c7f818924fe87b9428a90593c4e6b3eca752a007bc13af0f3e3a0ab0a8249700"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/10/attributes/carrier_record",
+        "sha256": "55d6fc1cadb99e0cb27cd737b2f80a71552ee6daa46f78fe4676f5049603696d"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/11/attributes/carrier_record",
+        "sha256": "46b8d7b45abdc91fe6d308eed6b3a9869591d224880ce9ae93cb09a72a2daf74"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/12/attributes/carrier_record",
+        "sha256": "df436e3112bfe288cf6497f2c7e5579bde02b3d5f7f80a063e38fba6f18f9fd5"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/13/attributes/carrier_record",
+        "sha256": "824867c9e15b7010dbed0017a0306d36d19d83ef28537bfdc103891e66539d9b"
+      },
+      {
+        "bytes": 67,
+        "path": "/brep/curves/$tuple/14/attributes/carrier_record",
+        "sha256": "190af1ab9bdfc16d2c2435569601dbcca633233ff0633df74ace97d9fe187a06"
+      },
+      {
+        "bytes": 92,
+        "path": "/brep/surfaces/$tuple/0/attributes/carrier_record",
+        "sha256": "70f5f95a041facd8b2284c3dbc7d2ef168457d9068cdbe23d46e00ec99e550a5"
+      },
+      {
+        "bytes": 91,
+        "path": "/brep/surfaces/$tuple/1/attributes/carrier_record",
+        "sha256": "518f5aaeff71b83f73cd63525559125265e5ebb80f03af2d6a14c542cfbe3430"
+      },
+      {
+        "bytes": 91,
+        "path": "/brep/surfaces/$tuple/2/attributes/carrier_record",
+        "sha256": "3294cfbe57bfdc26726efb7e7bfced39eb142fea06297bbd682eeb696444ac0f"
+      },
+      {
+        "bytes": 91,
+        "path": "/brep/surfaces/$tuple/3/attributes/carrier_record",
+        "sha256": "9833108135ac8219eae1743ed2f46ff2ae5dc8b0baaffc8be8cb4f2c4d47ecbe"
+      },
+      {
+        "bytes": 91,
+        "path": "/brep/surfaces/$tuple/4/attributes/carrier_record",
+        "sha256": "d8dc853923067873fb4ab47b60c7fd2dc7fb4f19ea6cdbcf167dd4b8231ba4c3"
+      },
+      {
+        "bytes": 91,
+        "path": "/brep/surfaces/$tuple/5/attributes/carrier_record",
+        "sha256": "497bcd5c523cc8380d7184077ffc152ce501786a9b6bcf195be79c88a2e2131b"
+      },
+      {
+        "bytes": 91,
+        "path": "/brep/surfaces/$tuple/6/attributes/carrier_record",
+        "sha256": "e6767ecb821d3b5255ae0e1be36551368dc4fbd96e6430fbd8b55c7d4a8a4177"
+      },
+      {
+        "bytes": 7520,
+        "path": "/brep_payloads/$tuple/0/data",
+        "sha256": "c1a1156a8158b2bead49793802e36dc3f839307badd429660de32793f47d322c"
+      },
+      {
+        "bytes": 1224,
+        "path": "/brep_payloads/$tuple/1/data",
+        "sha256": "920f74d3166a8f97c8e6ce2aa81a2ffbb0c09be289a06a68d6677f7bb9b0d767"
+      },
+      {
+        "bytes": 197,
+        "path": "/feature_timeline/$tuple/0/definition/object_data/record_data",
+        "sha256": "0bcee92388870d0ef1d1357e43d4916e488741a8e081988405b91b9f39f49a67"
+      },
+      {
+        "bytes": 206,
+        "path": "/feature_timeline/$tuple/1/definition/object_data/record_data",
+        "sha256": "9c7c4232521b93008be8cdb3e58bcd9687596b35319e03c650e558c111a8eaff"
+      },
+      {
+        "bytes": 201,
+        "path": "/feature_timeline/$tuple/2/definition/object_data/record_data",
+        "sha256": "df19392538343888721d54577534015983db684ce532871d975b8ca77be2d271"
+      },
+      {
+        "bytes": 213,
+        "path": "/feature_timeline/$tuple/3/definition/object_data/record_data",
+        "sha256": "a8dd50900b91ee86d3549768b3dfd2a47df1abc7698e7128baebe2929c4aa79d"
+      },
+      {
+        "bytes": 191,
+        "path": "/feature_timeline/$tuple/4/definition/object_data/record_data",
+        "sha256": "85a6f6afd6499d8d04559477141c84d382dfe3de9a46ddff87310428daada433"
+      },
+      {
+        "bytes": 206,
+        "path": "/feature_timeline/$tuple/5/definition/object_data/record_data",
+        "sha256": "37d3984edacd1ca5f2c37e34f344a5f8ed238692622db7ee70eed0c66bfd5885"
+      },
+      {
+        "bytes": 84,
+        "path": "/feature_timeline/$tuple/6/definition/object_data/record_data",
+        "sha256": "8a09aac6c1a9e3e9a5abfd068a458bfcac38eb3f3fbd7eb4b568dd515cb7b2e4"
+      },
+      {
+        "bytes": 169,
+        "path": "/feature_timeline/$tuple/7/definition/object_data/record_data",
+        "sha256": "a6767c6b14dbc2a620f29789f20ca8ae7cfb2c6c9fba5cf9bbf9be1def09d4f4"
+      },
+      {
+        "bytes": 403,
+        "path": "/feature_timeline/$tuple/8/definition/object_data/record_data",
+        "sha256": "525d458f40aa6f16c7db764561ea2d83a3c66fa313b5e044751d283e15d66e16"
+      },
+      {
+        "bytes": 222,
+        "path": "/feature_timeline/$tuple/9/definition/object_data/record_data",
+        "sha256": "99c7b0392dbb44ce600afefa23d5cf0bd910166a844732845acd257860306585"
+      },
+      {
+        "bytes": 220,
+        "path": "/feature_timeline/$tuple/10/definition/object_data/record_data",
+        "sha256": "0058537a50e4871cf5c598a70dc423f60f27e591ee75253ad4adefdcbbaa7bd9"
+      },
+      {
+        "bytes": 190,
+        "path": "/feature_timeline/$tuple/11/definition/object_data/record_data",
+        "sha256": "6eb4951f91745f208dea43812d5b766187ac93c2b0e78ecd702a8008f81e3e45"
+      },
+      {
+        "bytes": 199,
+        "path": "/feature_timeline/$tuple/12/definition/object_data/record_data",
+        "sha256": "a9c7b5911f8dfd428f3f4c284576df3b28e1db4cdda8fbc9a1d834db908f62da"
+      },
+      {
+        "bytes": 231,
+        "path": "/feature_timeline/$tuple/13/definition/object_data/record_data",
+        "sha256": "370c727cf0f10bf53cae6b77fba10b6b939aa872af9d9c1ee58f65b7ca4f02e4"
+      },
+      {
+        "bytes": 523,
+        "path": "/feature_timeline/$tuple/14/definition/object_data/record_data",
+        "sha256": "407520575d0786d7742e4c3becc30049e210247c06a3cf700c2331b9583e5fdb"
+      },
+      {
+        "bytes": 566,
+        "path": "/feature_timeline/$tuple/15/definition/object_data/record_data",
+        "sha256": "1272a4f47d24b0b159d74507c45bdb4dee7d1adbc2711c52de70a87ca67dde34"
+      },
+      {
+        "bytes": 598,
+        "path": "/feature_timeline/$tuple/16/definition/object_data/record_data",
+        "sha256": "dc3b9c93125600b87b56a3b08b746ff737e75bf2006eb7f1de071c1c35e5a34b"
+      },
+      {
+        "bytes": 929,
+        "path": "/feature_timeline/$tuple/17/definition/object_data/record_data",
+        "sha256": "cbf65e84e2c180f7d4c3f56f713489dc5a235ea22704bcf1ec8473578fca1858"
+      },
+      {
+        "bytes": 0,
+        "path": "/feature_timeline/$tuple/18/definition/object_data/record_data",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "/feature_timeline/$tuple/19/definition/object_data/record_data",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "/feature_timeline/$tuple/20/definition/object_data/record_data",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "/feature_timeline/$tuple/21/definition/object_data/record_data",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "/feature_timeline/$tuple/22/definition/object_data/record_data",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "/feature_timeline/$tuple/23/definition/object_data/record_data",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 2069,
+        "path": "/feature_timeline/$tuple/24/definition/object_data/record_data",
+        "sha256": "d9ea80ee15deff4d5f5308bb182cc1ff602bb0dbf392a1341d935b881b579c15"
+      },
+      {
+        "bytes": 678,
+        "path": "/sketches/$tuple/0/entities/$tuple/4/geometry/data/record_data",
+        "sha256": "fa6bbd0f1e09a2a52faef71587e5edd19d2ea30c06fdc4d19d2011374196223d"
+      }
+    ],
+    "root_fields": [
+      "$type",
+      "assembly",
+      "bodies",
+      "brep",
+      "brep_payloads",
+      "capabilities",
+      "configurations",
+      "diagnostics",
+      "feature_timeline",
+      "materials",
+      "meshes",
+      "metadata",
+      "parameters",
+      "schema_version",
+      "selections",
+      "sketches",
+      "source",
+      "support_planes",
+      "units"
+    ],
+    "sketches": [
+      {
+        "closed_profile_entity_ids": [],
+        "constraints": 0,
+        "entities": [
+          {
+            "construction": false,
+            "fixed": false,
+            "geometry": {
+              "$type": "LineGeometry",
+              "end": {
+                "$type": "Vector2",
+                "x": 6.0,
+                "y": -13.0
+              },
+              "start": {
+                "$type": "Vector2",
+                "x": -11.0,
+                "y": -4.0
+              }
+            },
+            "geometry_type": "LineGeometry",
+            "id": "sldprt:sketch:26:native:6601",
+            "kind": "line",
+            "native_kind": 0
+          },
+          {
+            "construction": false,
+            "fixed": false,
+            "geometry": {
+              "$type": "LineGeometry",
+              "end": {
+                "$type": "Vector2",
+                "x": 21.0,
+                "y": -3.0
+              },
+              "start": {
+                "$type": "Vector2",
+                "x": 6.0,
+                "y": -13.0
+              }
+            },
+            "geometry_type": "LineGeometry",
+            "id": "sldprt:sketch:26:native:6693",
+            "kind": "line",
+            "native_kind": 0
+          },
+          {
+            "construction": false,
+            "fixed": false,
+            "geometry": {
+              "$type": "LineGeometry",
+              "end": {
+                "$type": "Vector2",
+                "x": 18.0,
+                "y": 15.0
+              },
+              "start": {
+                "$type": "Vector2",
+                "x": 21.0,
+                "y": -3.0
+              }
+            },
+            "geometry_type": "LineGeometry",
+            "id": "sldprt:sketch:26:native:6785",
+            "kind": "line",
+            "native_kind": 0
+          },
+          {
+            "construction": false,
+            "fixed": false,
+            "geometry": {
+              "$type": "LineGeometry",
+              "end": {
+                "$type": "Vector2",
+                "x": -4.0,
+                "y": 20.0
+              },
+              "start": {
+                "$type": "Vector2",
+                "x": 18.0,
+                "y": 15.0
+              }
+            },
+            "geometry_type": "LineGeometry",
+            "id": "sldprt:sketch:26:native:6877",
+            "kind": "line",
+            "native_kind": 0
+          },
+          {
+            "construction": false,
+            "fixed": false,
+            "geometry": {
+              "$type": "NativeGeometry",
+              "data": {
+                "coordinates_mm": null,
+                "endpoint_indices": {
+                  "$tuple": [
+                    4,
+                    0
+                  ]
+                },
+                "locus": "05000100",
+                "native_kind": 0,
+                "record_data": {
+                  "$retained_bytes": {
+                    "bytes": 678,
+                    "sha256": "fa6bbd0f1e09a2a52faef71587e5edd19d2ea30c06fdc4d19d2011374196223d"
+                  }
+                }
+              },
+              "entity_type": "spline",
+              "format_id": "solidworks.sldprt"
+            },
+            "geometry_type": "NativeGeometry",
+            "id": "sldprt:sketch:26:native:6969",
+            "kind": "native",
+            "native_kind": 0
+          }
+        ],
+        "id": "sldprt:sketch:26",
+        "name": "Sketch1",
+        "support_plane_id": "sldprt:plane:2"
+      }
+    ],
+    "unresolved_ownership_links": [
+      {
+        "owner": "sldprt:body:1",
+        "relation": "final_feature_backlink",
+        "resolved": false,
+        "target": "sldprt:feature:32"
+      },
+      {
+        "owner": "sldprt:brep:body:derived:1",
+        "relation": "brep_design_body",
+        "resolved": false,
+        "target": ""
+      }
+    ]
+  },
+  "method_sha256": {
+    "CompareSource.py": "34e70899402ce8cd5b369e6649d3d23683b04c7835d780292fd1f19393c997ea",
+    "GraphInventory.py": "63389cb39897ffb85dc5bbf4f7dcf1cbdb60fe21addf5201661efd84455fac4a"
+  },
+  "native_acceptance": "not_established",
+  "native_api": {
+    "bodies": 1,
+    "centre_of_mass_m": [
+      0.005247869154572678,
+      0.003682331260078323,
+      0.0066855
+    ],
+    "depth_m": 0.013371,
+    "document_properties": {
+      "A12bProbe": {
+        "linked": false,
+        "literal": "only this authored literal should differ",
+        "resolved": "only this authored literal should differ",
+        "status": 2,
+        "was_resolved": true
+      }
+    },
+    "expected_document_property": [
+      "A12bProbe",
+      "only this authored literal should differ"
+    ],
+    "sketch_entities": 5,
+    "sketch_relations": 0,
+    "top_level_tree_rows": 19,
+    "tree": [
+      {
+        "name": "Comments",
+        "status": 0,
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "name": "Favorites",
+        "status": 0,
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "name": "History",
+        "status": 0,
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "name": "Selection Sets",
+        "status": 0,
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "name": "Sensors",
+        "status": 0,
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "name": "Design Binder",
+        "status": 0,
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "name": "Annotations",
+        "status": 0,
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "name": "Surface Bodies",
+        "status": 0,
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "name": "Solid Bodies",
+        "status": 0,
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "name": "Lights and Cameras",
+        "status": 0,
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "name": "Markups",
+        "status": 0,
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "name": "Equations",
+        "status": 0,
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "name": "Material <not specified>",
+        "status": 0,
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "name": "Front Plane",
+        "status": 0,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "name": "Top Plane",
+        "status": 0,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "name": "Right Plane",
+        "status": 0,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "name": "Origin",
+        "status": 0,
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "name": "Sketch1",
+        "status": 0,
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "name": "Boss-Extrude1",
+        "status": 0,
+        "suppressed": false,
+        "type": "Extrusion",
+        "warning": false
+      }
+    ],
+    "volume_m3": 9.6739185e-06
+  },
+  "native_authoring_identity": {
+    "build": "34.4.1.1011",
+    "pid": 10836,
+    "revision": "34.4.1",
+    "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+    "started": "windows:134401205929581923"
+  },
+  "native_processes_started": 0,
+  "neutral_sha256": "0717a7bb070d7d8328208ec69227e2a32742f91f541ac4538d9c7a0ac302a697",
+  "portable_complete": false,
+  "recursive_native_comparison": {
+    "native_only_ids": [],
+    "occurrences": 26,
+    "rows": [
+      {
+        "modeled_dependency_witness": null,
+        "name": "Comments",
+        "native_id": 8,
+        "native_type": "CommentsFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:8"
+        ],
+        "sdk_native_types": [
+          "Comments"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Favorites",
+        "native_id": 23,
+        "native_type": "FavoriteFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:23"
+        ],
+        "sdk_native_types": [
+          "Favorites"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "History",
+        "native_id": 24,
+        "native_type": "HistoryFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:24"
+        ],
+        "sdk_native_types": [
+          "History"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Selection Sets",
+        "native_id": 25,
+        "native_type": "SelectionSetFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:25"
+        ],
+        "sdk_native_types": [
+          "Selection Sets"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Sensors",
+        "native_id": 22,
+        "native_type": "SensorFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:22"
+        ],
+        "sdk_native_types": [
+          "Sensors"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Design Binder",
+        "native_id": 7,
+        "native_type": "DocsFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:7"
+        ],
+        "sdk_native_types": [
+          "Design Binder"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Annotations",
+        "native_id": 1,
+        "native_type": "DetailCabinet",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:1"
+        ],
+        "sdk_native_types": [
+          "Annotations"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": false,
+        "name": "Notes",
+        "native_id": 17,
+        "native_type": "NotesAreaFtrFolder",
+        "parent_name": "Annotations",
+        "parent_native_ids": [
+          1
+        ],
+        "sdk_feature_ids": [
+          "sldprt:feature:17"
+        ],
+        "sdk_native_types": [
+          "Notes"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": false,
+        "name": "Notes1___EndTag___",
+        "native_id": 18,
+        "native_type": "NotesAreaFtrFolder",
+        "parent_name": "Annotations",
+        "parent_native_ids": [
+          1
+        ],
+        "sdk_feature_ids": [
+          "sldprt:feature:18"
+        ],
+        "sdk_native_types": [
+          "Notes"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Surface Bodies",
+        "native_id": 10,
+        "native_type": "SurfaceBodyFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:10"
+        ],
+        "sdk_native_types": [
+          "Surface Bodies"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Solid Bodies",
+        "native_id": 9,
+        "native_type": "SolidBodyFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:9"
+        ],
+        "sdk_native_types": [
+          "Solid Bodies"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Lights and Cameras",
+        "native_id": 6,
+        "native_type": "EnvFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:6"
+        ],
+        "sdk_native_types": [
+          "Lights and Cameras"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": false,
+        "name": "Ambient",
+        "native_id": 12,
+        "native_type": "AmbientLight",
+        "parent_name": "Lights and Cameras",
+        "parent_native_ids": [
+          6
+        ],
+        "sdk_feature_ids": [
+          "sldprt:feature:12"
+        ],
+        "sdk_native_types": [
+          "Ambient"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": false,
+        "name": "Directional1",
+        "native_id": 13,
+        "native_type": "DirectionLight",
+        "parent_name": "Lights and Cameras",
+        "parent_native_ids": [
+          6
+        ],
+        "sdk_feature_ids": [
+          "sldprt:feature:13"
+        ],
+        "sdk_native_types": [
+          "Directional"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": false,
+        "name": "Directional2",
+        "native_id": 14,
+        "native_type": "DirectionLight",
+        "parent_name": "Lights and Cameras",
+        "parent_native_ids": [
+          6
+        ],
+        "sdk_feature_ids": [
+          "sldprt:feature:14"
+        ],
+        "sdk_native_types": [
+          "Directional"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": false,
+        "name": "Directional3",
+        "native_id": 15,
+        "native_type": "DirectionLight",
+        "parent_name": "Lights and Cameras",
+        "parent_native_ids": [
+          6
+        ],
+        "sdk_feature_ids": [
+          "sldprt:feature:15"
+        ],
+        "sdk_native_types": [
+          "Directional"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Markups",
+        "native_id": 21,
+        "native_type": "InkMarkupFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:21"
+        ],
+        "sdk_native_types": [
+          "Markups"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Equations",
+        "native_id": 16,
+        "native_type": "EqnFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:16"
+        ],
+        "sdk_native_types": [
+          "Equations"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Material <not specified>",
+        "native_id": 11,
+        "native_type": "MaterialFolder",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:11"
+        ],
+        "sdk_native_types": [
+          "SOLIDWORKS Materials"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Front Plane",
+        "native_id": 2,
+        "native_type": "RefPlane",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:2"
+        ],
+        "sdk_native_types": [
+          "Plane"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Top Plane",
+        "native_id": 3,
+        "native_type": "RefPlane",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:3"
+        ],
+        "sdk_native_types": [
+          "Plane"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Right Plane",
+        "native_id": 4,
+        "native_type": "RefPlane",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:4"
+        ],
+        "sdk_native_types": [
+          "Plane"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Origin",
+        "native_id": 5,
+        "native_type": "OriginProfileFeature",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:5"
+        ],
+        "sdk_native_types": [
+          "Sketch"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Sketch1",
+        "native_id": 26,
+        "native_type": "ProfileFeature",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:26"
+        ],
+        "sdk_native_types": [
+          "Sketch"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": null,
+        "name": "Boss-Extrude1",
+        "native_id": 32,
+        "native_type": "Extrusion",
+        "parent_name": null,
+        "parent_native_ids": [],
+        "sdk_feature_ids": [
+          "sldprt:feature:32"
+        ],
+        "sdk_native_types": [
+          "Extrusion"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      },
+      {
+        "modeled_dependency_witness": true,
+        "name": "Sketch1",
+        "native_id": 26,
+        "native_type": "ProfileFeature",
+        "parent_name": "Boss-Extrude1",
+        "parent_native_ids": [
+          32
+        ],
+        "sdk_feature_ids": [
+          "sldprt:feature:26"
+        ],
+        "sdk_native_types": [
+          "Sketch"
+        ],
+        "type_equivalence": "not_proved_by_identifier_matching"
+      }
+    ],
+    "sdk_only_ids": [
+      19
+    ],
+    "status": "recorded_native_observation",
+    "unique_native_ids": 25
+  },
+  "sample_role": "unqualified_comparison",
+  "schema": "kit.sw2026.native-boss-comparison.v1",
+  "source_bytes": 47899,
+  "source_name": "Prism.SLDPRT",
+  "source_sha256": "fc27be9236f286777726cc2dcc2b38049295b2d52d4375c583ebf3823e49f5f2",
+  "tree_name_comparison": {
+    "native_only": [],
+    "rows": [
+      {
+        "name": "Comments",
+        "native_api_type": "CommentsFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:8",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Comments",
+            "native_class": "moCommentsFolder_c",
+            "native_id": 8,
+            "native_type": "Comments",
+            "operation": null,
+            "order": 0,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Favorites",
+        "native_api_type": "FavoriteFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:23",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Favorites",
+            "native_class": "moFavoriteFolder_c",
+            "native_id": 23,
+            "native_type": "Favorites",
+            "operation": null,
+            "order": 1,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "History",
+        "native_api_type": "HistoryFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:24",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "History",
+            "native_class": "moHistoryFolder_c",
+            "native_id": 24,
+            "native_type": "History",
+            "operation": null,
+            "order": 2,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Selection Sets",
+        "native_api_type": "SelectionSetFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:25",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Selection Sets",
+            "native_class": "moSelectionSetFolder_c",
+            "native_id": 25,
+            "native_type": "Selection Sets",
+            "operation": null,
+            "order": 3,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Sensors",
+        "native_api_type": "SensorFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:22",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Sensors",
+            "native_class": "moSensorFolder_c",
+            "native_id": 22,
+            "native_type": "Sensors",
+            "operation": null,
+            "order": 4,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Design Binder",
+        "native_api_type": "DocsFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:7",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Design Binder",
+            "native_class": "moDocsFolder_c",
+            "native_id": 7,
+            "native_type": "Design Binder",
+            "operation": null,
+            "order": 5,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Annotations",
+        "native_api_type": "DetailCabinet",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:1",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Annotations",
+            "native_class": "moDetailCabinet_c",
+            "native_id": 1,
+            "native_type": "Annotations",
+            "operation": null,
+            "order": 6,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Surface Bodies",
+        "native_api_type": "SurfaceBodyFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:10",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Surface Bodies",
+            "native_class": "moSurfaceBodyFolder_c",
+            "native_id": 10,
+            "native_type": "Surface Bodies",
+            "operation": null,
+            "order": 9,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Solid Bodies",
+        "native_api_type": "SolidBodyFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:9",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Solid Bodies",
+            "native_class": "moSolidBodyFolder_c",
+            "native_id": 9,
+            "native_type": "Solid Bodies",
+            "operation": null,
+            "order": 10,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Lights and Cameras",
+        "native_api_type": "EnvFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:6",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Lights and Cameras",
+            "native_class": "",
+            "native_id": 6,
+            "native_type": "Lights and Cameras",
+            "operation": null,
+            "order": 18,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Markups",
+        "native_api_type": "InkMarkupFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:21",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Markups",
+            "native_class": "moInkMarkupFolder_c",
+            "native_id": 21,
+            "native_type": "Markups",
+            "operation": null,
+            "order": 11,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Equations",
+        "native_api_type": "EqnFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:16",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Equations",
+            "native_class": "moEqnFolder_c",
+            "native_id": 16,
+            "native_type": "Equations",
+            "operation": null,
+            "order": 12,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Material <not specified>",
+        "native_api_type": "MaterialFolder",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:11",
+            "input_feature_ids": [],
+            "kind": "native",
+            "name": "Material <not specified>",
+            "native_class": "moMaterialFolder_c",
+            "native_id": 11,
+            "native_type": "SOLIDWORKS Materials",
+            "operation": null,
+            "order": 13,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Front Plane",
+        "native_api_type": "RefPlane",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:2",
+            "input_feature_ids": [],
+            "kind": "reference",
+            "name": "Front Plane",
+            "native_class": "moRefPlane_c",
+            "native_id": 2,
+            "native_type": "Plane",
+            "operation": null,
+            "order": 14,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Top Plane",
+        "native_api_type": "RefPlane",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:3",
+            "input_feature_ids": [],
+            "kind": "reference",
+            "name": "Top Plane",
+            "native_class": "",
+            "native_id": 3,
+            "native_type": "Plane",
+            "operation": null,
+            "order": 15,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Right Plane",
+        "native_api_type": "RefPlane",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:4",
+            "input_feature_ids": [],
+            "kind": "reference",
+            "name": "Right Plane",
+            "native_class": "",
+            "native_id": 4,
+            "native_type": "Plane",
+            "operation": null,
+            "order": 16,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Origin",
+        "native_api_type": "OriginProfileFeature",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:5",
+            "input_feature_ids": [],
+            "kind": "reference",
+            "name": "Origin",
+            "native_class": "moOriginProfileFeature_c",
+            "native_id": 5,
+            "native_type": "Sketch",
+            "operation": null,
+            "order": 17,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": null,
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Sketch1",
+        "native_api_type": "ProfileFeature",
+        "sdk_rows": [
+          {
+            "definition_length": null,
+            "definition_type": "NativeFeatureDefinition",
+            "id": "sldprt:feature:26",
+            "input_feature_ids": [
+              "sldprt:feature:2"
+            ],
+            "kind": "reference",
+            "name": "Sketch1",
+            "native_class": "moProfileFeature_c",
+            "native_id": 26,
+            "native_type": "Sketch",
+            "operation": null,
+            "order": 24,
+            "output_body_ids": [],
+            "parameter_ids": [],
+            "sketch_id": "sldprt:sketch:26",
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      },
+      {
+        "name": "Boss-Extrude1",
+        "native_api_type": "Extrusion",
+        "sdk_rows": [
+          {
+            "definition_length": {
+              "$type": "ParameterValue",
+              "kind": {
+                "$enum": "ValueKind",
+                "value": "length"
+              },
+              "unit": "mm",
+              "value": 13.37
+            },
+            "definition_type": "ExtrusionFeature",
+            "id": "sldprt:feature:32",
+            "input_feature_ids": [
+              "sldprt:feature:26"
+            ],
+            "kind": "extrusion",
+            "name": "Boss-Extrude1",
+            "native_class": null,
+            "native_id": 32,
+            "native_type": "Extrusion",
+            "operation": "join",
+            "order": 25,
+            "output_body_ids": [],
+            "parameter_ids": [
+              "sldprt:parameter:32:D1"
+            ],
+            "sketch_id": "sldprt:sketch:26",
+            "suppressed": false
+          }
+        ],
+        "type_equivalence": "not_proved_by_name_matching",
+        "unique_name_match": true
+      }
+    ],
+    "sdk_only": [
+      "Notes",
+      "Notes1___EndTag___",
+      "Ambient",
+      "Directional1",
+      "Directional2",
+      "Directional3",
+      "Exploded Views 19"
+    ]
+  },
+  "unresolved_requirements": [
+    "native_driving_depth_not_preserved",
+    "native_property_scope_unqualified",
+    "retained_native_payloads_require_typed_ownership",
+    "typed_body_or_graph_ownership_incomplete",
+    "native_feature_definitions_require_format_rules",
+    "closed_profile_binding_unavailable",
+    "opaque_sketch_geometry",
+    "native_and_neutral_tree_views_require_explicit_presence_and_owner_mapping"
+  ],
+  "vendor_loadable": false
+}
