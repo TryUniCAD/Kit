@@ -1,0 +1,115 @@
+{
+  "candidate": {
+    "archive": {
+      "bytes": 9390,
+      "path": "reconstruction.SLDPRT",
+      "sha256": "3ab3578b5a67f9c131b8744ab1c39de3799de2c7cdcf254cc62c956dc75213ba"
+    },
+    "native_locator": "C:\\KitA12bResearch\\reconstruction.SLDPRT",
+    "request_sha256": "d170becd392602a8ebbbb9c882dad887ea905304553aeaf9e0022f385e5b8411",
+    "schema": "kit.sw2026.top-annotation-measurement-input.v1",
+    "stage": "awaiting_native_measurement",
+    "streams": {
+      "Contents/CMgr": [
+        1145,
+        "f3b11cbf30380b28fc7c0ae1c8bd08009d58e88a1720833bea0b59853508145a"
+      ],
+      "Contents/CMgrHdr2": [
+        169,
+        "aa8869aeb4e007d267727bd03b46ce0a9a97a18a03a8e40f0b233bad97ea2a86"
+      ],
+      "Contents/Config-0": [
+        22540,
+        "1f68e960008d422d7e9d59f5c489a50dfe07a99d8c2d88ff6ee52ec69da8e104"
+      ],
+      "Contents/Config-0-ModelHeader": [
+        641,
+        "ebfad394582cc72498d317115e063558acf198ab2671f9ae0dfa98ca8329d39d"
+      ],
+      "Contents/Config-0-ResolvedFeatures": [
+        13867,
+        "72bd9d98db52a4b282dbf81f17f4ed37609297c9a8c48de303897e228b20b523"
+      ],
+      "Contents/Definition": [
+        459,
+        "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      ],
+      "Header2": [
+        641,
+        "6e9395e33980955f6bb753b9b24cae842c8652dca7e2d0a6727091b3bcfee250"
+      ],
+      "_MO_VERSION_19000/Biography": [
+        23,
+        "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      ],
+      "_MO_VERSION_19000/History": [
+        187,
+        "f4131f5d7fbf41459585b8dbeadf6bc8d56f62150598bc1a9817b505a0329b0c"
+      ],
+      "swXmlContents/KeyWords": [
+        1426,
+        "9d9e86773e73583a283afea01887b329a6e1a99f36e2ad9fd3d5037113411b71"
+      ]
+    },
+    "typed_readback": {
+      "annotation_id": 200,
+      "config_next_slot": 89,
+      "configuration_id": "sldprt:configuration:0",
+      "display_high_water": 200,
+      "independent_view_seed": 199,
+      "matrix_binary64": [
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0"
+      ],
+      "resolved_base": 89,
+      "resolved_next_slot": 204,
+      "resolved_roots": 19,
+      "role": "top"
+    },
+    "written_at": 1785626030
+  },
+  "candidate_manifest_sha256": "4052c1486f752c3c06a9205858cc2929943ff41fccac4ebdb0c54eb4c939b72e",
+  "changed_streams": [
+    "Contents/Config-0",
+    "Contents/Config-0-ResolvedFeatures"
+  ],
+  "exact_child_processes": 2,
+  "plain_archive_sha256": "4ba958ae19a16f7a6690a84a12ae27d1987df1b0ef0de347d6e8fbc34b301d5c",
+  "plain_config_next_slot": 87,
+  "replay": [
+    "python",
+    "re/solidworks/WriterResearch/VerifyTopAnnotationCandidate.py",
+    "--scratch",
+    "<fresh directory>"
+  ],
+  "replay_sha256": "015c8a8052175558340d68d5ebb59a4d2ce1b865e5fdb249b1c7cee70aceda28",
+  "runtime": {
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "system": "Windows",
+    "zlib": "1.3.1.zlib-ng"
+  },
+  "sdk_depth_mm": 14.31,
+  "sdk_volume_mm3": 7584.3,
+  "strict_sdk_archive_relocations": {
+    "compact_class_tags": 13,
+    "owner_indexes": 17,
+    "retained_records": 4
+  },
+  "strict_sdk_fields_compared": [
+    "configurations",
+    "parameters",
+    "support_planes",
+    "sketches",
+    "feature_timeline",
+    "bodies",
+    "brep"
+  ]
+}
