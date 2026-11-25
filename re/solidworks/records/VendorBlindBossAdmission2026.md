@@ -98,6 +98,42 @@ SHA-256 `0de0b983f46e1a0a2553efd192f916b13227b23a95a62b806e1795a7fa8ff3f1`.
 No vendor-authored part received source admission or a writer receipt in
 this comparison.
 
+## Writer boundary
+
+The exact Author04 baseline contains 36 clear streams. The previously
+measured Kit cold reconstruction with SHA-256
+`0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9`
+contains ten, all present under the same names in the vendor source. The 26
+vendor-only streams include the active partition, text and configuration
+owners, lightweight and display data, PMI database, VisualStates, embedded
+object information, previews and XML metadata. The stream count and list
+alone give no grounds for omitting any of them from a claimed lossless
+vendor-source round trip. Establish which independently regenerate, which
+encode authored state, and which remain unsupported before changing source
+admission.
+
+## PMI and exchange records
+
+The newer [object exchange](../../../Documentation/Changes/Research/Writers/SolidWorks/Metadata/SolidWorksObjectExchange.md),
+[configuration exchange](../../../Documentation/Changes/Research/Writers/SolidWorks/Metadata/SolidWorksConfigurationExchange.md),
+and [PMI](../../../Documentation/Changes/Research/Writers/SolidWorks/Metadata/SolidWorksPmiDatabase.md)
+research notes cover the measured rectangular scope. The three 12,288-byte
+database members in each Discovery02 save opened through a read-only
+[UnQLite](https://unqlite.symisc.net/downloads.html) 1.1.4 cursor. This
+independent observer completed 15 scans with no changes to any input bytes.
+It found six object exchange rows, one configuration row and one PMI row per
+source. The PMI value was 382 bytes in all five cases.
+
+The independently reopened API driving depth and the existing pure
+`AnnotationRecord` and `PackExchange` functions reproduced all five PMI
+values byte-for-byte. The complete payload used `D1@Boss-Extrude1`, visual
+index `0` and the `Prism.SLDPRT` component reference. The shorter unscoped
+record and the earlier constrained-rectangle driver name `depth_mm` both
+differed. All five saved PMI rows used the full reference, including the
+warmed pair with an initialized self locator. Source admission should verify
+the actual PMI reference form and owner. The existing rectangle `EncodePmiDb`
+requires two or three annotation rows and has not been extended here.
+
 ## Warmed save control
 
 Discovery02 used the same saved title and initialized self locator for both
@@ -109,3 +145,18 @@ partition differed even though both `ResolvedFeatures` and `Definition`
 remained byte-identical. `CusProps` and `docProps/custom.xml` changed only
 in the custom-text contrast. These exact comparisons identify streams to
 investigate before declaring cache ownership.
+
+The paired stream decoder reported a changed active packet and a changed
+delta packet between the two no-op files. Both recovered the same logical
+rollback marks `7` and `3`. The active graph had 199 nodes before and 203
+after. Public B-rep records used different geometry and topology IDs, so
+the decoded graphs did not compare equal as records even with the native
+geometry measurements equal. The no-op pair requires a comparison of the
+proven graph correspondences. The custom-text file and the second no-op
+file had equal decoded B-reps while four typed kernel nodes remained
+different. Geometry equality alone cannot qualify the source.
+
+The [source contrast record](../measurements/2026/VendorBossCorpus/SourceContrasts.json)
+binds both control batches, the native identity and normal exits. The
+[capture command](../../../Documentation/Changes/Research/Solidworks/VendorBossCorpusContrasts.md)
+describes the controls and held-out custody.
