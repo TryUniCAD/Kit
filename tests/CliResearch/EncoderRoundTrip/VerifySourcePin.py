@@ -57,6 +57,8 @@ def VerifySourcePin(
             {"sha256": NeutralHash, "bytes": len(NeutralBytes)}
         )
         Identity = {FieldName: Manifest[FieldName] for FieldName in KIdentityFields}
+        if Manifest["schema"] == 2:
+            Identity["writer_input_sha256"] = Manifest["writer_input_sha256"]
         IdentityBytes = (
             EncodeJson(
                 Identity,

@@ -12,6 +12,7 @@ import zlib
 from ApplicationWorkers.ApplicationProtocol import exclusive_rename, sync_directory
 from Corpus import git
 from EncoderRoundTrip.Artifacts import (
+    DOCUMENT_LIMIT,
     NATIVE_LIMIT,
     absolute,
     canonical_json,
@@ -20,7 +21,7 @@ from EncoderRoundTrip.Artifacts import (
     require_directory,
     write_artifact,
 )
-from EncoderRoundTrip.Source import decode_document
+from EncoderRoundTrip.Source import decode_document, decode_writer_input, encode_writer_input
 from NativeAcceptance.Records import ReadBytes
 
 
@@ -29,6 +30,7 @@ APPLICATIONS = {
     "fusion": ("fusion.f3d", ".f3d", "EncoderRoundTrip.Fusion"),
 }
 ROLES = ("reconstruction", "edited")
+WRITER_INPUT_HASHES = "writer_input_sha256"
 WRITTEN_AT = 1767225600
 LOCATOR_ROOT = PureWindowsPath(r"C:\KitEncoderRoundTrip")
 SDK_INPUT_SUFFIXES = {".py", ".json", ".xz"}
@@ -110,18 +112,47 @@ def _read_source(source, format_id, suffix, directory):
         return None, {**evidence, **_error(error, "failed", stage, started)}
 
 
+def writer_input_name(role):
+    return role + "-writer-input.json"
+
+
 def _candidate(document, edit, locator, module_name, directory, reconstruction_sha256=None):
     started = perf_counter_ns()
     stage = "load_generator"
+    evidence = {}
     try:
         try:
-            generator = import_module(module_name).generate_candidate
+            adapter = import_module(module_name)
         except ModuleNotFoundError as error:
             if error.name != module_name:
                 raise
             raise ValueError(f"candidate generator unavailable: {module_name}") from error
-        stage = "generate_candidate"
-        payload = generator(document, edit, native_locator=str(locator), written_at=WRITTEN_AT)
+        settings = {"native_locator": str(locator), "written_at": WRITTEN_AT}
+        prepare = getattr(adapter, "prepare_generation_input", None)
+        emit = getattr(adapter, "generate_prepared_candidate", None)
+        if prepare is None and emit is None:
+            stage = "generate_candidate"
+            payload = adapter.generate_candidate(document, edit, **settings)
+        else:
+            if not callable(prepare) or not callable(emit):
+                raise TypeError("candidate adapter must provide both prepared writer hooks")
+            stage = "prepare_writer_input"
+            prepared = prepare(document, edit, **settings)
+            stage = "validate_writer_input"
+            encoded = encode_writer_input(prepared)
+            stage = "persist_writer_input"
+            name = writer_input_name(locator.stem)
+            artifact = write_artifact(directory, name, encoded)
+            persisted = ReadBytes(directory / name, DOCUMENT_LIMIT)
+            if len(persisted) != artifact["bytes"] or digest(persisted) != artifact["sha256"]:
+                raise ValueError("prepared writer document changed after persistence")
+            evidence["writer_input"] = artifact
+            stage = "validate_writer_input"
+            prepared = decode_writer_input(
+                persisted, document.source.format_id, document.source.sha256
+            )
+            stage = "generate_candidate"
+            payload = emit(prepared, **settings)
         stage = "validate_candidate"
         if type(payload) is not bytes or not 1 <= len(payload) <= NATIVE_LIMIT:
             raise TypeError("candidate generator must return one nonempty native byte payload of at most 256 MiB")
@@ -129,12 +160,20 @@ def _candidate(document, edit, locator, module_name, directory, reconstruction_s
         if payload_sha256 == reconstruction_sha256:
             raise ValueError("edited candidate equals the reconstruction bytes")
     except ValueError as error:
-        status = "unsupported" if stage != "validate_candidate" else "failed"
-        return _error(error, status, stage, started)
+        if stage == "persist_writer_input":
+            raise
+        unsupported = stage in ("load_generator", "prepare_writer_input", "generate_candidate")
+        status = "unsupported" if unsupported else "failed"
+        return {**evidence, **_error(error, status, stage, started)}
+    except OSError as error:
+        if stage == "persist_writer_input":
+            raise
+        return {**evidence, **_error(error, "failed", stage, started)}
     except Exception as error:
-        return _error(error, "failed", stage, started)
+        return {**evidence, **_error(error, "failed", stage, started)}
     artifact = write_artifact(directory, locator.name, payload)
     return {
+        **evidence,
         "status": "awaiting_native",
         "artifact": artifact,
         "elapsed_ns": perf_counter_ns() - started,
@@ -182,8 +221,12 @@ def _runtime_identity(application):
 
 
 def _identity(checkout, application, source, candidates, edit, locators):
+    writer_hashes = {
+        role: candidates[role].get("writer_input", {}).get("sha256") for role in ROLES
+    }
+    has_writer_inputs = any(writer_hashes.values())
     return {
-        "schema": 1,
+        "schema": 2 if has_writer_inputs else 1,
         "application": application,
         **checkout,
         "runtime": _runtime_identity(application),
@@ -195,6 +238,7 @@ def _identity(checkout, application, source, candidates, edit, locators):
         "edit": edit,
         "written_at": WRITTEN_AT,
         "native_locators": {role: str(locators[role]) for role in ROLES},
+        **({WRITER_INPUT_HASHES: writer_hashes} if has_writer_inputs else {}),
     }
 
 

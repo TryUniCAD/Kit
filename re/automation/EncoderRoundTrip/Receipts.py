@@ -9,10 +9,12 @@ from EncoderRoundTrip.Artifacts import (
     absolute,
     canonical_json,
     digest,
+    exists,
     read_record,
     require_directory,
 )
-from EncoderRoundTrip.Pipeline import APPLICATIONS, IDENTITY_FIELDS, ROLES
+from EncoderRoundTrip.Pipeline import APPLICATIONS, IDENTITY_FIELDS, ROLES, WRITER_INPUT_HASHES, writer_input_name
+from EncoderRoundTrip.Source import decode_writer_input
 from NativeAcceptance.CompareDocument import SameValues
 from NativeAcceptance.Records import ReadBytes
 from NativeAcceptance.VerifyBatch import CheckMeasurement
@@ -45,12 +47,47 @@ def _check_neutral_source(payload, format_id, source_sha256):
         raise ValueError("round-trip neutral document source does not match the manifest")
 
 
+def _writer_hashes(manifest):
+    if manifest["schema"] == 1:
+        if WRITER_INPUT_HASHES in manifest:
+            raise ValueError("legacy round-trip manifest cannot declare writer inputs")
+        return dict.fromkeys(ROLES)
+    hashes = manifest.get(WRITER_INPUT_HASHES)
+    if (
+        not isinstance(hashes, dict)
+        or set(hashes) != set(ROLES)
+        or not any(hashes.values())
+        or any(value is not None and not _sha(value) for value in hashes.values())
+    ):
+        raise ValueError("round-trip manifest has invalid writer input digests")
+    return hashes
+
+
+def _check_writer_inputs(output, manifest, hashes, format_id):
+    for role, expected in hashes.items():
+        name = writer_input_name(role)
+        if expected is None:
+            if "writer_input" in manifest[role] or exists(output / name):
+                raise ValueError(f"round-trip role {role} has an undeclared writer input")
+            if manifest["schema"] == 2 and manifest[role]["status"] == "awaiting_native":
+                raise ValueError(f"round-trip role {role} is missing its declared writer input")
+            continue
+        artifact = manifest[role].get("writer_input")
+        if not isinstance(artifact, dict):
+            raise ValueError(f"round-trip role {role} is missing its declared writer input")
+        payload = _check_artifact(output, name, artifact, expected, DOCUMENT_LIMIT)
+        decode_writer_input(payload, format_id, manifest["source_sha256"])
+
+
 def _load_run(output, role):
     try:
         manifest = read_record(ReadBytes(output / "manifest.json", RECORD_LIMIT))
-        if type(manifest["schema"]) is not int or manifest["schema"] != 1:
+        if type(manifest["schema"]) is not int or manifest["schema"] not in (1, 2):
             raise ValueError("unsupported round-trip manifest schema")
+        writer_hashes = _writer_hashes(manifest)
         identity = {field: manifest[field] for field in IDENTITY_FIELDS}
+        if manifest["schema"] == 2:
+            identity[WRITER_INPUT_HASHES] = writer_hashes
         if manifest["run_fingerprint"] != digest(canonical_json(identity)):
             raise ValueError("round-trip manifest fingerprint mismatch")
         if manifest["source"]["status"] != "decoded" or manifest[role]["status"] != "awaiting_native":
@@ -60,6 +97,7 @@ def _load_run(output, role):
         format_id, suffix, _ = APPLICATIONS[manifest["application"]]
         neutral = _check_artifact(output, "document.json", manifest["source"]["neutral"], manifest["neutral_sha256"], DOCUMENT_LIMIT)
         _check_neutral_source(neutral, format_id, manifest["source_sha256"])
+        _check_writer_inputs(output, manifest, writer_hashes, format_id)
         candidate = _check_artifact(output, role + suffix, manifest[role]["artifact"], manifest["candidate_sha256"][role], NATIVE_LIMIT)
         return manifest, candidate
     except (AttributeError, KeyError, TypeError) as error:

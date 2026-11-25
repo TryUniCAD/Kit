@@ -10,6 +10,12 @@ Runtime identity includes the interpreter, platform, architecture, zlib, and Fus
 Format adapters receive the neutral document and the requested bounded edit.
 The source, reconstruction, and edited candidate retain separate statuses.
 
+For eligible SOLIDWORKS roles, the adapter uses the source archive only to qualify the source.
+It then builds a typed writer input for each role.
+The runner writes `<role>-writer-input.json` and reloads that file before it writes the candidate.
+The `writer_input` record for each role gives the relative path, SHA-256 digest, and byte count.
+Manifest schema `2` includes a `writer_input_sha256` map keyed by role and binds that map into the run fingerprint.
+
 The pipeline uses deterministic local code.
 It has no model provider option or runtime model call.
 Its manifest records `models_used: false`.
@@ -43,6 +49,28 @@ The reconstruction and edited candidate use distinct native filenames.
 The recorded native locator and fixed timestamp participate in deterministic candidate generation.
 For identical fingerprints across output directories, pass the same absolute Windows directory with `--native-locator-directory`.
 
+### Replay a SOLIDWORKS writer input
+
+Keep the original source archive with `document.json` to repeat source qualification.
+To regenerate a single candidate, use its `<role>-writer-input.json` with the checkout and runtime recorded in the manifest.
+Read `native_locators[role]` and `written_at` from the same manifest.
+Choose an unused scratch directory.
+This example replays the edited role with a fixed native locator.
+
+```sh
+python -I -B /absolute/KitResearch/re/tooling/sw2026/PreparePlainPartEvidence.py \
+  --neutral /absolute/RoundTrip/edited-writer-input.json \
+  --native-locator 'C:\KitEncoderRoundTrip\edited.SLDPRT' \
+  --written-at 1767225600 --scratch /absolute/FreshReplay
+```
+
+The preparer opens the typed writer input in a fresh process.
+It generates `edited.SLDPRT` and records its SHA-256 digest in `Candidate.json`.
+Compare that digest with `candidate_sha256.edited` in the round-trip manifest.
+If the digests differ, check the exact locator, epoch, SDK revision, and compression runtime before using the replay.
+
+### Attach native measurement evidence
+
 Attach independently collected native evidence to the corresponding candidate.
 The importer checks the receipt's bindings before it retains the evidence.
 
@@ -58,6 +86,7 @@ It also requires a candidate observation and before-and-after observations of on
 All observations must report one application build and distinct positive process identifiers.
 Each observation uses the existing native measurement record contract.
 The importer rechecks the persisted neutral and candidate bytes against their manifest digests.
+It accepts earlier schema `1` run manifests and schema `2` manifests with writer-input evidence.
 It retains an accepted receipt as `<role>-receipt.json` without modifying the manifest.
 An identical attachment is idempotent.
 A different receipt for an occupied role is refused.
@@ -69,7 +98,7 @@ The response records `measurement_status: exact_sdk_candidate_bound` and supplie
 Pass the unchanged envelope as `values["solidworks_native_measurement"]` when publishing a complete strict cold readback of that candidate.
 Use the exact measured locator for the destination.
 
-Keep the source and candidate files with their manifest and receipts.
+Keep the source, typed writer inputs, and candidate files with their manifest and receipts.
 Follow the [deterministic research procedure](../../../Tasks/ResearchCommandLine.md) for the existing entry points.
 
 ## Limits and acceptance
@@ -94,6 +123,11 @@ Required evidence includes fresh-process loading, healthy controls, rebuild resu
 This change does not complete the production conversion roadmap.
 
 ## Verification
+
+Verification of writer-input persistence and replay is pending on this revision.
+The replay check must generate both SOLIDWORKS roles in independent processes using their saved writer inputs, locators, and epoch.
+Each replay must reproduce the archived candidate and its recorded digest.
+Use the existing native measurements to qualify candidates through the separate exact SDK receipt gate.
 
 Installed CLI process coverage lives in `tests/CliResearch/EncoderRoundTrip/`.
 It covers malformed native input, blocked candidates, disabled models, invalid driving values, occupied destinations, and preservation of settled outcomes.

@@ -6,7 +6,9 @@ from sys import executable as PythonExec
 
 from tests.CliResearch.EncoderRoundTrip.RunEncoder import RunEncoder
 from tests.CliResearch.EncoderRoundTrip.VerifyOverflow import VerifyOverflow
+from tests.CliResearch.EncoderRoundTrip.VerifyReplay import VerifyReplay
 from tests.CliResearch.EncoderRoundTrip.VerifySourcePin import VerifySourcePin
+from tests.CliResearch.EncoderRoundTrip.VerifyWriterPin import VerifyWriterPin
 from tests.CliResearch.ResearchClient import ResearchCli
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
@@ -146,3 +148,5 @@ def CheckSdkReceipt(TmpPath: FilePath) -> None:
     VerifyEnvelope(TmpPath, OutputPath, InputsPath)
     VerifyOverflow(TmpPath, OutputPath, InputsPath)
     VerifySourcePin(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json")
+    VerifyWriterPin(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json")
+    VerifyReplay(TmpPath, RootPath, OutputPath, SourcePath)
