@@ -29,6 +29,8 @@ The four previously measured cases each passed through the registry and direct w
 All eight successful writes matched their exact measured archive bytes.
 Eight changed executable identities and sixteen oversized numeric observations refused publication without changing caller streams.
 Runtime external-access attempts and native launches were both zero.
+After integration with the focused signed validator, the process check passed in 8.65 seconds at revision `b0023ba4e4`.
+The checked public writer behavior and all eight measured archive digests remained unchanged.
 
 ## Limits
 

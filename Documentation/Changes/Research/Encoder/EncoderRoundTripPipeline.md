@@ -130,13 +130,13 @@ This change does not complete the production conversion roadmap.
 
 ## Verification
 
-Verification of writer-input persistence and replay is pending on this revision.
-The replay check must generate both SOLIDWORKS roles in independent processes using their saved writer inputs, locators, and epoch.
-Each replay must reproduce the archived candidate and its recorded digest.
-Receipt attachment verification must also cover a replacement writer input whose manifest digests have been recalculated.
-The attachment must refuse the replacement if it regenerates different native bytes.
+The final installed-wheel suite passed all fourteen cases in 333.17 seconds at revision `a99e9561ea`.
+The physically separate research checkout used that same revision with Python 3.14.6.
+The replay check removed its test-owned native source before generating both SOLIDWORKS roles in independent processes from their saved writer inputs, locators, and epoch.
+Both replays reproduced the archived candidates and recorded digests, and exact receipt attachment succeeded with the source still absent.
+Receipt intake refused replacement writer inputs with recalculated custody hashes when their generated native bytes differed.
 An isolated CLI check attached a genuine receipt to schema `2` and schema `1` runs.
-Both role substitutions were refused after their writer hashes and run fingerprints were recomputed.
+The role and depth substitutions were refused after their writer hashes and run fingerprints were recomputed.
 The refusals preserved all package files.
 Use the existing native measurements to qualify candidates through the separate exact SDK receipt gate.
 
@@ -185,7 +185,8 @@ A normal retry to the same output returned incomplete exit `3` on the shared-onl
 The retry retained the same neutral JSON digest.
 The process observation used SDK revision `82339a9892238ab3f0dcf841bd2295a6f54008a9` with the shared provenance changes present.
 It establishes interrupted publication and retry behavior, with native qualification unchanged.
-Remote process results, current-revision CI, configured review, and merge-group acceptance remain pending.
+Current-revision remote CI and configured review remain pending.
+Merge-group acceptance is deferred until an administrator authorizes queue enrollment.
 Complete native acceptance remains unmeasured by this shared package.
 Documentation was inspected as source.
 Rendered usability and complete language conformance remain unverified.

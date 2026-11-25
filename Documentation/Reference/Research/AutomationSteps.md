@@ -18,7 +18,7 @@ PR #158 is closed. Its retained programme requirements and evidence remain the b
 | ---- | ------------------------------------------------------------- | ----------------------- | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | A11c | Qualified cuboid JSON reconstruction and extrusion-depth edit | Codex Fusion worker     | A05, A06, qualified public Fusion writer, A14 | checking | Generated candidates pass deterministic process checks and independent native open, edit, rebuild, save, and reopen measurements.             |
 | A12a | Bounded line-loop boss JSON reconstruction and depth edit     | Codex SOLIDWORKS worker | A04, A06, measured part writer, A14           | checking | Held-out candidates pass native measurements and the public SDK publishes bytes bound to a valid exact-build receipt.                         |
-| A13a | Shared encoder jobs and receipt handling                      | Codex shared worker     | A03, A11c, A12a, A14                          | active   | The existing research CLI generates both formats, preserves evidence through retries, and distinguishes generation from native qualification. |
+| A13a | Shared encoder jobs and receipt handling                      | Codex shared worker     | A03, A11c, A12a, A14                          | checking | The existing research CLI generates both formats, preserves evidence through retries, and distinguishes generation from native qualification. |
 
 The SOLIDWORKS starting scope is a qualified cold part or supported authored graph.
 Ordinary vendor partition layouts still need reader semantics before they can enter this path.
