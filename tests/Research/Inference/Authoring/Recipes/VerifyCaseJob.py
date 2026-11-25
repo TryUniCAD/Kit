@@ -33,7 +33,9 @@ def VerifyCaseJob(
         Prefix, _, Index = ArtifactRole.partition(".")
         assert Prefix == "bundle" and Index.isdecimal()
         Position = int(Index)
-        assert 0 <= Position < len(BoundSamples) and ArtifactRole == f"bundle.{Position}"
+        assert (
+            0 <= Position < len(BoundSamples) and ArtifactRole == f"bundle.{Position}"
+        )
         Member = ReadObject(BoundSamples[Position])
         assert Member["sample"] == Identity
         assert Member["case"] == {
