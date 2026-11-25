@@ -116,24 +116,38 @@ def _verify_prepared_candidate(emit, prepared, manifest, role, suffix, candidate
 
 def _check_writer_inputs(output, manifest, hashes, application, selected_role):
     format_id, suffix, module_name = application
-    emit = _prepared_emitter(module_name) if manifest["schema"] == 2 else None
+    prepared_run = manifest["schema"] == 2
+    emit = _prepared_emitter(module_name) if prepared_run else None
     selected_candidate = None
     for role in ROLES:
+        outcome = manifest[role]
+        status = outcome["status"] if prepared_run else None
+        if prepared_run and status not in ("awaiting_native", "failed", "unsupported", "blocked"):
+            raise ValueError(f"round-trip role {role} has an invalid writer outcome")
+        if prepared_run and status != "awaiting_native" and (
+            manifest["candidate_sha256"][role] is not None
+            or "artifact" in outcome
+            or exists(output / (role + suffix))
+        ):
+            raise ValueError(f"round-trip role {role} has a candidate despite its failed generation")
+
         expected = hashes[role]
         name = writer_input_name(role)
         if expected is None:
-            if "writer_input" in manifest[role] or exists(output / name):
+            if "writer_input" in outcome or exists(output / name):
                 raise ValueError(f"round-trip role {role} has an undeclared writer input")
-            if manifest["schema"] == 2 and manifest[role]["status"] == "awaiting_native":
+            if status == "awaiting_native":
                 raise ValueError(f"round-trip role {role} is missing its declared writer input")
             continue
-        artifact = manifest[role].get("writer_input")
+        artifact = outcome.get("writer_input")
         if not isinstance(artifact, dict):
             raise ValueError(f"round-trip role {role} is missing its declared writer input")
         payload = _check_artifact(output, name, artifact, expected, DOCUMENT_LIMIT)
         prepared = decode_writer_input(payload, format_id, manifest["source_sha256"])
-        if manifest[role]["status"] != "awaiting_native":
-            raise ValueError(f"round-trip role {role} has a writer input without a generated candidate")
+        if status in ("failed", "unsupported"):
+            continue
+        if status != "awaiting_native":
+            raise ValueError(f"round-trip role {role} has a writer input with an invalid status")
         candidate = _check_candidate(output, manifest, role, suffix)
         _verify_prepared_candidate(emit, prepared, manifest, role, suffix, candidate)
         if role == selected_role:
