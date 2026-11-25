@@ -351,7 +351,9 @@ jobs:
             echo "research=true" >> "$GITHUB_OUTPUT"
           fi
           if grep --quiet '^tests/Research/Inference/' "${RUNNER_TEMP}/ShardTests.txt"; then
-            echo "inference=true" >> "$GITHUB_OUTPUT"
+            echo "research_group=dev" >> "$GITHUB_OUTPUT"
+          elif grep --extended-regexp --quiet '^tests/CliResearch/(FileScopeTests|ScopeLayerTests)\.py::' "${RUNNER_TEMP}/ShardTests.txt"; then
+            echo "research_group=codec-promotion" >> "$GITHUB_OUTPUT"
           fi
           if grep --extended-regexp --quiet '^tests/(CliResearch/|Research/(Archives/|Inference/|Outputs/Ci|CorpusFlowTests|CaptureLineageFlowTests|Reader|FusionReader))' "${RUNNER_TEMP}/ShardTests.txt"; then
             echo "lineage=true" >> "$GITHUB_OUTPUT"
@@ -367,9 +369,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Synchronize locked dependencies for inference shards
-        if: steps.selection.outputs.inference == 'true'
-        run: uv sync --frozen --no-default-groups --extra dev --group dev --python 3.14 --compile-bytecode
+      - name: Synchronize locked dependencies for research shards
+        if: steps.selection.outputs.research_group != ''
+        env:
+          RESEARCH_GROUP: ${{ steps.selection.outputs.research_group }}
+        run: uv sync --frozen --no-default-groups --extra dev --group "$RESEARCH_GROUP" --python 3.14 --compile-bytecode
 
       - name: Hydrate sealed original inputs for research shards
         if: steps.selection.outputs.lineage == 'true'

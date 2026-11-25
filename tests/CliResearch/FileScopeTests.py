@@ -1,5 +1,6 @@
 from tests.CliResearch.Reports.ReversalEvidence import VerifyReversal
 from tests.CliResearch.Reports.ManifestEvidence import VerifyManifest
+from tests.CliResearch.Reports.ScopeEvidence import VerifyScopePins
 from hashlib import file_digest as FileDigest
 from json import loads as LoadJson
 from pathlib import Path as FilePath
@@ -43,9 +44,7 @@ def CheckFileScope(TmpPath: FilePath) -> None:
     )
     assert Result.returncode == 2, Result.stderr
     Audit = LoadJson((RunPath / "FileScope.json").read_bytes())
-    with InputPath.open("rb") as Stream:
-        assert Audit["source_sha256"] == FileDigest(Stream, "sha256").hexdigest()
-    assert (Audit["feature_layer"], Audit["provenance_layer"]) == ("partial", "partial")
+    VerifyScopePins(InputPath, Audit)
     assert Audit["member_count"] > 0 and Audit["unattributed_stream_ranges"]
     assert "family:extrude:cut-extrude" in Audit["selected_experiments"]
     assert "rRecipe" in Audit["native_classes"]["classes"][
