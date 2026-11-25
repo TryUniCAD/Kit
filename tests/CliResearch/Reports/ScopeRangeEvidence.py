@@ -3,43 +3,21 @@ from json import loads as LoadJson
 from pathlib import Path as FilePath
 from zipfile import ZipFile as ArchiveFile
 
-
-# the object hook marks cited bytes directly without reconstructing the reported gaps
-def MarkCitedMut(
-    Coverage: dict[str, bytearray], Fields: dict[str, object]
-) -> dict[str, object]:
-    if Fields.get("$type") != "ProvenanceSpan":
-        return Fields
-    StreamName, StartPos, SpanSize = (
-        Fields.get("stream"),
-        Fields.get("offset"),
-        Fields.get("length"),
-    )
-    if (
-        isinstance(StreamName, str)
-        and StreamName in Coverage
-        and type(StartPos) is int
-        and type(SpanSize) is int
-    ):
-        EndPos = StartPos + SpanSize
-        if 0 <= StartPos < EndPos <= len(Coverage[StreamName]):
-            Coverage[StreamName][StartPos:EndPos] = b"\x01" * SpanSize
-    return Fields
+from tests.CliResearch.Reports.ScopeSpanEvidence import MarkCitedMut
 
 
 # each known member must be covered by disjoint cited bytes and maximal reported gaps
 def VerifyFileGaps(
     SourcePath: FilePath,
     PartialPath: FilePath,
-    MemberSizes: dict[str, int],
+    MemberSizes: list[tuple[str, int]],
     Ranges: list[list[object]],
 ) -> None:
     with ArchiveFile(SourcePath) as Archive:
-        Coverage = {
-            Member.filename: bytearray(Member.file_size)
-            for Member in Archive.infolist()
-        }
-    assert MemberSizes == {
+        RawMembers = Archive.infolist()
+    Coverage = {Member.filename: bytearray(Member.file_size) for Member in RawMembers}
+    assert len(RawMembers) == len(Coverage) == len(MemberSizes)
+    assert dict(MemberSizes) == {
         StreamName: len(MemberBytes) for StreamName, MemberBytes in Coverage.items()
     }
     _ = LoadJson(PartialPath.read_bytes(), object_hook=BindArgs(MarkCitedMut, Coverage))
