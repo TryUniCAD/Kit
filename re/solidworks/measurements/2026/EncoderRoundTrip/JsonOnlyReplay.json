@@ -1,0 +1,62 @@
+{
+  "exact_measured_runtime": true,
+  "fresh_processes": 4,
+  "method_sha256": "379bd7d89572cc3e1bff3266d741058dea05cceef29a894bc1bc3b98e87bc617",
+  "native_launches": 0,
+  "native_source_files_written": 0,
+  "passed": true,
+  "results": [
+    {
+      "bytes": 9338,
+      "external_access_attempts": 0,
+      "measured_match": true,
+      "measured_sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+      "refusals": ["inconsistent_depth", "extra_metadata"],
+      "role": "BaselineReconstruction",
+      "sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+      "source_admission_calls": 0
+    },
+    {
+      "bytes": 9288,
+      "external_access_attempts": 0,
+      "measured_match": true,
+      "measured_sha256": "38fe98ae5975626a6362f1a1ae72a030a7d78a18c4fdc36db64dd35938232f33",
+      "refusals": ["inconsistent_depth", "extra_metadata"],
+      "role": "BaselineEdited",
+      "sha256": "38fe98ae5975626a6362f1a1ae72a030a7d78a18c4fdc36db64dd35938232f33",
+      "source_admission_calls": 0
+    },
+    {
+      "bytes": 9462,
+      "external_access_attempts": 0,
+      "measured_match": true,
+      "measured_sha256": "0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9",
+      "refusals": ["inconsistent_depth", "extra_metadata"],
+      "role": "HeldOutReconstruction",
+      "sha256": "0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9",
+      "source_admission_calls": 0
+    },
+    {
+      "bytes": 9406,
+      "external_access_attempts": 0,
+      "measured_match": true,
+      "measured_sha256": "d670154e2eca290eba02440d24b28ac1ca11f0ef390aa01c7668909fba930bfd",
+      "refusals": ["inconsistent_depth", "extra_metadata"],
+      "role": "HeldOutEdited",
+      "sha256": "d670154e2eca290eba02440d24b28ac1ca11f0ef390aa01c7668909fba930bfd",
+      "source_admission_calls": 0
+    }
+  ],
+  "runtime": {
+    "machine": "AMD64",
+    "platform": "win32",
+    "python": "3.14.6",
+    "zlib": "1.3.1.zlib-ng"
+  },
+  "schema": "kit.sw2026.json-only-constructor-replay.v1",
+  "source_sha256": {
+    "re/automation/EncoderRoundTrip/Solidworks.py": "9ac3ed3debec8c07a838bedb828f50dfef270a35ae2bc7b58d4feb9c0e1b0621",
+    "re/tooling/sw2026/PreparePlainPartEvidence.py": "983b7f84a8188175111c22dc515e768dd39111549653af259ebdb06df6d61473",
+    "src/convert/adapters/solidworks/Core/Preparation/PlanPartWrite.py": "ba3c47c7efade29cf4cd066f79fc712dab186e0181b754f5de922aa62f11ca5a"
+  }
+}
