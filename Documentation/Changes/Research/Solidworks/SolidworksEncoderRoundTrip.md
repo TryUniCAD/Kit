@@ -1,7 +1,7 @@
 # Reconstruct a bounded SOLIDWORKS boss for encoder research
 
-Public native qualification remains incomplete for the new encoder cases.
-The work retains the existing exact offline publication gate.
+The encoder reconstructs and edits the existing bounded cold-part profile.
+Four generated candidates passed independent native measurement and public SDK publication.
 
 ## Behavior
 
@@ -17,8 +17,8 @@ The adapter updates the driving parameter and the feature definition together.
 An edit that leaves the native driving value unchanged refuses reconstruction.
 
 `reconstruct(document, native_locator, *, depth_mm=None)` returns the corresponding authored neutral request.
-This request can enter the existing research preparer or public SDK.
-Public output still requires matching native evidence for the complete regenerated archive.
+Pass this request to the research preparer.
+For public output, use the complete strict SDK readback of the measured candidate with its exact receipt.
 
 ## Source qualification
 
@@ -46,7 +46,7 @@ Keep the candidate in research storage until separate native measurements qualif
 Candidate generation does not set native acceptance flags.
 
 For public SDK output, supply `values["solidworks_native_measurement"]` with its exact `written_at` and parsed `receipt`.
-The report must match SOLIDWORKS 2026 SP05.2 build `34.5.2.0604` and its pinned executable digest.
+The report must match the pinned executable identity for SOLIDWORKS 2026 SP04.1 build `34.4.1.1011` or SP05.2 build `34.5.2.0604`.
 It must also bind the exact archive digest, byte count, healthy controls, edit, clean save and fresh reopen.
 The caller establishes the provenance of this unsigned report.
 The SDK checks its structure and exact bindings without launching CAD or reading report files.
@@ -77,10 +77,15 @@ The complete-suite integration module passed locally: `1 passed in 8.02s`.
 Run it through the existing merge-queue planner and shards for candidate acceptance.
 No separate workflow or runner is introduced.
 
-These checks establish deterministic codec and SDK boundary behavior only.
-They do not supply new native measurements or qualify held-out encoder candidates.
-The locally inventoried build `34.4.1.1011` differs from the public gate's required build.
-No production build identity, receipt requirement or CAD success criterion is relaxed.
+The baseline had four edges and the independent holdout had seven concave-profile edges.
+Both profiles passed at their reconstructed and edited depths on SOLIDWORKS 2026 SP04.1.
+The four cases passed 616 numeric checks across 20 fresh owned processes.
+All 20 processes exited with code zero, with healthy independent controls and clean edit, save and fresh reopen.
+The [native summary](../../../../re/solidworks/measurements/2026/EncoderRoundTrip/NativeSummary.json) retains the source revision, Python 3.14.6 and zlib-ng 1.3.1 runtime, executable identity and case hashes.
+
+The [exact publication check](../../../../tests/Research/EncoderSolidworks/QualifiedPublicationTests.py) reproduced all four native-measured archives through both public SDK entry points.
+Each write used the measured compression runtime and the exact offline receipt.
+See the [SP04.1 qualification](../../Solidworks/Construction/SolidworksEncoderOracleBuild.md) for publication and refusal evidence.
 
 The full [CAD success criteria](../../../Reference/Operations/CadSuccessCriteria.md) remain mandatory.
 Fresh-process native controls, body and mass measurements, feature-tree comparison, edits, rebuild, save and reopen remain required.
