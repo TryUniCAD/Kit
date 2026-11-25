@@ -18,6 +18,7 @@ from zipfile import ZipFile
 
 from convert.Formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+from convert.Formats.Fusion.GeometryCodec.Prism.PrismLayout import KEdgeCorners, KFaceCorners
 from convert.Formats.Fusion.GraphicsCodec.Model.Nodes.BrepWorld import BrepWorld
 
 
@@ -91,6 +92,31 @@ def worlds(value):
             yield from worlds(getattr(value, field.name))
 
 
+def bounds(points):
+    coordinates = tuple(zip(*points, strict=True))
+    return tuple(map(min, coordinates)) + tuple(map(max, coordinates))
+
+
+def node_bounds(corners, groups, nodes):
+    expected = Counter(bounds([corners[index] for index in group]) for group in groups)
+    return (
+        all(node.LodMask == 0 and node.Geometry is None for node in nodes)
+        and Counter(node.Bounds for node in nodes) == expected
+    )
+
+
+def compare_solid_display(history, world):
+    frame = getattr(history, "Frame", None)
+    if frame is None or (len(world.EdgeNodes), len(world.FaceNodes)) != (12, 6):
+        return None
+    corners = frame.CornersCm
+    return {
+        "aggregate_matches_current": world.ModelBox == bounds(corners),
+        "zero_lod_edges_match_current": node_bounds(corners, KEdgeCorners, world.EdgeNodes),
+        "zero_lod_faces_match_current": node_bounds(corners, KFaceCorners, world.FaceNodes),
+    }
+
+
 def spatial_state(model):
     history = model.Bodies[0].History if len(model.Bodies) == 1 else None
     return {
@@ -100,6 +126,7 @@ def spatial_state(model):
                 "box_cm": world.ModelBox,
                 "edges": len(world.EdgeNodes),
                 "faces": len(world.FaceNodes),
+                "comparison": compare_solid_display(history, world),
             }
             for world in worlds(model.Graphics)
         ],

@@ -18,7 +18,7 @@ For example, the saved edit with SHA-256 `1e7584c59f898b41af2ea3d5accf0c5c44e793
 
 ## Display bounds can retain the previous height
 
-All eight native edited and restored saves in the reached groups had a 12-edge, six-face solid display node whose typed bounds kept the previous height. For example, a 28.3 mm saved solid carried a 13.8 mm graphics Z bound and its 13.8 mm restored solid carried a 28.3 mm graphics Z bound. The typed snapshot and BRep history both followed the current dimensions. Four restored saves also carried a zero-height sketch display node. Graphics references remain part of the saved graph, while current body dimensions come from modeled geometry.
+All eight native edited and restored saves in the reached groups had a 12-edge, six-face solid display node whose aggregate `BrepWorld.ModelBox` kept the previous height. For example, a 28.3 mm saved solid carried a 13.8 mm graphics Z bound and its 13.8 mm restored solid carried a 28.3 mm graphics Z bound. The typed snapshot and BRep history both followed the current dimensions. Four restored saves also carried a zero-height sketch display node. The 12 zero-LOD edge bounds and six zero-LOD face bounds already match the current solved geometry exactly in each save. The aggregate bound and its child bounds therefore have separate dependencies. Graphics references remain part of the saved graph, while current body dimensions come from modeled geometry. The audit reproduces the eight aggregate mismatches and sixteen exact child bound sets. The local follow-up report SHA-256 was `b1010d02290e4cc50c1f2bec289f161507e14bdaee711e12f97f4a6258686315`.
 
 ## Analytic height prediction
 
