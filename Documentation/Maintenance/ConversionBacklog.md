@@ -574,6 +574,7 @@ The task covers the supported vendor-resaved constrained cuboid family and requi
 The SOLIDWORKS worker owns [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
 The task covers vendor-authored blind bosses and requires complete source semantics, archive-free JSON, and independently measured native output.
 The shared encoder worker owns [A08d-FileScopeAttribution](../Reference/Research/AutomationSteps.md#a08d-filescopeattribution-stream-provenance-for-strict-fusion-inputs).
+Delivery is [PR #298](https://github.com/TryUniCAD/Kit/pull/298).
 The task corrects physical stream coverage reporting for strict Fusion reads and keeps the existing native qualification requirements.
 These follow-ups depend on the [bounded round-trip work in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 
