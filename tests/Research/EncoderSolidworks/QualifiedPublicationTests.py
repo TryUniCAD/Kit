@@ -26,6 +26,11 @@ def TestQualified() -> None:
     )
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     ReportValue = CastValue(dict[str, object], LoadJson(Outcome.stdout))
+    assert ReportValue["evidence_scope"] == "strict_cold_json_public_sdk"
+    assert (
+        ReportValue["runtime_external_accesses"] == ReportValue["native_launches"] == 0
+    )
+    assert CastValue(int, ReportValue["guarded_public_calls"]) >= 16
     CaseRows = CastValue(list[dict[str, object]], ReportValue["results"])
     assert {CaseValue["role"] for CaseValue in CaseRows} == {
         "BaselineReconstruction",

@@ -36,14 +36,43 @@ def check(root):
     from interchange.document.Models.DocumentModel import CadDocument
     from tooling.sw2026.PreparePlainPartEvidence import construct
 
+    active = False
+    blocked = []
+    guarded_calls = 0
+
+    def audit(event, _):
+        if active and (
+            event in (
+                "open", "os.listdir", "os.scandir", "os.system", "os.exec",
+                "os.posix_spawn", "os.spawn", "os.startfile", "os.fork", "os.forkpty",
+            )
+            or event.startswith(("subprocess.", "socket.", "ctypes.", "winreg."))
+        ):
+            blocked.append(event)
+            raise PermissionError("cold public writer attempted external access: " + event)
+
+    sys.addaudithook(audit)
+
     def registry(document, stream, options):
-        return write_document(
-            document, stream, destination_format="solidworks.sldprt",
-            allow_carrier=False, values=options,
-        )
+        nonlocal active, guarded_calls
+        active = True
+        guarded_calls += 1
+        try:
+            return write_document(
+                document, stream, destination_format="solidworks.sldprt",
+                allow_carrier=False, values=options,
+            )
+        finally:
+            active = False
 
     def direct(document, stream, options):
-        return SldprtWriter().write(document, stream, WriteOptions(values=options))
+        nonlocal active, guarded_calls
+        active = True
+        guarded_calls += 1
+        try:
+            return SldprtWriter().write(document, stream, WriteOptions(values=options))
+        finally:
+            active = False
 
     inputs = root / "re/solidworks/measurements/2026/EncoderRoundTrip"
     results = []
@@ -98,7 +127,21 @@ def check(root):
             "role": role, "accepted": accepted, "unknown_identity_refused": 2,
             "oversized_measurement_refused": oversized_refused,
         })
-    return {"results": results, "zlib_runtime": ZLIB_RUNTIME_VERSION}
+    if blocked or any(name.startswith(("pythoncom", "win32com")) for name in sys.modules):
+        raise ValueError("cold public writing crossed the offline boundary")
+    source = root / "src/convert/adapters/solidworks/Core"
+    files = (
+        "Preparation/PrepareNative.py", "Preparation/Readback/CheckColdRead.py",
+        "Writing/EmitNativeMut.py", "Writing/Measured/ReadPartMeas.py",
+        "Writing/Measured/MeasState.py", "Writing/Measured/ReadMeasNum.py",
+    )
+    return {
+        "results": results, "zlib_runtime": ZLIB_RUNTIME_VERSION,
+        "evidence_scope": "strict_cold_json_public_sdk", "guarded_public_calls": guarded_calls,
+        "runtime_external_accesses": len(blocked), "native_launches": 0,
+        "method_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
+        "source_sha256": {"src/convert/adapters/solidworks/Core/" + name: sha256((source / name).read_bytes()).hexdigest() for name in files},
+    }
 
 
 if __name__ == "__main__":
