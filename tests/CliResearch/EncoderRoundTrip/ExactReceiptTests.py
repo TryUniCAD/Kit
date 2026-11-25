@@ -5,6 +5,7 @@ from subprocess import CompletedProcess, run as RunProcess
 from sys import executable as PythonExec
 
 from tests.CliResearch.EncoderRoundTrip.RunEncoder import RunEncoder
+from tests.CliResearch.EncoderRoundTrip.VerifyLegacy import VerifyLegacy
 from tests.CliResearch.EncoderRoundTrip.VerifyOverflow import VerifyOverflow
 from tests.CliResearch.EncoderRoundTrip.VerifyReplay import VerifyReplay
 from tests.CliResearch.EncoderRoundTrip.VerifySourcePin import VerifySourcePin
@@ -148,6 +149,7 @@ def CheckSdkReceipt(TmpPath: FilePath) -> None:
     assert Result.returncode == 0, Result.stdout + Result.stderr
     VerifyReplay(TmpPath, RootPath, OutputPath, SourcePath)
     VerifyEnvelope(TmpPath, OutputPath, InputsPath)
+    VerifyLegacy(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json", SourcePath)
     VerifyOverflow(TmpPath, OutputPath, InputsPath)
     VerifySourcePin(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json")
     VerifyWriterPin(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json")
