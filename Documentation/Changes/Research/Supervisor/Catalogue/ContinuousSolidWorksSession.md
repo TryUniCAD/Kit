@@ -51,6 +51,6 @@ The case file contains a JSON list of validated configured cases.
 Use the existing private host settings and a new output directory outside the checkout.
 The probe retains native files, comparisons and decoder output together.
 
-Task `A08c-ContinuousSolidWorks` is owned by Codex on `codex/solidworks-warm-session`, delivered through [PR #295](https://github.com/TryUniCAD/Kit/pull/295).
-It depends on the twelve-case batching delivery in PR #288.
+Task `A08c-ContinuousSolidWorks` is owned by Codex on `codex/solidworks-capture-batching`, delivered through [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+It uses the batch preparation and native ownership foundation in that delivery.
 Its exit requires consecutive native batches sharing one process, same-file fresh-process comparisons, concurrent decoding, recovery checks and current-revision CI and review.

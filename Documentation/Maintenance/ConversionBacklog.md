@@ -3,8 +3,8 @@
 ## Purpose and authority
 
 `A08c-ContinuousSolidWorks` is active under the [automation register](../Reference/Research/AutomationSteps.md#status-and-ownership).
-Codex owns persistent research capture and document reopening on `codex/solidworks-warm-session`, depending on PR #288.
-Delivery is [PR #295](https://github.com/TryUniCAD/Kit/pull/295).
+Codex owns persistent research capture and document reopening on `codex/solidworks-capture-batching`.
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
 The bounded P01/P03/P04 comparison, controller overlap and resume evidence are recorded in the change entry.
 Current-revision readiness and broader native qualification remain pending.
 The production conversion boundary and fresh-process acceptance requirements are unchanged.

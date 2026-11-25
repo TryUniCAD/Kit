@@ -2,10 +2,10 @@
 
 ## Status and ownership
 
-Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-warm-session`.
-It depends on PR #288's batch preparation, existing measured readback and the serial native resource.
+Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-capture-batching`.
+It depends on the shared batch preparation, existing measured readback and the serial native resource.
 Scope: persistent capture, document close/reopen verification, independent decoder dispatch and retained owner generations.
-Delivery is [PR #295](https://github.com/TryUniCAD/Kit/pull/295), stacked on PR #288.
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
 Exit: consecutive same-process native batches, same-file fresh-process comparison, decoder overlap, recovery checks and current-revision CI and review.
 See [continuous SOLIDWORKS capture](../../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md).
 The `5c3ae3810c` native comparison matched P01/P03/P04 same-file measurements across routine and fresh processes.
