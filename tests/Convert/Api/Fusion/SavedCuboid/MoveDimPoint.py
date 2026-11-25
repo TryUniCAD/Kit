@@ -5,9 +5,7 @@ from convert.Formats.Fusion.EntityCodec.Model.ValueTypes import KEntityValue
 
 
 # an independent point edit isolates presentation from the native parameter and operand records
-def MoveDimPoint(
-    Value: KEntityValue, CoordinateName: str
-) -> ValueStruct[KEntityValue]:
+def MoveDimPoint(Value: KEntityValue, CoordinateName: str) -> ValueStruct[KEntityValue]:
     assert isinstance(Value, ValueStruct)
     return ReplaceData(
         Value,
