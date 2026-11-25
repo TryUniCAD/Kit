@@ -37,7 +37,7 @@ def OwnSolidRoutine(Directory, SourceRoot, HostPath, Revision):
     with (Queue / "stdout.log").open("xb") as Output, (Queue / "stderr.log").open("xb") as Errors:
         Owner = WindowsProcess(Command, SourceRoot, NativeSolidEnv(Host), Output.fileno(), Errors.fileno())
         try:
-            Deadline = monotonic() + 180
+            Deadline = monotonic() + 450
             while not (Queue / "ready.json").exists():
                 if Owner.poll() is not None or monotonic() >= Deadline:
                     raise RuntimeError(f"SOLIDWORKS routine startup failed; inspect {Queue}")

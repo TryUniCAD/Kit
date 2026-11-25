@@ -2,6 +2,13 @@
 
 ## Status and ownership
 
+Task `A08c-SolidWorksOpenRetry` is active, owned by Codex on `codex/solidworks-open-retry`.
+Scope: three bounded startup and part-open attempts, retained failure evidence and separate native stage measurements.
+It depends on continuous capture in [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), alongside its continuous capture dependency.
+Exit: native compilation, bounded launch rejection, recovered native startup, measured stages and current-revision CI and review.
+See [retry and timing behavior](../../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md).
+
 Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-capture-batching`.
 It depends on the shared batch preparation, existing measured readback and the serial native resource.
 Scope: persistent capture, document close/reopen verification, independent decoder dispatch and retained owner generations.

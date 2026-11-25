@@ -64,13 +64,14 @@ $Native = $null
 $ExitObserved = $false
 $ForcedCleanup = $false
 $Failure = $null
+. (Join-Path $PSScriptRoot 'StartOwnedSolid.ps1')
 try {
     try { $Acquired = $Mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $Acquired = $true }
     if (-not $Acquired) { throw 'The shared SOLIDWORKS oracle is owned by another operation.' }
     if (Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue) {
         throw 'Preserve the existing SOLIDWORKS session and use an idle native host.'
     }
-    $Native = Start-Process -FilePath $Executable.FullName -WorkingDirectory $Executable.DirectoryName -WindowStyle Hidden -PassThru
+    $Native = Start-OwnedSolid -Executable $Executable -Destination $Destination -Phase $Phase
     $Created = $Native.StartTime.ToUniversalTime().ToFileTimeUtc()
     if (@(Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue).Count -ne 1 -or
         $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created) {

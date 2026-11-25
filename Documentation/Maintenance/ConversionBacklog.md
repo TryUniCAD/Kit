@@ -1,5 +1,8 @@
 # Conversion completion backlog
 
+`A08c-SolidWorksOpenRetry` is active in the [automation register](../Reference/Research/AutomationSteps.md#status-and-ownership).
+It adds bounded native startup recovery and stage measurements to the continuous capture dependency in PR #288.
+
 ## Purpose and authority
 
 `A08c-ContinuousSolidWorks` is active under the [automation register](../Reference/Research/AutomationSteps.md#status-and-ownership).
