@@ -18,4 +18,6 @@ Some Fusion-saved graphics bounds retain an earlier height. The reader keeps tho
 
 The original strict reader refused 12 prior native controls, edits and restores at the five-rule boundary. The updated SDK reads those cases and preserves the complete `CadDocument` through JSON. Wire-level re-emission independently yielded complete typed-model equality in 12 of 12 cases. It produced different archive hashes, so previous Fusion measurements do not establish native acceptance for the emitted bytes.
 
+The [local capture and replay tooling](../../../../re/Fusion/LocalOracle/SavedCuboidRoundTrip/README.md) prepares public-API captures and exact candidate/control requests. The [readiness report](../../../../re/Fusion/LocalOracle/SavedCuboidRoundTrip/Readiness.md) records why the native runs did not dispatch.
+
 See the [source observations, exact sample hashes and audit procedure](../../../../re/Fusion/SavedCuboidRoundTrip/Findings.md). Product conversion acceptance and the broader Fusion reader and writer remain open.
