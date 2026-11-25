@@ -12,6 +12,7 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Adapter import KSourceBytesKey
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
+from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import CheckColdRead
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import ColdReadInput
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from interchange.document.Models.DocumentModel import CadDocument
@@ -26,7 +27,7 @@ def _part_locator(value):
     return text
 
 
-def _verify_cold_source(document):
+def _project_cold_source(document):
     if not IsColdRead(document) or document.brep_payloads:
         raise ValueError("SOLIDWORKS source requires a complete ordinary cold part readback")
     original = document.metadata.get(KSourceBytesKey)
@@ -40,10 +41,14 @@ def _verify_cold_source(document):
     epoch = header.get("f70")
     if type(epoch) is not int:
         raise ValueError("SOLIDWORKS cold source lacks its typed creation epoch")
-    # Regeneration also checks the entire supplied SDK projection, including the
-    # scaffold, B-rep and custody fields. The original archive is only a comparator.
-    if construct(document, locator, epoch).BytesValue != original:
-        raise ValueError("SOLIDWORKS cold source is outside the generative writer profile")
+    authored = ColdReadInput(document, PureWindowsPath(locator).stem)
+    regenerated = construct(authored, locator, epoch).BytesValue
+    if regenerated != original:
+        raise ValueError("SOLIDWORKS cold source does not exactly regenerate on this runtime")
+    # Keep readback and its lazy SDK imports outside the construction audit.
+    # The full source comparison covers the original scaffold, B-rep and custody.
+    CheckColdRead(document, regenerated)
+    return authored
 
 
 def _depth_value(value):
@@ -66,8 +71,8 @@ def reconstruct(document, native_locator, *, depth_mm=None):
     if "kit.research_read_status" in document.metadata:
         raise ValueError("SOLIDWORKS reconstruction requires a qualified source read")
     if document.source.format_id == KPartFormatId:
-        _verify_cold_source(document)
-        document = ColdReadInput(document, PureWindowsPath(locator).stem)
+        document = _project_cold_source(document)
+        document = replace(document, metadata={"name": PureWindowsPath(locator).stem})
     PlanPartWrite(document)
     if depth_mm is None:
         return document
