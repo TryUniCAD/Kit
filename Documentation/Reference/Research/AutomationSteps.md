@@ -424,7 +424,7 @@ A07 acceptance and A09 continue to depend on A06b.
 ### A06d-NativeSketchOwnership: saved SOLIDWORKS sketch ownership in comparison
 
 The Codex shared encoder worker owns this checking task on `codex/native-sketch-ownership`.
-Delivery is a separate PR based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+Delivery is [PR #302](https://github.com/TryUniCAD/Kit/pull/302), based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 The task depends on A04c typed saved source reads, A06a comparison, and A06d reader evidence.
 [PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains ownership of its SOLIDWORKS reader changes.
 The exit requires a real comparison report that relates one uniquely typed sketch to its same-source native timeline owner.

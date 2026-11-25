@@ -570,7 +570,7 @@ No new research implementation, application run, user evaluation or conversion q
 ## Native sketch ownership and blind boss evidence
 
 The shared encoder worker owns [A06d-NativeSketchOwnership](../Reference/Research/AutomationSteps.md#a06d-nativesketchownership-saved-solidworks-sketch-ownership-in-comparison).
-The comparison scope records reader-reported native sketch ownership. Independent semantic qualification remains required.
+[PR #302](https://github.com/TryUniCAD/Kit/pull/302) adds reader-reported native sketch ownership to comparison reports. Independent semantic qualification remains required.
 [PR #300](https://github.com/TryUniCAD/Kit/pull/300) is the research evidence delivery for [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
 Whole-source admission, writing, and measured native acceptance remain open.
 
