@@ -145,8 +145,8 @@ def CheckSdkReceipt(TmpPath: FilePath) -> None:
         LocatorValue=KNativeLocator,
     )
     assert Result.returncode == 0, Result.stdout + Result.stderr
+    VerifyReplay(TmpPath, RootPath, OutputPath, SourcePath)
     VerifyEnvelope(TmpPath, OutputPath, InputsPath)
     VerifyOverflow(TmpPath, OutputPath, InputsPath)
     VerifySourcePin(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json")
     VerifyWriterPin(TmpPath, OutputPath, InputsPath / "HeldOutEdited.json")
-    VerifyReplay(TmpPath, RootPath, OutputPath, SourcePath)
