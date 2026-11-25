@@ -15,6 +15,7 @@ from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartW
 from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import CheckColdRead
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import ColdReadInput
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Preparation.RequirePartPath import RequirePartPath
 from interchange.document.Models.DocumentModel import CadDocument
 from tooling.sw2026.PreparePlainPartEvidence import construct
 
@@ -90,8 +91,18 @@ def reconstruct(document, native_locator, *, depth_mm=None):
     return changed
 
 
-def generate_candidate(document, edit=None, *, native_locator, written_at):
-    """Construct an unmeasured native candidate in memory for the research oracle."""
+def _construction_locator(native_locator, written_at):
+    return RequirePartPath(_part_locator(native_locator), written_at).PathName
+
+
+def _check_prepared_name(prepared, locator):
+    if prepared.metadata.get("name") != PureWindowsPath(locator).stem:
+        raise ValueError("the prepared SOLIDWORKS name differs from the native locator")
+
+
+def prepare_generation_input(document, edit=None, *, native_locator, written_at):
+    """Qualify the source and build a serializable ordinary part constructor input."""
+    locator = _construction_locator(native_locator, written_at)
     depth = None
     if edit is not None:
         if (
@@ -101,6 +112,24 @@ def generate_candidate(document, edit=None, *, native_locator, written_at):
         ):
             raise ValueError("SOLIDWORKS supports only the absolute blind depth edit")
         depth = _depth_value(edit["value_mm"])
-    locator = _part_locator(native_locator)
-    authored = reconstruct(document, locator, depth_mm=depth)
-    return construct(authored, locator, written_at).BytesValue
+    prepared = reconstruct(document, locator, depth_mm=depth)
+    _check_prepared_name(prepared, locator)
+    return prepared
+
+
+def generate_prepared_candidate(prepared, *, native_locator, written_at):
+    """Construct an unmeasured part from a persisted constructor input."""
+    locator = _construction_locator(native_locator, written_at)
+    PlanPartWrite(prepared)
+    _check_prepared_name(prepared, locator)
+    return construct(prepared, locator, written_at).BytesValue
+
+
+def generate_candidate(document, edit=None, *, native_locator, written_at):
+    """Construct an unmeasured native candidate in memory for the research oracle."""
+    prepared = prepare_generation_input(
+        document, edit, native_locator=native_locator, written_at=written_at
+    )
+    return generate_prepared_candidate(
+        prepared, native_locator=native_locator, written_at=written_at
+    )
