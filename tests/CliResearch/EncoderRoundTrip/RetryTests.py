@@ -4,7 +4,7 @@ from tests.CliResearch.EncoderRoundTrip.RunEncoder import RunEncoder
 
 
 # rerunning a settled scope must preserve its recorded failure and never overwrite evidence
-def CheckSettledRetry(TmpPath: FilePath) -> None:
+def CheckRetryKept(TmpPath: FilePath) -> None:
     SourcePath = TmpPath / "Invalid.SLDPRT"
     _ = SourcePath.write_bytes(b"invalid native input")
     OutputPath = TmpPath / "Settled"

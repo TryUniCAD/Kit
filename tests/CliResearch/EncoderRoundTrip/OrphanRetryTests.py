@@ -5,7 +5,7 @@ from tests.CliResearch.EncoderRoundTrip.RunEncoder import RunEncoder
 
 
 # abandoned private staging must not prevent a new process from recording its own outcome
-def CheckOrphanRetry(TmpPath: FilePath) -> None:
+def CheckAbandoned(TmpPath: FilePath) -> None:
     StagePath = TmpPath / ".encoder-round-trip-abandoned"
     StagePath.mkdir()
     _ = (StagePath / "Partial.bin").write_bytes(b"unpublished evidence")

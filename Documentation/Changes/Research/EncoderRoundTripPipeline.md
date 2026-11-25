@@ -92,7 +92,9 @@ An abandoned-directory fixture checks retry behavior without claiming an actual 
 These cases use the existing complete-suite collector, merge-queue planner, shards, and completeness report.
 No workflow or CI job is added.
 
-Black 26.10.1 formatted and checked the initial coverage package with exit `0`.
+Black 26.10.1 formatted and checked all eight coverage files with exit `0`.
+Python 3.11 syntax parsing passed for those files.
+Prettier 3.10.1 formatted and checked this change entry with exit `0`.
 A Python 3.14.6 CLI process decoded the tracked `SavedCuboid.f3d` source with SHA-256 `49f92bbe4f33fc7c1413ca8a8d433ff3ba948c1822c6513363934425f626ec31`.
 Its persisted neutral JSON had SHA-256 `db52e0b20372e1d94b7f614d230c22761d1a251773a829b0ce024aba4ea9d04f`.
 The shared-only checkpoint returned exit `3` because its format adapter was unavailable.
