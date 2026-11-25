@@ -96,7 +96,9 @@ def _construction_locator(native_locator, written_at):
 
 
 def _check_prepared_name(prepared, locator):
-    if prepared.metadata.get("name") != PureWindowsPath(locator).stem:
+    name = prepared.metadata.get("name")
+    target_name = PureWindowsPath(locator).stem
+    if not isinstance(name, str) or name.casefold() != target_name.casefold():
         raise ValueError("the prepared SOLIDWORKS name differs from the native locator")
 
 
