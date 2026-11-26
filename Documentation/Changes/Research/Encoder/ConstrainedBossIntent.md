@@ -27,7 +27,7 @@ The source capture comes from revision `89c25945f5833ad9c3a1c6c683df510b5702dd54
 
 The Windows Python 3.14.6 process case passed in 50.64 seconds. A separate process reopened the prepared JSON after the test moved the supplied source JSON away. It reproduced the ordered references, two driving side lengths, the distinct Origin and the exact logical report. A same-length opposite edge, reversed height operands, a local point substituted for Origin and a shifted owner span each refused before publishing. Both an existing destination and an output path equal to the original source preserved their prior bytes.
 
-See [rectangle height operand side](../../../Gotchas/Research/Readers/RectangleHeightOperandSide.md) for the same-length wrong-edge refusal.
+See [rectangle height operand side](../../../Gotchas/Research/Readers/ConstrainedBoss/RectangleHeightOperandSide.md) for the same-length wrong-edge refusal.
 
 The final review follow-up passed the process case in 61.40 seconds on Windows Python 3.14.6. It asserts the exact four H/V targets and refuses a change outside the projection when it reaches the pinned-source comparison. The CI rationale checker reproduced the same eight violations on the unmodified PR #168 base `e2fba13c8f`. Six comment wording corrections and two missing lambda comments in the inherited tests preserve their Python syntax trees and all assertions.
 
