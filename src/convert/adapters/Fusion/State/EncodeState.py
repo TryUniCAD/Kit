@@ -1,5 +1,5 @@
 from base64 import b64encode as EncodeBase
-from collections.abc import Mapping
+from collections.abc import Hashable, Mapping
 from dataclasses import fields as DataFields
 from dataclasses import is_dataclass as IsDataClass
 from enum import Enum as EnumBase
@@ -28,7 +28,7 @@ def EncodeState(Value: object, Depth: int = 0) -> object:
     ValueType = type(Value)
     if Value is None or ValueType in (str, int, bool):
         return Value
-    if ValueType is float and IsFinite(Value):
+    if type(Value) is float and IsFinite(Value):
         return Value
     if ValueType in KEncodeTypes:
         ClassName = f"{ValueType.__module__}.{ValueType.__name__}"
@@ -39,7 +39,7 @@ def EncodeState(Value: object, Depth: int = 0) -> object:
                 "record": ClassName,
                 "fields": {
                     FieldName: EncodeState(getattr(Value, FieldName), Depth + 1)
-                    for FieldName in GetStateFields(ValueType)
+                    for FieldName in GetStateFields(CastValue(Hashable, ValueType))
                 },
             }
     if isinstance(Value, bytes) and len(Value) <= 2000000:

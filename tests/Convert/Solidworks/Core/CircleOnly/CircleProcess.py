@@ -55,8 +55,9 @@ def RunCircleProof() -> None:
         Document = OpenDocument(SourcePath, IncludeBrep=False, IncludeTess=False)
         _ = FilePath(ArgValues[3]).write_text(DumpJson(Document), encoding="utf-8")
     elif ArgValues[1] == "replay":
-        Document = LoadJson(SourcePath.read_text(encoding="utf-8"))
-        assert isinstance(Document, CadDocument)
+        Decoded = LoadJson(SourcePath.read_text(encoding="utf-8"))
+        assert isinstance(Decoded, CadDocument)
+        Document = Decoded
     else:
         raise ValueError("unknown circle proof operation")
     Document.assert_valid()

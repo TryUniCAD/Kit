@@ -15,17 +15,17 @@ from tests.Research.Supervisor.Pilot.Metrics.PilotClient import WriteRecord
 def EvidenceFiles(
     RootPath: FilePath, Window: dict[str, object]
 ) -> tuple[FilePath, str]:
-    Pins = {}
+    InputPins = {}
     for SourceName, FileName, Authority in (
         ("interventions", "Interventions.json", "operator_attestation"),
         ("agent_activity", "AgentIntervals.json", "measured_agent_intervals"),
         ("acceptance", "Acceptances.json", "independent_acceptance_attestation"),
     ):
-        Pins[SourceName] = WriteRecord(
+        InputPins[SourceName] = WriteRecord(
             RootPath / FileName, {"version": 1, "authority": Authority, "records": []}
         )
     ManifestFile = RootPath / "PilotEvidence.json"
     ManifestHash = WriteRecord(
-        ManifestFile, {"version": 1, "window": Window, "sources": Pins}
+        ManifestFile, {"version": 1, "window": Window, "sources": InputPins}
     )
     return ManifestFile, ManifestHash
