@@ -149,6 +149,15 @@ async function PullMergeRef(Github, Context) {
   return null;
 }
 
+function PollDelay(IsPull, Context) {
+  if (IsPull) return 30000;
+  const Created = Date.parse(
+    Context.payload.merge_group?.head_commit?.timestamp ?? "",
+  );
+  const Idle = Number.isNaN(Created) ? 0 : Created + 10 * 60000 - Date.now();
+  return Math.max(120000, Idle);
+}
+
 async function Aggregate({ github: Github, context: Context, core: Core }) {
   const IsPull = ["pull_request", "pull_request_target"].includes(
     Context.eventName,
@@ -204,7 +213,9 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
         `CI aggregation timed out waiting for: ${Pending.map((Row) => Row.name).join(", ")}`,
       );
     Core.info(`Waiting for ${Pending.map((Row) => Row.name).join(", ")}`);
-    await new Promise((Resolve) => setTimeout(Resolve, 30000));
+    await new Promise((Resolve) =>
+      setTimeout(Resolve, PollDelay(IsPull, Context)),
+    );
   }
   await Core.summary
     .addHeading("CI passed")
