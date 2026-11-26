@@ -34,6 +34,14 @@ public sealed partial class SolidWorksCapture
         }
     }
 
+    // recipe and saved file names come from case records, so a rooted or traversing name must not leave the case directory
+    static string CaseChild(string parent, string name)
+    {
+        Check(!String.IsNullOrEmpty(name) && !Path.IsPathRooted(name) && name.IndexOfAny(new[] {'/','\\',':'})<0
+            && name!="." && name!="..","Routine case path segment is invalid: "+name);
+        return Path.GetFullPath(Path.Combine(parent,name));
+    }
+
     static void PublishRoutine(string path, object value)
     {
         byte[] bytes=new UTF8Encoding(false).GetBytes(Json.Serialize(value)+"\n");
@@ -79,9 +87,10 @@ public sealed partial class SolidWorksCapture
                         Check(app.GetDocumentCount()==0,"Routine capture retained an earlier document");
                         RunConfigured(app,repository,destination,configuration,"first");
                         Check(app.GetDocumentCount()==0,"Routine first phase retained an open document");
-                        var first=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(Path.Combine(destination,(string)Configuration(configuration)["recipe"],"first.json")));
+                        string recipe=CaseChild(destination,(string)Configuration(configuration)["recipe"]);
+                        var first=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(CaseChild(recipe,"first.json")));
                         var save=MapValue(first["first_save"]);
-                        string baseline=Path.Combine(destination,(string)Configuration(configuration)["recipe"],(string)save["file"]);
+                        string baseline=CaseChild(recipe,(string)save["file"]);
                         Check(app.GetOpenDocumentByName(baseline)==null && Hash(baseline)==(string)save["sha256"],"Routine baseline is still loaded or changed before reopen");
                         RunConfigured(app,repository,destination,configuration,"second");
                         Check(app.GetDocumentCount()==0 && Hash(baseline)==(string)save["sha256"],"Routine verification retained a document or changed baseline bytes");
