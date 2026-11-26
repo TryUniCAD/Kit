@@ -14,7 +14,7 @@ The workflows, phase allocation and CI scripts are unchanged.
 | `WindowsRearmTests::CheckRearm` | The readback worker's deadline left one second before the supervisor's `CTRL_BREAK_EVENT` at `stop_at` to record the timeout. When that ran out, the session ended as `retry`. This is a product bug. | The readback worker stops dispatch at `stop_at - 3`. |
 
 See the gotchas for [empty jobs before exit](../../../Gotchas/Research/WindowsJobEmptyBeforeExit.md),
-[the readback deadline margin](../../../Gotchas/Research/Workers/ReadbackDeadlineMargin.md) and
+[the readback deadline margin](../../../Gotchas/Research/Workers/SolidWorks/ReadbackDeadlineMargin.md) and
 [the cold readback compile](../../../Gotchas/Ci/Windows/ReadbackFixtureStartupTimeout.md).
 
 ## Evidence
