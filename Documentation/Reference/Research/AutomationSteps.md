@@ -65,9 +65,11 @@ acceptance and complete source preservation have separate exit criteria.
 
 #### B04-SW2026-P03-TRIMMED-CARRIER-BOUNDARY
 
-The SOLIDWORKS reader lane owns this planned research child on
-`codex/sw-p03-trimmed-carrier-boundary`. The external claim and separate
-delivery PR are pending. It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
+The SOLIDWORKS reader lane owns this active research child on
+`codex/sw-p03-trimmed-carrier-boundary`. The
+[ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7183988012)
+is recorded. The separate delivery PR is pending.
+It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
 at `a5ffad5483db0f99a6162e1934786da41cbc2063` and uses
 [PR #121](https://github.com/TryUniCAD/Kit/pull/121) at
 `c0a401a607759fb0c2589647c2a22af65ebb7ce1` for the pinned comparison reader.
