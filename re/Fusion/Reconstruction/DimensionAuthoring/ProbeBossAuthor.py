@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -159,9 +159,9 @@ def set_literal_annotation(author, role, expression):
 
 
 # Explicit composition preserves the witnessed ownership order without replacing shared build functions.
-def build_owned_design(spec):
+def build_owned_design(spec, *, asset_id=None):
     CheckDocSpec(spec)
-    author = CreateAuthor(spec, str(uuid4()))
+    author = CreateAuthor(spec, str(uuid4()) if asset_id is None else asset_id)
     author.Defaults.update(BaseDefaults())
     AddRootsMut(author)
     AddCollectMut(author, DirectOwned=True)
@@ -188,7 +188,7 @@ def build_owned_design(spec):
 
 
 # The existing geometry material and container emitters consume the directly owned design unchanged.
-def generate_boss(variant, sizes, body_name):
+def generate_boss(variant, sizes, body_name, *, asset_id=None):
     require(
         len(sizes) == 3 and all(isfinite(value) and value > 0 for value in sizes),
         "Expected positive XY width, height and blind depth",
@@ -208,7 +208,7 @@ def generate_boss(variant, sizes, body_name):
         WidthParamName=DRIVERS[0],
         DepthParamName=DRIVERS[1],
     )
-    design = build_owned_design(spec)
+    design = build_owned_design(spec, asset_id=asset_id)
     return PackDocument(
         design, spec.Title, BuildBodyPart(spec, design) + BuildMatPart(design)
     )

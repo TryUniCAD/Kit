@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -176,13 +176,19 @@ def build_case(snapshot, case, observations, tolerances):
     }
 
 
-# Build and verify every archive before creating a new caller-owned directory outside the checkout.
-def generate_report(output):
+# Reject an occupied destination before reading any inputs.
+def new_output(output):
+    require(not output.is_symlink(), "Use a new private output directory outside the Git checkout")
     output = output.resolve()
     require(
         not output.is_relative_to(ROOT) and not output.exists(),
         "Use a new private output directory outside the Git checkout",
     )
+    return output
+
+
+# Resolve measured source custody only in the modes that have the trusted Git checkout.
+def read_pinned_cases():
     snapshot = GitSnapshot(ROOT)
     source = source_report()
     require(
@@ -206,6 +212,13 @@ def generate_report(output):
         tuple(row["variant"] for row in cases) == VARIANTS["P03"],
         "Unexpected positive XY P03 candidate roster",
     )
+    return snapshot, report_pin, reopened, tolerances, cases
+
+
+# Build and verify every archive before creating a new caller-owned directory outside the checkout.
+def generate_report(output):
+    output = new_output(output)
+    snapshot, report_pin, reopened, tolerances, cases = read_pinned_cases()
     results = [build_case(snapshot, case, reopened, tolerances) for case in cases]
     result = {
         "schema": 1,
@@ -240,4 +253,32 @@ if __name__ == "__main__":
         description="Generate verified private positive XY P03 candidates"
     )
     parser.add_argument("--output", type=Path, required=True)
-    print(generate_report(parser.parse_args().output))
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--prepare", action="store_true")
+    modes.add_argument("--request", type=Path)
+    parser.add_argument("--source-json", type=Path)
+    parser.add_argument("--logical-json", type=Path)
+    parser.add_argument("--request-sha256")
+    parser.add_argument("--source-witness", type=Path)
+    parser.add_argument("--source-witness-sha256")
+    parser.add_argument("--seed-helper", type=Path)
+    parser.add_argument("--written-at", type=int)
+    args = parser.parse_args()
+    prepare = (args.source_json, args.logical_json)
+    replay = (args.request_sha256, args.source_witness, args.source_witness_sha256,
+              args.seed_helper, args.written_at)
+    try:
+        if args.prepare and all(value is not None for value in prepare) and all(value is None for value in replay):
+            from SourceBossReplay import prepare_output
+
+            print(json.dumps(prepare_output(args.output, *prepare), sort_keys=True))
+        elif args.request is not None and all(value is not None for value in replay) and all(value is None for value in prepare):
+            from SourceBossReplay import replay_output
+
+            print(json.dumps(replay_output(args.output, args.request, *replay), sort_keys=True))
+        elif not args.prepare and args.request is None and all(value is None for value in (*prepare, *replay)):
+            print(generate_report(args.output))
+        else:
+            parser.error("prepare needs both source JSON paths; replay needs a request, two digests, witness, pinned seed helper and epoch")
+    except (AttributeError, KeyError, TypeError, ValueError, OSError) as exc:
+        raise SystemExit(str(exc)) from exc
