@@ -10,6 +10,12 @@ For multiple local instances, use the [shared research queue](../Reference/Resea
 to submit revisioned requests to one controller and supervisor.
 Existing private catalogue runs retain their own stores unless their jobs are explicitly submitted through that endpoint.
 
+For bounded SOLIDWORKS and Fusion reconstruction, use the [encoder round-trip workflow](../Changes/Research/Encoder/EncoderRoundTripPipeline.md).
+It persists neutral JSON, generates reconstruction and depth-edited candidates, and records their runtime, hashes, and stage timings.
+Attach native observations with the workflow's separate receipt command.
+The manifest remains immutable and keeps native qualification pending.
+Receipt attachment writes a separate bound receipt; the format's measured SDK publication gate remains a separate step.
+
 ## Before you start
 
 Install a CLI revision from its source checkout with `uv tool install .`.
@@ -513,3 +519,8 @@ Another installation can shadow the executable installed with Python 3.14.
 Resolve `kit` before resuming a durable native campaign and inspect its entry-point interpreter.
 Use the verified installation's absolute path if necessary.
 The [shadowed launcher gotcha](../Gotchas/Research/Supervisor/Runtime/ShadowedKitLauncher.md) records the observed supervisor failure and safe repair.
+
+## Circular rim fillet qualification pack
+
+The [rim-fillet pack](../../re/Fusion/RimFilletPack/README.md) separates source-free writer acceptance, typed reconstruction and public conversion refusals.
+Replay uses existing codecs without a CAD runtime. Native measurements remain revision-bound research evidence.

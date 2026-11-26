@@ -207,51 +207,6 @@ jobs:
           ImageId=$(docker image inspect --format '{{.Id}}' "$QualificationImage")
           uv run --frozen --no-default-groups --group codec-promotion --extra dev --python 3.14 python re/automation/CodecPromotion/ProcessGate.py "$ImageId"
 
-  research-cli:
-    if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
-    needs: pr-ci-reuse
-    name: Research CLI compatibility
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    env:
-      KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
-    concurrency:
-      group: Kit-linux-2
-      cancel-in-progress: false
-      queue: max
-    steps:
-      - name: Checkout candidate CLI source
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Checkout candidate research tools separately
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.sha }}
-          path: ResearchCheckout
-          fetch-depth: 0
-          filter: blob:none
-          persist-credentials: false
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
-
-      - name: Install CLI and compatibility dependencies
-        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
-
-      - name: Hydrate sealed research inputs for candidate CLI cases
-        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
-
-      - name: Verify deterministic tools through the installed CLI
-        run: >-
-          uv run --no-sync --with 'numpy<2.5' --python 3.14 python -m pytest tests/CliResearch -q
-
   research-cli-windows-shard:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
@@ -316,11 +271,13 @@ jobs:
           if ! uv run --no-sync --python 3.14 python -m pytest --collect-only -q -p no:cacheprovider \
             tests/CliResearch/BridgeRejectTests.py \
             tests/CliResearch/Comparison \
+            tests/CliResearch/EncoderRoundTrip \
             tests/CliResearch/SwReaderTests.py \
             tests/CliResearch/EncodedReaderTests.py \
             tests/CliResearch/LegacyReaderTests.py \
             tests/CliResearch/FusionReaderTests.py \
             tests/CliResearch/ReaderRejectTests.py \
+            tests/CliResearch/RimFillets \
             tests/CliResearch/NativeVerification \
             tests/CliResearch/InterruptTests.py \
             tests/CliResearch/LeaseFlowTests.py > "${RUNNER_TEMP}/WindowsCli/Collection.txt"; then

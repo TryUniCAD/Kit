@@ -6,13 +6,7 @@ function BuildReports(CaseMode, Verdict, CheckName, NativeCount = 4) {
   const HeadSha = "a".repeat(40);
   const Built = BuildExpected(IsQueue, HeadSha, NativeCount);
   const Runs = Built.Runs;
-  const Checks = Built.Checks.filter(
-    (Check) =>
-      !(
-        CaseMode === "queue-retired-cli" &&
-        Check.name === "Research CLI compatibility"
-      ),
-  );
+  const Checks = Built.Checks;
   const Expected = Checks.map(({ name, html_url }) => ({ name, html_url }));
   const Files =
     CaseMode === "quality-docs"

@@ -5,6 +5,7 @@
 Use this register to find work on the path from the current SDK to the [completion roadmap](../../Roadmap.md).
 Each task records its delivery boundary, owner, dependency and observable completion condition.
 This register does not authorize a merge or assign new work to a person.
+The [encoder child steps](../Reference/Research/AutomationSteps.md#deterministic-encoder-work) track the first deterministic SOLIDWORKS and Fusion round trips.
 
 The baseline is main `e04e7b78699d3f567409937007b00b567620078a`, inspected on 2026-11-15.
 The open PR inventory below was read from GitHub on that date.
@@ -649,3 +650,10 @@ The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlaceme
 Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
 Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
+
+## Circular rim fillet qualification packs
+
+`A08h-RimFillet20261125` is a checking B06 child owned by Codex on `feat/native-conversion-campaign-20261125`.
+The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-circular-rim-fillet-readwrite-packs) records dependencies and delivery.
+The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
+The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.

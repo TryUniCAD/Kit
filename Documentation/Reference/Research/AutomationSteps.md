@@ -5,6 +5,31 @@
 PR #158 is based on main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b`. Its follow-on phase commits carry the remaining non-DLL work from the original PR #94 checkpoint `fb723e0a920b4d03ad2d5635882860b800a9b61c`. The entries below record the original programme and its revision-bound evidence. The licensed restart, native qualification, supplemental Fusion handoff, pending CI batch authority and two-week pilot retain their open exit criteria.
 
 This register belongs to the [neutral-first plan](AutomationPlan.md).
+
+## Deterministic encoder work
+
+The user assigned the first two-format encoder milestone to Codex on 2026-11-25.
+The delivery is [PR #297](https://github.com/TryUniCAD/Kit/pull/297), branch `codex/deterministic-encoder-roundtrip`.
+Three worker chats own the shared pipeline, SOLIDWORKS adapter, and Fusion adapter respectively.
+Each worker uses three subagents. Routine encoder jobs keep model advice disabled.
+PR #158 is closed. Its retained programme requirements and evidence remain the basis for these child steps.
+
+| ID   | Scope                                                         | Owner                   | Depends on                                    | Status   | Exit condition                                                                                                                                |
+| ---- | ------------------------------------------------------------- | ----------------------- | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| A11c | Qualified cuboid JSON reconstruction and extrusion-depth edit | Codex Fusion worker     | A05, A06, qualified public Fusion writer, A14 | checking | Generated candidates pass deterministic process checks and independent native open, edit, rebuild, save, and reopen measurements.             |
+| A12a | Bounded line-loop boss JSON reconstruction and depth edit     | Codex SOLIDWORKS worker | A04, A06, measured part writer, A14           | checking | Held-out candidates pass native measurements and the public SDK publishes bytes bound to a valid exact-build receipt.                         |
+| A13a | Shared encoder jobs and receipt handling                      | Codex shared worker     | A03, A11c, A12a, A14                          | checking | The existing research CLI generates both formats, preserves evidence through retries, and distinguishes generation from native qualification. |
+
+The SOLIDWORKS starting scope is a qualified cold part or supported authored graph.
+Ordinary vendor partition layouts still need reader semantics before they can enter this path.
+The [measured SOLIDWORKS build extension](../../Changes/Solidworks/Construction/SolidworksEncoderOracleBuild.md) qualifies exact build `34.4.1.1011` alongside `34.5.2.0604`.
+Four candidates passed twenty owned process lifetimes and 616 numeric comparisons on the observed SP04.1 executable.
+Eight SDK publications reproduced those measured archives through the registry and direct writer.
+Fusion measurements target the observed installed build `2706.1.17`.
+Native execution, output acceptance, public publication, PR checks, and merge-queue acceptance each retain their own evidence.
+
+## Programme status
+
 A01 is complete as a source-backed contract and capability audit.
 **Current work: A02d capture evidence, A04c/A05 semantic qualification, A06 comparison implementation, A08c/A08e workers and A14b regression evidence.**
 A05a reader integration and A08a supervisor process gates passed at `c1c3fcce5b8b67373113ec44ad5d122a52bd7260`.
@@ -810,3 +835,13 @@ The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact 
 The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
 Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
 Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+
+#### A08h-RimFillet20261125: circular rim fillet read/write packs
+
+Codex owns this checking task on `feat/native-conversion-campaign-20261125`, based on main `66d4f5b856833833bbf67fe62a61c3450d8dc76f`.
+Delivery: [PR #301](https://github.com/TryUniCAD/Kit/pull/301).
+Dependencies are the native API, source-free constructor, controller and typed codecs.
+The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native checks, 12 exact generated-payload cycles, five native-source cycles and seven snapshot-width refusals.
+All strict neutral and public conversion refusals remain explicit.
+The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
+The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.
