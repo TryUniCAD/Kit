@@ -31,8 +31,10 @@ Two fresh-process integration cases passed in 24.94 seconds on Python 3.14.6. Ea
 
 A separate check ran three fresh CLI processes in 27.134 seconds. Each process started in a new directory containing only its request. Two independent processes produced byte-identical baseline archives. The baseline SHA-256 was `eace1303fba9de750d1b5f013bce28dcad5dbcce4f0638ea53cd1e3a552582a7`. Changing height from 18.875 to 26.5 mm produced `4f08598a5faa3f5d3a1bfa7acee7c5dda67de07b36dbca2ba10749d349200e65`. Strict SDK and JSON checks passed on all three. The existing snapshot-free version-1 constructor and four vendor-saved version-2 fixtures also passed their readback checks.
 
+The full saved-cuboid compatibility roster passed all 52 cases in 72.34 seconds on the frozen code revision `382af3ea57c5fdbe74b8271c9cb6711aa96ec18a`. This included the passive root order check and both new snapshot generation integration cases.
+
 The title repair follows the [asset-title rule](../../../Gotchas/Conversion/Fusion/Geometry/Snapshots/FusionSnapshotAssetTitle.md). The [member path](../../../Gotchas/Conversion/Fusion/Geometry/Snapshots/FusionSnapshotMemberPrefix.md) and [parameter observer order](../../../Gotchas/Conversion/Fusion/Geometry/Snapshots/FusionSnapshotParameterObservers.md) describe two further boundaries exercised by this generator.
 
 ## Limits
 
-The authored request has one supported cuboid and one generic physical material. The generator does not ingest a vendor-saved design. These generated snapshot-bearing archives still need direct native Fusion measurements. Full preservation of a saved source's graphics, previews, visibility, configuration, face selection and procedural material state remains open. Version-2 readback retains `fusion.read_only`.
+The authored request has one supported cuboid and one generic physical material. The generator does not ingest a vendor-saved design. The three candidate files were prepared for direct native measurements. The Windows application control tool failed to initialize before Fusion opened, so no native stages ran. Full preservation of a saved source's graphics, previews, visibility, configuration, face selection and procedural material state remains open. Version-2 readback retains `fusion.read_only`.
