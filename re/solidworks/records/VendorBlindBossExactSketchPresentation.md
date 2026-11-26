@@ -42,3 +42,18 @@ The clear Config-0 stays 22,540 bytes and changes only at the first byte of each
 Author04 also stores two in every top-level `f9b8.f0c`. Fourteen complete rows agree with the two-place candidate. Length differs in `f18` (0.1 and 0.01), `f20` (4 and 10), `f28` (8 and 1) and the typed `fb8` override with code 3 that only the source retains. The density `fcc` values are 0 and 1. Author04 has no `f9c0` table. The writer deliberately retains its required distinct MKS table. These are confirmed typed and wire observations for the two archives. The meaning of the residual fields and the effect of absent analysis units still require qualification. [Existing unit-table grammar and independent controls](ConfigUnitTableSlice2026.md)
 
 Prior native `GetUnits` captures were `[0, 1, 8, 2, 0]` for Author04 and `[0, 1, 1, 4, 0]` for the four-place generated recipe. SOLIDWORKS documents the third value as the denominator for fractional inches or feet-inches. The decimal millimetre contrast should retain that raw value for evidence and interpret the fourth value as decimal precision. A native length-only contrast should set `swUnitsLinearDecimalPlaces` with the document extension, retain angle and mass preference readings, and capture the full unit tuple before and after the edit, save and fresh reopen. Native observations for this exact two-place archive are pending. [Prior native readback](https://github.com/TryUniCAD/Kit/blob/ad4d64c025c3e19a7c71e95984af2248d5945886/re/solidworks/records/VendorBlindBossNativeSketchProof.json) · [SOLIDWORKS GetUnits](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IModelDoc2~GetUnits.html) · [Units preferences](https://help.solidworks.com/2024/english/api/swconst/DP_Units.htm)
+
+## Verified native unit precision
+
+The two exact files from the existing typed recipe replay opened read-only and rebuilt. The sources remained unchanged and stock controls passed before and after the generated pair. The exact length unit was millimetres. The whole `GetUnits` values are preserved in the evidence along with 24 independently queried document preference results. [Compact native proof](VendorBlindBossNativeUnitPrecisionProof.json)
+
+| Fresh process | Active seconds |
+| --- | ---: |
+| Stock before | 11.691 |
+| Generated four-place | 12.623 |
+| Generated two-place | 14.609 |
+| Stock after | 13.543 |
+
+The four-lifetime group took 55.642 seconds. All owned exits were normal and all open diagnostics zero. Two-place and four-place generated structures match outside units. Raw XY, aliases, exact D1, Top and plane state survive open and rebuild. The two-place native getters match stock except for the stored fraction denominator. Measured case-specific numeric roundoff remains recorded. The result does not test the length-only native setter or change either generated archive.
+
+Retrieve the verified private package at `D:/KitRuns/EncoderSwBossRea20261125/BossUnitFormat/NativeEvidenceCompanion01/PrivateNativePrecisionEvidence.tar.gz`. The compact proof gives its SHA-256 and the digest of the private member map. Verify both before extracting into an unused private directory, then check each of the 41 member sizes and hashes. The retained source, candidates and native records remain separate from the path-free report. Licensed software and the original template are identified by their hashes only.
