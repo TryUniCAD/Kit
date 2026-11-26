@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     concurrency:
-      group: Kit-aggregation-${{ github.event_name == 'merge_group' && 'queue' || format('pull-{0}', github.event.pull_request.number) }}
+      group: Kit-aggregation-${{ github.event_name == 'merge_group' && format('queue-{0}', github.event.merge_group.head_sha) || format('pull-{0}', github.event.pull_request.number) }}
       cancel-in-progress: false
       queue: max
     permissions:

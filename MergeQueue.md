@@ -58,6 +58,7 @@ It verifies each check's GitHub Actions identity, workflow, event, and job name.
 It also checks every registered workflow outcome. Unexpected failures,
 cancellations, timeouts, and skipped required jobs fail the aggregate.
 Jobs assigned to the other phase are explicitly deferred.
+Each merge-group candidate has its own aggregation slot and polls every two minutes after ten idle minutes; see [per-candidate queue aggregation](Documentation/Changes/Ci/Scheduling/PerCandidateQueueAggregation.md) and [queue aggregation polling](Documentation/Changes/Ci/Scheduling/QueueAggregationPolling.md).
 
 The Gitleaks job classifies one reviewed standards SHA-256 as public data only at its exact workflow path.
 Real scanner probes require detection for that value in another file and for an unknown value at the allowed path.
