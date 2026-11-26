@@ -5,6 +5,7 @@
 Use this register to find work on the path from the current SDK to the [completion roadmap](../../Roadmap.md).
 Each task records its delivery boundary, owner, dependency and observable completion condition.
 This register does not authorize a merge or assign new work to a person.
+The [SOLIDWORKS reader and writer plan](SolidworksReaderWriterPlan.md) gives the feature order and native checks for same-format round trips.
 
 The baseline is main `e04e7b78699d3f567409937007b00b567620078a`, inspected on 2026-11-15.
 The open PR inventory below was read from GitHub on that date.
