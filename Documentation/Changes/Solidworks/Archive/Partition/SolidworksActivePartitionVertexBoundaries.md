@@ -40,5 +40,19 @@ repository's planner, tracked shard and merged report. It checks public payload
 extraction, older and unsupported profiles, malformed active framing, and
 wrong-owner line and plane records. [Integration case](../../../../../tests/Convert/Solidworks/Partition/CurrentVertexTests.py)
 
+A six-edge part authored and sealed before implementation independently
+reproduced the missing vertex point failure. The frozen reader recovered a
+closed solid with eight faces, 18 edges and 12 vertices. All eight rings
+had outward orientation. Signed volume was 12,145.0224609375 mm³,
+matching the independent calculation. The original source, raw partition
+and delta payloads, and model-only projection stayed unchanged.
+[Held-out method](../../../../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md#held-out-active-partition)
+
+A separate native-saved P03 control still returned no B-rep. The prior
+geometry path reported a missing vertex use. The new fallback stopped at
+unmapped typed record kind 133 before it could replace a vertex table.
+Both public projections matched the pinned reader byte for byte.
+[Native P03 lifecycle](https://github.com/TryUniCAD/Kit/pull/338)
+
 [Record-boundary diagnosis](https://github.com/TryUniCAD/Kit/pull/334)
 · [Terminal fin orientation](../../../../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
