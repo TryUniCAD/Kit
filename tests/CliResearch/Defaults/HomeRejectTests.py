@@ -28,7 +28,7 @@ def CheckHomeError(TmpPath: FilePath, FieldName: str, Prefix: str) -> None:
 
 
 # an override outside the account home must be refused before its file is opened or research starts
-def CheckOutsideHome(TmpPath: FilePath) -> None:
+def CheckAwayHome(TmpPath: FilePath) -> None:
     ConfigPath, Checkout = PresetFiles(TmpPath)
     Reply = ShortcutCli(Checkout, ConfigPath, "run", "solidworks")
     assert Reply.returncode == 1
