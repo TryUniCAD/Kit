@@ -9,13 +9,14 @@
 from hashlib import sha256 as DigestBytes
 from json import dumps as EncodeJson, loads as ParseJson
 from pathlib import Path as FilePath
+from typing import cast as CastValue
 
 from tests.Research.Inference.InferenceHost import PrepareWorker
 from tests.Research.Supervisor.Grouping.BatchRecords import BatchEvents, ReadTryResult
 from tests.Research.SupervisorClient import FixtureJob, SessionHost
 
 
-# the real registry must enable grouping only for the worker's rescan job kind
+# the real registry must enable grouping only for the rescan worker job kind
 def EnableGrouping(Harness: SessionHost) -> None:
     RegistryPath = FilePath(ParseJson(Harness.ConfigFile.read_bytes())["registry"])
     Registry = ParseJson(RegistryPath.read_bytes())
@@ -25,12 +26,12 @@ def EnableGrouping(Harness: SessionHost) -> None:
     _ = RegistryPath.write_text(EncodeJson(Registry), encoding="utf-8")
 
 
-# committed native captures exercise both SDK decoders inside one child process
+# committed native captures exercise both native decoders inside one child process
 def BindCaptures(Harness: SessionHost) -> dict[str, tuple[str, str]]:
     ArchiveRoot = (
         FilePath(__file__).resolve().parents[3] / "re/automation/PairedCaptures/P03"
     )
-    Archives = {}
+    Archives: dict[str, tuple[str, str]] = {}
     for Family, NativeFormat, Extension in (
         ("fusion", "fusion.f3d", "f3d"),
         ("solidworks", "solidworks.sldprt", "SLDPRT"),
@@ -62,7 +63,7 @@ def RescanJob(
 
 
 # a refused archive must retry alone while its peers keep the results produced by the shared worker
-def CheckRescanGroup(TmpPath: FilePath) -> None:
+def CheckGroup(TmpPath: FilePath) -> None:
     Harness = PrepareWorker(TmpPath)
     EnableGrouping(Harness)
     Archives = BindCaptures(Harness)
@@ -98,10 +99,12 @@ def CheckRescanGroup(TmpPath: FilePath) -> None:
     assert Harness.ReadJob("second-bad")["state"] == "failed"
     assert Harness.ReadJob("second-bad")["attempts"] == 2
     BadAttempt = ReadTryResult(Harness, "second-bad")
-    assert BadAttempt["result"] is None and BadAttempt["receipt"]["group_size"] == 3
+    assert BadAttempt["result"] is None
+    assert CastValue(dict[str, object], BadAttempt["receipt"])["group_size"] == 3
     SoloFinish = BatchEvents(Events, "finished")[-1]
     assert (
-        SoloFinish["job"] == "second-bad" and SoloFinish["receipt"]["exit_status"] == 1
+        SoloFinish["job"] == "second-bad"
+        and CastValue(dict[str, object], SoloFinish["receipt"])["exit_status"] == 1
     )
 
     for JobName, Family in (("first-fusion", "fusion"), ("third-sw", "solidworks")):
@@ -115,11 +118,18 @@ def CheckRescanGroup(TmpPath: FilePath) -> None:
             Record["group_size"] for Record in BatchEvents(SoloEvents, "started")
         ] == [1]
         SoloResult = Harness.ReadResult(SoloName)
-        GroupRecords = GroupResult["result"]["records"]
-        SoloRecords = SoloResult["result"]["records"]
-        assert GroupRecords.pop("execution")["fingerprint"] == JobInfo["fingerprint"]
+        GroupRecords = CastValue(dict[str, dict[str, object]], GroupResult["result"])[
+            "records"
+        ]
+        SoloRecords = CastValue(dict[str, dict[str, object]], SoloResult["result"])[
+            "records"
+        ]
         assert (
-            SoloRecords.pop("execution")["fingerprint"]
+            CastValue(dict[str, object], GroupRecords.pop("execution"))["fingerprint"]
+            == JobInfo["fingerprint"]
+        )
+        assert (
+            CastValue(dict[str, object], SoloRecords.pop("execution"))["fingerprint"]
             == Harness.ReadJob(SoloName)["fingerprint"]
         )
         assert (

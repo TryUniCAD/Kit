@@ -104,7 +104,7 @@ def CheckGap(TmpPath: FilePath, Status: str) -> None:
     Scope = "authored-generic-gap"
     Payload = EncodeJson(GapReport(Scope, Status), sort_keys=True).encode()
     Descriptor = WriteInput(TmpPath, "plan", Payload)
-    WriteSession(TmpPath, "inference.paired-gap", Scope, {"plan": Descriptor})
+    _ = WriteSession(TmpPath, "inference.paired-gap", Scope, {"plan": Descriptor})
     Result = AssertReceipt(TmpPath, InvokeWorker(TmpPath))
     assert Result["outcome"] == (
         "waiting_evidence" if Status == "needs-distinguishing-evidence" else "completed"
@@ -128,7 +128,9 @@ def CheckReserved(TmpPath: FilePath, CaseName: str) -> None:
     Payload = EncodeJson(Report).encode()
     Descriptor = WriteInput(TmpPath, "plan", Payload)
     Extra = {"grid_from_receipt": "0" * 64} if CaseName == "grid_from_receipt" else None
-    WriteSession(TmpPath, "inference.paired-gap", Scope, {"plan": Descriptor}, Extra)
+    _ = WriteSession(
+        TmpPath, "inference.paired-gap", Scope, {"plan": Descriptor}, Extra
+    )
     Process = InvokeWorker(TmpPath)
     assert Process.returncode == 1 and "inference refused:" in Process.stderr
     assert "authenticated" in Process.stderr or "assessment mode" in Process.stderr
@@ -245,7 +247,7 @@ def WriteFieldPlan(RootPath: FilePath, Refute: bool) -> dict[str, dict[str, str]
 @MarkValue.parametrize("Refute", (False, True))
 def CheckFields(TmpPath: FilePath, Refute: bool) -> None:
     Inputs = WriteFieldPlan(TmpPath, Refute)
-    WriteSession(TmpPath, "inference.fields", "authored-generic-fields", Inputs)
+    _ = WriteSession(TmpPath, "inference.fields", "authored-generic-fields", Inputs)
     Result = AssertReceipt(TmpPath, InvokeWorker(TmpPath))
     Records = CastValue(dict[str, object], Result["records"])
     Assessment = CastValue(dict[str, object], Records["assessment"])
@@ -283,7 +285,7 @@ def WriteRescan(RootPath: FilePath, Tamper: bool) -> tuple[bytes, dict[str, str]
         "result": {"outcome": "completed", "records": Assessment},
     }
     PlanValue = WriteInput(RootPath, "assessment", EncodeJson(Completed).encode())
-    WriteSession(
+    _ = WriteSession(
         RootPath,
         "inference.rescan",
         Scope,
