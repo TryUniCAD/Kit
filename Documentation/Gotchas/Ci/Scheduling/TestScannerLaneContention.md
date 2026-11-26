@@ -4,4 +4,8 @@ Eight test matrix slots do not imply eight tests can execute together when secur
 
 Use separate bounded test and scanner lane namespaces within the actual organization allowance. Increasing matrix fanout alone does not remove a shared concurrency-key bottleneck. The organization API reported Team on 24 November 2026; the older Free-plan observation is historical. Team allows sixty standard hosted jobs, with five macOS jobs, according to [GitHub’s limits](https://docs.github.com/en/actions/reference/limits).
 
+Separate namespaces do not help a second candidate, because every candidate still shares one lane per group.
+The [candidate lane sets](../../../Changes/Ci/Scheduling/CandidateLaneSets.md) give a second candidate its own Linux and Windows lanes.
+macOS cannot get a second set within the five-job cap.
+
 Retain audit admission and all acceptance gates. Live queue build limits remain separate configuration; lowering speculative builds requires an administrator’s settings update. See [the change entry](../../../Changes/Ci/Scheduling/SeparateTestLanes.md).

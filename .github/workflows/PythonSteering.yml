@@ -18,6 +18,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       phase: ${{ steps.phase.outputs.phase }}
+      lanes: ${{ steps.lanes.outputs.prefix }}
     steps:
       - name: Checkout phase selector
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -32,6 +33,15 @@ jobs:
             const { SetPhase } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/CiPhase.cjs`);
             await SetPhase({ github, context, core });
 
+      - name: Select this candidate's lane set
+        id: lanes
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SelectLaneSet } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectLaneSet.cjs`);
+            await SelectLaneSet(github, context, core);
+
   steering:
     if: >-
       always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
@@ -40,7 +50,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     concurrency:
-      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-steering' || 'Kit-linux-7' }}
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-steering' || format('Kit-{0}linux-7', needs.pr-ci-reuse.outputs.lanes) }}
       cancel-in-progress: false
       queue: max
     steps:
