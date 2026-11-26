@@ -1,5 +1,7 @@
 # Separate merge queue test lanes
 
+The budget below assumes the Team plan's 60 concurrent jobs and 5 macOS jobs. The organisation now has Enterprise limits of 500 and 50; see [four candidate lane sets](EnterpriseLaneSets.md) for the current lanes and budget.
+
 ## Behavior
 
 Candidate Linux test shards use eight dedicated `Kit-test-linux-*` lanes. Scanners, policy jobs, and admitted audits retain the eight `Kit-linux-*` lanes. Previously both workloads competed for the same eight lanes. Matrix size, exact-once reporting, security checks, test reuse, audit admission, and cancellation behavior are unchanged. Manual audits retain the two existing Linux audit lanes.
