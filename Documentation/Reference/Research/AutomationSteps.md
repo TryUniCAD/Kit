@@ -276,6 +276,10 @@ The reported separate 37 × 21 × 11 mm feasibility case supports the compositio
 The owned licensed witness still needs driving edits, restoration, rebuild, save and fresh-process reopen with healthy controls.
 Neither the scoped constructor nor its observation receipt closes A11 or qualifies a conversion route.
 
+### A08 base Python verification recovery
+
+`A08-BasePythonChecks` is owned by the shared encoder worker on `codex/catalogue-base-python-checks`, based on open PR #168 at `e2fba13c8f`. This separate delivery restores required Python steering, Pyright and Mypy on that catalogue base, and repairs only observed inherited structure and typing failures. Keep all existing tests, dispatch behavior and writer admission. The exit requires current-head full-tree gates and CI aggregation, exact baseline and repaired collection records, and targeted integration results. PR #314 depends on this work for its inherited checks.
+
 ## A12 SOLIDWORKS writer research
 
 The [caller-supplied rectangular Boss candidate](../../Changes/Research/Writers/SolidWorks/Metadata/SolidWorksPortableBossCandidate.md) accepts a validated neutral document and explicit typed target state for the bounded Front/Right, signed blind-extrusion scope.
