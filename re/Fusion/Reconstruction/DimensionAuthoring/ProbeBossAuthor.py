@@ -159,7 +159,7 @@ def set_literal_annotation(author, role, expression):
 
 
 # Explicit composition preserves the witnessed ownership order without replacing shared build functions.
-def build_owned_design(spec, *, asset_id=None):
+def draft_owned_design(spec, *, asset_id=None, anchored_plane=False):
     CheckDocSpec(spec)
     author = CreateAuthor(spec, str(uuid4()) if asset_id is None else asset_id)
     author.Defaults.update(BaseDefaults())
@@ -184,17 +184,24 @@ def build_owned_design(spec, *, asset_id=None):
     AddConstrMut(author)
     ProbeOrigin.add_origin_coincidence(author)
     add_owned_sketch(author)
-    return EmitDesign(author)
+    if anchored_plane:
+        from BossSettingsOrder import orient_sketch_lines
+
+        orient_sketch_lines(author)
+    return author
 
 
-# The existing geometry material and container emitters consume the directly owned design unchanged.
-def generate_boss(variant, sizes, body_name, *, asset_id=None):
+def build_owned_design(spec, *, asset_id=None, anchored_plane=False):
+    return EmitDesign(draft_owned_design(spec, asset_id=asset_id, anchored_plane=anchored_plane))
+
+
+def boss_spec(variant, sizes, body_name):
     require(
         len(sizes) == 3 and all(isfinite(value) and value > 0 for value in sizes),
         "Expected positive XY width, height and blind depth",
     )
     width, height, depth = sizes[0], sizes[1], sizes[2]
-    spec = DocumentSpec(
+    return DocumentSpec(
         Title=f"P03 {variant} source-derived Boss",
         ParamName=DRIVERS[2],
         LengthMm=depth,
@@ -208,7 +215,11 @@ def generate_boss(variant, sizes, body_name, *, asset_id=None):
         WidthParamName=DRIVERS[0],
         DepthParamName=DRIVERS[1],
     )
-    design = build_owned_design(spec, asset_id=asset_id)
+
+# The existing geometry material and container emitters consume the directly owned design unchanged.
+def generate_boss(variant, sizes, body_name, *, asset_id=None, anchored_plane=False):
+    spec = boss_spec(variant, sizes, body_name)
+    design = build_owned_design(spec, asset_id=asset_id, anchored_plane=anchored_plane)
     return PackDocument(
         design, spec.Title, BuildBodyPart(spec, design) + BuildMatPart(design)
     )

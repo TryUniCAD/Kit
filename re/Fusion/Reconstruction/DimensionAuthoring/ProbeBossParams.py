@@ -116,7 +116,7 @@ def inspect_parameters(graph, context, sizes):
 
 
 # Compare independently decoded raw subject/rank metadata with typed dimension and anchor links.
-def inspect_sketch_rules(content, graph, context, parameters):
+def inspect_sketch_rules(content, graph, context, parameters, *, settings_ranks=(0, 1)):
     members, rules, anchor, raw_dims = ProbeOrigin.native_records(content)
     require(
         anchor["owner"] == context.Sketch.ObjectId
@@ -146,7 +146,7 @@ def inspect_sketch_rules(content, graph, context, parameters):
         require(
             subjects == tuple(zip(deps, ranks, strict=True))
             and deps[0] == settings
-            and ranks[0] == ordinal
+            and ranks[0] == settings_ranks[ordinal]
             and props == {"EntityGenesis": 0}
             and fields["ParentNode"] == fields["rParent"]
             and graph.Resolve(fields["rParent"]) == context.Sketch

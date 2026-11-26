@@ -95,16 +95,16 @@ def source_geometry(snapshot, case):
 
 
 # Resolve the actual stored Boss recipe and compare it to independent source edges and body measurements.
-def candidate_evidence(case, payload, sizes, edges, measured, tolerances):
+def candidate_evidence(case, payload, sizes, edges, measured, tolerances, *, settings_ranks=(0, 1), line_normal=(0.0, 0.0, -1.0)):
     model = ReadDocument(payload)
     graph = BuildGraph(model)
     context = SelectExtrusion(graph)
     CheckScopes(graph, context, model.Asset.AssetId)
     parameters = inspect_parameters(graph, context, sizes)
-    rules = inspect_sketch_rules(payload, graph, context, parameters)
-    shape = rectangle_shape(graph, context, rules)
+    rules = inspect_sketch_rules(payload, graph, context, parameters, settings_ranks=settings_ranks)
+    shape = rectangle_shape(graph, context, rules, line_normal=line_normal)
     profile = inspect_selected_profile(graph, context, shape, model.Asset.AssetId)
-    target, points, frame, incidence = candidate_edges(payload, rules)
+    target, points, frame, incidence = candidate_edges(payload, rules, graph=graph)
     tolerance = tolerances["length_mm_absolute"]
     match = match_perimeters(edges, target, tolerance)
     require(
@@ -262,11 +262,13 @@ if __name__ == "__main__":
     parser.add_argument("--source-witness", type=Path)
     parser.add_argument("--source-witness-sha256")
     parser.add_argument("--seed-helper", type=Path)
+    parser.add_argument("--snapshot-builder", type=Path)
+    parser.add_argument("--snapshot-owners", type=Path)
     parser.add_argument("--written-at", type=int)
     args = parser.parse_args()
     prepare = (args.source_json, args.logical_json)
     replay = (args.request_sha256, args.source_witness, args.source_witness_sha256,
-              args.seed_helper, args.written_at)
+              args.seed_helper, args.snapshot_builder, args.snapshot_owners, args.written_at)
     try:
         if args.prepare and all(value is not None for value in prepare) and all(value is None for value in replay):
             from SourceBossReplay import prepare_output
@@ -279,6 +281,6 @@ if __name__ == "__main__":
         elif not args.prepare and args.request is None and all(value is None for value in (*prepare, *replay)):
             print(generate_report(args.output))
         else:
-            parser.error("prepare needs both source JSON paths; replay needs a request, two digests, witness, pinned seed helper and epoch")
+            parser.error("prepare needs both source JSON paths; replay needs a request, two digests, witness, three pinned code helpers and epoch")
     except (AttributeError, KeyError, TypeError, ValueError, OSError) as exc:
         raise SystemExit(str(exc)) from exc

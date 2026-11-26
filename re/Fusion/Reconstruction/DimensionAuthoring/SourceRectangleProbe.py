@@ -35,13 +35,13 @@ from PairedPerimeters import edge_gap, match_perimeters
 from RectanglePairEvidence import load_public
 from RectanglePairSketch import world
 
+from convert.adapters.Fusion.Native.Graph.BuildGraph import BuildGraph
+from convert.adapters.Fusion.Native.Graph.GraphChecks import LinkedNodes, ResolveField
 from convert.adapters.Fusion.Native.Graph.GraphValues import (
     CheckIdentity,
     ObjectFields,
     PointCoords,
-    SeriesItems,
 )
-from convert.adapters.Fusion.Projection.NativeIndex import MakeIndex
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.Formats.Fusion.Sketches.Geometric.GeomRuleKinds import GetGeomRuleKind
 from interchange.Enums.EnumGeometry import GeometryKind
@@ -89,56 +89,56 @@ def source_edges(case):
 
 # the placed datum and component must certify the exact principal XY world frame
 def candidate_frame(graph, sketch):
-    fields = graph.Fields[sketch]
-    CheckIdentity(graph.FindOne("ComponentInstance")["transform"])
-    CheckIdentity(fields["occurrenceTransform"])
-    feature = graph.Fields[fields["rDcNode"].ObjectId]
-    matrix = graph.Fields[feature["rSketchPlaneMatrix"].ObjectId]
-    CheckIdentity(matrix["matrix3d"])
-    (reference,) = SeriesItems(matrix["dataRefs"])
-    recipe = graph.Fields[graph.Fields[reference.ObjectId]["rRecipe"].ObjectId]
-    datum = recipe["m_entityId"]
-    plane = ObjectFields(graph.Fields[datum]["plane"])
+    CheckIdentity(graph.OneClass("ComponentInstance").Fields["transform"])
+    CheckIdentity(sketch.Fields["occurrenceTransform"])
+    feature = ResolveField(graph, sketch, "rDcNode", "DcSketch")
+    matrix = ResolveField(graph, feature, "rSketchPlaneMatrix", "DRMatrix")
+    CheckIdentity(matrix.Fields["matrix3d"])
+    (support,) = LinkedNodes(graph, matrix, "dataRefs")
+    recipe = graph.Resolve(support.Fields["rRecipe"], support.SegmentId)
+    datum = graph.ResolveId(recipe.Fields["m_entityId"], recipe.SegmentId)
+    plane = ObjectFields(datum.Fields["plane"])
     require(
-        feature["rSketch"].ObjectId == sketch
-        and datum in graph.Names["WorkPlane"]
-        and matrix["refType"] == 2
-        and matrix["isZFlip"] is False
+        ResolveField(graph, feature, "rSketch", "MSketch") == sketch
+        and datum.ClassName == "WorkPlane"
+        and matrix.Fields["refType"] == 2
+        and matrix.Fields["isZFlip"] is False
         and plane["normalReversed"] is False
         and PointCoords(plane["origin"]) == (0.0, 0.0, 0.0)
         and PointCoords(plane["uAxis"]) == (1.0, 0.0, 0.0)
         and PointCoords(plane["vAxis"]) == (0.0, 1.0, 0.0),
         "Generated sketch does not resolve to its principal XY datum",
     )
-    return {"sketch": sketch, "feature": fields["rDcNode"].ObjectId, "datum": datum}
+    return {"sketch": sketch.ObjectId, "feature": feature.ObjectId, "datum": datum.ObjectId}
 
 
-# the generated archive must independently resolve its sketch lines and directed observers
-def candidate_edges(content, witness):
-    graph = MakeIndex(ReadDocument(content))
-    (sketch,) = graph.Names["MSketch"]
+# The generated archive must independently resolve its sketch lines and directed observers.
+def candidate_edges(content, witness, *, graph=None):
+    if graph is None:
+        graph = BuildGraph(ReadDocument(content))
+    sketch = graph.OneClass("MSketch")
     require(
-        sketch == witness["anchor"]["owner"],
+        sketch.ObjectId == witness["anchor"]["owner"],
         "Decoded sketch differs from the exact anchor owner",
     )
     frame = candidate_frame(graph, sketch)
     points = {
-        identity: tuple(
-            value * 10.0 for value in PointCoords(graph.Fields[identity]["point"])
-        )
-        for identity in graph.Names["Point3D"]
+        node.ObjectId: tuple(value * 10.0 for value in PointCoords(node.Fields["point"]))
+        for node in graph.ByClass("Point3D")
     }
     edges, incidence = [], Counter()
-    for identity in graph.Names["Line3D"]:
-        fields = graph.Fields[identity]
+    for node in graph.ByClass("Line3D"):
         require(
-            fields["rParent"].ObjectId == sketch,
+            ResolveField(graph, node, "rParent", "MSketch") == sketch,
             "A generated line belongs to a different sketch",
         )
-        ends = tuple(fields[field].ObjectId for field in ("rStartPoint", "rEndPoint"))
+        ends = tuple(
+            ResolveField(graph, node, name, "Point3D").ObjectId
+            for name in ("rStartPoint", "rEndPoint")
+        )
         require(len(set(ends)) == 2, "A generated line collapsed at one point")
         incidence.update(ends)
-        edges.append((identity, tuple(points[end] for end in ends)))
+        edges.append((node.ObjectId, tuple(points[end] for end in ends)))
     require(
         set(incidence) == set(points) - {witness["anchor"]["origin"]["id"]}
         and len(incidence) == 4
