@@ -29,6 +29,18 @@ ARCHIVE = "P03-baseline-a.f3d"
 # The generation proof retains the exact independent source measurements and archives.
 MANIFEST = "P03CandidateEvidence.json"
 
+REPLAY_FILES = {
+    "input": ARCHIVE,
+    "manifest": MANIFEST,
+    "request": "P03Request.json",
+    "witness": "P03SourceWitness.json",
+    "seed_helper": "SeedHelper.py",
+    "snapshot_builder": "ProbePrismSnapshot.py",
+    "snapshot_owners": "SnapshotOwners.py",
+}
+REPLAY_COMPANIONS = tuple(role for role in REPLAY_FILES if role not in ("input", "manifest"))
+PREPARATION_HOSTS = ("licensed_macos", "offline_windows", "offline_other")
+
 # Resolve the project from the pinned helper path in either embedded or command-line Python.
 REPO = Path(__file__).resolve().parents[4]
 
@@ -55,6 +67,20 @@ PINS = {
         "re/Fusion/Study/thinextrudes-c1632bcb5efe/ordinary_rectangle_control.f3d"
     ),
 }
+
+
+# Replay plans retain the offline verifier sources in addition to the licensed runner pins.
+REPLAY_PROGRAM_PINS = {
+    "replay_intake": AUTHORING / "SourceBossReplayIntake.py",
+    "replay_evidence": AUTHORING / "SourceBossReplay.py",
+    "replay_request": AUTHORING / "SourceBossRequest.py",
+    "replay_snapshot": AUTHORING / "SourceBossSnapshot.py",
+    "replay_settings": AUTHORING / "BossSettingsOrder.py",
+}
+
+
+def pinned_paths(schema):
+    return PINS | REPLAY_PROGRAM_PINS if schema == 2 else PINS
 
 # Keep input reads bounded separately from native archive sizes.
 METADATA_LIMIT = 1024 * 1024
@@ -161,6 +187,20 @@ def prepared_input(root, plan):
     archive = inputs / ARCHIVE
     read_pinned(inputs / MANIFEST, rows["manifest"])
     read_pinned(archive, rows["input"], ARCHIVE_LIMIT)
+    if plan["schema"] == 2:
+        companions = rows["replay_inputs"]
+        require(
+            set(companions) == set(REPLAY_COMPANIONS),
+            "Prepared P03 replay custody roster differs",
+        )
+        for role in REPLAY_COMPANIONS:
+            evidence = companions[role]
+            require(
+                set(evidence) == {"file", "size_bytes", "sha256"}
+                and evidence["file"] == REPLAY_FILES[role],
+                f"Unexpected prepared P03 {role} file or evidence fields",
+            )
+            read_pinned(inputs / REPLAY_FILES[role], evidence)
     return archive
 
 
@@ -169,13 +209,17 @@ def read_plan(path, digest):
     _, plan = read_object(path, digest)
     require(
         type(plan["schema"]) is int
-        and plan["schema"] == 1
+        and plan["schema"] in (1, 2)
         and plan["scope"] == SCOPE
         and type(plan["prepared_unix_seconds"]) is int
         and plan["prepared_unix_seconds"] > 0
         and re.fullmatch(r"[0-9a-f]{40}", plan["source_revision"])
         and re.fullmatch(r"[0-9]+(?:\.[0-9]+){2}", plan["fusion_version"])
-        and set(plan["pins"]) == set(PINS),
+        and set(plan["pins"]) == set(pinned_paths(plan["schema"]))
+        and (
+            plan["schema"] == 1
+            or plan.get("preparation_host") in PREPARATION_HOSTS
+        ),
         "Invalid prepared P03 plan",
     )
     prepared_input(path.parent, plan)
