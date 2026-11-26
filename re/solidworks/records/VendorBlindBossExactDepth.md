@@ -18,3 +18,25 @@ Replay accepts the persisted canonical JSON as its only model input. The existin
 This procedure preserves the saved depth only. The three vendor inputs include profile coordinates that the exact millimetre inverse check refuses. Unknown source streams, presentation and other state remain on the originals, and the lossless vendor-source boundary stays open. Native processes did not run during this offline experiment.
 
 The checks refused an undisclosed case, a changed authoring record, a mismatching directed profile and a persisted millimetre depth. The existing encoder also refused the whole baseline vendor archive.
+
+## Verified native depth
+
+The native observer accepted each exact persisted-JSON candidate and its corresponding independent native reference. Their D1 readings matched bit for bit. The independent comparisons passed for directed profiles, measured solids and sketch frames. The baseline underwent one unchanged native SaveAs and one fresh read-only reopen. The saved archive itself retained `moLengthParameter_c.f58` at `0x1.d4e8fb00bcbe6p-7` and the fresh application readback reported the same word. [Complete measured summary](VendorBlindBossNativeDepthProof.json)
+
+| Fresh process | Active seconds |
+| --- | ---: |
+| Unchanged stock before | 12.253 |
+| Edited stock reference | 10.932 |
+| Warmed stock reference | 13.742 |
+| Generated baseline | 17.542 |
+| Generated edited depth | 17.811 |
+| Generated warmed profile | 16.962 |
+| Baseline SaveAs | 11.349 |
+| Saved baseline reopen | 10.985 |
+| Unchanged stock after | 10.991 |
+
+The existing bounded comparisons cover sampled floating-point differences in derived geometry. The D1 checks use exact SI binary64 equality. Configuration and display-state names, assigned views and global construct-plane visibility differ between the source references and generated parts. The exact proof keeps those reported differences and comparison tolerances per case.
+
+The verified private package is `D:/KitRuns/EncoderSwBossRea20261125/ExactDepthIntent/NativeEvidenceCompanion01/NativeDepthRaw.private.zip`. Check the archive and its sibling `NativeDepthMembers.private.json` against the compact proof before extraction into an unused private directory. Verify each retrieved member's digest and length using the private map. Its 58 members include complete raw phase records, exact native inputs, the saved baseline derivative, observer, and pinned helper copies. Direct helper hashes were also observed in the earlier plane terminal. The dynamic runtime files were retained after this depth run from their exact clean checkout. Both helper observations are recorded separately from the depth terminal's own runner hash. Keep the raw package private as it contains machine metadata.
+
+Scope is an already bounded authored geometry request with exact D1 and three disclosed native comparisons. Full source admission, held-out coverage and public publication require separate evidence.
