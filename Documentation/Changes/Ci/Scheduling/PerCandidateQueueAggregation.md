@@ -7,7 +7,7 @@ Before, every candidate shared one `Kit-aggregation-queue` group with `queue: ma
 Each running aggregator held that slot until its own candidate finished.
 Later candidates' aggregators could wait past the live 60-minute queue response timeout even when every other check had passed, and GitHub then removed the candidate.
 
-A candidate's `CI Agg` now starts with the candidate and reports within about two minutes of its last check.
+A candidate's `CI Agg` now starts with the candidate and reports within one poll interval of its last check: about 30 seconds while most polls return `304`, up to about three minutes when every poll is charged.
 Re-runs of the same candidate still share its group and run one at a time.
 Pull-request aggregation keeps its per-PR group.
 The aggregated checks, failure rules and 80-minute aggregation deadline are unchanged.
