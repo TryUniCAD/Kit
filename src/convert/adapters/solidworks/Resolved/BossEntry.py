@@ -53,7 +53,7 @@ class BossHead(OpNode):
 
 # a reached blind boss keeps both its initial owners and its completed end specification
 class BossOperation(BossHead, BossClose):
-    pass
+    """Contains the typed boss header and close records in the same mapping."""
 
 
 # a terminal boss additionally records the return of the whole resolved list

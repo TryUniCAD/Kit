@@ -22,7 +22,7 @@ from tools.Steering.SteeringCompliance import (
 )
 
 # external source trees stay excluded because their research and vendor conventions are maintained outside owned production code
-KSkipParts = frozenset({"examples", "modules", "parashell", "re"})
+KSkipParts = frozenset({"examples", "modules", "re"})
 
 
 # path selection keeps every mode focused on owned python sources worth reviewing

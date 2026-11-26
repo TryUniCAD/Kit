@@ -1,0 +1,63 @@
+{
+  "disclosed_comparison_sha256": "c9944555a9fc58d3096ebe88d093a37cfb8d4efd929e6c49a7bec9ef71e90259",
+  "disclosed_profiles": {
+    "C059-P01": {
+      "active_profile_preserved": true,
+      "heldout_input": false,
+      "hidden_visibility_preserved": true,
+      "retained_full_parameters": 17,
+      "semantic_diff_paths": [
+        "brep_payloads.$tuple.4.attributes.freecad.replay_semantic_sha256",
+        "sketches.$tuple.0.suppressed"
+      ],
+      "source_sha256": "73cd885cd4755b274fe1106db3022923352ea45a7a4d9964d48202790a47de61",
+      "strict_path_read": true
+    },
+    "C130-P01": {
+      "active_profile_preserved": true,
+      "heldout_input": false,
+      "hidden_visibility_preserved": true,
+      "retained_full_parameters": 17,
+      "semantic_diff_paths": [
+        "brep_payloads.$tuple.4.attributes.freecad.replay_semantic_sha256",
+        "sketches.$tuple.0.suppressed"
+      ],
+      "source_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+      "strict_path_read": true
+    }
+  },
+  "full_replay": {
+    "case_count": 171,
+    "cases_with_corrected_sketch": 94,
+    "distinct_source_identities": 162,
+    "failed_cases": [],
+    "observer_sha256": "9b26a773401d01daff05baa748b16656c22dd0e6bc25a7274fa66be0325bc235",
+    "other_semantic_differences": [],
+    "prior_result_sha256": "5576b29ca0717694ac3415fd9e4141ce6a5d3b165117cac1f77a138a17605229",
+    "source_code_sha256": {
+      "src/convert/adapters/freecad/Archive.py": "58669474f7a9be96b52409506589d417fea347ddcdd41d22ce0a05cdc48578b7",
+      "src/convert/adapters/freecad/Native.py": "f5e2f0eadd0a6863a05e261fa35754203e70e30bf40d983cd9cdea7428410f72"
+    },
+    "source_fields_changed": {
+      "derived_native_digest_changed": 94,
+      "sketch_suppression_changed": 318
+    },
+    "strict_reads": 171
+  },
+  "full_replay_sha256": "9b74a0798cea2e32cbcd42311a0508106d76d91e3af88218c4aadd981d2bfe67",
+  "integration": {
+    "focused_process_boundary_cases_passed": 4,
+    "modules": [
+      "tests/Convert/Freecad/FreecadTests.py",
+      "tests/Convert/Freecad/SavedSketchTests.py",
+      "tests/Convert/Freecad/EditReadTests.py",
+      "tests/Convert/Freecad/ProfileReadTests.py"
+    ],
+    "passed": 144,
+    "python": "3.14",
+    "skipped": 10
+  },
+  "schema": "kit.freecad.native-sketch-visibility.v1",
+  "scope": "disclosed strict FCStd reads and native adapter integration",
+  "solidworks_writer_outputs": 0
+}

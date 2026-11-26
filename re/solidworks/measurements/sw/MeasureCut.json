@@ -1,6 +1,6 @@
 [
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 10.03502980000485,
     "opened": true,
@@ -144,7 +144,7 @@
     "role": "control-before"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\orig_boss_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\sw\\sldprt\\orig_boss_cut.SLDPRT",
     "returncode": 0,
     "seconds": 9.835710500003188,
     "opened": true,
@@ -305,7 +305,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\hostcut_donorgeom.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\sw\\sldprt\\hostcut_donorgeom.SLDPRT",
     "returncode": 0,
     "seconds": 9.98403220000182,
     "opened": true,
@@ -466,7 +466,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\hostcut_geomonly.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\sw\\sldprt\\hostcut_geomonly.SLDPRT",
     "returncode": 0,
     "seconds": 9.914057500005583,
     "opened": true,
@@ -627,7 +627,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\hostcut_full.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\sw\\sldprt\\hostcut_full.SLDPRT",
     "returncode": 0,
     "seconds": 9.92091839999921,
     "opened": true,
@@ -788,7 +788,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 9.812814500000968,
     "opened": true,

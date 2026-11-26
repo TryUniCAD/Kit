@@ -1,14 +1,14 @@
 import hashlib as Hashing
 import json as JsonCodec
 import sys as System
-from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 from tests.Research.Outputs.PrepareOutput import PrepareOutput
 
 
 # output custody checks need result files produced independently of the supervisor process
 def RunOutputs() -> None:
-    SessionPath = FilePath(System.argv[1])
+    SessionPath = SessionRoot(System.argv[1])
     JobInfo = JsonCodec.loads((SessionPath / "job.json").read_text(encoding="utf-8"))
     ModeValue = JobInfo["job"]["options"].get("mode", "complete")
     Content = b"durable editable evidence candidate\x00\xff"

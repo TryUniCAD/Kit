@@ -1,0 +1,227 @@
+{
+  "accepted_base": "91df941c98d2e96633eb0fd0f0a1adfbf70d3039",
+  "accepted_base_authored_refusal": "unsupported SOLIDWORKS direct part header owner",
+  "authored": {
+    "one": {
+      "bytes": 38,
+      "config_sha256": "2cadc72a542d115dccaa898bf94f9fe5cb9e24cdd2ee2f9f04c18f456e3b61e2",
+      "configured_slots": [
+        3,
+        4
+      ],
+      "header_sha256": "b277f14211c531c7a3631258e5ddb290ed1978c8a020ac864281dce2c7eeabf0",
+      "lead_words": [
+        -37,
+        19000
+      ],
+      "map_base": 5,
+      "map_counter": 5,
+      "references": [
+        4,
+        3
+      ],
+      "sections": [
+        [
+          22,
+          30
+        ],
+        [
+          34,
+          38
+        ]
+      ],
+      "standalone_header_slots": [
+        10,
+        6
+      ]
+    },
+    "two": {
+      "bytes": 40,
+      "config_sha256": "8b2931b506c88bb12a48326dd544be2c112ac1f59a2a751a8a081ff50cc40dcc",
+      "configured_slots": [
+        3,
+        4,
+        5
+      ],
+      "header_sha256": "8b5e9dd7648c4b69711c4ca4876781e78c00542f88a4d617e775ffb5b373a81f",
+      "lead_words": [
+        613,
+        19000
+      ],
+      "map_base": 6,
+      "map_counter": 6,
+      "references": [
+        5,
+        4,
+        3
+      ],
+      "sections": [
+        [
+          22,
+          30
+        ],
+        [
+          34,
+          40
+        ]
+      ],
+      "standalone_header_slots": [
+        12,
+        6,
+        10
+      ]
+    }
+  },
+  "guarded_processes": 4,
+  "native_document_candidates": 0,
+  "native_launches": 0,
+  "native_prefixes": {
+    "a0": {
+      "config_sha256": "8ed41cbefe04dde1b76328c273f93a81e3f105f4fbbb43e1305cf9b0476d9a4d",
+      "configured_slots": [
+        3,
+        4
+      ],
+      "direct_extent": [
+        22,
+        22
+      ],
+      "lead_end": 30,
+      "lead_words": [
+        0,
+        19000
+      ],
+      "map_after": [
+        5,
+        5
+      ],
+      "map_before": [
+        1,
+        3
+      ],
+      "mates_bytes": 6,
+      "mates_sha256": "98cd9d7146a2605b60a6fd9fb269265f2363574ca58ef3c1fdf39e486f410fb8",
+      "model_header_sha256": "7525e1d3c8cc4a7fd0badcfca220434868c3d75835d89f63305729e78a686a2b",
+      "sections": [
+        [
+          22,
+          3133
+        ],
+        [
+          3137,
+          24828
+        ]
+      ],
+      "source_path": "re/solidworks/v2026/corpus/assemblies/A0_one.SLDASM",
+      "source_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "standalone_header_slots": [
+        69,
+        65
+      ]
+    },
+    "a1": {
+      "config_sha256": "d104518bb0d5d4fdbb8595bc3a7627e9c6870b71758a35c538ae7edc600cc5bb",
+      "configured_slots": [
+        3,
+        4,
+        5
+      ],
+      "direct_extent": [
+        22,
+        22
+      ],
+      "lead_end": 30,
+      "lead_words": [
+        0,
+        19000
+      ],
+      "map_after": [
+        6,
+        6
+      ],
+      "map_before": [
+        1,
+        3
+      ],
+      "mates_bytes": 10411,
+      "mates_sha256": "1be858bb7a88b225639ee939785387e7ba4fdcfda3cf5d945dbcc670f240772a",
+      "model_header_sha256": "9ed41ae9b8ad6bc38804a84d1463ec4d7fb70717ff8d539357ee9d5a777c45d7",
+      "sections": [
+        [
+          22,
+          3643
+        ],
+        [
+          3647,
+          25338
+        ]
+      ],
+      "source_path": "re/solidworks/v2026/corpus/assemblies/A1_two.SLDASM",
+      "source_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "standalone_header_slots": [
+        80,
+        73,
+        77
+      ]
+    }
+  },
+  "native_source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "ordinary_part": {
+    "authored_frame_sha256": [
+      "19cd64cc71a81cbe850c873c8d51445cb6217c38c726d360f99ec821734135c8",
+      "f8a076fd0b4264c6b79f234a4cbda3c711c140f938bfa044753eb939d3290db3"
+    ],
+    "ghost_frame_sha256": [
+      "92fe14bf563b32217307d459e91ae6010962c02a71eea5e40c4dc9604de57523",
+      "8e965763e6a4bbc1088a94bf6c9cb3cbbdb4955f88355c807362a0fd43de4e3a",
+      "bc2cc7786f9a62005d82db195ff3ab495a4862dcf5d4e26b04fd09181551db43"
+    ],
+    "same_model_and_ghost_reports": true,
+    "same_refusals": 12,
+    "wrong_owner_control": "moNodeName_c schema 1"
+  },
+  "prior_aggregate_receipt": {
+    "assemblies": 8,
+    "codec_revision": "3136c93c5d5f30395d315a2124894cc60de9d9cc",
+    "exact_streams": 1328,
+    "sha256": "4d55ff2257d24aaea61557338e986d8886239a266e489c1007e887f937ddbecb"
+  },
+  "refusals": {
+    "absent_alias": "SOLIDWORKS direct part header needs distinct new aliases",
+    "already_mapped_alias": "SOLIDWORKS direct part header needs distinct new aliases",
+    "detached": "unsupported SOLIDWORKS direct part header owner",
+    "duplicate_alias": "SOLIDWORKS direct part header needs distinct new aliases",
+    "nested": "unsupported SOLIDWORKS direct part header owner",
+    "wrong_version": "SOLIDWORKS typed body grammar requires archive version 19000"
+  },
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.assembly-direct-action.v1",
+  "shared_owner_catalog": {
+    "classes": [
+      [
+        "moPart_c",
+        1
+      ],
+      [
+        "moAssembly_c",
+        1
+      ]
+    ],
+    "legacy_reader_symbol_preserved": true,
+    "reader_function_identical_to_base": true,
+    "writer_function_identical_to_aggregate": true
+  },
+  "source_semantics_match_aggregate": true,
+  "source_sha256": {
+    "re/tooling/sw2026/CheckAsmDirect.py": "f4d62379765630e9efd26b95ad3ec9e62ae841e71e0a91c27cb3e9e1a8dbe210",
+    "re/tooling/sw2026/CheckCfgSection.py": "c68d1488829051b52ba317e6c0539e477d71b09c7b6175a4aa2e0d1e98f4d9e6",
+    "re/tooling/sw2026/CheckCfgSectionWrite.py": "8296b823de4b7b9c940c42fdcaa3d6ad0f84f1d021060fd52f67b6879abd55ad",
+    "re/tooling/sw2026/MakeHeadAliasCase.py": "d3f10efe2f7506b60e16558b88014bbee68e5772e0908d2b705b6c99bfd127fd",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Direct/DirectOwners.py": "d370510dfab7c9b309315a0c7e374e9ed4fee3eb6728b785785b32d9d445080f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadDirectMut.py": "7c97216c8e068dae6ce2ed25598c0ff5a986b023bc4fcd43f407cea38d486691",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteDirectMut.py": "acb48315506ea1f382df00a0b658ccbc979dca040d961493fb1fb578d383ecc5",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteSectionMut.py": "0889a498a1f678a29c841e6ff01e88a121431cf4a6ea8313ea77c95c724c2e1e",
+    "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py": "a6792564852e0e46cbb147abc700147bfda23bbac5b40c2e48a1dfa02f7c6910",
+    "tests/Convert/Solidworks/Configuration/Sections/AssemblyAliasTests.py": "0b8ec2fa6da9921fd30cc56cbd5d12dde6fefa6fa714503cb4b070255bb62a8c"
+  }
+}

@@ -1,0 +1,37 @@
+# Fusion cut review guards
+
+The bounded cut reader now clips using the original source rectangle extrema. Contacts within the qualified 1e-9 mm tolerance use the stock edge as their canonical station. This accepts a native flush upper corner whose original maximum cannot be recovered exactly by adding its rounded width to its minimum. Source sketch coordinates remain unchanged.
+
+Strict cut projection refuses populated `faceVisualMaterialByAttrTagID` maps until per-face appearances are projected. Every parsed planar face now checks that its boundary lies on its own saved plane, including open cache sheets; matching vertices and normal direction alone are insufficient.
+
+## Explicit body history
+
+`FeatureStep.OutputBodyIds` is an immutable tuple of persistent body identities produced or modified by a feature. Its JSON key is `output_body_ids`. Cut source projection fills this field for the stock and modifying steps. A distance cut must list the same target and output bodies and directly depend on one earlier producer for each target. Invalid body references, duplicate output IDs and reference features claiming body outputs refuse. Existing records without distance cuts retain their empty default. Earlier inspection JSON for the newly introduced cut type should be regenerated from its native source.
+
+The converter recognizes the distance-cut feature kind, checks its active profile and generator inputs, and supplies body identities and full feature context to validation. This fixes the incomplete classification and context checks. It does not make a read-only or underconstrained source conversion-ready. The existing geometry contract and native writer barriers remain enabled. Full native conversion and round-trip acceptance remain unfinished.
+
+## Native evidence and verification
+
+The PC API authored a flush upper-edge control and a face-appearance control with healthy brackets. The flush control decoded strictly. The face-appearance archive refused at its unsupported native journal attribute family; the explicit semantic appearance-map guard also protects models that reach projection. Independent measurements and archive hashes are in `re/Fusion/Reconstruction/BoundaryCuts/ReviewGuardObservations.json`.
+
+Public process-boundary integration replays cover the flush input, appearance refusal, an encoded displaced plane and a neutral cut detached from its prior producer. These tests are committed for remote execution and were not run locally. Actual CLI source decoding and static checks are recorded separately. No qualification guard was disabled and no native acceptance is claimed.
+
+A separate public conversion replay requires a qualification refusal rather than an unknown-feature or missing-context failure, and verifies that no output is published. It is committed for remote CI and was not executed locally. Static checks passed for 53 changed Python files.
+
+The final pinned source regression at `0c0d73b11b16a906f7a7b9ce3df32f08a02b4ddd` decoded all 25 inputs strictly with zero partial decodes, reader errors or rejections. The face-appearance refusal was exercised separately. Repeated CLI output for each of the three originally requested inputs was byte identical. ReviewGuardRegression.json and ReviewGuardDeterminism.json retain exact revision, tree and digest evidence. Native acceptance remains not established.
+
+## Compatibility and neutral payloads
+
+The public compatibility field list includes `output_body_ids` as the trailing FeatureStep field. Positional pickle restoration fills omitted trailing fields from their declared defaults, including the empty output tuple for earlier feature steps, and rejects missing required fields.
+
+Circular spans and bounded cuts retain only the read-only marker in neutral metadata. They no longer embed the parsed native model or its archived payloads. Native re-emission remains unavailable for these projections. Process-boundary decode coverage checks that the native-state payload is absent.
+
+A separate malformed-archive CLI replay populates the semantic appearance map on a journal-compatible control and requires the exact map refusal. The native appearance control remains a separate early-journal refusal. Compatibility coverage restores a pre-field positional FeatureStep pickle and calls public document validation. These additions await remote execution; no local tests were run.
+
+## Export boundaries
+
+All shared native write checks reject a `fusion.read_only` projection, including nested component documents, before output staging or stream mutation. Direct JSON adapter writes use the same check. Disabling structural validation does not bypass this export restriction. The decode command remains available for inspection JSON; that artifact does not establish application usability or native acceptance. Public API and direct stream compatibility replays cover this restriction, and historical pickle replays now cover declared values, factory defaults and missing required fields. These tests await remote execution.
+
+The registry preserves its unsupported-adapter exception for explicit Fusion re-exports by checking adapter support before the inspection-only export restriction. Native history qualification remains first, and supported writers still perform the read-only check before staging. Public API replays cover nested Fusion components beneath an unmarked assembly root and require unchanged destinations for both unsupported native export and blocked JSON export.
+
+Native history qualification retains precedence over adapter support, preserving the established native-semantics refusal for partial histories. The read-only projection check is separate and follows adapter support in registry writes. Direct writers still enforce both checks. The unsupported-Fusion replay requires the exact support-refusal diagnostic, so a missing writer registration cannot satisfy it. Existing partial sweep API coverage retains its native-semantics exception requirement.

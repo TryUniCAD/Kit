@@ -2,7 +2,7 @@ from convert.Formats.Fusion.HistoryRef import ReadNativeRef
 from convert.Formats.Fusion.MetaCursor import MetaCursor
 from convert.Formats.Fusion.RecordSpan import RecordSpan
 from convert.Formats.Fusion.SelectionProxy import SelectCursor
-from convert.Formats.Fusion.Topology.BodyPick import KCutPickMarker, KCutTargetMode
+from convert.Formats.Fusion.Topology.BodyPick import KCutPickMarker
 from convert.Formats.Fusion.Topology.PickSupport import KSupportGuid
 
 # the fixed selection helper separates typed links from an opaque cached scalar
@@ -25,11 +25,7 @@ def ReadPickFooter(
     Marker: bytes | None = None,
 ) -> tuple[int, int]:
     if Marker is None:
-        Marker = (
-            KCutPickMarker
-            if ModeCode in (KCutTargetMode, KSketchFaceMode)
-            else b"\1\1\0\0"
-        )
+        Marker = KCutPickMarker if ModeCode == KSketchFaceMode else b"\1\1\0\0"
     if (
         Cursor.ReadWord() != 0
         or Cursor.ReadWord() != ModeCode

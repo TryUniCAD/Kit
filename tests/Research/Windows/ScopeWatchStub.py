@@ -28,16 +28,16 @@ def HangCollector(RunPath: FilePath) -> None:
 
 
 # fixture use of the watcher shares native job creation and drain with the campaign
-def WatchFixture(RunPath: FilePath, ResearchPath: str) -> None:
-    System.path.insert(0, ResearchPath)
-    Watcher = ScriptRun.run_path(str(FilePath(ResearchPath) / "ScopeWatchdog.py"))
+def WatchFixture(RunPath: FilePath) -> None:
+    ResearchPath = FilePath(__file__).resolve().parents[3] / "re/automation"
+    System.path.insert(0, str(ResearchPath))
+    Watcher = ScriptRun.run_path(str(ResearchPath / "ScopeWatchdog.py"))
     Command = [
         GetBasePython(),
         "-I",
         "-S",
         __file__,
         "collect",
-        str(RunPath),
     ]
     Receipt = Watcher["watch"](
         Command,
@@ -52,6 +52,6 @@ def WatchFixture(RunPath: FilePath, ResearchPath: str) -> None:
 
 if __name__ == "__main__":
     if System.argv[1] == "collect":
-        HangCollector(FilePath(System.argv[2]))
+        HangCollector(FilePath.cwd())
     else:
-        WatchFixture(FilePath(System.argv[2]), System.argv[3])
+        WatchFixture(FilePath.cwd())

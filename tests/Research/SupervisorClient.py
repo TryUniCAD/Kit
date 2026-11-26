@@ -27,7 +27,8 @@ def WriteRegistry(RootPath: FilePath, KindPools: dict[str, str]) -> FilePath:
     _ = SchemaFile.write_text(JsonCodec.dumps(KResultSchema), encoding="utf-8")
     RunnerArgs = [
         System.executable,
-        str(KRepoRoot / "tests/Research/SessionRunner.py"),
+        "-m",
+        "tests.Research.SessionRunner",
         "{session}",
     ]
     Registry = {
@@ -249,7 +250,7 @@ def IsProcessGone(ProcessId: int) -> bool:
     StatFile = FilePath(f"/proc/{ProcessId}/stat")
     try:
         StatText = StatFile.read_text(encoding="ascii")
-    except FileNotFoundError:
+    except (FileNotFoundError, ProcessLookupError):
         return FilePath("/proc/self/stat").is_file()
     return StatText[StatText.rindex(")") + 2] == "Z"
 

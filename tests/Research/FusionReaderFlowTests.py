@@ -37,12 +37,19 @@ def CheckFusionFlow() -> None:
         assert (TargetPath / "summary.json").read_bytes() == PriorData
 
 
-# assembly archives must fail explicitly because they lie outside the part reader contract
+# archive refusals must remain explicit when a later batch member decodes
 def CheckArchive() -> None:
     with TempFiles.TemporaryDirectory() as TempPath:
         TargetPath = FilePath(TempPath) / "Rejected"
         ResultInfo = RunFusionReader(
-            ["--asset", KArchiveAsset, "--output", str(TargetPath)]
+            [
+                "--asset",
+                KArchiveAsset,
+                "--asset",
+                KControlAsset,
+                "--output",
+                str(TargetPath),
+            ]
         )
         assert ResultInfo.returncode == 3, ResultInfo.stderr
         Summary = JsonCodec.loads((TargetPath / "summary.json").read_text())
@@ -51,7 +58,12 @@ def CheckArchive() -> None:
         assert Entry["outcome"] in ("rejected", "reader_error")
         assert Entry["reason"]
         assert "directory" not in Entry
-        assert Summary["counts"]["decoded"] == 0
-        assert [EntryPath.name for EntryPath in TargetPath.iterdir()] == [
-            "summary.json"
-        ]
+        assert Summary["counts"]["decoded"] == 1
+        Control = Summary["assets"][1]
+        assert Control["path"] == KControlAsset
+        assert Control["reader_mode"] == "strict"
+        VerifyControl(TargetPath, Control)
+        assert {EntryPath.name for EntryPath in TargetPath.iterdir()} == {
+            "summary.json",
+            Control["directory"],
+        }

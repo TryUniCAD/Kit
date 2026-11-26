@@ -9,7 +9,7 @@ import re
 import sys
 
 from PairedCaptureIntake import GitSnapshot, require, sha256
-from PairedCaptures.ScopeControl.FusionScopeModel import HasInwardCut
+from CaptureTools.ScopeControl.FusionScopeModel import HasInwardCut
 
 ROOT = Path(__file__).resolve().parents[2]
 SCOPE_FOLDER = "re/automation/PairedCaptures/ScopeControl"
@@ -624,9 +624,12 @@ def fusion_sources(snapshot, report, directory, digest):
     revision = report["source_revision"]
     reported = report["pins"]
     parent = "re/automation/PairedCaptures"
+    scope_tools = SCOPE_FOLDER
+    if reported["tool"]["path"] == "re/automation/CaptureTools/ScopeControl/FusionScopeControl.py":
+        scope_tools = "re/automation/CaptureTools/ScopeControl"
     paths = {
-        "tool": f"{SCOPE_FOLDER}/FusionScopeControl.py",
-        "model": f"{SCOPE_FOLDER}/FusionScopeModel.py",
+        "tool": f"{scope_tools}/FusionScopeControl.py",
+        "model": f"{scope_tools}/FusionScopeModel.py",
         "specification": SPEC_PATH,
         "fresh_process": f"{parent}/FusionFreshProcess.py",
         "helper": f"{parent}/FusionCapture.py",

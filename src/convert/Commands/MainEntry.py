@@ -5,6 +5,7 @@ from sys import argv as ArgValues
 from typing import NoReturn
 
 from convert.adapters.base.UsabilityError import UsabilityError
+from convert.adapters.freecad.Errors.AdapterError import FreeCadAdapterA
 from convert.adapters.registry.RegistryErrors import RegistryError
 from convert.Commands.BuildParser import BuildParser
 from convert.Commands.CliOptions import CliOptions
@@ -24,7 +25,7 @@ def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) ->
         Options.Source = Options.Source.expanduser()
         if Options.Destination is not None:
             Options.Destination = Options.Destination.expanduser()
-        if Options.Command == "research":
+        if Options.Command in ("research", "run"):
             if ResearchRunner is None:
                 raise ValueError("Run research with kit or python -m KitCli")
             ResearchRunner(Options)
@@ -40,6 +41,7 @@ def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) ->
         ValueError,
         TypeError,
         NotImplementedError,
+        FreeCadAdapterA,
         RegistryError,
         UsabilityError,
     ) as Error:

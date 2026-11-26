@@ -17,30 +17,34 @@ KEndStartSpan = 101
 class EndOwnerCodec(Protocol):
 
     # construction appends the first start wrapper to the same archive writer
-    def WriteEndStart(self, Writer: ArchiveWriter, *, Generation: int) -> int: ...
+    def WriteEndStart(self, Writer: ArchiveWriter, *, Generation: int) -> int:
+        raise NotImplementedError
 
     # readback returns the independently allocated start wrapper identity
-    def ReadEndStart(self, Cursor: ArchiveCursor, *, Generation: int) -> int: ...
+    def ReadEndStart(self, Cursor: ArchiveCursor, *, Generation: int) -> int:
+        raise NotImplementedError
 
     # the unresolved normalization is observed in the original signed form
-    def ReadEndProps(
-        self, Cursor: FieldCursor, *, Generation: int
-    ) -> tuple[int, ...]: ...
+    def ReadEndProps(self, Cursor: FieldCursor, *, Generation: int) -> tuple[int, ...]:
+        raise NotImplementedError
 
     # the constructor supplies the outer extrusion return separately from end properties
-    def EncodeBossReturn(self, *, Generation: int) -> bytes: ...
+    def EncodeBossReturn(self, *, Generation: int) -> bytes:
+        raise NotImplementedError
 
 
 # the ordinary configuration footer belongs to the model stream after the final feature
 class ResolvedEndCodec(Protocol):
 
     # the hosted checks share the writer across both supported part shapes
-    def EncodeResolvedEnd(self, *, Generation: int, EntryCount: int) -> bytes: ...
+    def EncodeResolvedEnd(self, *, Generation: int, EntryCount: int) -> bytes:
+        raise NotImplementedError
 
     # the exact end cursor is part of the observed archive boundary
     def ReadResolvedEnd(
         self, Cursor: FieldCursor, *, Generation: int, EntryCount: int
-    ) -> None: ...
+    ) -> None:
+        raise NotImplementedError
 
 
 # the real archive prefix supplies the list size while the last owner supplies the position

@@ -1,0 +1,7 @@
+# Planar snapshot and journal replay
+
+The automatic file decoder can read a standalone ASM planar shell or its geometry journal. It follows each body's connectivity and placement, reports its vertex coordinates and oriented face rings, and computes the enclosed volume and centroid from signed tetrahedra. The sum must reproduce the volume reported by the SDK. The journal report retains the active state and earlier states, including states containing no body.
+
+Use `kit run --root . auto --input part.smbh --directory /tmp/journal-run`. Inspect `Input-raw-structure.json`. When a pinned snapshot and journal pair exists in the planar topology preparation manifest, the tool decodes the companion separately and compares the oriented faces in model coordinates. Matching hashes and matching boundaries allow comparison against reopened Fusion observations for volume, centroid, bounding box and topology counts.
+
+The independent tetrahedron, triangular prism and placed tetrahedron registered in the local oracle have one active body in state 4 and an empty state 2. Their active volumes are approximately 2.020167, 4.569500 and 3.945638 cm³. The snapshot and history of the placed tetrahedron agree after placement. These results establish geometry-state correspondence for these inputs. A BRep state is not a parametric feature-tree operation. The route supports the SDK's planar topology grammar and caps replay at 64 states and 262,144 face vertex references.

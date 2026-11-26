@@ -13,6 +13,7 @@ def CheckProfileRow(
     Indices: dict[str, int],
     CircleId: str,
     CenterId: str,
+    FixedCount: int,
 ) -> None:
     Template, Expressions, Dependencies, Diagnostics = ConstraintsProp(
         SketchData, Indices, ParamCatalog([]), IncludeIncidence=True
@@ -22,7 +23,7 @@ def CheckProfileRow(
         or Dependencies
         or Diagnostics
         or len(Template) != 1
-        or len(Template[0]) != 1
+        or len(Template[0]) != 1 + FixedCount
     ):
         raise ValueError(
             "FreeCAD editable profile has an invalid source constraint graph"
@@ -40,7 +41,12 @@ def CheckProfileRow(
         "Third": "-2000",
         "ThirdPos": "0",
     }
-    if any(Template[0][0].get(Field) != Value for Field, Value in Expected.items()):
+    Incidence = [
+        RowValue for RowValue in Template[0] if RowValue.get("Name") == Expected["Name"]
+    ]
+    if len(Incidence) != 1 or any(
+        Incidence[0].get(Field) != Value for Field, Value in Expected.items()
+    ):
         raise ValueError("FreeCAD editable profile source center binding disagrees")
-    (RowValue,) = ReadRuleRows(Native, Template)
-    CheckStaticRow(RowValue)
+    for RowValue in ReadRuleRows(Native, Template):
+        CheckStaticRow(RowValue)

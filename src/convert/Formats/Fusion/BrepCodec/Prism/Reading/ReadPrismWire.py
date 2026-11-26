@@ -16,11 +16,14 @@ def ReadPrismWire(Payload: bytes) -> BrepWire:
     Cursor = MetaCursor(Payload)
     Header, Stamp = ReadBrepHeadMut(Cursor, True)
     Records = tuple(
-        ReadAsmRecord(Cursor, ReadAsmName(Cursor)) for _ in range(KPrismRecords)
+        ReadAsmRecord(Cursor, ReadAsmName(Cursor), Header.IntWidth)
+        for _ in range(KPrismRecords)
     )
     if ReadAsmName(Cursor) != "Begin-of-ASM-History-Data":
         raise ValueError("Missing prism insertion journal")
-    Journal = tuple(ReadAsmRecord(Cursor, ReadAsmName(Cursor)) for _ in range(3))
+    Journal = tuple(
+        ReadAsmRecord(Cursor, ReadAsmName(Cursor), Header.IntWidth) for _ in range(3)
+    )
     if ReadAsmName(Cursor) != "End-of-ASM-History-Section":
         raise ValueError("Archived prism revisions are unsupported")
     if ReadAsmName(Cursor) != "End-of-ASM-data" or Cursor.Offset != len(Payload):

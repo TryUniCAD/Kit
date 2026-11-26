@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -13,8 +13,7 @@ from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.ArchiveCursor import ArchiveCursor
 from convert.adapters.solidworks.Resolved.ProfileEntry import ReadProfileHead
 from convert.adapters.solidworks.Resolved.ProfileSketch import ProfileSketch
-from convert.adapters.solidworks.Sketch.Cursor import SketchArchive
-from convert.adapters.solidworks.Sketch.DimFields import ReadDimFields
+from convert.adapters.solidworks.Sketch.Cursor import SketchArchive, ReadDimFields
 from convert.adapters.solidworks.Sketch.Geometry import ReadGeoSpansMut
 from convert.adapters.solidworks.Sketch.GeometryTypes import SketchGeometry
 from convert.adapters.solidworks.Sketch.SketchTail import (
