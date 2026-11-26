@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Graph.ReadExtentMode import ReadExtentMode
 from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     EmptyFields,
     RequireFields,
@@ -11,23 +12,35 @@ from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 
 # invalid extrusion input must fail here so public document claims remain grounded in native records
 def CheckExtrusion(
-    Graph: NativeGraph, Context: ExtrudeContext, YzDatum: bool = False
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    YzDatum: bool = False,
+    Operation: int = 4,
 ) -> None:
+    if Operation not in (2, 4):
+        raise ValueError("Unsupported native modifying extrusion operation")
     Feature = Context.Extrude
+    SideMode = ReadExtentMode(Feature)
     RequireFields(
         Feature,
         {
-            "booleanOperation": 4,
-            "directionType": 1,
-            "extendFaceOption": 2,
+            "booleanOperation": Operation,
+            "directionType": (
+                1 if SideMode == "one_sided" else 2 if SideMode == "two_sided" else 3
+            ),
+            "extendFaceOption": 2 if SideMode == "one_sided" else 1,
             "isSolidOperation": True,
             "profileLocaltionType": 0,
             "side1ExtentType": 1,
             "side1SolutionType": 0,
-            "side2ExtentType": 0,
+            "side2ExtentType": 1 if SideMode == "two_sided" else 0,
             "side2SolutionType": 0,
-            "side2ExtendFaceOption": 0,
-            "symmetricMeasurementType": 0,
+            "side2ExtendFaceOption": 0 if SideMode == "one_sided" else 1,
+            "symmetricMeasurementType": (
+                1
+                if SideMode == "symmetric_full"
+                else 2 if SideMode == "symmetric_half" else 0
+            ),
         },
     )
     RequireFields(
@@ -50,18 +63,33 @@ def CheckExtrusion(
             for NameValue in (
                 "ProfileFromEntityRef",
                 "profileOffset",
-                "rAgainstDistance",
                 "rFromEntityRef",
                 "rToEntityRef",
                 "side1Offset",
                 "side2Offset",
-                "side2TaperAngle",
                 "thinExtrudeSide1WallThickness",
                 "thinExtrudeSide2WallThickness",
             )
         },
     )
-    EmptyFields(Feature, ("cachedDcBodies", "removedBodies", "targetDataRefs"))
+    if SideMode == "two_sided":
+        _ = ResolveField(Graph, Feature, "rAgainstDistance", "DcDoubleParameter")
+        _ = ResolveField(Graph, Feature, "side2TaperAngle", "DcDoubleParameter")
+    else:
+        RequireFields(Feature, {"rAgainstDistance": None})
+        RequireFields(
+            Feature,
+            {
+                "side2TaperAngle": (
+                    Feature.Fields["rTaperAngle"]
+                    if SideMode.startswith("symmetric_")
+                    else None
+                )
+            },
+        )
+    EmptyFields(Feature, ("cachedDcBodies", "removedBodies"))
+    if Operation == 4:
+        EmptyFields(Feature, ("targetDataRefs",))
     SameNumbers(
         PointCoords(Feature.Fields["profileNormal"]),
         (1.0, 0.0, 0.0) if YzDatum else (0.0, 0.0, 1.0),

@@ -20,9 +20,9 @@ PUBLIC = {
     "P03": "re/automation/PrincipalReadbackEvidence.py",
 }
 FUSION_VERIFIERS = (
-    "re/automation/PairedCaptures/FusionRunEvidence.py",
-    "re/automation/PairedCaptures/FusionRunReadbacks.py",
-    "re/automation/PairedCaptures/FusionSupplement.py",
+    "re/automation/CaptureTools/PairedCaptures/FusionRunEvidence.py",
+    "re/automation/CaptureTools/PairedCaptures/FusionRunReadbacks.py",
+    "re/automation/CaptureTools/PairedCaptures/FusionSupplement.py",
 )
 
 
@@ -259,7 +259,10 @@ def checked_source(entry):
         if entry["application"] == "fusion"
         else PUBLIC[entry["recipe"]]
     )
-    raw = source_bytes(entry["verifier_revision"], relative)
+    historical_path = relative
+    if entry["application"] == "fusion" and not git("ls-tree", entry["verifier_revision"], "--", relative):
+        historical_path = relative.replace("CaptureTools/", "", 1)
+    raw = source_bytes(entry["verifier_revision"], historical_path)
     require(
         hashlib.sha256(raw).hexdigest() == entry["verifier_sha256"],
         "verifier source digest changed",
@@ -269,7 +272,8 @@ def checked_source(entry):
     if entry["application"] == "fusion":
         commit(entry["handoff_revision"])
         for dependency in FUSION_VERIFIERS[1:]:
-            original = source_bytes(entry["verifier_revision"], dependency)
+            recorded = str(PurePosixPath(historical_path).with_name(PurePosixPath(dependency).name))
+            original = source_bytes(entry["verifier_revision"], recorded)
             read_sealed(ROOT / dependency, hashlib.sha256(original).hexdigest(), MAX_RECORD)
     changes = git(
         "status", "--porcelain", "--untracked-files=no", "--", "src", "re/automation"
@@ -277,7 +281,7 @@ def checked_source(entry):
     require(
         not changes, "tracked verifier dependencies differ from the target checkout"
     )
-    return relative
+    return historical_path
 
 
 def checked_private(root, relative):
@@ -446,6 +450,10 @@ def preflight(manifest, root, expected):
             continue
         details = {}
         if fusion_replay:
+            import PairedCaptures
+            verifier_path = str(ROOT / "re/automation/CaptureTools/PairedCaptures")
+            if verifier_path not in PairedCaptures.__path__:
+                PairedCaptures.__path__ = [verifier_path, *PairedCaptures.__path__]
             from PairedCaptures.FusionSupplement import ReplayFusion
 
             observations, details = ReplayFusion(ROOT, entry, selected)

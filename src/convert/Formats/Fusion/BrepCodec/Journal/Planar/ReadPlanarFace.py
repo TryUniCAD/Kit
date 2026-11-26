@@ -1,3 +1,11 @@
+from convert.Formats.Fusion.BrepCodec.Journal.Planar.ReadVertexPoint import (
+    ReadVertexPoint,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Planar.VectorMath import (
+    DotProduct,
+    Normalize,
+    Subtract,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.FaceNode import FaceNode
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.LoopNode import LoopNode
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.PlaneNode import PlaneNode
@@ -9,15 +17,36 @@ from convert.Formats.Fusion.BrepCodec.Journal.Planar.StableRef import StableRef
 
 
 # the planar face operation needs a distinct decoding boundary so topology changes retain their native revision relationships
-def ReadPlanarFace(Table: LiveTable, FaceRef: int, ShellRef: int) -> FaceBoundary:
+def ReadPlanarFace(
+    Table: LiveTable, FaceRef: int, ShellRef: int, AllowSheet: bool = False
+) -> FaceBoundary:
     FaceValue = RequireLive(Table, FaceRef, FaceNode)
-    if StableRef(Table, FaceValue.OwnerShell) != ShellRef or FaceValue.DoubleSided:
+    if StableRef(Table, FaceValue.OwnerShell) != ShellRef or (
+        FaceValue.DoubleSided and not AllowSheet
+    ):
         raise ValueError("Unsupported Fusion planar face ownership or sidedness")
     LoopValue = RequireLive(Table, FaceValue.FirstLoop, LoopNode)
     if LoopValue.NextLoop != -1 or StableRef(Table, LoopValue.OwnerFace) != FaceRef:
         raise ValueError("Fusion planar face requires one owned outer loop")
     Surface = RequireLive(Table, FaceValue.Surface, PlaneNode)
     BoundaryUses = ReadBoundary(
-        Table, LoopValue.FirstCoedge, StableRef(Table, FaceValue.FirstLoop)
+        Table,
+        LoopValue.FirstCoedge,
+        StableRef(Table, FaceValue.FirstLoop),
+        AllowOpen=AllowSheet,
     )
+    Normal = Normalize(Surface.Normal)
+    if any(
+        abs(
+            DotProduct(
+                Subtract(
+                    ReadVertexPoint(Table, UseValue.StartVertex), Surface.OriginCm
+                ),
+                Normal,
+            )
+        )
+        > 1e-7
+        for UseValue in BoundaryUses
+    ):
+        raise ValueError("Native planar face boundary leaves its declared plane")
     return FaceBoundary(FaceRef, Surface, FaceValue.Reversed, BoundaryUses)

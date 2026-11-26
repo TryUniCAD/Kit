@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -117,7 +117,10 @@ def refusal(operation, expected, error_type=ValueError):
     try:
         operation()
     except error_type as error:
-        require(str(error) == expected, f"Unexpected refusal: {error}")
+        require(
+            str(error) in expected if isinstance(expected, tuple) else str(error) == expected,
+            f"Unexpected refusal: {error}",
+        )
         return str(error)
     raise ValueError(f"Expected refusal: {expected}")
 
@@ -479,9 +482,12 @@ def legacy_controls(snapshot):
     for path, (archive_digest, neutral_digest) in LEGACY.items():
         raw = snapshot.blob(LEGACY_REVISION, f"re/Fusion/LocalOracle/{path}")
         document = open_document(raw, strict=True)
+        legacy = json.loads(document.to_json(indent=None))
+        for feature in legacy["feature_timeline"]["$tuple"]:
+            require(feature.pop("output_body_ids") == {"$tuple": []}, "Legacy feature gained output body ownership")
         require(
             sha256(raw) == archive_digest
-            and sha256(document.to_json(indent=None).encode()) == neutral_digest,
+            and sha256(json.dumps(legacy, sort_keys=True, ensure_ascii=False).encode("utf-8")) == neutral_digest,
             f"Previous strict reader fingerprint differs for {path}",
         )
         result[path] = {
@@ -548,9 +554,13 @@ def display_mutations(model, graph):
 # Verify that normal public write routing cannot emit bytes from the inch display source.
 def inch_writer_refusals(document):
     result = {"portable": refusal(lambda: CheckPortable(document), KGeometryError)}
-    for format_id, expected in (
-        ("fusion.f3d", "fusion.f3d does not support the destination"),
-        ("solidworks.sldprt", "no writer registered for solidworks.sldprt"),
+    for format_id, expected, error_type in (
+        ("fusion.f3d", "fusion.f3d does not support the destination", AdapterNotFoundError),
+        (
+            "solidworks.sldprt",
+            "solidworks.sldprt does not support typed material density and color",
+            ValueError,
+        ),
     ):
         destination = BytesIO()
         result[format_id] = refusal(
@@ -558,7 +568,7 @@ def inch_writer_refusals(document):
                 document, destination, destination_format=format_id, allow_carrier=False
             ),
             expected,
-            AdapterNotFoundError,
+            error_type,
         )
         require(
             not destination.getvalue(),

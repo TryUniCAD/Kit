@@ -18,7 +18,10 @@ def ReadTypedBody(
         if Profile == "cylinder":
             return ReadHistory(Payload)
         if Profile == "prism":
-            return ReadPrismHist(Payload)
+            History = ReadPrismHist(Payload)
+            if History.Header.IntWidth == 8 and History.Tracking.Entries:
+                return None
+            return History
     except ValueError:
         return None
     return None

@@ -1,0 +1,6 @@
+raise AssertionError("Metadata fixtures must not be executed")
+
+class Base:
+    @property
+    def objectType(self) -> str:
+        return type(self).__name__

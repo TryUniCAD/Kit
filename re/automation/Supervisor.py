@@ -16,7 +16,12 @@ from Adapters import load_adapter
 from ApplicationAckIntent import current_completion, make_intent, read_intent
 from CapacitySnapshot import CapacitySnapshot, capacity_status
 from ClaimWire import ClaimExchangeLost
-from ApplicationRearmIntent import make_rearm_intent, read_rearm_intent, rearm_runner_digest, rearm_timeout
+from ApplicationRearmIntent import (
+    make_rearm_intent,
+    read_rearm_intent,
+    rearm_runner_digest,
+    rearm_timeout,
+)
 from GroupSessions import GroupSession, release_group
 from OutputManifest import InvalidOutput
 from Processes import KILL_SIGNAL, process_start, signal_group, stop_orphan
@@ -28,7 +33,23 @@ from Runners import Registry
 from Sessions import Session, read_bounded, write_private
 from SingleClaim import clear_claim_stages
 
-CONFIG_KEYS = {"state", "controller", "registry", "worker", "pools", "resources", "stop_grace_seconds", "poll_seconds", "max_log_bytes", "reserved_cpus", "reserved_memory_mib", "adaptive_limits"}
+# installed launchers must recognize graceful console cancellation before admitting windows supervisor commands
+KWindowsCliProtocol = 1
+
+CONFIG_KEYS = {
+    "state",
+    "controller",
+    "registry",
+    "worker",
+    "pools",
+    "resources",
+    "stop_grace_seconds",
+    "poll_seconds",
+    "max_log_bytes",
+    "reserved_cpus",
+    "reserved_memory_mib",
+    "adaptive_limits",
+}
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -36,12 +57,27 @@ class Busy(Exception):
     pass
 
 
+# explicit memory limits use the same range in configuration and at launch
+def bound_memory_reserve(value):
+    try:
+        return bounded(value, 0, 1048576)
+    except ValueError:
+        raise ValueError("reserved memory must be set from 0 to 1048576 MiB") from None
+
+
 def read_config(path):
-    if sys.platform == "win32" and (sys.version_info < (3, 14) or sys.getwindowsversion().major < 10):
-        raise ValueError("Windows supervision requires Windows 10 or newer and Python 3.14 or newer")
+    if sys.platform == "win32" and (
+        sys.version_info < (3, 14) or sys.getwindowsversion().major < 10
+    ):
+        raise ValueError(
+            "Windows supervision requires Windows 10 or newer and Python 3.14 or newer"
+        )
     path = Path(path).resolve()
     config = read_record(path)
-    if not {"state", "controller", "registry", "pools"} <= config.keys() or config.keys() - CONFIG_KEYS:
+    if (
+        not {"state", "controller", "registry", "pools"} <= config.keys()
+        or config.keys() - CONFIG_KEYS
+    ):
         raise ValueError("supervisor configuration fields do not match version 1")
     if not isinstance(config["pools"], dict) or not 1 <= len(config["pools"]) <= 64:
         raise ValueError("pools must configure 1–64 pools")
@@ -65,7 +101,9 @@ def read_config(path):
     for key in ("state", "registry"):
         if not isinstance(config[key], str) or not config[key]:
             raise ValueError(f"{key} must be a path")
-    resolve = lambda value: (Path(value) if Path(value).is_absolute() else path.parent / value).resolve()
+    resolve = lambda value: (
+        Path(value) if Path(value).is_absolute() else path.parent / value
+    ).resolve()
     if not isinstance(config["controller"], dict):
         raise ValueError("controller configuration must be an object")
     controller = dict(config["controller"])
@@ -73,13 +111,22 @@ def read_config(path):
         if isinstance(controller.get(key), str) and controller[key]:
             controller[key] = str(resolve(controller[key]))
     return {
-        "state": resolve(config["state"]), "registry": resolve(config["registry"]), "controller": controller,
-        "worker": label(config.get("worker", "supervisor:local")), "pools": pools,
-        "resources": {label(name): bounded(capacity, 1, 64) for name, capacity in resources.items()},
-        "grace": float(grace), "poll": float(poll),
+        "state": resolve(config["state"]),
+        "registry": resolve(config["registry"]),
+        "controller": controller,
+        "worker": label(config.get("worker", "supervisor:local")),
+        "pools": pools,
+        "resources": {
+            label(name): bounded(capacity, 1, 64)
+            for name, capacity in resources.items()
+        },
+        "grace": float(grace),
+        "poll": float(poll),
         "max_log_bytes": bounded(config.get("max_log_bytes", 1048576), 1024, 67108864),
         "reserved_cpus": bounded(config.get("reserved_cpus", 2), 0, 65536),
-        "reserved_memory_mib": bounded(config.get("reserved_memory_mib", 4096), 0, 1048576),
+        "reserved_memory_mib": bound_memory_reserve(
+            config.get("reserved_memory_mib", 4096)
+        ),
         "adaptive_limits": adaptive,
     }
 
@@ -89,13 +136,17 @@ def lock(path):
     try:
         if sys.platform == "win32":
             import msvcrt
+
             msvcrt.locking(descriptor, msvcrt.LK_NBLCK, 1)
         else:
             import fcntl
+
             fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except OSError as error:
         os.close(descriptor)
-        if isinstance(error, BlockingIOError) or (sys.platform == "win32" and error.errno in (errno.EACCES, errno.EDEADLK)):
+        if isinstance(error, BlockingIOError) or (
+            sys.platform == "win32" and error.errno in (errno.EACCES, errno.EDEADLK)
+        ):
             raise Busy(f"another supervisor holds {path}") from None
         raise
     return descriptor
@@ -104,21 +155,52 @@ def lock(path):
 def acknowledge_application(installation, adapter, intent, recovered):
     if recovered and not current_completion(adapter, intent):
         return {"status": "not_accepted"}
-    command = Path(__file__).with_name("ApplicationWorkers") / "AcknowledgeApplication.py"
-    identity = {key: intent[key] for key in ("generation", "fingerprint", "attempts", "session", "installation_sha256")}
+    command = (
+        Path(__file__).with_name("ApplicationWorkers") / "AcknowledgeApplication.py"
+    )
+    identity = {
+        key: intent[key]
+        for key in (
+            "generation",
+            "fingerprint",
+            "attempts",
+            "session",
+            "installation_sha256",
+        )
+    }
     identity.update({"owner": adapter.owner, "intent_sha256": digest(intent)})
     result = subprocess.run(
-        [sys.executable, "-E", str(command), "--installation", str(installation), "--store", str(adapter.store),
-         "--job", intent["job"], "--supervisor-claim-stdin"],
-        input=canonical(identity), capture_output=True, text=True, timeout=180, check=False,
+        [
+            sys.executable,
+            "-E",
+            str(command),
+            "--installation",
+            str(installation),
+            "--store",
+            str(adapter.store),
+            "--job",
+            intent["job"],
+            "--supervisor-claim-stdin",
+        ],
+        input=canonical(identity),
+        capture_output=True,
+        text=True,
+        timeout=180,
+        check=False,
     )
     if result.returncode != 0:
-        raise ValueError(result.stderr.strip()[-2048:] or f"acknowledgement exited with status {result.returncode}")
+        raise ValueError(
+            result.stderr.strip()[-2048:]
+            or f"acknowledgement exited with status {result.returncode}"
+        )
     response = json.loads(result.stdout)
     if not isinstance(response, dict) or (
         response != {"status": "no_pending_acceptance"}
-        and (set(response) != {"status", "restart_retained"} or response["status"] != "acknowledged"
-             or type(response["restart_retained"]) is not bool)
+        and (
+            set(response) != {"status", "restart_retained"}
+            or response["status"] != "acknowledged"
+            or type(response["restart_retained"]) is not bool
+        )
     ):
         raise ValueError("application acknowledgement returned an invalid status")
     return response
@@ -127,14 +209,32 @@ def acknowledge_application(installation, adapter, intent, recovered):
 def rearm_application(installation, adapter, intent):
     command = Path(__file__).with_name("ApplicationWorkers") / "RearmSolidWorks.py"
     result = subprocess.run(
-        [sys.executable, "-E", str(command), "--installation", str(installation), "--store", str(adapter.store)],
-        input=canonical({"owner": adapter.owner, "intent": intent}), capture_output=True, text=True, timeout=120, check=False,
+        [
+            sys.executable,
+            "-E",
+            str(command),
+            "--installation",
+            str(installation),
+            "--store",
+            str(adapter.store),
+        ],
+        input=canonical({"owner": adapter.owner, "intent": intent}),
+        capture_output=True,
+        text=True,
+        timeout=120,
+        check=False,
     )
     if result.returncode != 0:
-        raise ValueError(result.stderr.strip()[-2048:] or f"application rearm exited with status {result.returncode}")
+        raise ValueError(
+            result.stderr.strip()[-2048:]
+            or f"application rearm exited with status {result.returncode}"
+        )
     response = json.loads(result.stdout)
-    if (not isinstance(response, dict) or set(response) != {"status", "archive"}
-            or response["status"] not in ("rearmed", "already_rearmed")):
+    if (
+        not isinstance(response, dict)
+        or set(response) != {"status", "archive"}
+        or response["status"] not in ("rearmed", "already_rearmed")
+    ):
         raise ValueError("application rearm returned an invalid disposition")
     return response
 
@@ -142,10 +242,22 @@ def rearm_application(installation, adapter, intent):
 class Supervisor:
     def __init__(self, config, claiming, *, linux_oom_observer=None):
         if linux_oom_observer is not None and (sys.platform != "linux" or not claiming):
-            raise ValueError("kernel OOM observation requires an active Linux supervisor")
+            raise ValueError(
+                "kernel OOM observation requires an active Linux supervisor"
+            )
         self.config = config
         self.linux_oom_observer = linux_oom_observer
-        self.windows_claims = claiming and sys.platform == "win32" and config["controller"].get("adapter") == "a03"
+        self.windows_claims = (
+            claiming
+            and sys.platform == "win32"
+            and config["controller"].get("adapter") == "a03"
+        )
+        self.advice_options = None
+        self.catalogue_handoffs = None
+        self.catalogue_pause_path = None
+        self.catalogue_authoring = False
+        self.codex_budget = 0
+        self.codex_executor = None
         self.claim_error = None
         self.root = ROOT
         self.state = config["state"]
@@ -157,12 +269,19 @@ class Supervisor:
         self.max_log_bytes = config["max_log_bytes"]
         self.adapter = load_adapter(config["controller"], ROOT)
         self.registry = Registry(config["registry"], ROOT) if claiming else None
-        self.installations = {
-            kind: entry["application_installation"] for kind, entry in self.registry.runners.items()
-            if entry["application_installation"] is not None
-        } if claiming else {}
+        self.installations = (
+            {
+                kind: entry["application_installation"]
+                for kind, entry in self.registry.runners.items()
+                if entry["application_installation"] is not None
+            }
+            if claiming
+            else {}
+        )
         if self.installations and config["controller"].get("adapter") != "a03":
-            raise ValueError("application acknowledgement requires the built-in a03 controller adapter")
+            raise ValueError(
+                "application acknowledgement requires the built-in a03 controller adapter"
+            )
         self.application_acks = {}
         self.application_ack_retries = {}
         self.grouping = getattr(self.adapter, "GroupClaimsVersion", None) == 1
@@ -186,13 +305,27 @@ class Supervisor:
             self.locks.append(lock(adapter_lock))
         if getattr(self.adapter, "RecoveryFenceVersion", None) == 1:
             response = self.adapter.BeginOwner()
-            if not isinstance(response, dict) or set(response) != {"recovery_fence_version"} or type(response["recovery_fence_version"]) is not int or response["recovery_fence_version"] != 1:
-                raise ValueError("controller adapter did not install a protocol 1 recovery fence")
+            if (
+                not isinstance(response, dict)
+                or set(response) != {"recovery_fence_version"}
+                or type(response["recovery_fence_version"]) is not int
+                or response["recovery_fence_version"] != 1
+            ):
+                raise ValueError(
+                    "controller adapter did not install a protocol 1 recovery fence"
+                )
 
     def report(self, action, session, detail):
         record = {"event": action, "at": time.time(), **detail}
         if session is not None:
-            record.update({"session": session.name, "pool": session.pool, "job": session.spec["id"], "attempt": session.claim["attempt"]})
+            record.update(
+                {
+                    "session": session.name,
+                    "pool": session.pool,
+                    "job": session.spec["id"],
+                    "attempt": session.claim["attempt"],
+                }
+            )
         print(canonical(record), flush=True)
 
     def pauses(self):
@@ -223,49 +356,128 @@ class Supervisor:
                 pass
             pid = record.get("pid")
             recorded = record.get("process_start")
-            matched = type(pid) is int and isinstance(recorded, str) and process_start(pid) == recorded
-            stopped = stop_orphan(pid, recorded, self.grace, record.get("job_object")) if matched else False
+            matched = (
+                type(pid) is int
+                and isinstance(recorded, str)
+                and process_start(pid) == recorded
+            )
+            stopped = (
+                stop_orphan(pid, recorded, self.grace, record.get("job_object"))
+                if matched
+                else False
+            )
             if matched and not stopped:
-                raise OSError(f"session process group could not be stopped: {directory.name}")
+                raise OSError(
+                    f"session process group could not be stopped: {directory.name}"
+                )
             receipt = {
-                "receipt_version": 1, "session": directory.name, "job_id": record.get("job_id"), "attempt": record.get("attempt"),
-                "pid": pid, "process_start": recorded, "identity_matched": matched, "stopped": stopped,
-                "stop_reason": "supervisor_restart", "orphan": True, "recovered_at": time.time(),
+                "receipt_version": 1,
+                "session": directory.name,
+                "job_id": record.get("job_id"),
+                "attempt": record.get("attempt"),
+                "pid": pid,
+                "process_start": recorded,
+                "identity_matched": matched,
+                "stopped": stopped,
+                "stop_reason": "supervisor_restart",
+                "orphan": True,
+                "recovered_at": time.time(),
             }
             write_private(directory / "receipt.json", receipt)
             self.counts["orphans"] += 1
             if claim_path.is_dir():
-                release_group(self, directory.name, claim_path, receipt, "orphaned by supervisor restart", directory)
+                release_group(
+                    self,
+                    directory.name,
+                    claim_path,
+                    receipt,
+                    "orphaned by supervisor restart",
+                    directory,
+                )
             else:
-                self.release(directory.name, claim_path, receipt, "orphaned by supervisor restart")
+                self.release(
+                    directory.name,
+                    claim_path,
+                    receipt,
+                    "orphaned by supervisor restart",
+                )
             shutil.rmtree(directory, ignore_errors=True)
         for claim_path in sorted(self.claims.glob("*.group")):
             if claim_path.stem not in known:
                 directory = self.sessions / claim_path.stem
-                release_group(self, claim_path.stem, claim_path, {"receipt_version": 1, "session": claim_path.stem, "orphan": True, "stop_reason": "claimed_before_start"}, "claimed before session start", directory)
+                release_group(
+                    self,
+                    claim_path.stem,
+                    claim_path,
+                    {
+                        "receipt_version": 1,
+                        "session": claim_path.stem,
+                        "orphan": True,
+                        "stop_reason": "claimed_before_start",
+                    },
+                    "claimed before session start",
+                    directory,
+                )
                 shutil.rmtree(directory, ignore_errors=True)
         for claim_path in sorted(self.claims.glob("*.json")):
             if claim_path.stem not in known:
-                self.release(claim_path.stem, claim_path, {"receipt_version": 1, "session": claim_path.stem, "orphan": True, "stop_reason": "claimed_before_start"}, "claimed before session start")
+                self.release(
+                    claim_path.stem,
+                    claim_path,
+                    {
+                        "receipt_version": 1,
+                        "session": claim_path.stem,
+                        "orphan": True,
+                        "stop_reason": "claimed_before_start",
+                    },
+                    "claimed before session start",
+                )
 
     def release(self, name, claim_path, receipt, reason):
         stale = None
         if claim_path.is_file():
             payload = self.state / f".release-{name}.json"
-            write_private(payload, {"session_version": 1, "receipt": receipt, "result": None, "error": None, "stderr_tail": None})
+            write_private(
+                payload,
+                {
+                    "session_version": 1,
+                    "receipt": receipt,
+                    "result": None,
+                    "error": None,
+                    "stderr_tail": None,
+                },
+            )
             try:
-                stale = self.adapter.FinishJob(claim_path, "retry", payload, reason)["stale"]
+                stale = self.adapter.FinishJob(claim_path, "retry", payload, reason)[
+                    "stale"
+                ]
             finally:
                 payload.unlink(missing_ok=True)
             claim_path.unlink(missing_ok=True)
-        print(canonical({"event": "orphan", "at": time.time(), "session": name, "stale": stale, **{key: receipt.get(key) for key in ("job_id", "pid", "identity_matched", "stopped")}}), flush=True)
+        print(
+            canonical(
+                {
+                    "event": "orphan",
+                    "at": time.time(),
+                    "session": name,
+                    "stale": stale,
+                    **{
+                        key: receipt.get(key)
+                        for key in ("job_id", "pid", "identity_matched", "stopped")
+                    },
+                }
+            ),
+            flush=True,
+        )
 
     def synchronize(self):
         pools = self.registry.pools()
         unknown = sorted(set(pools) - set(self.config["pools"]))
         unused = sorted(set(self.config["pools"]) - set(pools))
         if unknown or unused:
-            raise ValueError(f"registry and configuration pools differ: {', '.join(unknown + unused)}")
+            raise ValueError(
+                f"registry and configuration pools differ: {', '.join(unknown + unused)}"
+            )
         for name, kinds in sorted(pools.items()):
             self.adapter.DefinePool(name, kinds)
         for name, capacity in sorted(self.config["resources"].items()):
@@ -283,56 +495,141 @@ class Supervisor:
         else:
             if outcome == "completed" and session.spec["kind"] in self.installations:
                 try:
-                    candidate = make_intent(session, self.installations[session.spec["kind"]], self.adapter.store)
+                    candidate = make_intent(
+                        session,
+                        self.installations[session.spec["kind"]],
+                        self.adapter.store,
+                    )
                     self.acknowledgement_intents.mkdir(mode=0o700, exist_ok=True)
                     write_private(intent_path, candidate)
                 except (OSError, ValueError) as error:
                     intent_error = f"{type(error).__name__}: {error}"[:2048]
                 else:
                     intent = candidate
-                    payload = {**payload, "application_acknowledgement_sha256": digest(intent)}
-            if outcome == "waiting_application" and session.spec["kind"] in self.installations:
-                rearm_path, rearm_intent, rearm_error = self.prepare_application_rearm(session, payload)
+                    payload = {
+                        **payload,
+                        "application_acknowledgement_sha256": digest(intent),
+                    }
+            if (
+                outcome == "waiting_application"
+                and session.spec["kind"] in self.installations
+            ):
+                rearm_path, rearm_intent, rearm_error = self.prepare_application_rearm(
+                    session, payload
+                )
                 if rearm_intent is not None:
-                    payload = {**payload, "application_rearm_intent_sha256": digest(rearm_intent)}
+                    payload = {
+                        **payload,
+                        "application_rearm_intent_sha256": digest(rearm_intent),
+                    }
             path = session.directory / "finish.json"
             write_private(path, payload)
             try:
-                stale = self.adapter.FinishJob(session.claim_path, outcome, path, reason)["stale"]
+                stale = self.adapter.FinishJob(
+                    session.claim_path, outcome, path, reason
+                )["stale"]
             except InvalidOutput:
                 if intent is not None:
-                    self.remove_application_intent(intent_path, self.acknowledgement_detail(intent, False))
+                    self.remove_application_intent(
+                        intent_path, self.acknowledgement_detail(intent, False)
+                    )
                 if rearm_intent is not None:
-                    self.remove_application_intent(rearm_path, self.rearm_detail(rearm_intent, False), "rearm")
+                    self.remove_application_intent(
+                        rearm_path, self.rearm_detail(rearm_intent, False), "rearm"
+                    )
                 raise
             if stale is True and intent is not None:
-                self.remove_application_intent(intent_path, self.acknowledgement_detail(intent, False))
+                self.remove_application_intent(
+                    intent_path, self.acknowledgement_detail(intent, False)
+                )
             if stale is True and rearm_intent is not None:
-                self.remove_application_intent(rearm_path, self.rearm_detail(rearm_intent, False), "rearm")
-            self.budget.record(session.spec, session.name, outcome, stale, payload["receipt"], self.report)
+                self.remove_application_intent(
+                    rearm_path, self.rearm_detail(rearm_intent, False), "rearm"
+                )
+            self.budget.record(
+                session.spec,
+                session.name,
+                outcome,
+                stale,
+                payload["receipt"],
+                self.report,
+            )
             finished = self.counts["finished"]
             finished[outcome] = finished.get(outcome, 0) + 1
-        self.report("finished", session, {"outcome": None if session.stop_reason == "stale_lease" else outcome, "reason": reason, "stale": stale, "receipt": payload["receipt"]})
+        self.report(
+            "finished",
+            session,
+            {
+                "outcome": None if session.stop_reason == "stale_lease" else outcome,
+                "reason": reason,
+                "stale": stale,
+                "receipt": payload["receipt"],
+            },
+        )
         if stale is False and intent is not None:
             self.queue_application_ack(intent_path, intent, False)
         elif stale is False and intent_error is not None:
-            self.report("application_acknowledgement_failed", session, {"error": intent_error})
+            self.report(
+                "application_acknowledgement_failed", session, {"error": intent_error}
+            )
         if stale is False and rearm_intent is not None:
             self.queue_application_rearm(rearm_path, rearm_intent, False)
         elif stale is False and rearm_error is not None:
             self.report("application_rearm_failed", session, {"error": rearm_error})
+        if (
+            stale is False
+            and outcome == "waiting_evidence"
+            and self.catalogue_handoffs is not None
+        ):
+            self.catalogue_handoffs.Notify(session.spec["id"])
+        if (
+            stale is False
+            and self.codex_executor is not None
+            and (session.spec["kind"], outcome)
+            in {
+                ("inference.fields", "completed"),
+                ("inference.paired-gap", "waiting_evidence"),
+            }
+        ):
+            from CodexAdvice.Suggest import decoder_packet
+
+            try:
+                packet = decoder_packet(
+                    session.spec["id"],
+                    session.claim["attempt"],
+                    payload["result"]["records"],
+                )
+            except (ValueError, KeyError, TypeError):
+                self.report("decoder_advice", session, {"status": "invalid_assessment"})
+            else:
+                if packet and self.codex_budget:
+                    self.codex_budget -= 1
+                    self.codex_executor.submit(self.check_decoder_advice, packet)
+                elif packet:
+                    self.report(
+                        "decoder_advice", session, {"status": "run_budget_exhausted"}
+                    )
         session.remove()
         return True
 
     def acknowledgement_detail(self, intent, recovered):
-        return {"session": intent["session"], "pool": intent["pool"], "job": intent["job"],
-                "attempt": intent["attempts"], "recovered": recovered}
+        return {
+            "session": intent["session"],
+            "pool": intent["pool"],
+            "job": intent["job"],
+            "attempt": intent["attempts"],
+            "recovered": recovered,
+        }
 
     def remove_application_intent(self, path, detail, operation="acknowledgement"):
         try:
             path.unlink(missing_ok=True)
         except OSError as error:
-            self.report(f"application_{operation}_failed", None, {**detail, "error": f"{type(error).__name__}: {error}"[:2048]})
+            self.report(
+                f"application_{operation}_failed",
+                None,
+                {**detail, "error": f"{type(error).__name__}: {error}"[:2048]},
+            )
 
     def queue_application_ack(self, path, intent, recovered, *, retry=0):
         detail = self.acknowledgement_detail(intent, recovered)
@@ -340,10 +637,18 @@ class Supervisor:
             detail["ack_retry"] = retry
         try:
             future = self.acknowledger.submit(
-                acknowledge_application, self.installations[intent["kind"]], self.adapter, intent, recovered,
+                acknowledge_application,
+                self.installations[intent["kind"]],
+                self.adapter,
+                intent,
+                recovered,
             )
         except (OSError, RuntimeError) as error:
-            self.report("application_acknowledgement_failed", None, {**detail, "error": f"{type(error).__name__}: {error}"[:2048]})
+            self.report(
+                "application_acknowledgement_failed",
+                None,
+                {**detail, "error": f"{type(error).__name__}: {error}"[:2048]},
+            )
         else:
             self.application_acks[future] = (path, detail)
 
@@ -356,7 +661,10 @@ class Supervisor:
         path = self.rearm_intents / f"{session.name}.json"
         try:
             intent = make_rearm_intent(
-                session, self.registry.runners[session.spec["kind"]], self.adapter, timeout,
+                session,
+                self.registry.runners[session.spec["kind"]],
+                self.adapter,
+                timeout,
             )
             self.rearm_intents.mkdir(mode=0o700, exist_ok=True)
             write_private(path, intent)
@@ -365,17 +673,29 @@ class Supervisor:
         return path, intent, None
 
     def rearm_detail(self, intent, recovered):
-        return {"session": intent["session"], "pool": intent["pool"], "job": intent["job_id"],
-                "attempt": intent["attempt"], "recovered": recovered}
+        return {
+            "session": intent["session"],
+            "pool": intent["pool"],
+            "job": intent["job_id"],
+            "attempt": intent["attempt"],
+            "recovered": recovered,
+        }
 
     def queue_application_rearm(self, path, intent, recovered):
         detail = self.rearm_detail(intent, recovered)
         try:
             future = self.acknowledger.submit(
-                rearm_application, self.installations[intent["kind"]], self.adapter, intent,
+                rearm_application,
+                self.installations[intent["kind"]],
+                self.adapter,
+                intent,
             )
         except (OSError, RuntimeError) as error:
-            self.report("application_rearm_failed", None, {**detail, "error": f"{type(error).__name__}: {error}"[:2048]})
+            self.report(
+                "application_rearm_failed",
+                None,
+                {**detail, "error": f"{type(error).__name__}: {error}"[:2048]},
+            )
         else:
             self.application_acks[future] = (path, detail)
 
@@ -385,13 +705,22 @@ class Supervisor:
             try:
                 intent = read_rearm_intent(path)
                 detail = self.rearm_detail(intent, True)
-                if (intent["kind"] not in self.installations
-                        or rearm_runner_digest(self.registry.runners[intent["kind"]]) != intent["runner_sha256"]
-                        or str(self.adapter.store) != intent["store"]):
-                    raise ValueError("application rearm intent has no matching owner configuration")
+                if (
+                    intent["kind"] not in self.installations
+                    or rearm_runner_digest(self.registry.runners[intent["kind"]])
+                    != intent["runner_sha256"]
+                    or str(self.adapter.store) != intent["store"]
+                ):
+                    raise ValueError(
+                        "application rearm intent has no matching owner configuration"
+                    )
                 self.queue_application_rearm(path, intent, True)
             except (OSError, ValueError, KeyError, TypeError, RecursionError) as error:
-                self.report("application_rearm_failed", None, {**detail, "error": f"{type(error).__name__}: {error}"[:2048]})
+                self.report(
+                    "application_rearm_failed",
+                    None,
+                    {**detail, "error": f"{type(error).__name__}: {error}"[:2048]},
+                )
 
     def recover_application_acks(self):
         for path in sorted(self.acknowledgement_intents.glob("*.json")):
@@ -399,13 +728,21 @@ class Supervisor:
             try:
                 intent = read_intent(path)
                 detail = self.acknowledgement_detail(intent, True)
-                if (intent["kind"] not in self.installations
-                        or self.registry.runners[intent["kind"]]["pool"] != intent["pool"]
-                        or str(self.adapter.store) != intent["store"]):
-                    raise ValueError("application acknowledgement intent has no matching owner configuration")
+                if (
+                    intent["kind"] not in self.installations
+                    or self.registry.runners[intent["kind"]]["pool"] != intent["pool"]
+                    or str(self.adapter.store) != intent["store"]
+                ):
+                    raise ValueError(
+                        "application acknowledgement intent has no matching owner configuration"
+                    )
                 self.queue_application_ack(path, intent, True)
             except (OSError, ValueError, KeyError, TypeError, RecursionError) as error:
-                self.report("application_acknowledgement_failed", None, {**detail, "error": f"{type(error).__name__}: {error}"[:2048]})
+                self.report(
+                    "application_acknowledgement_failed",
+                    None,
+                    {**detail, "error": f"{type(error).__name__}: {error}"[:2048]},
+                )
 
     # consuming settlement evidence is progress even when its retry remains in backoff
     def report_application_acks(self):
@@ -415,23 +752,42 @@ class Supervisor:
                 continue
             del self.application_acks[future]
             progressed = True
-            operation = "rearm" if path.parent == self.rearm_intents else "acknowledgement"
+            operation = (
+                "rearm" if path.parent == self.rearm_intents else "acknowledgement"
+            )
             action = f"application_{operation}"
             try:
                 response = future.result()
             except CancelledError:
-                self.report(f"{action}_failed", None, {**detail, "error": f"supervisor stopped before {operation} started"})
+                self.report(
+                    f"{action}_failed",
+                    None,
+                    {
+                        **detail,
+                        "error": f"supervisor stopped before {operation} started",
+                    },
+                )
             except subprocess.TimeoutExpired:
-                self.report(f"{action}_failed", None, {**detail, "error": f"application {operation} timed out"})
+                self.report(
+                    f"{action}_failed",
+                    None,
+                    {**detail, "error": f"application {operation} timed out"},
+                )
                 self.defer_application_ack(path, detail, operation)
             except (OSError, ValueError, KeyError, TypeError) as error:
-                self.report(f"{action}_failed", None, {**detail, "error": f"{type(error).__name__}: {error}"[:2048]})
+                self.report(
+                    f"{action}_failed",
+                    None,
+                    {**detail, "error": f"{type(error).__name__}: {error}"[:2048]},
+                )
                 if not isinstance(error, StaleOwner):
                     self.defer_application_ack(path, detail, operation)
             else:
                 self.remove_application_intent(path, detail, operation)
                 if response["status"] == "not_accepted":
-                    self.report("application_acknowledgement_not_accepted", None, detail)
+                    self.report(
+                        "application_acknowledgement_not_accepted", None, detail
+                    )
                 else:
                     self.report(action, None, {**detail, **response})
         return progressed
@@ -447,11 +803,24 @@ class Supervisor:
         try:
             intent = read_intent(path)
             installation = self.installations[intent["kind"]]
-            if not can_retry(self.adapter.store, self.adapter.owner, installation, intent):
+            if not can_retry(
+                self.adapter.store, self.adapter.owner, installation, intent
+            ):
                 return
-        except (OSError, ValueError, KeyError, TypeError, RecursionError, sqlite3.Error):
+        except (
+            OSError,
+            ValueError,
+            KeyError,
+            TypeError,
+            RecursionError,
+            sqlite3.Error,
+        ):
             return
-        self.application_ack_retries[path] = (time.monotonic() + BACKOFF_SECONDS[retry], intent, retry + 1)
+        self.application_ack_retries[path] = (
+            time.monotonic() + BACKOFF_SECONDS[retry],
+            intent,
+            retry + 1,
+        )
 
     def queue_due_application_acks(self):
         now = time.monotonic()
@@ -460,7 +829,9 @@ class Supervisor:
                 del self.application_ack_retries[path]
                 try:
                     if read_intent(path) != intent:
-                        raise ValueError("durable acknowledgement changed during retry backoff")
+                        raise ValueError(
+                            "durable acknowledgement changed during retry backoff"
+                        )
                 except (OSError, ValueError, KeyError, TypeError, RecursionError):
                     continue
                 self.queue_application_ack(path, intent, True, retry=retry)
@@ -470,8 +841,14 @@ class Supervisor:
             self.controller_refusals.discard(pool)
         elif pool not in self.controller_refusals:
             self.controller_refusals.add(pool)
-            self.report("controller_claim_refused", None, {"pool": pool, "adapter": "a03", "reason": refusal})
-        self.capacity.observe(pool, admission, self.budget.host_sample_monotonic, refusal)
+            self.report(
+                "controller_claim_refused",
+                None,
+                {"pool": pool, "adapter": "a03", "reason": refusal},
+            )
+        self.capacity.observe(
+            pool, admission, self.budget.host_sample_monotonic, refusal
+        )
 
     def fill(self, paused):
         claimed = False
@@ -488,12 +865,27 @@ class Supervisor:
                 self.controller_refusals.discard(pool)
                 self.capacity.block(pool, "settlement_pending")
                 continue
-            while sum(1 for session in self.running.values() if session.pool == pool) < settings["max_sessions"]:
+            while (
+                sum(1 for session in self.running.values() if session.pool == pool)
+                < settings["max_sessions"]
+            ):
                 admission = self.budget.admission(pool, settings, self.running)
                 previous = self.admission.get(pool)
                 self.admission[pool] = admission
-                if previous is None or previous["reason"] != admission["reason"] or previous["active_limit"] != admission["active_limit"] or previous["adaptive_revision"] != admission["adaptive_revision"] or previous["upward_blocked_reason"] != admission["upward_blocked_reason"]:
-                    event = {key: value for key, value in admission.items() if key not in {"limiting_factors", "memory_estimate_bytes_by_kind"}}
+                if (
+                    previous is None
+                    or previous["reason"] != admission["reason"]
+                    or previous["active_limit"] != admission["active_limit"]
+                    or previous["adaptive_revision"] != admission["adaptive_revision"]
+                    or previous["upward_blocked_reason"]
+                    != admission["upward_blocked_reason"]
+                ):
+                    event = {
+                        key: value
+                        for key, value in admission.items()
+                        if key
+                        not in {"limiting_factors", "memory_estimate_bytes_by_kind"}
+                    }
                     self.report("admission", None, {"pool": pool, **event})
                 if admission["additional_sessions"] == 0:
                     self.record_capacity(pool, admission)
@@ -501,20 +893,36 @@ class Supervisor:
                 name = f"{time.time_ns():x}-{secrets.token_hex(4)}"
                 claim_path = self.claims / f"{name}.json"
                 group = None
-                candidates = self.budget.group_candidates(pool, admission) if self.grouping else {}
+                candidates = (
+                    self.budget.group_candidates(pool, admission)
+                    if self.grouping
+                    else {}
+                )
                 if candidates:
                     group_path = self.claims / f"{name}.group"
-                    group = self.adapter.ClaimGroup(pool, self.config["worker"], group_path, candidates)
+                    group = self.adapter.ClaimGroup(
+                        pool, self.config["worker"], group_path, candidates
+                    )
                     if group:
                         claim_path = group_path
                 try:
-                    claim = group[0] if group else self.adapter.ClaimJob(pool, self.config["worker"], claim_path)
+                    claim = (
+                        group[0]
+                        if group
+                        else self.adapter.ClaimJob(
+                            pool, self.config["worker"], claim_path
+                        )
+                    )
                 except ClaimExchangeLost as error:
                     self.claim_error = error
                     self.stopping = True
                     self.report("claim_transport_failed", None, {"error": str(error)})
                     return claimed
-                refusal = self.adapter.last_claim_refusal if claim is None and controller_capacity else None
+                refusal = (
+                    self.adapter.last_claim_refusal
+                    if claim is None and controller_capacity
+                    else None
+                )
                 if claim is not None and controller_capacity:
                     self.capacity.invalidate_controller()
                 self.record_capacity(pool, admission, refusal)
@@ -523,10 +931,30 @@ class Supervisor:
                 claimed = True
                 session = None
                 try:
-                    if claim["job"]["kind"] not in self.registry.runners or self.registry.runners[claim["job"]["kind"]]["pool"] != pool:
+                    if (
+                        claim["job"]["kind"] not in self.registry.runners
+                        or self.registry.runners[claim["job"]["kind"]]["pool"] != pool
+                    ):
                         raise ValueError("claimed job kind has no runner in this pool")
                     if group:
-                        if not 2 <= len(group) <= 20 or len({item["job"]["id"] for item in group}) != len(group) or any((item["job"]["kind"], item["job"]["tool_version"], item["job"]["rule_version"]) != (claim["job"]["kind"], claim["job"]["tool_version"], claim["job"]["rule_version"]) for item in group) or claim["job"]["kind"] not in candidates:
+                        if (
+                            not 2 <= len(group) <= 20
+                            or len({item["job"]["id"] for item in group}) != len(group)
+                            or any(
+                                (
+                                    item["job"]["kind"],
+                                    item["job"]["tool_version"],
+                                    item["job"]["rule_version"],
+                                )
+                                != (
+                                    claim["job"]["kind"],
+                                    claim["job"]["tool_version"],
+                                    claim["job"]["rule_version"],
+                                )
+                                for item in group
+                            )
+                            or claim["job"]["kind"] not in candidates
+                        ):
                             raise ValueError("adapter returned an unsupported group")
                         session = GroupSession(self, pool, group, claim_path, name)
                     else:
@@ -542,11 +970,34 @@ class Supervisor:
                         if sys.platform == "win32":
                             session.process.close()
                     path = self.state / f".setup-{name}.json"
-                    detail = f"session setup failed: {type(error).__name__}: {error}"[:2048]
-                    write_private(path, {"session_version": 1, "receipt": None, "result": None, "error": detail, "stderr_tail": None})
+                    detail = f"session setup failed: {type(error).__name__}: {error}"[
+                        :2048
+                    ]
+                    write_private(
+                        path,
+                        {
+                            "session_version": 1,
+                            "receipt": None,
+                            "result": None,
+                            "error": detail,
+                            "stderr_tail": None,
+                        },
+                    )
                     try:
                         if group:
-                            release_group(self, name, claim_path, {"receipt_version": 1, "session": name, "stop_reason": "setup_failed", "orphan": False}, detail, self.sessions / name)
+                            release_group(
+                                self,
+                                name,
+                                claim_path,
+                                {
+                                    "receipt_version": 1,
+                                    "session": name,
+                                    "stop_reason": "setup_failed",
+                                    "orphan": False,
+                                },
+                                detail,
+                                self.sessions / name,
+                            )
                         else:
                             self.adapter.FinishJob(claim_path, "retry", path, detail)
                     finally:
@@ -556,12 +1007,30 @@ class Supervisor:
                             shutil.rmtree(claim_path)
                         else:
                             claim_path.unlink(missing_ok=True)
-                    self.report("setup_failed", None, {"session": name, "pool": pool, "job": claim.get("job", {}).get("id"), "error": detail})
+                    self.report(
+                        "setup_failed",
+                        None,
+                        {
+                            "session": name,
+                            "pool": pool,
+                            "job": claim.get("job", {}).get("id"),
+                            "error": detail,
+                        },
+                    )
                     continue
                 self.running[name] = session
+                launch_monotonic_ns = time.monotonic_ns()
                 self.budget.adaptive.started(pool)
                 self.counts["started"] += 1
-                self.report("started", session, {"pid": session.pid, "group_size": len(group) if group else 1})
+                self.report(
+                    "started",
+                    session,
+                    {
+                        "pid": session.pid,
+                        "group_size": len(group) if group else 1,
+                        "launch_monotonic_ns": launch_monotonic_ns,
+                    },
+                )
             else:
                 self.capacity.block(pool, "pool_full")
         self.capacity.publish()
@@ -569,6 +1038,25 @@ class Supervisor:
 
     def shutdown(self, number, frame):
         self.stopping = True
+
+    def check_decoder_advice(self, packet):
+        from CodexAdvice.Suggest import advise
+
+        try:
+            output = self.state / "decoder-advice"
+            output.mkdir(mode=0o700, exist_ok=True)
+            result = advise(
+                self.adapter.store,
+                packet,
+                output,
+                0,
+                90,
+                integrated=True,
+                options=self.advice_options,
+            )
+        except (OSError, ValueError, KeyError, TypeError, sqlite3.Error) as error:
+            result = {"status": "failed", "error_type": type(error).__name__}
+        self.report("decoder_advice", None, {"job": packet["job"], **result})
 
     def run(self, idle_seconds, max_seconds):
         self.acknowledger = ThreadPoolExecutor(max_workers=1)
@@ -583,21 +1071,33 @@ class Supervisor:
                 if self.windows_claims:
                     self.adapter.CloseClaimHelper()
             finally:
+                if self.codex_executor is not None:
+                    self.codex_executor.shutdown()
                 self.acknowledger.shutdown(cancel_futures=True)
                 self.report_application_acks()
+                if self.catalogue_handoffs is not None:
+                    self.catalogue_handoffs.Close(self.report)
 
     def run_sessions(self, idle_seconds, max_seconds):
         signal.signal(signal.SIGTERM, self.shutdown)
         signal.signal(signal.SIGINT, self.shutdown)
+        if sys.platform == "win32" and KWindowsCliProtocol == 1:
+            signal.signal(signal.SIGBREAK, self.shutdown)
         self.acquire()
-        self.capacity = CapacitySnapshot(self.config, self.registry.configuration_sha256)
+        self.capacity = CapacitySnapshot(
+            self.config, self.registry.configuration_sha256
+        )
         self.recover()
         self.synchronize()
+        if self.codex_budget:
+            self.codex_executor = ThreadPoolExecutor(max_workers=1)
         self.recover_application_acks()
         self.recover_application_rearms()
         self.budget.refresh(self.running)
         started = time.monotonic()
         last_work = started
+        catalogue_paused = False
+        handoffs_started = False
         while True:
             now = time.time()
             self.capacity.begin_pass()
@@ -606,7 +1106,11 @@ class Supervisor:
                 self.budget.refresh(self.running)
             except (OSError, ValueError) as error:
                 self.measurement_error = str(error)[:2048]
-                self.report("resource_measurement_error", None, {"error": self.measurement_error})
+                self.report(
+                    "resource_measurement_error",
+                    None,
+                    {"error": self.measurement_error},
+                )
                 for session in self.running.values():
                     session.begin_stop("resource_measurement_unavailable", now)
                 self.stopping = True
@@ -614,12 +1118,46 @@ class Supervisor:
                 if session.tend(now, paused):
                     del self.running[name]
             settled = self.report_application_acks()
-            if self.stopping or (max_seconds is not None and time.monotonic() - started >= max_seconds):
+            if self.stopping or (
+                max_seconds is not None and time.monotonic() - started >= max_seconds
+            ):
                 break
             self.queue_due_application_acks()
-            if self.fill(paused) or self.running or self.application_acks or self.application_ack_retries or settled:
+            requested_pause = (
+                self.catalogue_pause_path is not None
+                and self.catalogue_pause_path.is_file()
+            )
+            if requested_pause and not catalogue_paused:
+                self.report("catalogue_paused", None, {})
+            catalogue_paused = requested_pause
+            if (
+                not catalogue_paused
+                and not handoffs_started
+                and self.catalogue_handoffs is not None
+            ):
+                self.catalogue_handoffs.Start()
+                handoffs_started = True
+            native_pending = (
+                self.catalogue_handoffs is not None
+                and self.catalogue_handoffs.Poll(self.report)
+            )
+            if self.catalogue_authoring and not catalogue_paused:
+                from InferenceGrid.Authoring.NativePending import HasNativeWork
+
+                native_pending = native_pending or HasNativeWork(self.adapter.store)
+            if (
+                (not catalogue_paused and self.fill(paused))
+                or self.running
+                or self.application_acks
+                or self.application_ack_retries
+                or settled
+                or native_pending
+            ):
                 last_work = time.monotonic()
-            elif idle_seconds is not None and time.monotonic() - last_work >= idle_seconds:
+            elif (
+                idle_seconds is not None
+                and time.monotonic() - last_work >= idle_seconds
+            ):
                 break
             time.sleep(self.config["poll"])
         self.capacity.retire()
@@ -647,20 +1185,34 @@ def status(config):
                 record = read_bounded(directory / "session.json")
             except (OSError, ValueError, UnicodeDecodeError):
                 continue
-            running.setdefault(record.get("pool"), []).append({key: record.get(key) for key in ("session", "job_id", "attempt", "pid", "started_at")})
+            running.setdefault(record.get("pool"), []).append(
+                {
+                    key: record.get(key)
+                    for key in ("session", "job_id", "attempt", "pid", "started_at")
+                }
+            )
     path = config["state"] / "pauses.json"
     pauses = read_bounded(path).get("pools", {}) if path.is_file() else {}
     capacities = capacity_status(config)
-    return {"pools": {
-        name: {
-            "max_sessions": settings["max_sessions"],
-            "running": sorted(running.get(name, []), key=lambda item: item["session"]),
-            "paused": pauses.get(name),
-            "capacity": {"state": "paused", "decision": None} if name in pauses
-            else capacities.get(name, {"state": "unavailable", "decision": None}),
+    return {
+        "pools": {
+            name: {
+                "max_sessions": settings["max_sessions"],
+                "running": sorted(
+                    running.get(name, []), key=lambda item: item["session"]
+                ),
+                "paused": pauses.get(name),
+                "capacity": (
+                    {"state": "paused", "decision": None}
+                    if name in pauses
+                    else capacities.get(
+                        name, {"state": "unavailable", "decision": None}
+                    )
+                ),
+            }
+            for name, settings in sorted(config["pools"].items())
         }
-        for name, settings in sorted(config["pools"].items())
-    }}
+    }
 
 
 def set_pause(config, pool, reason):
@@ -678,14 +1230,28 @@ def set_pause(config, pool, reason):
 
 
 def main():
+    from CodexAdvice.AdviceOptions import add_options, read_options
+
     parser = argparse.ArgumentParser(description="Local research session supervisor")
     parser.add_argument("--config", type=Path, required=True)
     commands = parser.add_subparsers(dest="command", required=True)
     running = commands.add_parser("run")
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
+    running.add_argument("--catalogue-handoffs", type=Path)
+    running.add_argument("--catalogue-pause-file", type=Path, help=argparse.SUPPRESS)
+    running.add_argument(
+        "--catalogue-authoring", action="store_true", help=argparse.SUPPRESS
+    )
+    running.add_argument("--reserved-memory-mib", type=int, metavar="MIB")
+    running.add_argument(
+        "--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS"
+    )
+    add_options(running)
     status_command = commands.add_parser("status")
-    status_command.add_argument("--claim-occupancy", nargs=3, metavar=("RESOURCE", "FROM_UNIX", "UNTIL_UNIX"))
+    status_command.add_argument(
+        "--claim-occupancy", nargs=3, metavar=("RESOURCE", "FROM_UNIX", "UNTIL_UNIX")
+    )
     pause = commands.add_parser("pause")
     pause.add_argument("pool")
     pause.add_argument("--reason", required=True)
@@ -703,14 +1269,56 @@ def main():
     try:
         config = read_config(args.config)
         if args.command == "run":
-            response = Supervisor(config, True).run(args.idle_seconds, args.max_seconds)
+            if args.reserved_memory_mib is not None:
+                config["reserved_memory_mib"] = bound_memory_reserve(
+                    args.reserved_memory_mib
+                )
+            supervisor = Supervisor(config, True)
+            supervisor.catalogue_pause_path = args.catalogue_pause_file
+            if (
+                args.catalogue_authoring
+                and config["controller"].get("adapter") != "a03"
+            ):
+                raise ValueError(
+                    "catalogue authoring requires the built-in A03 controller"
+                )
+            supervisor.catalogue_authoring = args.catalogue_authoring
+            if args.catalogue_handoffs is not None:
+                from InferenceGrid.CatalogueHandoffs import ReadHandoffs
+
+                if config["controller"].get("adapter") != "a03":
+                    raise ValueError(
+                        "catalogue handoffs require the built-in A03 controller"
+                    )
+                supervisor.catalogue_handoffs = ReadHandoffs(
+                    args.catalogue_handoffs,
+                    args.config.resolve(),
+                    supervisor.adapter.store,
+                )
+            options = read_options(args)
+            if args.codex_on_stall is not None and options is not None:
+                raise ValueError("use either --codex-on-stall or --advisor")
+            if args.codex_on_stall is not None or options is not None:
+                if os.name != "posix" or config["controller"].get("adapter") != "a03":
+                    raise ValueError(
+                        "decoder advice requires a POSIX host and the a03 controller"
+                    )
+                supervisor.advice_options = options
+                supervisor.codex_budget = (
+                    options.calls if options else bounded(args.codex_on_stall, 1, 256)
+                )
+            response = supervisor.run(args.idle_seconds, args.max_seconds)
         elif args.command == "status":
             response = status(config)
             if args.claim_occupancy is not None:
                 resource, start, end = args.claim_occupancy
-                response["claim_occupancy"] = claim_occupancy(config, resource, float(start), float(end))
+                response["claim_occupancy"] = claim_occupancy(
+                    config, resource, float(start), float(end)
+                )
         elif args.command in ("pause", "resume"):
-            response = set_pause(config, args.pool, args.reason if args.command == "pause" else None)
+            response = set_pause(
+                config, args.pool, args.reason if args.command == "pause" else None
+            )
         else:
             adapter = Supervisor(config, False).adapter
             if args.command == "submit":
@@ -725,7 +1333,9 @@ def main():
         print(f"supervisor busy: {error}", file=sys.stderr)
         return 4
     except (ValueError, OSError, KeyError, TypeError) as error:
-        print(f"supervisor error: {type(error).__name__}: {error}"[:4096], file=sys.stderr)
+        print(
+            f"supervisor error: {type(error).__name__}: {error}"[:4096], file=sys.stderr
+        )
         return 1
 
 

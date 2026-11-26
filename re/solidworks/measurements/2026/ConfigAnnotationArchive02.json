@@ -1,0 +1,127 @@
+{
+  "fresh_guarded_processes": 3,
+  "identities": {
+    "re/tooling/sw2026/CheckCfgAnn.py": "51d95182c17390015e4b166f29d78d85204b3e757468fe1b31b367eed3c70c05",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/AnnHelperFields.py": "73049c50cb9b75a021514f4d1d4dc1c2b085ea6b2c8a543a7420eb72999201f9",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ToleranceHelperFields.py": "4f1259a4847b6f1abceb921dcafdc04eb169a1525d6061731d044c87e1ec58ab",
+    "src/convert/adapters/solidworks/Archive/Config/Annotations/CheckTolFrames.py": "d174b78277abe426ffe332ff3dc9621f4e9408ee83042780b75c4e73c08c3c78",
+    "src/convert/adapters/solidworks/Archive/Config/Annotations/ReadCfgAnn.py": "0d4fe709ae23bcbc17400f0b5b2ec68a251aeb68a19f9edddd499195f0750582"
+  },
+  "process_receipts": {
+    "concave": {
+      "annotation_base_count": 10,
+      "body_sha256": [
+        "0f468d3c9b19575ec1b7b32c2f9b3e394393396f05baf847befabb6fb27e3230",
+        "08235c9d69158869dca91390115c9446435e0b334540b60477990593ca0d52f1"
+      ],
+      "case": "concave",
+      "frame_spans": [
+        [
+          16535,
+          16587
+        ],
+        [
+          16587,
+          16639
+        ]
+      ],
+      "map_inherited": [
+        1,
+        2,
+        3
+      ],
+      "member_lengths": [
+        1956,
+        412
+      ],
+      "native_incoming_counter": 54,
+      "native_launches": 0,
+      "runtime_external_accesses": 0,
+      "scopes": {
+        "moAnnotationDefs_c": [
+          7634,
+          9590
+        ],
+        "moGTolDataHelper_c": [
+          16531,
+          16943
+        ]
+      },
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "unchanged_archive_bodies": 14
+    },
+    "ladder": {
+      "annotation_base_count": 10,
+      "body_sha256": [
+        "51283df1afd8e6ba2ef31aa8ac29ca8a02ccf333b1aba6d2484d85ad77fdf12b",
+        "4b743aea3cc89b8e303edf284b54ef1d17e1956c94571ba11dedc6d31768eb9b"
+      ],
+      "case": "ladder",
+      "frame_spans": [
+        [
+          17954,
+          18006
+        ],
+        [
+          18006,
+          18058
+        ]
+      ],
+      "map_inherited": [
+        1,
+        2,
+        3
+      ],
+      "member_lengths": [
+        1956,
+        388
+      ],
+      "native_incoming_counter": 69,
+      "native_launches": 0,
+      "runtime_external_accesses": 0,
+      "scopes": {
+        "moAnnotationDefs_c": [
+          9185,
+          11141
+        ],
+        "moGTolDataHelper_c": [
+          17950,
+          18338
+        ]
+      },
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "unchanged_archive_bodies": 14
+    },
+    "wire": {
+      "case": "wire",
+      "different_frame_rows": [
+        1,
+        0
+      ],
+      "native_launches": 0,
+      "positive_archives": 4,
+      "refusals": [
+        "truncated",
+        "trailing",
+        "older_archive",
+        "foreign_inline",
+        "foreign_part",
+        "layer_reference",
+        "part_reference",
+        "header_reference",
+        "extended_first_null",
+        "extended_second_null",
+        "new_class",
+        "datum_owners",
+        "indicator_owners",
+        "negative_indicator_count",
+        "negative_frame_count"
+      ],
+      "runtime_external_accesses": 0,
+      "signed_layer_selector": -2,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "string_array_count": 2
+    }
+  },
+  "schema": "kit.sw2026.config-annotation-archive-review.v1"
+}

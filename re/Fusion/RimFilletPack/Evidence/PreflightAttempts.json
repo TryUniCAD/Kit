@@ -1,0 +1,59 @@
+{
+  "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+  "attempts": [
+    {
+      "action": "original mellow-frog checkout",
+      "outcome": "path no longer exists; did not recreate or modify it"
+    },
+    {
+      "action": "sandbox git fetch origin main",
+      "exit_code": null,
+      "message": "cannot open .git/FETCH_HEAD: Operation not permitted",
+      "exit_code_note": "subcommand failure; combined read-only shell continued and returned zero"
+    },
+    {
+      "action": "authorized git fetch origin main",
+      "exit_code": 0
+    },
+    {
+      "action": "sandbox gh pr list",
+      "exit_code": 1,
+      "message": "error connecting to api.github.com"
+    },
+    {
+      "action": "authorized gh pr list",
+      "exit_code": 0
+    },
+    {
+      "action": "initial configured cad api status",
+      "exit_code": 1,
+      "message": "remote CAD HTTP 502"
+    },
+    {
+      "action": "inspect stopped PersonalCadApi task and native process state",
+      "outcome": "service stopped, no Fusion360 or SLDWORKS application process; unrelated sldworks_fs helper preserved"
+    },
+    {
+      "action": "start configured PersonalCadApi scheduled task",
+      "exit_code": 0
+    },
+    {
+      "action": "ownership-checked fusion recover",
+      "exit_code": 0,
+      "outcome": "stale marker archived; no native application was stopped"
+    },
+    {
+      "action": "uv tool install --python 3.14 --force .",
+      "exit_code": 0,
+      "python": "3.14.6",
+      "installation_stdout_retained": false
+    },
+    {
+      "action": "register exact existing collector revision e04bf545290a253193c72d210719d1c0eebb4c5464b0a550daf59fd511c58bd1",
+      "exit_code": 0,
+      "default_collectors_changed": false
+    }
+  ],
+  "native_requests_replayed": 0,
+  "models_enabled": false
+}

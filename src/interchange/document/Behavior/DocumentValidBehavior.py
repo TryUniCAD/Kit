@@ -12,9 +12,17 @@ def BindValidator(HookName: str, HookValue: object) -> None:
     KValidatorHooks[HookName] = HookValue
 
 
+# late io policy bindings preserve source and file guards without importing the composed model upward
+def ValidateIo(SourceValue: object, IsWrite: bool = False) -> None:
+    HookValue = KValidatorHooks.get("file_write" if IsWrite else "source_read")
+    if not callable(HookValue):
+        raise TypeError("document io validation requires composed bindings")
+    ValidatorFunc = CastValue(ValueFactory[[object], None], HookValue)
+    ValidatorFunc(SourceValue)
+
+
 # compat protocol marker exempts paired wrappers from naming constraints
 class PairProtocol:
-
     KSlotsValue = ()
 
     locals()["__slots__"] = KSlotsValue

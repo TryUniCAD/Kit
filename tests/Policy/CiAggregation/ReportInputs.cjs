@@ -1,10 +1,10 @@
 const { BuildExpected } = require("./ExpectedChecks.cjs");
 const { BuildReviews } = require("./ReviewReports.cjs");
 
-function BuildReports(CaseMode, Verdict, CheckName) {
+function BuildReports(CaseMode, Verdict, CheckName, NativeCount = 4) {
   const IsQueue = CaseMode.startsWith("queue");
   const HeadSha = "a".repeat(40);
-  const Built = BuildExpected(IsQueue, HeadSha);
+  const Built = BuildExpected(IsQueue, HeadSha, NativeCount);
   const Runs = Built.Runs;
   const Checks = Built.Checks;
   const Expected = Checks.map(({ name, html_url }) => ({ name, html_url }));
@@ -61,6 +61,7 @@ function BuildReports(CaseMode, Verdict, CheckName) {
 
   if (CaseMode === "queue" || CaseMode === "queue-run") {
     const Check = Checks.find((Item) => Item.name === CheckName);
+    if (!Check) throw new Error(`Fixture workflow has no check: ${CheckName}`);
     const Run = Runs.find(
       (Item) => Item.check_suite_id === Check.check_suite.id,
     );

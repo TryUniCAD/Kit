@@ -2,13 +2,13 @@
 
 Use a licensed 64-bit SOLIDWORKS installation with an English part template and Windows PowerShell 5.1. The harness uses the registered SOLIDWORKS COM server. Check the revision it reports before comparing the results to the original SOLIDWORKS 2026 build `34.4.1`.
 
-The [audited authoring source](https://github.com/TryUniCAD/Kit/blob/ea5ae8074eb0ed6d128ac59adc43b438e2ab8d77/re/automation/PairedCaptures/SolidWorksAuthoring/SolidWorksCapture.cs) has SHA-256 `0e90cdfc47f4295e15907505c9870620bb8fab2f82437d57a7f7521c22adb238`. The [historical capture contract](../../Changes/Research/Automation/CaptureHistoryBinding.md) keeps that source fixed and pins the [current capture programme](../../../re/automation/PairedCaptures/SolidWorksAuthoring/SolidWorksCapture.cs) separately. The [launcher](../../../re/automation/PairedCaptures/SolidWorksAuthoring/RunSolidWorks.ps1) resolves the recipe and control from the repository and requires an explicit destination and case.
+The [audited authoring source](https://github.com/TryUniCAD/Kit/blob/ea5ae8074eb0ed6d128ac59adc43b438e2ab8d77/re/automation/PairedCaptures/SolidWorksAuthoring/SolidWorksCapture.cs) has SHA-256 `0e90cdfc47f4295e15907505c9870620bb8fab2f82437d57a7f7521c22adb238`. The [historical capture contract](../../Changes/Research/Automation/CaptureHistoryBinding.md) keeps that source fixed and pins the [current capture programme](../../../re/automation/CaptureTools/SolidWorksAuthoring/SolidWorksCapture.cs) separately. The [launcher](../../../re/automation/CaptureTools/SolidWorksAuthoring/RunSolidWorks.ps1) resolves the recipe and control from the repository and requires an explicit destination and case.
 
 1. Close or save open SOLIDWORKS work and use an isolated application session. Choose an unused output location outside the repository's capture folders.
 2. Run the first phase for an explicit case. Set the interop path to the installed `SolidWorks.Interop.sldworks.dll` for the registered build.
 
    ```powershell
-   powershell.exe -NoProfile -STA -File re/automation/PairedCaptures/SolidWorksAuthoring/RunSolidWorks.ps1 -Recipe P01 -Phase first -OutputDirectory C:/Temp/KitCapture -InteropAssembly 'C:/Path/SOLIDWORKS/SolidWorks.Interop.sldworks.dll'
+   powershell.exe -NoProfile -STA -File re/automation/CaptureTools/SolidWorksAuthoring/RunSolidWorks.ps1 -Recipe P01 -Phase first -OutputDirectory C:/Temp/KitCapture -InteropAssembly 'C:/Path/SOLIDWORKS/SolidWorks.Interop.sldworks.dll'
    ```
 
 3. Quit SOLIDWORKS fully after the first phase finishes. Run the same command with `-Phase second`. The harness requires a different application process ID from the first phase and verifies the unchanged baseline-A SHA-256 before continuing.

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -96,12 +96,9 @@ def TestNativeMatch(TmpPath: FilePath) -> None:
         "/topology/bounding_box/maximum/z": (10.0, 0.0),
     }
     Sources = CastValue(dict[str, dict[str, object]], Report["sources"])
-    assert (
-        sum(
-            len(CastValue(list[object], Source["unresolved"]))
-            for Source in Sources.values()
-        )
-        == 70
+    assert all(
+        len(CastValue(list[object], Source["unresolved"])) == 33
+        for Source in Sources.values()
     )
     assert all(
         any(

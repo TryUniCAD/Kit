@@ -20,17 +20,17 @@ The separator between the brand name and the page name in a browser page title M
 Correct:
 
 ```
-Parashell :: Download
-Parashell :: Privacy Policy
-Not Found :: Parashell
+UniCAD :: Download
+UniCAD :: Privacy Policy
+Not Found :: UniCAD
 ```
 
 Forbidden:
 
 ```
-Parashell | Download
-Parashell - Download
-Parashell – Download
+UniCAD | Download
+UniCAD - Download
+UniCAD – Download
 ```
 
 ## Where This Applies

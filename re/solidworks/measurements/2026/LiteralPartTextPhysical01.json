@@ -1,0 +1,238 @@
+{
+  "accepted_main": "f80da8caed2ca7a585c1aa85f22c1e13196761d5",
+  "configuration_dependency": "629373b9a0529c426c7f284fda7f6e19154ef7de",
+  "configuration_dependency_pr": 233,
+  "control": {
+    "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+    "file": "re/solidworks/v2026/corpus/part-properties/CircularProperties.SLDPRT",
+    "sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+    "text": {
+      "body": [
+        "sldprt:body:1",
+        1,
+        1,
+        1
+      ],
+      "configuration": [
+        "modeled default",
+        true,
+        0
+      ],
+      "diagnostics": [],
+      "feature_count": 27,
+      "status": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      },
+      "text_scopes": [
+        true,
+        true,
+        true
+      ]
+    },
+    "typed_config": {
+      "all_map_slots_preserved": true,
+      "bytes": 26055,
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        3058
+      ],
+      "map_base": 4,
+      "map_counter": 122,
+      "resolved": [
+        3062,
+        26055
+      ],
+      "runtime_classes": 38,
+      "runtime_external_accesses": 0,
+      "schema_count": 142
+    },
+    "unit_owner_range_and_slots": [
+      2441,
+      2443,
+      2,
+      3
+    ]
+  },
+  "disclosed_cases": [
+    {
+      "boundary": "typed_property_projection",
+      "case": "PolygonGenerated",
+      "qualified_fields": [
+        4,
+        2,
+        1
+      ],
+      "source_sha256": "0d3ec3a66fa50793bc54f18d2b9b16cf5aef7a58545f2cd527b2c1a240922062",
+      "status": "complete"
+    },
+    {
+      "boundary": "typed_property_projection",
+      "case": "CircleGenerated",
+      "qualified_fields": [
+        3,
+        3,
+        2
+      ],
+      "source_sha256": "392c5b51b63761f4bba2baf6dc0715de4af8d3e5036b83a42e0f388031cc6edd",
+      "status": "complete"
+    },
+    {
+      "boundary": "public_document",
+      "case": "PolygonSaved",
+      "qualified_fields": [
+        4,
+        2,
+        1
+      ],
+      "source_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14",
+      "status": "complete"
+    },
+    {
+      "boundary": "public_document",
+      "case": "CircleSaved",
+      "qualified_fields": [
+        3,
+        3,
+        2
+      ],
+      "source_sha256": "8007d21df3db5fc58c23d3fe589cfc15cf274ac83d9b2daa4878ee792e104e30",
+      "status": "complete"
+    },
+    {
+      "boundary": "public_document",
+      "case": "CircleAuthored",
+      "qualified_fields": [
+        3,
+        3,
+        2
+      ],
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "status": "complete"
+    },
+    {
+      "boundary": "public_document",
+      "case": "AdvancedRectangle",
+      "qualified_fields": null,
+      "source_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805",
+      "status": "unsupported"
+    }
+  ],
+  "disclosed_fresh_processes": 6,
+  "equivalent_portability_requirements": {
+    "CircularProperties direct write": "accepted native-only feature refusal",
+    "L1 retained native timeline JSON copy": "accepted native-only feature refusal",
+    "existing legacy and native write probes": "require reconciliation with accepted gates before queue"
+  },
+  "native_processes_started": 0,
+  "physical_cases": {
+    "appended": {
+      "config_bytes": 26056,
+      "diagnostic": "SOLIDWORKS configuration has 1 trailing bytes",
+      "geometry_and_feature_history_preserved": true,
+      "refusals_preserved_output_bytes_and_cursor": [
+        "direct_write",
+        "strict_convert"
+      ],
+      "removed_property_xml": [],
+      "text_scopes": [
+        false,
+        false,
+        false
+      ]
+    },
+    "one_byte": {
+      "config_bytes": 1,
+      "diagnostic": "archive tag has no complete unsigned short",
+      "geometry_and_feature_history_preserved": true,
+      "refusals_preserved_output_bytes_and_cursor": [
+        "direct_write",
+        "strict_convert"
+      ],
+      "removed_property_xml": [],
+      "text_scopes": [
+        false,
+        false,
+        false
+      ]
+    },
+    "summary_only_truncated": {
+      "config_bytes": 26054,
+      "diagnostic": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 3058: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 3058: SOLIDWORKS model section exceeds its remaining stream",
+      "geometry_and_feature_history_preserved": true,
+      "refusals_preserved_output_bytes_and_cursor": [
+        "direct_write",
+        "strict_convert"
+      ],
+      "removed_property_xml": [
+        "docProps/Config-0-Properties.xml",
+        "docProps/custom.xml"
+      ],
+      "text_scopes": [
+        false,
+        false,
+        false
+      ]
+    },
+    "tail_truncated": {
+      "config_bytes": 26054,
+      "diagnostic": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 3058: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 3058: SOLIDWORKS model section exceeds its remaining stream",
+      "geometry_and_feature_history_preserved": true,
+      "refusals_preserved_output_bytes_and_cursor": [
+        "direct_write",
+        "strict_convert"
+      ],
+      "removed_property_xml": [],
+      "text_scopes": [
+        false,
+        false,
+        false
+      ]
+    },
+    "wrong_owner": {
+      "config_bytes": 26055,
+      "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+      "geometry_and_feature_history_preserved": true,
+      "refusals_preserved_output_bytes_and_cursor": [
+        "direct_write",
+        "strict_convert"
+      ],
+      "removed_property_xml": [],
+      "text_scopes": [
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "property_conflict_repair": "630398bf9b004c14a5a8a02da94458ab8f972d40",
+  "property_integration_parent": "ba57d43c78efc7827cc55842d5ca97307290e29d",
+  "schema": "kit.sw2026.literal-part-text-physical-receipt.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/CheckOrdinaryCfg.py": "4b40f76859d320e229d58cb1c3c5972f27d1a45bc6f52244ae91647c96589c33",
+    "re/tooling/sw2026/VerifyLiteralPartText.py": "01ed8df7c7538f87d8b6c39efb76c7223dc200c51b8cf3c7fdf8cb61a8692578",
+    "re/tooling/sw2026/part_text/CheckPhysicalPartText.py": "184dc00f8c4449afde88cc4556558f09488e205350e713a3674840d3cb562a3b",
+    "src/convert/adapters/solidworks/Archive/Config/ReadPartConfig.py": "75ae02945105e400faf798e4788596625abb124816f70ccf8d7cafabb7dc24d2",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py": "7640c2bff86d95784c1c4b6074cc0c1ecce620fe684d1bac47c6bafbe2d633bd",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropOwners.py": "b9774f72e3a59031180a47c3837fd2b8e4120cfa4369085d1ceec2d3b6f0e130",
+    "tests/Convert/Solidworks/Properties/PhysicalTextTests.py": "bb5302ed1b7563fa46496075960f707e5d32820aa20abb5cae7d24eef0617c25"
+  },
+  "stdout_sha256": {
+    "Disclosed.json": "d5f852cc90680be708b6a885c45a16a485740e5fdee9584eed071d9dac18b3e3",
+    "Physical.json": "ba3aabfa3355c303309b0f51bce2b709bce48d84b680bba8a994328e67b531a8",
+    "Typed.json": "c89296e438cd4395b49b51762e1d48f8891cfd6c80850296cb2c5a47b6d61fc3"
+  },
+  "version_18000": {
+    "authored_title": "property refusal with the original B-rep and feature timeline",
+    "original_export": "accepted sketch support refusal for sldprt:sketch:40",
+    "source_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408",
+    "strict_inspection": "one solid, no property status or bags on the original"
+  }
+}

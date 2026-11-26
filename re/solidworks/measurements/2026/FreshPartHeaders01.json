@@ -1,0 +1,450 @@
+{
+  "accepted_base": "dade4abef73c4e2a59b2d77371db0f77bf014fa1",
+  "complete_configuration_graph": false,
+  "constructor_pin": "81aff00e947ef3bb39fb479c265782d7ca7a0581",
+  "control_paths": {
+    "concave": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+    "ladder": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT"
+  },
+  "historical_evidence_pin": "ed2928db557adfdaec8cbb1b400d8e51ca2e9d22",
+  "historical_evidence_sha256": {
+    "re/solidworks/measurements/2026/SdkDefaultPartNative01.json": "273b95745b147c6acaf4e51130bd521687651ad65d2edcb29f79ab50a9c3b7bc",
+    "re/solidworks/measurements/2026/SdkOriginalPolygonNative01.json": "ce44060b5eca37ed1c95e56a8e4718790d8a44c8eb5d5ddc62890942c6855467",
+    "re/solidworks/measurements/2026/SdkPublicPartWriter01.json": "01eb9331fa9cc495fa69873f010eb6b6338299ae6634f81a4abc5f08a3bbb10b"
+  },
+  "native_document_acceptance": false,
+  "native_reference": {
+    "archive_version": 19000,
+    "container_format": 4,
+    "oracle": "SOLIDWORKS 2026 SP05.2",
+    "oracle_build": "34.5.2.0604",
+    "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "observations": {
+    "concave": {
+      "deterministic_repeat": false,
+      "observation": {
+        "case": "concave",
+        "external_accesses": 0,
+        "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+        "streams": {
+          "Contents/CMgrHdr2": {
+            "archive_version": 19000,
+            "bytes": 137,
+            "entry_indices": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_index": 5,
+            "root_index": 2,
+            "row_count": 1,
+            "row_indices": [
+              4
+            ],
+            "saved_at": 1790000000,
+            "schemas": {
+              "dmConfigHeader_c": 1,
+              "dmConfigMgrHeader_c": 1,
+              "suObList": 1
+            },
+            "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225",
+            "sort_word": 2
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_count": 789,
+            "root_index": 2,
+            "sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa"
+          },
+          "Header2": {
+            "byte_count": 789,
+            "root_index": 2,
+            "sha256": "0d8551d418c050d4f3d737edac10225af00146037f6eefa2b60511b8db4ad53d"
+          }
+        }
+      }
+    },
+    "ladder": {
+      "deterministic_repeat": false,
+      "observation": {
+        "case": "ladder",
+        "external_accesses": 0,
+        "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+        "streams": {
+          "Contents/CMgrHdr2": {
+            "archive_version": 19000,
+            "bytes": 137,
+            "entry_indices": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_index": 5,
+            "root_index": 2,
+            "row_count": 1,
+            "row_indices": [
+              4
+            ],
+            "saved_at": 1794690255,
+            "schemas": {
+              "dmConfigHeader_c": 1,
+              "dmConfigMgrHeader_c": 1,
+              "suObList": 1
+            },
+            "sha256": "caa3cb00d615faa644ca20786ae98ff6a4896237648e90c6ed431694f86bb352",
+            "sort_word": 2
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_count": 2315,
+            "root_index": 2,
+            "sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659"
+          },
+          "Header2": {
+            "byte_count": 2315,
+            "root_index": 2,
+            "sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659"
+          }
+        }
+      }
+    },
+    "refusals": {
+      "deterministic_repeat": false,
+      "observation": {
+        "case": "refusals",
+        "external_accesses": 0,
+        "refused": [
+          "foreign_part",
+          "distinct_selector",
+          "duplicate_count",
+          "configuration_parent",
+          "foreign_configuration_owner",
+          "excluded_configuration",
+          "comment_sidecar",
+          "unallocated_part",
+          "assembly_root",
+          "early_save",
+          "nonpart_extension",
+          "exhausted_id_space"
+        ]
+      }
+    },
+    "reserved-tail": {
+      "deterministic_repeat": true,
+      "observation": {
+        "Contents/CMgrHdr2": {
+          "archive_version": 19000,
+          "bytes": 151,
+          "entry_indices": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "next_index": 5,
+          "root_index": 2,
+          "row_count": 1,
+          "row_indices": [
+            4
+          ],
+          "saved_at": 1794600032,
+          "schemas": {
+            "dmConfigHeader_c": 1,
+            "dmConfigMgrHeader_c": 1,
+            "suObList": 1
+          },
+          "sha256": "447c66014dff6dd9e3ac55aa02e6304b10fe4fc56da5697892475fdf81c2159f",
+          "sort_word": 2
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 525,
+          "indices": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            16
+          ],
+          "next_persistent_id": 10,
+          "role": 1,
+          "sha256": "332c5979b533f5209026e99351dd5d2e27da64ede122ba7118adfd1028eab926"
+        },
+        "Header2": {
+          "bytes": 525,
+          "indices": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            16
+          ],
+          "next_persistent_id": 10,
+          "role": 0,
+          "sha256": "8213129218d0444c329576cb3e34226169b953a0ba90cf59f36475a6847a1e5a"
+        },
+        "case": "reserved-tail",
+        "direct_map": {
+          "base": 4,
+          "next": 4,
+          "slots": [
+            1,
+            2,
+            3
+          ]
+        },
+        "external_accesses": 0,
+        "subsequent_allocation": 10
+      }
+    },
+    "straight": {
+      "deterministic_repeat": true,
+      "observation": {
+        "Contents/CMgrHdr2": {
+          "archive_version": 19000,
+          "bytes": 151,
+          "entry_indices": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "next_index": 5,
+          "root_index": 2,
+          "row_count": 1,
+          "row_indices": [
+            4
+          ],
+          "saved_at": 1794600032,
+          "schemas": {
+            "dmConfigHeader_c": 1,
+            "dmConfigMgrHeader_c": 1,
+            "suObList": 1
+          },
+          "sha256": "447c66014dff6dd9e3ac55aa02e6304b10fe4fc56da5697892475fdf81c2159f",
+          "sort_word": 2
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 525,
+          "indices": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            16
+          ],
+          "next_persistent_id": 8,
+          "role": 1,
+          "sha256": "79ef094e12b12747484d3b3000caee7ef859aac342ca31453875b9c4d218b7aa"
+        },
+        "Header2": {
+          "bytes": 525,
+          "indices": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            16
+          ],
+          "next_persistent_id": 8,
+          "role": 0,
+          "sha256": "50ef6738401680b928bee3e26b82279cc201b6e81574e79d1ae243874ab813e9"
+        },
+        "case": "straight",
+        "direct_map": {
+          "base": 4,
+          "next": 4,
+          "slots": [
+            1,
+            2,
+            3
+          ]
+        },
+        "external_accesses": 0,
+        "subsequent_allocation": 8
+      }
+    },
+    "unicode": {
+      "deterministic_repeat": true,
+      "observation": {
+        "Contents/CMgrHdr2": {
+          "archive_version": 19000,
+          "bytes": 155,
+          "entry_indices": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "next_index": 5,
+          "root_index": 2,
+          "row_count": 1,
+          "row_indices": [
+            4
+          ],
+          "saved_at": 1794900037,
+          "schemas": {
+            "dmConfigHeader_c": 1,
+            "dmConfigMgrHeader_c": 1,
+            "suObList": 1
+          },
+          "sha256": "787621047929ef65f66c2763678f6e0bf8d324e5d6ddf62612ac4b0759f1ee0b",
+          "sort_word": -21
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 541,
+          "indices": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            16
+          ],
+          "next_persistent_id": 24,
+          "role": 1,
+          "sha256": "4be113acd148afb4e2c411de484c6f2f0601cc61eb6fc57db099aea3ed6ec689"
+        },
+        "Header2": {
+          "bytes": 541,
+          "indices": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            16
+          ],
+          "next_persistent_id": 24,
+          "role": 0,
+          "sha256": "0d2c5b640d246628cea856c298ece2eb3970b7c0a166bda54ee6fc5e6cd59c9d"
+        },
+        "case": "unicode",
+        "direct_map": {
+          "base": 4,
+          "next": 4,
+          "slots": [
+            1,
+            2,
+            3
+          ]
+        },
+        "external_accesses": 0,
+        "subsequent_allocation": 24
+      }
+    }
+  },
+  "passed": true,
+  "production_manifest_sha256": "539b1e1b57b68766e3159357b37b16f5e542e72f880026a4627ca604f4b4b3bb",
+  "production_sources": {
+    "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileConfig.py": {
+      "delivered_sha256": "b9a19dec373c00b071e9ea362dffc57271c97d037e0a08b5dcc5fb9b5c3d88ec",
+      "source_sha256": "953cf773e15b30d2d80c347cff312ac9a53750a802d948449eaf7c3d02d10037"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileDef.py": {
+      "delivered_sha256": "28dc98b99f26a3db7f2c766cf598b943844c1e011e891cd348c5c57e0ea42483",
+      "source_sha256": "1b8c67a6560355d6a1cbd2f94b5079079a56dd34518e72afefc1ba055c678c41"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Files/MakeSelfFile.py": {
+      "delivered_sha256": "636fe43d7d19b685e66799219540694293567c0a0f643a81846a87ec16376f9c",
+      "source_sha256": "eef75c9d3168b1e68453415030f67ae1d74d665049f0d49c46e35f24f33b1473"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Files/SelfFileInput.py": {
+      "delivered_sha256": "24df4e78c0aa874965776773fd484ee3c58a4dbddca61c46e23a057d2d19319a",
+      "source_sha256": "3edb1923d66605000aab20e511520d095a6f28d25c4ce2425a3dacd24edc6111"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Header/HeaderInput.py": {
+      "delivered_sha256": "b0bbac75a8a7a1c2ce6350160424e562f485f31faed529e1540ef478b2fafd74",
+      "source_sha256": "b0bbac75a8a7a1c2ce6350160424e562f485f31faed529e1540ef478b2fafd74"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Header/HeaderZeroes.py": {
+      "delivered_sha256": "10f32a5d6ee74a30e3f24cc2825b823dd9d6bda397168b84afa90d058bde4f45",
+      "source_sha256": "10f32a5d6ee74a30e3f24cc2825b823dd9d6bda397168b84afa90d058bde4f45"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Header/MakePartHeader.py": {
+      "delivered_sha256": "990332bf8133f35d918cbb9ae9a0e342fe2a0a0df0c0f07230a99db39511d01a",
+      "source_sha256": "1845f38d976406e970e068abbdf683f41a526ae7961b08ee4b27e45f7613f173"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Header/MakePartHeads.py": {
+      "delivered_sha256": "1a76199372183158ffad025c2c8cb9e72d24d70520b78c98c533830c8c85e81a",
+      "source_sha256": null
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Header/MakeRootLog.py": {
+      "delivered_sha256": "cafe2d2b9c07b9103933590b20dcc9b96fed507c3e0b9218745be757c281c2bc",
+      "source_sha256": "cafe2d2b9c07b9103933590b20dcc9b96fed507c3e0b9218745be757c281c2bc"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeMgrHeader.py": {
+      "delivered_sha256": "d478bb90db553586cf569ed92e834bb2857c9c37b2fe3cb95eb1c0198cd0431a",
+      "source_sha256": "e1e8108fc014808c97321200de346e1624ec4dfc0b36c4f6ae3bfc82c838c7a7"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/ManagerHeader/MakeMgrEntry.py": {
+      "delivered_sha256": "bce2161b7fca731ab889c4735fa881fbe45bfb96e68132d385d8c38f85f9da87",
+      "source_sha256": null
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/ManagerHeader/SelectMgrCfg.py": {
+      "delivered_sha256": "8a208f9569f22474fb47476f90fc1b1923b30f9358ced9ae0ba3b7b32533422f",
+      "source_sha256": null
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Model/GraphValue.py": {
+      "delivered_sha256": "413dc54ae25927e9c5d45bf08443a2e6f134aefedf05c8b2694e256b655b31d8",
+      "source_sha256": "d1d240f5673ae2e0acaa8e150162b491f93d98d85f939b1466f1a52ed82f612b"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Model/RequireRootNode.py": {
+      "delivered_sha256": "26ec96b38540cab268a0cc806006aaba4db402954ac4e8bfdc3613b28d552803",
+      "source_sha256": "26ec96b38540cab268a0cc806006aaba4db402954ac4e8bfdc3613b28d552803"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/CheckIdSeed.py": {
+      "delivered_sha256": "8a3b61be1e1c436ee1c67dc76f02507397b00a360dd432db72e4c4f7dc794157",
+      "source_sha256": "8a3b61be1e1c436ee1c67dc76f02507397b00a360dd432db72e4c4f7dc794157"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/PersistentIds.py": {
+      "delivered_sha256": "8eb3a480339e0a470b33b063a07f2a72c2adb09ee3c02275116221ab997dcf6e",
+      "source_sha256": "1ceff807e1f749498984af1749f77f93a1d19aef3261229b72da3dee3662dd60"
+    }
+  },
+  "production_sources_exact": 5,
+  "public_writer_registration": false,
+  "schema": "kit.sw2026.fresh-part-headers.v1",
+  "task": "B04-SW2026-FRESH-PART-HEADERS",
+  "verification": {
+    "audited_runtime_external_accesses": 0,
+    "constructive_cases": 3,
+    "disclosed_stream_equalities": 6,
+    "fcstd_conversions": 0,
+    "fresh_host_processes": 9,
+    "independent_generated_stream_equalities": 9,
+    "local_test_suites": 0,
+    "native_runs": 0,
+    "original_heldout_inputs_read": 0,
+    "preserved_disclosed_sources": 2,
+    "refusals": 12
+  },
+  "worker_and_queue_sources_sha256": {
+    "re/tooling/sw2026/AuthorFreshHead.py": "e50a291872611e90baa718992553b960dc6db2ce2c04011f4329881ad014032c",
+    "re/tooling/sw2026/CheckFreshHeads.py": "06b1d53885758c6441722ea88b6826004c3ed74d7b7a99350579d217ea5fee01",
+    "tests/Convert/Solidworks/ArchiveHeader/FreshHeadTests.py": "cb047de17ca95cccf4231202c24d1462ac84edfbdb10443d5087cfcb5f5ee8d2",
+    "tests/Convert/Solidworks/ArchiveHeader/RunFreshHead.py": "dcaa581bf270afc8549a6b279caa341e15c1a9b1a98be6393d8412e63d656578"
+  }
+}

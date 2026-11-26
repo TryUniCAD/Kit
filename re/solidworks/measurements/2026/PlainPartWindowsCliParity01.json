@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "both_flags": true,
+      "bytes": 8094,
+      "role": "Skew",
+      "runtime": "classic",
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "wrong_locator_preserved": true
+    },
+    {
+      "both_flags": true,
+      "bytes": 8180,
+      "role": "Step",
+      "runtime": "classic",
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "wrong_locator_preserved": true
+    },
+    {
+      "both_flags": true,
+      "bytes": 9289,
+      "role": "Skew",
+      "runtime": "zlib-ng",
+      "sha256": "67c0a671254fe916f9c0d97a45bd786e32e54f7eb527c78bfe4356079a47d36a",
+      "wrong_locator_preserved": true
+    },
+    {
+      "both_flags": true,
+      "bytes": 9395,
+      "role": "Step",
+      "runtime": "zlib-ng",
+      "sha256": "735b53c173fdcc039ad93873f02c23498edee2df909c83660f9b5c6c8041b282",
+      "wrong_locator_preserved": true
+    }
+  ],
+  "schema": "kit.sw2026.plain-part-windows-cli-parity.v1"
+}
