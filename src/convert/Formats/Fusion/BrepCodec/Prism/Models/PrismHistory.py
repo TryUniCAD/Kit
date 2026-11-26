@@ -5,6 +5,7 @@ from convert.Formats.Fusion.BrepCodec.Models.BrepHeader import BrepHeader
 from convert.Formats.Fusion.BrepCodec.Models.HistoryState import HistoryState
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismFrame import PrismFrame
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismTags import PrismTags
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismIds import PrismIds
 from convert.Formats.Fusion.GeometryCodec.GeometryStamp import GeometryStamp
 from convert.Formats.Fusion.GeometryCodec.Prism.CuboidBody import CuboidBody
 
@@ -19,3 +20,4 @@ class PrismHistory:
     Stamp: GeometryStamp
     Frame: PrismFrame
     Header: BrepHeader
+    Tracking: PrismIds = PrismIds()

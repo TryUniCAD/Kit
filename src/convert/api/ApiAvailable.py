@@ -8,12 +8,12 @@ from convert.api.ApiContext import KAdapterRegistry
 def ListAdapters() -> tuple[AdapterInfo, ...]:
     AdapterMap = {
         AdapterData.info.format_id: AdapterData.info
-        for AdapterData in KAdapterRegistry.readers()
+        for AdapterData in KAdapterRegistry.writers()
     }
     AdapterMap.update(
         {
             AdapterData.info.format_id: AdapterData.info
-            for AdapterData in KAdapterRegistry.writers()
+            for AdapterData in KAdapterRegistry.readers()
         }
     )
     return tuple(AdapterMap[FormatId] for FormatId in sorted(AdapterMap))

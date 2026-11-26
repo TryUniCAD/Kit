@@ -1,0 +1,123 @@
+{
+  "architecture": "arm64",
+  "cases": [
+    {
+      "adjacent_sha256": "40c1a51ba0f1518cb20fbd2ad7b80d1fd2eef75b0e828f5e4fcf437adc85ff8c",
+      "changed_streams": [
+        "Contents/Config-0"
+      ],
+      "equal_legacy_views": 10,
+      "legacy_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "locator": "C:\\KitSdkCandidates\\sdk factory skew.SLDPRT",
+      "request_sha256": "a80a073e64a107c293e0e9e649e84d2b0b09720f7661b4254dcc45742444f93f",
+      "role": "Skew",
+      "runtime_input_reads": 0,
+      "stable_bytes": 8094,
+      "stable_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "view_count": 10
+    },
+    {
+      "adjacent_sha256": "20b1680116b7696db5c35333c4183c1fb17eb8e047dd2e2172e0fcc2e74fbb87",
+      "changed_streams": [
+        "Contents/Config-0"
+      ],
+      "equal_legacy_views": 10,
+      "legacy_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "locator": "C:\\KitSdkCandidates\\sdk \u8a2d\u8a08 stepped.SLDPRT",
+      "request_sha256": "e155d170e01947992f3af6a680623bba4553dd442c9b43b4c877331d15661a46",
+      "role": "Step",
+      "runtime_input_reads": 0,
+      "stable_bytes": 8180,
+      "stable_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "view_count": 10
+    }
+  ],
+  "matrix_contrast": {
+    "addresses": [
+      "Config-0/f9f8/3/o/f368/f08/m0",
+      "Config-0/f9f8/3/o/f368/f08/m8",
+      "Config-0/f9f8/4/o/f368/f08/m0",
+      "Config-0/f9f8/4/o/f368/f08/m8",
+      "Config-0/f9f8/5/o/f368/f08/m4",
+      "Config-0/f9f8/5/o/f368/f08/m8",
+      "Config-0/f9f8/6/o/f368/f08/m4",
+      "Config-0/f9f8/6/o/f368/f08/m8"
+    ],
+    "adjacent_binary64_hex": "-0x1.ffffffffffffep-49",
+    "canonical_binary64_hex": "-0x1.0000000000000p-48"
+  },
+  "measured_epoch": 1794973072,
+  "native_processes_started": 0,
+  "platform": "Darwin",
+  "prior_native_report_sha256": "273b95745b147c6acaf4e51130bd521687651ad65d2edcb29f79ab50a9c3b7bc",
+  "prior_native_terminal_sha256": "8ca7b13b7bd69f916655539fa08d1df4d836c6c551f218b745e538b84b9bfc0c",
+  "python": "3.14.7",
+  "rotation_terms": {
+    "*Back/y": {
+      "half_angle": "-0x1.921fb54442d28p+0",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "-0x0.0p+0 -0x1.0000000000000p+0 -0x0.0p+0 -0x1.f72cece675d20p-49"
+    },
+    "*Bottom/x": {
+      "half_angle": "0x1.921fb54442d28p-1",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "0x1.6a09e667f3bd8p-1 0x0.0p+0 0x0.0p+0 0x1.6a09e667f3bc1p-1"
+    },
+    "*Dimetric/x": {
+      "half_angle": "-0x1.5bfe34eedf184p-3",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "-0x1.5a5223611a9a7p-3 -0x0.0p+0 -0x0.0p+0 0x1.f8a05fd97437cp-1"
+    },
+    "*Dimetric/y": {
+      "half_angle": "0x1.720a392aa03d0p-3",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "0x0.0p+0 0x1.7007a0d12a4fcp-3 0x0.0p+0 0x1.f7aa4a422e4bfp-1"
+    },
+    "*Isometric/x": {
+      "half_angle": "-0x1.3b161d47596efp-2",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "-0x1.3623466b8d97cp-2 -0x0.0p+0 -0x0.0p+0 0x1.e7f3d6b4f5154p-1"
+    },
+    "*Isometric/y": {
+      "half_angle": "0x1.921fb54442d28p-2",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "0x0.0p+0 0x1.87de2a6aea971p-2 0x0.0p+0 0x1.d906bcf328d43p-1"
+    },
+    "*Left/y": {
+      "half_angle": "-0x1.921fb54442d28p-1",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "-0x0.0p+0 -0x1.6a09e667f3bd8p-1 -0x0.0p+0 0x1.6a09e667f3bc1p-1"
+    },
+    "*Right/y": {
+      "half_angle": "0x1.921fb54442d28p-1",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "0x0.0p+0 0x1.6a09e667f3bd8p-1 0x0.0p+0 0x1.6a09e667f3bc1p-1"
+    },
+    "*Top/x": {
+      "half_angle": "-0x1.921fb54442d28p-1",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "-0x1.6a09e667f3bd8p-1 -0x0.0p+0 -0x0.0p+0 0x1.6a09e667f3bc1p-1"
+    },
+    "*Trimetric/x": {
+      "half_angle": "-0x1.1504c6d4006d3p-2",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "-0x1.11a6efd5f7fcap-2 -0x0.0p+0 -0x0.0p+0 0x1.ed60f883ebe34p-1"
+    },
+    "*Trimetric/y": {
+      "half_angle": "0x1.f1342d0a37aabp-3",
+      "legacy_word_match": true,
+      "stable_quaternion_xyzw": "0x0.0p+0 0x1.ec55810193aedp-3 0x0.0p+0 0x1.f0fc40d0e867cp-1"
+    }
+  },
+  "schema": "kit.sw2026.standard-view-rounding-proof.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/CheckStdViewRounding.py": "300fe766fd496d651ed55453699565588b504ec44008433f56729b4e85c2ee0a",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/MakeStdViews.py": "1c54f492f6ff4515ce0e3309e583a5a7991b75f15427ada7777b934ab7df2490",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/MakeViewNode.py": "cfbfeaf707bc42f8287663c205d794907b3ba5511264f72bd8491fd38cd803a5",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/MultiplyQuat.py": "47fd714b3f75d01233ec6f74b333fa56f9df36f4e4f1fe18499ef578391ca954",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/RoundViewSeries.py": "47c242eaf845d74f7a597fc9c2bf6c1a2cc74a7187d3828e20ad64dba4ab9b83",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/ViewMatrix.py": "91b4b93113d6e9f01a3fcada3b84b8f80f8519091ed7a6800bef30d1d7f43dbc",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/ViewPlans.py": "001c3fa0b6f2c31841e4abec88f46a9ecc2d8fd39c0628e6561fe2d13e2a93c1",
+    "src/convert/adapters/solidworks/Archive/Construction/Views/ViewRotation.py": "f9e60f6b8d8e5d8c0aa380a38abeed6c23946208a022d11be915a21f66939ff2"
+  }
+}

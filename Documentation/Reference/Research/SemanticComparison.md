@@ -8,6 +8,10 @@ It does not qualify a reader, writer or native conversion.
 
 ## Before you start
 
+For multiple existing exports, use the [standalone bulk comparison command](../../Tasks/CompareDecodedDocuments.md).
+It accepts matching export directories or an explicit pair manifest without running either native decoder.
+The single-pair command below retains its independently supplied hash contract.
+
 Use the repository's supported Python environment and a checkout containing the interchange codec.
 Obtain two JSON documents from the existing codec.
 Record their exact SHA-256 values independently.

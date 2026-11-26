@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -33,6 +33,8 @@ from ReadCutRims import read_cut_rims
 from convert import open_document, write_document
 from convert.adapters.Fusion.Bridge.CheckContract import CheckContract
 from convert.adapters.Fusion.Native.Graph.ReadNames import ReadNames
+from convert.Formats.Fusion.DocumentCodec.Vocabulary.AuthorSchemas import AuthorSchemas
+from convert.Formats.Fusion.DocumentCodec.Vocabulary.ReadVocabulary import ReadVocabulary
 from convert.adapters.Fusion.State.EncodeState import EncodeState
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
@@ -193,6 +195,17 @@ def native_observations(captures, variant, names):
 # Strict vocabulary absence stays different from successful typed wire decoding.
 def strict_inventory(model):
     catalog = {row.Value.ClassGuid.upper() for row in ReadNames()}
+    require("5662F619-2281-4AD9-93DC-1FCFDA1062E7" in catalog,
+            "current P04 reader lost the registered BrepRef class")
+    feature_only = ({row.Value.ClassGuid.upper() for row in AuthorSchemas("cuboid", True, HasFeatures=True)}
+                    - {row.Value.ClassGuid.upper() for row in AuthorSchemas("cuboid", True)})
+    vocabulary = ROOT / "src/convert/Formats/Fusion"
+    preserved = {row.Value.ClassGuid.upper()
+                 for path in ("DocumentCodec/Vocabulary/DesignClasses.json",
+                              "ContainerCodec/Assembly/ActClasses.json",
+                              "ContainerCodec/Browser/BrowserClasses.json")
+                 for row in ReadVocabulary(vocabulary / path)}
+    catalog = (catalog - feature_only) | preserved
     auxiliary = {row.ClassGuid.upper() for row in KAuxiliarySchemas}
     unknown = []
     for segment in model.Segments:
@@ -623,13 +636,15 @@ def negative_controls(history, table, body, roles, mode):
 
 # Full typed transport does not grant either a strict source read or a public write route.
 def public_guards(raw, document, contract, mode):
-    expected = "native or unresolved required semantics cannot be exported: : feature fusion-feature-35-207 kind (native); : feature fusion-feature-35-334 kind (native)"
+    expected = "native or unresolved required semantics cannot be exported: : feature fusion-feature-35-334 kind (native)"
     if mode[0] == "through_all":
         expected += "; : feature fusion-feature-35-446 length (depthless extrusion reconstruction is unqualified)"
     result = {
         "strict": refusal(
             lambda: open_document(raw, strict=True),
-            "Unknown native Fusion entity class",
+            "Native Fusion semantic link requires an entity reference"
+            if mode[0] == "through_all"
+            else "Unmodeled native Fusion semantic entity class",
         )
     }
     for name, item in (

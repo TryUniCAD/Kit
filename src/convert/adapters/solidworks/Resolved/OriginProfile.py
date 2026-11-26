@@ -9,8 +9,7 @@ from convert.adapters.solidworks.Resolved.OriginDisplay import (
 )
 from convert.adapters.solidworks.Resolved.PrincipalRef import PrincipalRef, ReadPlaneRef
 from convert.adapters.solidworks.Resolved.ProfileEntry import ReadProfileHead
-from convert.adapters.solidworks.Sketch.Cursor import SketchArchive
-from convert.adapters.solidworks.Sketch.DimFields import ReadDimBase
+from convert.adapters.solidworks.Sketch.Cursor import SketchArchive, ReadDimBase
 from convert.adapters.solidworks.Sketch.Members import ReadPointMut
 from convert.adapters.solidworks.Sketch.Relations import ReadDims
 

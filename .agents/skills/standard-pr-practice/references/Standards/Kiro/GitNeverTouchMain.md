@@ -2,7 +2,7 @@ original source: `.kiro/steering/GitNeverTouchMain.md`
 
 # Git: NEVER Commit, Push, or Pull On `main`
 
-This rule is ABSOLUTE and MANDATORY for every agent in this workspace, across every repository (the `Parashell` FreeCAD fork, `modules/`, `agentUi/`, and all others). It ranks above convenience, above "fix errors don't ask", and above any urge to get CI green faster. Violating it is a hard failure, no matter how small or safe the change seems.
+This rule is ABSOLUTE and MANDATORY for every agent in this workspace, across every repository (the `FreeCAD` fork, `modules/`, `agentUi/`, and all others). It ranks above convenience, above "fix errors don't ask", and above any urge to get CI green faster. Violating it is a hard failure, no matter how small or safe the change seems.
 
 ## The Rule
 

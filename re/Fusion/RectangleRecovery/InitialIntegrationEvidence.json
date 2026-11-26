@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "source_revision": "7a0a987ec2f1ab4099c839621a8e51d18bcfa872",
+  "positives": [
+    {
+      "case": "control-before",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        18.5,
+        11.5,
+        5.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "reverse-xy",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        18.5,
+        11.5,
+        -5.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "datum-yz",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        5.5,
+        11.5,
+        -18.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "control-after",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        18.5,
+        11.5,
+        5.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    }
+  ],
+  "negative_cases": [
+    "reverse-xy-writer-marked",
+    "reverse-xy-writer-stripped",
+    "datum-yz-writer-marked",
+    "datum-yz-writer-stripped",
+    "forward-xz",
+    "reverse-xz",
+    "reverse-yz",
+    "wrong-distance",
+    "unsupported-display-unit"
+  ],
+  "full_semantics_verified": false,
+  "native_conversion_acceptance": false,
+  "candidate_sources": {
+    "src/convert/adapters/Fusion/Native/Rectangle/ReadRectRules.py": "cf5bdfc9cb0c7c87de4cdbbb71e3ba8e4b7a94b53537deb4d8536e7c80282941",
+    "src/convert/adapters/Fusion/Native/Parameters/ReadParameters.py": "38fb799574a90c96ef81ac6f67aab78212409eefc1c0651af12f8aa89d42d85b",
+    "src/convert/adapters/Fusion/Native/Projection/ProjectPrism.py": "f20ab9d0856a08bf284fedc8723cc6f95e185e8aec0eadc8e9b89596f29ce35f"
+  }
+}

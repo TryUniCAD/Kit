@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -18,10 +18,11 @@ from Records import digest
 
 
 # shared discovery routes preserve exact bindings and assessment identities
-def ProvisionAssessment(Store, Revision, CaptureRevision, BuildSchedule):
+def ProvisionAssessment(Store, Revision, CaptureRevision, BuildSchedule, Dependencies=()):
     CheckRevision(Revision)
     Bindings, Batch = BuildSchedule(Revision)
     Jobs = Batch["jobs"]
+    Jobs[0]["depends_on"] = sorted(set(Jobs[0]["depends_on"]) | set(Dependencies))
     with (
         TemporaryDirectory(prefix="kit-feature-provision-") as Scratch,
         Ledger(Store) as State,

@@ -5,6 +5,7 @@ from convert.Formats.Fusion.HistoryPart import HistoryPart
 from convert.Formats.Fusion.ParamProjection import ParamOrigin as RecordOrigin
 from convert.Formats.Fusion.RecordSpan import RecordSpan
 from convert.Formats.Fusion.Sketches.SketchGeometry import GroupGeometry, ProjectGeom
+from convert.Formats.Fusion.Sketches.SketchRuleIds import ReadSketchRules
 from convert.Formats.Fusion.Sketches.SketchPlacement import (
     KSketchBase,
     KSketchFeature,
@@ -47,7 +48,7 @@ def ProjectSketches(
         if Feature.ClassGuid != KSketchFeature:
             continue
         try:
-            RootSpan, Frame = ResolveSketch(BulkData, Feature, Owners, Bases)
+            RootSpan, Frame, Children = ResolveSketch(BulkData, Feature, Owners, Bases)
         except ValueError as ErrorInfo:
             Diagnostics.append(
                 Diagnostic(
@@ -60,9 +61,31 @@ def ProjectSketches(
         Entities, Issues = ProjectGeom(BulkData, Geometry.get(RootSpan.ObjectId, []))
         Diagnostics.extend(Issues)
         Planes.append(Frame)
-        Sketches.append(BuildSketch(StepValue, RootSpan, Frame, Entities))
+        Sketches.append(
+            BuildSketch(
+                StepValue,
+                RootSpan,
+                Frame,
+                Entities,
+                None if Issues else GeometryRoster(BulkData, RootSpan, Children),
+            )
+        )
         Steps[-1] = Replace(StepValue, name=Frame.name, sketch_id=Sketches[-1].id)
     return tuple(Planes), tuple(Sketches), tuple(Steps), tuple(Diagnostics)
+
+
+# dimensions and constraints can also appear among the managed children of a sketch
+def GeometryRoster(
+    BulkData: bytes, RootSpan: RecordSpan, Children: tuple[int, ...] | None
+) -> tuple[int, ...] | None:
+    if Children is None:
+        return None
+    try:
+        Geometric, Dimensions = ReadSketchRules(BulkData, RootSpan)
+    except ValueError:
+        return None
+    RuleIds = frozenset(Geometric + Dimensions)
+    return tuple(Identity for Identity in Children if Identity not in RuleIds)
 
 
 # the neutral sketch retains the proven native identity frame and source step
@@ -71,7 +94,11 @@ def BuildSketch(
     RootSpan: RecordSpan,
     Frame: SupportPlane,
     Entities: tuple[SketchEntity, ...],
+    Children: tuple[int, ...] | None,
 ) -> Sketch:
+    Verified = Children is not None and {Entity.id for Entity in Entities} == {
+        f"fusion-sketch-entity-{Identity}" for Identity in Children
+    }
     SketchId = f"fusion-sketch-{RootSpan.ObjectId}"
     return Sketch(
         id=SketchId,
@@ -81,5 +108,10 @@ def BuildSketch(
         parameter_ids=StepValue.parameter_ids,
         suppressed=StepValue.suppressed,
         provenance=RecordOrigin(RootSpan),
-        attributes=FreezeMapping({"fusion.geometry_partial": True}),
+        attributes=FreezeMapping(
+            {
+                "fusion.geometry_partial": True,
+                **({"fusion.geometry_child_ids": Children} if Verified else {}),
+            }
+        ),
     )

@@ -27,16 +27,20 @@ from tests.Research.Archives.SolidWorksEndVerify import VerifyEndStart
 class DisplayCodec(Protocol):
 
     # each nested constructor accepts explicit authored settings or geometry
-    def DimGeometry(self, *Values: object) -> object: ...
+    def DimGeometry(self, *Values: object) -> object:
+        raise NotImplementedError
 
     # document preferences remain a typed input to the composition
-    def DisplayPrefs(self, **Values: bool) -> object: ...
+    def DisplayPrefs(self, **Values: bool) -> object:
+        raise NotImplementedError
 
     # the caller owns the model identity and annotation placement
-    def BossDisplay(self, **Values: object) -> object: ...
+    def BossDisplay(self, **Values: object) -> object:
+        raise NotImplementedError
 
     # draft preferences are independent of the length parameter
-    def DisplayDraft(self, **Values: object) -> object: ...
+    def DisplayDraft(self, **Values: object) -> object:
+        raise NotImplementedError
 
     # the shared writer retains its next object index at the end of the display
     def WriteDisplayMut(
@@ -47,7 +51,8 @@ class DisplayCodec(Protocol):
         *,
         Generation: int,
         ConditionOne: bool,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
 
 # load dependencies in constructor order without changing the broader import path

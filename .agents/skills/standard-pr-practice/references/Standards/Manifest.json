@@ -26,7 +26,39 @@
       "sha256": "330d68af4abac91e945a6f67b6e53cb224c68d8e13e41171bef0101f8c20c743",
       "size": 1952,
       "document": "references/Standards/Portable/CodeFormatting.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 596,
+          "end": 598,
+          "replacement": "F"
+        },
+        {
+          "start": 599,
+          "end": 602,
+          "replacement": ""
+        },
+        {
+          "start": 603,
+          "end": 605,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 1934,
+          "end": 1936,
+          "replacement": "F"
+        },
+        {
+          "start": 1937,
+          "end": 1940,
+          "replacement": ""
+        },
+        {
+          "start": 1941,
+          "end": 1943,
+          "replacement": "eCAD"
+        }
+      ]
     },
     {
       "source": ".agents/skills/compact-tool-descriptions/SKILL.md",
@@ -80,7 +112,19 @@
       "sha256": "7757f2ac312c8e429296d9740c2b0ca76d208267043811f878310a201e32a751",
       "size": 4024,
       "document": "references/Standards/Portable/GitNeverTouchMain.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 416,
+          "end": 427,
+          "replacement": ""
+        },
+        {
+          "start": 434,
+          "end": 434,
+          "replacement": "`"
+        }
+      ]
     },
     {
       "source": ".agents/skills/hostcontrol-contract/SKILL.md",
@@ -89,7 +133,14 @@
       "sha256": "7c6f3c896e5c209359b33f06145b46fe3ddf00e7cda0ca98cfc0aa937b22f1af",
       "size": 4746,
       "document": "references/Standards/Portable/HostcontrolContract.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 3745,
+          "end": 3762,
+          "replacement": ""
+        }
+      ]
     },
     {
       "source": ".agents/skills/identifier-markers/SKILL.md",
@@ -125,7 +176,24 @@
       "sha256": "ad9796d021c4b0d52b7c9297166b2b923f4b20c46ef5d25ec7a98094c29d1f63",
       "size": 6404,
       "document": "references/Standards/Portable/LinearIssueTracking.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 1603,
+          "end": 1612,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 3149,
+          "end": 3158,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 3474,
+          "end": 3483,
+          "replacement": "UniCAD"
+        }
+      ]
     },
     {
       "source": ".agents/skills/lossless-translation/SKILL.md",
@@ -197,7 +265,39 @@
       "sha256": "7bf1083452ebebdf7b2fb464f6a16bfd0d8f0e952e58b79e2761c12a02d41f5b",
       "size": 1938,
       "document": "references/Standards/Portable/PageTitleSeparator.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 862,
+          "end": 871,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 884,
+          "end": 893,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 925,
+          "end": 934,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 956,
+          "end": 965,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 977,
+          "end": 986,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 998,
+          "end": 1007,
+          "replacement": "UniCAD"
+        }
+      ]
     },
     {
       "source": ".agents/skills/pin-dependencies/SKILL.md",
@@ -215,7 +315,144 @@
       "sha256": "d10ec8b7e9a3acfc5c939f90732ca70564af26b2de7db51752b6b57e4bc3e1dc",
       "size": 4998,
       "document": "references/Standards/Portable/PixiLockfiles.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 844,
+          "end": 846,
+          "replacement": "F"
+        },
+        {
+          "start": 847,
+          "end": 850,
+          "replacement": ""
+        },
+        {
+          "start": 851,
+          "end": 853,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 918,
+          "end": 920,
+          "replacement": "F"
+        },
+        {
+          "start": 921,
+          "end": 924,
+          "replacement": ""
+        },
+        {
+          "start": 925,
+          "end": 927,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 1137,
+          "end": 1139,
+          "replacement": "F"
+        },
+        {
+          "start": 1140,
+          "end": 1143,
+          "replacement": ""
+        },
+        {
+          "start": 1144,
+          "end": 1146,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 2163,
+          "end": 2165,
+          "replacement": "F"
+        },
+        {
+          "start": 2166,
+          "end": 2169,
+          "replacement": ""
+        },
+        {
+          "start": 2170,
+          "end": 2172,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 2189,
+          "end": 2191,
+          "replacement": "F"
+        },
+        {
+          "start": 2192,
+          "end": 2195,
+          "replacement": ""
+        },
+        {
+          "start": 2196,
+          "end": 2198,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 2307,
+          "end": 2309,
+          "replacement": "F"
+        },
+        {
+          "start": 2310,
+          "end": 2313,
+          "replacement": ""
+        },
+        {
+          "start": 2314,
+          "end": 2316,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 3962,
+          "end": 3964,
+          "replacement": "F"
+        },
+        {
+          "start": 3965,
+          "end": 3968,
+          "replacement": ""
+        },
+        {
+          "start": 3969,
+          "end": 3971,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 4061,
+          "end": 4063,
+          "replacement": "F"
+        },
+        {
+          "start": 4064,
+          "end": 4067,
+          "replacement": ""
+        },
+        {
+          "start": 4068,
+          "end": 4070,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 4140,
+          "end": 4142,
+          "replacement": "F"
+        },
+        {
+          "start": 4143,
+          "end": 4146,
+          "replacement": ""
+        },
+        {
+          "start": 4147,
+          "end": 4149,
+          "replacement": "eCAD"
+        }
+      ]
     },
     {
       "source": ".agents/skills/python-package-manager/SKILL.md",
@@ -224,7 +461,19 @@
       "sha256": "baeed05e9588d3284c836cd8d30edd441e03723050e082f393663b02c31fa0aa",
       "size": 1090,
       "document": "references/Standards/Portable/PythonPackageManager.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 369,
+          "end": 386,
+          "replacement": ""
+        },
+        {
+          "start": 1030,
+          "end": 1046,
+          "replacement": ""
+        }
+      ]
     },
     {
       "source": ".agents/skills/rationale-comments/SKILL.md",
@@ -296,7 +545,14 @@
       "sha256": "e3ae0dea77b3a66d50e70ba9bb1e6d8e073a2d14ce9777ba5f6b84c42a9c0e5b",
       "size": 3361,
       "document": "references/Standards/Portable/WorkosTokenVerification.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 434,
+          "end": 443,
+          "replacement": "UniCAD"
+        }
+      ]
     },
     {
       "source": ".kiro/skills/baseline-ui/SKILL.md",
@@ -647,7 +903,39 @@
       "sha256": "9e96c25b6b97a53b14cec0dfd96d13755f5f00b8c52e92ad752e71bfc9acdf9b",
       "size": 1704,
       "document": "references/Standards/Kiro/CodeFormatting.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 348,
+          "end": 350,
+          "replacement": "F"
+        },
+        {
+          "start": 351,
+          "end": 354,
+          "replacement": ""
+        },
+        {
+          "start": 355,
+          "end": 357,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 1686,
+          "end": 1688,
+          "replacement": "F"
+        },
+        {
+          "start": 1689,
+          "end": 1692,
+          "replacement": ""
+        },
+        {
+          "start": 1693,
+          "end": 1695,
+          "replacement": "eCAD"
+        }
+      ]
     },
     {
       "source": ".kiro/steering/CompactToolDescriptions.md",
@@ -701,7 +989,19 @@
       "sha256": "5c14705dcfb40e29be4584b11a01ed3ba4eb2a01f2704e287a98cd3aecd4c370",
       "size": 3755,
       "document": "references/Standards/Kiro/GitNeverTouchMain.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 147,
+          "end": 158,
+          "replacement": ""
+        },
+        {
+          "start": 165,
+          "end": 165,
+          "replacement": "`"
+        }
+      ]
     },
     {
       "source": ".kiro/steering/HostcontrolContract.md",
@@ -710,7 +1010,14 @@
       "sha256": "f75f84c9d9f6f3d64579238754935b3b9b81342b1c0e39eeee11ed4911dd970b",
       "size": 4459,
       "document": "references/Standards/Kiro/HostcontrolContract.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 3458,
+          "end": 3475,
+          "replacement": ""
+        }
+      ]
     },
     {
       "source": ".kiro/steering/IdentifierMarkers.md",
@@ -746,7 +1053,24 @@
       "sha256": "4da37ae72bf929b05027f7a1a2534655cb1e116eaf0dfe5f3ecdb794d893b185",
       "size": 6130,
       "document": "references/Standards/Kiro/LinearIssueTracking.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 1329,
+          "end": 1338,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 2875,
+          "end": 2884,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 3200,
+          "end": 3209,
+          "replacement": "UniCAD"
+        }
+      ]
     },
     {
       "source": ".kiro/steering/LosslessTranslation.md",
@@ -818,7 +1142,39 @@
       "sha256": "12e7210b1f5f00bba1f9c3cd71af4e0f1c9cb1c3bf76727f31824dfd4cb39cb6",
       "size": 1646,
       "document": "references/Standards/Kiro/PageTitleSeparator.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 570,
+          "end": 579,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 592,
+          "end": 601,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 633,
+          "end": 642,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 664,
+          "end": 673,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 685,
+          "end": 694,
+          "replacement": "UniCAD"
+        },
+        {
+          "start": 706,
+          "end": 715,
+          "replacement": "UniCAD"
+        }
+      ]
     },
     {
       "source": ".kiro/steering/PinDependencies.md",
@@ -836,7 +1192,144 @@
       "sha256": "059e2a9092b13d49f7361d7c9cfe5f69857cdfbb8d78d828a28a75829cde5966",
       "size": 4758,
       "document": "references/Standards/Kiro/PixiLockfiles.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 604,
+          "end": 606,
+          "replacement": "F"
+        },
+        {
+          "start": 607,
+          "end": 610,
+          "replacement": ""
+        },
+        {
+          "start": 611,
+          "end": 613,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 678,
+          "end": 680,
+          "replacement": "F"
+        },
+        {
+          "start": 681,
+          "end": 684,
+          "replacement": ""
+        },
+        {
+          "start": 685,
+          "end": 687,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 897,
+          "end": 899,
+          "replacement": "F"
+        },
+        {
+          "start": 900,
+          "end": 903,
+          "replacement": ""
+        },
+        {
+          "start": 904,
+          "end": 906,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 1923,
+          "end": 1925,
+          "replacement": "F"
+        },
+        {
+          "start": 1926,
+          "end": 1929,
+          "replacement": ""
+        },
+        {
+          "start": 1930,
+          "end": 1932,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 1949,
+          "end": 1951,
+          "replacement": "F"
+        },
+        {
+          "start": 1952,
+          "end": 1955,
+          "replacement": ""
+        },
+        {
+          "start": 1956,
+          "end": 1958,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 2067,
+          "end": 2069,
+          "replacement": "F"
+        },
+        {
+          "start": 2070,
+          "end": 2073,
+          "replacement": ""
+        },
+        {
+          "start": 2074,
+          "end": 2076,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 3722,
+          "end": 3724,
+          "replacement": "F"
+        },
+        {
+          "start": 3725,
+          "end": 3728,
+          "replacement": ""
+        },
+        {
+          "start": 3729,
+          "end": 3731,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 3821,
+          "end": 3823,
+          "replacement": "F"
+        },
+        {
+          "start": 3824,
+          "end": 3827,
+          "replacement": ""
+        },
+        {
+          "start": 3828,
+          "end": 3830,
+          "replacement": "eCAD"
+        },
+        {
+          "start": 3900,
+          "end": 3902,
+          "replacement": "F"
+        },
+        {
+          "start": 3903,
+          "end": 3906,
+          "replacement": ""
+        },
+        {
+          "start": 3907,
+          "end": 3909,
+          "replacement": "eCAD"
+        }
+      ]
     },
     {
       "source": ".kiro/steering/PythonPackageManager.md",
@@ -845,7 +1338,19 @@
       "sha256": "32d9ec0d0bc5d51340805ceffc714949a6aaf3730c3fa9edecd157a12ae99c04",
       "size": 831,
       "document": "references/Standards/Kiro/PythonPackageManager.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 110,
+          "end": 127,
+          "replacement": ""
+        },
+        {
+          "start": 771,
+          "end": 787,
+          "replacement": ""
+        }
+      ]
     },
     {
       "source": ".kiro/steering/RationaleComments.md",
@@ -917,7 +1422,14 @@
       "sha256": "343ec84c76b37031599a10aa676ebd898caacef05cb40e2f4966c3e4405db3e0",
       "size": 3053,
       "document": "references/Standards/Kiro/WorkosTokenVerification.md",
-      "encoding": "markdown-wrapper"
+      "encoding": "markdown-wrapper",
+      "readable_edits": [
+        {
+          "start": 126,
+          "end": 135,
+          "replacement": "UniCAD"
+        }
+      ]
     }
   ]
 }

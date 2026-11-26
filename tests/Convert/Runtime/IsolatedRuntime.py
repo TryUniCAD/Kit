@@ -164,28 +164,31 @@ if zstd is not None:
     assert sorted(type(surface).__name__ for surface in analytic_fusion.brep.surfaces) == [
         "ConeSurface", "PlaneSurface", "SphereSurface", "TorusSurface",
     ]
+research = root / "re"
+refusals = (
+    (research / "solidworks/examples/.SLDPRT/example.SLDPRT", "unqualified SOLIDWORKS sketch support references", "sldprt:sketch:40"),
+    (research / "catia/examples/.CATPart/Banjo.CATPart", "native-only feature definitions", "CATPrtCont"),
+    (research / "catia/examples/.CATProduct/Brake_Pedal_Assembly - Backup 2.CATProduct", "native-only feature definitions", "CATPrtCont"),
+    (
+        research / "solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/Cylinder Head Assy 1.SLDASM",
+        "unqualified SOLIDWORKS sketch support references",
+        "ARBOL DE LEVAS DE ESCAPE_DERECHO.SLDPRT: sldprt:sketch:142",
+    ),
+)
+for source, reason, feature in refusals:
+    destination = (output / source.stem).with_suffix(".CATProduct" if source.suffix == ".SLDASM" else ".FCStd")
+    try:
+        convert(source, destination)
+    except ValueError as error:
+        assert reason in str(error) and feature in str(error), str(error)
+    else:
+        raise AssertionError(f"unqualified model was exported: {source.name}")
+    assert not destination.exists()
+
 cases = (
-    (root / "re" / "solidworks" / "examples" / ".SLDPRT" / "example.SLDPRT", ".FCStd"),
+    (output / "piston.json", ".FCStd"),
     (output / "conversion_0.FCStd", ".CATPart"),
-    (root / "re" / "catia" / "examples" / ".CATPart" / "Banjo.CATPart", ".FCStd"),
-    (
-        root
-        / "re"
-        / "solidworks"
-        / "examples"
-        / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
-        / "Cylinder Head Assy 1.SLDASM",
-        ".CATProduct",
-    ),
-    (
-        root
-        / "re"
-        / "catia"
-        / "examples"
-        / ".CATProduct"
-        / "Brake_Pedal_Assembly - Backup 2.CATProduct",
-        ".FCStd",
-    ),
+    (output / "assembly.json", ".CATProduct"),
 )
 for index, (source, suffix) in enumerate(cases):
     destination = output / f"conversion_{index}{suffix}"
@@ -197,6 +200,7 @@ for index, (source, suffix) in enumerate(cases):
     assert open_document(destination).validate() == ()
 
 source_document = open_document(cases[0][0])
+assert open_document(output / "conversion_0.FCStd").feature_timeline == source_document.feature_timeline
 buffer = io.BytesIO()
 written = write_document(
     source_document,

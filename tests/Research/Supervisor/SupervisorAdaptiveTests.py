@@ -9,7 +9,7 @@ from tests.Research.SupervisorClient import FixtureJob
 
 
 # adaptive growth must be proven after real elapsed time rather than immediate admission
-def CheckRealMinute() -> None:
+def CheckRealMinute(RequireCpu: bool = False) -> None:
     with TempFiles.TemporaryDirectory() as TempPath:
         RootPath = FilePath(TempPath)
         Harness = MakeAdaptive(RootPath)
@@ -20,8 +20,8 @@ def CheckRealMinute() -> None:
                     "fixture.decode",
                     max_attempts=1,
                     lease_seconds=30,
-                    timeout_seconds=90,
-                    options={"hold_seconds": 65},
+                    timeout_seconds=120 if RequireCpu else 90,
+                    options={"hold_seconds": 85 if RequireCpu else 65},
                 ),
                 FixtureJob(
                     "adaptive:next",
@@ -38,8 +38,21 @@ def CheckRealMinute() -> None:
         )
         assert TimeClock.monotonic() - StartedAt >= 60
         Started = [Event for Event in Events if Event.get("event") == "started"]
-        assert len(Started) == 2
-        assert Started[1]["at"] - Started[0]["at"] >= 60
+        assert [Event["job"] for Event in Started] == ["adaptive:hold", "adaptive:next"]
+        assert (
+            Started[1]["launch_monotonic_ns"] - Started[0]["launch_monotonic_ns"]
+            >= 60_000_000_000
+        )
+        LaunchIndex = None
+        if RequireCpu:
+            LaunchIndex = Events.index(Started[1])
+            (HoldFinished,) = [
+                Event
+                for Event in Events
+                if Event.get("event") == "finished"
+                and Event.get("job") == "adaptive:hold"
+            ]
+            assert LaunchIndex < Events.index(HoldFinished)
         assert Harness.ReadJob("adaptive:hold")["state"] == "completed"
         assert Harness.ReadJob("adaptive:next")["state"] == "completed"
-        CheckAdaptive(Events)
+        CheckAdaptive(Events, LaunchIndex)

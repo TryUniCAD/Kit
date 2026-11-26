@@ -14,7 +14,7 @@ from tests.Research.Windows.WaitForExit import WaitForExit
 @Pytest.mark.skipif(System.platform != "win32", reason="Windows process boundary")
 def CheckWinMemory() -> None:
     with TempFiles.TemporaryDirectory() as TempPath:
-        RootPath = FilePath(TempPath)
+        RootPath = FilePath(TempPath).resolve(strict=True)
         Harness = SessionHost(RootPath, {"decode": 1}, {"fixture.decode": "decode"})
         SetWinRunner(Harness, MemoryLimit=1)
         Harness.SubmitJobs(

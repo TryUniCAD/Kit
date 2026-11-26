@@ -1,0 +1,737 @@
+{
+  "schema": "kit.sw2026.encoder-round-trip-native-summary.v1",
+  "oracle": {
+    "build": "34.4.1.1011",
+    "product": "SOLIDWORKS 2026 SP04.1",
+    "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f"
+  },
+  "construction": {
+    "python": "3.14.6",
+    "zlib_runtime": "1.3.1.zlib-ng",
+    "written_at": 1767225600,
+    "sdk_source_commit": "866a518574b3ef34e887b5bec91aa37dc67d864a",
+    "guarded_runtime_input_reads": 0
+  },
+  "native_controls": {
+    "authored_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+    "template_sha256": "e338c3a1de8734934e78c3fa1558833330ee54cec13fc38f9d8f0f460e97954a",
+    "parts": {
+      "BaselineSource.SLDPRT": {
+        "sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "profile_m": [
+          [
+            -0.013,
+            -0.003
+          ],
+          [
+            0.008,
+            -0.009
+          ],
+          [
+            0.019,
+            0.006
+          ],
+          [
+            0.004,
+            0.023
+          ]
+        ],
+        "depth_m": 0.01431,
+        "extrusion_args": [
+          true,
+          false,
+          false,
+          0,
+          0,
+          0.01431,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          0.0,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          0,
+          0.0,
+          false
+        ]
+      },
+      "BaselineEditedControl.SLDPRT": {
+        "sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+        "profile_m": [
+          [
+            -0.013,
+            -0.003
+          ],
+          [
+            0.008,
+            -0.009
+          ],
+          [
+            0.019,
+            0.006
+          ],
+          [
+            0.004,
+            0.023
+          ]
+        ],
+        "depth_m": 0.01987,
+        "extrusion_args": [
+          true,
+          false,
+          false,
+          0,
+          0,
+          0.01987,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          0.0,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          0,
+          0.0,
+          false
+        ]
+      },
+      "HeldOutSource.SLDPRT": {
+        "sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+        "profile_m": [
+          [
+            -0.016,
+            0.004
+          ],
+          [
+            -0.009,
+            -0.012
+          ],
+          [
+            0.012,
+            -0.01
+          ],
+          [
+            0.021,
+            0.002
+          ],
+          [
+            0.017,
+            0.015
+          ],
+          [
+            0.002,
+            0.011
+          ],
+          [
+            -0.004,
+            0.019
+          ]
+        ],
+        "depth_m": 0.00973,
+        "extrusion_args": [
+          true,
+          false,
+          false,
+          0,
+          0,
+          0.00973,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          0.0,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          0,
+          0.0,
+          false
+        ]
+      },
+      "HeldOutEditedControl.SLDPRT": {
+        "sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+        "profile_m": [
+          [
+            -0.016,
+            0.004
+          ],
+          [
+            -0.009,
+            -0.012
+          ],
+          [
+            0.012,
+            -0.01
+          ],
+          [
+            0.021,
+            0.002
+          ],
+          [
+            0.017,
+            0.015
+          ],
+          [
+            0.002,
+            0.011
+          ],
+          [
+            -0.004,
+            0.019
+          ]
+        ],
+        "depth_m": 0.01219,
+        "extrusion_args": [
+          true,
+          false,
+          false,
+          0,
+          0,
+          0.01219,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          0.0,
+          0.0,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          0,
+          0.0,
+          false
+        ]
+      }
+    }
+  },
+  "tolerances": {
+    "relative": 1e-08,
+    "absolute_si": 1e-12
+  },
+  "outside_checkout": [
+    "original vendor-authored controls and authoring request/record/log",
+    "candidate payloads, authored neutral inputs and both guarded preparation manifests",
+    "complete native result, phase requests, full observations, logs and edited derivatives",
+    "SDK receipt custody packet matching Packet.json SHA-256"
+  ],
+  "scope": "Exact digitally generated 4-line baseline and independent 7-line held-out profile, each reconstructed and depth edited from a cold generated source. Vendor-authored files were independently made to check geometry and used only as controls.",
+  "cases": {
+    "BaselineReconstruction": {
+      "receipt_file": "BaselineReconstruction.json",
+      "receipt_sha256": "9d261970459cb19ab1e397074808ed3fc1fa3e80d0dc2db82343b67ee2ec929b",
+      "native_result_sha256": "0f9424b8c5820ac287467c4dd8eb814a97aaa685b723e01934f0409535c33ee1",
+      "packet_sha256": "f7366686701cae757986b6c88428c9bf1f99544666a1fb9e4c56f4e323fe84eb",
+      "guarded_candidate_manifest_sha256": "830f09800cca40f127e61e177f09a8b76dbb51ec3a91646f33842a71903226e5",
+      "candidate_sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+      "candidate_bytes": 9338,
+      "archive_locator_absent": true,
+      "controls_healthy": true,
+      "fresh_processes": 5,
+      "numeric_checks": 154,
+      "phases": {
+        "ControlBefore": {
+          "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+          "record_sha256": "4fb88771c4c148def515a20ced426e53596af15859b9a708e2a6a830be6e38a4",
+          "process_id": 20016,
+          "process_start": "windows:134401151585660165",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "EditControl": {
+          "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+          "record_sha256": "59bab9098a8c2d997b8d109531649a2253705458e87e936fc4908316d407301b",
+          "process_id": 25140,
+          "process_start": "windows:134401151738944554",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateGenerated": {
+          "source_sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+          "record_sha256": "a7884e054c51fc2daf136e7cb307fa7b3c3dcf09ed4a7ba07d7a3b1f18053d48",
+          "process_id": 16924,
+          "process_start": "windows:134401151869274295",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateReopen": {
+          "source_sha256": "8d6e26316ad089f786ab40c8687358004b7550fe545c52b6a1bf97964033a1a2",
+          "record_sha256": "f667afcc07cbd02cb8bcbe76fafcfaecaa3ce60bef4e8e5d0e0774bbbad8d2b8",
+          "process_id": 21116,
+          "process_start": "windows:134401151997028185",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ControlAfter": {
+          "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+          "record_sha256": "a7c9a197f57e2c9946965b323db31a51c7012137a19b7fc15601b181c00403a2",
+          "process_id": 20556,
+          "process_start": "windows:134401152163656057",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        }
+      },
+      "opened": {
+        "role": "Initial",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.014310000000000002,
+        "volume_m3": 7.584300000000001e-06,
+        "area_m2": 0.002407678910782005,
+        "centre_of_mass_m": [
+          0.003812578616352201,
+          0.004832704402515723,
+          0.007155
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 7.584300000000001e-06
+      },
+      "edited": {
+        "role": "Edited",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01987,
+        "volume_m3": 1.05311e-05,
+        "area_m2": 0.002931305377864321,
+        "centre_of_mass_m": [
+          0.0038125786163522007,
+          0.004832704402515723,
+          0.009935
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 1.05311e-05
+      },
+      "fresh_reopen": {
+        "role": "Rebuilt",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01987,
+        "volume_m3": 1.0531100000000002e-05,
+        "area_m2": 0.002931305377864321,
+        "centre_of_mass_m": [
+          0.0038125786163522,
+          0.004832704402515723,
+          0.009935
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 1.0531100000000002e-05
+      },
+      "saved_edit_sha256": "8d6e26316ad089f786ab40c8687358004b7550fe545c52b6a1bf97964033a1a2",
+      "sdk_saved_edit_readback": {
+        "driving_d1_mm": 19.87,
+        "line_segments": 4,
+        "constraints": 0,
+        "brep_present": true,
+        "diagnostics": [
+          "sldprt.native_record_unresolved"
+        ]
+      },
+      "raw_receipt_sha256": "7b9b42f03ac10b6ada40961d5b117217f0d18e7c03594c817c455b2356b54b7c"
+    },
+    "BaselineEdited": {
+      "receipt_file": "BaselineEdited.json",
+      "receipt_sha256": "5d51a134850668e8ed1fec367859897a7d2d1a3790bbac294f62e4560dda6e30",
+      "native_result_sha256": "515e18ff4bbe47bc06ff1ddb1e7e8f3d31bc66c0d2ea22f53191431f3a4a23c4",
+      "packet_sha256": "8f02e3ffd55b4127f508ea6645343a21545104fb5c23a89f7a8b35628378a23d",
+      "guarded_candidate_manifest_sha256": "62cea05def0b78f6c9d13eeee2b791f83d7ffdd8ffda54b899453df90ecff6cb",
+      "candidate_sha256": "38fe98ae5975626a6362f1a1ae72a030a7d78a18c4fdc36db64dd35938232f33",
+      "candidate_bytes": 9288,
+      "archive_locator_absent": true,
+      "controls_healthy": true,
+      "fresh_processes": 5,
+      "numeric_checks": 154,
+      "phases": {
+        "ControlBefore": {
+          "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+          "record_sha256": "cdd01ab45beef8d6ca87924d007bd313b38ae1b6e925da9454daea89f9170237",
+          "process_id": 24868,
+          "process_start": "windows:134401152297016017",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "EditControl": {
+          "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+          "record_sha256": "054f85b9c56e0fb1f786f6c3ac05651cd389d70450d26833af184e98af97abcd",
+          "process_id": 37844,
+          "process_start": "windows:134401152442388021",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateGenerated": {
+          "source_sha256": "38fe98ae5975626a6362f1a1ae72a030a7d78a18c4fdc36db64dd35938232f33",
+          "record_sha256": "790cab698ddfa349d8a4c684135dbae732e7e449182dfbde616ab7e7fd7a9344",
+          "process_id": 37000,
+          "process_start": "windows:134401152580851336",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateReopen": {
+          "source_sha256": "ec4fffa160e2c9f4663f1cf931f517c9d853ead5428229ed1fc39587b4e52fd1",
+          "record_sha256": "381f39b0dddff6053aa8fa36b2d71e63db42f87e8cdb8d361eae5ede8f790c69",
+          "process_id": 37432,
+          "process_start": "windows:134401152695916039",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ControlAfter": {
+          "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+          "record_sha256": "4b28076cb70cfdbdc401231f383e169a248dec46f2600e578cdd93ef7ab564dd",
+          "process_id": 37408,
+          "process_start": "windows:134401152836347949",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        }
+      },
+      "opened": {
+        "role": "Initial",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01987,
+        "volume_m3": 1.05311e-05,
+        "area_m2": 0.002931305377864321,
+        "centre_of_mass_m": [
+          0.0038125786163522007,
+          0.004832704402515723,
+          0.009935
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 1.05311e-05
+      },
+      "edited": {
+        "role": "Edited",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01431,
+        "volume_m3": 7.5842999999999995e-06,
+        "area_m2": 0.0024076789107820044,
+        "centre_of_mass_m": [
+          0.003812578616352201,
+          0.004832704402515723,
+          0.007155
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 7.5842999999999995e-06
+      },
+      "fresh_reopen": {
+        "role": "Rebuilt",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01431,
+        "volume_m3": 7.5842999999999995e-06,
+        "area_m2": 0.0024076789107820044,
+        "centre_of_mass_m": [
+          0.003812578616352201,
+          0.004832704402515723,
+          0.007155
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 7.5842999999999995e-06
+      },
+      "saved_edit_sha256": "ec4fffa160e2c9f4663f1cf931f517c9d853ead5428229ed1fc39587b4e52fd1",
+      "sdk_saved_edit_readback": {
+        "driving_d1_mm": 14.31,
+        "line_segments": 4,
+        "constraints": 0,
+        "brep_present": true,
+        "diagnostics": [
+          "sldprt.native_record_unresolved"
+        ]
+      },
+      "raw_receipt_sha256": "e1726991a43d527b0942b5e3bc7df6aebb27a8abaf2e1955c57e54b58d5f21f5"
+    },
+    "HeldOutReconstruction": {
+      "receipt_file": "HeldOutReconstruction.json",
+      "receipt_sha256": "cc1a4987a889b912ac8a520d823d210b3d7debcf8b95e17113dcd629adb55620",
+      "native_result_sha256": "fc97f4fc3a9eb0ea7cc291e11aaeb228a021e6a5d6b7adb65325de20ff851849",
+      "packet_sha256": "0003ae3821969bc6100dbc22f43001a720e20f7b3e67da42b98e75668283838a",
+      "guarded_candidate_manifest_sha256": "39cf10e9ffca370bf8ececbd73651bc28d8e82b6cd8eafd30985ddf3ed415af8",
+      "candidate_sha256": "0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9",
+      "candidate_bytes": 9462,
+      "archive_locator_absent": true,
+      "controls_healthy": true,
+      "fresh_processes": 5,
+      "numeric_checks": 154,
+      "phases": {
+        "ControlBefore": {
+          "source_sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+          "record_sha256": "6667f9f9f2a43199a3bb69a0270ae97f4e8222548b1393526d69143c99718a76",
+          "process_id": 15536,
+          "process_start": "windows:134401152976099712",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "EditControl": {
+          "source_sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+          "record_sha256": "11ff6a194f4d7eb0ef5572e553a877b6615250dbedcc2e718575e13652109e93",
+          "process_id": 15620,
+          "process_start": "windows:134401153142254643",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateGenerated": {
+          "source_sha256": "0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9",
+          "record_sha256": "05724ae063a20b561224c633abbdd6a8c12cb11034c803606b911c0c9fa9c318",
+          "process_id": 33280,
+          "process_start": "windows:134401153292420487",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateReopen": {
+          "source_sha256": "cef1f8ad7d96671eaece4f148ad4bedbc52075c0cd8d94d3b985f34bdcdb68c6",
+          "record_sha256": "72fb12ff195cfebd1130c8c1cfe3ab5d4062192472fc42b3a131105bbf1bec01",
+          "process_id": 33948,
+          "process_start": "windows:134401153464768648",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ControlAfter": {
+          "source_sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+          "record_sha256": "441a15eadc1f0ff689fbbc66d622dfe33a83ab898facaaa737352ccfe87bcbb0",
+          "process_id": 17464,
+          "process_start": "windows:134401153608614347",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        }
+      },
+      "opened": {
+        "role": "Initial",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.00973,
+        "volume_m3": 7.316960000000002e-06,
+        "area_m2": 0.0025927314438755895,
+        "centre_of_mass_m": [
+          0.0023184840425531906,
+          0.002016622340425531,
+          0.004865
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 7.316960000000002e-06
+      },
+      "edited": {
+        "role": "Edited",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01219,
+        "volume_m3": 9.16688e-06,
+        "area_m2": 0.0028679913978256356,
+        "centre_of_mass_m": [
+          0.0023184840425531923,
+          0.0020166223404255315,
+          0.006094999999999999
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 9.16688e-06
+      },
+      "fresh_reopen": {
+        "role": "Rebuilt",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01219,
+        "volume_m3": 9.16688e-06,
+        "area_m2": 0.0028679913978256356,
+        "centre_of_mass_m": [
+          0.0023184840425531923,
+          0.0020166223404255315,
+          0.006094999999999999
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 9.16688e-06
+      },
+      "saved_edit_sha256": "cef1f8ad7d96671eaece4f148ad4bedbc52075c0cd8d94d3b985f34bdcdb68c6",
+      "sdk_saved_edit_readback": {
+        "driving_d1_mm": 12.19,
+        "line_segments": 7,
+        "constraints": 0,
+        "brep_present": true,
+        "diagnostics": [
+          "sldprt.native_record_unresolved"
+        ]
+      },
+      "raw_receipt_sha256": "cfafd79854f37048305651a74b5c0e6153f30460b6617f079a19e1ecb1396efc"
+    },
+    "HeldOutEdited": {
+      "receipt_file": "HeldOutEdited.json",
+      "receipt_sha256": "92478560cd942eb276737a3243bc532fabd45164485951340b7edcd91cd0116d",
+      "native_result_sha256": "6283211941725b00ac9be7d8fb3b8d733165c9fb3bb525b6514502f6bd2a17fa",
+      "packet_sha256": "7992eb64a5d1e935d372f80b0c262d03b073da07c5c98ac4d9a75ac14277caa0",
+      "guarded_candidate_manifest_sha256": "11589db2f04b53c7adeaf779a44baa06ab53225851424a8adf4dc574116059e3",
+      "candidate_sha256": "d670154e2eca290eba02440d24b28ac1ca11f0ef390aa01c7668909fba930bfd",
+      "candidate_bytes": 9406,
+      "archive_locator_absent": true,
+      "controls_healthy": true,
+      "fresh_processes": 5,
+      "numeric_checks": 154,
+      "phases": {
+        "ControlBefore": {
+          "source_sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+          "record_sha256": "cffec8aa40a79632563e6f952dfd95d5a08da5d6d86724c5a22d8cd0e33881d7",
+          "process_id": 7452,
+          "process_start": "windows:134401150698132495",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "EditControl": {
+          "source_sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+          "record_sha256": "3fc6676fd7d7dd19f2133de86cf6ca754cda010e24d2c63fc154abe23ddd84d5",
+          "process_id": 34408,
+          "process_start": "windows:134401150819625102",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateGenerated": {
+          "source_sha256": "d670154e2eca290eba02440d24b28ac1ca11f0ef390aa01c7668909fba930bfd",
+          "record_sha256": "b878cffb890701498f71fa5369eccc4711b1373cb34351d2df63eb32e561a6d0",
+          "process_id": 22692,
+          "process_start": "windows:134401150949473068",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CandidateReopen": {
+          "source_sha256": "22de4f78c9f792f0b726a3129fe7d10632eb8e8536daa747a09958df5b04aa69",
+          "record_sha256": "ba64b43320f10a457f1fe3fbd4afe4b998ce3ecca65facd74259a4dca8a93bd3",
+          "process_id": 37704,
+          "process_start": "windows:134401151066223504",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ControlAfter": {
+          "source_sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+          "record_sha256": "738ab2d12929878d54e309a496dad9a1240e0b416302d8e1b8b4746a42d5cb69",
+          "process_id": 15484,
+          "process_start": "windows:134401151177752040",
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        }
+      },
+      "opened": {
+        "role": "Initial",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.01219,
+        "volume_m3": 9.16688e-06,
+        "area_m2": 0.0028679913978256356,
+        "centre_of_mass_m": [
+          0.0023184840425531923,
+          0.0020166223404255315,
+          0.006094999999999999
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 9.16688e-06
+      },
+      "edited": {
+        "role": "Edited",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.00973,
+        "volume_m3": 7.316960000000002e-06,
+        "area_m2": 0.0025927314438755895,
+        "centre_of_mass_m": [
+          0.0023184840425531906,
+          0.002016622340425531,
+          0.004865
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 7.316960000000002e-06
+      },
+      "fresh_reopen": {
+        "role": "Rebuilt",
+        "rows": 19,
+        "warnings": 0,
+        "bodies": 1,
+        "depth_m": 0.00973,
+        "volume_m3": 7.316960000000003e-06,
+        "area_m2": 0.0025927314438755895,
+        "centre_of_mass_m": [
+          0.0023184840425531906,
+          0.0020166223404255315,
+          0.004865
+        ],
+        "document_density_kg_m3": 1000.0,
+        "effective_model_density_kg_m3": 1000.0,
+        "mass_at_unit_density_kg": 7.316960000000003e-06
+      },
+      "saved_edit_sha256": "22de4f78c9f792f0b726a3129fe7d10632eb8e8536daa747a09958df5b04aa69",
+      "sdk_saved_edit_readback": {
+        "driving_d1_mm": 9.73,
+        "line_segments": 7,
+        "constraints": 0,
+        "brep_present": true,
+        "diagnostics": [
+          "sldprt.native_record_unresolved"
+        ]
+      },
+      "raw_receipt_sha256": "e800369b967ad7795eea13936bd776684c1c363b8e829beab4e970500f1c71d1"
+    }
+  },
+  "observer_sha256": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3",
+  "fresh_processes": 20,
+  "numeric_checks": 616
+}

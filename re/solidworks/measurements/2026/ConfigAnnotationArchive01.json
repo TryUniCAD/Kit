@@ -1,0 +1,134 @@
+{
+  "base": "72207ec5684d89bf98023427ce4f49eac3a5d122",
+  "complete_configuration_admission": false,
+  "file_sha256": {
+    "re/tooling/sw2026/CheckCfgAnn.py": "0609c3da880805252e6517779d8911a8d7e7950e2509d85161c1cf858fade64c",
+    "re/tooling/sw2026/TraceCfgAnn.py": "73e11c9ba5550ad344627bcffd88bae06b2e1e3dd87868b093e69764490f9a8c",
+    "re/tooling/sw2026/TraceCfgFont.py": "dbc09e341fd505e7d19428792473b7438133ed4e51f7565373f4e4dd43ea7c7e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/AnnotationFrameFields.py": "c90ba61116d328889bc245df9257ba73147c6b0479e03b4067115198bf22faee",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/BaseAnnotationFields.py": "fe1ea463b1e92a7e3718f69f38d1a58bc38436327f38f9aa213d9de689094fbd",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ToleranceHelperFields.py": "078a2229faa8b8fa84b48f085c9a81394540142bf51bb72bf0d9bafe83cfc2e0",
+    "src/convert/adapters/solidworks/Archive/Config/Annotations/AnnLayouts.py": "34faf474f4f4e8caef1201a7a4e3c57f97ac94502860127092f96a40f8c16398",
+    "src/convert/adapters/solidworks/Archive/Config/Annotations/CheckTolFrames.py": "a54577418d24e3971d6d1e8a521504845273c9fef7bb547bda4b64738ec929e8",
+    "src/convert/adapters/solidworks/Archive/Config/Annotations/ReadCfgAnn.py": "f5cbd95de847a8986dabc29051f3508f64f99e66daca5d0faab4ed0bcc347a73"
+  },
+  "guarded_processes": 3,
+  "native_launches": 0,
+  "original_body_comparisons": 28,
+  "results": [
+    {
+      "annotation_base_count": 10,
+      "body_sha256": [
+        "51283df1afd8e6ba2ef31aa8ac29ca8a02ccf333b1aba6d2484d85ad77fdf12b",
+        "4b743aea3cc89b8e303edf284b54ef1d17e1956c94571ba11dedc6d31768eb9b"
+      ],
+      "case": "ladder",
+      "frame_spans": [
+        [
+          17954,
+          18006
+        ],
+        [
+          18006,
+          18058
+        ]
+      ],
+      "map_inherited": [
+        1,
+        2,
+        3
+      ],
+      "member_lengths": [
+        1956,
+        388
+      ],
+      "native_incoming_counter": 69,
+      "native_launches": 0,
+      "runtime_external_accesses": 0,
+      "scopes": {
+        "moAnnotationDefs_c": [
+          9185,
+          11141
+        ],
+        "moGTolDataHelper_c": [
+          17950,
+          18338
+        ]
+      },
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "unchanged_archive_bodies": 14
+    },
+    {
+      "annotation_base_count": 10,
+      "body_sha256": [
+        "0f468d3c9b19575ec1b7b32c2f9b3e394393396f05baf847befabb6fb27e3230",
+        "08235c9d69158869dca91390115c9446435e0b334540b60477990593ca0d52f1"
+      ],
+      "case": "concave",
+      "frame_spans": [
+        [
+          16535,
+          16587
+        ],
+        [
+          16587,
+          16639
+        ]
+      ],
+      "map_inherited": [
+        1,
+        2,
+        3
+      ],
+      "member_lengths": [
+        1956,
+        412
+      ],
+      "native_incoming_counter": 54,
+      "native_launches": 0,
+      "runtime_external_accesses": 0,
+      "scopes": {
+        "moAnnotationDefs_c": [
+          7634,
+          9590
+        ],
+        "moGTolDataHelper_c": [
+          16531,
+          16943
+        ]
+      },
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "unchanged_archive_bodies": 14
+    },
+    {
+      "case": "wire",
+      "different_frame_rows": [
+        1,
+        0
+      ],
+      "native_launches": 0,
+      "positive_archives": 4,
+      "refusals": [
+        "truncated",
+        "trailing",
+        "older_archive",
+        "foreign_inline",
+        "foreign_part",
+        "layer_reference",
+        "part_reference",
+        "header_reference",
+        "new_class",
+        "datum_owners",
+        "indicator_owners",
+        "negative_indicator_count",
+        "negative_frame_count"
+      ],
+      "runtime_external_accesses": 0,
+      "signed_layer_selector": -2,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "string_array_count": 2
+    }
+  ],
+  "scoped_archive_replay": true,
+  "source_receipt_sha256": "ca256a1783555a24670aaee548f08d446921a439d03d022e0f4a88a990b7b3ce"
+}

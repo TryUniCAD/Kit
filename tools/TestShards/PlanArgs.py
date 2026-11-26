@@ -15,6 +15,12 @@ def BuildPlanArgs() -> ArgParse.ArgumentParser:
     _ = ParserInfo.add_argument("--history", dest="HistoryPath", type=FilePath)
     _ = ParserInfo.add_argument("--max-tests", dest="MaxTests", type=int, default=300)
     _ = ParserInfo.add_argument(
+        "--target-seconds", dest="TargetSecs", type=float, default=0
+    )
+    _ = ParserInfo.add_argument(
+        "--runtime-shards", dest="RuntimeShards", type=int, default=8
+    )
+    _ = ParserInfo.add_argument(
         "--output", dest="OutputPath", type=FilePath, required=True
     )
     _ = ParserInfo.add_argument("--summary", dest="SummaryPath", type=FilePath)

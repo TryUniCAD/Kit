@@ -26,5 +26,5 @@ A clear and concise description of what you expected to happen.
 
 **Additional context**
 Add any other context about the problem here. Do not attach confidential or
-customer CAD files; describe the issue instead or contact Parashell directly
+customer CAD files; describe the issue instead or contact UniCAD directly
 (see [CONTRIBUTING.md](../CONTRIBUTING.md)).

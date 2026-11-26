@@ -1,4 +1,5 @@
 from typing import cast as CastValue
+from dataclasses import replace as ReplaceValue
 
 from convert.Formats.Fusion.BrepCodec.Frustum.EmitFrustumHist import EmitFrustumHist
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
@@ -7,6 +8,7 @@ from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumHistory import (
 from convert.Formats.Fusion.BrepCodec.EmitHistory import EmitHistory
 from convert.Formats.Fusion.BrepCodec.Journal.EmitJournal import EmitJournal
 from convert.Formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
+from convert.Formats.Fusion.BrepCodec.Journal.ReadJournal import ReadJournal
 from convert.Formats.Fusion.BrepCodec.Models.BrepHeader import BrepHeader
 from convert.Formats.Fusion.BrepCodec.Models.HistoryModel import HistoryModel
 from convert.Formats.Fusion.BrepCodec.Prism.EmitPrismHist import EmitPrismHist
@@ -24,7 +26,10 @@ def EmitBodyPart(Value: DocumentBody) -> ContainerPart:
         CastValue(object, History), (HistoryModel, PrismHistory, FrustumHistory)
     ):
         raise ValueError("Unsupported typed Fusion document history")
-    if History.Header != BrepHeader(23200, 2, 3, 50.0, 1e-6, 1e-10):
+    if History.Header not in (
+        BrepHeader(23200, 2, 3, 50.0, 1e-6, 1e-10, 4),
+        BrepHeader(23200, 2, 3, 50.0, 1e-6, 1e-10, 8),
+    ):
         raise ValueError("Unsupported Fusion document BRep header")
     if isinstance(History, HistoryModel):
         Payload = EmitHistory(
@@ -44,6 +49,7 @@ def EmitBodyPart(Value: DocumentBody) -> ContainerPart:
             History.History,
             History.Stamp,
             History.Frame,
+            History.Tracking,
         )
     else:
         Payload = EmitFrustumHist(
@@ -55,4 +61,6 @@ def EmitBodyPart(Value: DocumentBody) -> ContainerPart:
             History.Frame,
             History.Tracking,
         )
+    if History.Header.IntWidth == 4:
+        Payload = EmitJournal(ReplaceValue(ReadJournal(Payload), Header=History.Header))
     return ContainerPart(Value.PartName, Payload)
