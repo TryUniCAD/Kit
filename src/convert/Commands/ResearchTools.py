@@ -5,6 +5,7 @@ KResearchScripts = {
     "codec-patch": "CodecPatch.py",
     "compare": "CompareDecoded.py",
     "corpus": "Corpus.py",
+    "encoder-round-trip": "EncoderRoundTrip/Command.py",
     "controller": "Controller.py",
     "supervisor": "Supervisor.py",
     "api": "NativeAcceptance/ApiCommand.py",
