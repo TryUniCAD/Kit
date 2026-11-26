@@ -19,6 +19,8 @@ Routine receipts use `document_reopen` and do not count as fresh-process native 
 The final CAD acceptance criteria still require independent fresh-process evidence.
 
 The owner starts before the supervisor and stays alive across its worker sessions.
+It starts only on Windows when the SOLIDWORKS resource is available, such as after `--native-ready`.
+Otherwise native jobs stay queued, decoding continues, and no application is launched.
 It stops when the run finishes or pauses.
 A resume creates a new queue generation and preserves previous requests, receipts and logs.
 An owner failure stops the run; recovery requires a resume after inspecting the retained failure.
