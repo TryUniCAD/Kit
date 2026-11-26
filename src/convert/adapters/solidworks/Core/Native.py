@@ -1,4 +1,15 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
+)
+from convert.adapters.solidworks.Core.Records.ReadPlanePose import ReadPlanePose
+from convert.adapters.solidworks.Core.Records.ReadPlaneOwner import ReadPlaneOwner
+from convert.adapters.solidworks.Core.Records.ReadLocalOwner import ReadLocalOwner
+from convert.adapters.solidworks.Container.Archive import (
+    ArchiveError,
+    KClassRefKind,
+    ReadTag,
+)
 from convert.adapters.base.NativeEvidence import KRefSupportSource as KRefSupportSource
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature as XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule as NativeRule
@@ -179,11 +190,11 @@ KSketchPlaneIdRelative = 209
 # this binding exists because shared behavior needs one stable value
 KSketchPlaneRefPrefix = bytes.fromhex("50460000")
 
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneRefTag = bytes.fromhex("f65a1a69")
+# supported component generations delimit the principal reference before its variable timestamp
+KSketchPlaneRefPrefixes = (KSketchPlaneRefPrefix, bytes.fromhex("384a0000"))
 
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneAxisDelta = 10
+# the historical timestamp stays available for compatibility callers without constraining native decoding
+KSketchPlaneRefTag = bytes.fromhex("f65a1a69")
 
 # this binding exists because shared behavior needs one stable value
 KSketchPlaneBasisFlagDelA = 14
@@ -195,13 +206,7 @@ KSketchPlaneBasisDelta = 15
 KSketchPlaneBasisBytes = 72
 
 # this binding exists because shared behavior needs one stable value
-KSketchPlaneAxisComplemeA = 5
-
-# this binding exists because shared behavior needs one stable value
 KSketchPlaneScanBytes = 320
-
-# this binding exists because shared behavior needs one stable value
-KPrincipalPlaneObjectIds = frozenset({2, 3, 4})
 
 
 # this binding exists because shared behavior needs one stable value
@@ -292,6 +297,7 @@ class DecodeState:
     LatestPlaneId: int
     LatestUnframed: int | None
     StrictRefs: bool
+    PlaneOwners: dict[int, tuple[int, int, int] | None]
 
 
 # plane state handling preserves the latest framed support context
@@ -308,12 +314,17 @@ def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
     SketchStart = Feature.native_offset or 0
     SketchEnd = Feature.native_end or len(StateData.Resolved)
     UnframedSupport: int | None
+    if 0 not in StateData.PlaneOwners:
+        StateData.PlaneOwners[0] = ReadPlaneOwner(
+            StateData.Resolved, StateData.Classes, SketchStart
+        )
     try:
         RefValue = SketchPlaneRef(
             StateData.Resolved,
             StateData.Classes,
             SketchStart,
             SketchEnd,
+            StateData.PlaneOwners,
             StateData.PlaneById if Feature.native_end is not None else None,
         )
     except PlaneFrameError as ErrorValue:
@@ -1694,6 +1705,7 @@ def CreateState(
         LatestPlaneId,
         None,
         StrictRefs,
+        {},
     )
     return (StateData, Author, Planes, UnframedPlanes)
 
@@ -2769,19 +2781,36 @@ def SketchPlaneRef(
     Classes: tuple[NativeClass, ...],
     Start: int,
     EndValue: int,
+    OwnerCache: Mapping[int, tuple[int, int, int] | None] | None = None,
     Planes: Mapping[int, NativePlane] | None = None,
 ) -> NativeSketchA | None:
+    OwnerValue = (
+        ReadPlaneOwner(DataValue, Classes, Start)
+        if OwnerCache is None
+        else OwnerCache[0]
+    )
+    if OwnerValue is None:
+        return ReadPlaneHandle(DataValue, Start, EndValue, Planes) if Planes else None
     for Record in Classes:
         if Record.name != SketchChainClass or not Start <= Record.offset < EndValue:
             continue
         Anchored = ReadSketchPlane(
-            DataValue, Record.offset + KSketchPlaneIdRelative, EndValue
+            DataValue,
+            Record.offset + KSketchPlaneIdRelative,
+            EndValue,
+            OwnerValue,
+            Start,
         )
         if Anchored is not None:
             return Anchored
-    for Offset in FindAll(DataValue, KSketchPlaneRefPrefix, Start, EndValue):
+    Offsets = sorted(
+        Offset
+        for Prefix in KSketchPlaneRefPrefixes
+        for Offset in FindAll(DataValue, Prefix, Start, EndValue)
+    )
+    for Offset in Offsets:
         Scanned = ReadSketchPlane(
-            DataValue, Offset + len(KSketchPlaneRefPrefix), EndValue
+            DataValue, Offset + len(KSketchPlaneRefPrefix), EndValue, OwnerValue, Start
         )
         if Scanned is not None:
             return Scanned
@@ -2811,23 +2840,53 @@ def ReadPlaneHandle(
     return Frame
 
 
-# this definition exists because focused behavior needs one stable owner
+# native support identities need the complete bounded pose rather than a sampled timestamp
 def ReadSketchPlane(
-    DataValue: bytes, Offset: int, EndValue: int
+    DataValue: bytes,
+    Offset: int,
+    EndValue: int,
+    OwnerValue: tuple[int, int, int],
+    StartValue: int,
 ) -> NativeSketchA | None:
-    if Offset < 0 or Offset + KSketchPlaneBasisDelta > EndValue:
+    if Offset - 87 < StartValue:
         return None
-    PlaneObjectId = Struct.unpack_from("<I", DataValue, Offset)[0]
-    if PlaneObjectId not in KPrincipalPlaneObjectIds:
+    try:
+        TagValue = ReadTag(DataValue, Offset - 87)
+    except ArchiveError:
         return None
-    if DataValue[Offset + 4 : Offset + 8] != KSketchPlaneRefTag:
+    if TagValue.kind != KClassRefKind or TagValue.wide or TagValue.index == 0:
         return None
-    if DataValue[Offset + 8 : Offset + KSketchPlaneAxisDelta] != b"\x00\x00":
+    if ReadLocalOwner(DataValue, Offset - 85, EndValue) != (*OwnerValue, Offset):
         return None
-    AxisCode = Struct.unpack_from("<I", DataValue, Offset + KSketchPlaneAxisDelta)[0]
-    if AxisCode != KSketchPlaneAxisComplemeA - PlaneObjectId:
+    if Offset + 4 > EndValue or Struct.unpack_from("<i", DataValue, Offset)[0] not in (
+        2,
+        3,
+        4,
+    ):
         return None
-    return ReadPlaneBasis(DataValue, Offset, EndValue, PlaneObjectId, AxisCode)
+    PoseValue = ReadPlanePose(DataValue, Offset, EndValue, OwnerValue, StartValue)
+    if PoseValue is None:
+        raise ArchiveError("invalid owned SOLIDWORKS principal sketch reference")
+    PlaneObjectId, AxisCode, Directions, BasisOffset = PoseValue
+    CanonicalFrame = PrincipalFrame("xyz"[AxisCode - 1])
+    if Directions != (
+        CanonicalFrame.AxisU,
+        CanonicalFrame.AxisV,
+        CanonicalFrame.NormalValue,
+    ):
+        raise ArchiveError(
+            "unsupported in-plane rotation of SOLIDWORKS principal sketch"
+        )
+    UAxis, VAxis, Normal = Directions
+    return NativeSketchA(
+        Offset,
+        PlaneObjectId,
+        AxisCode,
+        (Clean(UAxis[0]), Clean(UAxis[1]), Clean(UAxis[2])),
+        (Clean(VAxis[0]), Clean(VAxis[1]), Clean(VAxis[2])),
+        (Clean(Normal[0]), Clean(Normal[1]), Clean(Normal[2])),
+        BasisOffset,
+    )
 
 
 # both reference layouts share the same optional sketch basis representation

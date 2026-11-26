@@ -2,7 +2,7 @@ from hashlib import sha256 as CalcSha
 from json import loads as LoadJson
 
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 
 
 # confirm exact unicode evidence bytes before interpreting any report fields

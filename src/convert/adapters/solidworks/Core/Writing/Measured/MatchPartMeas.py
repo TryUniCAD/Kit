@@ -7,11 +7,11 @@ from convert.adapters.solidworks.Core.Writing.Measured.MatchMeasCase import (
     MatchMeasCase,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.MeasPhaseMap import MeasPhaseMap
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
 from convert.adapters.solidworks.Core.Writing.Measured.SnapshotReport import (
     SnapshotReport,
 )
@@ -40,7 +40,7 @@ def MatchPartMeas(Receipt: dict[str, object], Payload: bytes) -> TypeMap[str, ob
             KPartMeasureOpt: FreezeMapping(
                 {
                     "generated_sha256": Digest,
-                    "oracle_build": KOraclePart["build"],
+                    "oracle_build": ReadMeasMap(Proof.get("oracle"))["build"],
                     "native_result_sha256": ReadMeasSha(
                         Proof.get("native_result_sha256")
                     ),

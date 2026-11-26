@@ -1,5 +1,14 @@
 # Merge queue operations
 
+The [separate Linux test lanes](Documentation/Changes/Ci/Scheduling/SeparateTestLanes.md) increase the cooperating heavy-job budget to sixteen Linux lanes, five Windows lanes, and five macOS lanes, with two control slots. Eight Linux lanes serve candidate tests; the other eight serve scanners, policy jobs, and admitted audits. This fits the observed Team plan’s sixty-job allowance.
+The [separate Windows CLI lanes](Documentation/Changes/Ci/Scheduling/WindowsCliLanes.md) add four `Kit-windows-cli-*` lanes for the Windows research CLI shards, so they no longer share the five Windows platform lanes; the cooperating budget becomes thirty-two jobs.
+The [candidate lane sets](Documentation/Changes/Ci/Scheduling/CandidateLaneSets.md) give merge-group candidates two Linux and Windows lane sets, chosen by the parity of the candidate's ancestor count. Two candidates run their heavy Linux and Windows jobs side by side, and a third waits. macOS, the fifth Windows lane, the Windows CLI lanes and the `CI Agg` slot stay shared. The worst-case cooperating budget is fifty-nine jobs, within sixty.
+
+The [balanced scanner lanes](Documentation/Changes/Ci/Scheduling/BalancedScannerLanes.md) spread merge-group jobs so `Kit-linux-0` to `5` each carry about 4.6 minutes per candidate, keep lanes 6 and 7 lighter for audits, and give pull-request runs their own `Kit-pull-*` lanes.
+
+The [shared runner budget](Documentation/Changes/Ci/RunnerBudgetScheduling.md) bounds cooperating heavy jobs and gives native merge acceptance priority over manual audits.
+Native shard expansion starts only after the trusted base includes its resource marker and updated CI allowlist.
+
 Kit uses GitHub's native merge queue for `main`. The desired settings live in
 [`.github/MergeQueue.json`](.github/MergeQueue.json). Repository settings are
 outside Git history: merging this configuration PR does not activate them.
@@ -31,7 +40,7 @@ See the [timing record](Documentation/Changes/Ci/SinglePhaseValidation.md).
 PR validation includes Ruff, Black, Pyright, Mypy, Python steering, explicit imports, path policies, rationale
 comments, skill preservation, workflow pins, Zizmor, actionlint, release artifact
 validation, and metadata labeling. Queue validation includes Pyright, Mypy,
-Python steering, CI process policy, research CLI compatibility, the full suite,
+Python steering, CI process policy, Windows research CLI compatibility, the full suite,
 CodeQL, and the other security and SBOM scans. Fusion and CLI compatibility
 execute through the complete suite.
 
@@ -120,7 +129,9 @@ as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or sec
 thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
-Queue-only type, steering, and research CLI jobs also gate the aggregate.
+Queue-only type, steering, and Windows research CLI jobs also gate the aggregate.
+The serial Linux `Research CLI compatibility` job is
+[retired](Documentation/Changes/Ci/ResearchCliRetirement.md); its `tests/CliResearch` cases run in the complete suite's shards.
 The Windows research CLI compatibility job partitions its existing collected roster
 across four Windows runners. Its stable report requires every shard and verifies
 that each collected case has exactly one outcome. Shard artifacts include the
@@ -133,6 +144,8 @@ See [Windows platform sharding](Documentation/Changes/Ci/Testing/WindowsPlatform
 See [platform sharding and queue timings](Documentation/Changes/Ci/Testing/WindowsResearchCliShards.md).
 Each Windows CLI shard retains two pytest workers with file-level scheduling and case-name output.
 See [Windows CLI scheduling](Documentation/Changes/Ci/WindowsCliScheduling.md).
+The capture-history downloader retries temporary upstream fixture errors before failing setup.
+See [sealed fixture downloads](Documentation/Gotchas/Ci/Windows/SealedFixtureHttpFailures.md) for the limit and diagnostics.
 PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).
@@ -172,7 +185,7 @@ Completed-result process checks remain; pending-process liveness and evidence pu
 See the [removal scope and evidence](Documentation/Changes/Ci/FlakyPendingGateRemoval.md).
 
 The checked-in desired queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
-one candidate at a time, and merges one entry at a time. Its
+up to two candidates at a time, and merges one entry at a time. Its
 90-minute response timeout allows the existing 60-minute analyses plus runner
 scheduling. Each candidate has its own concurrency group; a later PR update
 cannot cancel a different queue candidate. Heavy workflows do not repeat on
@@ -250,3 +263,7 @@ Do not describe this configuration as active until the settings are read back.
 
 The catalogue fixture roster and trusted native shell checks are described in
 [the fixture merge CI change](Documentation/Changes/Ci/Testing/FixtureMergeCi.md).
+
+The [abandoned workflow cleanup](Documentation/Changes/Ci/Scheduling/AbandonedWorkflowLanes.md) releases both known heavy workflow families.
+Deleted candidate branches can leave `WorkflowQuality.yml` jobs waiting on shared lanes after their native queue run stops.
+The same active-head, missing-ref, repository, event, and PR-entry checks protect current work.

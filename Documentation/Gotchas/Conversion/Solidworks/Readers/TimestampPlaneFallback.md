@@ -28,3 +28,11 @@ version-19000 parts in this cohort. That result covers
 the measured Front, Top and Right layouts and both strict read modes. The
 earlier typed scene-branch result stays bound to its original reader.
 [Later aggregate replay](../../../../../re/solidworks/measurements/2026/RecoveredCuboidArchiveLadder01.json)
+
+## Bounded reader repair
+
+The [principal-plane placement change](../../../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) removes the timestamp-value signature.
+The reader consumes the timestamp within a bounded reference and validates its generation, principal axis, matrix, and complete pose.
+All 144 captured SOLIDWORKS ladder files now match recorded native centroids through both public SDK read modes.
+The original reports remain unchanged, including their 96 historical failures.
+The separate typed scene, annotation, and axis limitations remain explicit.

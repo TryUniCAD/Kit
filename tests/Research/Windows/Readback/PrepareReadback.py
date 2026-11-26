@@ -63,7 +63,7 @@ def PrepareReadback(
             {
                 "session_version": 1,
                 "inputs": {},
-                "stop_at": WallTime() + 45,
+                "stop_at": WallTime() + 90,
                 "job": {
                     "options": {
                         "source_revision": Revision,

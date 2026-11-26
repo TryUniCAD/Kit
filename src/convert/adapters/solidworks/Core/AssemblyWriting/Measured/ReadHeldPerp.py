@@ -3,7 +3,7 @@ from json import dumps as DumpJson, loads as LoadJson
 
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasRows import ReadMeasRows
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 
 # the registered perpendicular report binds both sealed native pairs
 KHeldPerpSchema = "kit.sw2026.public-perpendicular-heldout-registration.v1"

@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 
 # only this disclosed native report already measures the exact standalone archives
 KImportReceiptSha = "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4"

@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Measured.ReadHeldPerp impo
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import ReadMeasInput
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 
 # this approves the canonical disclosed report without using its bytes in the serializer
 KPlanarProofSha = "8b2f23136767969ab3eb1e3c7d8eab593092fe8cb333973dd1fd6a88633aa8ee"

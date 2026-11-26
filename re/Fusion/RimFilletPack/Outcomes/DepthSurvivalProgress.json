@@ -1,0 +1,50 @@
+{
+  "pid": 78221,
+  "started": 1795648050.715803,
+  "updated": 1795648755.416882,
+  "state": "settled",
+  "events": [
+    {
+      "case": "holdout-01",
+      "mode": "independent-depth-edit",
+      "start": 1795648751.265856,
+      "status": "blocked",
+      "end": 1795648752.032962
+    },
+    {
+      "case": "holdout-02",
+      "mode": "independent-depth-edit",
+      "start": 1795648752.033282,
+      "status": "blocked",
+      "end": 1795648752.682278
+    },
+    {
+      "case": "holdout-03",
+      "mode": "independent-depth-edit",
+      "start": 1795648752.6829,
+      "status": "blocked",
+      "end": 1795648753.409881
+    },
+    {
+      "case": "holdout-04",
+      "mode": "independent-depth-edit",
+      "start": 1795648753.410402,
+      "status": "blocked",
+      "end": 1795648754.067424
+    },
+    {
+      "case": "holdout-05",
+      "mode": "independent-depth-edit",
+      "start": 1795648754.068152,
+      "status": "blocked",
+      "end": 1795648754.778917
+    },
+    {
+      "case": "holdout-06",
+      "mode": "independent-depth-edit",
+      "start": 1795648754.779275,
+      "status": "blocked",
+      "end": 1795648755.416544
+    }
+  ]
+}

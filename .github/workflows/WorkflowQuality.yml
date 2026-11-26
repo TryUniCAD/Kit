@@ -18,6 +18,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       phase: ${{ steps.phase.outputs.phase }}
+      lanes: ${{ steps.lanes.outputs.prefix }}
     steps:
       - name: Checkout phase selector
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -32,6 +33,15 @@ jobs:
             const { SetPhase } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/CiPhase.cjs`);
             await SetPhase({ github, context, core });
 
+      - name: Select this candidate's lane set
+        id: lanes
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SelectLaneSet } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectLaneSet.cjs`);
+            await SelectLaneSet(github, context, core);
+
   policy:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
@@ -39,6 +49,10 @@ jobs:
     name: Verify CI policy and pytest compatibility
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    concurrency:
+      group: Kit-${{ needs.pr-ci-reuse.outputs.lanes }}linux-5
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -46,7 +60,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -71,18 +85,26 @@ jobs:
     name: Native file compatibility / ${{ matrix.group }}
     runs-on: ubuntu-24.04
     timeout-minutes: 12
+    concurrency:
+      group: Kit-${{ needs.pr-ci-reuse.outputs.lanes }}linux-${{ matrix.lane }}
+      cancel-in-progress: false
+      queue: max
     strategy:
       fail-fast: false
       matrix:
         include:
           - group: shard-1
             index: 0
+            lane: 1
           - group: shard-2
             index: 1
+            lane: 2
           - group: shard-3
             index: 2
+            lane: 3
           - group: shard-4
             index: 3
+            lane: 4
     env:
       ShardIndex: ${{ matrix.index }}
     steps:
@@ -99,7 +121,7 @@ jobs:
           6fc97ccebb41696c5dbc03e538ba132064af241d
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -114,6 +136,12 @@ jobs:
           mkdir -p "${RUNNER_TEMP}/NativeCompatibility"
           uv run --no-sync --python 3.11 python -m pytest --collect-only -q -p no:cacheprovider \
             tests/Convert/Solidworks tests/Convert/Formats/ParasolidTests.py \
+            tests/Interchange/Compatibility/DecodeDepthTests.py \
+            tests/Interchange/Assembly/DeepJsonTests.py \
+            tests/Interchange/Compatibility/JsonCacheTests.py \
+            tests/Interchange/Compatibility/HintChangeTests.py \
+            tests/Interchange/Compatibility/MigrationCacheTests.py \
+            tests/Interchange/Compatibility/CrossClassCacheTests.py \
             tests/Steering/RationaleCommentsTests.py > "${RUNNER_TEMP}/NativeCompatibility/Collection.txt"
           grep -E '^tests/.*::' "${RUNNER_TEMP}/NativeCompatibility/Collection.txt" \
             | LC_ALL=C sort > "${RUNNER_TEMP}/NativeCompatibility/Collected.txt"
@@ -192,6 +220,10 @@ jobs:
     name: Qualify reader and writer patches
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    concurrency:
+      group: Kit-${{ needs.pr-ci-reuse.outputs.lanes }}linux-3
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -199,7 +231,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
 
@@ -211,47 +243,6 @@ jobs:
           ImageId=$(docker image inspect --format '{{.Id}}' "$QualificationImage")
           uv run --frozen --no-default-groups --group codec-promotion --extra dev --python 3.14 python re/automation/CodecPromotion/ProcessGate.py "$ImageId"
 
-  research-cli:
-    if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
-    needs: pr-ci-reuse
-    name: Research CLI compatibility
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    env:
-      KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
-    steps:
-      - name: Checkout candidate CLI source
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Checkout candidate research tools separately
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.sha }}
-          path: ResearchCheckout
-          fetch-depth: 0
-          filter: blob:none
-          persist-credentials: false
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
-
-      - name: Install CLI and compatibility dependencies
-        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
-
-      - name: Hydrate sealed research inputs for candidate CLI cases
-        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
-
-      - name: Verify deterministic tools through the installed CLI
-        run: >-
-          uv run --no-sync --with 'numpy<2.5' --python 3.14 python -m pytest tests/CliResearch -q
-
   research-cli-windows-shard:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
@@ -259,6 +250,10 @@ jobs:
     name: Research CLI Windows compatibility / ${{ matrix.group }}
     runs-on: windows-2025
     timeout-minutes: 20
+    concurrency:
+      group: Kit-windows-cli-${{ matrix.group }}
+      cancel-in-progress: false
+      queue: max
     strategy:
       fail-fast: false
       matrix:
@@ -293,14 +288,14 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
           cache-dependency-glob: uv.lock
 
       - name: Install CLI and compatibility dependencies
-        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+        run: uv sync --frozen --no-default-groups --extra dev --group codec-promotion --python 3.14
 
       - name: Hydrate sealed research inputs for candidate CLI cases
         run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
@@ -311,11 +306,16 @@ jobs:
           mkdir -p "${RUNNER_TEMP}/WindowsCli"
           if ! uv run --no-sync --python 3.14 python -m pytest --collect-only -q -p no:cacheprovider \
             tests/CliResearch/BridgeRejectTests.py \
+            tests/CliResearch/Comparison \
+            tests/CliResearch/Defaults \
+            tests/CliResearch/EncoderRoundTrip \
             tests/CliResearch/SwReaderTests.py \
             tests/CliResearch/EncodedReaderTests.py \
             tests/CliResearch/LegacyReaderTests.py \
             tests/CliResearch/FusionReaderTests.py \
+            tests/CliResearch/ScopeLayerTests.py \
             tests/CliResearch/ReaderRejectTests.py \
+            tests/CliResearch/RimFillets \
             tests/CliResearch/NativeVerification \
             tests/CliResearch/InterruptTests.py \
             tests/CliResearch/LeaseFlowTests.py > "${RUNNER_TEMP}/WindowsCli/Collection.txt"; then
@@ -385,6 +385,10 @@ jobs:
     name: Zizmor
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-zizmor' || format('Kit-{0}linux-3', needs.pr-ci-reuse.outputs.lanes) }}
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout full repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -393,7 +397,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -412,25 +416,40 @@ jobs:
     name: actionlint
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-actionlint' || format('Kit-{0}linux-4', needs.pr-ci-reuse.outputs.lanes) }}
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - name: Install pinned actionlint
+      - name: Checkout pinned actionlint concurrency support
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: rhysd/actionlint
+          ref: 644076a59742c2d1540ebd4686eab3c308f0e562
+          path: ActionlintSource
+          persist-credentials: false
+
+      - name: Restore the pinned workflow analyzer
+        id: analyzer
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/Actionlint
+          key: actionlint-${{ runner.os }}-${{ runner.arch }}-go1.26.0-644076a59742c2d1540ebd4686eab3c308f0e562
+
+      - name: Build pinned actionlint
+        if: steps.analyzer.outputs.cache-hit != 'true'
+        working-directory: ActionlintSource
         env:
-          ActionlintVersion: "1.7.12"
-          ActionlintSha256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
+          GOTOOLCHAIN: go1.26.0
+          CGO_ENABLED: "0"
         run: |
-          set -euo pipefail
-          ArchivePath="${RUNNER_TEMP}/actionlint_${ActionlintVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
-            --output "${ArchivePath}" \
-            "https://github.com/rhysd/actionlint/releases/download/v${ActionlintVersion}/actionlint_${ActionlintVersion}_linux_amd64.tar.gz"
-          echo "${ActionlintSha256}  ${ArchivePath}" | sha256sum --check --
-          tar --extract --gzip --file "${ArchivePath}" --directory "${RUNNER_TEMP}" actionlint
-          chmod u+x "${RUNNER_TEMP}/actionlint"
+          mkdir -p "$RUNNER_TEMP/Actionlint"
+          go build -mod=readonly -trimpath -o "$RUNNER_TEMP/Actionlint/actionlint" ./cmd/actionlint
 
       - name: Run actionlint workflow analysis
-        run: '"${RUNNER_TEMP}/actionlint"'
+        run: '"${RUNNER_TEMP}/Actionlint/actionlint"'
