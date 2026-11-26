@@ -144,6 +144,26 @@ remaining native and process acceptance is recorded in
 This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
 requirements.
 
+#### A08h-OwnedExit: catalogue capture shutdown
+
+Codex owns the shutdown repair on `codex/solidworks-capture-shutdown`.
+Delivery is [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
+It depends on PR #207's configured native worker,
+the licensed SOLIDWORKS host and its exclusive application lease. [PR #288](https://github.com/TryUniCAD/Kit/pull/288)
+owns the separate paired-case batching work. Exit requires normal owned process
+exit, independent reopen and recorded decoder results for the failed P04 cases,
+plus batch and control coverage and the applicable CI and review gates.
+All six previously failed cut-extrude cases passed capture, reopen and
+decoder execution across the exact and paired replays. The written-recipe
+replay completed both native process exits and reached a separate thin-wall
+geometry check. PR #291 recovered all three written recipes. The standalone
+driving-dimension case passed after a retry. The combined probe verified
+both phases on the first attempt after adding the empty-session exit request.
+The final combined batch worker reproduced two shutdown timeouts and
+recovered on the third fresh attempt with six reopened archives and a
+completed decoder job. The applicable PR and queue gates remain separate.
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
+
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
 on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,
@@ -152,6 +172,17 @@ with unresolved findings. One of the nine new bindings is native verified; full
 decoder qualification remains incomplete. The focused process checks passed 103 cases.
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
+
+#### A08i-ThinWall
+
+Codex owns the correction on `codex/solidworks-thin-wall-side`. The
+correction depends on the written-recipe worker from PR #207 and the
+licensed SOLIDWORKS measurement host. Its exit requires matching wall side
+with XY, YZ and XZ controls, edits, independent reopen and downstream
+decoder receipts plus the applicable publication gates. The combined native
+replay passed all three written recipes and ran the three dependent decoders.
+[Thin-wall change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
 
 A08j, owned by Codex on the same local branch, is checking the
 [written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
@@ -793,3 +824,13 @@ The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact 
 The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
 Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
 Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+
+#### A08h-RimFillet20261125: circular rim fillet read/write packs
+
+Codex owns this checking task on `feat/native-conversion-campaign-20261125`, based on main `66d4f5b856833833bbf67fe62a61c3450d8dc76f`.
+Delivery: [PR #301](https://github.com/TryUniCAD/Kit/pull/301).
+Dependencies are the native API, source-free constructor, controller and typed codecs.
+The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native checks, 12 exact generated-payload cycles, five native-source cycles and seven snapshot-width refusals.
+All strict neutral and public conversion refusals remain explicit.
+The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
+The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.

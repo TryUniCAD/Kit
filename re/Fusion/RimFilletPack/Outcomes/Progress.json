@@ -1,0 +1,2127 @@
+{
+  "pid": 83544,
+  "started": 1795646124.773979,
+  "updated": 1795648679.0286841,
+  "state": "settled",
+  "events": [
+    {
+      "name": "PlannerFusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--catalogue",
+        "<research-checkout>/re/Fusion/PlannerCatalog/Data/Catalog.sqlite",
+        "--directory",
+        "<campaign-output>/PlannerFusion",
+        "--author-samples",
+        "--prepare-only"
+      ],
+      "start": 1795646125.374113,
+      "pid": 83546,
+      "exit_code": 0,
+      "end": 1795646132.794153
+    },
+    {
+      "name": "PlannerSolidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "solidworks",
+        "--catalogue",
+        "<research-checkout>/re/solidworks/PlannerCatalog/Sources/FeaturePlan.json",
+        "--directory",
+        "<campaign-output>/PlannerSolidworks",
+        "--author-samples",
+        "--prepare-only"
+      ],
+      "start": 1795646132.794739,
+      "pid": 84269,
+      "exit_code": 0,
+      "end": 1795646135.046771
+    },
+    {
+      "name": "WriteCandidates",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/WriteCandidates.py",
+        "<research-checkout>",
+        "<campaign-output>"
+      ],
+      "start": 1795646135.047037,
+      "pid": 84425,
+      "exit_code": 0,
+      "end": 1795646136.449952
+    },
+    {
+      "name": "native-discovery-01-author",
+      "start": 1795646136.4504929,
+      "job": "496e40287023fd769cda04b3911937b9",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646167.417717
+    },
+    {
+      "name": "native-discovery-01-source-reopen",
+      "start": 1795646167.41859,
+      "job": "4dccc8871f0c0100d2f8e0b7d347cd28",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646193.265991
+    },
+    {
+      "name": "native-discovery-01-generated",
+      "start": 1795646193.266666,
+      "job": "fd28d6ae7a4cbb88d873b30f0b661863",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646219.158004
+    },
+    {
+      "name": "native-discovery-01-generated-reopen",
+      "start": 1795646219.159165,
+      "job": "6eb9bb8e7adbf410035c3c6edc92b64c",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646244.9915469
+    },
+    {
+      "name": "native-discovery-02-author",
+      "start": 1795646244.993342,
+      "job": "5b9641e46a378284a2c99d739bfc2a19",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646270.8338702
+    },
+    {
+      "name": "native-discovery-02-source-reopen",
+      "start": 1795646270.836225,
+      "job": "e9bc3a72296535b1a9325286a628b069",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646296.80779
+    },
+    {
+      "name": "native-discovery-02-generated",
+      "start": 1795646296.809532,
+      "job": "045a47a6e080d859e2837a60b069409d",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646327.802416
+    },
+    {
+      "name": "native-discovery-02-generated-reopen",
+      "start": 1795646327.803967,
+      "job": "a4c72a85eac15294ce35a4d579f9e536",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646358.7683551
+    },
+    {
+      "name": "native-discovery-03-author",
+      "start": 1795646358.7697139,
+      "job": "91d83a9b84a0840f67d454e388fd6775",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646389.6665149
+    },
+    {
+      "name": "native-discovery-03-source-reopen",
+      "start": 1795646389.6673632,
+      "job": "34c17fd4a4d0ec0f7738a60a0f891bf4",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646421.989975
+    },
+    {
+      "name": "native-discovery-03-generated",
+      "start": 1795646421.990848,
+      "job": "447610099da7f44cab9f032246b22518",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646448.038511
+    },
+    {
+      "name": "native-discovery-03-generated-reopen",
+      "start": 1795646448.039482,
+      "job": "6648cc0e25364ece53f2483e1562fa52",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646479.140268
+    },
+    {
+      "name": "native-discovery-04-author",
+      "start": 1795646479.1413271,
+      "job": "2ddfe34c608fd7e148141b70a3071344",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646510.389398
+    },
+    {
+      "name": "native-discovery-04-source-reopen",
+      "start": 1795646510.3899531,
+      "job": "93369a4f5f90895a56d698f03cf9beaa",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646541.47371
+    },
+    {
+      "name": "native-discovery-04-generated",
+      "start": 1795646541.474968,
+      "job": "b9dd5483335a0b02acc0a8a75111d2c0",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646582.683349
+    },
+    {
+      "name": "native-discovery-04-generated-reopen",
+      "start": 1795646582.68432,
+      "job": "0c1a7beb45f4b2b634926a2779c32778",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646634.6129842
+    },
+    {
+      "name": "native-discovery-05-author",
+      "start": 1795646634.614052,
+      "job": "a446414650fd2dcc9d7fec30fa1eedb3",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646706.334699
+    },
+    {
+      "name": "native-discovery-05-source-reopen",
+      "start": 1795646706.335559,
+      "job": "c417e1ec37737557f647dbaeeb5db4e3",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646754.068665
+    },
+    {
+      "name": "native-discovery-05-generated",
+      "start": 1795646754.070148,
+      "job": "65355ba8e191d1c62e0438d851db61bd",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646795.3232388
+    },
+    {
+      "name": "native-discovery-05-generated-reopen",
+      "start": 1795646795.3240142,
+      "job": "f18264837523a739f9c0193295c00cca",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646832.276344
+    },
+    {
+      "name": "native-discovery-06-author",
+      "start": 1795646832.277772,
+      "job": "74a1eb56d51ab526d520d481010a08ba",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646868.410464
+    },
+    {
+      "name": "native-discovery-06-source-reopen",
+      "start": 1795646868.411345,
+      "job": "493179b2ba5661077554567db8f3cb5c",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646905.305001
+    },
+    {
+      "name": "native-discovery-06-generated",
+      "start": 1795646905.305967,
+      "job": "7cee2df4edeee4d8ced7df3eda5ea1f9",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646941.5485299
+    },
+    {
+      "name": "native-discovery-06-generated-reopen",
+      "start": 1795646941.549987,
+      "job": "1573950d71a9fa9b2e01ac7e6c37a991",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795646975.0347478
+    },
+    {
+      "name": "native-holdout-01-author",
+      "start": 1795646975.036423,
+      "job": "3e7a887ceeb623de50200b5ab71a5d12",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647017.716328
+    },
+    {
+      "name": "native-holdout-01-source-reopen",
+      "start": 1795647017.717224,
+      "job": "7eb60cf592c6170371101bcc79b08b75",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647054.445878
+    },
+    {
+      "name": "native-holdout-01-generated",
+      "start": 1795647054.447886,
+      "job": "b04ec9637203ede55a73dc4e558612de",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647091.4165719
+    },
+    {
+      "name": "native-holdout-01-generated-reopen",
+      "start": 1795647091.417184,
+      "job": "994feabd98be27371b734e75a4634962",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647127.642499
+    },
+    {
+      "name": "native-holdout-02-author",
+      "start": 1795647127.643626,
+      "job": "f59d4327ec44dad567e6c3c5e3f60244",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647164.2494678
+    },
+    {
+      "name": "native-holdout-02-source-reopen",
+      "start": 1795647164.250448,
+      "job": "d43d22e9f78b7958107fd8064c2f5513",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647205.630948
+    },
+    {
+      "name": "native-holdout-02-generated",
+      "start": 1795647205.633004,
+      "job": "d314029a04d6c0efd1e635dfae3a0e71",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647246.96804
+    },
+    {
+      "name": "native-holdout-02-generated-reopen",
+      "start": 1795647246.9688802,
+      "job": "b391fe6e99904b63d5dda3238489ef85",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647288.444211
+    },
+    {
+      "name": "native-holdout-03-author",
+      "start": 1795647288.4456692,
+      "job": "c32383bf9e24fa624facb191cf2ed052",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647335.2158852
+    },
+    {
+      "name": "native-holdout-03-source-reopen",
+      "start": 1795647335.21688,
+      "job": "d058e6049aef6f2071711254b64fb19a",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647386.9133399
+    },
+    {
+      "name": "native-holdout-03-generated",
+      "start": 1795647386.916667,
+      "job": "6f7284f0287efa60bad88901bc1dbac1",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647448.576152
+    },
+    {
+      "name": "native-holdout-03-generated-reopen",
+      "start": 1795647448.5770261,
+      "job": "00146ed571ed54fa0f26e808044ef28c",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647489.7066891
+    },
+    {
+      "name": "native-holdout-04-author",
+      "start": 1795647489.707438,
+      "job": "dc299dce5600c4b25fe2b716c9d38743",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647521.0350459
+    },
+    {
+      "name": "native-holdout-04-source-reopen",
+      "start": 1795647521.036136,
+      "job": "146a3bfed04735310600fdea9190731d",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647557.249141
+    },
+    {
+      "name": "native-holdout-04-generated",
+      "start": 1795647557.250093,
+      "job": "6d1106be70b10f6cb4d1422397dc6271",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647588.364266
+    },
+    {
+      "name": "native-holdout-04-generated-reopen",
+      "start": 1795647588.365112,
+      "job": "f91e7b9d62d335f2cd85269db2600d85",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647619.461877
+    },
+    {
+      "name": "native-holdout-05-author",
+      "start": 1795647619.463101,
+      "job": "3380f2c248c424a08742a53044bb68f8",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647650.710279
+    },
+    {
+      "name": "native-holdout-05-source-reopen",
+      "start": 1795647650.711414,
+      "job": "a9e4b4f3128f5bf597618dc891515f3f",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647687.314154
+    },
+    {
+      "name": "native-holdout-05-generated",
+      "start": 1795647687.3155031,
+      "job": "274ed42644bb91a9c6258f8306947928",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647729.422278
+    },
+    {
+      "name": "native-holdout-05-generated-reopen",
+      "start": 1795647729.423261,
+      "job": "57a58eaed8ec06277fa4735d959631a5",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647760.65502
+    },
+    {
+      "name": "native-holdout-06-author",
+      "start": 1795647760.6562,
+      "job": "bfd4703fd10341b1ae22d7441bfbd067",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647797.3132129
+    },
+    {
+      "name": "native-holdout-06-source-reopen",
+      "start": 1795647797.3139572,
+      "job": "47f3daf3519a207bada0a315dc9f8c65",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647828.57143
+    },
+    {
+      "name": "native-holdout-06-generated",
+      "start": 1795647828.5725079,
+      "job": "97017b483823d093547bcd2c81e4f06d",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647869.824042
+    },
+    {
+      "name": "native-holdout-06-generated-reopen",
+      "start": 1795647869.826463,
+      "job": "49e8feea934d92357c53ae05742b5a28",
+      "status": "completed",
+      "measurement": "completed",
+      "end": 1795647906.1371698
+    },
+    {
+      "name": "discovery-01-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-01-source/Strict.json"
+      ],
+      "start": 1795647906.1524212,
+      "pid": 71958,
+      "exit_code": 1,
+      "end": 1795647907.548036
+    },
+    {
+      "name": "discovery-01-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-01-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647907.548398,
+      "pid": 71961,
+      "exit_code": 1,
+      "end": 1795647908.433236
+    },
+    {
+      "name": "discovery-01-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-01-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647908.433644,
+      "pid": 72074,
+      "exit_code": 1,
+      "end": 1795647909.3247612
+    },
+    {
+      "name": "discovery-01-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-01-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647909.3251898,
+      "pid": 72078,
+      "exit_code": 1,
+      "end": 1795647916.100995
+    },
+    {
+      "name": "discovery-01-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-01-generated/Strict.json"
+      ],
+      "start": 1795647916.1019971,
+      "pid": 72506,
+      "exit_code": 1,
+      "end": 1795647917.07508
+    },
+    {
+      "name": "discovery-01-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "<campaign-output>/Decode/discovery-01-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647917.075657,
+      "pid": 72510,
+      "exit_code": 1,
+      "end": 1795647917.9065018
+    },
+    {
+      "name": "discovery-01-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "<campaign-output>/Decode/discovery-01-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647917.907226,
+      "pid": 72513,
+      "exit_code": 1,
+      "end": 1795647918.7444952
+    },
+    {
+      "name": "discovery-01-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-01-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647918.744915,
+      "pid": 72626,
+      "exit_code": 1,
+      "end": 1795647924.417772
+    },
+    {
+      "name": "discovery-02-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-02-source/Strict.json"
+      ],
+      "start": 1795647924.4183528,
+      "pid": 72781,
+      "exit_code": 1,
+      "end": 1795647925.30787
+    },
+    {
+      "name": "discovery-02-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-02-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647925.3089302,
+      "pid": 72892,
+      "exit_code": 1,
+      "end": 1795647926.134677
+    },
+    {
+      "name": "discovery-02-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-02-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647926.135081,
+      "pid": 72893,
+      "exit_code": 1,
+      "end": 1795647926.9747488
+    },
+    {
+      "name": "discovery-02-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-02-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647926.97536,
+      "pid": 72894,
+      "exit_code": 1,
+      "end": 1795647932.658614
+    },
+    {
+      "name": "discovery-02-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-02/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-02-generated/Strict.json"
+      ],
+      "start": 1795647932.659314,
+      "pid": 73155,
+      "exit_code": 1,
+      "end": 1795647933.5617979
+    },
+    {
+      "name": "discovery-02-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-02/Generated.f3d",
+        "<campaign-output>/Decode/discovery-02-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647933.5625448,
+      "pid": 73164,
+      "exit_code": 1,
+      "end": 1795647934.38952
+    },
+    {
+      "name": "discovery-02-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-02/Generated.f3d",
+        "<campaign-output>/Decode/discovery-02-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647934.3904252,
+      "pid": 73167,
+      "exit_code": 1,
+      "end": 1795647935.258795
+    },
+    {
+      "name": "discovery-02-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-02/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-02-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647935.259373,
+      "pid": 73259,
+      "exit_code": 2,
+      "end": 1795647941.152606
+    },
+    {
+      "name": "discovery-03-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-03-source/Strict.json"
+      ],
+      "start": 1795647941.1538692,
+      "pid": 73412,
+      "exit_code": 1,
+      "end": 1795647942.069221
+    },
+    {
+      "name": "discovery-03-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-03-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647942.069661,
+      "pid": 73522,
+      "exit_code": 1,
+      "end": 1795647942.949116
+    },
+    {
+      "name": "discovery-03-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-03-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647942.949561,
+      "pid": 73575,
+      "exit_code": 1,
+      "end": 1795647943.790803
+    },
+    {
+      "name": "discovery-03-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-03-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647943.791245,
+      "pid": 73580,
+      "exit_code": 1,
+      "end": 1795647964.170481
+    },
+    {
+      "name": "discovery-03-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-03/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-03-generated/Strict.json"
+      ],
+      "start": 1795647964.173193,
+      "pid": 74489,
+      "exit_code": 1,
+      "end": 1795647965.569647
+    },
+    {
+      "name": "discovery-03-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-03/Generated.f3d",
+        "<campaign-output>/Decode/discovery-03-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647965.570101,
+      "pid": 74600,
+      "exit_code": 1,
+      "end": 1795647966.395102
+    },
+    {
+      "name": "discovery-03-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-03/Generated.f3d",
+        "<campaign-output>/Decode/discovery-03-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647966.395627,
+      "pid": 74603,
+      "exit_code": 1,
+      "end": 1795647967.221639
+    },
+    {
+      "name": "discovery-03-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-03/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-03-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647967.222087,
+      "pid": 74605,
+      "exit_code": 2,
+      "end": 1795647973.642983
+    },
+    {
+      "name": "discovery-04-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-04-source/Strict.json"
+      ],
+      "start": 1795647973.644522,
+      "pid": 74919,
+      "exit_code": 1,
+      "end": 1795647974.712976
+    },
+    {
+      "name": "discovery-04-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-04-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647974.7134552,
+      "pid": 74922,
+      "exit_code": 1,
+      "end": 1795647975.586346
+    },
+    {
+      "name": "discovery-04-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-04-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647975.5867798,
+      "pid": 74926,
+      "exit_code": 1,
+      "end": 1795647976.483107
+    },
+    {
+      "name": "discovery-04-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-04-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647976.483598,
+      "pid": 75041,
+      "exit_code": 1,
+      "end": 1795647996.64973
+    },
+    {
+      "name": "discovery-04-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-04/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-04-generated/Strict.json"
+      ],
+      "start": 1795647996.651403,
+      "pid": 75911,
+      "exit_code": 1,
+      "end": 1795647998.021902
+    },
+    {
+      "name": "discovery-04-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-04/Generated.f3d",
+        "<campaign-output>/Decode/discovery-04-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795647998.022815,
+      "pid": 75912,
+      "exit_code": 1,
+      "end": 1795647998.861333
+    },
+    {
+      "name": "discovery-04-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-04/Generated.f3d",
+        "<campaign-output>/Decode/discovery-04-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795647998.862476,
+      "pid": 75915,
+      "exit_code": 1,
+      "end": 1795647999.688359
+    },
+    {
+      "name": "discovery-04-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-04/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-04-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647999.689274,
+      "pid": 76026,
+      "exit_code": 2,
+      "end": 1795648006.176244
+    },
+    {
+      "name": "discovery-05-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-05-source/Strict.json"
+      ],
+      "start": 1795648006.178567,
+      "pid": 76250,
+      "exit_code": 1,
+      "end": 1795648007.1893408
+    },
+    {
+      "name": "discovery-05-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-05-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648007.190089,
+      "pid": 76362,
+      "exit_code": 1,
+      "end": 1795648008.024244
+    },
+    {
+      "name": "discovery-05-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-05-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648008.0246751,
+      "pid": 76366,
+      "exit_code": 1,
+      "end": 1795648008.843756
+    },
+    {
+      "name": "discovery-05-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-05-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648008.844262,
+      "pid": 76368,
+      "exit_code": 1,
+      "end": 1795648029.322044
+    },
+    {
+      "name": "discovery-05-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-05/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-05-generated/Strict.json"
+      ],
+      "start": 1795648029.32361,
+      "pid": 77244,
+      "exit_code": 1,
+      "end": 1795648030.732846
+    },
+    {
+      "name": "discovery-05-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-05/Generated.f3d",
+        "<campaign-output>/Decode/discovery-05-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648030.733804,
+      "pid": 77358,
+      "exit_code": 1,
+      "end": 1795648031.569039
+    },
+    {
+      "name": "discovery-05-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-05/Generated.f3d",
+        "<campaign-output>/Decode/discovery-05-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648031.569525,
+      "pid": 77360,
+      "exit_code": 1,
+      "end": 1795648032.41571
+    },
+    {
+      "name": "discovery-05-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-05/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-05-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648032.416188,
+      "pid": 77364,
+      "exit_code": 2,
+      "end": 1795648038.7496278
+    },
+    {
+      "name": "discovery-06-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-06-source/Strict.json"
+      ],
+      "start": 1795648038.75114,
+      "pid": 77663,
+      "exit_code": 1,
+      "end": 1795648039.6998541
+    },
+    {
+      "name": "discovery-06-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-06-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648039.7007182,
+      "pid": 77664,
+      "exit_code": 1,
+      "end": 1795648040.589418
+    },
+    {
+      "name": "discovery-06-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "<campaign-output>/Decode/discovery-06-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648040.590341,
+      "pid": 77779,
+      "exit_code": 1,
+      "end": 1795648041.43484
+    },
+    {
+      "name": "discovery-06-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-06-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648041.435564,
+      "pid": 77782,
+      "exit_code": 1,
+      "end": 1795648061.411057
+    },
+    {
+      "name": "discovery-06-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-06/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/discovery-06-generated/Strict.json"
+      ],
+      "start": 1795648061.41362,
+      "pid": 79873,
+      "exit_code": 1,
+      "end": 1795648062.7988322
+    },
+    {
+      "name": "discovery-06-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-06/Generated.f3d",
+        "<campaign-output>/Decode/discovery-06-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648062.7995572,
+      "pid": 80159,
+      "exit_code": 1,
+      "end": 1795648063.709225
+    },
+    {
+      "name": "discovery-06-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/discovery-06/Generated.f3d",
+        "<campaign-output>/Decode/discovery-06-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648063.709961,
+      "pid": 80177,
+      "exit_code": 1,
+      "end": 1795648064.584515
+    },
+    {
+      "name": "discovery-06-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-06/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-06-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648064.585137,
+      "pid": 80272,
+      "exit_code": 2,
+      "end": 1795648071.473731
+    },
+    {
+      "name": "holdout-01-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-01-source/Strict.json"
+      ],
+      "start": 1795648071.47555,
+      "pid": 80538,
+      "exit_code": 1,
+      "end": 1795648072.601609
+    },
+    {
+      "name": "holdout-01-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-01-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648072.602339,
+      "pid": 80597,
+      "exit_code": 1,
+      "end": 1795648073.5263019
+    },
+    {
+      "name": "holdout-01-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-01-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648073.527075,
+      "pid": 80645,
+      "exit_code": 1,
+      "end": 1795648074.413144
+    },
+    {
+      "name": "holdout-01-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-01-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648074.413825,
+      "pid": 80646,
+      "exit_code": 1,
+      "end": 1795648094.887132
+    },
+    {
+      "name": "holdout-01-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-01/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-01-generated/Strict.json"
+      ],
+      "start": 1795648094.889674,
+      "pid": 81585,
+      "exit_code": 1,
+      "end": 1795648096.3397892
+    },
+    {
+      "name": "holdout-01-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-01/Generated.f3d",
+        "<campaign-output>/Decode/holdout-01-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648096.340242,
+      "pid": 81693,
+      "exit_code": 1,
+      "end": 1795648097.182401
+    },
+    {
+      "name": "holdout-01-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-01/Generated.f3d",
+        "<campaign-output>/Decode/holdout-01-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648097.1831622,
+      "pid": 81714,
+      "exit_code": 1,
+      "end": 1795648098.016899
+    },
+    {
+      "name": "holdout-01-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/holdout-01/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-01-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648098.0173929,
+      "pid": 81717,
+      "exit_code": 2,
+      "end": 1795648104.2883232
+    },
+    {
+      "name": "holdout-02-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-02-source/Strict.json"
+      ],
+      "start": 1795648104.289247,
+      "pid": 81983,
+      "exit_code": 1,
+      "end": 1795648105.301424
+    },
+    {
+      "name": "holdout-02-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-02-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648105.3019478,
+      "pid": 81985,
+      "exit_code": 1,
+      "end": 1795648106.1922271
+    },
+    {
+      "name": "holdout-02-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-02-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648106.193365,
+      "pid": 81990,
+      "exit_code": 1,
+      "end": 1795648107.080836
+    },
+    {
+      "name": "holdout-02-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-02-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648107.0813398,
+      "pid": 82095,
+      "exit_code": 1,
+      "end": 1795648127.142196
+    },
+    {
+      "name": "holdout-02-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-02/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-02-generated/Strict.json"
+      ],
+      "start": 1795648127.1434681,
+      "pid": 82856,
+      "exit_code": 1,
+      "end": 1795648128.594341
+    },
+    {
+      "name": "holdout-02-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-02/Generated.f3d",
+        "<campaign-output>/Decode/holdout-02-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648128.594891,
+      "pid": 82984,
+      "exit_code": 1,
+      "end": 1795648129.4687989
+    },
+    {
+      "name": "holdout-02-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-02/Generated.f3d",
+        "<campaign-output>/Decode/holdout-02-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648129.4693592,
+      "pid": 82988,
+      "exit_code": 1,
+      "end": 1795648130.298944
+    },
+    {
+      "name": "holdout-02-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/holdout-02/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-02-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648130.2994728,
+      "pid": 82989,
+      "exit_code": 2,
+      "end": 1795648136.780684
+    },
+    {
+      "name": "holdout-03-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-03-source/Strict.json"
+      ],
+      "start": 1795648136.781955,
+      "pid": 83277,
+      "exit_code": 1,
+      "end": 1795648137.792059
+    },
+    {
+      "name": "holdout-03-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-03-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648137.792746,
+      "pid": 83280,
+      "exit_code": 1,
+      "end": 1795648138.692111
+    },
+    {
+      "name": "holdout-03-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-03-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648138.692845,
+      "pid": 83389,
+      "exit_code": 1,
+      "end": 1795648139.5894961
+    },
+    {
+      "name": "holdout-03-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-03-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648139.590228,
+      "pid": 83410,
+      "exit_code": 1,
+      "end": 1795648159.7020218
+    },
+    {
+      "name": "holdout-03-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-03/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-03-generated/Strict.json"
+      ],
+      "start": 1795648159.704271,
+      "pid": 84242,
+      "exit_code": 1,
+      "end": 1795648161.1888351
+    },
+    {
+      "name": "holdout-03-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-03/Generated.f3d",
+        "<campaign-output>/Decode/holdout-03-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648161.189373,
+      "pid": 84308,
+      "exit_code": 1,
+      "end": 1795648162.082193
+    },
+    {
+      "name": "holdout-03-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-03/Generated.f3d",
+        "<campaign-output>/Decode/holdout-03-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648162.083085,
+      "pid": 84313,
+      "exit_code": 1,
+      "end": 1795648162.926359
+    },
+    {
+      "name": "holdout-03-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/holdout-03/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-03-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648162.92924,
+      "pid": 84316,
+      "exit_code": 2,
+      "end": 1795648169.441928
+    },
+    {
+      "name": "holdout-04-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-04/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-04-source/Strict.json"
+      ],
+      "start": 1795648169.4430678,
+      "pid": 84569,
+      "exit_code": 1,
+      "end": 1795648170.451861
+    },
+    {
+      "name": "holdout-04-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-04/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-04-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648170.452728,
+      "pid": 84637,
+      "exit_code": 1,
+      "end": 1795648171.3519301
+    },
+    {
+      "name": "holdout-04-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-04/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-04-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648171.3526459,
+      "pid": 84704,
+      "exit_code": 1,
+      "end": 1795648172.22517
+    },
+    {
+      "name": "holdout-04-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-04/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-04-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648172.226273,
+      "pid": 84707,
+      "exit_code": 2,
+      "end": 1795648611.041235
+    },
+    {
+      "name": "holdout-04-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-04/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-04-generated/Strict.json"
+      ],
+      "start": 1795648611.0442848,
+      "pid": 3966,
+      "exit_code": 1,
+      "end": 1795648612.4346979
+    },
+    {
+      "name": "holdout-04-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-04/Generated.f3d",
+        "<campaign-output>/Decode/holdout-04-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648612.435215,
+      "pid": 4033,
+      "exit_code": 1,
+      "end": 1795648613.2745228
+    },
+    {
+      "name": "holdout-04-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-04/Generated.f3d",
+        "<campaign-output>/Decode/holdout-04-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648613.275079,
+      "pid": 4096,
+      "exit_code": 1,
+      "end": 1795648614.0993311
+    },
+    {
+      "name": "holdout-04-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/holdout-04/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-04-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648614.099864,
+      "pid": 4139,
+      "exit_code": 2,
+      "end": 1795648620.355434
+    },
+    {
+      "name": "holdout-05-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-05/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-05-source/Strict.json"
+      ],
+      "start": 1795648620.3567302,
+      "pid": 4395,
+      "exit_code": 1,
+      "end": 1795648621.372422
+    },
+    {
+      "name": "holdout-05-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-05/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-05-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648621.373448,
+      "pid": 4397,
+      "exit_code": 1,
+      "end": 1795648622.207714
+    },
+    {
+      "name": "holdout-05-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-05/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-05-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648622.208339,
+      "pid": 4400,
+      "exit_code": 1,
+      "end": 1795648623.055765
+    },
+    {
+      "name": "holdout-05-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-05/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-05-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648623.056484,
+      "pid": 4525,
+      "exit_code": 2,
+      "end": 1795648639.635972
+    },
+    {
+      "name": "holdout-05-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-05/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-05-generated/Strict.json"
+      ],
+      "start": 1795648639.637249,
+      "pid": 5267,
+      "exit_code": 1,
+      "end": 1795648640.990975
+    },
+    {
+      "name": "holdout-05-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-05/Generated.f3d",
+        "<campaign-output>/Decode/holdout-05-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648640.99157,
+      "pid": 5271,
+      "exit_code": 1,
+      "end": 1795648641.8702998
+    },
+    {
+      "name": "holdout-05-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-05/Generated.f3d",
+        "<campaign-output>/Decode/holdout-05-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648641.8712971,
+      "pid": 5273,
+      "exit_code": 1,
+      "end": 1795648642.73689
+    },
+    {
+      "name": "holdout-05-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/holdout-05/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-05-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648642.737568,
+      "pid": 5340,
+      "exit_code": 2,
+      "end": 1795648649.222296
+    },
+    {
+      "name": "holdout-06-source-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-06/author/Restored.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-06-source/Strict.json"
+      ],
+      "start": 1795648649.22358,
+      "pid": 5543,
+      "exit_code": 1,
+      "end": 1795648650.1507242
+    },
+    {
+      "name": "holdout-06-source-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-06/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-06-source/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648650.151316,
+      "pid": 5659,
+      "exit_code": 1,
+      "end": 1795648651.029013
+    },
+    {
+      "name": "holdout-06-source-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Native/holdout-06/author/Restored.f3d",
+        "<campaign-output>/Decode/holdout-06-source/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648651.029623,
+      "pid": 5661,
+      "exit_code": 1,
+      "end": 1795648651.991881
+    },
+    {
+      "name": "holdout-06-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-06/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-06-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648651.9926531,
+      "pid": 5665,
+      "exit_code": 2,
+      "end": 1795648668.922143
+    },
+    {
+      "name": "holdout-06-generated-strict",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-06/Generated.f3d",
+        "--output",
+        "<campaign-output>/Decode/holdout-06-generated/Strict.json"
+      ],
+      "start": 1795648668.9239051,
+      "pid": 7921,
+      "exit_code": 1,
+      "end": 1795648670.2554612
+    },
+    {
+      "name": "holdout-06-generated-convert-fusion",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-06/Generated.f3d",
+        "<campaign-output>/Decode/holdout-06-generated/Converted.f3d",
+        "--json"
+      ],
+      "start": 1795648670.256137,
+      "pid": 8033,
+      "exit_code": 1,
+      "end": 1795648671.205472
+    },
+    {
+      "name": "holdout-06-generated-convert-solidworks",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "convert",
+        "<campaign-output>/Candidates/holdout-06/Generated.f3d",
+        "<campaign-output>/Decode/holdout-06-generated/Converted.SLDPRT",
+        "--json"
+      ],
+      "start": 1795648671.206383,
+      "pid": 8037,
+      "exit_code": 1,
+      "end": 1795648672.050851
+    },
+    {
+      "name": "holdout-06-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/holdout-06/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-06-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648672.051454,
+      "pid": 8041,
+      "exit_code": 2,
+      "end": 1795648678.4146712
+    }
+  ]
+}
