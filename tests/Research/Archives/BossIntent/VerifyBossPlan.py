@@ -1,4 +1,5 @@
 from hashlib import sha256 as HashBytes
+from typing import cast as CastValue
 
 
 # the checked source and prepared artifact must preserve the direction of each driver
@@ -10,14 +11,16 @@ def VerifyPlan(Evidence: dict[str, object], Prepared: bytes) -> None:
     assert Evidence["prepared_sha256"] == HashBytes(Prepared).hexdigest()
     assert Evidence["source_operation"] == "join"
     NativeOwners = Evidence["original_native_features_outside_projection"]
-    assert isinstance(NativeOwners, list) and len(NativeOwners) == 25
-    Logical = Evidence["logical"]
+    assert (
+        isinstance(NativeOwners, list) and len(CastValue(list[str], NativeOwners)) == 25
+    )
+    Logical = CastValue(dict[str, object], Evidence["logical"])
     assert isinstance(Logical, dict)
-    assert Logical["width"][-2:] == [[0, 3], 40.0]
-    assert Logical["height"][-2:] == [[0, 2], 20.0]
+    assert CastValue(list[object], Logical["width"])[-2:] == [[0, 3], 40.0]
+    assert CastValue(list[object], Logical["height"])[-2:] == [[0, 2], 20.0]
     assert Logical["depth_mm"] == 10.0
     assert Logical["origin"] == "sldprt:sketch:26:native:6451"
-    Relations = Logical["ordered_solver_relations"]
+    Relations = CastValue(list[list[object]], Logical["ordered_solver_relations"])
     assert len(Relations) == 7
     Prefix = "sldprt:sketch:26:profile:0:edge:"
     assert [(RowValue[1], RowValue[2]) for RowValue in Relations[:4]] == [

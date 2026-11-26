@@ -29,6 +29,6 @@ The Windows Python 3.14.6 process case passed in 50.64 seconds. A separate proce
 
 See [rectangle height operand side](../../../Gotchas/Research/Readers/RectangleHeightOperandSide.md) for the same-length wrong-edge refusal.
 
-The review follow-up passed the process case in 62.70 seconds on Windows Python 3.14.6. It asserts the exact four H/V targets and refuses a change outside the projection when it reaches the pinned-source comparison. The CI rationale checker reproduced the same eight violations on the unmodified PR #168 base `e2fba13c8f`. Six comment wording corrections and two missing lambda comments in the inherited tests preserve their Python syntax trees and all assertions.
+The final review follow-up passed the process case in 61.40 seconds on Windows Python 3.14.6. It asserts the exact four H/V targets and refuses a change outside the projection when it reaches the pinned-source comparison. The CI rationale checker reproduced the same eight violations on the unmodified PR #168 base `e2fba13c8f`. Six comment wording corrections and two missing lambda comments in the inherited tests preserve their Python syntax trees and all assertions.
 
 The dependent base skipped three Python checks that the current CI aggregate requires on pull requests. The existing [prequeue Python check conditions](https://github.com/TryUniCAD/Kit/pull/224/files) restore Python steering, Pyright and Mypy on pull requests and merge-group candidates.
