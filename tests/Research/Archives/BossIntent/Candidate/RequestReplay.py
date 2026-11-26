@@ -20,19 +20,22 @@ KReport = GenerateRequest(
     preserve_keyword_order=sys.argv[5] == "source",
 )
 assert KObservedReads <= {str(AllowedPath) for AllowedPath in KAllowed}, sorted(KObservedReads)
+
 # only a published output can supply a decoded preview verification
-KPreviewPixels = None
+PreviewPixels = None
 if KCandidatePath is not None:
-    KOutputReadEnabled = True
+    OutputReadable = True
+
     # the existing archive reader must reopen the published bytes after the constructor returns
     KPublished = SldprtArchive.OpenAction(KCandidatePath)
-    KOutputReadEnabled = False
+    OutputReadable = False
+
     # pixels and resolution remain comparable when a different deflater encodes them
     KWidth, KHeight, KResolution, KPixels = ReadPng(KPublished.Require("PreviewPNG"))
-    KPreviewPixels = [KWidth, KHeight, KResolution, HashBytes(KPixels).hexdigest()]
+    PreviewPixels = [KWidth, KHeight, KResolution, HashBytes(KPixels).hexdigest()]
 print(WriteJson({
     "result": KReport,
     "model_reads": sorted(KObservedReads),
-    "preview_pixels": KPreviewPixels,
+    "preview_pixels": PreviewPixels,
 }))
 """

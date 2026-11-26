@@ -7,7 +7,7 @@ KRequestPath = Path(sys.argv[2]).resolve()
 KCandidatePath = Path(sys.argv[4]).resolve() if sys.argv[4] else None
 
 # the output is unavailable as a model input until generation has finished
-KOutputReadEnabled = False
+OutputReadable = False
 
 # the constructor may read the packaged layout schema alongside the pinned request
 KAllowed = {
@@ -34,7 +34,7 @@ def AuditModelReads(Event, Arguments):
         ):
             return
         raise AssertionError(f"unapproved write during request replay: {Selected}")
-    if KOutputReadEnabled and Selected == KCandidatePath:
+    if OutputReadable and Selected == KCandidatePath:
         return
     Suffix = Selected.suffix.lower()
     if Selected in KAllowed:
