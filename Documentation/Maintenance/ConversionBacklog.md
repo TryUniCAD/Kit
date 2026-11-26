@@ -570,7 +570,7 @@ No new research implementation, application run, user evaluation or conversion q
 ## Prepared encoder input replay
 
 The shared encoder worker owns [A13a-FusionPreparedInputs](../Reference/Research/AutomationSteps.md#a13a-fusionpreparedinputs-per-role-fusion-writer-input-replay).
-It adds per-role Fusion writer JSON to the existing research pipeline within the constrained constructor scope.
+[PR #305](https://github.com/TryUniCAD/Kit/pull/305) adds per-role Fusion writer JSON to the existing research pipeline within the constrained constructor scope.
 [PR #303](https://github.com/TryUniCAD/Kit/pull/303) records Fusion saved-cuboid writer research with observed same-source replay.
 [PR #304](https://github.com/TryUniCAD/Kit/pull/304) records SOLIDWORKS native evidence for a separate, source-free candidate with one Top annotation view.
 Both format tasks still require complete source admission and independent native acceptance for their wider scopes.

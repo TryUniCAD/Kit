@@ -30,8 +30,8 @@ Native execution, output acceptance, public publication, PR checks, and merge-qu
 
 ### A13a-FusionPreparedInputs: per-role Fusion writer input replay
 
-The Codex shared encoder worker owns this active task on `codex/fusion-prepared-encoder-inputs`.
-Delivery is a separate PR based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The Codex shared encoder worker owns this checking task on `codex/fusion-prepared-encoder-inputs`.
+Delivery is [PR #305](https://github.com/TryUniCAD/Kit/pull/305), based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 The task depends on A11c's constrained constructor and A13a's schema 2 artifact and receipt checks.
 The exit requires source-free process replay of exact measured candidate bytes and continued acceptance of earlier schema 1 evidence.
 Unsupported and changed source states must still be refused. A05c saved-source generation remains separate.
