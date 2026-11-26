@@ -7,7 +7,6 @@
 # to you under it immediately and permanently.
 
 from functools import cache as OncePerProcess
-from os import environ as ProcessEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 
@@ -20,13 +19,9 @@ KColdCompileSeconds = 120
 # the first managed compiler start of a runner must not consume a fixture deadline meant for warm runs
 @OncePerProcess
 def WarmProgress() -> None:
-    PowerShell = (
-        FilePath(ProcessEnv["SystemRoot"])
-        / "System32/WindowsPowerShell/v1.0/powershell.exe"
-    )
     Result = RunProcess(
         [
-            str(PowerShell),
+            "powershell.exe",
             "-NoProfile",
             "-NonInteractive",
             "-File",
