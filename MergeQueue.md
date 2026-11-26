@@ -36,7 +36,7 @@ See the [timing record](Documentation/Changes/Ci/SinglePhaseValidation.md).
 PR validation includes Ruff, Black, Pyright, Mypy, Python steering, explicit imports, path policies, rationale
 comments, skill preservation, workflow pins, Zizmor, actionlint, release artifact
 validation, and metadata labeling. Queue validation includes Pyright, Mypy,
-Python steering, CI process policy, research CLI compatibility, the full suite,
+Python steering, CI process policy, Windows research CLI compatibility, the full suite,
 CodeQL, and the other security and SBOM scans. Fusion and CLI compatibility
 execute through the complete suite.
 
@@ -125,7 +125,9 @@ as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or sec
 thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
-Queue-only type, steering, and research CLI jobs also gate the aggregate.
+Queue-only type, steering, and Windows research CLI jobs also gate the aggregate.
+The serial Linux `Research CLI compatibility` job is
+[retired](Documentation/Changes/Ci/ResearchCliRetirement.md); its `tests/CliResearch` cases run in the complete suite's shards.
 The Windows research CLI compatibility job partitions its existing collected roster
 across four Windows runners. Its stable report requires every shard and verifies
 that each collected case has exactly one outcome. Shard artifacts include the

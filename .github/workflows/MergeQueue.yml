@@ -367,8 +367,8 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Synchronize locked dependencies for inference shards
-        if: steps.selection.outputs.inference == 'true'
+      - name: Synchronize locked dependencies for inference and research CLI shards
+        if: steps.selection.outputs.inference == 'true' || steps.selection.outputs.research == 'true'
         run: uv sync --frozen --no-default-groups --extra dev --group dev --python 3.14 --compile-bytecode
 
       - name: Hydrate sealed original inputs for research shards
