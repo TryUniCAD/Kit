@@ -2,6 +2,7 @@
   "Version": 2,
   "Linux": 16,
   "Windows": 5,
+  "WindowsCompatibility": 4,
   "Macos": 5,
   "Control": 2
 }
