@@ -8,7 +8,8 @@
 
 
 # targeted validation failures perturb only the requested binding or stage
-KChainFault = """def ChainFault(Progress, FaultName):
+KChainFault = """# the selected invalid field must exercise only its intended refusal
+def ChainFault(Progress, FaultName):
     if FaultName == 'chain':
         Index = 1
         Event = json.loads(Progress[Index])
@@ -29,11 +30,12 @@ KChainFault = """def ChainFault(Progress, FaultName):
 
 
 # faults of ordering visibility and operands must keep the downstream hash chain intact
-KOrderFault = """def OrderFault(Progress, FaultName):
+KOrderFault = """# the ordering controls must retain the chain before native validation
+def OrderFault(Progress, FaultName):
     Start = 0
     if FaultName == 'operand':
-        Start = next(Index for Index, Line in enumerate(Progress)
-                     if json.loads(Line)['stage'] == 'quit_document')
+        Start = next(Index for Index, LineValue in enumerate(Progress)
+                     if json.loads(LineValue)['stage'] == 'quit_document')
         Event = json.loads(Progress[Start])
         Event['detail']['operand'] = 'unrelated.SLDPRT'
         Progress[Start] = encoded(Event)
@@ -56,7 +58,8 @@ KOrderFault = """def OrderFault(Progress, FaultName):
 
 
 # each journal scenario must exercise only its corresponding rejection boundary
-KJournalFault = """def JournalFault(Progress, FaultName):
+KJournalFault = """# the requested scenario selects exactly one journal mutation
+def JournalFault(Progress, FaultName):
     if FaultName in ('operand', 'hidden', 'late_hidden'):
         return OrderFault(Progress, FaultName)
     if FaultName in ('chain', 'binding', 'stage'):

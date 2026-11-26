@@ -8,7 +8,8 @@
 
 
 # the durable plan binds every expected fixture file to its exact source revision
-KFixturePlan = """def FixturePlan(OutputPath, Revision, ScopeName, FileCount, IsDiscovery, FaultName):
+KFixturePlan = """# the expected source revision and roster must be pinned before observation
+def FixturePlan(OutputPath, Revision, ScopeName, FileCount, IsDiscovery, FaultName):
     Names = ([f'{Recipe}-solidworks-fixture-{Index}.SLDPRT'
               for Recipe, Size in (('P01', 6), ('P03', 8), ('P04', 11)) for Index in range(Size)]
              if IsDiscovery else
@@ -27,29 +28,31 @@ KFixturePlan = """def FixturePlan(OutputPath, Revision, ScopeName, FileCount, Is
 
 
 # observed rows preserve separate circle and cut witnesses across full discovery dispatch
-KObservationRows = """def ObservationRows(Names, FaultName, IsDiscovery):
-    Rows = [{'file': Name, 'status': 'observed',
+KObservationRows = """# the readback rows preserve the unique circle and cut witnesses
+def ObservationRows(Names, FaultName, IsDiscovery):
+    Observations = [{'file': Name, 'status': 'observed',
              'circle_verified_before_and_after_rebuild': True} for Name in Names]
     if FaultName == 'circle':
-        Rows[0]['circle_verified_before_and_after_rebuild'] = False
+        Observations[0]['circle_verified_before_and_after_rebuild'] = False
     if FaultName == 'roster':
-        Rows[0]['file'] = Rows[1]['file']
+        Observations[0]['file'] = Observations[1]['file']
     if IsDiscovery:
-        for Row in Rows:
-            if Row['file'].startswith('P04-'):
-                Row['face_verified_before_and_after_rebuild'] = True
+        for EntryValue in Observations:
+            if EntryValue['file'].startswith('P04-'):
+                EntryValue['face_verified_before_and_after_rebuild'] = True
         if FaultName == 'cut':
-            Rows[-1]['face_verified_before_and_after_rebuild'] = False
-    return Rows
+            Observations[-1]['face_verified_before_and_after_rebuild'] = False
+    return Observations
 
 
 """
 
 
 # the checkable lifetime close and batching observations are independent properties of the fixture run
-KReadbackReport = """def ReadbackReport(Owner, Rows, PlanHash, FaultName, IsDiscovery):
-    Run = {
-        'status': 'observed', 'observations': Rows, 'application': {'build': BUILD},
+KReadbackReport = """# the report records distinct control lifetime batching and termination states
+def ReadbackReport(Owner, Observations, PlanHash, FaultName, IsDiscovery):
+    RunRecord = {
+        'status': 'observed', 'observations': Observations, 'application': {'build': BUILD},
         'native_owner': Owner, 'owned_process_exit_observed': True,
         'application_lifetime': {
             'user_control_before': False, 'background_control_before': False,
@@ -61,20 +64,21 @@ KReadbackReport = """def ReadbackReport(Owner, Rows, PlanHash, FaultName, IsDisc
             'close_state': {'save_flag': True, 'read_only': FaultName != 'discard', 'document_count': 1}},
     }
     if IsDiscovery:
-        Run['readback_options'] = {
+        RunRecord['readback_options'] = {
             'command_in_progress_before': False,
             'command_in_progress_during': FaultName != 'command_inactive',
             'command_in_progress_restored': FaultName != 'restore',
         }
     return {'plan_sha256': PlanHash, 'source_bytes_verified_after_readback': True,
-            'fixture_only': True, 'run': Run}
+            'fixture_only': True, 'run': RunRecord}
 
 
 """
 
 
 # the fixture receipt binds the journal and observations before the production validator reads them
-KFixtureReceipt = """def FixtureReceipt(OutputPath, Report, PlanHash, CountField, FileCount, Progress, FaultName):
+KFixtureReceipt = """# the emitted receipt binds qualified observation and journal bytes
+def FixtureReceipt(OutputPath, Report, PlanHash, CountField, FileCount, Progress, FaultName):
     Journal = b''.join(Progress)
     if FaultName == 'incomplete':
         Journal = Journal[:-1]

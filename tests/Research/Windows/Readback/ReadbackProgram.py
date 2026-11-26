@@ -47,7 +47,8 @@ from SolidWorksReadbackWorker import (
 
 
 # the observation callback settles the same evidence in the same order as the live transport
-KObserve = """def Observe(Config, FaultName, Operation, ScopeInfo, Request, WorkPath):
+KObserve = """# the callback submits exactly the fixture evidence returned by the real queue
+def Observe(Config, FaultName, Operation, ScopeInfo, Request, WorkPath):
     assert Request['body'] == phase_request(Config, Operation)
     OutputPath = WorkPath / 'readback'
     OutputPath.mkdir()
@@ -57,13 +58,13 @@ KObserve = """def Observe(Config, FaultName, Operation, ScopeInfo, Request, Work
     Names, PlanHash = FixturePlan(
         OutputPath, Config['source_revision'], ScopeName, FileCount, IsDiscovery, FaultName
     )
-    Rows = ObservationRows(Names, FaultName, IsDiscovery)
-    Report = ReadbackReport(Owner, Rows, PlanHash, FaultName, IsDiscovery)
+    Observations = ObservationRows(Names, FaultName, IsDiscovery)
+    Report = ReadbackReport(Owner, Observations, PlanHash, FaultName, IsDiscovery)
     Progress = CaptureProgress(Config['source_root'], OutputPath, Owner)
     Progress = JournalFault(Progress, FaultName)
     FixtureReceipt(OutputPath, Report, PlanHash, CountField, FileCount, Progress, FaultName)
     Proof = native_result(WorkPath, Config, Operation, progress_required=True, local_progress=True)
-    Files = {Role: pin(WorkPath / Relative, Relative) for Role, Relative in OUTPUTS.items()}
+    Files = {RoleName: pin(WorkPath / Relative, Relative) for RoleName, Relative in OUTPUTS.items()}
     return 'completed', 'disposable process transport fixture only', {
         **phase_request(Config, Operation), **Proof,
         'claim': 'unqualified_application_observation', 'fixture_only': True}, Files
@@ -73,7 +74,8 @@ KObserve = """def Observe(Config, FaultName, Operation, ScopeInfo, Request, Work
 
 
 # the real queue host owns readiness and closure through the fixture shutdown signal
-KHostLoop = """def ServeReadback(Config, Operation, ObserveRequest):
+KHostLoop = """# the listener owns readiness and processes until the parent signals closure
+def ServeReadback(Config, Operation, ObserveRequest):
     Host = ReadbackQueue(Config, PROVIDER, Operation)
     Endpoint = Path(Config['endpoint'])
     try:
@@ -92,14 +94,15 @@ KHostLoop = """def ServeReadback(Config, Operation, ObserveRequest):
 
 
 # command arguments select the installed config and bind each request to the requested scenario
-KHostMain = """def Main():
+KHostMain = """# the process arguments select the installed config and requested test scenario
+def StartFixture():
     Config = configuration(Path(sys.argv[2]))
     FaultName, Operation = sys.argv[3:5]
     ScopeInfo = READBACK_SCOPES[Operation]
     ServeReadback(Config, Operation, partial(Observe, Config, FaultName, Operation, ScopeInfo))
 
 
-Main()
+StartFixture()
 """
 
 

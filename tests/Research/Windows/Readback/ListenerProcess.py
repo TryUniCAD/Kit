@@ -8,7 +8,8 @@
 
 
 # the measured identity comes from a real disposable process whose exit is witnessed
-KNativeOwner = """def NativeOwner(Config, Request, WorkPath):
+KNativeOwner = """# the temporary child supplies a real process identity and observed exit
+def NativeOwner(Config, Request, WorkPath):
     Executable = sys.executable
     Command = subprocess.list2cmdline(
         [Executable, '-I', '-S', '-c', 'import time; time.sleep(30)']
@@ -36,7 +37,8 @@ KNativeOwner = """def NativeOwner(Config, Request, WorkPath):
 
 
 # managed capture records the same owner and preserves the exact journal lines for fault scenarios
-KCaptureProgress = """def CaptureProgress(SourceRoot, OutputPath, Owner):
+KCaptureProgress = """# the managed recorder supplies the actual journal and its process output
+def CaptureProgress(SourceRoot, OutputPath, Owner):
     OwnerPath = OutputPath / 'fixture-owner.json'
     write_record(OwnerPath, Owner)
     PowerShell = Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe'
