@@ -606,6 +606,13 @@ Check that register again before running or claiming anything.
 The next independent available task is B01, followed by B10/B11 work that can use already qualified examples.
 No new research implementation, application run, user evaluation or conversion qualification is claimed by this planning change.
 
+## Native sketch ownership and blind boss evidence
+
+The shared encoder worker owns [A06d-NativeSketchOwnership](../Reference/Research/AutomationSteps.md#a06d-nativesketchownership-saved-solidworks-sketch-ownership-in-comparison).
+[PR #302](https://github.com/TryUniCAD/Kit/pull/302) adds reader-reported native sketch ownership to comparison reports. Independent semantic qualification remains required.
+[PR #300](https://github.com/TryUniCAD/Kit/pull/300) is the research evidence delivery for [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
+Whole-source admission, writing, and measured native acceptance remain open.
+
 ## Shared research queue coordination
 
 Task `A08b-SharedQueue` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08b-sharedqueue-shared-research-requests-and-advice-budgets).

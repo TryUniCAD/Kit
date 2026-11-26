@@ -80,7 +80,7 @@ def reconstruct(document, native_locator, *, depth_mm=None):
 
     driver, = document.parameters
     boss, = document.feature_timeline
-    length = replace(driver.value, value=_depth_value(depth_mm))
+    length = replace(driver.value, value=_depth_value(depth_mm), unit="mm")
     changed = replace(
         document,
         parameters=(replace(driver, value=length),),
