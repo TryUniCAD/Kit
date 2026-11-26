@@ -110,9 +110,15 @@ read its complete standards index and every applicable rule before coding.
   not substitute for approval. Keep reviewer names and identifiers only in that
   JSON. No human or code-owner approval is required by this workflow. Report
   unavailable review evidence and independently enforced requirements separately.
+- `jdharcourt` and `odinglynn` are repository-policy administrators with merge
+  privileges. Either may explicitly authorize agent queue enrollment, auto-merge,
+  or merging under the existing readiness gates. Verify the requester’s GitHub
+  identity. This designation does not grant GitHub platform permissions or bypass
+  enforced protections. Other administrators require verified current GitHub
+  `admin` permission.
 - Only an explicit merge request from a verified repository administrator
   authorizes an agent to enroll a PR in the queue, enable auto-merge, or merge.
-  Verify the requester's identity and current repository `admin` permission.
+  Verify the requester's identity and authority under the administrator rule above.
   Implementation requests and PR creation alone do not authorize merging.
 - Use Python for backend work, React for frontend work, and `uv` for Python
   dependencies outside `modules/`.
