@@ -16,12 +16,11 @@ from Sessions import write_private
 # an application lease belongs to the catalogue rather than an individual short-lived decoder worker
 @contextmanager
 def OwnSolidRoutine(Directory, SourceRoot, HostPath, Revision):
-    from WindowsProcess import WindowsProcess
-
     Host = read_record(HostPath)
     if Host.get("verification_mode") != "document_reopen":
         yield None
         return
+    from WindowsProcess import WindowsProcess
     QueueRoot = Path(Host["routine_queue"])
     if QueueRoot.parent != Directory or QueueRoot.is_symlink():
         raise ValueError("routine queue must belong to its catalogue")

@@ -8,6 +8,7 @@
 
 from pathlib import Path
 from contextlib import nullcontext
+from sys import platform
 
 from InferenceGrid.Authoring.AuthorConfig import AuthorConfig
 from InferenceGrid.Authoring.AuthorOutcome import AuthorOutcome
@@ -19,7 +20,7 @@ from InferenceGrid.CatalogueRuntime import HoldCatalogue
 from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
 from Pilot.PilotFiles import WriteRecord
-from Records import digest, read_record
+from Records import digest, label, read_record
 from Sessions import write_private
 
 
@@ -183,6 +184,16 @@ def FinishAuthor(
         )
     from InferenceGrid.Authoring.SolidRoutine import OwnSolidRoutine
 
+    SolidResource = RunValue["resources"].get("solidworks")
+    if SolidResource is not None:
+        with Ledger(Directory / "Store") as StateValue:
+            Row = StateValue.db.execute(
+                "SELECT available FROM resources WHERE name=?", (label(SolidResource),)
+            ).fetchone()
+        # native capture jobs wait while the resource is unavailable, and they cannot run off Windows
+        SolidCaptures = platform == "win32" and Row is not None and bool(Row[0])
+    else:
+        SolidCaptures = False
     SolidLife = (
         OwnSolidRoutine(
             Directory,
@@ -190,7 +201,7 @@ def FinishAuthor(
             Directory / "SolidWorksHost.json",
             PlanValue["source_revision"],
         )
-        if "solidworks" in RunValue["resources"]
+        if SolidCaptures
         else nullcontext()
     )
     with SolidLife as SolidOwner, Lifecycle as GuardValue:
