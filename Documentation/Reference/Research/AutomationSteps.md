@@ -63,6 +63,35 @@ its signed outward rings, retain older and unsupported profile behavior, and
 pass an independently authored case sealed before implementation. Native
 acceptance and complete source preservation have separate exit criteria.
 
+#### B04-SW2026-P03-TRIMMED-CARRIER-BOUNDARY
+
+The SOLIDWORKS reader lane owns this planned research child on
+`codex/sw-p03-trimmed-carrier-boundary`. The external claim and separate
+delivery PR are pending. It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
+at `a5ffad5483db0f99a6162e1934786da41cbc2063` and uses
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) at
+`c0a401a607759fb0c2589647c2a22af65ebb7ce1` for the pinned comparison reader.
+The [P03 native lifecycle](https://github.com/TryUniCAD/Kit/pull/338)
+supplies the exact saved 12 mm control. [PR #255](https://github.com/TryUniCAD/Kit/pull/255)
+retains its indexed rollback scope and shared reader extension points.
+
+The active-cache source SHA-256 is
+`dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115`.
+In the repaired reader, typed traversal reached an unmapped kind 133 before
+vertex table validation. The generic geometry path independently reported
+a missing vertex use. The scope is read-only research on the active cache,
+its typed record boundaries and the relationship between those observations.
+
+Exit requires the exact loader class and effective saved-field layout,
+independently checked record extents, carrier and basis ownership, parameter
+domain and directed endpoint evidence, and a complete current traversal or
+the specific next unsupported record. The evidence must distinguish a
+consumed carrier from ancillary retained data, and compare the earlier
+missing vertex use against the physically decoded graph. The existing
+research pipeline records any unsupported owners and controls. A production
+reader change and native qualification have separate delivery and exit
+criteria.
+
 ### PR 158 implementation follow-up
 
 #### A08b-SharedQueue: shared research requests and advice budgets
