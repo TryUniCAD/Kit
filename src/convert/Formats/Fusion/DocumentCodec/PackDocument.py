@@ -20,7 +20,11 @@ from convert.Formats.Fusion.MetaIndex import SegmentKind
 
 # the pack document contract needs a shared interpretation so model state retains its native feature and ownership relationships
 def PackDocument(
-    Design: DesignResult, Title: str, Parts: tuple[ContainerPart, ...]
+    Design: DesignResult,
+    Title: str,
+    Parts: tuple[ContainerPart, ...],
+    *,
+    AssetProperties: tuple[tuple[str, str], ...] = (),
 ) -> bytes:
     SnapshotId = str(MakeUuid())
     Assembly = BuildAssembly(Design, Title, SnapshotId, str(MakeUuid()))
@@ -38,7 +42,9 @@ def PackDocument(
             (SegmentKind.KDesign, SegmentKind.KAct, SegmentKind.KBrowser)
         )
     )
-    Asset = AssetHeader(Design.AssetId, SnapshotId, KAssetVersions, 3, Slots)
+    Asset = AssetHeader(
+        Design.AssetId, SnapshotId, KAssetVersions, 3, Slots, AssetProperties
+    )
     Streams = (Design.Streams, Assembly.Streams, Browser.Streams)
     return EmitContainer(
         FusionContainer(Document, Asset, Streams, MakePreviews(), Parts)
