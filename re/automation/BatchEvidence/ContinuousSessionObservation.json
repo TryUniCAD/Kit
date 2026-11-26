@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "source_revision": "5c3ae3810c8beb80eceb498748ced66c324673e9",
+  "scope": "same_session_document_reopen_comparison",
+  "native_cases": 6,
+  "consecutive_batches": 2,
+  "persistent_processes": 1,
+  "elapsed_seconds": 387.7754188000108,
+  "public_decoder_overlapped_native_capture": true,
+  "fresh_process_comparisons": [
+    {"recipe": "P01", "same_saved_baseline_measurements_equal": true},
+    {"recipe": "P03", "same_saved_baseline_measurements_equal": true},
+    {"recipe": "P04", "same_saved_baseline_measurements_equal": true}
+  ],
+  "numeric_relative_tolerance": 1e-9,
+  "numeric_absolute_tolerance": 1e-6,
+  "retained_failed_probe": {
+    "recipe": "extrude-thin",
+    "result": "written_recipe_body_measurements_differ",
+    "as_built_volume_mm3": 560,
+    "same_session_reopened_volume_mm3": 560,
+    "qualification": "not_accepted"
+  },
+  "limitations": [
+    "three_case_geometric_scope",
+    "no_general_equivalence_or_speedup_claim",
+    "final_queue_archive_change_has_separate_process_validation",
+    "final_controller_pipeline_verification_pending"
+  ],
+  "native_acceptance": false,
+  "portable_complete": false,
+  "conversion_qualified": false
+}

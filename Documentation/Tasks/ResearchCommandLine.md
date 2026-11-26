@@ -274,6 +274,14 @@ To retry a parked native job after its owner restores the application, add `--na
 
 ### Author new catalogue samples
 
+New SOLIDWORKS runs keep an owned application session open across batches.
+Document close and reopen checks release completed bundles to the separate decoder pool.
+Set `verification_mode` to `fresh_process` in the private host configuration for independent-process evidence.
+See [continuous SOLIDWORKS capture](../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md) for lifecycle and evidence limits.
+Startup and part opens retry up to three times.
+Inspect the startup receipts, open-attempt log and separate [capture stage timings](../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md) when a run is slow or cannot open.
+Retries stop if cleanup cannot prove ownership or saved bytes change.
+
 Add `--author-samples` to a catalogue run to create new native samples before
 decoding them. `--authoring-cases` selects catalogue identities and validated
 parameter overrides. `--prepare-only` writes the plan without launching CAD.
@@ -283,9 +291,17 @@ and the four registered revolution recipes.
 
 Add `--authoring-grid three-values` to vary each exposed parameter independently
 across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
-recipes share native batches of at most three cases, with separate decoder jobs.
+recipes share one native authoring launch and one fresh verification launch
+per batch of up to twelve cases, with separate decoder jobs. Existing saved
+plans keep their recorded grouping. See
+[larger SOLIDWORKS batches](../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
 Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
+New SOLIDWORKS authoring plans automatically share application startup across batches of up to three P01–P05 or written-recipe cases.
+Each batch uses one authoring process and a separate fresh verification process.
+Per-case decoder jobs start after native acceptance.
+Saved plans retain their original job definitions.
+See [paired-case batching](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) for limits and verification.
 After both owned native phases finish, a case-level verification failure
 records a `native_rejection` in the catalogue result. Verified sibling cases
 can continue through their own decoder jobs.

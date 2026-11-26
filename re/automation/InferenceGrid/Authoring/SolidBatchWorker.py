@@ -15,6 +15,7 @@ from sys import path
 path[:0] = [str(Path(__file__).resolve().parents[2])]
 
 from CaptureTools.Catalogue.SolidWorks.RunSolidBatch import RunSolidBatch
+from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import KSolidBatchCases
 from InferenceGrid.Authoring.PackNative import PackNative
 from InferenceGrid.Authoring.NativeAttempt import MakeNativePath
 from InferenceGrid.Authoring.SolidSources import ReadSolidPins
@@ -41,7 +42,7 @@ def RunBatchJob(SessionPath, HostPath):
         or type(CaseRecord["schema_version"]) is not int
         or CaseRecord["schema_version"] != 1
         or not isinstance(CaseRecord["samples"], list)
-        or not 1 <= len(CaseRecord["samples"]) <= 3
+        or not 1 <= len(CaseRecord["samples"]) <= KSolidBatchCases
         or digest(CaseRecord) != JobValue["options"]["cases_sha256"]
     ):
         raise ValueError("native batch differs from its scheduled input")
@@ -62,6 +63,7 @@ def RunBatchJob(SessionPath, HostPath):
         [Sample["case"] for Sample in Samples],
         MakeNativePath(SessionPath, HostPath),
         read_record(HostPath),
+        Revision=JobValue["tool_version"],
     )
     if not isinstance(Reports, list) or len(Reports) != len(Samples):
         raise ValueError("native batch lacks a result for every case")
@@ -83,7 +85,8 @@ def RunBatchJob(SessionPath, HostPath):
             "case": Sample["case"],
             "bundle_artifact": RoleValue,
             "archives": Manifest,
-            "native_verified": True,
+            "native_verified": Report.get("verification_mode") != "document_reopen",
+            "verification_mode": Report.get("verification_mode", "fresh_process"),
         }
         Content = BundlePath.read_bytes()
         Artifacts[RoleValue] = {
@@ -104,9 +107,9 @@ def RunBatchJob(SessionPath, HostPath):
         {
             "outcome": "completed",
             "reason": (
-                "verified every native case in two independently owned processes"
+                "captured and measured every native case using the recorded verification mode"
                 if len(Bundles) == len(Samples)
-                else "recorded independent native acceptance and rejection by case"
+                else "recorded native acceptance and rejection by case using the recorded verification mode"
             ),
             "records": {
                 "application": "solidworks",

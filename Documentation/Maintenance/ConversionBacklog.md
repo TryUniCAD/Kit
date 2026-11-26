@@ -1,6 +1,16 @@
 # Conversion completion backlog
 
+`A08c-SolidWorksOpenRetry` is active in the [automation register](../Reference/Research/AutomationSteps.md#status-and-ownership).
+It adds bounded native startup recovery and stage measurements to the continuous capture dependency in PR #288.
+
 ## Purpose and authority
+
+`A08c-ContinuousSolidWorks` is active under the [automation register](../Reference/Research/AutomationSteps.md#status-and-ownership).
+Codex owns persistent research capture and document reopening on `codex/solidworks-capture-batching`.
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+The bounded P01/P03/P04 comparison, controller overlap and resume evidence are recorded in the change entry.
+Current-revision readiness and broader native qualification remain pending.
+The production conversion boundary and fresh-process acceptance requirements are unchanged.
 
 Use this register to find work on the path from the current SDK to the [completion roadmap](../../Roadmap.md).
 Each task records its delivery boundary, owner, dependency and observable completion condition.
@@ -667,6 +677,18 @@ The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlaceme
 Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
 Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
+
+## Automatic SOLIDWORKS paired-case batching
+
+Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
+The [owning register](../Reference/Research/AutomationSteps.md) records automatic P01–P05 batching through the existing native runner.
+Dependencies are catalogue authoring, native ownership, and accepted controller artifacts.
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Source `231ffae38c7a9ca83705c6705e7d382d05c1e208` passed the measured three-case native batch with two normal process exits and three automatically completed decoder jobs.
+Current-head publication checks and configured review are tracked in the delivery PR. Merge-group acceptance remains separate.
+The exit requires measured batch session reuse, independent reopening, per-case decoder receipts, and current-revision CI and configured review.
+The [change entry](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) retains verification limits.
+Production decoding and conversion qualification remain open.
 
 ## Circular rim fillet qualification packs
 
