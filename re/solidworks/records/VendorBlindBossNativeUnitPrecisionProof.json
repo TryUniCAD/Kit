@@ -1,0 +1,897 @@
+{
+  "all_stages_shared_typed_state": {
+    "adjacent_endpoint_id_equal": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "annotation_views": {
+      "active_view": {
+        "always_2d": false,
+        "annotation_count": 0,
+        "flat_pattern": false,
+        "rotation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "rotation_m_words": [
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0"
+        ],
+        "shown": true,
+        "unassigned": true
+      },
+      "total_annotations": 0,
+      "view_count": 2,
+      "views": [
+        {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -0.0,
+            -1.0,
+            -0.0
+          ],
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "-0x0.0p+0",
+            "-0x1.0000000000000p+0",
+            "-0x0.0p+0"
+          ],
+          "shown": false,
+          "unassigned": false
+        }
+      ]
+    },
+    "configuration_names": [
+      "Default"
+    ],
+    "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+    "dimension_driving": true,
+    "display": {
+      "configuration": "Default",
+      "construct_planes_visible": true,
+      "display_states": [
+        "<Default>_Display State 1"
+      ],
+      "feature_visibility": {
+        "Front Plane": 1,
+        "Origin": 2,
+        "Right Plane": 1,
+        "Sketch1": 1,
+        "Top Plane": 1
+      },
+      "linked_display_state": false,
+      "visible_solids": 1
+    },
+    "document_display_planes_preference": true,
+    "endpoint_api": [
+      [
+        {
+          "id": [
+            0,
+            1
+          ],
+          "xyz_m_binary64": [
+            "-0x1.a9fbe76c8b439p-7",
+            "-0x1.89374bc6a7efap-9",
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "id": [
+            1,
+            2
+          ],
+          "xyz_m_binary64": [
+            "0x1.0624dd2f1a9fcp-7",
+            "-0x1.26e978d4fdf3bp-7",
+            "0x0.0p+0"
+          ]
+        }
+      ],
+      [
+        {
+          "id": [
+            1,
+            2
+          ],
+          "xyz_m_binary64": [
+            "0x1.0624dd2f1a9fcp-7",
+            "-0x1.26e978d4fdf3bp-7",
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "id": [
+            2,
+            3
+          ],
+          "xyz_m_binary64": [
+            "0x1.374bc6a7ef9dbp-6",
+            "0x1.89374bc6a7efap-8",
+            "0x0.0p+0"
+          ]
+        }
+      ],
+      [
+        {
+          "id": [
+            2,
+            3
+          ],
+          "xyz_m_binary64": [
+            "0x1.374bc6a7ef9dbp-6",
+            "0x1.89374bc6a7efap-8",
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "id": [
+            3,
+            4
+          ],
+          "xyz_m_binary64": [
+            "0x1.0624dd2f1a9fcp-8",
+            "0x1.78d4fdf3b645ap-6",
+            "0x0.0p+0"
+          ]
+        }
+      ],
+      [
+        {
+          "id": [
+            3,
+            4
+          ],
+          "xyz_m_binary64": [
+            "0x1.0624dd2f1a9fcp-8",
+            "0x1.78d4fdf3b645ap-6",
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "id": [
+            0,
+            1
+          ],
+          "xyz_m_binary64": [
+            "-0x1.a9fbe76c8b439p-7",
+            "-0x1.89374bc6a7efap-9",
+            "0x0.0p+0"
+          ]
+        }
+      ]
+    ],
+    "frame": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "lights_sha256": "5e8a35163232c2f6f83e505ae35c8a6bff33040e98e3d03bdbc939e00a447a66",
+    "material_sha256": "19cd126847924d706a25e97b246e58a6813e863c9a164de7d26e25e74dd7e7ef",
+    "solid_topology": [
+      1,
+      6,
+      12,
+      8
+    ]
+  },
+  "api_sources": [
+    "https://help.solidworks.com/2024/english/api/swconst/DP_Units.htm",
+    "https://help.solidworks.com/2026/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swUserPreferenceOption_e.html"
+  ],
+  "archive_round_trip_all_members_exact": true,
+  "build": "34.4.1.1011",
+  "comparisons": {
+    "display_units_stay_millimetres": true,
+    "dual_decimal_precision_remains_two_for_all": true,
+    "eight_sampled_decimal_place_integers_equal_two_for_stock_and_two_place": [
+      "swUnitsLinearDecimalPlaces",
+      "swUnitsAngularDecimalPlaces",
+      "swUnitsDualLinearDecimalPlaces",
+      "swUnitsMassPropDecimalPlaces",
+      "swUnitsForceDecimalPlaces",
+      "swUnitsEnergyDecimalPlaces",
+      "swUnitsPowerDecimalPlaces",
+      "swUnitsTimeDecimalPlaces"
+    ],
+    "four_vs_two_numeric_right_minus_left": {
+      "initial": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      },
+      "rebuilt": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          4.336808689942018e-19,
+          0.0,
+          0.0
+        ],
+        "mass_kg": -8.470329472543003e-22,
+        "volume_m3": -8.470329472543003e-22
+      }
+    },
+    "four_vs_two_same_non_unit_state": {
+      "initial": true,
+      "rebuilt": true
+    },
+    "four_vs_two_unit_integer_deltas": {
+      "initial": {
+        "swUnitsAngularDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsEnergyDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsForceDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsLinearDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsMassPropDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsPowerDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsTimeDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        }
+      },
+      "rebuilt": {
+        "swUnitsAngularDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsEnergyDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsForceDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsLinearDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsMassPropDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsPowerDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        },
+        "swUnitsTimeDecimalPlaces": {
+          "left": 4,
+          "right": 2
+        }
+      }
+    },
+    "numeric_abs_si_tolerance": 1e-12,
+    "numeric_rel_tolerance": 1e-08,
+    "one_ulp_rebuild_readback_deltas": [
+      "volume_m3",
+      "mass_kg",
+      "centre_of_mass_m[0]"
+    ],
+    "source_typed_unit_classes_with_remaining_differences": [
+      "moDensityUnits_c",
+      "moLengthUserUnits_c"
+    ],
+    "stock_and_both_generated_GetUnits_rebuilt": {
+      "four_place": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "stock": [
+        0,
+        1,
+        8,
+        2,
+        0
+      ],
+      "two_place": [
+        0,
+        1,
+        1,
+        2,
+        0
+      ]
+    },
+    "stock_vs_two_other_observed_residual_group": "Nested features have matching order, names, types and parents. Native internal IDs differ.",
+    "stock_vs_two_unit_integer_deltas": {
+      "initial": {
+        "swUnitsLinearFractionDenominator": {
+          "left": 8,
+          "right": 1
+        }
+      },
+      "rebuilt": {
+        "swUnitsLinearFractionDenominator": {
+          "left": 8,
+          "right": 1
+        }
+      }
+    },
+    "two_vs_stock_numeric_two_minus_stock": {
+      "initial": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      },
+      "rebuilt": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          4.336808689942018e-19,
+          0.0,
+          0.0
+        ],
+        "mass_kg": -8.470329472543003e-22,
+        "volume_m3": -8.470329472543003e-22
+      }
+    }
+  },
+  "controls_healthy": true,
+  "duration_seconds": 55.642,
+  "encoded_locator_absent": true,
+  "executable_sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+  "frozen_files_sha256": {
+    "CheckBossUnitFormat.py": "fe062a05303a4f8148d913a5afbd5df197405b4caba4ef71c4e0d40c602c3655",
+    "ComposeExactSketchPresentation.py": "71bc5b5839b3a6ae614aff7ed733402c646bee78b46c836ca8c10c4b5334833a",
+    "FrozenUnitProof.json": "f5d24ce9695d4ef89d17afadbfe1b4aa2a6e087794636b3ac153c93d9f1a851c"
+  },
+  "generated_archive_sha256": {
+    "four_place": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29",
+    "two_place": "320bfb382e77dbb3296da19dd0478fdf939cdcefd271e25908a460b322f26026"
+  },
+  "helper_bytes": {
+    "ObserveEncoderRoundTrip": {
+      "repository_path": "re/tooling/sw2026/ObserveEncoderRoundTrip.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3"
+    },
+    "ObserveVendorBossCorpus": {
+      "repository_path": "re/tooling/sw2026/ObserveVendorBossCorpus.py",
+      "revision": "1240bdac99957a42d9b61ed506fa8a7600813022",
+      "sha256": "695f1fda489a95b49ec195101a0fea36e4e3aff93164f55e54bcddff7a9eae45"
+    },
+    "ObserveVendorBossPlaneVisibility": {
+      "repository_path": "re/tooling/sw2026/ObserveVendorBossPlaneVisibility.py",
+      "revision": "1240bdac99957a42d9b61ed506fa8a7600813022",
+      "sha256": "75d9e645818c9b44c4c0cf63507042c6f7deaff2a0c93f8c636a674092926f1a"
+    },
+    "ObserveVendorBossPresentation": {
+      "repository_path": "re/tooling/sw2026/ObserveVendorBossPresentation.py",
+      "revision": "1240bdac99957a42d9b61ed506fa8a7600813022",
+      "sha256": "c6b849e67cf76ceccae0de7ca3889f16fa6ea2b42a73019a269d6132c78b44f9"
+    },
+    "PriorExactSketchObserver": {
+      "sha256": "8eeed8683f58c387df900ea5148cb4e14af145809f3484efa871f2053a0969af"
+    },
+    "SolidWorksAvailability": {
+      "repository_path": "re/automation/ApplicationWorkers/SolidWorksAvailability.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "1e58d7a78d3dbde8c34d1598688f831dd9eee288a4612b5c774434f8f3249507"
+    },
+    "WindowsIdentity": {
+      "repository_path": "re/automation/ApplicationWorkers/WindowsIdentity.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "7650dd6453d36b679c5dc059c7ac8c29eac2a40565933cf4e9dc8c34d04997e0"
+    },
+    "WindowsProcessExit": {
+      "repository_path": "re/automation/ApplicationWorkers/WindowsProcessExit.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "b634d8ffaef80bc4b485fa797c03b2a0ac51d59df624e68e520c9b940301e0c7"
+    }
+  },
+  "helper_maps_sha256": {
+    "After": "f389f45d375f28d003c05f42f345b27d78d25c77b1f59a7a6066b255e296c3b2",
+    "Before": "f389f45d375f28d003c05f42f345b27d78d25c77b1f59a7a6066b255e296c3b2"
+  },
+  "immutable_inputs_unchanged": true,
+  "independent_author04_stock_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+  "independent_source_author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+  "independent_source_authoring_template_sha256": "e338c3a1de8734934e78c3fa1558833330ee54cec13fc38f9d8f0f460e97954a",
+  "installed_document_integer_selectors": {
+    "swUnitSystem": 263,
+    "swUnitsAngular": 51,
+    "swUnitsAngularDecimalPlaces": 52,
+    "swUnitsDecimalRounding": 522,
+    "swUnitsDualLinear": 254,
+    "swUnitsDualLinearDecimalDisplay": 255,
+    "swUnitsDualLinearDecimalPlaces": 256,
+    "swUnitsDualLinearFractionDenominator": 257,
+    "swUnitsEnergyDecimalPlaces": 334,
+    "swUnitsEnergyUnits": 333,
+    "swUnitsForce": 262,
+    "swUnitsForceDecimalPlaces": 332,
+    "swUnitsLinear": 47,
+    "swUnitsLinearDecimalDisplay": 48,
+    "swUnitsLinearDecimalPlaces": 49,
+    "swUnitsLinearFractionDenominator": 50,
+    "swUnitsMassPropDecimalPlaces": 261,
+    "swUnitsMassPropLength": 258,
+    "swUnitsMassPropMass": 259,
+    "swUnitsMassPropVolume": 260,
+    "swUnitsPowerDecimalPlaces": 336,
+    "swUnitsPowerUnits": 335,
+    "swUnitsTimeDecimalPlaces": 338,
+    "swUnitsTimeUnits": 337
+  },
+  "installed_document_option_no_option": 0,
+  "installed_enum_record_sha256": "57177ae69b9d52706e055142465079a79f1533e0dd063b321be083f6e6b1acc0",
+  "interop_swconst_sha256": "b15e28ed5b2e8332d409ca79635f933a60e8cc0d9bd5ec980e2a2301220e7741",
+  "native_terminal_sha256": "bdac92bfae2dd6e6726dba3da2fab48f80dda7846b9d50fb445312ed72730bfc",
+  "no_native_process_left": true,
+  "offline_proof_sha256": "f5d24ce9695d4ef89d17afadbfe1b4aa2a6e087794636b3ac153c93d9f1a851c",
+  "phases": {
+    "FourPlace": {
+      "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+      "input_sha256": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29",
+      "input_unchanged": true,
+      "normal_exit": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuild_succeeded": true,
+      "record_sha256": "c433b6dc0d40ace61b0dbfa7327951f4a883e737312d138b4b4560bfa8d5818c",
+      "request_sha256": "19a69e514345360c2ba33a02987450ab9c8b8434919ff8d57d34b86b8cb304c5",
+      "seconds": 12.623,
+      "state_sha256s": {
+        "initial": "1c26773b12940ec41fa8d919973365c15183a91d8687a9ee5bb73d41f156084b",
+        "rebuilt": "1c26773b12940ec41fa8d919973365c15183a91d8687a9ee5bb73d41f156084b"
+      }
+    },
+    "StockAfter": {
+      "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+      "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "input_unchanged": true,
+      "normal_exit": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuild_succeeded": true,
+      "record_sha256": "a9367ef180c655fae9ec43c0b651ed85110c5604d2301a91bdb07a8266a12d14",
+      "request_sha256": "6e815b955e3bfa2046a3ad52cf156744a614e7f9c853c027bacfcab7969cf163",
+      "seconds": 13.543,
+      "state_sha256s": {
+        "initial": "f6127c7f3a389d290fd529dec344f9bc67aa6f6e9a833717c8bcd5f02bc8e347",
+        "rebuilt": "eafa82ae66317c5136f0c5cf781f30e13e8142b3e4c944cf8eedc872736c2e8f"
+      }
+    },
+    "StockBefore": {
+      "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+      "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "input_unchanged": true,
+      "normal_exit": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuild_succeeded": true,
+      "record_sha256": "a5c261ecf7dd5ffa60e7627619bfcffbadebd38c515a0833af1f03c75f649538",
+      "request_sha256": "b67f6f489d53105bd726562fa508af59b5df66c8d1b402c6497bad45a5563469",
+      "seconds": 11.691,
+      "state_sha256s": {
+        "initial": "f6127c7f3a389d290fd529dec344f9bc67aa6f6e9a833717c8bcd5f02bc8e347",
+        "rebuilt": "f6127c7f3a389d290fd529dec344f9bc67aa6f6e9a833717c8bcd5f02bc8e347"
+      }
+    },
+    "TwoPlace": {
+      "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+      "input_sha256": "320bfb382e77dbb3296da19dd0478fdf939cdcefd271e25908a460b322f26026",
+      "input_unchanged": true,
+      "normal_exit": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuild_succeeded": true,
+      "record_sha256": "a0bc5c7a586d06ebecb61430406476d49f0e3a059c7d83b506df3bc1cdb8b024",
+      "request_sha256": "d806dc3d17bbe4a0ec0adffce2d836f349d0572066c04651760ea4d0bfbcca65",
+      "seconds": 14.609,
+      "state_sha256s": {
+        "initial": "d9b180222d251eb0a63b75489e089d59976716f80da3d1404f40ac9aefe80cbb",
+        "rebuilt": "4b1855dd78964e3b21a7730e0fcdff5c4e6c7a27d817ad3edd7a5885c0bbca7d"
+      }
+    }
+  },
+  "phases_in_order": [
+    "StockBefore",
+    "FourPlace",
+    "TwoPlace",
+    "StockAfter"
+  ],
+  "private_archive_bytes": 116124,
+  "private_archive_member_map_sha256": "6ceb8e763d8efeb3f11e973e542fec33d953ce2ac393cf82e61116a803e740a4",
+  "private_archive_members": 41,
+  "private_archive_sha256": "be9d673d0c6f93f6e5673193736d43b7e474f2f6dc1664c48fe10daf160d3481",
+  "qualified_lifetimes": 4,
+  "revision": "028077b4d0c99301d8718dd7c7ae1028fcf3ba51",
+  "runner_sha256": "6629e176124ef1c02998471c615f3e872ef787eee460d5fad4ab2f30c15ad66e",
+  "schema": "kit.sw2026.boss-unit-precision-native-companion.v1",
+  "scope": "Exact existing all-row precision variants, fresh SP04.1 read-only measurements and matching authored control. Native results cover this pair. No document-setting writer experiment, full formatting/source-family qualification or public publication.",
+  "state_values_by_sha256": {
+    "1c26773b12940ec41fa8d919973365c15183a91d8687a9ee5bb73d41f156084b": {
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "mass_kg": 7.584300000000001e-06,
+      "unit_preference_api": {
+        "swUnitSystem": 5,
+        "swUnitsAngular": 0,
+        "swUnitsAngularDecimalPlaces": 4,
+        "swUnitsDecimalRounding": 0,
+        "swUnitsDualLinear": 3,
+        "swUnitsDualLinearDecimalDisplay": 1,
+        "swUnitsDualLinearDecimalPlaces": 2,
+        "swUnitsDualLinearFractionDenominator": 2,
+        "swUnitsEnergyDecimalPlaces": 4,
+        "swUnitsEnergyUnits": 1,
+        "swUnitsForce": 3,
+        "swUnitsForceDecimalPlaces": 4,
+        "swUnitsLinear": 0,
+        "swUnitsLinearDecimalDisplay": 1,
+        "swUnitsLinearDecimalPlaces": 4,
+        "swUnitsLinearFractionDenominator": 1,
+        "swUnitsMassPropDecimalPlaces": 4,
+        "swUnitsMassPropLength": 0,
+        "swUnitsMassPropMass": 2,
+        "swUnitsMassPropVolume": 4,
+        "swUnitsPowerDecimalPlaces": 4,
+        "swUnitsPowerUnits": 1,
+        "swUnitsTimeDecimalPlaces": 4,
+        "swUnitsTimeUnits": 1
+      },
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    },
+    "4b1855dd78964e3b21a7730e0fcdff5c4e6c7a27d817ad3edd7a5885c0bbca7d": {
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.003812578616352201,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "mass_kg": 7.5843e-06,
+      "unit_preference_api": {
+        "swUnitSystem": 5,
+        "swUnitsAngular": 0,
+        "swUnitsAngularDecimalPlaces": 2,
+        "swUnitsDecimalRounding": 0,
+        "swUnitsDualLinear": 3,
+        "swUnitsDualLinearDecimalDisplay": 1,
+        "swUnitsDualLinearDecimalPlaces": 2,
+        "swUnitsDualLinearFractionDenominator": 2,
+        "swUnitsEnergyDecimalPlaces": 2,
+        "swUnitsEnergyUnits": 1,
+        "swUnitsForce": 3,
+        "swUnitsForceDecimalPlaces": 2,
+        "swUnitsLinear": 0,
+        "swUnitsLinearDecimalDisplay": 1,
+        "swUnitsLinearDecimalPlaces": 2,
+        "swUnitsLinearFractionDenominator": 1,
+        "swUnitsMassPropDecimalPlaces": 2,
+        "swUnitsMassPropLength": 0,
+        "swUnitsMassPropMass": 2,
+        "swUnitsMassPropVolume": 4,
+        "swUnitsPowerDecimalPlaces": 2,
+        "swUnitsPowerUnits": 1,
+        "swUnitsTimeDecimalPlaces": 2,
+        "swUnitsTimeUnits": 1
+      },
+      "units_api": [
+        0,
+        1,
+        1,
+        2,
+        0
+      ],
+      "volume_m3": 7.5843e-06
+    },
+    "d9b180222d251eb0a63b75489e089d59976716f80da3d1404f40ac9aefe80cbb": {
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "mass_kg": 7.584300000000001e-06,
+      "unit_preference_api": {
+        "swUnitSystem": 5,
+        "swUnitsAngular": 0,
+        "swUnitsAngularDecimalPlaces": 2,
+        "swUnitsDecimalRounding": 0,
+        "swUnitsDualLinear": 3,
+        "swUnitsDualLinearDecimalDisplay": 1,
+        "swUnitsDualLinearDecimalPlaces": 2,
+        "swUnitsDualLinearFractionDenominator": 2,
+        "swUnitsEnergyDecimalPlaces": 2,
+        "swUnitsEnergyUnits": 1,
+        "swUnitsForce": 3,
+        "swUnitsForceDecimalPlaces": 2,
+        "swUnitsLinear": 0,
+        "swUnitsLinearDecimalDisplay": 1,
+        "swUnitsLinearDecimalPlaces": 2,
+        "swUnitsLinearFractionDenominator": 1,
+        "swUnitsMassPropDecimalPlaces": 2,
+        "swUnitsMassPropLength": 0,
+        "swUnitsMassPropMass": 2,
+        "swUnitsMassPropVolume": 4,
+        "swUnitsPowerDecimalPlaces": 2,
+        "swUnitsPowerUnits": 1,
+        "swUnitsTimeDecimalPlaces": 2,
+        "swUnitsTimeUnits": 1
+      },
+      "units_api": [
+        0,
+        1,
+        1,
+        2,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    },
+    "eafa82ae66317c5136f0c5cf781f30e13e8142b3e4c944cf8eedc872736c2e8f": {
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.003812578616352201,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "mass_kg": 7.5843e-06,
+      "unit_preference_api": {
+        "swUnitSystem": 5,
+        "swUnitsAngular": 0,
+        "swUnitsAngularDecimalPlaces": 2,
+        "swUnitsDecimalRounding": 0,
+        "swUnitsDualLinear": 3,
+        "swUnitsDualLinearDecimalDisplay": 1,
+        "swUnitsDualLinearDecimalPlaces": 2,
+        "swUnitsDualLinearFractionDenominator": 2,
+        "swUnitsEnergyDecimalPlaces": 2,
+        "swUnitsEnergyUnits": 1,
+        "swUnitsForce": 3,
+        "swUnitsForceDecimalPlaces": 2,
+        "swUnitsLinear": 0,
+        "swUnitsLinearDecimalDisplay": 1,
+        "swUnitsLinearDecimalPlaces": 2,
+        "swUnitsLinearFractionDenominator": 8,
+        "swUnitsMassPropDecimalPlaces": 2,
+        "swUnitsMassPropLength": 0,
+        "swUnitsMassPropMass": 2,
+        "swUnitsMassPropVolume": 4,
+        "swUnitsPowerDecimalPlaces": 2,
+        "swUnitsPowerUnits": 1,
+        "swUnitsTimeDecimalPlaces": 2,
+        "swUnitsTimeUnits": 1
+      },
+      "units_api": [
+        0,
+        1,
+        8,
+        2,
+        0
+      ],
+      "volume_m3": 7.5843e-06
+    },
+    "f6127c7f3a389d290fd529dec344f9bc67aa6f6e9a833717c8bcd5f02bc8e347": {
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "mass_kg": 7.584300000000001e-06,
+      "unit_preference_api": {
+        "swUnitSystem": 5,
+        "swUnitsAngular": 0,
+        "swUnitsAngularDecimalPlaces": 2,
+        "swUnitsDecimalRounding": 0,
+        "swUnitsDualLinear": 3,
+        "swUnitsDualLinearDecimalDisplay": 1,
+        "swUnitsDualLinearDecimalPlaces": 2,
+        "swUnitsDualLinearFractionDenominator": 2,
+        "swUnitsEnergyDecimalPlaces": 2,
+        "swUnitsEnergyUnits": 1,
+        "swUnitsForce": 3,
+        "swUnitsForceDecimalPlaces": 2,
+        "swUnitsLinear": 0,
+        "swUnitsLinearDecimalDisplay": 1,
+        "swUnitsLinearDecimalPlaces": 2,
+        "swUnitsLinearFractionDenominator": 8,
+        "swUnitsMassPropDecimalPlaces": 2,
+        "swUnitsMassPropLength": 0,
+        "swUnitsMassPropMass": 2,
+        "swUnitsMassPropVolume": 4,
+        "swUnitsPowerDecimalPlaces": 2,
+        "swUnitsPowerUnits": 1,
+        "swUnitsTimeDecimalPlaces": 2,
+        "swUnitsTimeUnits": 1
+      },
+      "units_api": [
+        0,
+        1,
+        8,
+        2,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    }
+  },
+  "strict_chronology_no_overlap": true,
+  "unified_neutral_request_sha256": "cdefa9be027d8257c0f5b08cf722efff746f38960b86e5e73eac2e63bf7d1ac4"
+}
