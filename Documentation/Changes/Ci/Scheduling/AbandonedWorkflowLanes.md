@@ -7,7 +7,7 @@ Delivery: this PR. Exit: current-head CI and configured approval, then separatel
 ## Behavior
 
 The cleanup enumerates repository merge-group runs instead of only `MergeQueue.yml` runs.
-Cancellation remains limited to `MergeQueue.yml` and `WorkflowQuality.yml`.
+Cancellation remains limited to `MergeQueue.yml`, `PullRequest.yml`, and `WorkflowQuality.yml`.
 Every run still needs matching repository identities, an eligible synthetic branch name, an unfinished status, and a valid SHA.
 The SHA must be absent from the complete active queue inventory.
 The synthetic branch must return HTTP 404, and the current PR queue entry must be absent or reference another candidate.
