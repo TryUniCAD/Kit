@@ -25,7 +25,7 @@ The constructor's shared point slots represent the four inferred corner joins. T
 
 The source-bound writer input does not establish whole-source preservation, native edit and save/reopen, a public conversion route, or independent held-out generalization. `vendor_loadable` and `application_usable` remain false until independently measured.
 
-See [unbound body display label](../../../Gotchas/Research/Readers/UnboundBodyDisplayLabel.md).
+See [unbound body display label](../../../Gotchas/Research/Readers/ConstrainedBoss/UnboundBodyDisplayLabel.md).
 
 ## Verification
 
