@@ -271,6 +271,7 @@ jobs:
           if ! uv run --no-sync --python 3.14 python -m pytest --collect-only -q -p no:cacheprovider \
             tests/CliResearch/BridgeRejectTests.py \
             tests/CliResearch/Comparison \
+            tests/CliResearch/EncoderRoundTrip \
             tests/CliResearch/SwReaderTests.py \
             tests/CliResearch/EncodedReaderTests.py \
             tests/CliResearch/LegacyReaderTests.py \
