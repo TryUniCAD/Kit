@@ -75,4 +75,4 @@ def RunFixture(Bootstrap: FilePath, DoneFlag: FilePath) -> None:
 
 
 if __name__ == "__main__":
-    RunFixture(FilePath(System.argv[1]), FilePath(System.argv[2]))
+    RunFixture(FilePath.cwd() / "KitCaptureRunner.py", FilePath.cwd() / "StopFixture")

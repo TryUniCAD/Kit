@@ -1,0 +1,118 @@
+{
+  "application": "fusion",
+  "cases": [
+    {
+      "edits": [
+        {
+          "comparison_count": 27,
+          "full_semantics_verified": true,
+          "geometry_changed": true,
+          "measurement_status": "passed",
+          "nonpassing_comparisons": [],
+          "parameter": "width_mm",
+          "reopened_pid": 13256,
+          "restored": true,
+          "saved_sha256": "af0b2a987eb330a0b24101109a9b6e9bfd3f016e573cf553240aab054d054c3e",
+          "status": "passed"
+        },
+        {
+          "comparison_count": 27,
+          "full_semantics_verified": true,
+          "geometry_changed": true,
+          "measurement_status": "passed",
+          "nonpassing_comparisons": [],
+          "parameter": "height_mm",
+          "reopened_pid": 34956,
+          "restored": true,
+          "saved_sha256": "128863bfab8d3a8ad7c3e8eb86a8bd59356767b5c8791e486f23750eb5ea57b3",
+          "status": "passed"
+        },
+        {
+          "comparison_count": 27,
+          "full_semantics_verified": true,
+          "geometry_changed": true,
+          "measurement_status": "passed",
+          "nonpassing_comparisons": [],
+          "parameter": "depth_mm",
+          "reopened_pid": 43960,
+          "restored": true,
+          "saved_sha256": "e06b3650ff0214eac942172b9641e55797e71d7f98f32851489d9e570d118dfc",
+          "status": "passed"
+        },
+        {
+          "comparison_count": 27,
+          "full_semantics_verified": true,
+          "geometry_changed": true,
+          "measurement_status": "passed",
+          "nonpassing_comparisons": [],
+          "parameter": "d4",
+          "reopened_pid": 15344,
+          "restored": true,
+          "saved_sha256": "43c8015281fb75bccaea6c9414d6ef2c560f1393653127fc27585eacc911eee1",
+          "status": "passed"
+        }
+      ],
+      "full_semantics_verified": true,
+      "measurement_status": "passed",
+      "neutral_sha256": "80415a488d2ad05e0c9cf06d497398f0594347a1611c54b0b99d0cde4c03d23a",
+      "semantic_gap_count": 0,
+      "source_sha256": "9f109b98ab7d36abeda8d9f88f9b336277238ce0bb3336d99313253ad47b2745",
+      "status": "passed"
+    }
+  ],
+  "controls": {
+    "after": {
+      "bodies": [
+        {
+          "center_mm": [
+            20.0,
+            10.0,
+            5.0
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 8000.0
+        }
+      ],
+      "build": "2706.1.17",
+      "documents_after": 0,
+      "pid": 27088,
+      "source_sha256": "9f109b98ab7d36abeda8d9f88f9b336277238ce0bb3336d99313253ad47b2745",
+      "status": "measured"
+    },
+    "before": {
+      "bodies": [
+        {
+          "center_mm": [
+            20.0,
+            10.0,
+            5.0
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_mm3": 8000.0
+        }
+      ],
+      "build": "2706.1.17",
+      "documents_after": 0,
+      "pid": 33608,
+      "source_sha256": "9f109b98ab7d36abeda8d9f88f9b336277238ce0bb3336d99313253ad47b2745",
+      "status": "measured"
+    }
+  },
+  "controls_healthy": true,
+  "conversion_qualified": false,
+  "full_semantics_verified": true,
+  "live_batch_verified": true,
+  "measurement_status": "passed",
+  "portable_complete": false,
+  "schema": 2,
+  "scope": "native source reader verification with healthy before and after controls",
+  "sdk_sources_sha256": "cc72d10b4fea342a51effde0332ed7ada916d098905478acd5a7b962e166ef77",
+  "source_inventory_sha256": "ab2fb0d2721ee02f220ea6ccd5d1f4f52848be7864aeed7a64f0102e8a640c8c",
+  "source_revision": "bd16f35d5a8e5c9440c62f8c4809265ec60dd130",
+  "sources_unchanged": true,
+  "status": "passed"
+}

@@ -1,0 +1,1133 @@
+{
+  "scope": "API-authored circular extrusion decoding evidence, not conversion acceptance",
+  "application_version": "2706.1.17",
+  "units": {
+    "length": "cm",
+    "volume": "cm3",
+    "area": "cm2"
+  },
+  "samples": [
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyBefore.f3d",
+      "sha256": "5f42a3244b155a19f4c9139d57b15a442958c68646ebec376fb642310bf3280c",
+      "name": "HealthyBefore",
+      "group": "Original",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 52.0,
+            "edges": 12,
+            "faces": 6,
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertices": 8,
+            "volume_cm3": 24.0
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "20 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscSymmetric.f3d",
+      "sha256": "6a8b62f1be608491ab806ce244d05cf42ecfff368050f070f26be13177fabccd",
+      "name": "DiscSymmetric",
+      "group": "Original",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 18.84955592153876,
+            "edges": 2,
+            "faces": 3,
+            "max_cm": [
+              3.0,
+              2.5,
+              1.0
+            ],
+            "min_cm": [
+              1.0,
+              0.5,
+              -1.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              1
+            ],
+            "vertices": 2,
+            "volume_cm3": 6.283185307179318
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "20 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc extrude"
+          }
+        ]
+      },
+      "side_mode": "symmetric_full"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscTwoSided.f3d",
+      "sha256": "2c4f2c65e5d664bff10db3f7b841eba3075c4f3620ba8b68784914e443d8bce1",
+      "name": "DiscTwoSided",
+      "group": "Original",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 21.991148575128552,
+            "edges": 2,
+            "faces": 3,
+            "max_cm": [
+              3.0,
+              2.5,
+              2.0
+            ],
+            "min_cm": [
+              1.0,
+              0.5,
+              -0.5
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              1
+            ],
+            "vertices": 2,
+            "volume_cm3": 7.853981633974148
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "20 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          },
+          {
+            "expression": "5 mm",
+            "name": "d3",
+            "role": "AgainstDistance",
+            "unit": "mm",
+            "value": 0.5
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d4",
+            "role": "Side2TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc extrude"
+          }
+        ]
+      },
+      "side_mode": "two_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscFlip.f3d",
+      "sha256": "c00cb518a622646f9bf1ce659b1ba5ef0a70b94f757feab9eb638d65012a418b",
+      "name": "DiscFlip",
+      "group": "Original",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 18.84955592153876,
+            "edges": 2,
+            "faces": 3,
+            "max_cm": [
+              3.0,
+              2.5,
+              0.0
+            ],
+            "min_cm": [
+              1.0,
+              0.5,
+              -2.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              1
+            ],
+            "vertices": 2,
+            "volume_cm3": 6.283185307179318
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "-( 20 mm )",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": -2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyAfter.f3d",
+      "sha256": "fc7535cd906a7017ada4b1b9493106bebab4c57b071b6f644a2be3de71d73bf8",
+      "name": "HealthyAfter",
+      "group": "Original",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 52.0,
+            "edges": 12,
+            "faces": 6,
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertices": 8,
+            "volume_cm3": 24.0
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "20 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyBefore.f3d",
+      "sha256": "76d8aab9daedad4b51e90abb4fd8a6d42af48c87e6a36a08d1a6233e4671337c",
+      "name": "HealthyBefore",
+      "group": "HeldOut",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 67.4,
+            "edges": 12,
+            "faces": 6,
+            "max_cm": [
+              4.0,
+              3.0,
+              3.1
+            ],
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertices": 8,
+            "volume_cm3": 37.2
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "31 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 3.1
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscSymmetric.f3d",
+      "sha256": "a1284ae38787691a17f1380ba8ccd9179408413ec1803bb828edaad0190e0273",
+      "name": "DiscSymmetric",
+      "group": "HeldOut",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 16.713272917097697,
+            "edges": 2,
+            "faces": 3,
+            "max_cm": [
+              2.0,
+              0.0,
+              1.55
+            ],
+            "min_cm": [
+              0.6000000000000001,
+              -1.4,
+              -1.55
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              1
+            ],
+            "vertices": 2,
+            "volume_cm3": 4.7720792408026895
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "31 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 3.1
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc extrude"
+          }
+        ]
+      },
+      "side_mode": "symmetric_full"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscTwoSided.f3d",
+      "sha256": "ec048ee1af28a24850cfc67b615dbebdd621cba992be88d3fde307b51f15f7ac",
+      "name": "DiscTwoSided",
+      "group": "HeldOut",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 20.671679660620836,
+            "edges": 2,
+            "faces": 3,
+            "max_cm": [
+              2.0,
+              0.0,
+              3.1
+            ],
+            "min_cm": [
+              0.6000000000000001,
+              -1.4,
+              -0.9
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              1
+            ],
+            "vertices": 2,
+            "volume_cm3": 6.157521601035729
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "31 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 3.1
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          },
+          {
+            "expression": "9 mm",
+            "name": "d3",
+            "role": "AgainstDistance",
+            "unit": "mm",
+            "value": 0.9
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d4",
+            "role": "Side2TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc extrude"
+          }
+        ]
+      },
+      "side_mode": "two_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscFlip.f3d",
+      "sha256": "da42534361b137723b75e6d010d2c23a384bc5edd0ac1531401dc2ff908634aa",
+      "name": "DiscFlip",
+      "group": "HeldOut",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 16.713272917097697,
+            "edges": 2,
+            "faces": 3,
+            "max_cm": [
+              2.0,
+              0.0,
+              0.0
+            ],
+            "min_cm": [
+              0.6000000000000001,
+              -1.4,
+              -3.1
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              1
+            ],
+            "vertices": 2,
+            "volume_cm3": 4.7720792408026895
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "-( 31 mm )",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": -3.1
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyAfter.f3d",
+      "sha256": "be8856d90b4c88ef152ec82b01523fa6328133a69bb74d3058c1b77cd5184a48",
+      "name": "HealthyAfter",
+      "group": "HeldOut",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 67.4,
+            "edges": 12,
+            "faces": 6,
+            "max_cm": [
+              4.0,
+              3.0,
+              3.1
+            ],
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertices": 8,
+            "volume_cm3": 37.2
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "31 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 3.1
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyBefore.f3d",
+      "sha256": "320496c0c575840fb70b2f0bf6b00a1f57d38b8c3d5444374f6cc756facc7e6e",
+      "name": "HealthyBefore",
+      "group": "Half",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 52.0,
+            "edges": 12,
+            "faces": 6,
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertices": 8,
+            "volume_cm3": 24.0
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "20 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/DiscHalf.f3d",
+      "sha256": "706ee7d995e5bee9bfb82ec8427466faf8b2d6510e5b718129081d67ea31ca43",
+      "name": "DiscHalf",
+      "group": "Half",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 31.41592653589793,
+            "edges": 2,
+            "faces": 3,
+            "max_cm": [
+              3.0,
+              2.5,
+              2.0
+            ],
+            "min_cm": [
+              1.0,
+              0.5,
+              -2.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              1
+            ],
+            "vertices": 2,
+            "volume_cm3": 12.566370614358636
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "20 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Disc extrude"
+          }
+        ]
+      },
+      "side_mode": "symmetric_half"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyAfter.f3d",
+      "sha256": "2379abd9d2960d7c49d824240165b5062a69920e6e94185ed650ddee0a12e516",
+      "name": "HealthyAfter",
+      "group": "Half",
+      "observed": {
+        "bodies": [
+          {
+            "area_cm2": 52.0,
+            "edges": 12,
+            "faces": 6,
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "name": "Body1",
+            "solid": true,
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertices": 8,
+            "volume_cm3": 24.0
+          }
+        ],
+        "parameters": [
+          {
+            "expression": "20 mm",
+            "name": "d1",
+            "role": "AlongDistance",
+            "unit": "mm",
+            "value": 2.0
+          },
+          {
+            "expression": "0.0 deg",
+            "name": "d2",
+            "role": "TaperAngle",
+            "unit": "deg",
+            "value": 0.0
+          }
+        ],
+        "profiles": [
+          1
+        ],
+        "timeline": [
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base sketch"
+          },
+          {
+            "health": 0,
+            "message": "",
+            "name": "Base extrude"
+          }
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyBefore.f3d",
+      "sha256": "b3cbc4d798ae5812698ee46f87f1a67832ad899a41f0a9829510b46087ed5266",
+      "name": "HealthyBefore",
+      "group": "Rounding",
+      "observed": {
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base extrude",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_cm3": 24.0,
+            "area_cm2": 52.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "profiles": [
+          1
+        ]
+      },
+      "side_mode": "one_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/DiscTwoSided.f3d",
+      "sha256": "df2872e467e2f9d2adfb665ca1bb0fcaeba8a7b8afb2a8ff80a418c9e7a359ba",
+      "name": "DiscTwoSided",
+      "group": "Rounding",
+      "observed": {
+        "timeline": [
+          {
+            "name": "Disc sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Disc extrude",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "15 mm",
+            "value": 1.5,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "8 mm",
+            "value": 0.8,
+            "unit": "mm",
+            "role": "AgainstDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "Side2TaperAngle"
+          }
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_cm3": 7.225663103256215,
+            "area_cm2": 20.734511513692635,
+            "faces": 3,
+            "edges": 2,
+            "vertices": 2,
+            "min_cm": [
+              1.0,
+              0.5,
+              -0.8
+            ],
+            "max_cm": [
+              3.0,
+              2.5,
+              1.4999999999999998
+            ],
+            "surface_types": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "profiles": [
+          1
+        ]
+      },
+      "side_mode": "two_sided"
+    },
+    {
+      "file": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyAfter.f3d",
+      "sha256": "1a0d3ad644fafd278cce0f86f52e06c25bfa4f5f73d32e991de4e04b0aae794b",
+      "name": "HealthyAfter",
+      "group": "Rounding",
+      "observed": {
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base extrude",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_cm3": 24.0,
+            "area_cm2": 52.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "surface_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "profiles": [
+          1
+        ]
+      },
+      "side_mode": "one_sided"
+    }
+  ]
+}

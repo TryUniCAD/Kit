@@ -11,27 +11,26 @@ Read the linked PR and its current head before claiming a task.
 
 ## Current position
 
-This snapshot describes main `e04e7b78699d3f567409937007b00b567620078a`, inspected on 2026-11-15.
+This snapshot describes main `14570404846c8aa1f90b02e68d6f70a419719ca7`, inspected on 2026-11-23.
 Open PR work is listed separately in the backlog.
 The previous 22/100 estimate is retired because it counted historical capabilities that no longer describe the production adapter.
 No replacement percentage is claimed without a complete acceptance matrix.
 
-| Family                  | Production position at this revision                                                                       | Remaining product requirement                                                                       |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| SOLIDWORKS              | Part and assembly reader. The recorded-payload writer was removed.                                         | Generative native output, broader semantic reads and qualified editable routes.                     |
-| Fusion                  | Public reader and writer for qualified parameter, circle, rectangle, cylinder, cuboid and frustum graphs.  | General portable feature graphs, broader schemas, configurations and qualified cross-format routes. |
-| FreeCAD                 | Archive reader and writer with geometry, feature and assembly paths.                                       | Per-version semantic coverage and measured acceptance for each claimed conversion direction.        |
-| CATIA V5                | Part/product adapter with bounded native interpretation and preservation paths.                            | Complete geometry, parametric history and independently measured native conversion.                 |
-| NX                      | No production adapter on this main revision. PR #115 adds native research and adapter work.                | Qualified semantic reads and independent editable writing.                                          |
-| Creo                    | No production adapter on this main revision. PR #117 adds PSB research and adapter work.                   | Qualified semantic reads and independent editable writing.                                          |
-| Rhino                   | No production adapter on this main revision.                                                               | Format/version contract, reader, writer and target acceptance.                                      |
-| AutoCAD                 | No standalone production adapter on this main revision. Fusion drawing codecs are a separate bounded path. | Format/version contract, neutral drawing model and qualified standalone routes.                     |
-| Parashell               | No separate public format contract or adapter on this main revision.                                       | Define its format identity and relationship to FreeCAD, then qualify its routes.                    |
-| Kit JSON and shared SDK | Neutral model, serialization, discovery, conversion API, CLI and packaging exist.                          | Complete route evidence, operational hardening, user evaluation and release qualification.          |
+| Family                  | Production position at this revision                                                                                                      | Remaining product requirement                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| SOLIDWORKS              | Part and assembly reader. The bounded part writer supports a Front-plane line-loop blind boss with matching offline measurement evidence. | Broader generative writing, semantic reads and qualified editable routes.                           |
+| Fusion                  | Public reader and writer for qualified parameter, circle, rectangle, cylinder, cuboid and frustum graphs.                                 | General portable feature graphs, broader schemas, configurations and qualified cross-format routes. |
+| FreeCAD                 | Archive reader and writer with geometry, feature and assembly paths.                                                                      | Per-version semantic coverage and measured acceptance for each claimed conversion direction.        |
+| CATIA V5                | Part/product adapter with bounded native interpretation and preservation paths.                                                           | Complete geometry, parametric history and independently measured native conversion.                 |
+| NX                      | No production adapter on this main revision. PR #115 adds native research and adapter work.                                               | Qualified semantic reads and independent editable writing.                                          |
+| Creo                    | No production adapter on this main revision. PR #117 adds PSB research and adapter work.                                                  | Qualified semantic reads and independent editable writing.                                          |
+| Rhino                   | No production adapter on this main revision.                                                                                              | Format/version contract, reader, writer and target acceptance.                                      |
+| AutoCAD                 | No standalone production adapter on this main revision. Fusion drawing codecs are a separate bounded path.                                | Format/version contract, neutral drawing model and qualified standalone routes.                     |
+| Kit JSON and shared SDK | Neutral model, serialization, discovery, conversion API, CLI and packaging exist.                                                         | Complete route evidence, operational hardening, user evaluation and release qualification.          |
 
 Registration, same-format reconstruction and retained native bytes do not establish cross-format editability.
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
-The [SOLIDWORKS guide](Documentation/Reference/Adapters/Solidworks.md) documents the production write restriction.
+The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md) define the writer's supported geometry and measurement gate.
 
 ## Destination
 
@@ -57,7 +56,7 @@ Choosing that matrix is backlog task B01, not permission to discard required sou
 | Milestone                                 | Work and dependencies                                                                                                | Evidence required to finish                                                                                                               |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | M0: establish the baseline                | B01 records file types, versions, features, fixtures and directional routes. Maintain this roadmap and PR ownership. | Every family and intended route has a supported, unsupported or unverified entry with evidence and an owner.                              |
-| M1: qualify the first paired designs      | B02 qualifies the paired designs using independent source evidence on PR #158.                                          | Qualified initial sketches, bosses and cuts preserve every required relation. Reserved holdouts remain independent.                       |
+| M1: qualify the first paired designs      | B02 qualifies the paired designs using independent source evidence on PR #158.                                       | Qualified initial sketches, bosses and cuts preserve every required relation. Reserved holdouts remain independent.                       |
 | M2: deliver the first editable conversion | B03–B05 compare graphs, prove field rules, build portable writers and validate both directions.                      | SOLIDWORKS → neutral → Fusion and Fusion → neutral → SOLIDWORKS pass the public SDK and all applicable CAD criteria.                      |
 | M3: cover ordinary part histories         | B06 expands sketches, references, operations, geometry and historical schemas. Integrate B08's existing format work. | Each feature/version extension has held-out, editable target acceptance. No required native semantics remain opaque on a supported route. |
 | M4: cover complete documents              | B07 adds assemblies, mates, configurations, external references and drawings.                                        | Component resolution, placements, constraints, variants, dimensions and model links survive conversion and edits.                         |
@@ -74,6 +73,8 @@ Label each release with its actual supported matrix and remaining roadmap gaps.
 
 Continue **B02** using the [step register on PR #158](https://github.com/TryUniCAD/Kit/blob/8509332301a665bf0e618f00089e185c8c3c7cd3/Documentation/Reference/Research/AutomationSteps.md).
 PR #94 reported native Fusion observations for P01–P04.
+The bounded [rim-fillet snapshot transport repair](Documentation/Changes/Fusion/Serialization/FusionNarrowSnapshotTransport.md) has typed/native evidence on PR #301; neutral fillet projection and editable cross-format conversion remain unfinished.
+
 Check those observations against the pinned source captures before accepting them as independent evidence for A02d.
 Use the accepted evidence to qualify the sketches, bosses and cuts in A04c and A05c before comparing graphs in A06.
 Keep P05 reserved for independent validation.

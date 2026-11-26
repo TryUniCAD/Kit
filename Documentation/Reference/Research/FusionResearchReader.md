@@ -27,6 +27,7 @@ Use `--manifest PATH` for another supported manifest.
 Each decoded asset has a path-hash directory containing `document.json` and `receipt.json`.
 Documents retain SDK serialization and pass typed reconstruction.
 Receipts bind source bytes, SDK/tool fingerprints, options, hashes, and unresolved evidence.
+The [decoder efficiency record](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) describes the reuse of validated data and the byte comparison.
 
 Exit `0` means all selected assets decoded.
 Exit `3` means a published summary includes rejected or reader-error outcomes.
@@ -49,7 +50,7 @@ This scoped admission does not establish general reverse-extrusion coverage, edi
 
 ## Per-file outcome evidence
 
-The remote corpus process check emits a complete census through `KIT_FUSION_CENSUS`.
+The remote corpus process check emits a complete census through `KIT_FUSION_CENSUS`. Set it to the unused file `FusionReaderCensus.json` directly in the working directory or system temporary directory.
 The workflow retains it as `FusionReaderCensus-<attempt>`.
 Each entry binds the source path, Git blob, SHA-256 and exact reader outcome.
 The report also records corpus, SDK, tool and runtime identities.
@@ -68,3 +69,13 @@ Inspect per-asset reasons and implement missing codec knowledge instead of relax
 - [Separate installed CLI proposal](https://github.com/TryUniCAD/Kit/pull/119)
 - [Reader source](../../../re/automation/FusionReader.py)
 - [SOLIDWORKS reader](SolidworksResearchReader.md)
+
+For a sketch with verified primitive membership, `fusion.geometry_child_ids` contains the native child ids in saved order. [Sketch geometry membership](../../Changes/Fusion/Features/FusionSketchGeometryRoster.md)
+
+## Unconstrained native prism projection
+
+The [bounded reader extension](../../Changes/Fusion/Readers/UnconstrainedNativePrisms.md) also admits unconstrained millimeter XY reverse and positive YZ rectangular prisms.
+It retains the native absence of sketch constraints and validates the signed or datum geometry through the existing complete checks.
+New projections are read-only, including after marker removal and native-state reprojection.
+The [independent controls and process checks](../../../re/Fusion/RectangleRecovery/README.md) record the measured numerical comparisons and remaining refusals.
+This does not qualify general placement, native writing, complete semantics or editable conversion.

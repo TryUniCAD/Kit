@@ -1,0 +1,3571 @@
+[
+  {
+    "case_id": "solidworks-083",
+    "attempt_id": "solidworks-083-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375165.1369421,
+    "finished_unix": 1795375165.208221,
+    "duration_seconds": 0.07127881050109863,
+    "execution": {
+      "definition_sha256": "1e75181bb7654c5f0bc5138f1e894f5a51b8e7f07813e05f271fe6b27ab3dbd3",
+      "fingerprint": "90af6b181f3079530627ed144273f549c7a0638a478b457072efa37bd20639f3",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-037",
+    "attempt_id": "fusion-037",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375405.489284,
+    "finished_unix": 1795375435.697901,
+    "duration_seconds": 30.208616971969604,
+    "execution": {
+      "definition_sha256": "704491a8e280e97faddb44c02475fb815bc43223a395067517b9e499e5e53042",
+      "fingerprint": "94468b8948bb5297a74782ade5f7fb9150afeaf12dc3da02f260aff1d6286b6b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "9d39d8b63df234df7982063505419f64",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "431195ea8508cb97248cf087df332763a0e41d1cf907847e64e82a2add5dd0e0",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "5ef638bd6eb3fff90b1933eada225666da4d3ec14fb31929029c3f66c801cb6a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "3d9d30fee654b4768dfbe63f85a037189d1c5c56f51ee2d8da6295ff7430cba5",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-008",
+    "attempt_id": "fusion-008",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374504.622666,
+    "finished_unix": 1795374534.1217868,
+    "duration_seconds": 29.499120950698853,
+    "execution": {
+      "definition_sha256": "d7db0ea97927d6e79d8b53d31e75df142b1bd06bfae30e91597e0872fed376f3",
+      "fingerprint": "56a38cd4fcae9aa26c1ed44fc41c446691e2a45fad39def3f41638b2cbf5da7e",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "ad8c4a7cedfb583995898e21bca11d1d",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "7fb379fd915904bf4aad4fefd596b0c5b5bdd7e1476d939765f4f90b861aff3a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "6ed36c03e8c9fde3b1889e79e0c9182c50016a493f6edbff6b6a6f40dfed6715",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "823229ed7222ec754e051588f37cebccd945641e187824d2ca3879948f79f37e",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-030",
+    "attempt_id": "fusion-030",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375198.304599,
+    "finished_unix": 1795375226.0254889,
+    "duration_seconds": 27.720889806747437,
+    "execution": {
+      "definition_sha256": "6b913033f43d0ee23ad1e112e82158b9b6f0fcd6d3de4470a9b9ee4f09d1b0c0",
+      "fingerprint": "823719eddb3b8aaa98066a380d3943e62c9d1e6f853c3f4e56c193170c7ed4b7",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "1091b4450514d4bc0f0d40680ef7823b",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "8ec52992c66d6a518dbd1d5c7826970d6425e4f1b339cb2c0c75a1e600d7c332",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "12696b2fd7a4b47635aff5d938389ecb680318d1a888c53f0f1410565375bbdb",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "05ca7a49d6f171662b3d7e685456bebcd6d77bc6696f6ff4b44193c17cfa732a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-006",
+    "attempt_id": "fusion-006",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374435.19002,
+    "finished_unix": 1795374469.898837,
+    "duration_seconds": 34.70881700515747,
+    "execution": {
+      "definition_sha256": "95df4886194e12793f5ad591e62cc35312d7bebf0bc68ef3eab0025de1f36e42",
+      "fingerprint": "a2e637c3f469e1c1f783a3a84077780ce12647d13b11f4bbdcba3b7c0a0e0123",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "e266f5fadda62676331ba7bf2f181e9e",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "d45ceaf39e95c95fc492d99078b1ed149b3c0020cfb42f698de63469433db80f",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "5b8c86d506fbe5d471e54d0a20052a82b016c1b5166fa2f5a371ab2e22d121d3",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "e3e26e5626c65251bdca5a9fef5ec2526a5818b6299b3d15229283c9f13aa426",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-039",
+    "attempt_id": "fusion-039",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375467.056874,
+    "finished_unix": 1795375495.2570739,
+    "duration_seconds": 28.200199842453003,
+    "execution": {
+      "definition_sha256": "9fcd93db82f862d4e4cdf8dd307e14568b843dd8490ad9ce7d58831eba67abea",
+      "fingerprint": "c29e9f6db44c07a85a345499b364810aa0c8602f718d10c8a88ed08acdd2ebaf",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "69f83d5f3252d7769d99cb9b2d7c3753",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "7ebc32b69b55b9873b38ad75de11cb26077272b369bec4293d1fc4834f05d85c",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "c7aef027f7f28293ecd37fdd29a845528afe82eb9208a15eb47bd1b15f4b62d3",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "5a3fed382b1bfce38043e4f57111486891ce636df6b20ef7a3948e3516be6de3",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-001",
+    "attempt_id": "fusion-001",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374269.5413508,
+    "finished_unix": 1795374300.1999779,
+    "duration_seconds": 30.658627033233643,
+    "execution": {
+      "definition_sha256": "560672d31eaa21a7219c50d5b8f83a374235b7c608f4fdb5be1db56aa2ccfffa",
+      "fingerprint": "39afa4805e424f8949c79eced316b6eb4177029e0b9db0594ee1d80d4b13594a",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "a45562c4001907cfb4ec6b4e174f3a6f",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "a737a81bb0e261dc9c052101f995c6a1afa5ed5e5a76febf3ecee26c926662be",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "7ce1dc597629d622f592d2ee0db77666e3c93a0ba8ce3a0496364d5b1cf8082b",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "dcaf2accc866274213790e59f5e86c2b221020f21d7975a3938fde649357159e",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-000",
+    "attempt_id": "fusion-000",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374235.0506508,
+    "finished_unix": 1795374268.379437,
+    "duration_seconds": 33.32878613471985,
+    "execution": {
+      "definition_sha256": "5108fd8d657a85c1bf04f534eed33bfb26ce014e6b91346534a4c78cb440ba6d",
+      "fingerprint": "31939fe93c0f3f5ecffa5c6d432900138e59e0a3aaf4fb193a283a9f695a7094",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "04ba4c8d45021d83f6ea978413cfc080",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "bb5fb480921f95b30d1b8d2b1f69a21b155eb052bcef01e3a2e099b87b893f6b",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "8558a94118c274b324417a087787fc174172ca012af41724a4f90e990f5f7d2b",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "c7f6151485a0edec871b3c4aca251b777711e610ad24b2e2279e656777dbf044",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-072",
+    "attempt_id": "solidworks-072-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375152.0907881,
+    "finished_unix": 1795375152.181608,
+    "duration_seconds": 0.0908198356628418,
+    "execution": {
+      "definition_sha256": "797910037fbb6d6a58db99102c30c7ee9818a7c4a10d6efb58c556829b5d1f2c",
+      "fingerprint": "6a10f3c2286b2a496f4a7894442a22eca5527913c0204ffe0ef1f6b63c47b9fa",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-007",
+    "attempt_id": "fusion-007",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374470.934149,
+    "finished_unix": 1795374503.5006971,
+    "duration_seconds": 32.566548109054565,
+    "execution": {
+      "definition_sha256": "ea99962e08fbf30a2afc40214d800da80054197df031d18406e9836be2cf98d1",
+      "fingerprint": "e96a874359b031ade33fbffa15b59cd6aec841823350e9c398c2ecadd35e437b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "0112692757e15eb91cdacd18ead39df2",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "82e2aeda4c89d7f662fa9dacc27cf134909310a76f914e89db6603447536f72d",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "37e25a846eca56810886c8a7f7bbe592e0f22f01791c746ca4e9a4cd78ed919a",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "1c70f0c309a830a221a6f2426c1fc6259d198382478bcc5be270403cb24a2991",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-038",
+    "attempt_id": "fusion-038",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375436.196619,
+    "finished_unix": 1795375466.4810328,
+    "duration_seconds": 30.284413814544678,
+    "execution": {
+      "definition_sha256": "ae18ef45aff7a908a4e12e81ac2faae50b9db9af9b3b9fb86389596024072ef8",
+      "fingerprint": "b51000e825526a5cf2dc645423538ee8b4662c48049963b1e16c622382ec268f",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "b4d46d852372dcfc83c79439fe3fafaf",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "2b199343473b12ac6f2d3de557aa28a89d9fbe5fb0ef50db2d9694ac941034b0",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "e0498acdf1c58a1aac06f3a23494ab215c754122792787cf35c0f0b62a8dabd5",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "11824132d3e0d03b09f0cf39bedc4115f835e20a3bc560f76db52cacbc888191",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-031",
+    "attempt_id": "fusion-031",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375226.854323,
+    "finished_unix": 1795375254.510026,
+    "duration_seconds": 27.65570306777954,
+    "execution": {
+      "definition_sha256": "6f7eb523c71de89cf9d4ae1cbd0ba754492f83a521bc80f92d8086207dea4db8",
+      "fingerprint": "22fd89e4fb43f0237c4e2f6cab85664ac5752a4a31624f2da00a4d3f3d6e43b5",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "20caf89e0a891546efbb7d840c937850",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "33fdc3c9d3e8c5e1f4456581e88b7486cb73b32f3ae7b94690ef274c0905cb10",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "75f9349dda09b633f903db7f4aabe1575e42f75108b764c8e069ba649c34a652",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "3cc6638c1ba65f866d434820ef61f880f6ebde78a2fb10d9a05ee01a51ed3db5",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-066",
+    "attempt_id": "solidworks-066-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375144.914387,
+    "finished_unix": 1795375145.0082629,
+    "duration_seconds": 0.09387588500976562,
+    "execution": {
+      "definition_sha256": "79dc2abf2d899492ad9e730c4fcc698b47ee01f5c7b91b16f07ac96a71a17ed2",
+      "fingerprint": "b4c8408598b902a0ebff2fcfab32fe1d71b725cc8d75db4aa30ba0982982ada7",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-036",
+    "attempt_id": "fusion-036",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375374.7639291,
+    "finished_unix": 1795375404.575157,
+    "duration_seconds": 29.811227798461914,
+    "execution": {
+      "definition_sha256": "2559f3b599be617bf2063dcc9a73de0ca6d9e9cfed9222c52aed9c62109f2234",
+      "fingerprint": "2e2d1d859402cc6cf0e9bbffa5f428057b7eaf743e2b88326a23cde4097de971",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "9584cbbf909e86c61ce348139e9dd301",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "3fd06e12506a69f87bdfb5cbc47c6a74549f9aec3669d9623746a11411d31b07",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "f9ff31bf8dfc07eefea7994c0a8e8078e2c460a5770995929472924da8b005de",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "fe013c8ad9037c17e0991d46f5388c5be4a7a8c3e26099f0eccb294b746c2cdc",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-009",
+    "attempt_id": "fusion-009",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374535.156713,
+    "finished_unix": 1795374569.310428,
+    "duration_seconds": 34.15371489524841,
+    "execution": {
+      "definition_sha256": "b4fb05c7d8d861d1ebecc501d9e0fb7b6de553d726cedbc4d6b2961ab9ff282f",
+      "fingerprint": "66918374779debf4863dddde23b59ca1d413a028700aec91aaf774ab7fc991d6",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "f29cf848e6b67a9ae645c25665f9bc67",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "3bbf116a2226c17fd5a89cdd36953e2d0d3ed8d79c936979b0583de7b38414a9",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "adc0a0e43daaa87efda34bb5c0d81003a2ea779b8ce296e4f4ab07366e7aefd0",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "3a1def282c31bb8305959f8c0aadf488d7fdb8e02f0fcfc64469c5efedcbef23",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-050",
+    "attempt_id": "solidworks-050",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374331.3745122,
+    "finished_unix": 1795374375.2635531,
+    "duration_seconds": 43.88904094696045,
+    "execution": {
+      "definition_sha256": "ffb5e84be16f24eead52b2f247d5d6ae7ac35475fd87579b56903b62a0441f24",
+      "fingerprint": "0e3a470e94cc2b70d0255d96306d6e7baa57ac779570531580ab751e1936f168",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "062d475057821b58cf629dd4f7bb9c63",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "f66e74e13d8161780aa14f513451ad9eb9c6025eea572c6bad5b327ab757c8c2",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "f31da4b16079f2d9622df484f9568f503ffe3bd931f958b013fb9d77f27842e4",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "3f5088d80cc23cecbe56f8980bb01d3d1d3eac37c4abc32aad62941e22e684c6",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-079",
+    "attempt_id": "solidworks-079-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375160.389481,
+    "finished_unix": 1795375160.4845161,
+    "duration_seconds": 0.09503507614135742,
+    "execution": {
+      "definition_sha256": "1e76f819eb4645c97e7580d0dacbb490cad5b949babbfdeff5f9554fab9aae47",
+      "fingerprint": "59a626533944fb09bfdc12fe63380070ba702b0a2bf1a29063818e06dcf1b4d4",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-068",
+    "attempt_id": "solidworks-068",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374681.812145,
+    "finished_unix": 1795374681.907336,
+    "duration_seconds": 0.09519100189208984,
+    "execution": {
+      "definition_sha256": "f243d88ab5d3b76dee094a00206af1a6588deadbdc7cae97b9760892a603ef18",
+      "fingerprint": "298441556ec851fe36f87e000bd86d5cdb1559388c9569af5b0e85bc316b4437",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-057",
+    "attempt_id": "solidworks-057",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374668.780206,
+    "finished_unix": 1795374668.8681102,
+    "duration_seconds": 0.08790421485900879,
+    "execution": {
+      "definition_sha256": "21f03d47a32fbb5a51d1c85e8d0414166fae68b3e6548ced360ba191353b2c94",
+      "fingerprint": "42244f6736f381134bc26e7f451c3048c434975cfb3a16c10d43039a847a174a",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-061",
+    "attempt_id": "solidworks-061",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374673.484118,
+    "finished_unix": 1795374673.570085,
+    "duration_seconds": 0.0859670639038086,
+    "execution": {
+      "definition_sha256": "a550ca7e65ea21599a6c076cdd908fa42931638ad8673978ed3693732531d7b5",
+      "fingerprint": "21e8684c292f0068ced737bec46712e2d933e98289bcdc96236d369c5df449ef",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-095",
+    "attempt_id": "solidworks-095",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374714.1600971,
+    "finished_unix": 1795374714.240514,
+    "duration_seconds": 0.08041691780090332,
+    "execution": {
+      "definition_sha256": "f54cd9077b0bd3a310005adba8b2a2eb0f4e1dbaee21bef13f7e7d572e3229a1",
+      "fingerprint": "8a495502c246bdfcce53c3a9c331b038fd9c8a8199bc5c95e1423e4695eb4fe7",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-059",
+    "attempt_id": "solidworks-059",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374671.135135,
+    "finished_unix": 1795374671.217452,
+    "duration_seconds": 0.08231711387634277,
+    "execution": {
+      "definition_sha256": "82d285386c353335a771a66d2abb9219171b0543ea8d1a147f6d3a9ceca9fa34",
+      "fingerprint": "e879142a0aa959c8081a25a2f0efa94396103492044352516eb8abfcea153196",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-092",
+    "attempt_id": "solidworks-092",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374710.515085,
+    "finished_unix": 1795374710.6020951,
+    "duration_seconds": 0.08701014518737793,
+    "execution": {
+      "definition_sha256": "19e4d52c5eaf2e7be7de04b36b31fe58634e29301da9afc783b44364d38f0702",
+      "fingerprint": "eb22ee78a25da722bee408badb4d10c6ca12ffe47746193bdc8d17e9f5dc52d8",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-066",
+    "attempt_id": "solidworks-066",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374679.424432,
+    "finished_unix": 1795374679.527197,
+    "duration_seconds": 0.10276484489440918,
+    "execution": {
+      "definition_sha256": "99df48639cd6ad7504df558e9fdebcbd45660394a7ea1863885e38faf3cad771",
+      "fingerprint": "fd339e544f03f549ba6eb4216a96f5588b04a91d4534d226c14c6e9487cdbeb9",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-085",
+    "attempt_id": "solidworks-085-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375167.639124,
+    "finished_unix": 1795375167.719556,
+    "duration_seconds": 0.08043217658996582,
+    "execution": {
+      "definition_sha256": "0381be7f60b6f55f3fa7151d1317ece87d21562efad07463ea4eabbf10798401",
+      "fingerprint": "3fd0617ad6670afec0cb08d62b47abf65d5182582bc214986a5b26841552d789",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-058",
+    "attempt_id": "solidworks-058-recovery1",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375048.3210082,
+    "finished_unix": 1795375096.725307,
+    "duration_seconds": 48.40429878234863,
+    "execution": {
+      "definition_sha256": "175bcaaad3a873c1a921b780954dc41bbcfd46cfeac87b1af1e7487b59105694",
+      "fingerprint": "fa5927080384e6f173beb436c74fa6ec619144b329559f99c1a14af7b866de4b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "f1ec1a93b9ede2a4820bdaa6773d34c8",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "8eb6a0a36ee918458e1ee727b10177c234ce3741d7cb3f4b626ed76d76170274",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "ddb93def6febaeca40eac2d820df9a0fbdfd7b91314dd2af89ec226b8c2f29e2",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "042d1907cbbd82d066b419dd60272c75a212ee9307fcce6b57c77585f52f0ba7",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-091",
+    "attempt_id": "solidworks-091-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375174.7759,
+    "finished_unix": 1795375174.861402,
+    "duration_seconds": 0.08550214767456055,
+    "execution": {
+      "definition_sha256": "a7f4d59b3119a48e4c9255c1500dc2465330784178168116ffc4f7406dcacabc",
+      "fingerprint": "d07dc77d7f9410ae8525296512aea2ffc4a92b860ceb7125e3cf8b2b3a5b0e19",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-058",
+    "attempt_id": "solidworks-058",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374669.943499,
+    "finished_unix": 1795374670.024461,
+    "duration_seconds": 0.08096194267272949,
+    "execution": {
+      "definition_sha256": "1f3fddd71793187e43fcbea846f92065612399fcab16b8ed7c62bd27fc4753d5",
+      "fingerprint": "6ff62d33b175e29fd99dc67a4ad4bba2c2dbca7c6e3a22d4319394e8e34be977",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-074",
+    "attempt_id": "solidworks-074-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375154.4547222,
+    "finished_unix": 1795375154.5724201,
+    "duration_seconds": 0.11769795417785645,
+    "execution": {
+      "definition_sha256": "db61901bf749fe436a614fa7188c6f646be716cc8a511e66235a3aa67aab10c9",
+      "fingerprint": "d5de9148ef5cffda707e1afb21b656b547262a9cef5415fe5509ed9f1af39e78",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-067",
+    "attempt_id": "solidworks-067",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374680.615455,
+    "finished_unix": 1795374680.702035,
+    "duration_seconds": 0.08658003807067871,
+    "execution": {
+      "definition_sha256": "1210be3c0d28f8428b833545ff285af5d2cfc6a5d151c75c4b88445b0139dc30",
+      "fingerprint": "d522f1a608eff67bf774589c7fdda6757007a44ab08f0089e553cb761ad885ce",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-093",
+    "attempt_id": "solidworks-093",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374711.746878,
+    "finished_unix": 1795374711.836792,
+    "duration_seconds": 0.08991408348083496,
+    "execution": {
+      "definition_sha256": "bf936f961acd2db0bb976e6e2aa17681e9339f3493560f2f5dbe8f1e9a2788a1",
+      "fingerprint": "998a04769788a517962b4e3aa45f2c03dbfc34d3f2a84a533d999f9034c54da0",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-094",
+    "attempt_id": "solidworks-094",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374712.949607,
+    "finished_unix": 1795374713.572248,
+    "duration_seconds": 0.6226410865783691,
+    "execution": {
+      "definition_sha256": "bad8407ac6865a93758800ce4eb30ef26a70d0f394a164da9306ddf7b9e28861",
+      "fingerprint": "75735c02730087291afcfdd8907f95e0f21dc0858b46d3148aad76b2dbcff5cf",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-060",
+    "attempt_id": "solidworks-060",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374672.3275049,
+    "finished_unix": 1795374672.410826,
+    "duration_seconds": 0.08332109451293945,
+    "execution": {
+      "definition_sha256": "97dd39be569326b71d8301cda1e80c6dbdcd9571ba377b7c3bc78d5a57edd7ba",
+      "fingerprint": "db651776e0bad5e20c7f7f83004a9b3f54083ba30e1b7d570f51e65d775bca80",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-069",
+    "attempt_id": "solidworks-069",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374682.973095,
+    "finished_unix": 1795374683.07779,
+    "duration_seconds": 0.10469508171081543,
+    "execution": {
+      "definition_sha256": "831f997f7006cdbc3f0e17c51c460803fcd281fc6be0466c0491887897cc583f",
+      "fingerprint": "f481acf0d10f140fe0c283af1b083661846f7187d624c68266b9481640c57c1c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-056",
+    "attempt_id": "solidworks-056",
+    "native_status": "failed",
+    "error": "com_error: (-2147023174, 'The RPC server is unavailable.', None, None)",
+    "started_unix": 1795374624.578159,
+    "finished_unix": 1795374667.940207,
+    "duration_seconds": 43.36204791069031,
+    "execution": {
+      "definition_sha256": "b54a5a859b583ed831e7b51beac46539d425c0747c581db90887922610469cb2",
+      "fingerprint": "f6bbb42a6c3703f07b09bd02d30c285a0215d2fb72cfceb612caf8f013d6f151",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "b34f50042e46af15283f994c09e94f36",
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-051",
+    "attempt_id": "solidworks-051",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374375.482761,
+    "finished_unix": 1795374421.453894,
+    "duration_seconds": 45.97113299369812,
+    "execution": {
+      "definition_sha256": "a0a52f1ce902b80d0da86f5219e9029b48ad42c00765ecd8cecd354f018a8421",
+      "fingerprint": "853d0fd5a505f6c6b7d224bb193f53c31463def940c4172e7918420dd65da9b3",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "ac05a6d82b38bb94101edb4a5b559110",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "f284d6d93e385f4742b9c889f0a4d6cf86a04fdade730a55b0909b1f3543c938",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "a87540720e28f7f1587a3ca4585c5b010bddc1f4f04b7ad1880becdf5295bf20",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "343131f540991ad2152156b73b0d02237ce15042049703409d8a83ee03a7e8ae",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-060",
+    "attempt_id": "solidworks-060-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375137.789152,
+    "finished_unix": 1795375137.866386,
+    "duration_seconds": 0.07723402976989746,
+    "execution": {
+      "definition_sha256": "e34ac9053c88e24d2c679eef07667057bd7ec0a2ac730a7dbd4e2b6cefd8cb38",
+      "fingerprint": "71726173c82e5395f5577162ab281adcc17dc0c55f62e55514edaadfd268db3c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-088",
+    "attempt_id": "solidworks-088-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375171.200502,
+    "finished_unix": 1795375171.2750819,
+    "duration_seconds": 0.07457995414733887,
+    "execution": {
+      "definition_sha256": "f50191d37b081adcd0430c6ae92ce3a8144efaf934ff5c1b0b7efa20e1856142",
+      "fingerprint": "fc4dadfb0faeeae826c4d3ea161fb798621af2c7821e5cba124963c82d479972",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-082",
+    "attempt_id": "solidworks-082-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375163.950794,
+    "finished_unix": 1795375164.052016,
+    "duration_seconds": 0.10122203826904297,
+    "execution": {
+      "definition_sha256": "353cf7fed94d93b77b9406fc121823ef8f2c58ba2ff1f82b6ad76ade1efaf6e0",
+      "fingerprint": "016bad14448ca47e5e14b60bbb2f73681fac50a88fbf05a35979adedbe6cedad",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-073",
+    "attempt_id": "solidworks-073",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374687.76862,
+    "finished_unix": 1795374687.85363,
+    "duration_seconds": 0.08501005172729492,
+    "execution": {
+      "definition_sha256": "a35686907f104b66c3cc6b20da32ec98e8ba2412f3d3daf35a613de05acef30a",
+      "fingerprint": "9ba8fcf0712a2279ed2131f6cfa1e8e694daa559d862f2c1ec9eac427b8bd105",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-087",
+    "attempt_id": "solidworks-087",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374704.5733252,
+    "finished_unix": 1795374704.651148,
+    "duration_seconds": 0.07782292366027832,
+    "execution": {
+      "definition_sha256": "81a09b0b1f011ec416d2a0b468281813df9d3a15e7eb7caa2791c70e12f9420e",
+      "fingerprint": "0dff1579adf15bdc7985072d25fdf702b681e0f330281b36c409404b823fe769",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-080",
+    "attempt_id": "solidworks-080",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374696.177637,
+    "finished_unix": 1795374696.269275,
+    "duration_seconds": 0.09163784980773926,
+    "execution": {
+      "definition_sha256": "59d2ea17212a999c602801ffebdb7c5b86d0d9ef8353a3ec22a0263b71773ff2",
+      "fingerprint": "f28d71b1ef688aeda0b3ef3ba5ed45949a7dc7f4b5614234fdd7cf4a670c1b30",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-074",
+    "attempt_id": "solidworks-074",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374688.968672,
+    "finished_unix": 1795374689.050765,
+    "duration_seconds": 0.0820930004119873,
+    "execution": {
+      "definition_sha256": "1488fb06850dfc0a9c1a2d4be16b500eb2d3030496bf2843dea42ba446b4dc1a",
+      "fingerprint": "f6b9fc7c91958ec953292633d6f0b2c206b4e9f922cf2c37fb5d19b1f72e9e37",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-089",
+    "attempt_id": "solidworks-089",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374706.94382,
+    "finished_unix": 1795374707.0260968,
+    "duration_seconds": 0.08227682113647461,
+    "execution": {
+      "definition_sha256": "3b159364e1bf7c64e1e601e7da2e27391e3db7f9e7a9630f9549cf37b2b9f103",
+      "fingerprint": "ad360dc3d9d99439be8f68f1640b8c5b7f1fc3d9aeabaf19d08f316e233357ba",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-067",
+    "attempt_id": "solidworks-067-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375146.116108,
+    "finished_unix": 1795375146.1929119,
+    "duration_seconds": 0.07680392265319824,
+    "execution": {
+      "definition_sha256": "60bebbbb1729e16963c51564ad10ec8f4b76196fa9d0e6b59350eacd48f8a6d2",
+      "fingerprint": "41de2fb4fea6dcd01e6ebaeb8b5eca3b66cbf6406b65d80a4e2f4b405c81906d",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-088",
+    "attempt_id": "solidworks-088",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374705.758402,
+    "finished_unix": 1795374705.8448489,
+    "duration_seconds": 0.08644676208496094,
+    "execution": {
+      "definition_sha256": "33f237e795d117f52f90b4b971130ce4fbfee739d18179d2892bb48f9193767d",
+      "fingerprint": "db916b5d9cde69ec15510bcc11f0e0d3cbcbe4b08cce4d12e2bbf8c8d02ed867",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-075",
+    "attempt_id": "solidworks-075",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374690.144483,
+    "finished_unix": 1795374690.220501,
+    "duration_seconds": 0.07601785659790039,
+    "execution": {
+      "definition_sha256": "f1f129ad7d231251b7d42bb15f2764188e15cbcfb0dc2beeb85f9a0c8c589f14",
+      "fingerprint": "7574bda0e8b1fe7d125eaccb06439a504e8f31f137a18187c8d15d8f83965c8f",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-081",
+    "attempt_id": "solidworks-081",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374697.3710048,
+    "finished_unix": 1795374697.453421,
+    "duration_seconds": 0.08241629600524902,
+    "execution": {
+      "definition_sha256": "98b2da967f894aac2a3295a46be2e5668a2c19311d14f403f3b82153cbeeda6d",
+      "fingerprint": "e615ef8a02cca43951ae9d7a380dbd501301b04e99d6b15f64836179a43d3d70",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-086",
+    "attempt_id": "solidworks-086",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374703.384345,
+    "finished_unix": 1795374703.468123,
+    "duration_seconds": 0.08377790451049805,
+    "execution": {
+      "definition_sha256": "d1446f36b3fa9eb0b789e742befaf604299f5e2115d009208279462e616d3998",
+      "fingerprint": "9a52fccc892686faaa0fd2067bb05c78ac2f0ab0daa3fedb33b44624fbeb4811",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-073",
+    "attempt_id": "solidworks-073-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375153.2582028,
+    "finished_unix": 1795375153.341843,
+    "duration_seconds": 0.08364009857177734,
+    "execution": {
+      "definition_sha256": "d80c45e0b9d0db4d8f317a238528979f3ea74d54df5ac640821fa6af935cb46a",
+      "fingerprint": "0f1fc3add3574281a38f719d16f6b88c5e6fe893bcd419efa0a06331711819a7",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-072",
+    "attempt_id": "solidworks-072",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374686.572522,
+    "finished_unix": 1795374686.6561852,
+    "duration_seconds": 0.0836632251739502,
+    "execution": {
+      "definition_sha256": "1f3a2a5b9a90bd736ba744248320481b4d3f29763bd7b4a8a571e6436251e38e",
+      "fingerprint": "50f27968e9cba7b8ae008c882a87d941d664d0bd015ea71485886df4522f81e4",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-014",
+    "attempt_id": "fusion-014",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374696.092482,
+    "finished_unix": 1795374726.193003,
+    "duration_seconds": 30.100520849227905,
+    "execution": {
+      "definition_sha256": "49990585d9d7defa537e78b33eb6e7fe67560a5b51ace3ecd9d4389e0e360c87",
+      "fingerprint": "d89d89033d001615d88d88355f99721599ef7cc08672ccc3cad1df7cbb4e1e3f",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "b983586c12cec5393dc406486cec0cc6",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "d9e951485f1cecf053828351286962f0dad7e10e9bb54557c050330dff48279f",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "54ef5de987ea3dd4e8891be71c6014fda9d5d0ec20dbd208c8c711c6f74880b4",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "c12e39ce11de9180c4cb0218c60c506d746635cdd05151ef0c51b4199758cafb",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-013",
+    "attempt_id": "fusion-013",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374667.587209,
+    "finished_unix": 1795374695.727238,
+    "duration_seconds": 28.140028953552246,
+    "execution": {
+      "definition_sha256": "a7de246310fbe1e18f8ddb11577b6393a77077791529cc2abd6f064ea9347007",
+      "fingerprint": "38352508c6bbfd3e84bff6423e01aef11c70c81f5b71361bd18e4ef7751e4be3",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "ff1e4b260032ad3e8a0327d83dabe1fe",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "18dbce3e807e92a4eb5984db669687e90866f0f1a6bba92b3796f28a8d295796",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "81a933fec81bcba8008407a6305716f55898854b6567b8ba9d105225993ae96d",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "b6242525f142a0aa10a2751d1bc9fb5bcebbf8153b2e2dfbd13d8f39044c8271",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-078",
+    "attempt_id": "solidworks-078-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375159.221858,
+    "finished_unix": 1795375159.30638,
+    "duration_seconds": 0.08452200889587402,
+    "execution": {
+      "definition_sha256": "f69805fbe6eff3be6d2996d7309125aef8ee2992e32202b2dc02bf67c08049ee",
+      "fingerprint": "0e6363eeb087a2b3e8264309a87c962bd4e1440ba78ba2760778a321787bd134",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-025",
+    "attempt_id": "fusion-025",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375038.7980878,
+    "finished_unix": 1795375068.598824,
+    "duration_seconds": 29.80073618888855,
+    "execution": {
+      "definition_sha256": "a116feedf5869288bca83af5324fc9b9aeb1fe41c3711866d0c816a945a8f450",
+      "fingerprint": "83fe5f0003af207a0968f0c5764daf4841afa9426e7875c5c460e08d5d34c5e0",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "a1695db75da7da5b53df76be9d73ec3c",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "b50d4704acea245fd5cb173af41c820c327a7d986bf9a18f8ccb2f6bee9aa201",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "e7d4f07903029a1b1791b76f49b830f256a2d99d3a628b77ea98a14b8070c699",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "3978f719e63dcf504d98a870bbd1d41a80a0b867fd9e571bff0ad1ad824f315a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-022",
+    "attempt_id": "fusion-022",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374941.322757,
+    "finished_unix": 1795374970.942517,
+    "duration_seconds": 29.619760036468506,
+    "execution": {
+      "definition_sha256": "8df5b10a6e64a17f0e0c915fe9d92cf55a7a47f33a1d4eb3f3757af23e34a900",
+      "fingerprint": "ed23dd8b6348501ea07a51bb48721ddea50a744a4611851b9ba8ac5ae0f739a9",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "11ffe9414c326dcc172756c085e9e560",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "249103ce5cf4ea7ced5e61116e118e543f95a8bc94008f8d3d22f7d31590f31f",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "1d669a2a2c47f8fb47b6563f110f8a175c151df9d5da82c618ba3d7db4a7032d",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "599afe89087894f64f1a71fa082d876ed4280c364b68282c49e543e6ba5e33c8",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-059",
+    "attempt_id": "solidworks-059-recovery1",
+    "native_status": "failed",
+    "error": "com_error: (-2147023174, 'The RPC server is unavailable.', None, None)",
+    "started_unix": 1795375097.661995,
+    "finished_unix": 1795375136.959847,
+    "duration_seconds": 39.29785203933716,
+    "execution": {
+      "definition_sha256": "850eb326edeb6aae046430a5f00278769400094a81c94487565dc191784dc908",
+      "fingerprint": "0506b804f771da5f2d8a4a56b57fa29b2468335c9e33eba8270eeeb83ee1bd11",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "b64264c31ed23d735acb556b352b1993",
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-090",
+    "attempt_id": "solidworks-090-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375173.5833359,
+    "finished_unix": 1795375173.699048,
+    "duration_seconds": 0.11571216583251953,
+    "execution": {
+      "definition_sha256": "bf9fa60dd0a70220e354db76416cfe1da104b4830fd36b44a091321f384992e2",
+      "fingerprint": "fa601899cdfb49b7e0f3f063689594815086382bc4ab09fa49c6060bdc95532a",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-047",
+    "attempt_id": "fusion-047",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375710.180655,
+    "finished_unix": 1795375740.157435,
+    "duration_seconds": 29.97677993774414,
+    "execution": {
+      "definition_sha256": "42abf10c6568d8aa4cd8a2b7e05f634ae1a61bf106250d77a9a357bce17ed1b8",
+      "fingerprint": "2f8f68a6159ab1a724cb899278571ecdf4701ba5d17330dd38bd262db9356d2a",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "2c9e79cb0ab9638deef2f7795d162179",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "1d308f4c8ba1a09a66277af2dd36ecf7da6636d4ffb54592ffdd23e72cfde32b",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "d2e8bb972442324c12918d5ba73cf0387e8e312024a7379f20419d39d8abbedc",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "718e3cb7d31c51bc65a33c5811146e6991f20cb4dda500765d717191b970a8b8",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-040",
+    "attempt_id": "fusion-040",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375495.641972,
+    "finished_unix": 1795375525.5180092,
+    "duration_seconds": 29.876037120819092,
+    "execution": {
+      "definition_sha256": "0c2e5ed24d60b695ec899d863b2948fcdcd54914f4ddfad91eea767443a608ec",
+      "fingerprint": "1219cbb5ad699ca3b037f0549d1971c85e9109360c7b0cf9f6ca882f067e6c1c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "c81622c5d6cf60872dcfb6321be2a85e",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "3e8b4a56b36aa027454952ef941fd64323fc9bc64b9a1ac9a4294c67d1a0c7ed",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "b9e8512dedc28fc9a4a4641edfac74f06546bb61dab8f1cfff23656c8a0922b7",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "a794a66a33d7e2e035dd43eec0fb5a3b434cef61605a01227683ca6a4effc0fa",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-084",
+    "attempt_id": "solidworks-084-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375166.3053608,
+    "finished_unix": 1795375166.387485,
+    "duration_seconds": 0.08212423324584961,
+    "execution": {
+      "definition_sha256": "6cd5da0bb9119822051e600158adcc8f6e4904015f8f9a3733f19b006779294b",
+      "fingerprint": "e773ee2be982c018bfd7c2a0f11b3845a2db716d4d9c11500736513c7fdf4912",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-023",
+    "attempt_id": "fusion-023",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374971.380476,
+    "finished_unix": 1795375002.992841,
+    "duration_seconds": 31.612365007400513,
+    "execution": {
+      "definition_sha256": "cd5f23411c26f9efc7ecbb345be00d0b07791cc749b5d66ebc03b68702f7d63a",
+      "fingerprint": "4ef09faf2f6814a9616c2b08cdf7a914940395e81de1216eecf887756ba44b87",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "3cf364358d4d73ce70818954cac98a86",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "ba5676d816356387b27d99168d44823b5eb300a01a2dc3537df9649449608120",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "aee7d273d3716e5951bc6295b9855920a1d17eefb251976fa6bfe5d9d3f96b21",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "a7cb83d36ab0bdce9aefc8c948af4452aa2912024a3da6007b43d79e8d3a609a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-061",
+    "attempt_id": "solidworks-061-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375138.9743721,
+    "finished_unix": 1795375139.080725,
+    "duration_seconds": 0.1063528060913086,
+    "execution": {
+      "definition_sha256": "e4e67cc351cd8eb2888ead0e5d5f260eadaf11c782270592108ab02e84d4d7b9",
+      "fingerprint": "dcf6e67d72aac9e76a77743f7c111acb95ad216f5668306c25515c43b19763ea",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-024",
+    "attempt_id": "fusion-024",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375004.053355,
+    "finished_unix": 1795375037.8762822,
+    "duration_seconds": 33.82292723655701,
+    "execution": {
+      "definition_sha256": "bd7a5d0fe941362fc16696c725e82b7c7ce3f3cb1901a4d2286dacea5ec154ba",
+      "fingerprint": "05977d6a3fa096ef0732178c147f05b1e28c45c69961374fbcae9b4cefd69eb6",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "593a2c8b07d580ce6f816dcd6c22366d",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "9e62fa96ccd7e65021e883af562cdc441bd51f3f49692ab42f7d6c0bafb50823",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "e485bf6adf3e1cdc0f96b7a1710998eb94df30ab647237d2022b2e656f6c6b83",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "e237d3e5f20e27baaba56ebd5e3f97a731520c96e1b8c4e9267a4236a655c5be",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-075",
+    "attempt_id": "solidworks-075-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375155.6534379,
+    "finished_unix": 1795375155.729897,
+    "duration_seconds": 0.07645916938781738,
+    "execution": {
+      "definition_sha256": "02c3594043e3026f5a0aa6b03c3f54aa23384145f25510febb5259c0ad1cb438",
+      "fingerprint": "63c475c50481f825a35d3aed305a744ae80dc7451ca7c24ba3b01b8890f43807",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-012",
+    "attempt_id": "fusion-012",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374635.1373708,
+    "finished_unix": 1795374666.977271,
+    "duration_seconds": 31.839900255203247,
+    "execution": {
+      "definition_sha256": "7f9a4116134ded6292c24b267e574ad646a098c59d24c605682b418a8e79ef5e",
+      "fingerprint": "331509c17d61c10905d2ae150801ffd64c365f57f21a255c29ff31931a734b7b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "98705f58b532705ab32fc886329c23ef",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "965a84d8fd75f3a1fbb94d892c3cf8baefae0c811860b3f11ee3dcc966168e17",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "883048aa350b3a4a742288501eb0da80a7f70a7c95456507140b6bee2ef58108",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "57544e28df2067927d1aefc78dea4b4e445e8ff272872d6fa4c247d7870d2a77",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-015",
+    "attempt_id": "fusion-015",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374727.402634,
+    "finished_unix": 1795374757.090809,
+    "duration_seconds": 29.688175201416016,
+    "execution": {
+      "definition_sha256": "7270aa43f1ab61e02ee7f20f20ff42d79cd25aaf82b0332f51339535eb7c9226",
+      "fingerprint": "ef92c8a1e0150f993b14665d29749716deb87fd450eb16d1d436aae1761e5fc9",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "6667af51c85419371ae250b7b61f069f",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "38bc3d1d53c1c3b3ad3fae65370230c7bd40931eb47c19f03c5134059e9a9f5c",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "49f802c8063af8aebd45f0242992e29dcbdf158a3b1c3248a7a99e38d94b8198",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "7a09a916e47b026f089fcef79981c91111ae36e0917e2ae296165b78a21a8a3c",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-041",
+    "attempt_id": "fusion-041",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375526.3059788,
+    "finished_unix": 1795375553.906337,
+    "duration_seconds": 27.600358247756958,
+    "execution": {
+      "definition_sha256": "001ee263511b2f0b24c65f53e34834073c413a5b327ff58b6e55f900ae37e542",
+      "fingerprint": "48b8e68dce4487f57a1117a1a91ae6be415a8e037aedadbb977501f97eff2d8a",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "a4ad275d6e0845536085cfce5d3b12c8",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "1f6a697b61625e70e71a2aea90fdc16824b3163ff7c5589ac036826a05c891e8",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "b0eac7be0b0c1997f188b5794780f5b7070202cfb0c3462e4aa5279e39f07101",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "6e91ae551308000892ad30101f256710df1a015a3fefb2cfa39be1b945501658",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-046",
+    "attempt_id": "fusion-046",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375678.358479,
+    "finished_unix": 1795375708.9074519,
+    "duration_seconds": 30.548972845077515,
+    "execution": {
+      "definition_sha256": "463b25b27044df65b268ebcd1faa800e4b376f0c3ef6b804c049636471fa581b",
+      "fingerprint": "69d88827e6867cab1739f2270a51eca6af51c9ebfece969645fdc0ad2361376b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "8cdcfd93776177b4153631eaba719870",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "ea37353cf25947783f3493a129783268dc395f1f0c964f4ffb7d5f772cbc5c5f",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "a5cb130a3222c6ed30734b695cee2da88de6db7084aef463d3ca0f377c3f8bdc",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "829612cc92f8fba5c4c90a453a47492d502f90b101000811aac95997a6f59aab",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-089",
+    "attempt_id": "solidworks-089-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375172.386975,
+    "finished_unix": 1795375172.478175,
+    "duration_seconds": 0.09119987487792969,
+    "execution": {
+      "definition_sha256": "e5dd371458cbe483ca1fa0785501101e957aaa7b8a59aafad81401dc4e09fa76",
+      "fingerprint": "8d2a92e3365710db04313baadc074e65b73d39d46ce6e47b80a292a45ebb3250",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-033",
+    "attempt_id": "fusion-033",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375285.1776462,
+    "finished_unix": 1795375314.85197,
+    "duration_seconds": 29.674323797225952,
+    "execution": {
+      "definition_sha256": "3d30afa8967826d63e3159f252e99f3207fc94841e7dee37ee0d2e9d91c9588c",
+      "fingerprint": "e5b10f9b222865ff0e0ce6f4d7f7e9915533efc79b0fcb9deae06688b08a5f34",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "6d3655fc6d9f5f0e321800710d4b0bbb",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "aa6f3a30ebbcc17dd9a239fd1447c52696660128aac5de7737b000202a17b6f9",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "5b8aed2837463f6559aa108cc49c85fcd346bb96bf350e8b87c5831ada5b2cad",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "5b2b6fdf9170436c82219b1f3d01bef1d56c21d78130cc831bec65b4280d12d1",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-034",
+    "attempt_id": "fusion-034",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375315.497133,
+    "finished_unix": 1795375343.205237,
+    "duration_seconds": 27.708103895187378,
+    "execution": {
+      "definition_sha256": "ea89e628e09c95fccbb6d33e05156cb8bb880b13ce4af750322320b619d28466",
+      "fingerprint": "dc01a11ddfb3e0fc1e33914cc38fe46dc3597a27a3d1b30f213d1277d9469f7c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "f5cd669f47ab144780d3dac6587971a5",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "d18f01c6e3ff895c9db5648e38edc860fc3204f36b722a85f61b14d9037eee0a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "527743f5d0d99bd94e4eaf8f263868f6ecd6d52f5f26252cd0e7c2fcf2c5aa94",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "7542d5db56d6611d8d8ef0b731ee6c0c71106fe4057ecb4bb2975ad9d3ce531a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-002",
+    "attempt_id": "fusion-002",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374300.95896,
+    "finished_unix": 1795374333.4975848,
+    "duration_seconds": 32.53862476348877,
+    "execution": {
+      "definition_sha256": "340fbe7f8c591971b9ca15e7cf8a8afcf936b5feadd788530f4636425ce0d5b8",
+      "fingerprint": "0f478f40077aa62b32b4d8456b9bf923fdd52b106c3e7b94ef00faf3d03109bc",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "ad7986bffd42dba323ad2bd314e540fb",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "3cfb77074e0a64ee1c253fbde42b41ddd9114d9184cfb6c7d9a7b10c391ee82c",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "11890c9a3d44751f87c66bada41da7db0b95e11a0ecd551577b25b70b0ebd201",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "ece626b122fb575b99a81aba7742073d8dc1bc47852326a7646e0ca3fc3a3420",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-069",
+    "attempt_id": "solidworks-069-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375148.5109959,
+    "finished_unix": 1795375148.59341,
+    "duration_seconds": 0.08241415023803711,
+    "execution": {
+      "definition_sha256": "03cc86cb780598446f5d8d19727a5b45a65421be031874eae881dfc10702bdf8",
+      "fingerprint": "a54522c637439d2f799eafed3968b59856fd8358453213c5d50163aa48aac990",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-005",
+    "attempt_id": "fusion-005",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374401.575317,
+    "finished_unix": 1795374434.3101141,
+    "duration_seconds": 32.73479723930359,
+    "execution": {
+      "definition_sha256": "fa60985f70368cf0e00dfcdb5f95523637df6478ff4964a6f553d208704fe30d",
+      "fingerprint": "6b63bd668bfaaa2c1d06e906f6f801526b8dd3c8955f4e69eacbbfd28489f925",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "4f1061d84da53a73545efe5ad7ae5902",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "9e1f33519408e7253a75b49d143414c8442b60eb6db4ab817f1143d2da367712",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "a6520b5289788b0dd72b2316943023a4004c08bb1f0ed5d9f5702f4490a5c131",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "db698042318b843e63c3a19484879f81fa4b2f80ffce3b95d73959267bf9cf66",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-081",
+    "attempt_id": "solidworks-081-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375162.769554,
+    "finished_unix": 1795375162.8569221,
+    "duration_seconds": 0.08736824989318848,
+    "execution": {
+      "definition_sha256": "2918b92387b79afc47a6f22ada05660a4ca797c9f0d655d6c73ba3e5ccb99298",
+      "fingerprint": "c5ffd40991b026694f4b1ce8767907ae135377fb1d7cafa8960fd9d81a0f2767",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-095",
+    "attempt_id": "solidworks-095-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375179.537993,
+    "finished_unix": 1795375179.6131682,
+    "duration_seconds": 0.07517528533935547,
+    "execution": {
+      "definition_sha256": "055334e0bff8f7959f129a9452b9d61e35faa219bf2e7cd05e7b0c29999e8fdd",
+      "fingerprint": "8414b53e7bfcc96ccb29f6ed92ffaa03c2aad2402854d4775c27586554bf1e07",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-004",
+    "attempt_id": "fusion-004",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374368.0652852,
+    "finished_unix": 1795374401.072289,
+    "duration_seconds": 33.00700378417969,
+    "execution": {
+      "definition_sha256": "2f06c114ae55d4745a9a0018fc37bfb1185e9d776f8ada4b153e731155904c59",
+      "fingerprint": "cacaeeeb2eb46f0cd4cfef3053d616ef2e2d7debabb90b54957a8061c59fc890",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "78da92f2de2b536862a2642b3ca1d10f",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "6987ef3dbd9eea0289d32545c0e4d85a99effd8b2b8dae09f94bd0f30fd43741",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "86b6dc99a494924c3039957ce0f15a67f9519ac78cbe7c76b6ee10b5e05c1a79",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "bdacf2b48139ee8ff33b2310e1ef16d2179d134cafc50d2ca653b44c254d16c6",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-003",
+    "attempt_id": "fusion-003",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374334.607945,
+    "finished_unix": 1795374367.24969,
+    "duration_seconds": 32.64174509048462,
+    "execution": {
+      "definition_sha256": "1c2d9e6d0c6e64184a74a02083682d782b311ef1e647403fb8e82d2ae7094bc3",
+      "fingerprint": "ff44a111d22739e662a23ee010277a06581ca00c7aa1a2dea911a6f4f4ca54c5",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "2adf3cd2c7532a70ac5d80b10d1a0986",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "d8069268d8f04761ade6e4fcd3def15dbac390c5a9ec05d7657dabc1d730478a",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "c09659e96e8e1a1c998e07698b9becfaf8406f5aed340895e85868260245494c",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "543e69eebd6919c2b3dc3f752a69822d1a4e89907009b69e09edf6474a8aeedb",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-070",
+    "attempt_id": "solidworks-070-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375149.703927,
+    "finished_unix": 1795375149.781711,
+    "duration_seconds": 0.07778406143188477,
+    "execution": {
+      "definition_sha256": "8f68cf6f3b4bfe82fe7e9ad75fbb5881e0c87c39d302be0e073ed826125406d3",
+      "fingerprint": "d7d820b084b1538198414ea489196d091fcedf18217e91187967f6ce92fa7522",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-035",
+    "attempt_id": "fusion-035",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375344.0589068,
+    "finished_unix": 1795375373.8684978,
+    "duration_seconds": 29.809591054916382,
+    "execution": {
+      "definition_sha256": "aac0c61fbedf2fe166ce95caa71d15a8b0da42bdfa46f0638c2f1f09d74a826d",
+      "fingerprint": "908be6b06df4b28527f19792cd5c2e456bf485c888ace082114bfcc22318cf56",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "45a464d02bdaba4f94e1869f2664c79d",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "b010c0433623e4eddb3caa21f84d0ba1f6c857133303081ab896856a9af972ed",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "995de32b115668cbfe75a24e34f529a94f908a8a93a892c1b668aa0e6a8b027a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "c36187519652f10ab519a82b7bf3ffdcc006ed3e095bc1ed7bde382817765eec",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-064",
+    "attempt_id": "solidworks-064-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375142.519121,
+    "finished_unix": 1795375142.599913,
+    "duration_seconds": 0.08079195022583008,
+    "execution": {
+      "definition_sha256": "953172909cfc61f696cdf13f48084aad5d477ac07f573483086cb6f5e5fc1e90",
+      "fingerprint": "525102390fe8de50c3a0827b95f91e47ae3e61e945a328ed41d40776c5093657",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-032",
+    "attempt_id": "fusion-032",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375255.020848,
+    "finished_unix": 1795375284.608713,
+    "duration_seconds": 29.587864875793457,
+    "execution": {
+      "definition_sha256": "318056214e0884e52d60c3b1fdafa85cfaac4499f3d7438c00d63926ee2bff32",
+      "fingerprint": "129ee5d9fd52cfde1d45b701fade12dbe26f08db4acf490e6926b2b1ce93f696",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "1f044c00b9d1cc6802cbc526a3736630",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "3f1f52c62fd5be3dbe5bcaa75f3b5929b8154e7aad8e01be2f8fbbe21ec9e365",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "a86399eeda278d5ea8eae0fb6a73eafab5619df516ec23119fcba8482bb1d323",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "0a298936b8914b31f1e8a94d4501ed18989ee6a47030fa7893f1b652d3a2fcd3",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-087",
+    "attempt_id": "solidworks-087-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375169.998941,
+    "finished_unix": 1795375170.0752,
+    "duration_seconds": 0.07625913619995117,
+    "execution": {
+      "definition_sha256": "fdc2c94e3928de7bc80b4da269576fe002060cd447bfe4dc4d27c7fc5d29fc27",
+      "fingerprint": "d3c666c570c7ac4fe556ba77b3a27323dff66157123597cb066781d96f518d74",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-093",
+    "attempt_id": "solidworks-093-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375177.1745229,
+    "finished_unix": 1795375177.256918,
+    "duration_seconds": 0.08239507675170898,
+    "execution": {
+      "definition_sha256": "da77e3cc0c58870c9a7aa473fc8328d932752aef2dc16fb9b2c86b9468f5596b",
+      "fingerprint": "5b0ec03bb5340636363821bda28f7af5f4af40cf80dad38ac036aabf9ef23c7b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-054",
+    "attempt_id": "solidworks-054",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374522.548424,
+    "finished_unix": 1795374572.729563,
+    "duration_seconds": 50.18113899230957,
+    "execution": {
+      "definition_sha256": "7a551276a4c34637fa01b90434b1de3feb1d1489e5863f7ac0d08664efc21da1",
+      "fingerprint": "2577087a88591e02052ee49306e61376e31264ac314d0893a8cc524bf3c26003",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "c2de2d569a1b6e413506543803919166",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "11fa94d4cd91dbacc7dcf8bfc7bcf4791dc35040bb80eebf1556c87766d3204f",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "d7caa5d976efef93b1cd83bd34edaff1655ba8534739d225a546ecb200fe5a5d",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "5dd51a387dfd782cd17aeb7d57ac44eba4a1dc912c29e23b111b956aabdc2ee3",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-053",
+    "attempt_id": "solidworks-053",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374475.207249,
+    "finished_unix": 1795374521.389686,
+    "duration_seconds": 46.18243718147278,
+    "execution": {
+      "definition_sha256": "0cee4eb0e37f0f0ce2a90a5a25d100420dafa30052e2092432925f1c4a8527e7",
+      "fingerprint": "435f6c0c2b0927f16eb65334360b068e87779a4337fbefdc74b64802945910fd",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "606e717e04c6fe4b5b00e430e42cc001",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "0682143df585cf905d71af6c9e6aa22a9220aa18f59137f56be524852362e378",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "f01db2bd472f77c8bfab5345cdd167346a90b5ffd789ed65f684b6af4af864c1",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "713be23577820371858abaa7047f7d90f0175e9275a6bac9fc3e4cf60c876528",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-091",
+    "attempt_id": "solidworks-091",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374709.321617,
+    "finished_unix": 1795374709.408046,
+    "duration_seconds": 0.08642911911010742,
+    "execution": {
+      "definition_sha256": "5cb6ef697fe255b7dd708ef9c5ccda65d61ae086a07c853ac82a6835abf9d120",
+      "fingerprint": "b01048f8418bf2f264e15a5415101a2b01d0959aba7e3001ac9061a88b4e0a1c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-065",
+    "attempt_id": "solidworks-065",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374678.225325,
+    "finished_unix": 1795374678.3116841,
+    "duration_seconds": 0.08635902404785156,
+    "execution": {
+      "definition_sha256": "ced1b29432b5f31ca9fa904d12e4b62c00365d88f92b5220f85b32ee2c31c8f0",
+      "fingerprint": "1ec84ae4ab271b17172bd6dbf3215144560786518f5352906cc1184558747c17",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-062",
+    "attempt_id": "solidworks-062",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374674.679029,
+    "finished_unix": 1795374674.755708,
+    "duration_seconds": 0.07667899131774902,
+    "execution": {
+      "definition_sha256": "f3707191fc9d402b7e9792c2099c6c4384a443db74fd0384cc8432adcf46bf92",
+      "fingerprint": "d059695d182a42ec087246038d28d791a0cb3790acd02a3c7efa858330bfd085",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-057",
+    "attempt_id": "solidworks-057-recovery1",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374997.694741,
+    "finished_unix": 1795375047.830278,
+    "duration_seconds": 50.135536909103394,
+    "execution": {
+      "definition_sha256": "aa1b65d71f2d9d311591e9297a7b106dd084b724225f83192aab3a3b568a46df",
+      "fingerprint": "ad8a910a3905d34dc57938455606955ce604810eb685e0b748d17cba0b1609e5",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "c1963241269b7b1808cd36a642c0be36",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "8df679c407811e3e25af9b02b3db343cc743f391e4efb8359562e5d05e7af7fc",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "ce242afeded7cf17e56677255d3818a3f999314c92137b84e3b521f1c53a6c4a",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "5316e35e7547d2f75ec2f5153da9727479a4e3c47d0aea6c28ef2e3d642656a7",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-076",
+    "attempt_id": "solidworks-076-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375156.817091,
+    "finished_unix": 1795375156.90273,
+    "duration_seconds": 0.08563899993896484,
+    "execution": {
+      "definition_sha256": "541b7776aa2bb3d7d7eacd0abc7e742af6dbc23ce9aaa0d771ccb65838e3b224",
+      "fingerprint": "2b3ea53b4d0421194cecc3a0bebba97d7b650a9bed4919d513a5df3731f68830",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-063",
+    "attempt_id": "solidworks-063",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374675.869238,
+    "finished_unix": 1795374675.95772,
+    "duration_seconds": 0.08848214149475098,
+    "execution": {
+      "definition_sha256": "08ec938e120d1c196080e0c0719e626cae50dffbe74f3d4d91382f69a571ba2a",
+      "fingerprint": "dc78e9b7724849f3a9bb173de73c648667d238574814eac35df5a843522151e7",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-064",
+    "attempt_id": "solidworks-064",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374677.051336,
+    "finished_unix": 1795374677.143285,
+    "duration_seconds": 0.0919489860534668,
+    "execution": {
+      "definition_sha256": "1f2c1aaadf19f8c32e8d261bc835024f372894fd06d14b6f39bd51457985991d",
+      "fingerprint": "3a8c51ebe14e3a1f73a4ec021cb57951a7cbaf199cf3433f20146c68c2ed7347",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-090",
+    "attempt_id": "solidworks-090",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374708.136288,
+    "finished_unix": 1795374708.228559,
+    "duration_seconds": 0.09227108955383301,
+    "execution": {
+      "definition_sha256": "0722e7b86c979dee93f24242a73ab71c19fb077cee1e123489cda79883f91f51",
+      "fingerprint": "0fada763d1a80e6e00a93e1a5bd9b89ba754254f96e8292d80e0173893728c62",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-052",
+    "attempt_id": "solidworks-052",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374422.5786371,
+    "finished_unix": 1795374474.543425,
+    "duration_seconds": 51.96478796005249,
+    "execution": {
+      "definition_sha256": "380eeefd9450f8cef730de25cbd2da0746c75c94a174ad9bedfd400e40f0e4a8",
+      "fingerprint": "f9af2d54a4305a8bdcb011a6b049dd8ed1b4d71990baca86f2b5c0c8459a699b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "ce8ef7a211e00dc2ff97b0aca5116d28",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "b6aa0d0abc275f2fa736cdeb447367f1b291fdc3148806860528b37def7d3664",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "d77d0dc93285c00296c027e2401da51f241080fb3fc99399e43a85c9b790cd73",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "99242f0a60bdb1603295c3b637d3ba62dc59082d9b942a7058742b790b455e1c",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-062",
+    "attempt_id": "solidworks-062-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375140.138736,
+    "finished_unix": 1795375140.222899,
+    "duration_seconds": 0.08416295051574707,
+    "execution": {
+      "definition_sha256": "158bfc80b1404c7f9794f9af3309e5e93472af616f07a6968a04a65b1d1db10e",
+      "fingerprint": "3b66040f2cd0f09f345c5e9770336b18b6db697a69d30d9b97846eada3218f53",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-055",
+    "attempt_id": "solidworks-055",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374573.19171,
+    "finished_unix": 1795374624.0117362,
+    "duration_seconds": 50.8200261592865,
+    "execution": {
+      "definition_sha256": "4623edf41a1e21f0f344773be5072f0465b5807ffa807263eb0a5bc0cefe561e",
+      "fingerprint": "bcf2898e41091bd80269d97d45f901f3a9efb3c2cf1b5fc5d21d4ccc1c398530",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "0ee5579b4c4e5f161d27d23fc29d5cd2",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "897b7bf4e722d406c2dacea48dc91bb208b8564c703d6dc6ab45897c94fc804e",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "cedbddf937a843339c018e466f19b5a81e559d7416068b9604e8f148dc9fc4ed",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "5f31745f07b2ec87ea49480b36259454377523a7dc3279b4e039d8725645bee1",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-083",
+    "attempt_id": "solidworks-083",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374699.776206,
+    "finished_unix": 1795374699.8523881,
+    "duration_seconds": 0.07618212699890137,
+    "execution": {
+      "definition_sha256": "e96148a18c9761c4007883eb917f32b28ba5d4e09222ce9470e3c448b6b74ec1",
+      "fingerprint": "ee2c6934d1dbf5ecb0458e49b0158b9786d13f50e6cebf272b801fa7f8e83662",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-077",
+    "attempt_id": "solidworks-077",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374692.528888,
+    "finished_unix": 1795374692.604884,
+    "duration_seconds": 0.07599592208862305,
+    "execution": {
+      "definition_sha256": "dc41e3c1b753e4d4e0e4cf815b4eefca5bf422959996b00226235834e7498477",
+      "fingerprint": "4b92121b6844d6ac488eb3c879715fe1c6fce0055d08446683ec996149101636",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-068",
+    "attempt_id": "solidworks-068-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375147.316569,
+    "finished_unix": 1795375147.3915038,
+    "duration_seconds": 0.07493472099304199,
+    "execution": {
+      "definition_sha256": "81e4d0ccfd0f0527b069d5d1b4c82ec9334b516f4cda8536b7f042132402d08a",
+      "fingerprint": "580f40d0c3755702be3f2bf071e28da25d378784c4f5271db55dfb4f84407514",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-048",
+    "attempt_id": "solidworks-048",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374235.13445,
+    "finished_unix": 1795374276.929536,
+    "duration_seconds": 41.795086145401,
+    "execution": {
+      "definition_sha256": "1581960b532445d8462a3db63b2361d4dab11779633d2cc91740a52192cede76",
+      "fingerprint": "30472cc359bd1ebb2f10fb231042e6a6873d68a60566b9ce26e8abc16d2fb443",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "6e16e9ad939c47d03d3852fa529fe09e",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "dc714eee21c4b7a75cfbbafde6d3aba9b9df1337ca9e755d5339c0f964d2ab1f",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "52fe37675d8262f831f3d5f8a6d73309afb14ebb098dd4691d670ee81901c02c",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "11def636f787b45d403a2ec42952ac61614a19d5f8c43c4a30933325a0866ffa",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-070",
+    "attempt_id": "solidworks-070",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374684.16996,
+    "finished_unix": 1795374684.766523,
+    "duration_seconds": 0.5965628623962402,
+    "execution": {
+      "definition_sha256": "427e24ae83aaba216483f374e6df9e1e14c6e9faa8a05da6fe6797c746d23a01",
+      "fingerprint": "fae0f59df000fe7c2553190f9db6f5f9b13f09af63b5e257d7d97da72e0da729",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-084",
+    "attempt_id": "solidworks-084",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374700.9722502,
+    "finished_unix": 1795374701.047202,
+    "duration_seconds": 0.0749518871307373,
+    "execution": {
+      "definition_sha256": "b89579ad9e346f9462d5a8433013a58913db1d8c4d4e0f40c4e05944375797ae",
+      "fingerprint": "75260755b3447ecee7ccb6050dbb794e95cd3ca06fc493a938eba3678ac4355c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-079",
+    "attempt_id": "solidworks-079",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374694.877713,
+    "finished_unix": 1795374694.94998,
+    "duration_seconds": 0.07226705551147461,
+    "execution": {
+      "definition_sha256": "26b833b292716000a8a2713be9a950b924191db7fbcac4525a4029db060c1dea",
+      "fingerprint": "fb5aeaeb41065085319c3ec0ecf6a8c0665744c4e605e2087fa7dd56e40fd38f",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-094",
+    "attempt_id": "solidworks-094-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375178.3686059,
+    "finished_unix": 1795375178.448281,
+    "duration_seconds": 0.07967519760131836,
+    "execution": {
+      "definition_sha256": "3e1e569c96fa71f8429256b2e1b6e88d8be6f9ee4cf1f483cdf12dbfe1281097",
+      "fingerprint": "4db7ad825952380db7657c7cca2ff0c564079984c94384273a70273c5b577e2e",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-080",
+    "attempt_id": "solidworks-080-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375161.5785549,
+    "finished_unix": 1795375161.6589272,
+    "duration_seconds": 0.08037233352661133,
+    "execution": {
+      "definition_sha256": "9a83e8bb6ffbadabfae6cbe753243e137707e5404f8adeb23220c8873e6e0f13",
+      "fingerprint": "150373b5a66ea4e13bc2d8e2b526ceef17f0619bc241cc38728cb9cd27fb5baf",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-065",
+    "attempt_id": "solidworks-065-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375143.7134778,
+    "finished_unix": 1795375143.7888288,
+    "duration_seconds": 0.07535099983215332,
+    "execution": {
+      "definition_sha256": "6ddaabcb9e4575acc2a6ed7c1ab5c8d002545ddd91571eb6b32362401c5d99f5",
+      "fingerprint": "5ecdc710dc04c7263cbaeca012de9647310dabd3c9bf66b4fcbaf65e8197be15",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-078",
+    "attempt_id": "solidworks-078",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374693.70575,
+    "finished_unix": 1795374693.7897532,
+    "duration_seconds": 0.08400321006774902,
+    "execution": {
+      "definition_sha256": "1c08ad3de8d73e6ab18d5438b45598578ec691d4d843f33f9b66be6ba696effe",
+      "fingerprint": "45bf1c93cb37e3bd9f4fb823f8f363e0f60df762f08246074c5d933df94424be",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-085",
+    "attempt_id": "solidworks-085",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374702.170411,
+    "finished_unix": 1795374702.2540212,
+    "duration_seconds": 0.08361005783081055,
+    "execution": {
+      "definition_sha256": "5749e4e2bcf0f78e5a2a41e85e00f2ecb69e0ed5046e2a69f001a26b67decf63",
+      "fingerprint": "2c6a04d03feeb6e8733f8e93887491bb74ef2237c4f2c815fe71f632ca0e5640",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-071",
+    "attempt_id": "solidworks-071",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374685.36886,
+    "finished_unix": 1795374685.45603,
+    "duration_seconds": 0.08716988563537598,
+    "execution": {
+      "definition_sha256": "f326e244e822a459565a0c8b0da3c1f0d68b79693ccf93c4e52fc43f6b9b001a",
+      "fingerprint": "e6b2168e45cf075c26c375ce70739533060f1ad519eeb177d3e7ee9c1b430e9a",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-076",
+    "attempt_id": "solidworks-076",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374691.3357692,
+    "finished_unix": 1795374691.4187782,
+    "duration_seconds": 0.08300900459289551,
+    "execution": {
+      "definition_sha256": "926f238768d965b012567820fa025a37affbdd983a86bc61933f2167d84bf602",
+      "fingerprint": "391e266f81e8650f7ae5fffca08924b17c0b2a6d237e41bc140a5cb3350ebe20",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-082",
+    "attempt_id": "solidworks-082",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795374698.56592,
+    "finished_unix": 1795374698.649164,
+    "duration_seconds": 0.08324384689331055,
+    "execution": {
+      "definition_sha256": "55b88be9f7f80243038e6c2a37bb7e31505240f3ff41de024eeae3dd62a90ccd",
+      "fingerprint": "49606403562b217eceaedb1bcf372573b7a6d9e96e67c7698f142b1d2ea2f128",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-071",
+    "attempt_id": "solidworks-071-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375150.926466,
+    "finished_unix": 1795375151.021878,
+    "duration_seconds": 0.09541201591491699,
+    "execution": {
+      "definition_sha256": "2f610923481817c537774282ccde0a7f54e35ab7f5d4d32b1acd8ebe64e7906e",
+      "fingerprint": "1207e37360dde7a50590108e2c57ba2935952350d256657a45900c143e86f92c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "solidworks-049",
+    "attempt_id": "solidworks-049",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374277.988249,
+    "finished_unix": 1795374330.330475,
+    "duration_seconds": 52.34222602844238,
+    "execution": {
+      "definition_sha256": "b12d527a0a1e17b32c641f8a76306a11fc90eaff820d12009029fc8405eef5a3",
+      "fingerprint": "ccc92f89e8a69015c968e9d3b8daf7a3aa31575eb1202b2d19364d5ccfe8ea0e",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "746b6800a7b9201c92d39b879a25fb89",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "147cbe5cb8e5d26098832e426de6fc758998d2a368de498cdd2cac566e85f62b",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "94d422487d1d1bafdd80b38dae27ae871d077029dc9950dfe33da6541121853c",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "98b09ea72bca92b8679cd255790a26a5749be964a74e874befc18e6d1cad7dc3",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-092",
+    "attempt_id": "solidworks-092-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375175.980269,
+    "finished_unix": 1795375176.055177,
+    "duration_seconds": 0.07490801811218262,
+    "execution": {
+      "definition_sha256": "c616f819d20c489ef5f29392aa68fee787acfca7b631e91c1361a71aba3d6d57",
+      "fingerprint": "b2af844102a0c729d89aba26118c0b62cff34170ac72083ced2c96c92c0910fd",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-043",
+    "attempt_id": "fusion-043",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375585.2177,
+    "finished_unix": 1795375615.930536,
+    "duration_seconds": 30.712836027145386,
+    "execution": {
+      "definition_sha256": "c14890ebe7fdc07126d386d7ddd3ca3ccd7f851d3b10215ce5e9d82932434142",
+      "fingerprint": "503090b7f5bea742865b1d813d2af8bdf5c1dfc97e6df80eae834d15b1c886b6",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "aab4b9389785fa05047f39166cebd0e6",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "6d47c6c46080ccdbb1b893238a6b0db9d61560e606f4346267363b4d865042b1",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "3e433ba60d9015e36064545050b0a8ba347127b7d7c63dd0bda75a8bd1b0e1c1",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "8bacab70f4df8c0bfffd8882b3072ad4375a6aee1194cfac0d8c2822fc9fce13",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-044",
+    "attempt_id": "fusion-044",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375617.063222,
+    "finished_unix": 1795375647.406028,
+    "duration_seconds": 30.342806100845337,
+    "execution": {
+      "definition_sha256": "25a23aa7428505f0c8a447ea71b84936bdcd5971bb4aa10cb1b3ab7a9842088c",
+      "fingerprint": "6dc54e6c5c1f706c9de543e411be80c9ff032885daa18c9de64241e8916d898c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "0cab05790d878496c91cf957d14a933b",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "c18a33ad51dc8a872f1d2e042a0b3eb6b05b51b32596fd557895375196a2f696",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "cc6e31c2a1d6761f4e6b0db2954782e104e4d6062f318eb06cdb2ead0cc25725",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "e64c0aaaddc0232cda3b5c97be53c157bac73bc39230cf4afd79c1c28f7797b6",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-086",
+    "attempt_id": "solidworks-086-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375168.831146,
+    "finished_unix": 1795375168.91343,
+    "duration_seconds": 0.08228397369384766,
+    "execution": {
+      "definition_sha256": "69a7ac1cb84a632549ab892b7dea9e1d91f7294944edd9034e5ef1519a6a4301",
+      "fingerprint": "899253ad4cd08a2a3ad0904233dc289226667a439baa24e1fbb53bf62a2b5f02",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-010",
+    "attempt_id": "fusion-010",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374569.943094,
+    "finished_unix": 1795374602.1563148,
+    "duration_seconds": 32.213220834732056,
+    "execution": {
+      "definition_sha256": "65048d33a4fbd1426fed0d89812a43efc155b76060bd1e01be2b3067d14a5d7a",
+      "fingerprint": "fb1afb2ab16cc6c9e7990f61899e07299cae1c42e00073f75398063e8920366f",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "67d3c61b20f4ebc0f1d05b669fd45fe4",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "131521183220bc782b3a98e0fbeb2ce064e0c7b6ad890b40d77ae4f35c9fb27c",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "69c662788fcbdf187edc44265830ba58e389cce93d9ba24df19ab9a0390f23e8",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "58c7926c2f921f6b0cecb532b34280efe5d95af01344ebc617eef2cb5b80879d",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-028",
+    "attempt_id": "fusion-028",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375136.6027892,
+    "finished_unix": 1795375166.842369,
+    "duration_seconds": 30.239579916000366,
+    "execution": {
+      "definition_sha256": "c0c0f72137466616a6b15f8e337b5b13b7e0f0401ccbc1ab181be548e89de75f",
+      "fingerprint": "8f84951acaa7da100175d39c66f8beff459b6b4fc3bf232aaaf3aaca316d826b",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "4d3e43fdcc077e7ef5051b132d85c1a8",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "a5a0f73a4799e24abba2815e1001b73586cbd64d9bafeca8db1cf2a2bbb2b8eb",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "a702930c37d995973f3f36fafbdb0f4555e08494c43a4d175a388482341edf6b",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "cae855794aaef0caa5ae417705bb7d61797dcaf37e9491f1f24250702c2bd107",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-017",
+    "attempt_id": "fusion-017",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374789.8236852,
+    "finished_unix": 1795374817.576851,
+    "duration_seconds": 27.75316572189331,
+    "execution": {
+      "definition_sha256": "0355770ea42ba7f71357c9abbbaec551940e828ea6c08082afd4acd0218b3799",
+      "fingerprint": "f7d8018832773e847785ced93d08411c740474f1698491a1890976ebb52adfa0",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "6eb85d5e2f274ed9bf56950f25659aa3",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "649d707aa54d7c5ba53b6771e9ba4d8b79c7918e3ca6f40150381dc599f504e4",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "56ee4d9a90a377c5240d496e0e9dbf7a7e6856fb75d672c51a2ea137e1dda0e1",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "eeaedc69546a58218c181473163c26eada7361e4bf0092db9f569d50cd6ae2bd",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-021",
+    "attempt_id": "fusion-021",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374910.5682602,
+    "finished_unix": 1795374940.743117,
+    "duration_seconds": 30.174856901168823,
+    "execution": {
+      "definition_sha256": "6d14d9381ceb1a5acf3dd66f1bc476950953812ab61f5dd62385cd34e1eaa6dc",
+      "fingerprint": "24710c47eadf8a1dec42c8c9ba91250eafcae0b70c9acf28e2f4c899f25b1971",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "ba90ade0e36c0a36a79af223eba4c97e",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "371bbd19abdd32ddd10be06ea2f781238ba8f506616e753a00c3e60a22bd78d5",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "3b80e36446e7d31919e9a49a6b13a57325e725acafd8cbfd1e5f80e7e200522b",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "5670a6cbe1fb7967f3dac5c09fccdb437ae6681ce734a02d32d2f5c074ca4aa4",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-019",
+    "attempt_id": "fusion-019",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374849.050213,
+    "finished_unix": 1795374878.791612,
+    "duration_seconds": 29.741398811340332,
+    "execution": {
+      "definition_sha256": "84dee638e340f40d507bdd78b03d808f53983459c7ac6967e3fd2aaa009182ca",
+      "fingerprint": "aa935f9c7894cb32739fe8f4f9a7a16a145a97bd012307a2ea57fe393a84ef7c",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "26b480e9789108c8258ed5aff47e72fd",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "63eaacc2b0a9d940df461e08a3e02693b73468be1e802864d5419ce665226a06",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "4db453b2c3104e6fe2b7649a791406ae410d8403fc99d47272bf91737e1e6b26",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "e130c546460b6c0d1e76182413e5b938823ee7ddb1c4543977d44902f99a5468",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-026",
+    "attempt_id": "fusion-026",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375069.3121831,
+    "finished_unix": 1795375103.042563,
+    "duration_seconds": 33.730379819869995,
+    "execution": {
+      "definition_sha256": "55c0b7e14cad8daecf980ba4e4efd5ea3955571eb393dd9716e0550f8dea506b",
+      "fingerprint": "abfd58d03ddec5d10dee15ecd3576e5d2d725d023bf8381409c29b4030d6797e",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "8724c076f111b5d7f1b5ce45cb8a2c03",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "6a21701792525b7a1de71027a6db552c2483cb543369992fd04b190051c36144",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "0a831aa56a493336910dec48170a87677e0b1a9aa620dab8d10621af79ae6505",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "4d82152a3bb947a977150c64739c17e135f44432ad75f5483ea34bd33c07f554",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-045",
+    "attempt_id": "fusion-045",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375647.783403,
+    "finished_unix": 1795375678.0575502,
+    "duration_seconds": 30.274147272109985,
+    "execution": {
+      "definition_sha256": "519675eb8954ef802113dbe715074f6269c4a1d59848d4b551a1a5b39a89ff56",
+      "fingerprint": "7dbdd38f8b6988bdbc4c5b22b46ee14664c21159078b2787e4221394241b51a6",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "33a85466b18683a392c407f73033fda2",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "8e903a7003e048c95dbc58183e1644f9dd8bb79b2a952f102097dca8276e8966",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "b41057d6bbbccb7838cdb6d35cdb88be39f5c8c50dd165dcd45b5548bfb6cdae",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "f8cdacaba3050935e3cdd2c441de48b51d88c3c8c311ebd962310b33fac10628",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-056",
+    "attempt_id": "solidworks-056-recovery1",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374954.540587,
+    "finished_unix": 1795374997.027199,
+    "duration_seconds": 42.48661208152771,
+    "execution": {
+      "definition_sha256": "765ab0bc4f19c62671d7fba223ba8966b75180dacfbf8194350c1ec2353135c9",
+      "fingerprint": "77edc0c494daf0df3ed4e5aeb874ab4b7fee9cade01e0c695474009a38a30f12",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "fea1f781c389788ca66f3faeab243cfb",
+    "decodes": [
+      {
+        "source": "control-before.SLDPRT",
+        "source_sha256": "e162b40d6e9e1ce2dd52283f421297278eb6c4732ed92c27d25eed417bf03618",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "control-after.SLDPRT",
+        "source_sha256": "4db83ba820253fd093d5c54793fd3284d6691a12a40f2115f8a890b8446bda1c",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      },
+      {
+        "source": "variation.SLDPRT",
+        "source_sha256": "059978a07c7bc1ddcffd5834f983e85b53083996008ee8a9f090f5701f1520c2",
+        "exit_code": 0,
+        "outcome": "strict_decoded"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-042",
+    "attempt_id": "fusion-042",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375554.3581362,
+    "finished_unix": 1795375584.6578681,
+    "duration_seconds": 30.299731969833374,
+    "execution": {
+      "definition_sha256": "68c250a5921ff87d87d33cf60b6f68c32d0f310d9f441c5d2b5d1950da51265c",
+      "fingerprint": "20eba9c42248d5bd195d0461c70092f619be6c566d8f56abb220584ddbba89fc",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "d3eeeba464a4ca912319fe4714f17d18",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "069cd5c5fb83ec326781605c3ef101c252ccf601677064c5d4438a85458d4ad4",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "7e03238acc6b3c414b707bdf30aad738f0eb1d8647b817316fffc47b7bffacc3",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "365df04ea041908b9f21a868767462f4dbc820bbdd60711d0c5582b46f7fc01e",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-018",
+    "attempt_id": "fusion-018",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374818.380933,
+    "finished_unix": 1795374848.158644,
+    "duration_seconds": 29.777710914611816,
+    "execution": {
+      "definition_sha256": "111d3226a24e83d4f325d9a219e8b216a70b2cfc2020e012fd0fdbba7c4b38ec",
+      "fingerprint": "221289f022e1477dda9f06856b4f317e3184dc19643a3712f8424a1e2202faf6",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "4dc270f2d0b0097c75955c23a5750c05",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "20bccba5f11cb3c5206439dc5fcef2a1690309c3f9f7e8661a21f6c01469727a",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "9fe8e77878f213dd64dad3772d0ea216a98ae9914a808dea87e003c6c72dfb50",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "8e5a2d33665b6ba9ca84e9272e10f129ddb86b3102bd20c0ac9fc5d08fa920d0",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-027",
+    "attempt_id": "fusion-027",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375103.993621,
+    "finished_unix": 1795375135.73926,
+    "duration_seconds": 31.745638847351074,
+    "execution": {
+      "definition_sha256": "63c72a36ee754e021f2872b2de3675ebb1171ffa1ad117075012d68d11a47911",
+      "fingerprint": "5a86e51006a848d133da52635c534e06bdb33bb892b4380615d6ae70694c244e",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "783950bd136533a9e53cba7586aeefce",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "d9a97daae0f991a9330cc0ccd4986c1ebe35504fbebdbbd68acd5d47b3390351",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "1057fb9601580038c2d1e962eb0c5b11f9c93169ced471801b59714dccd7b9b3",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "6ae8f72c200451a84e0879c971303b4afb2911b247ae0db975be0befa028156f",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-063",
+    "attempt_id": "solidworks-063-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375141.320308,
+    "finished_unix": 1795375141.3982809,
+    "duration_seconds": 0.0779728889465332,
+    "execution": {
+      "definition_sha256": "9493b45add0af6a8e45a7e46ae17564912506bd63eb04d37aceb2026f8241bb9",
+      "fingerprint": "8ed5d26d702947533bc99edf621262330e589810d7e97af4ae1db5b4fbefd0e9",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-020",
+    "attempt_id": "fusion-020",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374879.811316,
+    "finished_unix": 1795374909.99168,
+    "duration_seconds": 30.18036389350891,
+    "execution": {
+      "definition_sha256": "a682c304c4c1548c3e98c76bf40ae9723ad633142d6beaecb9ef9466df809340",
+      "fingerprint": "b3a480e228fc22d2ae37820130ea91e9a5c56f54eda2b111dde4c105e0cb04c2",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "871d83df7d7a7df51526a6ad551f4f2b",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "80adf3959e1fd52dd33e8fdbfa6324e3b63dd070e085200ec00a54aa62896518",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "d11fd498b7234c2b70141cf76c5395ebdc1459cfeefa92f93c1420b5de75e20b",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "c259d640b51e0306aa1e39ed80efe74baae4abf4455ae1ddf645d03d2db1db49",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-029",
+    "attempt_id": "fusion-029",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795375167.551271,
+    "finished_unix": 1795375197.368903,
+    "duration_seconds": 29.81763195991516,
+    "execution": {
+      "definition_sha256": "ebc161b314b72c1bee8636a9dbd87c4b6c721f3ddd19fdf447951dd5fe882834",
+      "fingerprint": "3deb04ab5e4991eee3214bdca64173f381c6d2be34dcc2dc22638b6b82a93e8e",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "d2b5ab7c2ae7dbdaee95cef13391bf0f",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "1a6e31d20b9bcbd6db66a5a843ff07420293531830cda84f649d443af94b263e",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "d5d9ee78a99f74b96eb5e61cc0471f9131a5c481e09696fd9b95805a46776d44",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "01224cbc7a30265bc6adb29aa74918b7206d2185fc02ff4725fe054306c0356e",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "solidworks-077",
+    "attempt_id": "solidworks-077-recovery1",
+    "native_status": "pending",
+    "error": "an earlier native process requires owner recovery",
+    "started_unix": 1795375158.018857,
+    "finished_unix": 1795375158.094901,
+    "duration_seconds": 0.07604408264160156,
+    "execution": {
+      "definition_sha256": "8fee14614efbbe5f45e8691631a82ad7bb2f519f1b815d50298dc74340b33a10",
+      "fingerprint": "60b08a9f6d21ab7a498f0fb02879d1c059734d187e7a97c87eaddb9706514a15",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": null,
+    "decodes": []
+  },
+  {
+    "case_id": "fusion-016",
+    "attempt_id": "fusion-016",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374758.08927,
+    "finished_unix": 1795374788.707565,
+    "duration_seconds": 30.618294954299927,
+    "execution": {
+      "definition_sha256": "abfe4efa6e346ade46d80d883fc7c968e7c5d0f501257380021bc561abeb6ede",
+      "fingerprint": "506190bf5f25ceacda0b76e665f8c3efb2f40d66b759d8c4595ce0ab50e8ee2f",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "3cbf66f9aa473374bbcbdaf9bc433b6d",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "4551f48fa8bf794824eb9ac5ec6756637d2f731f35241d01af5264dd9e7dc937",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "a062c4b7a2d3f1e9b594a9afcb47176a49f95721f26989cd04ca96bf2106f896",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "654c0878fb78c60efe00792ad779910264b97782b17e530fa2cef0344334610d",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  },
+  {
+    "case_id": "fusion-011",
+    "attempt_id": "fusion-011",
+    "native_status": "completed",
+    "error": null,
+    "started_unix": 1795374602.577868,
+    "finished_unix": 1795374634.508731,
+    "duration_seconds": 31.93086290359497,
+    "execution": {
+      "definition_sha256": "9c26b0fe9bb94b33084e60b8ecf0c7093d9ec7582a0d49a2de9195c8402aa3a8",
+      "fingerprint": "5ee04a33c39913572e2e3a9bd162e780c3e6c61b589d0e1639ee574b91370f36",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+      "input_sha256": {}
+    },
+    "native_job": "43ce8463331618268713c7711bac41db",
+    "decodes": [
+      {
+        "source": "control-after.f3d",
+        "source_sha256": "828d70880461125545e41cafe30865afa0132b69c3f1afb583f7233b31c10e30",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "control-before.f3d",
+        "source_sha256": "21f2a77ac1d827d0d9ba17bc2bf6ea66619de9660af6ea0baa691f2437a8d879",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      },
+      {
+        "source": "variation.f3d",
+        "source_sha256": "5d2f860b9ace04bbd3c55d7605d258c6eb478db0d7970a181caf924d4c5028c8",
+        "exit_code": 1,
+        "outcome": "strict_rejected_or_failed"
+      }
+    ]
+  }
+]

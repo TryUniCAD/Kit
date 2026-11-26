@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -22,11 +22,11 @@ from tests.Convert.Solidworks.Core.CircleOnly.Samples import KCases, ReadCircleI
 )
 def CheckSourceFree(TmpPath: FilePath, CaseName: str, PlaneId: int) -> None:
     SourcePath = TmpPath / "Source.SLDPRT"
-    ModelPath = TmpPath / "Model.json"
     _ = SourcePath.write_bytes(ReadCircleInput(CaseName))
     ScriptPath = FilePath(__file__).with_name("CircleProcess.py")
     First = RunProcess(
-        [PythonExe, str(ScriptPath), "read", str(SourcePath), str(ModelPath)],
+        [PythonExe, str(ScriptPath), "read"],
+        cwd=TmpPath,
         capture_output=True,
         text=True,
         check=False,
@@ -35,7 +35,8 @@ def CheckSourceFree(TmpPath: FilePath, CaseName: str, PlaneId: int) -> None:
     assert First.returncode == 0, First.stderr
     SourcePath.unlink()
     Second = RunProcess(
-        [PythonExe, str(ScriptPath), "replay", str(ModelPath)],
+        [PythonExe, str(ScriptPath), "replay"],
+        cwd=TmpPath,
         capture_output=True,
         text=True,
         check=False,

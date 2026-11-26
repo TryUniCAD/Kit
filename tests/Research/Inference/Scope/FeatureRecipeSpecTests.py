@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -12,10 +12,10 @@ from pathlib import Path
 import subprocess
 import sys
 
-from tests.Research.Inference.Scope.InvokeAuto import InvokeAuto
+from tests.Research.Inference.Scope.FeatureHandoffTests import RunAutomation
 from tests.Research.SupervisorClient import KRepoRoot
 
-# a written recipe with a known volume exercises the full specification path
+# a written recipe with an analytic volume exercises the full specification path
 KWrittenFeature = "family:fillet:constant-radius-fillet"
 
 # an identity that no recipe covers keeps the original planner blocker
@@ -25,7 +25,7 @@ KUnwrittenFeature = "family:fillet:unwritten-fillet"
 KMappedFeature = "family:extrude:cut-extrude"
 
 
-# one family holds written and unwritten and mapped entries without native dependencies
+# one family groups entries with different recipe states without native dependencies
 def RecipeCatalogue(Features: dict[str, list[str]]) -> dict[str, object]:
     return {
         "schema_version": 1,
@@ -37,11 +37,11 @@ def RecipeCatalogue(Features: dict[str, list[str]]) -> dict[str, object]:
                 "wave": "alpha",
                 "dependencies": [],
                 "subfeatures": [
-                    {"id": ItemKey, "dependencies": [], "options": ["radius"]}
-                    for ItemKey in ItemKeys
+                    {"id": FeatureKey, "dependencies": [], "options": ["radius"]}
+                    for FeatureKey in FeatureKeys
                 ],
             }
-            for Family, ItemKeys in Features.items()
+            for Family, FeatureKeys in Features.items()
         ],
     }
 
@@ -63,7 +63,7 @@ def CheckRecipePlan(TmpPath: Path) -> None:
         },
     )
     Command = "InferenceGrid/FeatureDispatch.py"
-    Features = json.loads(InvokeAuto(Command, "--catalogue", Catalogue, "manifest"))[
+    Features = json.loads(RunAutomation(Command, "--catalogue", Catalogue, "manifest"))[
         "features"
     ]
     Written = Features[KWrittenFeature]
@@ -78,7 +78,7 @@ def CheckRecipePlan(TmpPath: Path) -> None:
     assert Mapped["route"]["recipe"] == "P04" and Mapped["blockers"] == []
     Store = TmpPath / "UnopenedStore"
     Blocked = json.loads(
-        InvokeAuto(
+        RunAutomation(
             Command,
             "--catalogue",
             Catalogue,
@@ -96,7 +96,7 @@ def CheckRecipePlan(TmpPath: Path) -> None:
 # the recipe command returns the readable authoring intent with evaluated volumes
 def CheckRecipeCli() -> None:
     Command = "InferenceGrid/FeatureDispatch.py"
-    Output = json.loads(InvokeAuto(Command, "--feature", KWrittenFeature, "recipe"))
+    Output = json.loads(RunAutomation(Command, "--feature", KWrittenFeature, "recipe"))
     assert Output["feature"] == KWrittenFeature
     assert Output["status"] == "awaiting_independent_authoring"
     Recipe = Output["recipe"]
@@ -104,20 +104,20 @@ def CheckRecipeCli() -> None:
     assert Output["seed"]["volume_value_mm3"] == 8000
     assert math.isclose(Recipe["expect"]["volume_value_mm3"], 7960 + 10 * math.pi)
     assert math.isclose(Recipe["edit"]["volume_value_mm3"], 7910 + 22.5 * math.pi)
-    Paired = json.loads(InvokeAuto(Command, "--feature", KMappedFeature, "recipe"))
+    Paired = json.loads(RunAutomation(Command, "--feature", KMappedFeature, "recipe"))
     assert Paired["recipe"]["pair_recipe"] == "P04" and Paired["seed"] is None
-    assert "has no written recipe" in InvokeAuto(
+    assert "has no written recipe" in RunAutomation(
         Command, "--feature", KUnwrittenFeature, "recipe", Expected=2
     )
 
 
 # the batch report separates entries that wait for capture from entries without recipes
-def CheckCaptureRun(TmpPath: Path) -> None:
+def CheckWaitState(TmpPath: Path) -> None:
     Catalogue = WriteCatalogue(
         TmpPath, {"family:fillet": [KWrittenFeature, KUnwrittenFeature]}
     )
     RunPath = TmpPath / "Run"
-    _ = InvokeAuto(
+    _ = RunAutomation(
         "InferenceGrid/RunFeatureCatalogue.py",
         "--directory",
         RunPath,
@@ -136,10 +136,10 @@ def CheckCaptureRun(TmpPath: Path) -> None:
     assert Entry["blockers"] == ["pinned_native_evidence_required"]
 
 
-# the checker validates the committed file and reports entries in scope without recipes
-def CheckSpecScope(TmpPath: Path) -> None:
+# the checker validates the committed file and reports missing recipes within scope
+def CheckCoverage(TmpPath: Path) -> None:
     Command = "InferenceGrid/FeatureSpecs.py"
-    Totals = json.loads(InvokeAuto(Command))
+    Totals = json.loads(RunAutomation(Command))
     assert Totals["recipes"] > 0 and Totals["entries"] >= Totals["recipes"]
     Catalogue = WriteCatalogue(
         TmpPath,

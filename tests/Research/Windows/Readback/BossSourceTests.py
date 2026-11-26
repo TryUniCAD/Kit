@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -13,6 +13,7 @@ from sys import executable as PythonExe, platform as HostPlatform
 from pytest import mark as TestMark
 
 from tests.Research.SupervisorClient import KRepoRoot
+from tests.Research.Windows.Readback.BossSourcePins import KBossSources
 from tests.Research.Windows.Readback.InstallReadback import InstallReadback
 from tests.Research.Windows.Readback.ReadbackGit import ReadbackGit
 
@@ -39,11 +40,11 @@ print('validated Boss collector source pins')
 )
 def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) -> None:
     RootPath, _ = InstallReadback(TmpPath)
-    for SourcePath in (KRepoRoot / "re/automation").rglob("*"):
-        if SourcePath.is_file() and SourcePath.suffix in (".py", ".cs", ".ps1"):
-            Destination = RootPath / SourcePath.relative_to(KRepoRoot)
-            Destination.parent.mkdir(parents=True, exist_ok=True)
-            _ = Destination.write_bytes(SourcePath.read_bytes())
+    for RelativePath in KBossSources:
+        SourcePath = KRepoRoot / "re/automation" / RelativePath
+        Destination = RootPath / "re/automation" / RelativePath
+        Destination.parent.mkdir(parents=True, exist_ok=True)
+        _ = Destination.write_bytes(SourcePath.read_bytes())
     _ = ReadbackGit(RootPath, "add", "re")
     _ = ReadbackGit(
         RootPath,
@@ -64,7 +65,7 @@ def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) ->
             if TestTarget == "collector"
             else "RunBossWitness.ps1"
         )
-        RelativePath = "re/automation/PairedCaptures/SolidWorksAuthoring/" + FileName
+        RelativePath = "re/automation/CaptureTools/SolidWorksAuthoring/" + FileName
         FileValue = RootPath / RelativePath
         BeforeBlob = ReadbackGit(RootPath, "rev-parse", "HEAD:" + RelativePath)
         Comment = (

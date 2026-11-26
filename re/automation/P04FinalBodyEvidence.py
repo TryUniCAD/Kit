@@ -161,8 +161,8 @@ def licensed_readback(git, solidworks, directory, receipt_digest):
     source = plan["source_revision"]
     require(re.fullmatch(r"[0-9a-f]{40}", source), "invalid source commit")
     require(
-        plan["collector"]["path"] == COLLECTOR
-        and sha256(git.blob(source, COLLECTOR)) == plan["collector"]["sha256"]
+        plan["collector"]["path"] in (COLLECTOR, "re/automation/CaptureTools/SolidWorksAuthoring/P04Readback.cs")
+        and sha256(git.blob(source, plan["collector"]["path"])) == plan["collector"]["sha256"]
         and plan["existing_receipt"]["sha256"] == solidworks["receipt"]["sha256"]
         and plan["existing_measurements"]["sha256"]
         == solidworks["measurements"]["sha256"],

@@ -1,0 +1,2732 @@
+{
+  "jobs": [
+    {
+      "id": "fusion-024",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2d3eff388d44e7a410bd6a8350e1791908e2d3d1586fa2ff59640e2331828fde",
+      "receipt": "81caebac4a14992a487e7150c50569b4095372c4a8b5731dabf1bbba6caeb35d"
+    },
+    {
+      "id": "fusion-025",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "23c1d65500fc018aff8afe1b722599cde5e9ff41c12b229319e17cc697ccbaf8",
+      "receipt": "b1edaace6073f375c39bd812ebc28bbf37167f6754da6e727d6c5bb0988f72e7"
+    },
+    {
+      "id": "fusion-026",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ef9d604e813f89f541c1fbb6d44c52248f8a6217c8a4d752bccb14db1cb84329",
+      "receipt": "c6106c7b12873ab7a53e80a2d7a8da124edfc100ecbf92e6b66d5ecc861f5e66"
+    },
+    {
+      "id": "fusion-027",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e5bce4e67329059aa7a311d2b269dc9a49be7462f519711c28cf7863ad2603aa",
+      "receipt": "9737c90e826f2cce890855d3b79bfad7800a39808b4dcdc3bd565f266a97d851"
+    },
+    {
+      "id": "fusion-028",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d66a2ec11a7439ad7d74eee4535b6682c3b49efed09890f115e4791c90fb8bc7",
+      "receipt": "78ff2e5512e8b3fe14d833f862532dd79d03ad3034c709dafa7ffc03fe1ab4a1"
+    },
+    {
+      "id": "fusion-029",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "be86efad470a3d0ba4371b7425d331fb95733a2534042d06f2a0073c9fb21a37",
+      "receipt": "ef3768a4160aa5f751e0e2fcc477d6ac83835b17f14a7235daaa503c2b3d4ead"
+    },
+    {
+      "id": "fusion-030",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c90d17d8c7109b9f96c7bb89c4b592e53c1e2e2038d6e7dc39919560c68e40c1",
+      "receipt": "0f13fe886f45d6a99b4713e25123bf9355b7db7d970b75c94ed2b52db66b31f8"
+    },
+    {
+      "id": "fusion-031",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "72ed1e5395d4809b108d8ab62ddc9486962b5064f709e548fe5efb0e5e42d277",
+      "receipt": "c68529e2b9b6f8f57c29f5b4ae297dc8b4a61f029f7d22f3f04c8fdbc80eaba1"
+    },
+    {
+      "id": "fusion-032",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "683bd4a9760e6a942f8ccb1b108bd0da30749443079a37f3e739987fe7fee9cc",
+      "receipt": "0d4c1b70859278844000e1d22f3a42102251d45249f680e21117ef8b739b5127"
+    },
+    {
+      "id": "fusion-033",
+      "kind": "native.fusion",
+      "state": "failed",
+      "attempts": 1,
+      "reason": "attempt budget exhausted",
+      "fingerprint": "9684f3d9f54026c169fa15a1ea66ab76f7d1cfaecb47570431d7d0af106302df",
+      "receipt": "12cb4228fc04c82c149e9a8a95792edc24c7c802b51506e4b5c25fc1872145db"
+    },
+    {
+      "id": "fusion-034",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0f781680ac8cd019596dffad024e9d27d5bf39adb46908c6af3d25b698c222ce",
+      "receipt": "6579ecb75f6366b506282ee63507b5750a32d591af8f07373c8760a311ee5f82"
+    },
+    {
+      "id": "fusion-035",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8ecd7d9d85d4633d09627717613a0c8b03025c56e18529726ff14705228f9911",
+      "receipt": "713b183e8153bf38da5906988b14b8bbbf609d1fcdd59efdeb1086da662823d5"
+    },
+    {
+      "id": "fusion-036",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ca8bed944daa9ccbd6da3cbe897aa24225c7ae75f31759a01ecb7ab8642e4e10",
+      "receipt": "5aad0b9f79b4f8bc4ca9758ca5fd7c219098d06c6b6608d0d2dd125426a591c6"
+    },
+    {
+      "id": "fusion-037",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "11843a781c0a9a15b283a5436750ccf0ce7ff0013d22f14cd15faef8b9e56e5c",
+      "receipt": "1e40b6ca2fcadcc9084d40c18b785bf827411679e50be882f8bf91b99346600e"
+    },
+    {
+      "id": "fusion-038",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bd9bd1a7ee2bb450729159e5750198c678aa9ec09201709b2bb5da534fed3741",
+      "receipt": "c261259690176cdbe433be5d6f8245ab1d13ac9b095c3a5f0830dc0b354e07e2"
+    },
+    {
+      "id": "fusion-039",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "258963e8e3babe0c040278a96bae52e921fa8f4dfac5d5e805b4d8c188d9a9eb",
+      "receipt": "7f1b9031c5cab85ae9295495e8c72768b82108a376c9f7826f1ec703fcbf6291"
+    },
+    {
+      "id": "fusion-040",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a8e6cdc5a96a5d50d292c2e2a7e57c6d234519f13ce663dc7de41c7673b84fa3",
+      "receipt": "6d8d79080153d832597c641282ea62ced9999f80f13767a201ff4c6d6db46ac0"
+    },
+    {
+      "id": "fusion-041",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "09dba5ab418bf7ac34afd207063e788c1b324823e16e184d2fb7a159f69b4429",
+      "receipt": "ae2f3f3ff838b224038a8ec0f76a2260f4e0f9e606ef0d3007a4e544672485c0"
+    },
+    {
+      "id": "fusion-042",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2d92442e30f306f8f6ba023acba5c04acc0fbc119035d40fc823523c9c1e587f",
+      "receipt": "952628e2b268006a0a423e7b68469be0eba9e75d592901e045566561b63e9a70"
+    },
+    {
+      "id": "fusion-043",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0b446ebf1aec896d1407c3775390bf7ab2ee57c606fda34e7bf6ee4dfa6226d3",
+      "receipt": "62201c2b26f21a8bbed07a51c8796bf1785a32cf8b22a3f73753b0f0b9b133e1"
+    },
+    {
+      "id": "fusion-044",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "de7ef745d9f425a3782ba1d2373987c9c825c6898da2b4c9afd81bbd71f84790",
+      "receipt": "e8a6bd694991bc2c29737c610ba392d0865082a58867b24a541c462b2a360101"
+    },
+    {
+      "id": "fusion-045",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "10c55f5e9c87809bfcca4309ec7f0f42265f1024e161926c2e8dc4f504c0c3a8",
+      "receipt": "f25b28fded17522f66cf5feb0467a7191d3cd908b16fc8ea20f0f0316ed03e4c"
+    },
+    {
+      "id": "fusion-046",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "30ab6a198e08e4f15e071ee745dc5ef93c47976594930b37b8f93ce255661fa2",
+      "receipt": "c7b60d42bedb24d472a9ffcd223b5c185e16b84fc0b7c8fad41cc3b251fca6fd"
+    },
+    {
+      "id": "fusion-047",
+      "kind": "native.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f30df92c9bb379bd9b36908403acc18b5711e0de1b21f76945e03c4bfa100723",
+      "receipt": "381c275e56145b940d47d61c320141c39d32a75085e41fcfe704e6ae26bf4099"
+    },
+    {
+      "id": "offline-001",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7d1ae3d4ec56928857e4f8d5fa782df6dd28826563dc187b5a46438a3661ad48",
+      "receipt": "6b60212bb04663f25bbf136a20c94f9545bc9e7c3bdbf493fbf54080c006c713"
+    },
+    {
+      "id": "offline-002",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bb67c0c6ff8a0d550a353d8b798f6c3417307abd5a06e8564c63fb0952cfe342",
+      "receipt": "994caa906bc4a523321b158002fcb201034799401469d61663bf64582c6d79a6"
+    },
+    {
+      "id": "offline-003",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "155c28d469b2f70b56403b6e8112dab731da212a159c43a8fa2ef4e433ec0a1b",
+      "receipt": "605e2208e0961afea2be24304c8aa0694658a30ad5d30346bcfe324dddf53e7d"
+    },
+    {
+      "id": "offline-004",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ac6c415e649ebb1a782c75c35460b7174ad805ea933810729f52249c4aef33b9",
+      "receipt": "020194d3e461740fcea090823c57f095b1720683413129821338173dc9ab08f4"
+    },
+    {
+      "id": "offline-005",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "cd3244ade15f696fdb7f79c9e1cfff39883c9b4465bc13d42427d8dd9077a849",
+      "receipt": "f51ce18aeab8ee50726c74b118e34f7d23ab317c2268bce532c22e1b732ddb39"
+    },
+    {
+      "id": "offline-006",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8cda053a411a45bcb2210e9b1f81d7de854bb8456bbf50cd6d11028f2a099a9b",
+      "receipt": "4b3f70f7b18e477a205198980afc80cf7063b605ca90f4d82d0e6d85f035c6f4"
+    },
+    {
+      "id": "offline-007",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2019fbd64f7595bbcc0bc6cbb1529add941f07b44e67739c9e21100c14617d9e",
+      "receipt": "7dd3d134c81094564dc4abc3c6f5e4d105cf96ed0130ff5e84c9c3d0e8c19d48"
+    },
+    {
+      "id": "offline-008",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "98aad38f0947b518044f091475feabc2803739fd47a5d44e4a5f9af9cc80fc75",
+      "receipt": "00fd6d80ad129ea919e54f7fbee6084c61e698e411855560e529872d148126c9"
+    },
+    {
+      "id": "offline-009",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b204ba05571f4243041b2edcdc8149f71078d7469069353336a0a7f7dd330dd8",
+      "receipt": "61cbcadd42b918b74ee0043ab00b02e4ba22279c6159e93e3fe5d78314d7618d"
+    },
+    {
+      "id": "offline-010",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e7eb9bfc6a604908c84733e0fbaaa407999e0aea7c7e539bfe79b035ac61b692",
+      "receipt": "1ea79dd58de8c90fae57f4ddc8df25909dfdd4822495804da2d8847ecb10f16e"
+    },
+    {
+      "id": "offline-011",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "faf98a96b7e86be87c15e02d6cec04f175e24ab5972c014c4d1e7a02a021ba66",
+      "receipt": "93c548bd5eba2dc3dc6328d2e72c582d394fc8264a99d8c9d2382e26279555b3"
+    },
+    {
+      "id": "offline-012",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4583b88f42cb54c55dce354e4c14708075b26d226f7b6b7f62f868d3a045ce07",
+      "receipt": "1fd43ede01f1593f55fcdb7530ca9d67206efdfc3edcc1e435dce27d6eb9a968"
+    },
+    {
+      "id": "offline-013",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "5f6f36ec0b6a66d20e8e8b583a4138f66801ebe50bb605a0639372539d47cd08",
+      "receipt": "e13c8502c6167074a28677cc9e92aad626ab83f6670e93160d91f350d617e4e8"
+    },
+    {
+      "id": "offline-014",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "41a1b5c45c6013e95739ac45e982f3abc592e6e22933bf84fc81218c120c4624",
+      "receipt": "41185911cadea04e299f87c65d533973abda4ad1653641fd725f3b4f714c11e7"
+    },
+    {
+      "id": "offline-015",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "850ab9fbb393770a2b80396c35c2a0e08f92c34aa0433f6554a590078386add4",
+      "receipt": "a625df76ccb09f9fcf3831768ec6334d1e7278f781e2bf049e17bad079b1743f"
+    },
+    {
+      "id": "offline-016",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "1aacbf12a3691d974ab38ccaab6da2b94f4aeafc5a8a9195ddc40a29f8e3415c",
+      "receipt": "2203f3e636735f3f0d39113196fd141843f12f68580490c85bf54a86769b0751"
+    },
+    {
+      "id": "offline-017",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6710d71bf111fd7968c7c15edd313c6772db675f0074bd729cd3831432d7ee81",
+      "receipt": "9403727a0487fcbe536d7b83708bc1b98351d178f9e867012c6a6f7e5073b246"
+    },
+    {
+      "id": "offline-018",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "37ff73acb0f94f09d7e2dc9d9ec15573399a1206ffa305958c26cacabd722925",
+      "receipt": "d108335d2edfbdca3fd60a124ac3c59f4d9c9e75a4835618ced42f15f7bdbcf5"
+    },
+    {
+      "id": "offline-019",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e489d9b556785565c3ca7ef447766880ecd2bf709e35715b4fc2934e47f15ed3",
+      "receipt": "741b7be19131a650755cb76bb9c634301f5236fac21ed9846c8acb0f8068b7e1"
+    },
+    {
+      "id": "offline-020",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6bfd2397b97d0693920a68ce06e09d15283a10554038b53087bbdfc46a5007f9",
+      "receipt": "6bc13b3313f591a2be85ce31e1d861413ef3d19a570af77eeaa964c6ff70fbe9"
+    },
+    {
+      "id": "offline-021",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "92580338b62ece4be73ecf76a7331a33a8c0b236cd8622224fb5f1826b6e9bcd",
+      "receipt": "3721c0052d09ad29070740875c0b9b57cc8209aea298a510d1cb34dcb39d9040"
+    },
+    {
+      "id": "offline-022",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d468365ab21bac475aa549c669cc5117bb9d6fb78f0bc9c8efda35fa537b9b17",
+      "receipt": "ae089ce6fc1c1c708049313e1f063aa1cf448c048fca4c3dc0d8ad1fe86aba53"
+    },
+    {
+      "id": "offline-023",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "be927a6d86d1fa8ce9d9d6aa800d4b3fef1cc7daae233d19103405316196a21f",
+      "receipt": "79123af4680787804f2f861812898a6c7fa5bdcc786466ec82a7b6ea568cd250"
+    },
+    {
+      "id": "offline-024",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d2ceed0f8e9d5b67ba783a60090d9ace2935174c680d76074e622fd9f2fb4071",
+      "receipt": "ddb84315b55f520fd5b7b8c5f1a7fa85f3146faef79b0ce3ed7bb538500214aa"
+    },
+    {
+      "id": "offline-025",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "20de92d6e9cec455bee1deaa6bd0c3f97e8382f668fec9073904f805b0c5b621",
+      "receipt": "e1414644979ca474710c0f70c2cee9f90518715724f5cf971f731bd83e2acda9"
+    },
+    {
+      "id": "offline-026",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e76b75723eec8e8156616f5dd393a0f83543d805fa27a72e67b6398cef85848c",
+      "receipt": "d61e6a796fae1e7125c38a2416d38b245a6f016ac7a798e6081f56457e275a98"
+    },
+    {
+      "id": "offline-027",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "396e8f8cfdb31861fb2533dac332bbcee61a6856fb0068c218f852922a5134e2",
+      "receipt": "49b53238df988cafc3b45122d68672d25334eae179a5c17624a81b056a4aa79c"
+    },
+    {
+      "id": "offline-028",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9f2463dbfccfdc0051b4a7ebb72988a7c5d57e918f90a06ac0930593b4898899",
+      "receipt": "af8cfde71460e19c39e5ab84a4008a2359fb8933ec86c10ba668619ba0d54abc"
+    },
+    {
+      "id": "offline-029",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "571718c26862be0bdef8cc18568eef38561bbe6aa31060b0cc3add691df82ba1",
+      "receipt": "4cafa118155d353282d3f1701af7ee6a60bd77a90a18e5c1205f1188cfa26859"
+    },
+    {
+      "id": "offline-030",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4dea4c75245d20e32823ec56401029462c501b4b45da78421b4488018adb277a",
+      "receipt": "36e158065c244e7ee964f67d94d02839d41b768032c0ad81496f1e41f679b637"
+    },
+    {
+      "id": "offline-031",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "885abfa799f72c8c8d17b43eb206d75f71f9ed6d041d3f02c996f554a7f5eae5",
+      "receipt": "613998151b11a0c57a746a3aaccea32edf3295709c5fd52654539b1392c98d43"
+    },
+    {
+      "id": "offline-032",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bb7eff9688696121b16b7b04e2cedcdbf32c92ee046d7a022d0b0f02d9432156",
+      "receipt": "6ac8473a5e1c1ba5cceeb000a200b06b95e6ec4f6c65ade11c5ea928db342305"
+    },
+    {
+      "id": "offline-033",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ca719d21bd90fbcac78937f3dc9e09d4d8bad895382ee0ca65d9ae9913c67096",
+      "receipt": "dff5b90196872e81f7da31349051f730d25c09b7ca0e7a7efb3250c48e584b2d"
+    },
+    {
+      "id": "offline-034",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6f1169d5ddf50f3fb7b83b0db37728c0f4502b98684ba875b1784056eaed2f4f",
+      "receipt": "776bedc1217516987665d6551a499f0c7f0fe4091bb69a24624ba95c97c7ca9f"
+    },
+    {
+      "id": "offline-035",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ee157346f3f30a00c7c6fc71821ced656eb795597bfaa3c32968365f5a9f74bf",
+      "receipt": "f3387e8acdc97e120f158e558b93f791ccc8ce5848952b01318f1be34fe9c3d7"
+    },
+    {
+      "id": "offline-036",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2b6449a296b427b1ff5fd14b15b65e08a75039cfad6ed15eb887e05a3f6b1794",
+      "receipt": "cf10cff4fdb04a85a79e056a2963d0c0e5bf13f4df78a6f75f38e67a8e4b49ef"
+    },
+    {
+      "id": "offline-037",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0be2e160e266e565c64dcf2851f28a0de216f27b6d2a912e00d36ee631ecf093",
+      "receipt": "0be8c89788c0ee747a6a6e179c21c9eec5bf7ab30eece212483b1454d66fb37b"
+    },
+    {
+      "id": "offline-038",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b7837cc2b0ab69cf62d751ce60a08c7ff0bd074a6a76427a74d794b1d682af00",
+      "receipt": "154ea6216ea707317de6e42c5804b4df208d40b7d8820525217b3f057ccd29e7"
+    },
+    {
+      "id": "offline-039",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "278165af0d395a9d41e15c8503b500f0d9fbb4e132af2acb97c708c358798bfa",
+      "receipt": "82d14398abcab0967c65c094cec5fd1266db024faf8ec78aa5a2db5e58b6e13f"
+    },
+    {
+      "id": "offline-040",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a428dd8fa43ec1b56a64e9b0937be585f8d5520320c8fc013f9d27c9abd2acd2",
+      "receipt": "7df83b948d70148bf99d0252ab98765cfcddafbaa5eb71375e63e05ecbb70b2c"
+    },
+    {
+      "id": "offline-041",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9daec2bdedb344cbe2fc9a1ffd0ccb3c3a67120ee8d6dbcf07a4c5b1bd161ed0",
+      "receipt": "3705c36fb0fde3d6715b10011bb38de5a4e0210a08ab898702ba04d98b394415"
+    },
+    {
+      "id": "offline-042",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2244755da957b8676dfe1391bec973ba67b88d30592953b43275d73bc41d857f",
+      "receipt": "dbc33ba068b6e71713d32049715a101b899d06b25af27aa3bf8ed8b5b220c308"
+    },
+    {
+      "id": "offline-043",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "35c2ce6180d67bbf9759326d85e5ca91a4f1511225ceb7414ffa842c582ae430",
+      "receipt": "e0821db65a208f5cf5cf0bee4f173b889f3e70a8e50a2c87f5c3c72859850e03"
+    },
+    {
+      "id": "offline-044",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "820ff08cff573336bec65b6f9a06c8df826bc276480f07f0f1660ff322ac550b",
+      "receipt": "5ee70e8e65e3e7fed6fbf3d91710f895ef18ff75249892472e451238f4feacf4"
+    },
+    {
+      "id": "offline-045",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9c8e6d5d6332c6c91f72b60b53a275ec505c03e22203dcf2a4e682af684283bb",
+      "receipt": "904336a03226c9b1ae992cf9a4b62696bfaf57e9204d0eb935db1680f513d375"
+    },
+    {
+      "id": "offline-046",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "083ca135841be52545171dcee75d97d74b4ce6efc2e914f54a114a44f3e00ac3",
+      "receipt": "cfaea171247128c0aa4fbdb446197ee7bed94e5d6b65d1d96eed02867dec46fd"
+    },
+    {
+      "id": "offline-047",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "41b6bc8efed5a2503436f3028135010f96231c902fb9a22d55c0a85795c908a7",
+      "receipt": "12bc3b23f6ed731fab0bf426fd1ad55ca2ccbb176309ec309bbf4bdc8d57a40a"
+    },
+    {
+      "id": "offline-048",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d24e9bf97c2c44c2b13153fe6827197c2576a5ca43d433cc340dfeb3ef5f3bb4",
+      "receipt": "476a81e20f271a1a78eabe086f830428875a02b5ecf5da66f853bda4d3af9172"
+    },
+    {
+      "id": "offline-049",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "84bc67d1f1c6d1269c59a697a567a8e7abfc7b2092e09799dceaa607e34a1d98",
+      "receipt": "f0861eba33f2afc5cbc3896d064591b29fd2ee65d0b87ac0cd73eec851462c95"
+    },
+    {
+      "id": "offline-050",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c5c71003d9a0f00d90fb9e4cdd4abc96c2ef45917765007db4e180d36aaffc7d",
+      "receipt": "12a88ee752c144ede3387ad26f094b86e48fd03ccb809d0345e629f99237908f"
+    },
+    {
+      "id": "offline-051",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c539c736f20f79f48f3a713a3bc897021c13b4194816e984ed3aa4860f140635",
+      "receipt": "2c9cc9a6e4eebe1f6d6c3ada635e8691ca143ac1b7665b658185827f777967c3"
+    },
+    {
+      "id": "offline-052",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d1c25eadf20e6adb1f4510ae93aafc7639d98400af10dc10aa5296c0fc78f2da",
+      "receipt": "52a10718a620610402e071eee5d29bc148132d1ad09129ae473ab5d211f58cb3"
+    },
+    {
+      "id": "offline-053",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "40d7b80c3b1892f468de6d874cdb28e693d0f7e981ae18044fd6cd20a007cb0d",
+      "receipt": "161ceb52512708911ec25a695516943658d2d9c0934dee2d071c93458fbe8108"
+    },
+    {
+      "id": "offline-054",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "05c38f207cac74c104efdd64610a06cef75e4539b1b0836147a653f4aa114ef1",
+      "receipt": "1703057ca33600e9ba299196ff761fdcc03eb73c0682b50e7507a8132a3ac284"
+    },
+    {
+      "id": "offline-055",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d5bb4f03cf912838ebcfed433290086d45d05d7d4fe62a36984abcc3a0e5ff07",
+      "receipt": "2f078f74eb07a75ed7634d000b63b3453ebf261333da74250fa9e6c6ea46992c"
+    },
+    {
+      "id": "offline-056",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "fbbf1a15fc580ca2115f1b0086e8c857b8bcfd67313e6070bbdba862b4d24350",
+      "receipt": "1fc3a93e9540b955a9add71ac486a97890ac162ca37d130a89a007bd883ead35"
+    },
+    {
+      "id": "offline-057",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "092a7dadf55a67e6a2f72f89df0079d63ab23dab441a4dc252a20cd989b5c9eb",
+      "receipt": "7bd7fb84773a498cb7eb2003f40fa0333ae025f378b64bf7a08391442b6abada"
+    },
+    {
+      "id": "offline-058",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "db64dc53abc53feed176b4151090cc238401f1f24e9ee6182f7697a8d859b110",
+      "receipt": "38811a06c3c2a8f7e112b4fe43a1c40fe8c7291c74010ed875aea4502ee4cf0a"
+    },
+    {
+      "id": "offline-059",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "112cf03441671375d5a2833212c228ab6654b275f80477e5ed8ea60c114ca763",
+      "receipt": "0b739dedbf6effb4a399019f5799b7ab8aaba5aa071887a13468f26641c85914"
+    },
+    {
+      "id": "offline-060",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "dd1bab0c8347044107d70a48307b38ea029c5d144cfa90f22d55e34afefb3624",
+      "receipt": "ecd491e362af7cd9a50ac0b0bfa823833a2e1811573488cacdbb6dac24a37894"
+    },
+    {
+      "id": "offline-061",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bf0b894332c7982a5ff51ae83d9d0c5f50525eb8f75d1974090057b4ecb25d62",
+      "receipt": "b5bd4027d92ca5a2f46ae7001abb23aa048b8e79c8b1f098750184ac9205ae27"
+    },
+    {
+      "id": "offline-062",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "26ea2dcbf4ff714d26344b69a95fb31a080c0898218cb0ed25abfc5bf708c413",
+      "receipt": "c4ae6f5c8ed7cf0dadf65867a43efc00f880c4ddf065d50bd499dd4149aeab01"
+    },
+    {
+      "id": "offline-063",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "cfe035d1072c88d6153959d937fe8cb08b19341d8bc2f31d30ddfbcab5786c82",
+      "receipt": "160f37031fdaf00ed891de3cd1f684142f7dbe0096cd202fc5d9f04ec27bc212"
+    },
+    {
+      "id": "offline-064",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bcfc88b563261d496209d0152881e9bacea012d903654b5539f86a29010279d6",
+      "receipt": "16ce85e224f7098e8568b3b9342397b3f006021f5dca28c612daa3c13cb49139"
+    },
+    {
+      "id": "offline-065",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4fbdcc4aa8fd9cf525c6365ca1134df5ffb6f2e84c5e355e324a78ce995bb609",
+      "receipt": "777ec457386990b529fc4e504af89e5c0188f0f62c30a47875a33be090c803e9"
+    },
+    {
+      "id": "offline-066",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a1358436dae4d5dfefe1f8fb06e48fc7344ebd0a7d7423c3ae76715a08fe09fa",
+      "receipt": "f50b2b8d8b5097f6bf123e252d2e58c33ae99babc26e6563e0dbdec8a88638b7"
+    },
+    {
+      "id": "offline-067",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ee1a43a66791edfd71823522af0a29becd1ff07d04df714886f5bed98cb56637",
+      "receipt": "6efdd373d0ea6ad9b790cc862097128a511e4236dbd619ce59782e7eebfe1e70"
+    },
+    {
+      "id": "offline-068",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "35dba2d6717c2f34769435c3379f2c7319cbe722b8691c26253513cc1455b593",
+      "receipt": "8ddbac73e4c4d3e670dcdb70c745d0b32e6571e09ce42c565c04036834eed4bb"
+    },
+    {
+      "id": "offline-069",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b086bdf11eca3ca513860becc8ccaeaed9e3aa2b652fe0835a4d176810ea5c0f",
+      "receipt": "2fc66b9372a17fa307fc752479382b163913d21af8528509313178aaa5c2aac6"
+    },
+    {
+      "id": "offline-070",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ecf61392821ab4d0eb1bc7cbd142a2727b28e4288c7be6947ea19b822059d332",
+      "receipt": "a4fc81ab1df210c4dd86d7ab2d8cf17468dbbd04880f536a98eed72f99c9b814"
+    },
+    {
+      "id": "offline-071",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "146e7e423cce497cdbf088408fa954ab2f7f0d512983f19f227f1695e7b1d5a4",
+      "receipt": "5791e170f956c93d7bb857f2c8be2bf42da21d011cbd6b9a06c2285eb0399f5f"
+    },
+    {
+      "id": "offline-072",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c5ea3f358670b84ed44dbdacfba5b031d1586202a58e79c59e091e961117b582",
+      "receipt": "f5e614787435fb39dd4367a3b306d7bba31aaef0d623f60717bcf1702fbb71c7"
+    },
+    {
+      "id": "offline-073",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "26a0e4e141e2a8eed83e4a90db4a13f0c94e4eb557c1c94a735261d3b27b9e82",
+      "receipt": "84699687d4f48014777100245401bec3934e5237482a09f718dd8e29dc6dda5b"
+    },
+    {
+      "id": "offline-074",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0a6d398f5e7f0920fd1b86eb69235df2431ddf85af6f62e2f91e54f7a523d042",
+      "receipt": "75a9e0ae3dc21b86c71da762567f660254f287167b167e0b60412c41367ba659"
+    },
+    {
+      "id": "offline-075",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "72f5feb0f112565afa2832990c87f4565789ea37bed95200a11db977d90efae1",
+      "receipt": "43dcc2ead69d733eb344def5d7106af9911e530ac562679feb8908825667a255"
+    },
+    {
+      "id": "offline-076",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "dc18554b80218dbf3a1188eecc375a12fa138374cec7be9ce15877359e4fa2e8",
+      "receipt": "f1822e8e3cbe4c4065583cb36abca0dceb4fdf9420a4c79712a72ce08e4ff5dc"
+    },
+    {
+      "id": "offline-077",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "60e62b689bc7a6c365bae4d1000936a9ccbdcca67fe730080b48ec63e1cb607c",
+      "receipt": "563c7982949e3a966147b1dc7d959e6593c3294df22e1ec06b0da73f309c4eab"
+    },
+    {
+      "id": "offline-078",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8b1f50616f9bd50769194f1986a96577577e7b13fbacdcbeed3de8ebea95a729",
+      "receipt": "103a76d3408a1aa0b5ed6a1c3d9d8f45941cee40da334dcfd92c9e24d036da1b"
+    },
+    {
+      "id": "offline-079",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7f842f797986aad633058d7bccdf61693e56d995e46516038ffd90d899f7ba11",
+      "receipt": "8c496b5793d11dfa3580a07cd5805729450565b81ba758d485dd00b0e28bea41"
+    },
+    {
+      "id": "offline-080",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "be306c77a19e1786df695a36b7bf2972a80c9add5d149b2595e7691fae52cb88",
+      "receipt": "26505fe99efefe30026ad0334609f30331286de7aa90eb54da9ee0e80e904da3"
+    },
+    {
+      "id": "offline-081",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "837b8378f4825e7219e997d201be1285b8638a06da58ada53fe1cf964867bebd",
+      "receipt": "92424da47572c65b96af350c6495ad064958143311ce4606ff3f9758e0e5d400"
+    },
+    {
+      "id": "offline-082",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f7e08d2bd5db5f8b18b9a250cd4d49960e0c6f903f4f0175a36f9d3f63ff83fb",
+      "receipt": "76285386be075b351fd33ec40c7c87766fad7ae187b354fa971cbc33115e6577"
+    },
+    {
+      "id": "offline-083",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "57d76f33f418891ca98fb7b6773bfe6f7e676d07ce1d0aac58796ce5110e2923",
+      "receipt": "e2397ee2ae3c93bea7ad730ebcbcea47a0c2ccf5e4e59f25ded063b283585a09"
+    },
+    {
+      "id": "offline-084",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "53bc89c2f643fad3023a7ae0546560222a21817876063d7d24fc3467adcd42e4",
+      "receipt": "fefda37745b1443d50155afd5f8efdc5edaf1068e389ad9a2aa444adac7d1b51"
+    },
+    {
+      "id": "offline-085",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "71414804cc5aaf5ac3c259194a2fad38d3a39d84f575ab61090d519bcd2b046f",
+      "receipt": "95f4e3a58b4925ebd467d7c2bcd50d4d92076b47a88b1be7c83477d376a92196"
+    },
+    {
+      "id": "offline-086",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a0a60ccf3e3529015cee7793cf3112579e8721c8fd089db0e7b9b39bb6c20d15",
+      "receipt": "bf45c8bad5b9610df4c807f9fcbb82d6ba2e2e3c31633bcd2655de5e36646957"
+    },
+    {
+      "id": "offline-087",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c85fb7360bd5a9e1f1af709afab641cd24fcb43b512b8674082b1bab5d978a4f",
+      "receipt": "c616018db1dfd7812b7ebba80db53f9b95a572211cab408df84484cf9cf1b154"
+    },
+    {
+      "id": "offline-088",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "3829bcf4a6eb4dcd9fbc3c516a1829163275850e3fe86cc86fa9d40b09f83ef7",
+      "receipt": "b902300e988ff2d2cad3fee70445f888a16c9f12ab9896c76dca161ef5846578"
+    },
+    {
+      "id": "offline-089",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f1b44672e84145762ae82089754c94083ad1fcbc150205e967f8d6c4808565c8",
+      "receipt": "f4a3d1a02cc7ac050848f4e20fd2bdc675838ad95e41fcd58427c4cd58a1a84e"
+    },
+    {
+      "id": "offline-090",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ac3589810f2c9d0450c3895ea731825104815cdc05829cdf2b004eed1aa795ee",
+      "receipt": "aa66509ddf3d5ca779bb2aed9cef94b18ccfc6eaf31dc39fdbca23d939f16311"
+    },
+    {
+      "id": "offline-091",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6b03011b93951e3e098641647f60fcc9d1d35ec395c9c12b1129a4f22efc44a5",
+      "receipt": "df55ddbb47a40d8963d5caae085eced4dc8f622a6e70e2ae15122baa3051fece"
+    },
+    {
+      "id": "offline-092",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f9d9377790e5f283bf3f2324a08f3317ad58ab2ebea1477dad552bcc0555e2d5",
+      "receipt": "574e3906565e1fcb359b1f08b2544c44e37d1acb2815a140f424740e45337f66"
+    },
+    {
+      "id": "offline-093",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "96c41c8c217b7bf05f122077a0e96364403fdd408a98122a8c52ccbf845dcee2",
+      "receipt": "263e4dbcf40ac6d5abdc5f0c2835cbe05bb56c9c50c6d2bc0f0eaa27ae55a876"
+    },
+    {
+      "id": "offline-094",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "da3decfad163e90da8f64c3c8ae803ca7aa2050ef2f4680e631ed2969e743f2c",
+      "receipt": "8b7f3a8b09abd6ff1818df1107dd685ff952f7a3d5e4573dfbcd0bd52f6b498f"
+    },
+    {
+      "id": "offline-095",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "59328c61375e0a351ec0689b9f935f701786ee3a3d15a5e3c95df8614abe0a80",
+      "receipt": "d561abf85f6421bd57d9a02e9746ffac5533406e91a5bf5f7aba057e5166858e"
+    },
+    {
+      "id": "offline-096",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "eb33341c441b3fb4369e018a0e9d3846ec6fb15002de79dc56e00b3f5724bdbc",
+      "receipt": "8815cfd1b65ae755b31324cfd8fb240a33f898a8f45a6b27848ca42302a51c00"
+    },
+    {
+      "id": "offline-097",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0854b1a5d649631a3722142b00441644410d5effbff5839a599a91da669b1b18",
+      "receipt": "b1b19b9b0e777dd0d8ae23b3fdee28aa739ef4d845b5457ff9895e947c032b61"
+    },
+    {
+      "id": "offline-098",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f54143e0827716ce889858ce10076a383f4da328f2ec3112a70507728fd2ac61",
+      "receipt": "ae829d96eaa113554dff5339481a0a303dc75b7022329796b3209c81a7fabad1"
+    },
+    {
+      "id": "offline-099",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "97f85b7938b486340d643604b5f6130f3d6afb127337980d50d051c7b8218734",
+      "receipt": "1c37785e8fdd06a743f90df109fe777d31b54bb2461132eb82a2aa5f60da083d"
+    },
+    {
+      "id": "offline-100",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4cfb899818b90a46817c82bb025e10078dfe1c5e5b4780ca36e49cee26a75f98",
+      "receipt": "f2a2a37d84ed8c6654cc13b5709c56f8aab491a70b4cfca98a5a4ee87a841e48"
+    },
+    {
+      "id": "offline-101",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b7803e0ab3be2aba74d4b1659849dafc8c81d8e855dece3bacabd2136f313fbf",
+      "receipt": "93a68cff3247cac9b7318bf074581efb0ee121df73431ab8910bd003678707e5"
+    },
+    {
+      "id": "offline-102",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "24f352a08ee29794c0e22f1c2a6588363796d2d49b355b6d82c4b0e5591e8907",
+      "receipt": "a56185fdfdd7003aaf043f7d6822474a1ccade53466b336177dc3a84d1063cdd"
+    },
+    {
+      "id": "offline-103",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "22000b9c58d665ad9df51c4abc60a4f60f89812ab6c6a17b91583451751a3631",
+      "receipt": "c0948bb67d6950a1d41e1710876d8212b5791aeb65a90d4b510a75fe13ee87d2"
+    },
+    {
+      "id": "offline-104",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4f45f8827782ec33cc0c657f1fafce1c19a671208c4796c6f737fe2a0bc34c5e",
+      "receipt": "1a2eb1e4bebcad19439e7540cdd27216aba337727ae3e056b7030c95ba831068"
+    },
+    {
+      "id": "offline-105",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "5e6d5fc8ef477264d1d0ea1f1815ab6b269b21ad27e0a2f5bebd34cb5301348b",
+      "receipt": "3708056624a7563f76f9dbb8d807f981f3a706c6f43a27ad0589dcc5771a88af"
+    },
+    {
+      "id": "offline-106",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d38b619eb4064aaa965f03f68d71744d4a326a7892cef8635ede904f8d7e38be",
+      "receipt": "0b3a11661e9debaab3842005ced3a61c3d8bd8f86b54caf014203f18db6286ec"
+    },
+    {
+      "id": "offline-107",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "927cc8ce61109e3c3254e64b934ac56e5b1ba3033a7ef669927b721092a56bbf",
+      "receipt": "a18c94f033cbfdf8e4152139d12e4aa95f8d44b02a6784c0c7d665dd3a29817f"
+    },
+    {
+      "id": "offline-108",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "470b904d8446b8018ff40ac77dc09d4a393defa2b2a8e3b8d7bb9d7da5c9376b",
+      "receipt": "6f4ff236a325318405cf1fac185e261ba6d5fa8ed0a434a0edc6097cc52e5d22"
+    },
+    {
+      "id": "offline-109",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "83cecf30b3aa868c8a1cd281f6676f0074f6253c1cb4685e96fabd5cd5727cfd",
+      "receipt": "d4580bb93d0a9260aea6116bb5db45e91f63062ff7479a6ddfe0c41a25ed364e"
+    },
+    {
+      "id": "offline-110",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "dc7dffbcd3ce4cde9ea42cb2e56ef9d30f772eefe98d3b773ffbb95606de0c98",
+      "receipt": "0385655c7a258632af40b6a56ef35232fa45a9f2051108ded80979c722d3a793"
+    },
+    {
+      "id": "offline-111",
+      "kind": "offline.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8c6a4a6c95243e109aed657c99166a5f561b4f105c791f197334442db01c2a9f",
+      "receipt": "c5e0e27f34bed104783b1f5cfd9138fb01fbed7c1c5deccd97af9d4923955de2"
+    },
+    {
+      "id": "offline-112",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "51f69aaf0badaf4f840cc9cf349b214e37413720fea5ee00a6f81bb0b8e3bd78",
+      "receipt": "586b6813cc9b08223f666c87b811cb756f413ded9fd06dfaf8a790e49eaba594"
+    },
+    {
+      "id": "offline-113",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "87f07ca3ed8bd61c660071bfa0f112463167c623736d81643403ef2ab6a206ae",
+      "receipt": "98c3055e52e3c5542dbd46646cfa75810c6f4737109312ced0566bc50fc5437c"
+    },
+    {
+      "id": "offline-114",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b130c87fc66538d3595b056712e26576bc8d52019e25a15d393696f46f4ce8ad",
+      "receipt": "da45f86f304abe0319bb559074f281bae04d668f92d8be0dc685e429f8fc470d"
+    },
+    {
+      "id": "offline-115",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "608e8d1281ffdee06145cd000375361d38ee7dc71665acb4bb6858bf5fa1e28d",
+      "receipt": "b9010376b2cf18e14c47fb0ba491e83048831c65189922d5ed093e7122b39a13"
+    },
+    {
+      "id": "offline-116",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bd94549fe3ee18db46f6543e14eb28f094907ac21b861427103f5369d51096cf",
+      "receipt": "c9542bd160a319237662e86aa26b1559e41134665ca42525d1308f0227eb8b6a"
+    },
+    {
+      "id": "offline-117",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "1547fc6b2d323da0cc5f00fb91931573fd7a04b9811da196647c5d3cc671a1e2",
+      "receipt": "b46ccfa3a4fbf395846c0fe4afc0e30658f94cb686ca0961be88281a22bc142a"
+    },
+    {
+      "id": "offline-118",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6319799aff61948e6b914a60812cbda142be0940ba44ff626050a5c1d0e08530",
+      "receipt": "ef7030fcb50610ab5faba8cabadcdaedaf4555203b94d05f27769225914199a0"
+    },
+    {
+      "id": "offline-119",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bbc6022a70fc4c4e10cf020ef3a82bb6bf425889daa0dfdf02298e00dd9e7703",
+      "receipt": "674f6c9c351b296686d36cc7f537f2067a16528ee25dee9668793ee113c9fbd6"
+    },
+    {
+      "id": "offline-120",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bc1be46b9100608e51896425700b2219efd8fc6810b17fc12248649c4368dabd",
+      "receipt": "337772ff87092020af05ec4678520b14cb330dcad0eb2fef6996e1cd0072ac84"
+    },
+    {
+      "id": "offline-121",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d91cd7733f4c76b0468ba2627a687b44d5bad15c42b5f2ddf318ff937e9dca9d",
+      "receipt": "5b11e8e0d250249a4388257a873fb1bd78b25e88d8b740c86e26e738365ac9eb"
+    },
+    {
+      "id": "offline-122",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c57603207c71e4f5e32488f9f02c74b6f71dd840a3d4529086e37b4a34d9095a",
+      "receipt": "e45ee38b2edee977b33a094ee4f51a654a7b7b0a2d7872cacd07ae9490148baf"
+    },
+    {
+      "id": "offline-123",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c439031749e75de4796ffd868866731d5eb2b5541ad4fc823485e53291fa4cae",
+      "receipt": "93b0fc708119de6a20023f0ff8db1ee1e1832b2bf13d00faf4d360d00a82782b"
+    },
+    {
+      "id": "offline-124",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d57cd49a7c9d283b9639e4a6e03d42e63d2f59dea7705e9494af53e1846cc99a",
+      "receipt": "e29e836ec39bcfd52625544e50681d4dcefc7aa931d45f8341aa8811917e115f"
+    },
+    {
+      "id": "offline-125",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "900b10515a5bcfee1f50d18715fc65e5f373db9b0aa8cbb4089b5c17bdd576ca",
+      "receipt": "a357644990a6ff5a6ff6f3d133621b18995b0489ada9415dfcae71cc41b9a70b"
+    },
+    {
+      "id": "offline-126",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b0f82f910958ad972ac0eb6c4a372cb79694bc8d1354a0fc0edf76006f914462",
+      "receipt": "76cb14fdbe8ca8b36e43a36f98fb8ec0e547be2ce4e89fab829e8cee8aa7e188"
+    },
+    {
+      "id": "offline-127",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e471b0fe6892e3efdb991d79a46428a4435df9fc51d62cdb272dc5647e60e21d",
+      "receipt": "8db0bc5607c7f4d9275f94ad7affbb8136b7b39feccb3c16888bda2ee0c242e5"
+    },
+    {
+      "id": "offline-128",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "808c6d5c1221b476b2c66fe8817335539f27d640c9227830632c3ea8aa92782f",
+      "receipt": "1fcc1cc4a3b58c29fbb4fcfb644ddf59ad071f8b540e1c826d8ce487f720a1e0"
+    },
+    {
+      "id": "offline-129",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d1cd84fe44cee48dcf55f8c644ed487df47f057295bcc69c135769f92f6bcf60",
+      "receipt": "4acd863e25a1e1502f2baf080df132f427f5d36c3453436bcb04f4a2426c8b1a"
+    },
+    {
+      "id": "offline-130",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e227af4f057a1ae8ec51e26ba4ce177079fe5c2683b9e1dc165e85ba9d0befbb",
+      "receipt": "4f2cc61478031b51f9826740fe633de0dfcded94cee55bad6cc002b9808fb7a2"
+    },
+    {
+      "id": "offline-131",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "91fdca213de92ca8b10d6811405336dc2cd79cf602b7cc51251bdfaae4102ef3",
+      "receipt": "34e28f2528ba706ac1b6443de7b26e8b4fe74f07165ebba96dfacc8027122258"
+    },
+    {
+      "id": "offline-132",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "fa6a425b9296094f99de2c12de6a23c4f631cd39b2fce9f632df475d79cb9312",
+      "receipt": "06d4fe3e0764da910b3243277424a5f676867928c1b085bd4b0864a8e0e1b546"
+    },
+    {
+      "id": "offline-133",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7d20386793589f3bf81d5ed0bb5dbecb01c7289f72a6beb7e8f4b5d03bbe11da",
+      "receipt": "61b6fe906eb5d6d1ec9bc0ece49ec028bffbf204271ed51abd2ee0e6e0aeefcf"
+    },
+    {
+      "id": "offline-134",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b486223f4a095f254114fbf1634ee9c4a4523f8f218459ac73e8d8aad953e2fe",
+      "receipt": "1b3f2e358ed74e98af6cae1106196718652af32eaf0241a63bfb36215aebcc2d"
+    },
+    {
+      "id": "offline-135",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9c2d02ca71b91add6cbf62d532902c78793fac4b4e1e3629d41dba4f442dbd3f",
+      "receipt": "f1191b0a81066dec414b249207bf5dc5422c4825f6a258a2fc33b7cee691c900"
+    },
+    {
+      "id": "offline-136",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e723cb61b20315e4a3f8eaf897dd3d927a2009c67160ad0d4d6dde60b528389a",
+      "receipt": "666aa9008eb7f6153115389a1aef8f088bf655c1d7c73b29689dfa577339c367"
+    },
+    {
+      "id": "offline-137",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7af5b96b8756c40339427225f90845d21cc006e093144d2715a5425e0c5e9e3c",
+      "receipt": "956ee01e3f3c85853a02c1437924e73fd1c983604f107c0bda42b1b252a84c56"
+    },
+    {
+      "id": "offline-138",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "34b7fafc5cf1f1e97f2ad493c69b2477b077d0be022df4e0d439feef7a3c5bc5",
+      "receipt": "d87522ca41cd10757fde376572d9cd505e920a71da201e1bf69ed3da4293f70d"
+    },
+    {
+      "id": "offline-139",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f8ea4b05ca5fe74d330dc356b281e1bb9f731abd2fd3e912804e99730043b257",
+      "receipt": "b825a88d09d155e2254fec53574615cbb8807e518b455b8a8477202c00025900"
+    },
+    {
+      "id": "offline-140",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b8e70b8aa26632935fe57de8cfda606c7566ebb0f8c31e6ed17d39b917755ea9",
+      "receipt": "e5ee3b98f89b9b8376b4f0edfea2b6cfd8119312c246a647b266851885c5e1dc"
+    },
+    {
+      "id": "offline-141",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8e1d991fdf21d1e621525d5cc2e45edabbf5bda126b0410b85135ccd71c75dd6",
+      "receipt": "af66a06b766e517a84499aefdf16275601f692c0d616e0468549941dde5b4533"
+    },
+    {
+      "id": "offline-142",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "31ebc3f58ac4f9f4a2b972c899375d98c9753f2fe2d709b944726471972d9ed7",
+      "receipt": "3b1ad0edf18fab9e68f3b9b35c86efbbac5d89ec875e72baeb28a97555c80889"
+    },
+    {
+      "id": "offline-143",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "70f03430c68c3e025518df1e812cde9c99559a9a58f1e7eb5880a8191f001bab",
+      "receipt": "90825aaa91bf34f0d72b54cccc84a0a92e7b243c21acd22faa31374fb1d1efe1"
+    },
+    {
+      "id": "offline-144",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "40d6ba796fe4e3e7b5aa96fb9920171dde3872bbd7ee915d7b3d4161414b417f",
+      "receipt": "e1fe78f6cdf9849c554c06ca867a1998e754e2a7f91d2fe1769a4b156ffc489c"
+    },
+    {
+      "id": "offline-145",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "61ed7fa011e8c3a845b70c66619451d2b625045bdae1ae162ec32bce2a8d500b",
+      "receipt": "2f03beff385c5834352462dc5a63948fdee21440f3b8bc52d9993a07bed72ff2"
+    },
+    {
+      "id": "offline-146",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b79b0cb7631dabd1f0614af5258936d5bfd3213ae063ba612207f83bcbc80020",
+      "receipt": "e048179ed8cf7c791c72f540a34194a555cd44e12768e071e016e517030e7c8d"
+    },
+    {
+      "id": "offline-147",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "076fb5a17098f77a1463b702aed5746b1fc5480017ba50cd8731a7de5ac7227a",
+      "receipt": "85cf898bbbc2fa05630ba539c21bec413f875a64ae779b4c2b4074c161c6f522"
+    },
+    {
+      "id": "offline-148",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "457481d089a52a8601210e2198b1ac0534c0a65243c02c6d255531c7b529db93",
+      "receipt": "ecbfce680bc62f315a12ce8b40d31ba1d702c9bdb9c4ff84654abab7cfa1d186"
+    },
+    {
+      "id": "offline-149",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f09e79815d6d2e2abdd5966783f703e945156dd5f78e5a0e8020f6e00c428006",
+      "receipt": "fefda02f602757c13ac826e9e7ef3c66aaa9371e6a6585f2ceb85a7e79dd766b"
+    },
+    {
+      "id": "offline-150",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "fb78cc5a7056a5fb31ed060349a890076066d7e0fc0eace6cb5c226468b1f1d3",
+      "receipt": "417a6d57320bab9cb331293b56437f4ffdf5d9d2d52e504452cfeaa853b8a23a"
+    },
+    {
+      "id": "offline-151",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "02341112cb5a44b0df38b4518f4484e87478611a285178ed28263075c8e38518",
+      "receipt": "8c99a8062947359f56986c3dee3500f77955b2dc438d78ae3ee73365541a84b2"
+    },
+    {
+      "id": "offline-152",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "44614c312d6f5c33add5b16759a76f1654b22a231b9a81bd46812b4a7f91d0ed",
+      "receipt": "13cd48cce6cfe12a7f182e066308ef9e28119e72ce05c5cf2237514af270adf4"
+    },
+    {
+      "id": "offline-153",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6598bd290829abae12a7622ae50c7c5b157ab1ff0c1d2a398347c7811c55b3be",
+      "receipt": "3263bf1bdfeec23bd00672d7ae0fe5ad813da9d347169b3e5c6627fa7360a7c1"
+    },
+    {
+      "id": "offline-154",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b76bb75aa818451f8d1434529b7a214a117ded7ca6b1844ccc06cbcfa6eb31bb",
+      "receipt": "d4fddbcc8f7ce6a9d74853804b8d5260b760d5c1e208ac2ec8670328d5a248a7"
+    },
+    {
+      "id": "offline-155",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c5a316bd47d205e63720e0067f6e09c19a240f2eaa285a77c283963c40592129",
+      "receipt": "36c79db63a7df20683af68de3282d111d1304cf5647591faf3a7a6128eb8028f"
+    },
+    {
+      "id": "offline-156",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "3c2f5f80f56d52fe80a13c0c2834fa2a6d92d09fb4ab02cb6e0c18bb6295a5ea",
+      "receipt": "dc5de5c0ca09aee1ddb1a7b8651c60118ffa46b20a693d4312664a1ee5caa50a"
+    },
+    {
+      "id": "offline-157",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "23ff56bf2a7545e9f499ff233ac826c6bd7d65f6383b182263d3f72a25e465a4",
+      "receipt": "74a37b09327dbfc3d83f0e348a1eb4cd03afdb976fe23aeaf3ee406905f07ced"
+    },
+    {
+      "id": "offline-158",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9bff010dce6f63353bb1e98ee1c4f0e0896ad5964111716b0645dbe330fd3791",
+      "receipt": "284471f40b29abc7acd5c834072dc8ecf43dd8bec91323a3f14bf5fbe77e702b"
+    },
+    {
+      "id": "offline-159",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c84c89f8fa381c677d83a38bfdc4070ac5516ff81c5b897fba61a7b49b9dd1b7",
+      "receipt": "52c9cc795554e3112abf52434eb21b4966b1284550d4288ab5e405ef78f7a9fc"
+    },
+    {
+      "id": "offline-160",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4690ce94c9258befd763c01b313db48c2cfaf6a61f3bc963752d4c5c54bb4312",
+      "receipt": "0c4e7e9edb6ee78a2137bdfd76f87531b34c8dae81ffeb2bc9e43eb67e4f6cca"
+    },
+    {
+      "id": "offline-161",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d76f74f14ff19bbb9816ec6e7d4d6b5b770d1e3f6918cb70bf4abf1beffdda11",
+      "receipt": "cfeef1ae711384533c6b5ec5a0d6bdb5b1ac0fa2a6269084995b0ed63c4a1c3e"
+    },
+    {
+      "id": "offline-162",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4d539f3054fd2580838cea929211ac2f9428ea54043dc75ea8aeeda02797c6de",
+      "receipt": "5d89fba2ddfd8861e7eb700becf34416af0bd5a4e8e3934518ee8e601d0cdfa8"
+    },
+    {
+      "id": "offline-163",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7f0d347f94bf4104393e47cd5fce518e43b87fb921692cd8e196502d1d638ddd",
+      "receipt": "212ac7dd59b982c016a0c113925b5aba59fe4f48de9f7597aa10d3e22c43eee7"
+    },
+    {
+      "id": "offline-164",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4b8c756282cd295c70474ebb13fe40b030932386fdcdc0603b4429c256d1543e",
+      "receipt": "8cf8104d20bdd3d15d9b31082e8533d3c9011251c7c305b0a2c43a1dc298f190"
+    },
+    {
+      "id": "offline-165",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ebea3e5671a4c8521f430b0b9a847f1802fbc02a0fe06cba22dc57dcaa2785f3",
+      "receipt": "e2286fa0f21c792bc42b8f7fe64a310ba3fee9e0457684ea4e569e33c55ce32f"
+    },
+    {
+      "id": "offline-166",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7ef7cccc8a9c85b7e7f40063d400a5f94fd6604eb4542aec6e4f95e540dce039",
+      "receipt": "8a45810a1466baae16df69a5457360fd96b42f91d605b7871cb2fa344d4f6c1d"
+    },
+    {
+      "id": "offline-167",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ec23a715d407382ceef763e619bd225c491c33c777e27b877c2ec2f75f6c8462",
+      "receipt": "d4b4100528a33566c2daba10e9390400a93da8d1275d57a5dda60a59bc308345"
+    },
+    {
+      "id": "offline-168",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "172dbc10d0430b54379ea4552a143f3851cbcd0c932c0868ab91a59a5f3c0162",
+      "receipt": "4f074df19ed8b159354eadbc2e4bc8f3e9129ef5885ffb64bdaf8067c4864fdd"
+    },
+    {
+      "id": "offline-169",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8df2d3078c0f7bb368e153923751db1fb44244fd58ce0cead7e5c00b8a20ebed",
+      "receipt": "4e46956d44dac62c94f8c94a17f6ff5d205a519eb54b155108cc81f161b2809e"
+    },
+    {
+      "id": "offline-170",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e9dd1ffd6eb88c10d7447143d9fd4c676bb006eb3f87cf3f68e64f73854530f4",
+      "receipt": "2dad98862c64b2025866f810e94ac63d5d877570a413b6aab5d5a6d9b2b713fb"
+    },
+    {
+      "id": "offline-171",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e9f35ebf336ff675a5f67cb8ab70e926113d358c8b7b58c770512721f6c0df68",
+      "receipt": "0a76b5bec1bf03f85585acec17f615c36f45433ba6995ff667e93613552bc702"
+    },
+    {
+      "id": "offline-172",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "3682e8052d7d3c64970ad97dc65857687730137cc58ec808f2b4b2e37753f14d",
+      "receipt": "dd4600154d65a1f218f13bceb4faa00f09502e26077e05a88096ec5c5ebb95ee"
+    },
+    {
+      "id": "offline-173",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ff2a83b0ccdedc984921ec3ff547892f7d869d410f058a057f0dcf944b818a00",
+      "receipt": "310a95d97b72c0876298d73f7267298fcb375449f19d5c8914e0375af7f53873"
+    },
+    {
+      "id": "offline-174",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d818166eefff5d93075f296d50ee2b3572f99abe8a529a099975548e9776a00f",
+      "receipt": "e5c696740a25fcc33c9841375eed67c5164fc8e45f6599b198ecd549b7611efe"
+    },
+    {
+      "id": "offline-175",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "361ff4883950d826e43a8f61a46067811caa4b27eae6f3dc060414f9c97198a8",
+      "receipt": "2e6344aa2282893715486b0018d1ee35b1918e9b3c048d1c541a630962096686"
+    },
+    {
+      "id": "offline-176",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "dc84d6d75e9317d402772f64a043824ad435f79ddc93628b858d5683c8e3f1b6",
+      "receipt": "966d24efc29bc92631a9ae656be451ceaed9f90fb101fe7b20561b1795e6dd8f"
+    },
+    {
+      "id": "offline-177",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a44acf46ddaa38f975520a938a1c3320585976d5dfa77bf1a45ff9bb54a22e26",
+      "receipt": "534d73a2e194b3929e185ab9f6f5b18dc5d14f4285fb66846a7d99de44b16bde"
+    },
+    {
+      "id": "offline-178",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d1ae303259c2d3e2412d94b39f6e14f51af35889c4598c2feb5ab61af9a6095b",
+      "receipt": "7e9418e8e9488535d32b9fe58f282205326f01e8adc49b5f1615df77b19fbccd"
+    },
+    {
+      "id": "offline-179",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "66db44f53d2f4a35f77c6985ac1ab386348803f3081283c1066274d6a6c1b8a7",
+      "receipt": "5f6be2178a6fdde46279548a01ee347aeff67ef7e9f4bf8703112c900f3ba9d7"
+    },
+    {
+      "id": "offline-180",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "013be8fc53f4457ac9825ad24eb008584a9fc57cf959a83d342c3437520b5a6b",
+      "receipt": "1f94088a86bda61bf5a0b0f5d7fa2e5a9e4816f10dd165d09f0163e41816dc69"
+    },
+    {
+      "id": "offline-181",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d6845842b6783d8ec26d1b1cf7b5ded6270156d8927032325fca411aada81738",
+      "receipt": "cf55dec87aea7d2aee33463610f52809a75d80f76c7028b4cbca3df30b3fb059"
+    },
+    {
+      "id": "offline-182",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "5d327facbc98dc4ea5854cebbfa2ebf95904569ab44b1e0c6178b1753bd627c5",
+      "receipt": "5b8e902fd2469fdc84c9ea4fc19846bdb32e1e1ab6803f46417a9bdff34b1c8b"
+    },
+    {
+      "id": "offline-183",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4cb1f0b6dd152e181d42979d11ff2fc939560b3c37260ca7187ba323f7bf98e4",
+      "receipt": "183459428c34b803e51645134b735cd8420c0e6b02ed1afcfa25fba5cd009f6b"
+    },
+    {
+      "id": "offline-184",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8b56d0e6bd71b324405a9e67f60731b50e3017e1bfeb54132253279a9158eea3",
+      "receipt": "fbd4c4135ef0703a5c047fc53c892fcf436e1377bcc5be9dba1921b399f64636"
+    },
+    {
+      "id": "offline-185",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "1ae88f6dc2cfdc8bfb49de37510ac27b21537e176a7c29021f108f6b0b3e3605",
+      "receipt": "e1ebc7f343a3c4ad8cbcc25926cbc27e166b48e5697e1ac176916ef830242745"
+    },
+    {
+      "id": "offline-186",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b5c53941b9f36c5479dba9006da1a00ad02ba45a7cff9ccee492359a97e9a648",
+      "receipt": "efc8cb1158904eea9f47a1ef6e0e92ce96e0cd62f5dae4d89df5dbc06137a394"
+    },
+    {
+      "id": "offline-187",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ee567248442f69276860bc698824e98719f0864fe6b90d097550b0240c388aa5",
+      "receipt": "21468be78e68015f14e1587234a026515ec3dee9a935865547826795a05a6390"
+    },
+    {
+      "id": "offline-188",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e0b9345556f55fbcf6d54aa36d93411eb68a75a83ecdb3c42ddeb339feb7638e",
+      "receipt": "d71d08d1777eedec3018b840dc4c8606cb14e5514c06f197d4eb674b7dee99a4"
+    },
+    {
+      "id": "offline-189",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0cf2852c57d15518834636350235868eaf88b8f024de5336664aff4a12e1703e",
+      "receipt": "6a3a7779def7cd60863f4056c173b9f72f97495217491d852772214357c2d000"
+    },
+    {
+      "id": "offline-190",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "db3fc2bdc3a4db3a3843fb2d3ce5f9ebccfba9599cf126fa814e14dc8280446b",
+      "receipt": "ea88e0c5c986d495ef952f655645ff7326b7680e565271226066eef7b61d7d8f"
+    },
+    {
+      "id": "offline-191",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b818430a38e04eb07585604535ed628532dfec75d4703d8f7cda0bbe02c3f232",
+      "receipt": "1edc4bbc793845a29f4c5f65d924adb1071e4a9d14578ba8693fec7bad4c8555"
+    },
+    {
+      "id": "offline-192",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "5394d5c7ea2a8ad294e34be568459566e9480f89023f363296ddccf4d1536984",
+      "receipt": "4252cdacb8d2230256d1b1a209a0f48badc64b4fa7e0249b92fe13db93cf0b98"
+    },
+    {
+      "id": "offline-193",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7b7a6e40db708533a535f3706d59b70c85fc5b14f6ab75de72742026ed02e06b",
+      "receipt": "8cdaee6377b5db57cd104d5b4f72f542390cccd6b1f8d26cd4fee7a1bd43272e"
+    },
+    {
+      "id": "offline-194",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "76c3757be96bc5b4a2083ba939ea9377b0f004dac3bd163862bc6e46827d109d",
+      "receipt": "12e954aa116f92e33fe0a2a651cdb4027779750b1c6c88c063f41c85769bbdf3"
+    },
+    {
+      "id": "offline-195",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f302a641c160f2105daf9f1678f8894454e9579053d579b13fae71df15e41761",
+      "receipt": "0c96fb1119a6437a845e38efe55100c3621145d9ffa29516ad2c58cde041a0dd"
+    },
+    {
+      "id": "offline-196",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b0094b54e9e71e3693c9b3ea2ab95132af38bf0389c5f8aa074b6fcc0f44f33e",
+      "receipt": "1ac92bf1be2f5b77c3319c3dbe9568664a931f21bdd615011b74bb94ed946559"
+    },
+    {
+      "id": "offline-197",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "5e03fde239d916a7c7fad54c71b7ffefa0588562d6ac346afab8f360a3a2019d",
+      "receipt": "3c5125c48368d6b80d9816096430b0d390e4549a8496224e647e959ba375887e"
+    },
+    {
+      "id": "offline-198",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "713bb79d84f82c240e58e794813345f2fb5458275a8c487f1f1445bda434f75b",
+      "receipt": "395747f3fdd63211196f1c8a4acc8e36f02475457de5a626a492f0aec44ecaf6"
+    },
+    {
+      "id": "offline-199",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "3fb3b618d1c8fe5f8387c922ca41795d076002a59400791127cb7c027976d5e3",
+      "receipt": "89f8b0149eef2832f893f9d030443869d3603fe74d630dc0e1c764bb511dd5b1"
+    },
+    {
+      "id": "offline-200",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6cdb33345e437a7671374831605615a3441fb5295840c1c4603f1a9af644852b",
+      "receipt": "827abe75b4a5425adf76be423bc0119a18697662d65c3b8d9257d589cedc4ec2"
+    },
+    {
+      "id": "offline-201",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0eaf9207d0a7d54078e928f3a1029c4c7a89ee780f031401474a37f42baccaa6",
+      "receipt": "9f965d9d9dbf499bb8ec9af269f065b49fd5913101871dd03fd57c1d355e3b26"
+    },
+    {
+      "id": "offline-202",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "815a93e54e88c77eb2288cc6b5bc23d4a0f8b462dd44ecaa4f5ecbc455b944ca",
+      "receipt": "a331f785ac13988bc7cd7c4c48d1d9c732affdedb2009e49b4d7f34e9ba3b6c0"
+    },
+    {
+      "id": "offline-203",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ae6e40a92c62fdd3cf25d36ee01634ab35b186a157f532a4e71ffe70c0ae7e7c",
+      "receipt": "699e86a227c9e3d6b15a31c28a0c605efb592b79694826450b601da8d256898a"
+    },
+    {
+      "id": "offline-204",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "32c052f1e3dbd714537e3deccb41048ba11bd20a3328dc7d44d3c20ac777af3e",
+      "receipt": "c39dec47bd24d36f2e72f7b7515eb4d6f3408dbedca4e7704b5e16b444da7be1"
+    },
+    {
+      "id": "offline-205",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e46d02c4d212f9e584c72192becbe7bd950877d300194d6fc5f0253590bd2526",
+      "receipt": "2de8632772b02389e65b6eeb1b7abb1bc680374b682fac8b14ccf509404eb001"
+    },
+    {
+      "id": "offline-206",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "24f17d4fe9adbc73a547d3777e3281274c10a39e6b55736bc41c17763392ed59",
+      "receipt": "54b63286120b4c0ae645ec46e840b6942ea9385d99c42b0919b515c44d602a6b"
+    },
+    {
+      "id": "offline-207",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "5a4c85a97c9c17e71b7cc7c44b10ee4066b5f2cbc4b6750a5b30fb1cc35efbb1",
+      "receipt": "5cafc1b4fc04984a294b3f9dfafb9b97d66d19838afae219bec3d1fb3176892e"
+    },
+    {
+      "id": "offline-208",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6fe6300e23199895ff92b03812301549495619df113f26ae78e37bb59b31bb3a",
+      "receipt": "655d681da3eef3938ebb791a60fcde3f321940ece3328ff0281a68cf5d88d9ca"
+    },
+    {
+      "id": "offline-209",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7ed474505b11a8954d76285865b6f1af7cfd5ce8e324fa5750b24f0b65c0aa93",
+      "receipt": "906f36ede134c8e64e6abc9744e26f65283b98cb69d899d83024729aef051274"
+    },
+    {
+      "id": "offline-210",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9c754df194d21021574083262c42559ccb26e9bedb199265984af2bc801f4745",
+      "receipt": "eff0da44910c80e3bf28139f945834e457bc15171490d0aded94a5babd0963c9"
+    },
+    {
+      "id": "offline-211",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b5fe5561aa71276729d763b4c07815d5d6a21a05340b48c659253dec6654bce2",
+      "receipt": "3cf33afce1c0792e2abef48dba8df73ec2eac9871b1ec182cb773928b1d167ad"
+    },
+    {
+      "id": "offline-212",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2340aa5d02002402c2b61e195570f5f53b7c4b0f107f7b5b9aadb740a80f38e6",
+      "receipt": "3e7297fcb4a63fcd52ffabfca49e2d5323b8c50e5d5ad938b409b03135e1b7f4"
+    },
+    {
+      "id": "offline-213",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9ba0586bdd2e51f62fc7e54c751244efa1a8f1c6655c1bcac0f088cdf505bb96",
+      "receipt": "75f17e011dcb8cae5e1c22b5bf439b2c5e0e86abc35023465bb2d075747843b9"
+    },
+    {
+      "id": "offline-214",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "818a15cf510fd2716fdd239f630692cc4018717868a1764df169908efc98f9e4",
+      "receipt": "1ef2cdfcd3136f0bc05fd6c233ab8c4aeacd3f4ef51bd0541dbffeb1c4f78575"
+    },
+    {
+      "id": "offline-215",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8d982cd4bdba5d83a4ff58554d20e87fa35ea700c869b558ba177209b61043b9",
+      "receipt": "73db1b7cc62a95825d5c12fb6d26f3e6cd786fa07f76383da8f4e9604963a11d"
+    },
+    {
+      "id": "offline-216",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ae81c34af62b59c62bb1ef6bef6d45ae7ffb8e6a8d53c826b5e79201f794c00b",
+      "receipt": "f67153d5a5d44dcddf98a6a8882c8a7bbf2cab1ac5821ee8478d0e93a7b3cea5"
+    },
+    {
+      "id": "offline-217",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a1e64889d33c6289601d9e488652f89a776d75baa91fc2dbc2cac15871dd0d40",
+      "receipt": "546955d5f5142d21818c355e1ba8730a8f71ce0cdd0bd3b52a07e7180dfa8aaf"
+    },
+    {
+      "id": "offline-218",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "78dfc7582fa5829074f42caea28b5d21b056cf5650da43dba7b4b83941c5c8fd",
+      "receipt": "df2da11a5664d9a9649a2e4d66e2c80e8bca2be2028184898bce15f4b0aa25c0"
+    },
+    {
+      "id": "offline-219",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "12baf0080bf626015976e04ccd7dc155eef58cc244ac833012b3040898007e40",
+      "receipt": "2157cfcb5e6eab07a33e07ff91b3d8b7e01d91ef6ae698877f7def8a8de32621"
+    },
+    {
+      "id": "offline-220",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "cf543c68c79ceafc853553aa8bc8be2e183c63c266acb4201a004b3ec0bf733c",
+      "receipt": "07afac84b9462e9dba479115904ea686372c4a8e5fa5e04c624a0e91cbe675e2"
+    },
+    {
+      "id": "offline-221",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "eafca188b89b3d7e79382e14850608b3f05315b1b6b00846094d7cce710c17a6",
+      "receipt": "9b8572af0d6653ec7dd8b646ffe71da5132166f462d9a6b746a16f65f4f2f4b2"
+    },
+    {
+      "id": "offline-222",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ff8a4ec840f7f66ed3aab70e995afd8fe59b66d648cd63f45cfe583b7e74f316",
+      "receipt": "d194890b1604bc578b7fd3398b8b91c1433571b8cdece3393292dedad9369d2e"
+    },
+    {
+      "id": "offline-223",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "64e8d602ce87a8aed43612c8808a84090a869567bd2e7fcb49568c55802e9820",
+      "receipt": "e15b4ba16f2d9c46d6b09b03f529fd431b6370e1f60096cada836d350a98bb25"
+    },
+    {
+      "id": "offline-224",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "1c80960d1ce712283507cdb385700105c8e1a5fe6660c19ab2c14525ee224149",
+      "receipt": "16f22ce6f5e9cd469755d7500f788d99f11900359d0697c501130ec63ccf18b2"
+    },
+    {
+      "id": "offline-225",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9ccd3f57386e1b1023fece9a3f0faf47f94d5a53908f0e5c6d8c1afadaf41832",
+      "receipt": "4990a41daf0ad115aae06e34d3afb02565ec8490df47b4f9cba516e7a4ac2f1a"
+    },
+    {
+      "id": "offline-226",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "15592064f905a65222d848fbad435fc92807e5c7df9e1244ebc69a7ce74a1455",
+      "receipt": "049c24b165f23f1947568ce2a8d13909157cd294fdbde8d2966145e51be7a9cf"
+    },
+    {
+      "id": "offline-227",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "fcf006c7b12d842db2e9ebfd4fcb2e3ad6e5b5cc9b70c762ffd39cba4942115e",
+      "receipt": "cd2f8c57915d711cf938eba677fac453f606c39480653044c304df28259685c7"
+    },
+    {
+      "id": "offline-228",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "9a268f52bdd6deb021cdc8dee7e12b636b1fd20336125bc018c5bd983ab9a724",
+      "receipt": "95edac783dbd8709d42d2da7129d29323de9c9ebad36544c300b05922cf3960b"
+    },
+    {
+      "id": "offline-229",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "bf328a0598b5daa3098b50457438960e3735b80751ab64f225e891ea3c3b982a",
+      "receipt": "1e04e693ac1aba1650aa21e90ea5ac94477882bd1bd656cfcc490da58d595a54"
+    },
+    {
+      "id": "offline-230",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b9e13cb8a9e3792ee00cca0ddb1264156025b2abe2a278fbc26fcf3669b2d4b1",
+      "receipt": "ca9fe3689267faf4d339f3d48d888c8f9305b6c87be617b7bec0302c999b460d"
+    },
+    {
+      "id": "offline-231",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "09066cd1bdcde17f934a5f1c6fcce9b281c9c95ca663507bc53b87559949a8bf",
+      "receipt": "809469012cb1bf254c8d32486e578a468d786653c9c4fa4a4e484c6146f47b09"
+    },
+    {
+      "id": "offline-232",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a4d4014c5ef43a96a84774927de9cbfb2346bca247a92dde0132a747e912f390",
+      "receipt": "dac3d7da876459eec10479c69d5d9c46bfe66a95260d2b5b9a9de4a9e0ac930a"
+    },
+    {
+      "id": "offline-233",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "14e9c580c4328a2f369f7368ecceeac951a4a9215cba803057b6bc74fe9a7c1c",
+      "receipt": "cd211355a97a8c45c455faa1d38e74fe20b69435920b122aca152f26515756fc"
+    },
+    {
+      "id": "offline-234",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6fbd2a0e3d92fc19a9bd4282ad83613746796689909000923a1dfd21a781347a",
+      "receipt": "31e19d6fa9e8b09efc125d71f175974fdc788df59d0eea2b4de817181b70b66d"
+    },
+    {
+      "id": "offline-235",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d56556599d2345d278a6f1d330f8277a1b8a13927a1bad1f84b3a1f0761c2bfa",
+      "receipt": "3457356ae62c0242bbd4a9a2f0c2ad31403bc742fa55e1645b79a7e16cb8ab9c"
+    },
+    {
+      "id": "offline-236",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2c2ffd2e40390c8bdf859bd5e66c821a4a7719cac9989a6316661543fdca1d30",
+      "receipt": "54526229f9fc735fbe81712be4e896c9aa926ca9fddf35c89e1518e70cd4618b"
+    },
+    {
+      "id": "offline-237",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "4e80910451163de3c380eb1e899e833f253db0e23723b05f7262569567453ceb",
+      "receipt": "b3cbc2a5b79f6968c5f08e3927451672c6b43c1e538e4524a39a023587bc4579"
+    },
+    {
+      "id": "offline-238",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d8c57304fd2af703b907bc6d4b2606169b0d036f60c7eaa5fd80d633d621b65d",
+      "receipt": "57030a9399a105b8acf3ff563d858ecf496bc6b628d4d283bfcd4bf93f68ea83"
+    },
+    {
+      "id": "offline-239",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a1e08203433d54a1c61d69ce9700c82df9526813ac24d6a832e003c648d5b549",
+      "receipt": "d4bbcde957ba8142a52a45162dfbe649f438aa5306809a2dc96c82188a422918"
+    },
+    {
+      "id": "offline-240",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c39be2d9b37578239514e74aede5c3572a7ae269fa8ba793ba4e1f9489a82fda",
+      "receipt": "e13543c151b5a32f533c1e39caec6a0675a42f20739e386499a13efce4c24693"
+    },
+    {
+      "id": "offline-241",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "93078d691b5e4ee98ba4a21bb34f8268cc87e1350fe96575cba6001c51efe809",
+      "receipt": "e86e9a811a153b28bb9d4355694dc9e8f70e6c7af43b1bf26bc16e85c4f63efd"
+    },
+    {
+      "id": "offline-242",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "29c176a3e62dfb034c916c1fd0c6050701c1875fdb06d24c92b51ed6a749efdb",
+      "receipt": "5aa17db68483917f5c04e6b2c1ccc23ddd8eda7aa6500c45187d7614431cdd52"
+    },
+    {
+      "id": "offline-243",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "138c85b5c052c3ada54880d976c88e887ddac73126027f94203a4ced8d81924f",
+      "receipt": "2cbbba190eea1ec04f52eb364ed0c94d9720574dc935c6109bf64716c3e9b595"
+    },
+    {
+      "id": "offline-244",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "288d73c4f89f4e34838ba854f8106fa62603a396aab62dc6c4b7eb8c8484642a",
+      "receipt": "d65b3d8a5e0899d1b7e1f7f3b6e55c618b763b1e830608c760fb0eea32d1e8a6"
+    },
+    {
+      "id": "offline-245",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "42913ef95eece702a3cd7e1561d3c9173898496130fe1c0d4ebed86e0ae8b20e",
+      "receipt": "23405e695adc4be2014710ec7cda22681f39477e065e264dd4b3ae4e50c5eb32"
+    },
+    {
+      "id": "offline-246",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "5e60c2313537423256f6416cd6ea7addc314514b029a0353bcc5c3bdc7c639ca",
+      "receipt": "ec1f0e568be7559c9df585bd3f93bf0206065ed825fd472c33882c0da60bbcb3"
+    },
+    {
+      "id": "offline-247",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ede5eaf1c947bfc1339c35d328a2f952d0070160025bd7873fe4cf9092c5c27f",
+      "receipt": "3e11516e8090bd3b11e24573711540f31cede004413071c4f1a6923841901c27"
+    },
+    {
+      "id": "offline-248",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "e630819bb8959ea1ab4f4e6269b8ae77b36611f1193a5357a7efec184f33c1f2",
+      "receipt": "8ff6b1ba279d624c1f119a55e64560763837185b91a945e319511bda9fefc131"
+    },
+    {
+      "id": "offline-249",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f3d6452cdc9668c52daab68cccb8faa32d48e83ad2f941723165e31a2061064b",
+      "receipt": "d1f48b051cb5eaa13d48eafd43df2c363450b0e53b7db10d9ac9a122b4d36340"
+    },
+    {
+      "id": "offline-250",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "2dc288a481407f3dc31346899dc9ed7223a4ae5c1b1cc9afb067a71dc8a15a5e",
+      "receipt": "0a4e47fd85bd7ec0a3dbcccbef226e3fbc26c33a7d57ba39cf423c366782235f"
+    },
+    {
+      "id": "offline-251",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "32b8db2a0cf17354897e580a6d5906b6099ebff955c068d8bc9ab920651ef0b3",
+      "receipt": "0b4539019436672745c1e6df710d301be95ec2da23a1b84df4cacb54fb375869"
+    },
+    {
+      "id": "offline-252",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d5521c92b25a281c78950c50d8d15bf4cc1d5dd6ccef60ba302f98c43011bdf0",
+      "receipt": "719782718c65784a164714e678eb4312a6a4604860039baf41b943f32c2b8fb2"
+    },
+    {
+      "id": "offline-253",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "c721d8298f0e3c4403d8cb1d1b19c34f9afff651786058212678cf4bf3677f0d",
+      "receipt": "52dcaac1c52d672922ff067c8a69986958f49e77d73e65c72f45494c9863338c"
+    },
+    {
+      "id": "offline-254",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "10363e496ebbb32c479b86adff6b696240bc87102f8f5a2e4cf3fab075d00cd6",
+      "receipt": "23efbe002b776b52e23547c599b4473eb1c80355ade12371760bc13dbe7f17c3"
+    },
+    {
+      "id": "offline-255",
+      "kind": "offline.fusion",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "de05ff3b7fa7e9f67fe1afc30d2f7a22ea55df04de6fd0273ce9d2806753f6f3",
+      "receipt": "2cc19eedce8d970644f8b114b6fb701fe8e390016af0de42dad802a30c149187"
+    },
+    {
+      "id": "solidworks-000",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "0d707e6d907f17ffac07d7b1b5cb9bc9fa31734be690f66b0ef854ea26c92f14",
+      "receipt": "3dbcdd0dba9a117431f688a463ed46c44aa392cf3fd0592ce70faf3efecb0b6a"
+    },
+    {
+      "id": "solidworks-001",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ec15cbef92cddd549665edbf796bbe4aefa1fc60c36f4dbd1401ceb54fdbec3b",
+      "receipt": "4f0ec4dc6637e31f9a05258f9eb31710cd5a35f95aa4f80af12838a63ec76167"
+    },
+    {
+      "id": "solidworks-002",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "45c055c9a6388f42a7fe7a816e22e8f10459cf89acd06803b8a3468dab3e1e74",
+      "receipt": "087cca154d30719c62c77fa8613e8654a5c82ca393e66f7a15b460df36720f86"
+    },
+    {
+      "id": "solidworks-003",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "7c6f5f0286efd776a260d1c3d883773499428ed75e525ecba969ed036d84227e",
+      "receipt": "6d9b5355249807d0480e3e73bd1302672812b6664b8f5be4c09e51c770281f84"
+    },
+    {
+      "id": "solidworks-004",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "8e52db4cc23abf90de4377ea27226e22213abbe5963a67b359262f544f95cff2",
+      "receipt": "b3c020a7ef88cd86a4f96a7815809c592647ad225c974c160f7a51b56c828419"
+    },
+    {
+      "id": "solidworks-005",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "fe93ef41cb186a8086925fc0847c8cc7fc601bfefb0b4c1b4b2fb1f97783db19",
+      "receipt": "fa4e33da23eec7b930c25c5d29d662d98bc745dc4fe8a02b2a9d53c03d48eb7b"
+    },
+    {
+      "id": "solidworks-006",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d4318eb4fc8dd94d2a44daae16c82bb5a3bf75da0d0f531839a483dbb95b57b2",
+      "receipt": "12e95efff6b5e40e290b60951395aaff6eefc66a64d55d2cffe1051b8e14e8b6"
+    },
+    {
+      "id": "solidworks-007",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "b8742b93e24d268ff07a22e1271aa5b1b6a22f3e4f39f7e2a57500d9ab7a23c3",
+      "receipt": "e49e712cbcd2beb0de277d623e891a30381ec83837e08a9f91ad5426ea26f778"
+    },
+    {
+      "id": "solidworks-008",
+      "kind": "native.solidworks",
+      "state": "failed",
+      "attempts": 1,
+      "reason": "attempt budget exhausted",
+      "fingerprint": "8906ed6599280fa66e1837ab2056542e3a2baa89ba12852ccb3afc08efa455a7",
+      "receipt": "6830e40c24a1d913ea76707dea6a41e20196b4057500a982359a6b035cd215dd"
+    },
+    {
+      "id": "solidworks-009",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "3dd02ce1800cfc5ba9fd5ee9c1441516ab9a94d37211ad497072f1712f68e785",
+      "receipt": "0931c294d038a7a3933c1c082182e0707d9a36abbe124dc5ff1c5924ce5770b2"
+    },
+    {
+      "id": "solidworks-010",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "3d2d641f534ae384591fc032da410f37cd200e6ff05da02383bfb82b5dace719",
+      "receipt": "4b94650b90191f8fef25309d52bba00cfa31c5a518e1b57bc5edd79098848585"
+    },
+    {
+      "id": "solidworks-011",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "6d6262775c6fc80afb438076bea09acbde16378405c10ab4a705aa96bbf48e25",
+      "receipt": "93316b5e70bf6119ac31702a222dbe3a24a7be7d85e334eca92f5119c82283f3"
+    },
+    {
+      "id": "solidworks-012",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "920c57d252fdb3ee8931ac47a50075a8f5bfcaa4974dbe0492feae6ac4585f79",
+      "receipt": "f8be7e3c95e47ce68aefd07a47732c4fb434e10c36b5dc3837ab773e419ae3d3"
+    },
+    {
+      "id": "solidworks-013",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "1293b85ba100dfe0a4d4ee77f8d67a038ed421bfa67ceea801b31c604999cb20",
+      "receipt": "12cb2d6b9d4bda6ae3a1db292db90340f63fb0e95f8abf875d12865ff1d9cc44"
+    },
+    {
+      "id": "solidworks-014",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "f60d75c593652582fa0b5746701d4dec1b8475125cba1dc3da664882e4fd9c4f",
+      "receipt": "0dbe2c9333e0ed8d02995481901836c7532a397a679ba0a0b21563282cec9f21"
+    },
+    {
+      "id": "solidworks-015",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "ce4a566c72c08e1046cc31d2f5243c8cd6e44b3b270d22c7b0b5cbe494aae140",
+      "receipt": "aebe4b2000a4b740576b9799289ae0e028b5b8fdf5099727907554eaef421a86"
+    },
+    {
+      "id": "solidworks-016",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "a2626b2c2045c471d14789bfddd810d1596f191c4a70544d71a9d37b34133afb",
+      "receipt": "29340aaa4858156b96bfec5239fef4da6ceee34f297a386cb93cf40b3919738d"
+    },
+    {
+      "id": "solidworks-017",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "755edb4dc9f496c8728421ee180305491094802b6760dbaea1229edad8f660c4",
+      "receipt": "b2e4383a6d87f976d3df05cc6faede369cb2b80c0ab1f2ab2cb1a04313d1168f"
+    },
+    {
+      "id": "solidworks-018",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "d4ba6217cb3772bcd722306975f39448e93a5b31136df2f22d42f8e3db1c7ff6",
+      "receipt": "46ef8a2580bc0a059b82d2b61b9beced460d9510108308deaf1d39af37f61e94"
+    },
+    {
+      "id": "solidworks-019",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "3bb2fef048244cc8b68aab65c981c55ab2a0d3758f71801c835bab9666f7c1fa",
+      "receipt": "9d32f4773bccde79ec51131aad51274b8f9b24352b4790070dc03bd5d68eb5d0"
+    },
+    {
+      "id": "solidworks-020",
+      "kind": "native.solidworks",
+      "state": "failed",
+      "attempts": 1,
+      "reason": "attempt budget exhausted",
+      "fingerprint": "a5e0173038699270980981810e11b1259f283eb16949362bbb3629b135368677",
+      "receipt": "3e3c5a5bbfe3564d46c20a7f435995584e2ddb8084ac4b97423e3c0aa095c96c"
+    },
+    {
+      "id": "solidworks-021",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "43b838c131e811f9aecf034fe156d38d296c2bc6ee8a4c8cc6388eeb2fee98a3",
+      "receipt": "d87422339fe9f6960b43f17f812ad70ee44c4284c6ce8bb3f6af0fafd2da6019"
+    },
+    {
+      "id": "solidworks-022",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "73b20dcea7f576203c45023953185a776c076ba90d31102a9f54c28f4b2ee034",
+      "receipt": "e931c69c6a34f9c2dcce45f829830165bcd94cf7f83412053c1260f5cc896f44"
+    },
+    {
+      "id": "solidworks-023",
+      "kind": "native.solidworks",
+      "state": "completed",
+      "attempts": 1,
+      "reason": "strict outcomes recorded; semantic recovery unqualified",
+      "fingerprint": "79e3e7359c8a31f42b384d49a7c5d693ba37fd810f9ae8fff16293e9e2990db9",
+      "receipt": "2ff596b0b683c6eb8b41c89ae412eaa56a80520e74488cae4ce5de81497a5220"
+    }
+  ],
+  "original_failed_states_retained": true
+}

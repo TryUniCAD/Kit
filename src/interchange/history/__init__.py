@@ -2,9 +2,11 @@ from dataclasses import dataclass as DataClass
 from inspect import Signature as FuncSig
 
 from interchange.Enums.EnumDocument import Capability
+from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.FeatureBody import DesignBody
 from interchange.Features.FeatureContract import FeatureDef
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
+from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeatureKinds import (
     ChamferFeature,
     CirclePattern,
@@ -135,6 +137,7 @@ RevolutionFeature = RevolveFeature
 __all__ = (
     "AdapterCapabilities",
     "Body",
+    "BoundPlaneAxis",
     "BrepPayload",
     "ChamferFeature",
     "CircularPatternFeature",
@@ -151,6 +154,7 @@ __all__ = (
     "MoveBodyFeature",
     "NativeFeatureDefinition",
     "PayloadRole",
+    "PlaneAxis",
     "ReferencePlaneFeature",
     "RevolutionFeature",
     "ScaleFeature",

@@ -82,14 +82,14 @@ def GetOutputKey(FileValue: FilePath, TargetPath: FilePath) -> tuple[bool, str, 
     )
 
 
-# backup creation isolates overwrite rollback from ordinary staged companion outputs
-def BackupTargets(
+# record each successful backup as it moves so a later failure retains the earlier restoration paths
+def BackupPathsMut(
     TargetValues: tuple[tuple[FilePath, FilePath], ...],
     BackupPath: FilePath,
-) -> list[tuple[FilePath, FilePath]]:
-    ReplacedValues: list[tuple[FilePath, FilePath]] = []
+    ReplacedValues: list[tuple[FilePath, FilePath]],
+) -> None:
     if not any(HasPath(TargetPair[1]) for TargetPair in TargetValues):
-        return ReplacedValues
+        return
     BackupPath.mkdir()
     for TargetPair in TargetValues:
         TargetPath = TargetPair[1]
@@ -98,23 +98,41 @@ def BackupTargets(
         SavedPath = BackupPath / TargetPath.name
         OsSystem.replace(TargetPath, SavedPath)
         ReplacedValues.append((SavedPath, TargetPath))
-    return ReplacedValues
 
 
-# rollback restores both committed outputs and overwritten originals after any failure
+# nonoverwriting file publication claims the destination in the publishing operation
+def PublishOutput(SourcePath: FilePath, OutputPath: FilePath, Overwrite: bool) -> None:
+    if Overwrite:
+        OsSystem.replace(SourcePath, OutputPath)
+    elif OsSystem.name == "nt":
+        OsSystem.rename(SourcePath, OutputPath)
+    elif SourcePath.is_dir():
+        OsSystem.replace(SourcePath, OutputPath)
+    else:
+        OsSystem.link(SourcePath, OutputPath, follow_symlinks=False)
+
+
+# restore only the output entries that this write actually published
 def RestoreOutputs(
-    CommitValues: list[tuple[FilePath, FilePath]],
+    CommitValues: list[tuple[FilePath, FilePath, tuple[int, int, int]]],
     ReplacedValues: list[tuple[FilePath, FilePath]],
 ) -> None:
-    for TargetPath, SourcePath in reversed(CommitValues):
-        if HasPath(TargetPath):
-            OsSystem.replace(TargetPath, SourcePath)
+    for TargetPath, SourcePath, PathIdentity in reversed(CommitValues):
+        try:
+            if GetPathIdentity(TargetPath) != PathIdentity:
+                continue
+            if HasPath(SourcePath):
+                TargetPath.unlink()
+            else:
+                OsSystem.replace(TargetPath, SourcePath)
+        except FileNotFoundError:
+            continue
     for SavedPath, TargetPath in reversed(ReplacedValues):
         if HasPath(SavedPath):
             OsSystem.replace(SavedPath, TargetPath)
 
 
-# atomic commit keeps requested and companion files consistent under overwrite failures
+# each publication records enough state to roll back the requested file and its companions
 def CommitOutputs(
     StagingPath: FilePath,
     TargetPath: FilePath,
@@ -128,17 +146,23 @@ def CommitOutputs(
         )
         if ConflictPath is not None:
             raise FileExistsError(ConflictPath)
+    if len(TargetValues) == 1 and TargetValues[0][0].is_file():
+        SourcePath, OutputPath = TargetValues[0]
+        PublishOutput(SourcePath, OutputPath, Overwrite)
+        return
     ReplacedValues: list[tuple[FilePath, FilePath]] = []
-    CommitValues: list[tuple[FilePath, FilePath]] = []
+    CommitValues: list[tuple[FilePath, FilePath, tuple[int, int, int]]] = []
     try:
         if Overwrite:
-            ReplacedValues = BackupTargets(
+            BackupPathsMut(
                 TargetValues,
                 StagingPath / ".kit-backup",
+                ReplacedValues,
             )
         for SourcePath, OutputPath in TargetValues:
-            OsSystem.replace(SourcePath, OutputPath)
-            CommitValues.append((OutputPath, SourcePath))
+            PathIdentity = GetPathIdentity(SourcePath)
+            PublishOutput(SourcePath, OutputPath, Overwrite)
+            CommitValues.append((OutputPath, SourcePath, PathIdentity))
     except BaseException:
         RestoreOutputs(CommitValues, ReplacedValues)
         raise

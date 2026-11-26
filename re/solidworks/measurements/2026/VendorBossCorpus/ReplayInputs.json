@@ -1,0 +1,146 @@
+{
+  "bundle": {
+    "bytes": 1178660,
+    "name": "VendorBossReplayInputs.zip",
+    "sha256": "11afe4d18ee2dbc901e3619b69faa0e5dfd47ca2281c367cb25bc33c592aa13c"
+  },
+  "members": {
+    "Author04/BaselineEditedControl.SLDPRT": {
+      "bytes": 45703,
+      "sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a"
+    },
+    "Author04/BaselineSource.SLDPRT": {
+      "bytes": 45007,
+      "sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+    },
+    "Author04/HeldOutEditedControl.SLDPRT": {
+      "bytes": 50710,
+      "sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb"
+    },
+    "Author04/HeldOutSource.SLDPRT": {
+      "bytes": 49306,
+      "sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f"
+    },
+    "Author04/Record.json": {
+      "bytes": 27866,
+      "sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a"
+    },
+    "BodyHeldout/Author/HeldOut/Prism.SLDPRT": {
+      "bytes": 53767,
+      "sha256": "0de0b983f46e1a0a2553efd192f916b13227b23a95a62b806e1795a7fa8ff3f1"
+    },
+    "BodyHeldout/Author/Record.json": {
+      "bytes": 13586,
+      "sha256": "d16227a8ee662e4b71802dc678c45a7cd249c743e7f723e2ee8b7def627e1c22"
+    },
+    "Discovery01/Author/CustomText/Prism.SLDPRT": {
+      "bytes": 47899,
+      "sha256": "fc27be9236f286777726cc2dcc2b38049295b2d52d4375c583ebf3823e49f5f2"
+    },
+    "Discovery01/Author/DepthContrast/Prism.SLDPRT": {
+      "bytes": 47516,
+      "sha256": "49b9afe5366d6af21dd848f7bcb68cb81d01a6f7f2b2a1dc404778c66db3467e"
+    },
+    "Discovery01/Author/NoOpAfter/Prism.SLDPRT": {
+      "bytes": 47572,
+      "sha256": "ed5193322a7166ed8d0cdca9e0fe3abe46233e11c7368f0b42fdabaed60c3269"
+    },
+    "Discovery01/Author/NoOpBefore/Prism.SLDPRT": {
+      "bytes": 47174,
+      "sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246"
+    },
+    "Discovery01/Author/ProfileContrast/Prism.SLDPRT": {
+      "bytes": 46056,
+      "sha256": "acedc181f6da5b8d4a0a17521d957b89250e71a1be865533958bd2f5f298195c"
+    },
+    "Discovery01/Author/Record.json": {
+      "bytes": 54163,
+      "sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda"
+    },
+    "Discovery01/CustomText/Record.json": {
+      "bytes": 17057,
+      "sha256": "af503d64f9a025b5f8bdd8d4d1868edb09278434ab4de58fe842038d51afe618"
+    },
+    "Discovery01/DepthContrast/Record.json": {
+      "bytes": 16576,
+      "sha256": "83ec916446ed02351d99630711a49fd88a23238e2d3b52740c7e77ac5c93ff97"
+    },
+    "Discovery01/NoOpAfter/Record.json": {
+      "bytes": 16584,
+      "sha256": "a65d2f4a213ecf8143c08ef982aa437b634f067e3cf76dcd8da488479edd9dc8"
+    },
+    "Discovery01/NoOpBefore/Record.json": {
+      "bytes": 16585,
+      "sha256": "4c2ca4164f87a3f59c8daeb796aa42da25967d3f0aa6000d969bbd2ab881158a"
+    },
+    "Discovery01/ProfileContrast/Record.json": {
+      "bytes": 16618,
+      "sha256": "22e376fe86209c87126634ccb899b8924300c006a68f0e85aebc55ad6c3f7d98"
+    },
+    "Discovery02/Author/CustomText/Prism.SLDPRT": {
+      "bytes": 49005,
+      "sha256": "be2f59557dbe35c7d48706f0bd6ec9e6e6b9ef690232b392c284d4696bbc4894"
+    },
+    "Discovery02/Author/DepthContrast/Prism.SLDPRT": {
+      "bytes": 47797,
+      "sha256": "6f794e1dcec5064bfbcbe9ab4642546b5c768e12e4f941bfee34ec9ddf32615e"
+    },
+    "Discovery02/Author/NoOpAfter/Prism.SLDPRT": {
+      "bytes": 47406,
+      "sha256": "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc"
+    },
+    "Discovery02/Author/NoOpBefore/Prism.SLDPRT": {
+      "bytes": 47858,
+      "sha256": "aed6df2efb84e04cf9104742742c8845f054f890376f52ecd8ede26890a56445"
+    },
+    "Discovery02/Author/ProfileContrast/Prism.SLDPRT": {
+      "bytes": 47353,
+      "sha256": "1b24871178024ffbf7007fce8ea5d61d4faac439b5338755995ed5b285c81a39"
+    },
+    "Discovery02/Author/Record.json": {
+      "bytes": 54265,
+      "sha256": "4af9a9eb2e2c69e4c556494333ab6fba9ed49fdd259c99a8b6ffceb8580928ae"
+    },
+    "Discovery02/CustomText/Record.json": {
+      "bytes": 17041,
+      "sha256": "27747d238a6a3becb132244f7b86bb814a7385b65953ef9a60620c230975a021"
+    },
+    "Discovery02/DepthContrast/Record.json": {
+      "bytes": 16576,
+      "sha256": "6228c582d32b647d624c2d59a9d0cf220fa52bb29c2b44fe68de8dbfe539bff4"
+    },
+    "Discovery02/NoOpAfter/Record.json": {
+      "bytes": 16568,
+      "sha256": "a14cea15816b781941c872fd8a0e25881f2c874fe395df7afa0cd7dc70beea54"
+    },
+    "Discovery02/NoOpBefore/Record.json": {
+      "bytes": 16569,
+      "sha256": "62c27a4408f2c468dace3c5c5e02d39125ac72cde9905243ff16bf36589c130e"
+    },
+    "Discovery02/ProfileContrast/Record.json": {
+      "bytes": 16618,
+      "sha256": "ae4d6fef1abb058319fee19f5a292d3b57e1caece67b9521a5cf6f467391d4e4"
+    },
+    "Presentation/ControlAfter/Record.json": {
+      "bytes": 23268,
+      "sha256": "5768151980551aad8130704a45bf0944fb9a3ea9dc6ad44b796fdf488c828b7b"
+    },
+    "Presentation/ControlBefore/Record.json": {
+      "bytes": 23243,
+      "sha256": "b36d4b3869b8d80426208dd1e0d63934ea24e1453d5fa10f04bc5629f4149cc7"
+    },
+    "Presentation/SavedKitEdit.SLDPRT": {
+      "bytes": 44361,
+      "sha256": "8d6e26316ad089f786ab40c8687358004b7550fe545c52b6a1bf97964033a1a2"
+    },
+    "Presentation/SavedKitEdit/Record.json": {
+      "bytes": 22647,
+      "sha256": "e93105ea32cdfeddec130afa4fa051e7676d72bc55b4bb2158101ce971a4df68"
+    },
+    "Presentation/VendorReference/Record.json": {
+      "bytes": 23228,
+      "sha256": "bc4f870182342d77f3051f2ffdcb78bf2e2c98a07b1f5a740c538c9a5a3603ed"
+    }
+  },
+  "schema": "kit.sw2026.vendor-boss-private-replay.v1"
+}

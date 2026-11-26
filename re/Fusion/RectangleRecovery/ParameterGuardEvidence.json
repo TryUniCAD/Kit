@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "change": "same literal-only guard relocated from ReadParameters to ProjectParam to preserve the declaration-size rule",
+  "source_base_revision": "10b0e7fe6656a195e4e97ef3e766f25ee9579a91",
+  "parameter_source_sha256": "bdc8abd25e8457552dc882177ecf2f4d0b94d29c4ca3ee0526b0b0c307d99e92",
+  "process_test": "tests/Research/Archives/FusionState/RectangleRecoveryTests.py",
+  "positives": 8,
+  "refusals": 14,
+  "drafted_compatibility_controls": 4,
+  "junit_sha256": "443b53a09d660e23e4ce2b6ce7966005987a42876ba7f355f0c4451c4ba1e6e5",
+  "full_semantics_verified": false,
+  "native_conversion_acceptance": false
+}

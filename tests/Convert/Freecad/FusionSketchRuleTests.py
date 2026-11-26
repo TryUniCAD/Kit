@@ -6,6 +6,7 @@ from zipfile import ZipFile
 import pytest as Pytest
 
 from convert import write_document as WriteDocument
+from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
 from tests.Convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.base.TransferContract import CarrierReason, TransferMode
 from interchange.Core.Common import FreezeMapping
@@ -36,11 +37,15 @@ def TestSketchRules(TmpPath: FilePath) -> None:
         ".//Property[@name='Constraints']/ConstraintList/Constrain"
     )
     Sources = [
-        Value for Value in Rules if not Value.attrib["Name"].startswith("incidence_")
+        Value
+        for Value in Rules
+        if not Value.attrib["Name"].startswith(("incidence_", "fixed_"))
     ]
     assert [Value.attrib["Type"] for Value in Sources] == ["2", "3", "1", "11"]
     assert float(Sources[-1].attrib["Value"]) == Pytest.approx(12.5)
-    assert len(Rules) == len(Sources) + 5
+    (Fixed,) = (Value for Value in Rules if Value.attrib["Name"].startswith("fixed_"))
+    assert Fixed.get("Type") == "17"
+    assert len(Rules) == len(Sources) + 6
     NativeCoincident = Sources[-2]
     assert NativeCoincident.attrib["First"] != NativeCoincident.attrib["Second"]
     assert (
@@ -94,7 +99,7 @@ def TestSignedRule(TmpPath: FilePath) -> None:
         ),
     )
     Target = TmpPath / "negative.FCStd"
-    Result = WriteDocument(Document, Target)
+    Result = CodecRebuild(Document, Target)
     SketchTransfer = next(
         Value
         for Value in Result.transfers

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -17,7 +17,7 @@ import sys
 from types import ModuleType, SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[3]
-BOOT = ROOT / "re/automation/PairedCaptures/Runner/KitCaptureRunner/KitCaptureRunner.py"
+BOOT = ROOT / "re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.py"
 
 
 def host(folder):

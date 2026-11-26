@@ -27,6 +27,50 @@ A shape or mesh alone cannot supply that history.
 The definition contract validates the supplied feature definition.
 It does not prove that every writer can emit that feature.
 
+## Plane intersection axes
+
+Both axis forms use two ordered local `SupportPlane` selections. Their IDs
+must match the reference step's `selection_ids` in order. The support frames
+and axis endpoints share model-space millimetres, independent of the document's
+display unit.
+
+`PlaneAxis` retains two authored or measured endpoints. Its serialized type is
+`PlaneIntersectionAxis`, with the original four fields. The endpoints and
+segment direction must agree with the current intersection line. A support
+edit that moves the line requires a new endpoint snapshot.
+
+`BoundPlaneAxis` derives its endpoints from two ordered, independently owned
+driving length parameters. Supply their IDs as `StartParameterId` and
+`EndParameterId`, and put both IDs in the same order in the step's
+`parameter_ids`. These parameters supply signed distances from the
+projection of the first support origin onto the intersection. Positive stations
+follow the cross product of the first and second normals. The two stations
+may run in either order and define the finite segment direction.
+An expression-backed parameter supplies its stored evaluated length. The axis
+preserves the original language, expression and dependency links. Editors
+publish the new evaluated length when a dependency changes the station.
+[`ResolveAxis`](../../../src/interchange/Features/Axes/ResolveAxis.py) evaluates these
+endpoints from the selected frames and current parameters. Pass the document's
+`configurations` to apply its active variant, as document validation does.
+An override replaces the value of the linked length parameter while retaining
+its ownership. The closest override in the active configuration's parent chain
+controls each station. With no active configuration, the base values apply.
+Each validation pass indexes the effective overrides and suppressions once for
+all the bound axes in that document.
+Base suppression, or suppression by either record in the active chain, keeps
+the bound definition and its validated support frames and resolves to no segment.
+An explicit JSON configuration selection validates the requested variant before
+returning the model.
+
+The signed stations establish the direction of a bound segment. Both generated
+endpoints must remain finite, distinct, and within the line tolerance at model
+precision. Endpoint snapshots also have an independent angular tolerance.
+
+The measured SOLIDWORKS hinge has zero live extent dimensions. Its finite
+size comes from clipping the line at the first support's display boundary.
+`PlaneAxis` retains that evaluated native extent. `BoundPlaneAxis` represents
+an explicitly authored portable extent binding.
+
 ## Supporting records
 
 A sketch contains geometry and constraints on a support plane.

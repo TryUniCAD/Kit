@@ -1,0 +1,211 @@
+{
+  "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+  "scope": "plain XY circular blind extrusion followed by one top circular constant-radius fillet",
+  "assets": [
+    {
+      "case": "discovery-01",
+      "role": "Native",
+      "path": "Sources/discovery-01/Native.f3d",
+      "sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "size_bytes": 220263
+    },
+    {
+      "case": "discovery-01",
+      "role": "Generated",
+      "path": "Sources/discovery-01/Generated.f3d",
+      "sha256": "bd1f469def222d301b5f1ef345646b9634648ac45d92d85855f8c04ca863f252",
+      "size_bytes": 96426
+    },
+    {
+      "case": "discovery-02",
+      "role": "Native",
+      "path": "Sources/discovery-02/Native.f3d",
+      "sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "size_bytes": 226894
+    },
+    {
+      "case": "discovery-02",
+      "role": "Generated",
+      "path": "Sources/discovery-02/Generated.f3d",
+      "sha256": "8a5af491ecba35f6afd6bb953a3d24fa24768c0cf10550e9a6619ab9041d259e",
+      "size_bytes": 96426
+    },
+    {
+      "case": "discovery-03",
+      "role": "Native",
+      "path": "Sources/discovery-03/Native.f3d",
+      "sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "size_bytes": 233944
+    },
+    {
+      "case": "discovery-03",
+      "role": "Generated",
+      "path": "Sources/discovery-03/Generated.f3d",
+      "sha256": "f25baecb89a394248b48b2595fffa0e24dbda8a50ea6a664f3f11cd6b4b07c2a",
+      "size_bytes": 96426
+    },
+    {
+      "case": "discovery-04",
+      "role": "Native",
+      "path": "Sources/discovery-04/Native.f3d",
+      "sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "size_bytes": 220574
+    },
+    {
+      "case": "discovery-04",
+      "role": "Generated",
+      "path": "Sources/discovery-04/Generated.f3d",
+      "sha256": "ce8091271b630fa7a75e3d015a65c013d833d3073873bc505bd49d6eda179a21",
+      "size_bytes": 96426
+    },
+    {
+      "case": "discovery-05",
+      "role": "Native",
+      "path": "Sources/discovery-05/Native.f3d",
+      "sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "size_bytes": 235310
+    },
+    {
+      "case": "discovery-05",
+      "role": "Generated",
+      "path": "Sources/discovery-05/Generated.f3d",
+      "sha256": "ff56de6b7d5413c88950742711a60b0cc5642c40e2a2dc3d5eca8cf2296943dc",
+      "size_bytes": 96426
+    },
+    {
+      "case": "discovery-06",
+      "role": "Native",
+      "path": "Sources/discovery-06/Native.f3d",
+      "sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "size_bytes": 228092
+    },
+    {
+      "case": "discovery-06",
+      "role": "Generated",
+      "path": "Sources/discovery-06/Generated.f3d",
+      "sha256": "382ae1393082b4bab3e7ae52e4021ec58c04b7b867b82eb42f183a3da80dbb71",
+      "size_bytes": 96426
+    },
+    {
+      "case": "holdout-01",
+      "role": "Native",
+      "path": "Sources/holdout-01/Native.f3d",
+      "sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "size_bytes": 223552
+    },
+    {
+      "case": "holdout-01",
+      "role": "Generated",
+      "path": "Sources/holdout-01/Generated.f3d",
+      "sha256": "6ec1598c1e8bc6a38eff6a9fb55d24857908d9231afda0cb666d1813fbfad82c",
+      "size_bytes": 96426
+    },
+    {
+      "case": "holdout-01",
+      "role": "Reconstructed",
+      "path": "Sources/holdout-01/Reconstructed.f3d",
+      "sha256": "f7c9d7872f4863ff57b1bfeb91d2aedb9d461041096e68aa199ad56e06d46429",
+      "size_bytes": 337492
+    },
+    {
+      "case": "holdout-02",
+      "role": "Native",
+      "path": "Sources/holdout-02/Native.f3d",
+      "sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "size_bytes": 230911
+    },
+    {
+      "case": "holdout-02",
+      "role": "Generated",
+      "path": "Sources/holdout-02/Generated.f3d",
+      "sha256": "eb512bcbeecc8692fdc36ec37de3af71ec95b785ddc6e82e0bed8196b439d0e4",
+      "size_bytes": 96426
+    },
+    {
+      "case": "holdout-02",
+      "role": "Reconstructed",
+      "path": "Sources/holdout-02/Reconstructed.f3d",
+      "sha256": "000903d1b10ebec7bcb9c959e44cd57679ca01b15b3b961fb3c28f04fa72d84d",
+      "size_bytes": 344603
+    },
+    {
+      "case": "holdout-03",
+      "role": "Native",
+      "path": "Sources/holdout-03/Native.f3d",
+      "sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "size_bytes": 233174
+    },
+    {
+      "case": "holdout-03",
+      "role": "Generated",
+      "path": "Sources/holdout-03/Generated.f3d",
+      "sha256": "0bbe6f2c0e4ae7d790d946cd6fc025809d7eca86591476970227c18981c4fb94",
+      "size_bytes": 96426
+    },
+    {
+      "case": "holdout-03",
+      "role": "Reconstructed",
+      "path": "Sources/holdout-03/Reconstructed.f3d",
+      "sha256": "036ce177dc322750196f66137e3bf1837fd726c4257109db62e66ef19638cdbd",
+      "size_bytes": 346493
+    },
+    {
+      "case": "holdout-04",
+      "role": "Native",
+      "path": "Sources/holdout-04/Native.f3d",
+      "sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "size_bytes": 227844
+    },
+    {
+      "case": "holdout-04",
+      "role": "Generated",
+      "path": "Sources/holdout-04/Generated.f3d",
+      "sha256": "7ff6b9a5a3074f01ffedd7e9719d810238d08c53fb1c7d0ea34fb4b94ea21b8c",
+      "size_bytes": 96426
+    },
+    {
+      "case": "holdout-04",
+      "role": "Reconstructed",
+      "path": "Sources/holdout-04/Reconstructed.f3d",
+      "sha256": "1aa162a4d1c5a4d89688698a1b93c79aac3b04c5f5f07e26d40ccc27b423b663",
+      "size_bytes": 341070
+    },
+    {
+      "case": "holdout-05",
+      "role": "Native",
+      "path": "Sources/holdout-05/Native.f3d",
+      "sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "size_bytes": 232064
+    },
+    {
+      "case": "holdout-05",
+      "role": "Generated",
+      "path": "Sources/holdout-05/Generated.f3d",
+      "sha256": "d25c2c2d4cec506b7efaf52ddc6f4c7e3a8773899928015b0d2d5079130b2247",
+      "size_bytes": 96426
+    },
+    {
+      "case": "holdout-06",
+      "role": "Native",
+      "path": "Sources/holdout-06/Native.f3d",
+      "sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "size_bytes": 240526
+    },
+    {
+      "case": "holdout-06",
+      "role": "Generated",
+      "path": "Sources/holdout-06/Generated.f3d",
+      "sha256": "ff74f183bdd20d91a5caeb76bb0bf46e146175d37f7526e1a814c9dac81b0180",
+      "size_bytes": 96426
+    },
+    {
+      "case": "holdout-06",
+      "role": "Reconstructed",
+      "path": "Sources/holdout-06/Reconstructed.f3d",
+      "sha256": "efe8def97c21c1bf3c64313b191f693a99c05dbc92bca39b04addebcde9683ed",
+      "size_bytes": 352802
+    }
+  ],
+  "models_enabled": false,
+  "conversion_qualified": false
+}

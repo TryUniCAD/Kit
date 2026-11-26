@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "waves": [
+    {
+      "id": "alpha"
+    }
+  ],
+  "families": [
+    {
+      "id": "family:extrude",
+      "parent_id": null,
+      "wave": "alpha",
+      "dependencies": [],
+      "subfeatures": [
+        {
+          "id": "family:extrude:cut-extrude",
+          "dependencies": [],
+          "options": [
+            "through all"
+          ]
+        },
+        {
+          "id": "family:extrude:boss-base-extrude",
+          "dependencies": [],
+          "options": [
+            "blind"
+          ]
+        },
+        {
+          "id": "family:extrude:surface-extrude",
+          "dependencies": [],
+          "options": [
+            "offset",
+            "depth"
+          ]
+        }
+      ]
+    }
+  ]
+}

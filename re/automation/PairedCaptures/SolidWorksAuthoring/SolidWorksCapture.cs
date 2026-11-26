@@ -12,7 +12,6 @@ public sealed class SolidWorksCapture
     static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
     static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
     readonly ISldWorks app = (ISldWorks)Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application"));
-    readonly IMathUtility math;
     readonly string repo, output, template;
     readonly Dictionary<string, object>[] recipes;
     readonly string spec;
@@ -21,7 +20,6 @@ public sealed class SolidWorksCapture
     {
         this.repo = repo;
         this.output = output;
-        math = (IMathUtility)app.GetMathUtility();
         template = app.GetDocumentTemplate(1, "", 0, 0, 0);
         spec = Path.Combine(repo, "re", "automation", "PairSpecs.json");
         var root = Json.Deserialize<Dictionary<string, object>>(File.ReadAllText(spec));
@@ -60,7 +58,8 @@ public sealed class SolidWorksCapture
     static void Write(string path, object row) { File.WriteAllText(path, Json.Serialize(row) + "\n", Utf8); }
     double[] Transform(double[] xyz, MathTransform transform)
     {
-        return (double[])((IMathPoint)math.CreatePoint(xyz)).IMultiplyTransform(transform).ArrayData;
+        var util = (IMathUtility)app.GetMathUtility();
+        return (double[])((IMathPoint)util.CreatePoint(xyz)).IMultiplyTransform(transform).ArrayData;
     }
     static void Select(ISketchSegment seg, bool append = false)
     {
@@ -100,9 +99,8 @@ public sealed class SolidWorksCapture
         Origin(doc);
         Select(p,true);
         var worldDir = axis == 0 ? World(basis,1,0,0) : World(basis,0,1,0);
-        var transform = sketch.ModelToSketchTransform;
-        var localOrigin = Transform(Vector(0,0,0),transform);
-        var localUnit = Transform(worldDir,transform);
+        var localOrigin = Transform(Vector(0,0,0),sketch.ModelToSketchTransform);
+        var localUnit = Transform(worldDir,sketch.ModelToSketchTransform);
         var display = Math.Abs(localUnit[0] - localOrigin[0]) > .5
             ? doc.IAddHorizontalDimension2(.072,.073,.074)
             : doc.IAddVerticalDimension2(.071,.073,.075);
@@ -266,6 +264,8 @@ public sealed class SolidWorksCapture
                 }
             }
             Rebuild(doc);
+            doc.ShowNamedView2("", id == "P01" || id == "P02" ? (basis == "YZ" ? 4 : 1) : 7);
+            doc.ViewZoomtofit2();
             return doc;
         }
         catch { Close(doc); throw; }
@@ -313,14 +313,12 @@ public sealed class SolidWorksCapture
         collected.Add(f);
         for (var c = (IFeature)f.GetFirstSubFeature(); c != null; c = (IFeature)c.GetNextSubFeature()) Collect(c,collected,seen);
     }
-    static IEnumerable<IDimension> Dimensions(IFeature f, string name = null)
+    static IEnumerable<IDimension> Dimensions(IFeature f)
     {
         for (object d = f.GetFirstDisplayDimension(); d != null; d = f.GetNextDisplayDimension(d))
         {
             var dim = (IDimension)((IDisplayDimension)d).GetDimension2(0);
-            if (dim == null) continue;
-            if (name == null) name = f.Name;
-            if (dim.FullName.Split('@')[1] == name) yield return dim;
+            if (dim != null && dim.FullName.Split('@')[1] == f.Name) yield return dim;
         }
     }
     static object DescribeEntity(object entity)
@@ -335,8 +333,7 @@ public sealed class SolidWorksCapture
     {
         int supportType=0;
         var support = sketch.GetReferenceEntity(ref supportType);
-        var transform = sketch.ModelToSketchTransform;
-        var inverse = transform.IInverse();
+        var inverse = sketch.ModelToSketchTransform.IInverse();
         var entities = new List<object>();
         foreach (var seg in Array(sketch.GetSketchSegments()).Cast<ISketchSegment>())
         {
@@ -362,23 +359,20 @@ public sealed class SolidWorksCapture
         var section = (double[])doc.Extension.GetSectionProperties2(new object[]{(IFeature)sketch});
         doc.ClearSelection2(true);
         bool measured = section != null && section.Length > 4 && section[0] == 0;
-        string name = feature.Name;
-        Check(measured,"Section properties for " + name + ": " + (section==null?"null":section[0].ToString()));
-        int constraintStatus = sketch.GetConstrainedStatus();
-        return Row("name",name,"support_type",supportType,"support_name",(support as IFeature)==null?null:((IFeature)support).Name,
-            "model_to_sketch_transform",transform.ArrayData,"entities",entities,
-            "relations",relations,"constraint_status",constraintStatus,"fully_defined",constraintStatus==3,
+        Check(measured,"Section properties for " + feature.Name + ": " + (section==null?"null":section[0].ToString()));
+        return Row("name",feature.Name,"support_type",supportType,"support_name",(support as IFeature)==null?null:((IFeature)support).Name,
+            "model_to_sketch_transform",sketch.ModelToSketchTransform.ArrayData,"entities",entities,
+            "relations",relations,"constraint_status",sketch.GetConstrainedStatus(),"fully_defined",sketch.GetConstrainedStatus()==3,
             "region_count",sketch.GetSketchRegionCount(),"section_area_mm2",section[1]*1e6,"section_center_world_mm",Scale(section.Skip(2).Take(3).ToArray(),1000));
     }
     Dictionary<string,object> Measure(IModelDoc2 doc, string label, bool scanSketches)
     {
         int bodies=Array(((IPartDoc)doc).GetBodies2(0,false)).Length;
-        var extension = doc.Extension;
-        var row=Row("label",label,"units_code",extension.GetUserPreferenceInteger(263,0),
+        var row=Row("label",label,"units_code",doc.Extension.GetUserPreferenceInteger(263,0),
             "configuration",doc.IGetActiveConfiguration().Name,"body_count",bodies,"volume_mm3",null,"center_of_mass_mm",null);
         if (bodies > 0)
         {
-            var mass = (IMassProperty2)extension.CreateMassProperty2();
+            var mass = (IMassProperty2)doc.Extension.CreateMassProperty2();
             Check(mass != null,"Create mass properties");
             mass.UseSystemUnits=true;
             Check(mass.Recalculate(),"Recalculate mass properties");
@@ -390,20 +384,18 @@ public sealed class SolidWorksCapture
         var sketches=new List<object>();
         foreach(var f in Features(doc))
         {
-            string name = f.Name;
-            string type = f.GetTypeName2();
             bool warning=false;
             int code=f.GetErrorCode2(out warning);
-            Check(code == 0,"Feature " + name + " error/warning code " + code);
-            var dimensions=Dimensions(f,name).Select(d=>Row("name",d.Name,"full_name",d.FullName,"driven_state",d.DrivenState,"system_value",d.SystemValue)).ToArray();
+            Check(code == 0,"Feature " + f.Name + " error/warning code " + code);
+            var dimensions=Dimensions(f).Select(d=>Row("name",d.Name,"full_name",d.FullName,"driven_state",d.DrivenState,"system_value",d.SystemValue)).ToArray();
             var definition=f.GetDefinition();
             var ext=definition as IExtrudeFeatureData2;
             var revolve=definition as IRevolveFeatureData2;
             object operation=null;
             if (ext != null) operation=Row("end_condition",ext.GetEndCondition(true),"depth_m",ext.GetDepth(true),"reverse_direction",ext.ReverseDirection,"both_directions",ext.BothDirections);
             if (revolve != null) operation=Row("angle_rad",revolve.GetRevolutionAngle(true),"reverse_direction",revolve.ReverseDirection,"axis_type",revolve.GetAxisType());
-            tree.Add(Row("name",name,"type",type,"suppressed",f.IsSuppressed(),"error_code",code,"warning",warning,"dimensions",dimensions,"operation",operation));
-            if (type=="ProfileFeature") sketches.Add(DescribeSketch(doc,f,(ISketch)f.GetSpecificFeature2()));
+            tree.Add(Row("name",f.Name,"type",f.GetTypeName2(),"suppressed",f.IsSuppressed(),"error_code",code,"warning",warning,"dimensions",dimensions,"operation",operation));
+            if (f.GetTypeName2()=="ProfileFeature") sketches.Add(DescribeSketch(doc,f,(ISketch)f.GetSpecificFeature2()));
         }
         var equations=doc.GetEquationMgr();
         row["feature_tree"]=tree;
@@ -412,16 +404,6 @@ public sealed class SolidWorksCapture
         return row;
     }
     Dictionary<string,object> Control(string label)
-    {
-        if (label != "after" || app.GetDocumentCount() != 0)
-            return ReadControl(label, false);
-
-        // a stock part opened without a window avoids the final document close stall
-        app.DocumentVisible(false, 1);
-        try { return ReadControl(label, true); }
-        finally { app.DocumentVisible(true, 1); }
-    }
-    Dictionary<string,object> ReadControl(string label, bool discard)
     {
         var path=Path.Combine(repo,"re","solidworks","examples",".SLDPRT","example.SLDPRT");
         object status;
@@ -436,22 +418,11 @@ public sealed class SolidWorksCapture
             Console.WriteLine("Control " + label + " volume " + row["volume_mm3"]);
             return row;
         }
-        finally
-        {
-            // the sole read-only final control can close without entering the save path
-            if (discard && doc.IsOpenedReadOnly() && app.GetDocumentCount() == 1
-                && string.Equals(doc.GetPathName(), path, StringComparison.OrdinalIgnoreCase))
-            {
-                app.QuitDoc(doc.GetTitle());
-                Check(app.GetDocumentCount() == 0, "Read-only stock control did not close");
-            }
-            else
-                Close(doc);
-        }
+        finally { Close(doc); }
     }
     static void Set(IModelDoc2 doc, string name, double value)
     {
-        var d=Features(doc).SelectMany(feature=>Dimensions(feature)).Single(dim=>dim.Name==name);
+        var d=Features(doc).SelectMany(Dimensions).Single(dim=>dim.Name==name);
         int status=d.SetSystemValue3(value,1,null);
         Check(status==0 && Math.Abs(d.SystemValue-value)<1e-8,"Set " + name + ": " + status+" value "+d.SystemValue);
         Rebuild(doc);
@@ -520,6 +491,7 @@ public sealed class SolidWorksCapture
                 edits.Add(Row("parameter",name,"edited",changed,"restored",Measure(doc,"restored "+name,true),"saved_file",Filename(id,suffix)));
             }
             Units(doc,3);
+            Rebuild(doc);
             variants.Add(Row("variant","units-inch","reading",Measure(doc,"inch display units",true)));
             saves.Add(Save(doc,path("units-inch"),true));
         }

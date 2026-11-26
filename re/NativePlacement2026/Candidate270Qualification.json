@@ -1,0 +1,3886 @@
+{
+  "candidate_revision": "78a1367e81b5748702289c2b2e733f24576df46e",
+  "native_source_revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "candidate_pr": 270,
+  "native_files": 69,
+  "reader_comparisons": 138,
+  "passed": 138,
+  "failed": 0,
+  "cases": [
+    {
+      "case": "solidworks-000",
+      "source": "Cases/solidworks-000/control-after.SLDPRT",
+      "source_sha256": "f3ff7a7c29bdac39a32a93f73dc0e14c79a6e0dbadc55b3ea9c31bd672708eba",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-000",
+      "source": "Cases/solidworks-000/control-after.SLDPRT",
+      "source_sha256": "f3ff7a7c29bdac39a32a93f73dc0e14c79a6e0dbadc55b3ea9c31bd672708eba",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-000",
+      "source": "Cases/solidworks-000/control-before.SLDPRT",
+      "source_sha256": "1b6a7615ad878569235d8a7cd5d863a8b41ad332a5abbc3b1fd46bc0778bf5c6",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-000",
+      "source": "Cases/solidworks-000/control-before.SLDPRT",
+      "source_sha256": "1b6a7615ad878569235d8a7cd5d863a8b41ad332a5abbc3b1fd46bc0778bf5c6",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-000",
+      "source": "Cases/solidworks-000/variation.SLDPRT",
+      "source_sha256": "c79787925cc271c1ad79f6b44288527a14f62864fa4d77eaad824f1f367870ac",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-000",
+      "source": "Cases/solidworks-000/variation.SLDPRT",
+      "source_sha256": "c79787925cc271c1ad79f6b44288527a14f62864fa4d77eaad824f1f367870ac",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-001",
+      "source": "Cases/solidworks-001/control-after.SLDPRT",
+      "source_sha256": "9940319fa73e67adcabc2ba8cdc0bd7a9fd578a2d0570565fc9d17bfdd0f8270",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-001",
+      "source": "Cases/solidworks-001/control-after.SLDPRT",
+      "source_sha256": "9940319fa73e67adcabc2ba8cdc0bd7a9fd578a2d0570565fc9d17bfdd0f8270",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-001",
+      "source": "Cases/solidworks-001/control-before.SLDPRT",
+      "source_sha256": "75cff5e0c0fac48218ea352c8bb0bd7fbb64339626d3a346d826fc92da450263",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-001",
+      "source": "Cases/solidworks-001/control-before.SLDPRT",
+      "source_sha256": "75cff5e0c0fac48218ea352c8bb0bd7fbb64339626d3a346d826fc92da450263",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-001",
+      "source": "Cases/solidworks-001/variation.SLDPRT",
+      "source_sha256": "ce82543eabde7d4c619678bc10bb17762b525283b0da2887d25e2e8cb7f2de64",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        11.85,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        11.85,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-001",
+      "source": "Cases/solidworks-001/variation.SLDPRT",
+      "source_sha256": "ce82543eabde7d4c619678bc10bb17762b525283b0da2887d25e2e8cb7f2de64",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        11.85,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        11.85,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-002",
+      "source": "Cases/solidworks-002/control-after.SLDPRT",
+      "source_sha256": "02efe9e19c41f6738810e8649322d25da30505dfcb6781b72868350e3fe21326",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-002",
+      "source": "Cases/solidworks-002/control-after.SLDPRT",
+      "source_sha256": "02efe9e19c41f6738810e8649322d25da30505dfcb6781b72868350e3fe21326",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-002",
+      "source": "Cases/solidworks-002/control-before.SLDPRT",
+      "source_sha256": "fa4d2e474055778a75e305add7aff4d669decf5aa9af7c30c1f11ed660e2587d",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-002",
+      "source": "Cases/solidworks-002/control-before.SLDPRT",
+      "source_sha256": "fa4d2e474055778a75e305add7aff4d669decf5aa9af7c30c1f11ed660e2587d",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-002",
+      "source": "Cases/solidworks-002/variation.SLDPRT",
+      "source_sha256": "479d24f46a532f2735f331f52a62699151c2a4e80820919b0dda0b94a88fb6ab",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        3.15
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        9.999999999999998,
+        3.1499999999999995
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-002",
+      "source": "Cases/solidworks-002/variation.SLDPRT",
+      "source_sha256": "479d24f46a532f2735f331f52a62699151c2a4e80820919b0dda0b94a88fb6ab",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        3.15
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        9.999999999999998,
+        3.1499999999999995
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-003",
+      "source": "Cases/solidworks-003/control-after.SLDPRT",
+      "source_sha256": "d4dd8f4c33db61a88028403156633f7aa26bfe1c06d657ea8ce6fee839d74b7d",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-003",
+      "source": "Cases/solidworks-003/control-after.SLDPRT",
+      "source_sha256": "d4dd8f4c33db61a88028403156633f7aa26bfe1c06d657ea8ce6fee839d74b7d",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-003",
+      "source": "Cases/solidworks-003/control-before.SLDPRT",
+      "source_sha256": "46998c93cad0120fc64ff79facdd67b2b07024cb6461a929eac4a782fbd434d2",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-003",
+      "source": "Cases/solidworks-003/control-before.SLDPRT",
+      "source_sha256": "46998c93cad0120fc64ff79facdd67b2b07024cb6461a929eac4a782fbd434d2",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-003",
+      "source": "Cases/solidworks-003/variation.SLDPRT",
+      "source_sha256": "507f4bf64466e12fe69d9342aaa9c40e0dc9f6b1cd5ef6d4a136e8c73537e1de",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-003",
+      "source": "Cases/solidworks-003/variation.SLDPRT",
+      "source_sha256": "507f4bf64466e12fe69d9342aaa9c40e0dc9f6b1cd5ef6d4a136e8c73537e1de",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        10.0,
+        5.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        10.0,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-004",
+      "source": "Cases/solidworks-004/control-after.SLDPRT",
+      "source_sha256": "de6cc762c51d8d132f2bf95ed50a5c36903fb4efcdb79cb6d37c8b96b0035d6c",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-004",
+      "source": "Cases/solidworks-004/control-after.SLDPRT",
+      "source_sha256": "de6cc762c51d8d132f2bf95ed50a5c36903fb4efcdb79cb6d37c8b96b0035d6c",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-004",
+      "source": "Cases/solidworks-004/control-before.SLDPRT",
+      "source_sha256": "f8f831664542dc78cd12e7ad8127dee233f1ca6b95c0cd09de249008a4fa600f",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-004",
+      "source": "Cases/solidworks-004/control-before.SLDPRT",
+      "source_sha256": "f8f831664542dc78cd12e7ad8127dee233f1ca6b95c0cd09de249008a4fa600f",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-004",
+      "source": "Cases/solidworks-004/variation.SLDPRT",
+      "source_sha256": "d8cfdc6e960aca794792fe310938c9fa6bef6155b3cbcab6c9fc8fdea65551ba",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-004",
+      "source": "Cases/solidworks-004/variation.SLDPRT",
+      "source_sha256": "d8cfdc6e960aca794792fe310938c9fa6bef6155b3cbcab6c9fc8fdea65551ba",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-005",
+      "source": "Cases/solidworks-005/control-after.SLDPRT",
+      "source_sha256": "dbb4c93e66b59cedbaf07cb3ba5fa7bdecec566022737341f5b15345bf30d8a1",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-005",
+      "source": "Cases/solidworks-005/control-after.SLDPRT",
+      "source_sha256": "dbb4c93e66b59cedbaf07cb3ba5fa7bdecec566022737341f5b15345bf30d8a1",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-005",
+      "source": "Cases/solidworks-005/control-before.SLDPRT",
+      "source_sha256": "04467d922f716f8fb0cec397f09f6308d8af1d4334748643352cec8d073e2e68",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-005",
+      "source": "Cases/solidworks-005/control-before.SLDPRT",
+      "source_sha256": "04467d922f716f8fb0cec397f09f6308d8af1d4334748643352cec8d073e2e68",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-005",
+      "source": "Cases/solidworks-005/variation.SLDPRT",
+      "source_sha256": "8a381fc1c634db9dd11d08cd7ce8309745ef44190fcb734e9906d3866a50ec46",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        11.85,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        11.85,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-005",
+      "source": "Cases/solidworks-005/variation.SLDPRT",
+      "source_sha256": "8a381fc1c634db9dd11d08cd7ce8309745ef44190fcb734e9906d3866a50ec46",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        11.85,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        11.85,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-006",
+      "source": "Cases/solidworks-006/control-after.SLDPRT",
+      "source_sha256": "a2b212613db3b78b8ed8e25ffc008fcd9db16defe489d9532ae8be0fd9c1a0af",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-006",
+      "source": "Cases/solidworks-006/control-after.SLDPRT",
+      "source_sha256": "a2b212613db3b78b8ed8e25ffc008fcd9db16defe489d9532ae8be0fd9c1a0af",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-006",
+      "source": "Cases/solidworks-006/control-before.SLDPRT",
+      "source_sha256": "f5a6c69e3678fd811fb090f63edf46b6ce4eda97239e76ca313ae18864fcece3",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-006",
+      "source": "Cases/solidworks-006/control-before.SLDPRT",
+      "source_sha256": "f5a6c69e3678fd811fb090f63edf46b6ce4eda97239e76ca313ae18864fcece3",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-006",
+      "source": "Cases/solidworks-006/variation.SLDPRT",
+      "source_sha256": "71ceb35660016078e6b04eadb1db6e6d6ce70ae25751d1d2dfc99dd5957aa721",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -3.15
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        9.999999999999998,
+        -3.1499999999999995
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-006",
+      "source": "Cases/solidworks-006/variation.SLDPRT",
+      "source_sha256": "71ceb35660016078e6b04eadb1db6e6d6ce70ae25751d1d2dfc99dd5957aa721",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -3.15
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        9.999999999999998,
+        -3.1499999999999995
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-007",
+      "source": "Cases/solidworks-007/control-after.SLDPRT",
+      "source_sha256": "48e652bcc1c000fb44fb228143c5986f66ab6addffa012574ae9fd4ab1ee42b7",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-007",
+      "source": "Cases/solidworks-007/control-after.SLDPRT",
+      "source_sha256": "48e652bcc1c000fb44fb228143c5986f66ab6addffa012574ae9fd4ab1ee42b7",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-007",
+      "source": "Cases/solidworks-007/control-before.SLDPRT",
+      "source_sha256": "109fa952a4a11fff41502b23af9a1a6a60fbfcf31d041523862a809e3f539489",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-007",
+      "source": "Cases/solidworks-007/control-before.SLDPRT",
+      "source_sha256": "109fa952a4a11fff41502b23af9a1a6a60fbfcf31d041523862a809e3f539489",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-007",
+      "source": "Cases/solidworks-007/variation.SLDPRT",
+      "source_sha256": "a5755ef803daeb1a5f305cca31f1282bfba14ac174efe8a86651fb7f2231d6be",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-007",
+      "source": "Cases/solidworks-007/variation.SLDPRT",
+      "source_sha256": "a5755ef803daeb1a5f305cca31f1282bfba14ac174efe8a86651fb7f2231d6be",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        10.0,
+        -5.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        10.0,
+        -5.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-008",
+      "source": "Cases/solidworks-008/control-after.SLDPRT",
+      "source_sha256": "ddc545ed6460beeb599008f2f6e5227e10410f3beef3b67214aafde9849494c0",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-008",
+      "source": "Cases/solidworks-008/control-after.SLDPRT",
+      "source_sha256": "ddc545ed6460beeb599008f2f6e5227e10410f3beef3b67214aafde9849494c0",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-008",
+      "source": "Cases/solidworks-008/control-before.SLDPRT",
+      "source_sha256": "b26247698eeeeebb92fb39056ad77807c67bb52c6e60b6611b13276cae75ff52",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-008",
+      "source": "Cases/solidworks-008/control-before.SLDPRT",
+      "source_sha256": "b26247698eeeeebb92fb39056ad77807c67bb52c6e60b6611b13276cae75ff52",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-008",
+      "source": "Cases/solidworks-008/variation.SLDPRT",
+      "source_sha256": "7fc0d0f1b5a9df954358f5c6f1caf64022734688ac3b6d44e1b58bbae916facb",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-008",
+      "source": "Cases/solidworks-008/variation.SLDPRT",
+      "source_sha256": "7fc0d0f1b5a9df954358f5c6f1caf64022734688ac3b6d44e1b58bbae916facb",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-009",
+      "source": "Cases/solidworks-009/control-after.SLDPRT",
+      "source_sha256": "6d149da3019d653cd5ca8c23e9027c7e5d2ee661b416f093ef005cbedd080b17",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-009",
+      "source": "Cases/solidworks-009/control-after.SLDPRT",
+      "source_sha256": "6d149da3019d653cd5ca8c23e9027c7e5d2ee661b416f093ef005cbedd080b17",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-009",
+      "source": "Cases/solidworks-009/control-before.SLDPRT",
+      "source_sha256": "aebdfc74fc63f2a2245c1688e93e40008afb0298a110106671dce7dd523bb6f6",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-009",
+      "source": "Cases/solidworks-009/control-before.SLDPRT",
+      "source_sha256": "aebdfc74fc63f2a2245c1688e93e40008afb0298a110106671dce7dd523bb6f6",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-009",
+      "source": "Cases/solidworks-009/variation.SLDPRT",
+      "source_sha256": "bb6ca988fa88fe0082760b13b349277efc7dd98a98cc5c56dd4edcbef5eded43",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -11.85
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -11.85
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-009",
+      "source": "Cases/solidworks-009/variation.SLDPRT",
+      "source_sha256": "bb6ca988fa88fe0082760b13b349277efc7dd98a98cc5c56dd4edcbef5eded43",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -11.85
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -11.85
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-010",
+      "source": "Cases/solidworks-010/control-after.SLDPRT",
+      "source_sha256": "8d583813ca9ce1cfec65e0baf83db289fdf664e2f3cd08ae779e3dafda5f4e27",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-010",
+      "source": "Cases/solidworks-010/control-after.SLDPRT",
+      "source_sha256": "8d583813ca9ce1cfec65e0baf83db289fdf664e2f3cd08ae779e3dafda5f4e27",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-010",
+      "source": "Cases/solidworks-010/control-before.SLDPRT",
+      "source_sha256": "e92b0a2e1c7d92653a7b012525286a0f16ca1971dd393bd0343f0092e077fa57",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-010",
+      "source": "Cases/solidworks-010/control-before.SLDPRT",
+      "source_sha256": "e92b0a2e1c7d92653a7b012525286a0f16ca1971dd393bd0343f0092e077fa57",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-010",
+      "source": "Cases/solidworks-010/variation.SLDPRT",
+      "source_sha256": "0f820a45116f4715e4d862cec2f6d3f0062c2069f2382948f3c77a2608b96ca6",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        3.15,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        3.1499999999999995,
+        -9.999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-010",
+      "source": "Cases/solidworks-010/variation.SLDPRT",
+      "source_sha256": "0f820a45116f4715e4d862cec2f6d3f0062c2069f2382948f3c77a2608b96ca6",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        3.15,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        3.1499999999999995,
+        -9.999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-011",
+      "source": "Cases/solidworks-011/control-after.SLDPRT",
+      "source_sha256": "151932601b0f9301d3516efedc7852b9cf858ae1eb44f71732fbd76727f0fcd3",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-011",
+      "source": "Cases/solidworks-011/control-after.SLDPRT",
+      "source_sha256": "151932601b0f9301d3516efedc7852b9cf858ae1eb44f71732fbd76727f0fcd3",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-011",
+      "source": "Cases/solidworks-011/control-before.SLDPRT",
+      "source_sha256": "ca7bb5e6f7cc862048808b3ba28ba849116b2fad1ccf2c1b10991c6288e4d373",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-011",
+      "source": "Cases/solidworks-011/control-before.SLDPRT",
+      "source_sha256": "ca7bb5e6f7cc862048808b3ba28ba849116b2fad1ccf2c1b10991c6288e4d373",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-011",
+      "source": "Cases/solidworks-011/variation.SLDPRT",
+      "source_sha256": "1e445b0323bdd11ff1e1d3577dc9af0b66bc0cf4f802de849c18250ea3a6080c",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-011",
+      "source": "Cases/solidworks-011/variation.SLDPRT",
+      "source_sha256": "1e445b0323bdd11ff1e1d3577dc9af0b66bc0cf4f802de849c18250ea3a6080c",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-012",
+      "source": "Cases/solidworks-012/control-after.SLDPRT",
+      "source_sha256": "146ed278a3ac9f105ac16f53428cedefe256d9cbe96238bf2611363870da0160",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-012",
+      "source": "Cases/solidworks-012/control-after.SLDPRT",
+      "source_sha256": "146ed278a3ac9f105ac16f53428cedefe256d9cbe96238bf2611363870da0160",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-012",
+      "source": "Cases/solidworks-012/control-before.SLDPRT",
+      "source_sha256": "a4201124719ae9290d9136cd4846c613420d94f21bfb6e5ff5f9073dc21126ab",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-012",
+      "source": "Cases/solidworks-012/control-before.SLDPRT",
+      "source_sha256": "a4201124719ae9290d9136cd4846c613420d94f21bfb6e5ff5f9073dc21126ab",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-012",
+      "source": "Cases/solidworks-012/variation.SLDPRT",
+      "source_sha256": "248be34f611fc923604f58488b9c2dcddd2dcf995ed146abd95d59ba5b025356",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-012",
+      "source": "Cases/solidworks-012/variation.SLDPRT",
+      "source_sha256": "248be34f611fc923604f58488b9c2dcddd2dcf995ed146abd95d59ba5b025356",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        8.1,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        8.1,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-013",
+      "source": "Cases/solidworks-013/control-after.SLDPRT",
+      "source_sha256": "33e08b62d62cf3e28938233969ea32ff62233710bfedffd1240832ddf35afdfd",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-013",
+      "source": "Cases/solidworks-013/control-after.SLDPRT",
+      "source_sha256": "33e08b62d62cf3e28938233969ea32ff62233710bfedffd1240832ddf35afdfd",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-013",
+      "source": "Cases/solidworks-013/control-before.SLDPRT",
+      "source_sha256": "6eec73f21c2e4944af38d029084d59f43b42bfb1d59f98767632af9b2d5fe8bb",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-013",
+      "source": "Cases/solidworks-013/control-before.SLDPRT",
+      "source_sha256": "6eec73f21c2e4944af38d029084d59f43b42bfb1d59f98767632af9b2d5fe8bb",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-013",
+      "source": "Cases/solidworks-013/variation.SLDPRT",
+      "source_sha256": "e94c8111068e6b609bd7921d6548deec79147c8c18187bae9ba7fe923ebf5b40",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -11.85
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -11.85
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-013",
+      "source": "Cases/solidworks-013/variation.SLDPRT",
+      "source_sha256": "e94c8111068e6b609bd7921d6548deec79147c8c18187bae9ba7fe923ebf5b40",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -11.85
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -11.85
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-014",
+      "source": "Cases/solidworks-014/control-after.SLDPRT",
+      "source_sha256": "3a2e147c9c2d54533b32becd6117f71e976eecbdad144c14d9e9f531f5ddcbcb",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-014",
+      "source": "Cases/solidworks-014/control-after.SLDPRT",
+      "source_sha256": "3a2e147c9c2d54533b32becd6117f71e976eecbdad144c14d9e9f531f5ddcbcb",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-014",
+      "source": "Cases/solidworks-014/control-before.SLDPRT",
+      "source_sha256": "a432f26fbbece14e5db87f1c147845a19baf32586e49c961e259ab09eaff0eaf",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-014",
+      "source": "Cases/solidworks-014/control-before.SLDPRT",
+      "source_sha256": "a432f26fbbece14e5db87f1c147845a19baf32586e49c961e259ab09eaff0eaf",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-014",
+      "source": "Cases/solidworks-014/variation.SLDPRT",
+      "source_sha256": "5944f98a135317bf00db706331b3a0b02d11e6d9616833381b49c8debda2ba37",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -3.15,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        -3.1499999999999995,
+        -9.999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-014",
+      "source": "Cases/solidworks-014/variation.SLDPRT",
+      "source_sha256": "5944f98a135317bf00db706331b3a0b02d11e6d9616833381b49c8debda2ba37",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -3.15,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        19.999999999999996,
+        -3.1499999999999995,
+        -9.999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-015",
+      "source": "Cases/solidworks-015/control-after.SLDPRT",
+      "source_sha256": "d02c383500d06d29b41b364efb1c7bfc3c4486299f67d685ec313eed2e5bfe2b",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-015",
+      "source": "Cases/solidworks-015/control-after.SLDPRT",
+      "source_sha256": "d02c383500d06d29b41b364efb1c7bfc3c4486299f67d685ec313eed2e5bfe2b",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-015",
+      "source": "Cases/solidworks-015/control-before.SLDPRT",
+      "source_sha256": "b4ba78ef690cc4f007f9f7134389ba8e876c31477ee67d4b48b42dcbbc69d747",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-015",
+      "source": "Cases/solidworks-015/control-before.SLDPRT",
+      "source_sha256": "b4ba78ef690cc4f007f9f7134389ba8e876c31477ee67d4b48b42dcbbc69d747",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-015",
+      "source": "Cases/solidworks-015/variation.SLDPRT",
+      "source_sha256": "93a65beedd138b1d9e0f6a6708fda3eb6ca5f0b5585db5ba94157e408b43247b",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-015",
+      "source": "Cases/solidworks-015/variation.SLDPRT",
+      "source_sha256": "93a65beedd138b1d9e0f6a6708fda3eb6ca5f0b5585db5ba94157e408b43247b",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        36.55,
+        -5.0,
+        -10.0
+      ],
+      "native_centroid_mm": [
+        36.55,
+        -5.0,
+        -10.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-016",
+      "source": "Cases/solidworks-016/control-after.SLDPRT",
+      "source_sha256": "a2137a12e1cd3f9ed8824b8125f67b465c2247be2dfeae7e03b0de5f7528f32e",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-016",
+      "source": "Cases/solidworks-016/control-after.SLDPRT",
+      "source_sha256": "a2137a12e1cd3f9ed8824b8125f67b465c2247be2dfeae7e03b0de5f7528f32e",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-016",
+      "source": "Cases/solidworks-016/control-before.SLDPRT",
+      "source_sha256": "b5987323eabf74a43755a317dfd5113189b339a3594b28b81c1db811bb776de2",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-016",
+      "source": "Cases/solidworks-016/control-before.SLDPRT",
+      "source_sha256": "b5987323eabf74a43755a317dfd5113189b339a3594b28b81c1db811bb776de2",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-016",
+      "source": "Cases/solidworks-016/variation.SLDPRT",
+      "source_sha256": "7f93e4322884133ea8a19e827b7aa98cd2c9303c23bac93319c7b10a093c17ff",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -8.1
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -8.1
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-016",
+      "source": "Cases/solidworks-016/variation.SLDPRT",
+      "source_sha256": "7f93e4322884133ea8a19e827b7aa98cd2c9303c23bac93319c7b10a093c17ff",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -8.1
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -8.1
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-017",
+      "source": "Cases/solidworks-017/control-after.SLDPRT",
+      "source_sha256": "0c4f597e75b12355415a7589d767cf2e2ea2cabe46f16d2561113cba0a7221d3",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-017",
+      "source": "Cases/solidworks-017/control-after.SLDPRT",
+      "source_sha256": "0c4f597e75b12355415a7589d767cf2e2ea2cabe46f16d2561113cba0a7221d3",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-017",
+      "source": "Cases/solidworks-017/control-before.SLDPRT",
+      "source_sha256": "f8b4612776b8b058ab52a8580c3943b9bb8d39ec7c9bafd5ab8b8bec7acf5316",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-017",
+      "source": "Cases/solidworks-017/control-before.SLDPRT",
+      "source_sha256": "f8b4612776b8b058ab52a8580c3943b9bb8d39ec7c9bafd5ab8b8bec7acf5316",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-017",
+      "source": "Cases/solidworks-017/variation.SLDPRT",
+      "source_sha256": "929fb9559b13a76d79a91c43cbd0bf500425771053374be634d0cf42dae1a63f",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        11.85,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        11.85,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-017",
+      "source": "Cases/solidworks-017/variation.SLDPRT",
+      "source_sha256": "929fb9559b13a76d79a91c43cbd0bf500425771053374be634d0cf42dae1a63f",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        11.85,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        11.85,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-018",
+      "source": "Cases/solidworks-018/control-after.SLDPRT",
+      "source_sha256": "e00f58806d633d276d84b7db04f36ca843d6ccb75336a38d7b11698dccc882b2",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-018",
+      "source": "Cases/solidworks-018/control-after.SLDPRT",
+      "source_sha256": "e00f58806d633d276d84b7db04f36ca843d6ccb75336a38d7b11698dccc882b2",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-018",
+      "source": "Cases/solidworks-018/control-before.SLDPRT",
+      "source_sha256": "256c19c7ab7e95f2e0b40c423262faf4494cf3a6263d5351cffa34261ff0a7de",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-018",
+      "source": "Cases/solidworks-018/control-before.SLDPRT",
+      "source_sha256": "256c19c7ab7e95f2e0b40c423262faf4494cf3a6263d5351cffa34261ff0a7de",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-018",
+      "source": "Cases/solidworks-018/variation.SLDPRT",
+      "source_sha256": "b19de65f297d1bb6089ae1d2b0b764150bb4828a29ff2ef81815a6f7644552e3",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        3.15,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        3.1499999999999995,
+        9.999999999999998,
+        -19.999999999999996
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-018",
+      "source": "Cases/solidworks-018/variation.SLDPRT",
+      "source_sha256": "b19de65f297d1bb6089ae1d2b0b764150bb4828a29ff2ef81815a6f7644552e3",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        3.15,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        3.1499999999999995,
+        9.999999999999998,
+        -19.999999999999996
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-019",
+      "source": "Cases/solidworks-019/control-after.SLDPRT",
+      "source_sha256": "3242cba812cf0fba31f63c8c7660cf65d50b4111b9f5e39dce7f7ead477710b0",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-019",
+      "source": "Cases/solidworks-019/control-after.SLDPRT",
+      "source_sha256": "3242cba812cf0fba31f63c8c7660cf65d50b4111b9f5e39dce7f7ead477710b0",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-019",
+      "source": "Cases/solidworks-019/control-before.SLDPRT",
+      "source_sha256": "08e465258bb52064ef70176aa75c0390f76b2ff9afc0d0fa9d9714762040e942",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-019",
+      "source": "Cases/solidworks-019/control-before.SLDPRT",
+      "source_sha256": "08e465258bb52064ef70176aa75c0390f76b2ff9afc0d0fa9d9714762040e942",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-019",
+      "source": "Cases/solidworks-019/variation.SLDPRT",
+      "source_sha256": "63571e244260f17f27abd58d7eebd17769ea7da1f7121413b4c215db1ce790eb",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -36.55
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -36.55
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-019",
+      "source": "Cases/solidworks-019/variation.SLDPRT",
+      "source_sha256": "63571e244260f17f27abd58d7eebd17769ea7da1f7121413b4c215db1ce790eb",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        5.0,
+        10.0,
+        -36.55
+      ],
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -36.55
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-021",
+      "source": "Cases/solidworks-021/control-after.SLDPRT",
+      "source_sha256": "001fcd42ec7e0d181cd3c43c0d52158ed83972678004c4de9cf13f8d85539826",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-021",
+      "source": "Cases/solidworks-021/control-after.SLDPRT",
+      "source_sha256": "001fcd42ec7e0d181cd3c43c0d52158ed83972678004c4de9cf13f8d85539826",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-021",
+      "source": "Cases/solidworks-021/control-before.SLDPRT",
+      "source_sha256": "19a827476432b5c5df6d66a298bd8b1f02ad85de0a4156d4bde08388e4473896",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-021",
+      "source": "Cases/solidworks-021/control-before.SLDPRT",
+      "source_sha256": "19a827476432b5c5df6d66a298bd8b1f02ad85de0a4156d4bde08388e4473896",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-021",
+      "source": "Cases/solidworks-021/variation.SLDPRT",
+      "source_sha256": "7fed64d0784b56e8d84e6f1b0b05b037d81c703be5aa4617a4a34d8108bdcbc5",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        11.85,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        11.85,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-021",
+      "source": "Cases/solidworks-021/variation.SLDPRT",
+      "source_sha256": "7fed64d0784b56e8d84e6f1b0b05b037d81c703be5aa4617a4a34d8108bdcbc5",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        11.85,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        11.85,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-022",
+      "source": "Cases/solidworks-022/control-after.SLDPRT",
+      "source_sha256": "edc775baa858ea9b43655f49fb89bf635f9fd42d51b54526de98c36fdcdec686",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-022",
+      "source": "Cases/solidworks-022/control-after.SLDPRT",
+      "source_sha256": "edc775baa858ea9b43655f49fb89bf635f9fd42d51b54526de98c36fdcdec686",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-022",
+      "source": "Cases/solidworks-022/control-before.SLDPRT",
+      "source_sha256": "94f753924c816b3221afbc73ac04bf9538b3bb93be07fe4b50a5b63dee51b1a4",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-022",
+      "source": "Cases/solidworks-022/control-before.SLDPRT",
+      "source_sha256": "94f753924c816b3221afbc73ac04bf9538b3bb93be07fe4b50a5b63dee51b1a4",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-022",
+      "source": "Cases/solidworks-022/variation.SLDPRT",
+      "source_sha256": "0cefb49ca16a2337e2d7da4dbb9239fb83b520597a9aff3dd6f57e87f46ab6db",
+      "include_brep": true,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -3.15,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -3.1499999999999995,
+        9.999999999999998,
+        -19.999999999999996
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-022",
+      "source": "Cases/solidworks-022/variation.SLDPRT",
+      "source_sha256": "0cefb49ca16a2337e2d7da4dbb9239fb83b520597a9aff3dd6f57e87f46ab6db",
+      "include_brep": false,
+      "split": "discovery",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -3.15,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -3.1499999999999995,
+        9.999999999999998,
+        -19.999999999999996
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-023",
+      "source": "Cases/solidworks-023/control-after.SLDPRT",
+      "source_sha256": "88565c77b8266fa0ef2bde95ba95b283acdd0149a9bbaf9c3abc587f3f5c5ca5",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-023",
+      "source": "Cases/solidworks-023/control-after.SLDPRT",
+      "source_sha256": "88565c77b8266fa0ef2bde95ba95b283acdd0149a9bbaf9c3abc587f3f5c5ca5",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-023",
+      "source": "Cases/solidworks-023/control-before.SLDPRT",
+      "source_sha256": "322377dc0254160ad18ec38842d41b55c6f49efe5c7715510d2de86f593829fa",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-023",
+      "source": "Cases/solidworks-023/control-before.SLDPRT",
+      "source_sha256": "322377dc0254160ad18ec38842d41b55c6f49efe5c7715510d2de86f593829fa",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-023",
+      "source": "Cases/solidworks-023/variation.SLDPRT",
+      "source_sha256": "668caeeb1184f10d72ab2bfa03c0c7c5bf3790460acdc8c0f3e2f69f848167b7",
+      "include_brep": true,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -36.55
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -36.55
+      ],
+      "passed": true
+    },
+    {
+      "case": "solidworks-023",
+      "source": "Cases/solidworks-023/variation.SLDPRT",
+      "source_sha256": "668caeeb1184f10d72ab2bfa03c0c7c5bf3790460acdc8c0f3e2f69f848167b7",
+      "include_brep": false,
+      "split": "held-out",
+      "checks": {
+        "body_count": true,
+        "volume": true,
+        "area": true,
+        "centroid": true,
+        "dimensions": true,
+        "support_plane": true,
+        "owned_reference": true,
+        "direction": true
+      },
+      "neutral_centroid_mm": [
+        -5.0,
+        10.0,
+        -36.55
+      ],
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -36.55
+      ],
+      "passed": true
+    }
+  ],
+  "sdk_source_sha256": {
+    "src/convert/adapters/solidworks/Core/Native.py": "63f0a4d6f73b9c65ac6961674b4fdf34af2a5ed063c999dbd800f02507552e47",
+    "src/convert/adapters/solidworks/Core/Records/ReadLocalOwner.py": "6178d13b69e03ae0f71181f2131b7b3b45cc11666158d061fba638accf6fc838",
+    "src/convert/adapters/solidworks/Core/Records/ReadPlaneOwner.py": "60996a8cb13149c823d5619a9d5d220184a3a89e15cfe1301c789a49a19ee943",
+    "src/convert/adapters/solidworks/Core/Records/ReadPlanePose.py": "d50280c557d676af69918634f9cd78ddd89153359b253b0e68afd46580319a35"
+  },
+  "native_execution": "fresh source authoring and numerical measurements retained; candidate evaluated offline without native replay",
+  "comparison_limit": "ordinary cuboid bounds-derived mass and midpoint only; source plane and direction references also checked",
+  "heldout_limit": "parameter holdouts share one generator family; not independent-lineage qualification",
+  "full_semantics_verified": false,
+  "native_conversion_acceptance": false
+}

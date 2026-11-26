@@ -112,21 +112,22 @@ def SealSketchMut(Arguments: list[str], ModeName: str) -> FilePath:
 
 # the evidence inventory must run in a real process against an immutable input file
 def InventoryRun(InputPath: FilePath, ExitCode: int = 0) -> dict[str, object]:
-    Process = RunProcess(
-        [
-            System.executable,
-            "-B",
-            "-m",
-            "tests.Research.Archives.Comparison.SemanticSketchReferenceTests",
-            str(InputPath),
-            DigestBytes(InputPath.read_bytes()).hexdigest(),
-        ],
-        cwd=KRepoRoot,
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=60,
-    )
+    with InputPath.open("rb") as SourceFile:
+        Process = RunProcess(
+            [
+                System.executable,
+                "-B",
+                "-m",
+                "tests.Research.Archives.Comparison.SemanticSketchReferenceTests",
+                DigestBytes(InputPath.read_bytes()).hexdigest(),
+            ],
+            stdin=SourceFile,
+            cwd=KRepoRoot,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=60,
+        )
     assert Process.returncode == ExitCode, Process.stderr + Process.stdout
     return (
         CastValue(dict[str, object], ParseJson(Process.stdout))
@@ -242,12 +243,10 @@ def CheckRootCap(TmpPath: FilePath) -> None:
 
 # sealed child process intake keeps inventory observations independent from fixture memory
 def MainInventory() -> None:
-    InputPath = FilePath(System.argv[1])
-    with InputPath.open("rb") as SourceFile:
-        Content = SourceFile.read(32 * 1024 * 1024 + 1)
+    Content = System.stdin.buffer.read(32 * 1024 * 1024 + 1)
     if (
         len(Content) > 32 * 1024 * 1024
-        or DigestBytes(Content).hexdigest() != System.argv[2]
+        or DigestBytes(Content).hexdigest() != System.argv[1]
     ):
         raise ValueError("inventory fixture input differs from its bounded byte seal")
     print(EncodeJson(KReadEvidence(ParseJson(Content))))

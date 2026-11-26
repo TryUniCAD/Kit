@@ -214,7 +214,7 @@ Resume only when an applicable tool, rule or new sample changes its prerequisite
 
 ### Model escalation and failure log
 
-Each model runner uses one fixed model at two reasoning efforts.
+The separate investigation runners use the following escalation pairs. The integrated decoder uses one GPT-6.2-Sol medium attempt per eligible receipt when the operator enables [automatic decoder advice](../../Changes/Research/Advice/AutomaticDecoderAdvice.md).
 
 | Runner | First step                  | Fallback step              |
 | ------ | --------------------------- | -------------------------- |

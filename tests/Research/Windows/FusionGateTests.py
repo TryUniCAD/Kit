@@ -21,7 +21,8 @@ def InstallStub(
     Captures = KRepoRoot / "re/automation/PairedCaptures"
     Installed = TmpPath / "KitCaptureRunner.py"
     ExactBootstrap = (
-        Captures / "Runner/KitCaptureRunner/KitCaptureRunner.py"
+        KRepoRoot
+        / "re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.py"
     ).read_bytes()
     _ = Installed.write_bytes(ExactBootstrap)
     HomePath = TmpPath / "AppData/KitCaptureRunner"
@@ -101,13 +102,16 @@ def AssertWaiting(Harness: SessionHost, Queue: DispatchHost) -> None:
 
 
 # startup refusals must leave the prior addin status and legacy queue untouched
-def AssertRefusal(Command: list[str], Environment: dict[str, str], Reason: str) -> None:
-    HomePath = FilePath(Environment["APPDATA"]) / "KitCaptureRunner"
+def AssertRefusal(
+    TmpPath: FilePath, Command: list[str], Environment: dict[str, str], Reason: str
+) -> None:
+    HomePath = TmpPath / "AppData/KitCaptureRunner"
     StatusPath = HomePath / "runner.json"
     Before = StatusPath.read_bytes()
     Refused = Subprocess.run(
         Command,
         env=Environment,
+        cwd=TmpPath,
         capture_output=True,
         text=True,
         check=False,
@@ -130,12 +134,11 @@ def CheckWinFusion(TmpPath: FilePath) -> None:
         "-I",
         "-S",
         str(FilePath(__file__).with_name("FusionStub.py")),
-        str(Installed),
-        str(DoneFlag),
     ]
     Child = Subprocess.Popen(
         Command,
         env=Environment,
+        cwd=TmpPath,
         text=True,
         stdout=Subprocess.PIPE,
         stderr=Subprocess.PIPE,
@@ -155,9 +158,14 @@ def CheckWinFusion(TmpPath: FilePath) -> None:
 
     _ = Installed.write_bytes(ExactBootstrap + b"\n")
     AssertRefusal(
-        Command, Environment, "reload the add-in from the trusted installation revision"
+        TmpPath,
+        Command,
+        Environment,
+        "reload the add-in from the trusted installation revision",
     )
     Config = JsonCodec.loads(Queue.ConfigFile.read_bytes())
     del Config["windows_phase_a"]
     _ = Queue.ConfigFile.write_text(JsonCodec.dumps(Config), encoding="utf-8")
-    AssertRefusal(Command, Environment, "Windows Fusion Phase A requires owner opt-in")
+    AssertRefusal(
+        TmpPath, Command, Environment, "Windows Fusion Phase A requires owner opt-in"
+    )

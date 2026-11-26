@@ -9,8 +9,7 @@ from convert.adapters.solidworks.Container.Archive import (
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.ArchiveCursor import ArchiveCursor
 from convert.adapters.solidworks.Container.LocalFrame import ReadLocalPose
-from convert.adapters.solidworks.Sketch.Cursor import SketchArchive
-from convert.adapters.solidworks.Sketch.DimFields import ReadDimFields
+from convert.adapters.solidworks.Sketch.Cursor import SketchArchive, ReadDimFields
 from convert.adapters.solidworks.Sketch.DimHandle import KEmptyDimPart, ReadDimRoute
 from convert.adapters.solidworks.Sketch.DisplayFields import (
     ReadCache,

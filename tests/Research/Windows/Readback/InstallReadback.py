@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -26,8 +26,8 @@ def InstallReadback(TmpPath: FilePath) -> tuple[FilePath, FilePath]:
         "ApplicationWorkers/ApplicationProtocol.py",
         "ApplicationWorkers/WindowsIdentity.py",
         "ApplicationWorkers/WindowsRecords.py",
-        "PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.ps1",
-        "PairedCaptures/SolidWorksAuthoring/ReadbackProgress.cs",
+        "CaptureTools/SolidWorksAuthoring/ReadP04SolidWorks.ps1",
+        "CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs",
     ):
         Destination = RootPath / "re/automation" / RelativePath
         Destination.parent.mkdir(parents=True, exist_ok=True)

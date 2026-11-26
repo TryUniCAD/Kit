@@ -1,0 +1,57 @@
+{
+  "baseline_revision": "46fe2ed27",
+  "source": "Controls/Decimal",
+  "outcomes": [
+    {
+      "mode": "baseline",
+      "case": "control-after",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "mode": "baseline",
+      "case": "control-before",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "mode": "baseline",
+      "case": "datum-yz",
+      "exit_code": 1,
+      "stderr": "{\"error\": \"ValueError\", \"message\": \"Native reverse prism signed geometry disagrees with the selected rectangle\"}\n"
+    },
+    {
+      "mode": "baseline",
+      "case": "reverse-xy",
+      "exit_code": 1,
+      "stderr": "{\"error\": \"ValueError\", \"message\": \"Native reverse prism signed geometry disagrees with the selected rectangle\"}\n"
+    },
+    {
+      "mode": "candidate",
+      "case": "control-after",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "mode": "candidate",
+      "case": "control-before",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "mode": "candidate",
+      "case": "datum-yz",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "mode": "candidate",
+      "case": "reverse-xy",
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "native_coordinate_comparison": "exact; original endpoints retained before unit conversion",
+  "full_semantics_verified": false,
+  "native_conversion_acceptance": false
+}

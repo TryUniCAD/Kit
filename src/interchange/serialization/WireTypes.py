@@ -24,6 +24,7 @@ KWireTypes: TypeMap[str, str] = {
     "NativeFeature": "NativeFeatureDefinition",
     "ParamOverride": "ParameterOverride",
     "ParabolaGeom": "ParabolaGeometry",
+    "PlaneAxis": "PlaneIntersectionAxis",
     "PlaneVector": "Vector2",
     "RefPlaneFeature": "ReferencePlaneFeature",
     "RevolveFeature": "RevolutionFeature",

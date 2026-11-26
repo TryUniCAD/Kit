@@ -39,6 +39,8 @@ def RecoverAlias(Document: CadDocument) -> CadDocument:
         Issues["parameter_identity_collision"] += len(Aliases) - len(Valid)
     Results = tuple(ResolveAlias(Param, Valid) for Param in Document.parameters)
     Issues.update(Reason for _, Reason in Results if Reason)
+    if not Aliases and not Issues:
+        return Document
     Added = {Param.id: Param for Param in Valid.values() if Param.id not in Existing}
     Parameters = tuple(Param for Param, _ in Results) + tuple(
         Added[AliasKey] for AliasKey in sorted(Added)
