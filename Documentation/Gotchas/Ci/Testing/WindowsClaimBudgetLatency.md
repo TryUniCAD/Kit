@@ -25,3 +25,21 @@ The rejection is correct supervisor behaviour, and every assertion still
 applies.
 [Rearm cases](../../../../tests/Research/Windows/WindowsRearmTests.py) ·
 [Restart case](../../../../tests/Research/Windows/WindowsRecoveryTests.py)
+
+## Readback fixture compilation
+
+The circular readback fixture compiles `ReadbackProgress.cs` with PowerShell
+`Add-Type` while the dispatch client waits. That subprocess had a 15-second
+limit. A passing run of the whole `operand` case, compilation included, took
+15.16 seconds on the shard above. A later loaded shard hit the limit. The
+fixture therefore returned `TimeoutExpired` and not the expected native
+progress refusal.
+[Windows shard](https://github.com/TryUniCAD/Kit/actions/runs/45824325263/job/139924989665)
+
+The compile limit is now 60 seconds. The budgets around it grew so that
+compilation still finishes before the client gives up: the session `stop_at`
+went from 45 to 90 seconds, which moves the worker's client deadline from 44
+to 89 seconds, and the dispatch subprocess limit went from 40 to 85 seconds.
+[Progress compile](../../../../tests/Research/Windows/Readback/ReadbackProgram.py) ·
+[Session budget](../../../../tests/Research/Windows/Readback/PrepareReadback.py) ·
+[Dispatch limit](../../../../tests/Research/Windows/Readback/QueueReadback.py)
