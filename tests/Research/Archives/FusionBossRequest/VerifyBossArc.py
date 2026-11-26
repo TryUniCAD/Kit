@@ -10,16 +10,20 @@ from convert.adapters.Fusion.Native.Graph.BuildGraph import BuildGraph
 from convert.adapters.Fusion.Native.Graph.GraphChecks import LinkedNodes
 from convert.adapters.Fusion.Native.Graph.SelectExtrusion import SelectExtrusion
 from convert.adapters.Fusion.Native.Policy.CheckScopes import CheckScopes
-from convert.api.ApiOpen import OpenDocument
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
-from pytest import raises as Raises
 
+from tests.Research.Archives.FusionBossRequest.BossArcProof import BossArcProof
 from tests.Research.Archives.FusionBossRequest.CheckAnchorWire import CheckAnchorWire
+from tests.Research.Archives.FusionBossRequest.CheckLineNormals import CheckLineNormal
+from tests.Research.Archives.FusionBossRequest.CheckSettingsWire import CheckSettings
+from tests.Research.Archives.FusionBossRequest.CheckPrismRead import CheckPrismRead
+from tests.Research.Archives.FusionBossRequest.VerifySnapshot import VerifySnapshot
+from tests.Research.Archives.FusionBossRequest.VerifyPublicBoss import VerifyPubBoss
 
 
-# the typed archive must preserve the emitted roles and the established public refusal
-def VerifyBossArc(ArchiveBytes: bytes) -> None:
+# the typed and public readers must preserve the generated topology and read only boundary
+def VerifyBossArc(ArchiveBytes: bytes) -> BossArcProof:
     Model = ReadDocument(ArchiveBytes)
     Graph = BuildGraph(Model)
     Context = SelectExtrusion(Graph)
@@ -38,6 +42,7 @@ def VerifyBossArc(ArchiveBytes: bytes) -> None:
         1 << 23,
     )
     CheckAnchorWire(Graph, Context.Sketch)
+    CheckLineNormal(Graph, Context.Sketch)
     (BodyValue,) = Model.Bodies
     History = BodyValue.History
     assert isinstance(History, PrismHistory)
@@ -47,5 +52,8 @@ def VerifyBossArc(ArchiveBytes: bytes) -> None:
         10,
     )
     assert Context.Extrude.Fields["booleanOperation"] == 4
-    with Raises(ValueError, match="Unsupported Fusion user parameter inventory"):
-        _ = OpenDocument(ArchiveBytes, SourceFormat="fusion.f3d", StrictMode=True)
+    return BossArcProof(
+        CheckSettings(Graph, Context.Sketch),
+        VerifySnapshot(ArchiveBytes, Model, Graph, Context),
+        VerifyPubBoss(ArchiveBytes, CheckPrismRead(Model, Graph, ArchiveBytes)),
+    )

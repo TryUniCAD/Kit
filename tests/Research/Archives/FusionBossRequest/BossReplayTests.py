@@ -9,8 +9,11 @@
 from pathlib import Path as FilePath
 
 from tests.Research.Archives.FusionBossRequest.CheckBossReport import CheckBossReport
+from tests.Research.Archives.FusionBossRequest.CheckHelperBad import CheckHelperBad
+from tests.Research.Archives.FusionBossRequest.CheckObserverBad import CheckObsReject
 from tests.Research.Archives.FusionBossRequest.CheckRefusals import CheckRefusals
 from tests.Research.Archives.FusionBossRequest.CopySeedHelper import CopySeedHelper
+from tests.Research.Archives.FusionBossRequest.CopySnapshot import CopySnapshot
 from tests.Research.Archives.FusionBossRequest.MirrorBossCode import MirrorBossCode
 from tests.Research.Archives.FusionBossRequest.PrepareBoss import PrepareBoss
 from tests.Research.Archives.FusionBossRequest.ReplayBoss import ReplayBoss
@@ -24,6 +27,7 @@ def TestBossReplay(TmpPath: FilePath) -> None:
     MirrorRoot = TmpPath / "Code"
     MirrorBossCode(SourceRoot, MirrorRoot)
     CopySeedHelper(SourceRoot, MirrorRoot / "SeedHelper.py")
+    CopySnapshot(SourceRoot, MirrorRoot)
     Request = PrepPath / "P03Request.json"
     Witness = PrepPath / "P03SourceWitness.json"
     FirstPath = TmpPath / "First"
@@ -36,6 +40,9 @@ def TestBossReplay(TmpPath: FilePath) -> None:
     assert ArchiveBytes == (LaterPath / ArchiveName).read_bytes()
     ReportPath = FirstPath / "P03CandidateEvidence.json"
     assert ReportPath.read_bytes() == (LaterPath / ReportPath.name).read_bytes()
-    CheckBossReport(ReportPath, Witness, ArchiveBytes)
-    VerifyBossArc(ArchiveBytes)
+    CheckBossReport(
+        ReportPath, Witness, ArchiveBytes, VerifyBossArc(ArchiveBytes), MirrorRoot
+    )
+    CheckObsReject(MirrorRoot, TmpPath, ArchiveBytes)
     CheckRefusals(MirrorRoot, PrepPath, TmpPath)
+    CheckHelperBad(MirrorRoot, PrepPath, TmpPath)

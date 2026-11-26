@@ -15,7 +15,11 @@ from tests.Research.Archives.FusionBossRequest.RunBossProbe import RunBossProbe
 
 # the replay command must validate separate retained digests before materializing output
 def ReplayBoss(
-    MirrorRoot: FilePath, Request: FilePath, Witness: FilePath, OutputPath: FilePath
+    MirrorRoot: FilePath,
+    Request: FilePath,
+    Witness: FilePath,
+    OutputPath: FilePath,
+    SnapshotPath: FilePath | None = None,
 ) -> CompletedProcess[str]:
     return RunBossProbe(
         MirrorRoot,
@@ -30,6 +34,10 @@ def ReplayBoss(
         HashBytes(Witness.read_bytes()).hexdigest(),
         "--seed-helper",
         str(MirrorRoot / "SeedHelper.py"),
+        "--snapshot-builder",
+        str(SnapshotPath or MirrorRoot / "SnapshotBuilder.py"),
+        "--snapshot-owners",
+        str(MirrorRoot / "SnapshotOwners.py"),
         "--written-at",
         "1735689600",
         "--output",

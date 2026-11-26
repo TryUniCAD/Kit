@@ -45,7 +45,7 @@ def CheckAnchorWire(Graph: NativeGraph, SketchNode: NativeNode) -> None:
             for SlotValue in Dimension.Frame.Subjects or ()
         )
         assert Subjects == (
-            (Settings, AnchorRank - 1),
+            (Settings, AnchorRank + 1),
             (Anchor, AnchorRank),
             (Endpoint, 0),
         )
