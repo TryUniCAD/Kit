@@ -12,7 +12,7 @@ from subprocess import run as RunProcess
 
 from tests.Research.SupervisorClient import KRepoRoot
 
-# a cold first compile on a fresh runner exceeded the warm fifteen second fixture budget
+# a cold first compile on a fresh runner exceeded the fifteen second fixture budget that warm runs fit within
 KColdCompileSeconds = 120
 
 

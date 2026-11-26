@@ -16,5 +16,5 @@ The cold start is in the runner (compiler image, framework assemblies and new-bi
 
 `WarmProgress` runs the same `ProgressFixture.ps1` compile with `-CompileOnly` once per pytest process, before the first readback listener starts.
 It has a 120-second fail-closed bound.
-The per-case 15-second limit now covers only warm compiles, and its assertions are unchanged.
+The per-case limit, which PR #356 raised from 15 to 60 seconds, now covers only warm compiles. Its assertions are unchanged.
 If a warm case times out again, diagnose the process boundary instead of widening the limit.
