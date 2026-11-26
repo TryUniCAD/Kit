@@ -32,6 +32,7 @@ def CheckPriorJobs(TmpPath: FilePath, Revision: str, BatchPaired: bool) -> None:
     PlanPath = TmpPath / "Run/AuthoringPlan.json"
     PlanValue = DecodeJson(PlanPath.read_bytes())
     del PlanValue["solidworks_batch_size"]
+    del PlanValue["solidworks_capture_attempts"]
     if not BatchPaired:
         del PlanValue["solidworks_batch_version"]
     _ = PlanPath.write_text(EncodeJson(PlanValue), encoding="utf-8")
