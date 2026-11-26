@@ -8,7 +8,7 @@ from tests.Convert.Api.Fusion.SavedCuboid.RunSnapBuild import RunSnapBuild
 
 
 # an archive without configuration members must project deliberate absence at the preparation boundary
-def TestAbsentConf(TmpPath: FilePath) -> None:
+def TestAbsentCfg(TmpPath: FilePath) -> None:
     Payload = RunSnapBuild(TmpPath, "Cuboid without configuration", 15.9)
     assert ReadConfigRoles(Payload) == ()
     Source = TmpPath / "Cuboid.f3d"

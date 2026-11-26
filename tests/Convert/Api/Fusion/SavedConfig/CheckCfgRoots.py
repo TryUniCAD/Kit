@@ -4,7 +4,7 @@ from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentMod
 
 
 # inspect physical primary groups so a merged node cannot hide a continuation
-def CheckConfRoots(Model: DocumentModel, Parts: tuple[tuple[str, str], ...]) -> None:
+def CheckCfgRoots(Model: DocumentModel, Parts: tuple[tuple[str, str], ...]) -> None:
     (Design,) = tuple(
         Segment for Segment in Model.Segments if Segment.Metadata.Header.SegmentId == 0
     )

@@ -3,7 +3,7 @@ from zipfile import ZipFile as ZipReader
 
 from convert.Formats.Fusion.ContainerCodec.ContainerLayout import KAssetPrefix
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
-from tests.Convert.Api.Fusion.SavedConfig.CheckConfRoots import CheckConfRoots
+from tests.Convert.Api.Fusion.SavedConfig.CheckCfgRoots import CheckCfgRoots
 
 
 # archive checks keep physical role order and serializer ownership observable after generation
@@ -23,5 +23,5 @@ def ReadConfigRoles(Payload: bytes) -> tuple[tuple[str, str], ...]:
         assert all(
             Archive.read(f"{KAssetPrefix}{NameValue}") == b"{}" for NameValue in Names
         )
-    CheckConfRoots(Model, Parts)
+    CheckCfgRoots(Model, Parts)
     return Parts
