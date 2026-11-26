@@ -17,10 +17,11 @@ async function SelectLaneSet(Github, Context, Logger) {
   const Count = Result.repository?.object?.history?.totalCount;
   if (!Number.isInteger(Count) || Count < 1)
     throw new Error("Lane selection could not count candidate ancestors");
-  const Prefix = Count % 2 === 0 ? "" : "B-";
+  const LaneSet = "ABCD"[Count % 4];
+  const Prefix = LaneSet === "A" ? "" : `${LaneSet}-`;
   Logger.setOutput("prefix", Prefix);
   Logger.info(
-    `Candidate ${HeadSha} has ${Count} ancestors; lane set ${Prefix ? "B" : "A"}`,
+    `Candidate ${HeadSha} has ${Count} ancestors; lane set ${LaneSet}`,
   );
 }
 

@@ -39,6 +39,8 @@ The adapter returns candidate bytes to the shared research runner.
 Destination safety belongs to that runner's process boundary.
 The Fusion-only smoke does not qualify destination publication behavior.
 
+The [prepared Fusion input procedure](FusionPreparedEncoderInputs.md) explains the role JSON and candidate replay used by new shared runs.
+
 ## Limits
 
 Only the documented cuboid family and driving extrusion-depth edit are in scope.
