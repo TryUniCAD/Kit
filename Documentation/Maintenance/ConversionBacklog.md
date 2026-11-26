@@ -534,6 +534,14 @@ No row below declares readiness, successful queue acceptance or permission to me
 | [#150](https://github.com/TryUniCAD/Kit/pull/150) | odinglyn0                                     | Bounded removal of historically flaky pending-gate cases. It does not qualify CAD conversion.                                           | [3c92c155](https://github.com/TryUniCAD/Kit/commit/3c92c15575cb807a1c118765d3a2bb7c0925dd7e)  |
 | [#151](https://github.com/TryUniCAD/Kit/pull/151) | odinglyn0                                     | Fusion design import, local native export and Kit readback. Cloud save and broader acceptance remain separate.                          | [c4d7173d](https://github.com/TryUniCAD/Kit/commit/c4d7173d0f5ddb570470af493050d27107e146fe)  |
 
+### A08i-ThinWall
+
+The SOLIDWORKS catalogue correction passed source-pinned wall-side checks,
+independent reopen and decoder execution for the three written cases.
+Portable semantic findings remain open.
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
+[Owning register](../Reference/Research/AutomationSteps.md#a08i-thinwall)
+
 ## Choose and maintain a task
 
 1. Read the task, dependencies, current PR diff and owning register.

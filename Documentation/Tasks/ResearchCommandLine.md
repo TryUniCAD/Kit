@@ -276,6 +276,8 @@ Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
+The [thin-wall side check](../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+covers the written thin-extrude recipe's native mode, bounds, and reopen.
 
 SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
 Fusion needs its native worker options and `--fusion-lifecycle` for automatic
