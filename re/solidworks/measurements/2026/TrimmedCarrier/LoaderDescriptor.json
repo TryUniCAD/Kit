@@ -1,0 +1,314 @@
+{
+  "active_schema": 37102,
+  "base_layout": {
+    "class_transmittable": true,
+    "display_name": "Trimmed Curve",
+    "fields": [
+      {
+        "count": 0,
+        "encoding": "d",
+        "name": "node_id",
+        "pointer_class": 0,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "attributes_features",
+        "pointer_class": 1019,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "owner",
+        "pointer_class": 1010,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "next",
+        "pointer_class": 1008,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "previous",
+        "pointer_class": 1008,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "geometric_owner",
+        "pointer_class": 141,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "c",
+        "name": "sense",
+        "pointer_class": 0,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "basis_curve",
+        "pointer_class": 1008,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "v",
+        "name": "point_1",
+        "pointer_class": 0,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "v",
+        "name": "point_2",
+        "pointer_class": 0,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "f",
+        "name": "parm_1",
+        "pointer_class": 0,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "f",
+        "name": "parm_2",
+        "pointer_class": 0,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      }
+    ],
+    "name": "TRIMMED_CURVE"
+  },
+  "constructor_base": {
+    "end_exclusive": "0x1820525ee",
+    "sha256": "515394831d4d18ff0dfb405e5746c54739500d4aa475d690164b338b8461f68d",
+    "start": "0x1820523a0"
+  },
+  "constructor_current": {
+    "end_exclusive": "0x1814572db",
+    "sha256": "72024d6bab53db6fcab41482571138f31c37dff210877a8487feb6c13e36342e",
+    "start": "0x181456f30"
+  },
+  "current_layout": {
+    "class_transmittable": true,
+    "display_name": "Trimmed curve",
+    "fields": [
+      {
+        "count": 0,
+        "encoding": "d",
+        "name": "node_id",
+        "pointer_class": 0,
+        "runtime_bytes": 4,
+        "runtime_offset": 0,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "attributes_features",
+        "pointer_class": 1019,
+        "runtime_bytes": 8,
+        "runtime_offset": 8,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "owner",
+        "pointer_class": 1010,
+        "runtime_bytes": 8,
+        "runtime_offset": 16,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "next",
+        "pointer_class": 1008,
+        "runtime_bytes": 8,
+        "runtime_offset": 24,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "previous",
+        "pointer_class": 1008,
+        "runtime_bytes": 8,
+        "runtime_offset": 32,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "geometric_owner",
+        "pointer_class": 141,
+        "runtime_bytes": 8,
+        "runtime_offset": 40,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "c",
+        "name": "sense",
+        "pointer_class": 0,
+        "runtime_bytes": 1,
+        "runtime_offset": 48,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "basis_curve",
+        "pointer_class": 1008,
+        "runtime_bytes": 8,
+        "runtime_offset": 56,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "v",
+        "name": "point_1",
+        "pointer_class": 0,
+        "runtime_bytes": 24,
+        "runtime_offset": 64,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "v",
+        "name": "point_2",
+        "pointer_class": 0,
+        "runtime_bytes": 24,
+        "runtime_offset": 88,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "f",
+        "name": "parm_1",
+        "pointer_class": 0,
+        "runtime_bytes": 8,
+        "runtime_offset": 112,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "f",
+        "name": "parm_2",
+        "pointer_class": 0,
+        "runtime_bytes": 8,
+        "runtime_offset": 120,
+        "transferred": true
+      }
+    ],
+    "name": "TRIMMED_CURVE"
+  },
+  "embedding_base": 13006,
+  "equal_effective_wire_layout": true,
+  "equal_first_use_marker": 255,
+  "first_use_transfer": {
+    "comparison": {
+      "end_exclusive": "0x1819e92a0",
+      "sha256": "d823c7902bd5aa1be1556939fc4eadfc58504485fc42ec4c41078e69a6c8478f",
+      "start": "0x1819e8f20"
+    },
+    "field_transmit_or_variable_array": true,
+    "marker_site": "0x1819e91b1"
+  },
+  "kernel": {
+    "bytes": 72681488,
+    "name": "pskernel.dll",
+    "preferred_base": "0x180000000",
+    "reported_file_version": "37.01.250",
+    "sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969"
+  },
+  "kind": 133,
+  "kind_label": "TRIMMED_CURVE",
+  "kind_slot_base": {
+    "dispatch": {
+      "end_exclusive": "0x18204f975",
+      "sha256": "2c3811d03ecbdb8ad30d0cec60e1bcf6b513598b70c67d894e24755febff90f8",
+      "start": "0x18204f962"
+    },
+    "slot": "0x184543ca8",
+    "table": "0x184543880"
+  },
+  "kind_slot_current": {
+    "dispatch": {
+      "end_exclusive": "0x18143aa68",
+      "sha256": "a205c39fc5f0d0f37a9217d27fd7ee186d7e4c622bce0660790745878650d2f4",
+      "start": "0x18143aa5c"
+    },
+    "slot": "0x1845cd9a8",
+    "table": "0x1845cd580"
+  },
+  "ordinary_field_receive": {
+    "descriptor_to_node_offset": {
+      "end_exclusive": "0x180a25cc6",
+      "sha256": "115c7ba89e3d08307691b5d1045c644ba41e74a95537f3ae6b869f2e42570f68",
+      "start": "0x180a25c44"
+    },
+    "pointer_scalar_arm": "0x180a1e8fd",
+    "shared_field_reader": "0x180a1e210"
+  },
+  "prior_known_base_master_verified": {
+    "end_exclusive": "0x18205074f",
+    "sha256": "2c72c488d80a6bd08e16ab0ec27ede6f6fc878d6f83c6af46f09d7f67c8ab062",
+    "start": "0x1820491d0"
+  },
+  "schema": "kit.sw2026.p03.trimmed-carrier-static-loader.v1",
+  "scope": {
+    "bridge_identity_claim": false,
+    "native_execution": false,
+    "per_class_graph_role_and_loader_validation": "separate from descriptor and shared transfer",
+    "static_observation": true,
+    "strict_sdk_implementation": false
+  },
+  "tooling": {
+    "ghidra": "12.1.2",
+    "ghidra_script_sha256": "e0a8673ac7096766c4a1a853db66ded826ce21b6561968ae079fdfc6267593cc",
+    "jdk": "21.0.8",
+    "locate_descriptor_sha256": "590b8cffe117eaf97e7de892d5a744b1edd37fb3063cdc44a9c9de39adacc91e",
+    "rea": "6.7.0",
+    "rea_evidence_id": "ev_fba311f362be6b0b05bd6ff56d72852f9abd3e69dbfdcb4a9d1290a0f7b3532e",
+    "receipt_method_sha256": "85f2d711737c142d938452e59fc615752b188c524a872992d82da7fa02338fa8"
+  },
+  "typed_field_spec": "node_id:d attributes_features:p1019 owner:p1010 next:p1008 previous:p1008 geometric_owner:p141 sense:c basis_curve:p1008 point_1:v point_2:v parm_1:f parm_2:f"
+}

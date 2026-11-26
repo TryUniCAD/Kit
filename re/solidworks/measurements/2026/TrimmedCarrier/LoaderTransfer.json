@@ -1,0 +1,86 @@
+{
+  "kernel_sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+  "loader_descriptor_sha256": "8fb352968f34ccf229e5b97b762c772f55743c8958ab77f8215a834070c763a5",
+  "native_processes_launched": 0,
+  "not_measured": [
+    "actual partition class-specific post-receive validation invocation",
+    "complete legal sense byte domain",
+    "full pointer class membership or saved owner chain",
+    "general parameter interval and endpoint rejection domain"
+  ],
+  "ordinary_field_reader": {
+    "char_low": 98,
+    "dispatch_base": "0x180a1fae8",
+    "entry": "0x180a1e210",
+    "selected_dispatch": {
+      "c": {
+        "slot": "0x180a1faec",
+        "target": "0x180a1e309"
+      },
+      "d": {
+        "slot": "0x180a1faf0",
+        "target": "0x180a1e50a"
+      },
+      "f": {
+        "slot": "0x180a1faf8",
+        "target": "0x180a1ecaf"
+      },
+      "p": {
+        "slot": "0x180a1fb20",
+        "target": "0x180a1e8fd"
+      },
+      "v": {
+        "slot": "0x180a1fb38",
+        "target": "0x180a1ee1a"
+      }
+    }
+  },
+  "ordinary_pointer_fixup": {
+    "class_predicate": "0x1804f8590",
+    "null_input_zeros_slot_at": "0x180a230e7",
+    "reference_id_from_runtime_slot_at": "0x180a22e31",
+    "resolved_pointer_to_same_slot_at": "0x180a22e5c",
+    "window": {
+      "end_exclusive": "0x180a230f0",
+      "sha256": "d13dcb6dd1dab1b599ba46925df36b63ebb311aa2b60fbef56b5cc2316f43b7a",
+      "start": "0x180a22d40"
+    },
+    "wrong_class_clears_slot_at": "0x180a22f29"
+  },
+  "schema": "kit.sw2026.p03.trimmed-carrier-static-transfer.v1",
+  "static_only": true,
+  "tools": {
+    "ghidra": "12.1.2",
+    "jdk": "21.0.8",
+    "probe_sha256": "6b8af0f3ae57c637fa1207b9a6f8dc378ce08dde67ea7c29c40f47d1eab08e92",
+    "receipt_method_sha256": "3a91de1f0f77492048e73cd2631260fc20233ebe7448b6900536706c0202ad6c"
+  },
+  "trim_accessors": {
+    "basis_curve_slot": 56,
+    "conditioned_basis_evaluator": "0x180503eb0",
+    "end": {
+      "end_exclusive": "0x180505202",
+      "sha256": "f4cf826c62b5ae5c3c3af26f30c6c599cfabc1fde2613693605a958712ef262e",
+      "start": "0x180504fd0"
+    },
+    "missing_endpoint_first_component": -31415800000000.0,
+    "other_sense_swaps_roles": true,
+    "physical_class_gate": 133,
+    "positive_end": {
+      "endpoint_slot": 88,
+      "parameter_slot": 120
+    },
+    "positive_sense_byte": 43,
+    "positive_start": {
+      "endpoint_slot": 64,
+      "parameter_slot": 112
+    },
+    "semantic_phase": "native geometric accessors, separate from ordinary partition field receiver",
+    "sense_slot": 48,
+    "start": {
+      "end_exclusive": "0x180505b42",
+      "sha256": "d41bd7f0b0ff570d368af4d703e0e29abf80e4fb0e1a01302afdf3c37bf2f1b0",
+      "start": "0x180505910"
+    }
+  }
+}

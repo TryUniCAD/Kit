@@ -1,0 +1,316 @@
+{
+  "schema": "kit.research.p03-trimmed-carrier-boundary.v1",
+  "sdk_source_tree": "3739be2f567a3285dd3dc725be9d0d07865a7b18",
+  "source_sha256": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+  "active_sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56",
+  "authority_sha256": "8fb352968f34ccf229e5b97b762c772f55743c8958ab77f8215a834070c763a5",
+  "static_transfer_sha256": "e6ce9e8c793de907d019a46220be806ccdaea4e555cf00886ed30e37169aaac7",
+  "typed_result_sha256": "925afc49dab6c4c494f5339f66459415e280b690a3c013f46b7022381732147f",
+  "typed_method_sha256": "27d780444e517e14395a5f2035061e75024ade685cec70502902f44527496bab",
+  "general_result_sha256": "f419b4bb357ca6eb1ab0664cabe0786f15d83eea8d51738b4ab92342842f1caa",
+  "general_method_sha256": "0f9e2931c1a5373dbb812acb2c6f40ab4e656792802de6c241e63c85ef6061bb",
+  "corpus_receipt_sha256": "ea3d6dd78d8653d356f5c5ddae32f62f6e85077c965b078db274e57db6dc1d9b",
+  "corpus_boundary_sha256": "0ce4ef3379e4306377e2a3118fd3c09d12200a18fcf409fe928abb4c0dc3a370",
+  "geometry_result_sha256": "03ff5cdccb68f63fafe83d84d6bc7de03f55c2bdab1ebd7d85d937d2a0e15b32",
+  "completed_records": 84,
+  "observed_trim_carriers": [
+    {
+      "body_span": [
+        1840,
+        1926
+      ],
+      "consumed_by_edge_or_fin_in_complete_prefix": false,
+      "edge_or_fin_consumers": [],
+      "field_widths": [
+        {
+          "body_start": 1843,
+          "field": "transmitted_index",
+          "value": 6,
+          "width": 2
+        },
+        {
+          "body_start": 1845,
+          "encoding": "d",
+          "field": "node_id",
+          "pointer_class": 0,
+          "value": 211,
+          "width": 4
+        },
+        {
+          "body_start": 1849,
+          "encoding": "p",
+          "field": "attributes_features",
+          "pointer_class": 1019,
+          "value": 0,
+          "width": 2
+        },
+        {
+          "body_start": 1851,
+          "encoding": "p",
+          "field": "owner",
+          "pointer_class": 1010,
+          "value": 2,
+          "width": 2
+        },
+        {
+          "body_start": 1853,
+          "encoding": "p",
+          "field": "next",
+          "pointer_class": 1008,
+          "value": 46,
+          "width": 2
+        },
+        {
+          "body_start": 1855,
+          "encoding": "p",
+          "field": "previous",
+          "pointer_class": 1008,
+          "value": 0,
+          "width": 2
+        },
+        {
+          "body_start": 1857,
+          "encoding": "p",
+          "field": "geometric_owner",
+          "pointer_class": 141,
+          "value": 0,
+          "width": 2
+        },
+        {
+          "body_start": 1859,
+          "encoding": "c",
+          "field": "sense",
+          "pointer_class": 0,
+          "value": "+",
+          "width": 1
+        },
+        {
+          "body_start": 1860,
+          "encoding": "p",
+          "field": "basis_curve",
+          "pointer_class": 1008,
+          "value": 50,
+          "width": 2
+        },
+        {
+          "body_start": 1862,
+          "encoding": "v",
+          "field": "point_1",
+          "pointer_class": 0,
+          "value": [
+            0.04,
+            0.0,
+            0.0
+          ],
+          "width": 24
+        },
+        {
+          "body_start": 1886,
+          "encoding": "v",
+          "field": "point_2",
+          "pointer_class": 0,
+          "value": [
+            0.04,
+            0.02,
+            0.0
+          ],
+          "width": 24
+        },
+        {
+          "body_start": 1910,
+          "encoding": "f",
+          "field": "parm_1",
+          "pointer_class": 0,
+          "value": 0.0,
+          "width": 8
+        },
+        {
+          "body_start": 1918,
+          "encoding": "f",
+          "field": "parm_2",
+          "pointer_class": 0,
+          "value": 0.02,
+          "width": 8
+        }
+      ],
+      "fields": {
+        "attributes_features": 0,
+        "basis_curve": 50,
+        "geometric_owner": 0,
+        "next": 46,
+        "node_id": 211,
+        "owner": 2,
+        "parm_1": 0.0,
+        "parm_2": 0.02,
+        "point_1": [
+          0.04,
+          0.0,
+          0.0
+        ],
+        "point_2": [
+          0.04,
+          0.02,
+          0.0
+        ],
+        "previous": 0,
+        "sense": "+"
+      },
+      "index": 6,
+      "payload_span": [
+        1936,
+        2022
+      ],
+      "references": [
+        {
+          "field": "attributes_features",
+          "index": 0,
+          "null": true,
+          "pointer_class": 1019,
+          "target_kind": null
+        },
+        {
+          "field": "owner",
+          "index": 2,
+          "null": false,
+          "pointer_class": 1010,
+          "target_kind": 12
+        },
+        {
+          "field": "next",
+          "index": 46,
+          "null": false,
+          "pointer_class": 1008,
+          "target_kind": null
+        },
+        {
+          "field": "previous",
+          "index": 0,
+          "null": true,
+          "pointer_class": 1008,
+          "target_kind": null
+        },
+        {
+          "field": "geometric_owner",
+          "index": 0,
+          "null": true,
+          "pointer_class": 141,
+          "target_kind": null
+        },
+        {
+          "field": "basis_curve",
+          "index": 50,
+          "null": false,
+          "pointer_class": 1008,
+          "target_kind": 30
+        }
+      ],
+      "transmitted_reference": 7
+    }
+  ],
+  "next_refusal": {
+    "body_start": 3692,
+    "completed_records": 84,
+    "cursor": 3694,
+    "kind": 141,
+    "message": "kernel class is outside the mapped current schema"
+  },
+  "next_record_after_trim": {
+    "body_span": [
+      1926,
+      1951
+    ],
+    "field_widths": [],
+    "fields": {
+      "attributes_features": 0,
+      "body": 2,
+      "edge": 0,
+      "face": 48,
+      "front_face": 0,
+      "next": 0,
+      "node_id": 99,
+      "region": 47,
+      "vertex": 0
+    },
+    "first_use": null,
+    "index": 7,
+    "kind": 13,
+    "payload_span": [
+      2022,
+      2047
+    ],
+    "wire_sha256": "57af31ad01a5a0c9859a0e7ba4527011f9d3dc29db06048c2968740eaf8c91cb"
+  },
+  "unresolved_reference_occurrences": 55,
+  "complete_typed_graph": false,
+  "unknown_records_skipped": 0,
+  "controls": [
+    {
+      "role": "baseline_a",
+      "archive_sha256": "db1390476325f5817e6f80fb4067a3c6df5cc063315604c133ccbeaafdeac357",
+      "active_sha256": "f2bbdc868d3bf399a276b917bf0bf3169288d876edabe50bc5fd8a07d4387e2b",
+      "delta_sha256": "44a64bcf80c19f778f7fa5545daa6176907a50d8034aa155a81383d3bb2ed4f5",
+      "ghost_sha256": [
+        "4e7dc4d95fadf8747500c4de0bf571782870fbad109b3636c45c6f0bb531e007"
+      ],
+      "typed_records": 180,
+      "kind_133_count": 0,
+      "frame_link_status": "verified"
+    },
+    {
+      "role": "baseline_b",
+      "archive_sha256": "21624e4c194c8c7efd93df680fde35819e605fd9d26a710384accea24b62f5a5",
+      "active_sha256": "55ae71dcd0d72b3ace3100b436e7783559631ffaa4b6a2fe213ad1e89e05253d",
+      "delta_sha256": "4914bc686b104ed8e6aa2191e2b76f5dc9b1e919aadf0056ec2f7f2d1b347ab8",
+      "ghost_sha256": [
+        "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+      ],
+      "typed_records": 180,
+      "kind_133_count": 0,
+      "frame_link_status": "verified"
+    },
+    {
+      "role": "edit_depth_12",
+      "archive_sha256": "fbb7e64901270cb4e7e9e6906590d94cba12d0d94c13fbe3c25426513ae1df43",
+      "active_sha256": "81915b8831ad41419f88e126c8450a2ec1c4c3a121f18758b9dd6c353a4daae9",
+      "delta_sha256": "fe1499cf5285b3ba1991bb0a3cb1123332986927fde855ee71a15f91cadd0ed8",
+      "ghost_sha256": [
+        "851eda2c56ac92c733ade92fca40e14d6fe274601ad7cde7a3071b91730a1473"
+      ],
+      "typed_records": 180,
+      "kind_133_count": 0,
+      "frame_link_status": "verified"
+    },
+    {
+      "role": "edit_width_41",
+      "archive_sha256": "282cb1feca699fc8d51a638b474624ed9ef935ddbb56f257f33a1069fc492abd",
+      "active_sha256": "7cfcca79ec843ba590bc618798638b083ea107020dcbeb1feca69a60139f8bb2",
+      "delta_sha256": "4596884c1f4564d02cc0c6561e7f0b4e819fc9e992774b3dda865b06d0093f98",
+      "ghost_sha256": [
+        "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+      ],
+      "typed_records": 180,
+      "kind_133_count": 0,
+      "frame_link_status": "verified"
+    },
+    {
+      "role": "edit_height_23",
+      "archive_sha256": "b2b06e6d22b4cd1da5f354a63306b5990c4ffd97dc59353696d90e48ec9a6c3e",
+      "active_sha256": "ee6164f7ad031a8560c550e213621c88d3d015023a4b4888abf23cf9b54e2967",
+      "delta_sha256": "c010e2c4ea6a2d97f9b1770ecd3cd52681c9c5486dd1554b18d5a33248eec24e",
+      "ghost_sha256": [
+        "ba4151941749c57cd668854fb0224cb0bf9d2a05e86ed85fda55210316a938ef"
+      ],
+      "typed_records": 180,
+      "kind_133_count": 0,
+      "frame_link_status": "verified"
+    }
+  ],
+  "wrong_authority": {
+    "exit_code": 1,
+    "published": false,
+    "input_sha256": "e6b3368ce19e65f9b7c537ee0601b6999bbb10be9e2926ca7ff7854577978524"
+  },
+  "public_decoder_calls": 0,
+  "native_launches": 0,
+  "geometry_observation_raw_sha256": "e6b3368ce19e65f9b7c537ee0601b6999bbb10be9e2926ca7ff7854577978524"
+}

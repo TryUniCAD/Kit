@@ -94,6 +94,12 @@ research pipeline records any unsupported owners and controls. A production
 reader change and native qualification have separate delivery and exit
 criteria.
 
+The [saved trim research](../../../re/solidworks/records/SavedTrimmedCarrierBoundary.md)
+confirmed the kind 133 descriptor and first 86-byte record, its line
+basis, and its endpoint agreement with the retained native measurement.
+The typed walk stops at kind 141 after 84 records. Full carrier ownership
+and the three missing vertex uses in the general reader remain open.
+
 ### PR 158 implementation follow-up
 
 #### A08b-SharedQueue: shared research requests and advice budgets
