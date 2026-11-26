@@ -72,7 +72,10 @@ def CheckScheduler(CaseName: str) -> None:
     if CaseName.startswith("budget-"):
         Shards = LoadJson(Evidence["Outputs"]["native"])
         assert len(Shards) == (
-            5 if CaseName in {"budget-new", "budget-previous", "budget-team"} else 4
+            5
+            if CaseName
+            in {"budget-new", "budget-previous", "budget-team", "budget-five"}
+            else 4
         )
         assert [Shard["index"] for Shard in Shards] == list(range(len(Shards)))
         assert Evidence["Outputs"]["runtime-target"] == (
@@ -81,7 +84,6 @@ def CheckScheduler(CaseName: str) -> None:
             in {
                 "budget-legacy",
                 "budget-uncontrolled",
-                "budget-five",
                 "budget-minimum",
                 "budget-wait",
                 "budget-rules-error",
@@ -94,7 +96,6 @@ def CheckScheduler(CaseName: str) -> None:
             in {
                 "budget-legacy",
                 "budget-uncontrolled",
-                "budget-five",
                 "budget-minimum",
                 "budget-wait",
                 "budget-rules-error",

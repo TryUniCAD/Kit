@@ -149,7 +149,7 @@ async function PullMergeRef(Github, Context) {
   return null;
 }
 
-const QueueShare = 25;
+const QueueShare = 100;
 const QueueReserve = 500;
 
 function RateLimitWait(ErrorInfo) {

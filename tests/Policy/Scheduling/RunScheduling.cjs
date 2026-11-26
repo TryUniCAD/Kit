@@ -93,9 +93,9 @@ const Github = {
                       Macos: 5,
                     }
                   : {}),
-                ...(CaseName === "budget-invalid" ? { Version: 5 } : {}),
+                ...(CaseName === "budget-invalid" ? { Version: 6 } : {}),
                 ...(CaseName === "budget-team-macos" ? { Macos: 5 } : {}),
-                ...(CaseName === "budget-single" ? { LaneSets: 1 } : {}),
+                ...(CaseName === "budget-single" ? { Total: 501 } : {}),
               }),
             ).toString("base64"),
           },
@@ -116,14 +116,14 @@ const Github = {
           parameters: {
             max_entries_to_build:
               CaseName === "budget-uncontrolled"
-                ? 25
+                ? 101
                 : CaseName === "budget-five"
                   ? 5
                   : CaseName === "budget-audit"
                     ? 1
                     : CaseName === "budget-team"
                       ? 2
-                      : 4,
+                      : 100,
             min_entries_to_merge: CaseName === "budget-minimum" ? 2 : 1,
             min_entries_to_merge_wait_minutes:
               CaseName === "budget-wait" ? 10 : 0,
