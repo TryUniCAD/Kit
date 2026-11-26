@@ -1,26 +1,22 @@
-# One queue aggregation slot keeps CI Agg inside the token rate limit
+# Per-candidate queue aggregation needs a paced, rate-limit-tolerant poller
 
 ## Expectation
 
-The single `Kit-aggregation-queue` concurrency group for merge-group `CI Agg` serializes candidates end to end, so scoping it per candidate (per `merge_group.head_sha`) should shorten the queue.
+Giving each merge-queue candidate its own `CI Agg` concurrency slot only costs one more runner per candidate; the aggregation script can poll as it does on pull requests.
 
 ## Actual behavior
 
-The slot rarely delays a successful candidate.
-Lanes serve candidates first in, first out, so candidates usually finish in the order their `CI Agg` jobs queue.
-In 29 successful candidates from 23–26 November 2026, `CI Agg` finished a median 0.4 minutes after the candidate's last other job.
-In 3 of them it started 4.6–6.6 minutes after the candidate's other jobs had finished, because an earlier candidate was still running (#275, #284 and #289; #289 waited behind a re-run of #297).
-
-Scoping the group per candidate would start one poller per building candidate.
-Each poll lists the revision's workflow runs and check runs (two to three REST requests) every 30 seconds, roughly 240–360 requests an hour per poller.
+The pull-request poller lists the revision's workflow runs and check runs (two to three REST requests) every 30 seconds: roughly 240–360 requests an hour per poller.
 `GITHUB_TOKEN` allows [1,000 REST requests per hour per repository](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api) outside Enterprise Cloud, shared with every other workflow job in the repository.
-Three to four concurrent candidates would exhaust it, and the live queue builds up to 25.
-A rate-limit response (HTTP 403) is exempt from the aggregator's retries, so the candidate's `CI Agg` would fail.
-Per-candidate pollers would also each hold a hosted runner for the candidate's whole duration, which the shared runner budget avoids.
+Three to four concurrent candidates polling that way would exhaust it, and the live queue builds up to 25.
+Before [queue aggregation polling](../../../Changes/Ci/Scheduling/QueueAggregationPolling.md), a rate-limit response (HTTP 403) was exempt from the aggregator's retries, so the candidate's `CI Agg` failed: one of 184 failed queue `CI Agg` runs from 20–26 November 2026 failed this way with a single poller (run 44800979466).
+
+The opposite choice, one shared queue slot, is not safe either: it times out healthy candidates.
+An earlier version of this page recommended keeping the shared slot because `CI Agg` finished a median 0.4 minutes after the last job of each successful candidate.
+That sample left out candidates the slot ejected; see [the queue aggregation timeout gotcha](QueueAggregationTimeout.md).
 
 ## Workaround
 
-Keep the single queue aggregation slot.
-Shorten candidates by relieving the heaviest worker lanes; the aggregation slot then follows the order in which candidates finish.
-Revisit per-candidate aggregation only with a lower request rate per poll or a larger token budget.
-See [balanced scanner lanes](../../../Changes/Ci/Scheduling/BalancedScannerLanes.md).
+Pace queue polling from the live rate limit, use conditional requests so unchanged polls are free, and treat rate-limit responses as waits before giving each candidate its own slot.
+[Queue aggregation polling](../../../Changes/Ci/Scheduling/QueueAggregationPolling.md) does this and must reach `main` first, because the merge-group `CI Agg` loads its script from the candidate's base commit.
+Each per-candidate aggregator still holds a hosted runner while it waits.
