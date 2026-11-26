@@ -1,0 +1,230 @@
+{
+  "cases": [
+    {
+      "expected_planar_rings": 6,
+      "origin_receipt_sha256": "e6ca61bac15738fd0b6d4ba6b5dd55cf0bd993fa470cf6f6ae5eaf918d4eae39",
+      "path": "re/solidworks/Fixtures/PartitionVertices/FourLine.SLDPRT",
+      "producer": "kit",
+      "recipe": "FourLine.json",
+      "recipe_sha256": "cdefa9be027d8257c0f5b08cf722efff746f38960b86e5e73eac2e63bf7d1ac4",
+      "role": "FourLine",
+      "sha256": "f5647d6c571760a7dd6dda228e2dea7b99bb6798c2bbe2b7bb1d5d2f006d800a",
+      "topology": [
+        6,
+        12,
+        8
+      ],
+      "volume_mm3": 7584.3,
+      "writer_native_inputs": 0
+    },
+    {
+      "expected_planar_rings": 7,
+      "origin_receipt_sha256": "94a91dec95d5245551874ffd775914fd9e5cf43218780b379060b79fb02fe711",
+      "path": "re/solidworks/Fixtures/PartitionVertices/FiveLine.SLDPRT",
+      "producer": "kit",
+      "recipe": "FiveLine.json",
+      "recipe_sha256": "f76f408a27c36eac1e793faf15391c5a8b46868404296bcf7d431d97879c182a",
+      "role": "FiveLine",
+      "sha256": "0cbf1cc45171ca8e3e1cc101cee45e81d71d95d2c25df355f67f265d1a8155ba",
+      "topology": [
+        7,
+        15,
+        10
+      ],
+      "volume_mm3": 12343.0395,
+      "writer_native_inputs": 0
+    },
+    {
+      "expected_planar_rings": 6,
+      "path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-baseline-a.SLDPRT",
+      "producer": "vendor_read_only_control",
+      "role": "VendorControl",
+      "sha256": "db1390476325f5817e6f80fb4067a3c6df5cc063315604c133ccbeaafdeac357",
+      "topology": [
+        6,
+        12,
+        8
+      ],
+      "volume_mm3": 8000.0,
+      "writer_native_inputs": 0
+    },
+    {
+      "expected_planar_rings": 6,
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "producer": "vendor_read_only_control",
+      "role": "Ladder",
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "topology": [
+        6,
+        12,
+        8
+      ],
+      "volume_mm3": 8000.0,
+      "writer_native_inputs": 0
+    },
+    {
+      "expected_planar_rings": null,
+      "path": "re/solidworks/v2026/corpus/light-counts/OneLights.SLDPRT",
+      "producer": "vendor_read_only_control",
+      "role": "OneLight",
+      "sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7",
+      "topology": [
+        8,
+        14,
+        10
+      ],
+      "volume_mm3": null,
+      "writer_native_inputs": 0
+    },
+    {
+      "expected_planar_rings": null,
+      "path": "re/solidworks/examples/.SLDPRT/example.SLDPRT",
+      "producer": "vendor_read_only_control",
+      "role": "Legacy",
+      "sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408",
+      "topology": [
+        31,
+        65,
+        45
+      ],
+      "volume_mm3": null,
+      "writer_native_inputs": 0
+    }
+  ],
+  "generation": {
+    "appearance_request": {
+      "AppearanceValue": {
+        "ManagerOnWire": true,
+        "NextAppearanceId": 4
+      }
+    },
+    "attachment": {
+      "ambient_light": null,
+      "density_kg_m3": 1000.0,
+      "downstream": null,
+      "events": {
+        "FiveLine": {
+          "features": [
+            [
+              0,
+              110000,
+              false
+            ],
+            [
+              2,
+              210000,
+              true
+            ],
+            [
+              4,
+              310000,
+              true
+            ]
+          ],
+          "session": [
+            271,
+            31,
+            1785626037,
+            710000
+          ]
+        },
+        "FourLine": {
+          "features": [
+            [
+              0,
+              100000,
+              false
+            ],
+            [
+              2,
+              200000,
+              true
+            ],
+            [
+              4,
+              300000,
+              true
+            ]
+          ],
+          "session": [
+            201,
+            29,
+            1785626037,
+            700000
+          ]
+        }
+      },
+      "marks": [
+        [
+          "delta",
+          "geometry"
+        ],
+        [
+          "delta",
+          "activation"
+        ],
+        [
+          "mark",
+          "activation",
+          "activation",
+          true
+        ],
+        [
+          "mark",
+          "geometry",
+          "geometry",
+          true
+        ]
+      ],
+      "previous_faces": 0,
+      "rgb": [
+        191,
+        157,
+        111
+      ],
+      "transparency": 0.0,
+      "updates": [
+        "ADVANCE",
+        "ADVANCE",
+        "ADVANCE",
+        "ADVANCE",
+        "ADVANCE",
+        "ATTACH_BODY",
+        "TESSELLATE",
+        "ADVANCE",
+        "ADVANCE_BODY"
+      ]
+    },
+    "attachment_method_sha256": "b6b0a4f502f0df6d2f631ffa1fab48feaf84f3422fa925bf3063bc3e1721a620",
+    "composer_original_method_sha256": "dbe67e0b8c1b15312d3d7d0e599069863ce8a6a886bd1722ceef6b775a24d421",
+    "locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+    "method_retrieval": {
+      "attachment": {
+        "git_blob": "04f07e62f0eca47e2775a8d557ea53740e8cd9a0",
+        "git_bytes_sha256": "57270eb501d6ec2bf19c7094a16ecd5ffbfed28dba804b475649dd1a1f521af2",
+        "measured_physical_encoding": "CRLF checkout of exact LF Git source",
+        "measured_physical_sha256": "b6b0a4f502f0df6d2f631ffa1fab48feaf84f3422fa925bf3063bc3e1721a620",
+        "path": "re/tooling/sw2026/para/prism/SdkPrismAttachment.py",
+        "revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1"
+      },
+      "composer": {
+        "git_blob": "1a45a2385fa247f37fa3d4e7a1f649c8cded5150",
+        "git_bytes_sha256": "dbe67e0b8c1b15312d3d7d0e599069863ce8a6a886bd1722ceef6b775a24d421",
+        "path": "re/solidworks/RendererBoundary/ComposeEmptyOwnersPart.py",
+        "revision": "da857e623cfe984984054142fddc6791c01343a1"
+      }
+    },
+    "native_launches": 0,
+    "property_request": {
+      "empty_cut_owner": true,
+      "schema": "kit.research.empty-cut-property-owner.v1"
+    },
+    "property_revision": "5fb7e7737f0b9af52373da5e3f4556cd83ba8607",
+    "sdk_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+    "source_free": true,
+    "tooling_tree": "4503ec0e1e833b443cf111886dff42941f0a1bc4",
+    "written_at": 1785626030
+  },
+  "schema": "kit.test.current-partition-vertices.v1",
+  "scope": "disclosed reader fixtures only; no held-out or native acceptance credit"
+}
