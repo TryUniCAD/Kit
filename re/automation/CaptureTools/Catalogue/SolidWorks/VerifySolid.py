@@ -17,7 +17,7 @@ from CaptureTools.Catalogue.Recipes.RecipeRegistry import KRecipeBuilders
 
 
 # native measurements need immutable archive and independent process witnesses before admission
-def VerifySolid(CaseValue, OutputDirectory):
+def VerifySolid(CaseValue, OutputDirectory, *, Routine=False):
     CaseValue = ValidateSolid(CaseValue)
     OutputPath = Path(OutputDirectory).resolve(strict=True)
     RecipeKey = CaseValue["recipe"]
@@ -49,15 +49,21 @@ def VerifySolid(CaseValue, OutputDirectory):
         or Report["configured_case"] != CaseValue
     ):
         raise ValueError("SOLIDWORKS authoring receipt or configured source mismatch")
-    Owners = [
+    if Routine:
+        from CaptureTools.Catalogue.SolidWorks.VerifyRoutine import VerifyRoutine
+
+        VerifyRoutine(OutputPath, Report, CasePin)
+    elif Report.get("verification_mode", "fresh_process") != "fresh_process":
+        raise ValueError("fresh-process acceptance cannot consume routine evidence")
+    Owners = [] if Routine else [
         loads((OutputPath / (PhaseName + "-owner.json")).read_bytes())
         for PhaseName in ("first", "second")
     ]
-    Lifetimes = [
+    Lifetimes = [] if Routine else [
         loads((OutputPath / (PhaseName + "-native.json")).read_bytes())
         for PhaseName in ("first", "second")
     ]
-    if (
+    if not Routine and (
         any(Owner["owned_process_exit_observed"] is not True for Owner in Owners)
         or Owners[0]["pid"] == Owners[1]["pid"]
         or Owners[0]["created"] >= Owners[1]["created"]
@@ -75,6 +81,8 @@ def VerifySolid(CaseValue, OutputDirectory):
     ):
         raise ValueError("SOLIDWORKS authoring lacks independent owned process exits")
     Observed = Report["observations"]
+    if Routine:
+        Observed = {**Observed, "fresh_reopen": Observed["document_reopen"]}
     Before = Observed["healthy_control_before"]
     After = Observed["healthy_control_after"]
     if (
@@ -128,6 +136,7 @@ def VerifySolid(CaseValue, OutputDirectory):
             )
         Archives.append({**NativeFile, "path": str(NativePath)})
     Accepted = {
+        "verification_mode": "document_reopen" if Routine else "fresh_process",
         "application": "solidworks",
         "case": CaseValue,
         "configuration_sha256": CasePin,

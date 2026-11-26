@@ -7,16 +7,35 @@ const {
 const {
   WaitForQueue,
 } = require("../../../.github/scripts/Scheduling/WaitForQueue.cjs");
+const {
+  SelectLaneSet,
+} = require("../../../.github/scripts/Scheduling/SelectLaneSet.cjs");
 const CaseName = process.argv[2];
 const Outputs = {};
 let Ticks = 0;
 let Pauses = 0;
 let Requests = 0;
 const Github = {
-  graphql: async () => {
+  graphql: async (Query, Variables) => {
     Requests += 1;
     if (CaseName === "admit-error")
       throw new Error("Admission API unavailable");
+    if (CaseName.startsWith("lanes-")) {
+      Assert.equal(Variables.Sha, "c".repeat(40));
+      if (CaseName === "lanes-error") throw new Error("Lane API unavailable");
+      return {
+        repository: {
+          object:
+            CaseName === "lanes-missing"
+              ? null
+              : {
+                  history: {
+                    totalCount: CaseName === "lanes-odd" ? 1001 : 1000,
+                  },
+                },
+        },
+      };
+    }
     return {
       repository: {
         mergeQueue: {
@@ -51,9 +70,13 @@ const Github = {
                   ),
                 ),
                 ...(CaseName === "budget-audit"
-                  ? { Version: 1, Linux: 8 }
+                  ? { Version: 1, Linux: 8, Windows: 5 }
                   : {}),
-                ...(CaseName === "budget-invalid" ? { Version: 3 } : {}),
+                ...(CaseName === "budget-previous"
+                  ? { Version: 2, Linux: 16, Windows: 5 }
+                  : {}),
+                ...(CaseName === "budget-invalid" ? { Version: 4 } : {}),
+                ...(CaseName === "budget-single" ? { LaneSets: 1 } : {}),
               }),
             ).toString("base64"),
           },
@@ -99,8 +122,14 @@ const Github = {
   },
 };
 const Context = {
+  eventName: CaseName === "lanes-pull" ? "pull_request" : "merge_group",
   repo: { owner: "Example", repo: "Kit" },
-  payload: { merge_group: { base_sha: "trusted-base" } },
+  payload: {
+    merge_group:
+      CaseName === "lanes-pull"
+        ? null
+        : { base_sha: "trusted-base", head_sha: "c".repeat(40) },
+  },
 };
 const Logger = {
   info: () => {},
@@ -111,17 +140,19 @@ const Logger = {
 };
 const Operation = CaseName.startsWith("budget-")
   ? SelectBudget(Github, Context, Logger)
-  : WaitForQueue(
-      Github,
-      Context,
-      Logger,
-      async (Delay) => {
-        Assert.ok(Delay > 0 && Delay <= 30000);
-        Pauses += 1;
-        Ticks += CaseName === "admit-timeout" ? 3600000 : Delay;
-      },
-      () => Ticks,
-    );
+  : CaseName.startsWith("lanes-")
+    ? SelectLaneSet(Github, Context, Logger)
+    : WaitForQueue(
+        Github,
+        Context,
+        Logger,
+        async (Delay) => {
+          Assert.ok(Delay > 0 && Delay <= 30000);
+          Pauses += 1;
+          Ticks += CaseName === "admit-timeout" ? 3600000 : Delay;
+        },
+        () => Ticks,
+      );
 Operation.then(() =>
   process.stdout.write(JSON.stringify({ Outputs, Pauses, Requests })),
 ).catch((ErrorInfo) => {

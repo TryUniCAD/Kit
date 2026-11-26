@@ -15,18 +15,23 @@ from tests.Research.SupervisorClient import KRepoRoot
 
 
 # a separate interpreter exercises recipe contracts without importing native application workers
-def RunProbe(TmpPath: FilePath, Action: str, Payload: object) -> ChildResult[str]:
+def RunProbe(
+    TmpPath: FilePath,
+    Action: str,
+    Payload: object,
+    RootPath: FilePath = KRepoRoot,
+) -> ChildResult[str]:
     InputPath = TmpPath / "ProbeInput.json"
     _ = InputPath.write_text(EncodeJson(Payload), encoding="utf-8")
     return RunProcess(
         [
             PythonExe,
             "-B",
-            str(FilePath(__file__).with_name("RecipeProbe.py")),
+            str(RootPath / "tests/Research/Inference/Authoring/Recipes/RecipeProbe.py"),
             Action,
             str(InputPath),
         ],
-        cwd=KRepoRoot,
+        cwd=RootPath,
         capture_output=True,
         text=True,
         check=False,

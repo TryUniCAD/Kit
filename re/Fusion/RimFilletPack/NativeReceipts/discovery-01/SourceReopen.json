@@ -1,0 +1,37 @@
+{
+  "status": "completed",
+  "result": {
+    "application": "fusion",
+    "build": "2706.1.17",
+    "nonce": "f5e14381f2d1ab73da674bd97adce2274532cf8776d044f3",
+    "pid": 19224,
+    "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+    "status": "completed"
+  },
+  "artifacts": [
+    {
+      "name": "Measurements.json",
+      "size": 6706,
+      "sha256": "33a6a37ca16e8f90dec84bec416618665cc1508edbe38c6d937e2421cd3a8f64"
+    },
+    {
+      "name": "Restored.f3d",
+      "size": 220304,
+      "sha256": "3ef26002726434ad7ff6af8824315399606d062993931601e56c54a00b4bb768"
+    }
+  ],
+  "remote_host": "<cad-host>",
+  "collector_hashes": {
+    "ApplicationWorkers/SolidWorksAvailability.py": "8b580936bc951193a568f26eb4e1c2c4be039b3f155bbbbdd2c2975382888b80",
+    "NativeAcceptance/FusionBrep.py": "0ea4c6a4b57a3e097124ee4e2dc456351809e3baeb097dbd7391630e7e0489dd",
+    "NativeAcceptance/FusionMeasure.py": "ee0931a6c023025b568ca8f0b89880a5a8413d8514ad48caea3576fb2149995e",
+    "NativeAcceptance/FusionSemantics.py": "ce721d1683163493f9594d36acf64642e449bb8f444e4df26d842c76c34e75ae",
+    "NativeAcceptance/ProcessState.py": "722caedefdf5185a64d8a28b95c3646f7bb72c01f062ce2f793d873e7c7eaf15",
+    "NativeAcceptance/Records.py": "ea093c5fdd8551b4f4c0a721e757f600e80d833f6f94af5cd0f92968c3d82c9a",
+    "NativeAcceptance/SolidWorksBrep.py": "c06a7499da525b268eb85ec8ddafe901f5bfc63553b0de62c978149ad2478a65",
+    "NativeAcceptance/SolidWorksMeasure.py": "cb0c6569d8e421ef6cc202144dd461f8acf889dcdf345d0ca568d3e163056a26",
+    "NativeAcceptance/SolidWorksSemantics.py": "9ef7821c858eb20cf1f50715d053a38723a4288dd50f1c1b52d8d0356e996df9",
+    "NativeAcceptance/WindowsSnapshot.py": "19868f71511d3f35a9ccef7f124cdd7a35b4020de68448291fa4fb220b171071"
+  },
+  "raw_receipt_sha256": "323b6ba28cd45ab3bb944265aeefd5f7d16152ca6c900980945e80d43ae71049"
+}

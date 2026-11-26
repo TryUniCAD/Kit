@@ -1,7 +1,10 @@
 {
-  "Version": 2,
-  "Linux": 16,
-  "Windows": 5,
+  "Version": 3,
+  "LaneSets": 2,
+  "Linux": 32,
+  "Windows": 9,
+  "WindowsCompatibility": 4,
   "Macos": 5,
-  "Control": 2
+  "Control": 2,
+  "PullRequest": 7
 }

@@ -8,9 +8,11 @@ from enum import Enum
 from fractions import Fraction
 
 from interchange.Features.DistanceParam import KLengthFactors
+from interchange.Features.FeatureKinds import NativeFeature
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.geometry.Models.Sketch import Sketch
+from interchange.geometry.Models.Sketch import ConstraintRef, Sketch, SketchRelation
 from interchange.Core.Reflection import CanonName
+from interchange.Records.RecordProvenance import Provenance, ProvenanceSpan
 from interchange.serialization.Wire import ResolveField
 
 COLLECTIONS = (
@@ -131,6 +133,117 @@ def evidence_digest(value):
         ToData(value), sort_keys=True, separators=(",", ":"), allow_nan=False
     )
     return hashlib.sha256(encoded.encode()).hexdigest()
+
+
+def matching_record_span(owner, sketch):
+    definition = owner.definition
+    if (
+        not isinstance(definition, NativeFeature)
+        or definition.format_id != "solidworks.sldprt"
+    ):
+        return None
+    data = definition.object_data
+    if not isinstance(data, Mapping) or data.get("native_class") != "moProfileFeature_c":
+        return None
+    native_id = data.get("native_object_id")
+    if type(native_id) is not int:
+        return None
+
+    locations = []
+    for provenance, kind in (
+        (owner.provenance, "feature-record"),
+        (sketch.provenance, "sketch-record"),
+    ):
+        if (
+            not isinstance(provenance, Provenance)
+            or provenance.adapter != definition.format_id
+            or provenance.native_id != str(native_id)
+            or not isinstance(provenance.spans, tuple)
+        ):
+            return None
+        spans = [
+            span
+            for span in provenance.spans
+            if isinstance(span, ProvenanceSpan) and span.record_kind == kind
+        ]
+        if len(spans) != 1:
+            return None
+        (span,) = spans
+        if (
+            not isinstance(span.stream, str)
+            or not span.stream
+            or span.stream != data.get("native_stream")
+            or type(span.offset) is not int
+            or span.offset < 0
+            or type(span.length) is not int
+            or span.length <= 0
+        ):
+            return None
+        locations.append((span.stream, span.offset, span.length))
+    if locations[0] != locations[1]:
+        return None
+    stream, offset, length = locations[0]
+    return {"stream": stream, "offset": offset, "length": length}
+
+
+def native_sketch_observations(document, sketch_ids):
+    if document.source.format_id != "solidworks.sldprt" or not isinstance(
+        document.feature_timeline, tuple
+    ):
+        return
+    owners = [
+        (index, step)
+        for index, step in enumerate(document.feature_timeline)
+        if isinstance(step, FeatureStep)
+        and tag(step.kind) == "reference"
+        and step.operation is None
+        and isinstance(step.sketch_id, str)
+        and sketch_ids.get(step.sketch_id) == 1
+    ]
+    owner_counts = Counter(step.sketch_id for _, step in owners)
+    sketches = {
+        sketch.id: sketch for sketch in document.sketches if isinstance(sketch, Sketch)
+    }
+    for index, owner in owners:
+        sketch = sketches[owner.sketch_id]
+        if (
+            owner_counts[sketch.id] != 1
+            or owner.suppressed
+            or sketch.suppressed
+            or not isinstance(sketch.constraints, tuple)
+        ):
+            continue
+        span = matching_record_span(owner, sketch)
+        if span is None:
+            continue
+        constraints = []
+        for relation in sketch.constraints:
+            if (
+                not isinstance(relation, SketchRelation)
+                or not isinstance(relation.references, tuple)
+                or not all(isinstance(ref, ConstraintRef) for ref in relation.references)
+            ):
+                break
+            constraints.append(
+                {
+                    "constraint_id": relation.id,
+                    "kind": tag(relation.kind),
+                    "parameter_id": relation.parameter_id,
+                    "references": [
+                        {"entity_id": ref.entity_id, "point": ref.point}
+                        for ref in relation.references
+                    ],
+                }
+            )
+        else:
+            yield {
+                "path": f"/feature_timeline/{index}/sketch_id",
+                "classification": "reader_reported_native_sketch_owner",
+                "owner_id": owner.id,
+                "sketch_id": sketch.id,
+                "source_span": span,
+                "constraints": constraints,
+            }
 
 
 def build_graph(document, geometry_unit, *, max_nodes=4096, max_fields=100000):
@@ -445,6 +558,7 @@ def build_graph(document, geometry_unit, *, max_nodes=4096, max_fields=100000):
         atom(root, "/" + collection + "/count", len(records))
         for index, value in enumerate(records):
             add(value, f"/{collection}/{index}", "@document", collection)
+    graph["observations"].extend(native_sketch_observations(document, sketch_ids))
     for name in (
         "assembly",
         "brep",

@@ -39,9 +39,6 @@ const QueueJobs = [
   "TruffleHog",
 ];
 const ShardJobs = /^Test suite \/ Shard \(\d+\)$/;
-const RetiringJobs = {
-  "WorkflowQuality.yml": ["Research CLI compatibility"],
-};
 const PreflightNames = {
   "PythonQuality.yml": "PR CI reuse (Python quality gate)",
   "PythonSteering.yml": "PR CI reuse (Python steering)",
@@ -72,7 +69,6 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
       const OtherPhaseOnly = Deferred[File].filter(
         (Job) => !Required[File].includes(Job),
       );
-      const Retiring = RetiringJobs[File] ?? [];
       if (IsPull && File === "WorkflowQuality.yml")
         OtherPhaseOnly.push(
           "Research CLI Windows compatibility / ${{ matrix.group }}",
@@ -82,8 +78,8 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
         WorkflowRoot + File,
         {
           event: Event,
-          required: Required[File].filter((Job) => !Retiring.includes(Job)),
-          optional: [...OtherPhaseOnly, ...Retiring],
+          required: Required[File],
+          optional: OtherPhaseOnly,
           skip: OtherPhaseOnly,
           preflight: Name,
         },

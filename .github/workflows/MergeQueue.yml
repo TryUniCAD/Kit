@@ -43,6 +43,7 @@ jobs:
       matrix: ${{ steps.plan.outputs.matrix }}
       native: ${{ steps.capacity.outputs.native }}
       count: ${{ steps.capacity.outputs.count }}
+      lanes: ${{ steps.lanes.outputs.prefix }}
     steps:
       - &AuditSource
         name: Validate the requested audit source
@@ -89,6 +90,15 @@ jobs:
             const { SelectBudget } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectBudget.cjs`);
             await SelectBudget(github, context, core);
 
+      - name: Select this candidate's lane set
+        id: lanes
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SelectLaneSet } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectLaneSet.cjs`);
+            await SelectLaneSet(github, context, core);
+
       - name: Confirm the pinned audit revision
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
@@ -97,7 +107,7 @@ jobs:
           echo "Auditing source revision ${AuditSha} with every test scheduled fresh" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -229,7 +239,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '1' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -251,7 +261,7 @@ jobs:
           sparse-checkout: re/automation/FeatureDecodeSession.py
           sparse-checkout-cone-mode: false
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -284,7 +294,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     concurrency:
-      group: ${{ github.event_name == 'merge_group' && format('Kit-test-linux-{0}', matrix.slot) || format('Kit-linux-{0}', matrix.auditSlot) }}
+      group: ${{ github.event_name == 'merge_group' && format('Kit-{0}test-linux-{1}', needs.test-plan.outputs.lanes, matrix.slot) || format('Kit-linux-{0}', matrix.auditSlot) }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -303,7 +313,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -367,8 +377,8 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Synchronize locked dependencies for inference shards
-        if: steps.selection.outputs.inference == 'true'
+      - name: Synchronize locked dependencies for inference and research CLI shards
+        if: steps.selection.outputs.inference == 'true' || steps.selection.outputs.research == 'true'
         run: uv sync --frozen --no-default-groups --extra dev --group dev --python 3.14 --compile-bytecode
 
       - name: Hydrate sealed original inputs for research shards
@@ -407,7 +417,7 @@ jobs:
     runs-on: windows-2025
     timeout-minutes: 30
     concurrency:
-      group: Kit-windows-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
+      group: Kit-${{ matrix.group != 'shard-5' && needs.test-plan.outputs.lanes || '' }}windows-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -452,7 +462,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -687,7 +697,7 @@ jobs:
     permissions:
       contents: read
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -771,7 +781,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -863,7 +873,7 @@ jobs:
       contents: read
       security-events: read # Lets CodeQL query its Action API endpoints.
     concurrency:
-      group: Kit-linux-${{ github.event_name != 'merge_group' && '7' || matrix.language == 'python' && '0' || matrix.language == 'actions' && '1' || matrix.language == 'java-kotlin' && '2' || '3' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name != 'merge_group' && '7' || matrix.language == 'python' && '0' || matrix.language == 'actions' && '3' || matrix.language == 'java-kotlin' && '1' || '5' }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -967,7 +977,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '0' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -980,7 +990,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -999,7 +1009,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '2' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1012,7 +1022,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1034,7 +1044,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '3' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1047,7 +1057,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1068,7 +1078,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '4' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '3' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1081,7 +1091,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1102,7 +1112,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1115,7 +1125,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1134,7 +1144,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-6
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-6
       cancel-in-progress: false
       queue: max
     steps:
@@ -1147,7 +1157,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1166,7 +1176,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-7
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '6' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1184,7 +1194,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/syft_${SyftVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/anchore/syft/releases/download/v${SyftVersion}/syft_${SyftVersion}_linux_amd64.tar.gz"
           echo "${SyftSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1207,7 +1217,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1219,7 +1229,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1244,7 +1254,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1257,7 +1267,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1279,7 +1289,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '2' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1298,7 +1308,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/gitleaks_${GitleaksVersion}_linux_x64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/gitleaks/gitleaks/releases/download/v${GitleaksVersion}/gitleaks_${GitleaksVersion}_linux_x64.tar.gz"
           echo "${GitleaksSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1372,7 +1382,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '3' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '2' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1384,7 +1394,7 @@ jobs:
           ref: ${{ env.AuditSha }}
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -1409,7 +1419,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/grype_${GrypeVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/anchore/grype/releases/download/v${GrypeVersion}/grype_${GrypeVersion}_linux_amd64.tar.gz"
           echo "${GrypeSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1428,7 +1438,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '4' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1446,7 +1456,7 @@ jobs:
         run: |
           set -euo pipefail
           BinaryPath="${RUNNER_TEMP}/osv-scanner"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${BinaryPath}" \
             "https://github.com/google/osv-scanner/releases/download/v${OsvScannerVersion}/osv-scanner_linux_amd64"
           echo "${OsvScannerSha256}  ${BinaryPath}" | sha256sum --check --
@@ -1464,7 +1474,7 @@ jobs:
     permissions:
       contents: read
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '2' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1482,7 +1492,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/scorecard_${ScorecardVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/ossf/scorecard/releases/download/v${ScorecardVersion}/scorecard_${ScorecardVersion}_linux_amd64.tar.gz"
           echo "${ScorecardSha256}  ${ArchivePath}" | sha256sum --check --
@@ -1521,7 +1531,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-6
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1539,7 +1549,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/trivy_${TrivyVersion}_Linux-64bit.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/aquasecurity/trivy/releases/download/v${TrivyVersion}/trivy_${TrivyVersion}_Linux-64bit.tar.gz"
           echo "${TrivySha256}  ${ArchivePath}" | sha256sum --check --
@@ -1561,7 +1571,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-7
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-7
       cancel-in-progress: false
       queue: max
     steps:
@@ -1580,7 +1590,7 @@ jobs:
         run: |
           set -euo pipefail
           ArchivePath="${RUNNER_TEMP}/trufflehog_${TrufflehogVersion}_linux_amd64.tar.gz"
-          curl --fail --silent --show-error --location \
+          curl --fail --silent --show-error --location --retry 5 --retry-all-errors --retry-delay 5 \
             --output "${ArchivePath}" \
             "https://github.com/trufflesecurity/trufflehog/releases/download/v${TrufflehogVersion}/trufflehog_${TrufflehogVersion}_linux_amd64.tar.gz"
           echo "${TrufflehogSha256}  ${ArchivePath}" | sha256sum --check --
