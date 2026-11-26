@@ -164,6 +164,17 @@ recovered on the third fresh attempt with six reopened archives and a
 completed decoder job. The applicable PR and queue gates remain separate.
 [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
 
+#### A08h-CaseIsolation
+
+Codex owns the consolidated SOLIDWORKS repair and case isolation on
+`codex/solidworks-capture-resilience`. It depends on the catalogue worker
+and artifact intake from PR #207. Delivery combines the changes from PRs
+#289 and #291. Exit requires proven shutdown recovery, held-out thin-wall
+measurements, and a process check showing that a refused case cannot block
+or supply evidence to a healthy sibling decoder.
+[Delivery PR #292](https://github.com/TryUniCAD/Kit/pull/292)
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
+
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
 on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,

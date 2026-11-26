@@ -280,6 +280,10 @@ across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
 recipes share native batches of at most three cases, with separate decoder jobs.
 Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
+After both owned native phases finish, a case-level verification failure
+records a `native_rejection` in the catalogue result. Verified sibling cases
+can continue through their own decoder jobs.
+[Batch rejection handling](../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
 The [thin-wall side check](../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
