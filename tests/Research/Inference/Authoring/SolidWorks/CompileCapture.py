@@ -16,7 +16,9 @@ from tests.Research.SupervisorClient import KRepoRoot
 
 
 # the actual native interop compiler validates the additive authoring contract without launching cad
-def CompileCapture(CasePath: Path, OutputPath: Path) -> CompletedProcess[str]:
+def CompileCapture(
+    CasePath: Path, OutputPath: Path, BatchMode: bool = False
+) -> CompletedProcess[str]:
     ExePath, Interop = LoadInterop()
     ShellPath = SystemShell()
     ScriptPath = (
@@ -34,7 +36,8 @@ def CompileCapture(CasePath: Path, OutputPath: Path) -> CompletedProcess[str]:
             "& $env:KIT_COMPILE_SCRIPT -CasePath $env:KIT_COMPILE_CASE "
             + "-OutputDirectory $env:KIT_COMPILE_OUTPUT "
             + "-ExecutablePath $env:KIT_COMPILE_EXECUTABLE "
-            + "-InteropAssembly $env:KIT_COMPILE_INTEROP -Phase first -CompileOnly",
+            + "-InteropAssembly $env:KIT_COMPILE_INTEROP -Phase first -CompileOnly"
+            + (" -Batch" if BatchMode else ""),
         ],
         cwd=KRepoRoot,
         env=CompilerEnv(ScriptPath, CasePath, OutputPath, ExePath, Interop, ShellPath),

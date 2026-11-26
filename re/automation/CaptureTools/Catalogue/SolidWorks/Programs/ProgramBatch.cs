@@ -19,7 +19,7 @@ public sealed partial class SolidWorksCapture
         var Root=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(Manifest));
         Check(Root.Count==2 && Convert.ToInt32(Root["schema"])==1 && Root.ContainsKey("cases"),"Invalid native batch manifest");
         var Cases=Array(Root["cases"]).Cast<Dictionary<string,object>>().ToArray();
-        Check(Cases.Length>0 && Cases.Length<=3,"Native batches require one to three written cases");
+        Check(Cases.Length>0 && Cases.Length<=12,"Native batches require one to twelve configured cases");
         var Seen=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach(var Case in Cases) {
             Check(Case.Count==2 && Case.ContainsKey("configuration") && Case.ContainsKey("output"),"Invalid native batch case");
@@ -27,8 +27,7 @@ public sealed partial class SolidWorksCapture
             string ConfigurationPath=Path.GetFullPath(TextValue(Case,"configuration"));
             Check(Path.GetDirectoryName(Destination)==Path.GetFullPath(Output) && Seen.Add(Destination)
                 && Path.GetDirectoryName(ConfigurationPath)==Destination && File.Exists(ConfigurationPath),"Native batch case escapes its owned directory");
-            var Configured=Configuration(ConfigurationPath);
-            Check(MapValue(Configured["options"]).ContainsKey("program"),"Native batching only accepts written recipe programs");
+            CheckConfigured(ConfigurationPath);
         }
     }
 

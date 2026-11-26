@@ -2,6 +2,25 @@
 
 ## Status and ownership
 
+Task `A08c-SolidWorksOpenRetry` is active, owned by Codex on `codex/solidworks-open-retry`.
+Scope: three bounded startup and part-open attempts, retained failure evidence and separate native stage measurements.
+It depends on continuous capture in [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), alongside its continuous capture dependency.
+Exit: native compilation, bounded launch rejection, recovered native startup, measured stages and current-revision CI and review.
+See [retry and timing behavior](../../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md).
+At `d36d7d4806`, the injected first startup exit recovered on attempt two, two P03 batches shared the new process, and same-file independent-process measurements matched.
+Current-head CI and review remain open; a forced part-open failure was not induced.
+
+Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-capture-batching`.
+It depends on the shared batch preparation, existing measured readback and the serial native resource.
+Scope: persistent capture, document close/reopen verification, independent decoder dispatch and retained owner generations.
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Exit: consecutive same-process native batches, same-file fresh-process comparison, decoder overlap, recovery checks and current-revision CI and review.
+See [continuous SOLIDWORKS capture](../../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md).
+The `5c3ae3810c` native comparison matched P01/P03/P04 same-file measurements across routine and fresh processes.
+The `18d72e23ee` controller run completed four jobs, overlapped decoding with capture and preserved receipts across resume.
+Current-head readiness, broader feature qualification and merge-group acceptance remain open.
+
 PR #158 is based on main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b`. Its follow-on phase commits carry the remaining non-DLL work from the original PR #94 checkpoint `fb723e0a920b4d03ad2d5635882860b800a9b61c`. The entries below record the original programme and its revision-bound evidence. The licensed restart, native qualification, supplemental Fusion handoff, pending CI batch authority and two-week pilot retain their open exit criteria.
 
 This register belongs to the [neutral-first plan](AutomationPlan.md).
@@ -183,6 +202,17 @@ with unresolved findings. One of the nine new bindings is native verified; full
 decoder qualification remains incomplete. The focused process checks passed 103 cases.
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
+
+Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
+It extends the existing three-case native batches to P01–P05, preserving independent reopen verification and per-case decoder artifacts.
+Dependencies are A08h/A08i, owned native lifetimes, and controller artifact admission.
+Native verification passed on source `231ffae38c7a9ca83705c6705e7d382d05c1e208`. Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+The measured P01/P03/P04 batch reused two application processes for 25 saved files and automatically completed three overlapping decoder jobs.
+Both native processes exited normally. Decoder semantic findings remain explicit.
+Current-head publication checks and configured review are tracked in the delivery PR.
+Exit requires measured native batching, automatic decoder receipts, and current-revision CI and configured review.
+Saved plans retain their original submissions. Full decoding and conversion qualification remain separate requirements.
+See [paired-case batching](../../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md).
 
 #### A08i-ThinWall
 
@@ -879,6 +909,21 @@ The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact 
 The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
 Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
 Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+
+## A08h-LargeSolidWorksBatches: larger fresh verification groups
+
+Codex owns the scope on
+[`codex/solidworks-large-verification-batches`](https://github.com/TryUniCAD/Kit/tree/codex/solidworks-large-verification-batches).
+It builds on the paired-case batching delivery in
+[PR #288](https://github.com/TryUniCAD/Kit/pull/288). New plans group up to
+twelve cases while older plans retain their immutable jobs. The exit requires
+revision-bound Windows preparation, previous-job compatibility, native
+authoring and independent reopen of a full batch, and current CI and review.
+See the
+[change entry](../../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
+A licensed run accepted 12 selected cases and 111 archives at
+`1afeb59cc9a86f5e8a7ce981126a254073a806ac` with two normal process exits.
+All twelve offline decoder jobs completed. Hosted CI and review remain open.
 
 #### A08h-RimFillet20261125: circular rim fillet read/write packs
 
