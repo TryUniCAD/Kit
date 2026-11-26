@@ -118,6 +118,8 @@ Run this offline research procedure from a checkout. Its result has no direct Fu
 
 The [named-camera procedure](../Changes/Research/Encoder/FusionSavedNamedCameras.md) extends the request with the ordered cameras of this saved cuboid scope.
 
+The [configuration procedure](../Changes/Research/Encoder/FusionSavedConfigEnvelope.md) preserves the optional empty configuration pair and its member order.
+
 The [blind-boss audit](../Changes/Research/Solidworks/BlindBossDecodeAudit.md) records an executed offline scope and its limits.
 Offline readers decode existing native files without launching CAD applications.
 Archived application measurements support replay checks, not fresh vendor acceptance.
