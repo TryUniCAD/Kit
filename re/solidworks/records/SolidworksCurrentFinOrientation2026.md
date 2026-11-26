@@ -44,3 +44,23 @@ reference.
 [Held-out receipt](../measurements/2026/SolidworksCurvedFinHeldout01.json)
 · [Guest SDK observer](../../tooling/MeasureSolidworksCurvedFin.py)
 · [Native observer](../../tooling/sw2026/ObserveHeldoutFinNative.py)
+
+## Active vertex boundaries
+
+The active reader first tries the general geometry decoder. If that path
+returns no model, the current transmit reader can recover a vertex table
+using complete typed boundaries. It verifies the original vertex and
+point references before substituting the table. At least one scanner
+entry must be explained by payload bytes inside a fin tied to that exact
+vertex. The geometry builder uses only verified topology boundaries and
+typed straight-line and planar carriers on this recovery path. The model
+still takes its direction from the terminal
+fin rule above.
+
+The five-line prism used to produce a body record with geometry absent.
+The disclosed four-line and vendor controls already had geometry and
+retain the general decoding path. Use the same signed-loop measurement
+when confirming recovered geometry. The device-free proof does not
+establish native application acceptance.
+
+[SDK behavior and regression evidence](../../../Documentation/Changes/Solidworks/Archive/Partition/SolidworksActivePartitionVertexBoundaries.md)
