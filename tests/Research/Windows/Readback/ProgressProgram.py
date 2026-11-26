@@ -7,8 +7,8 @@
 # to you under it immediately and permanently.
 
 
-# managed journal bytes must cross the real python queue boundary without serializer assumptions
-KProgressScript = """param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath)
+# the managed fixture invokes real journal actions through the powershell process
+KProgressStart = """param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath)
 $ErrorActionPreference = 'Stop'
 $Web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 $Program = @'
@@ -24,7 +24,11 @@ public static class ProgressFixture
             new System.Collections.Generic.Dictionary<string, object> { { "visible", false } });
         progress.Invoke("control_after", "control.SLDPRT", () => {
         progress.Invoke("open_document", "control.SLDPRT", () => System.IO.File.Exists(markerPath));
-        var visibility = new System.Collections.Generic.Dictionary<string, object>();
+"""
+
+
+# the journal must retain close visibility state and the actual document operand
+KProgressClose = """        var visibility = new System.Collections.Generic.Dictionary<string, object>();
         progress.Invoke("close_visibility", "control.SLDPRT", () => {
             visibility["visible"] = !System.IO.File.Exists(markerPath);
         }, visibility);
@@ -45,3 +49,7 @@ public static class ProgressFixture
 Add-Type -TypeDefinition ((Get-Content -LiteralPath $Source -Raw) + "`n" + $Program) -ReferencedAssemblies @('System.Core.dll', $Web)
 [ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)
 """
+
+
+# managed journal bytes must cross the real python queue boundary without serializer assumptions
+KProgressScript = KProgressStart + KProgressClose
