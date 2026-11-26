@@ -2,7 +2,13 @@ from typing import cast as CastValue
 
 
 # source diagnostics must distinguish a reader reported direction owner from qualified semantics
-def VerifyAxis(Source: dict[str, object], SourceHash: str, Expected: bool) -> None:
+def VerifyAxis(
+    Source: dict[str, object],
+    SourceHash: str,
+    Expected: bool,
+    OwnerSpan: tuple[int, int, int, int] = (34, 26, 11996, 3037),
+) -> None:
+    BossId, ProfileId, SpanOffset, SpanLength = OwnerSpan
     Observations = CastValue(list[dict[str, object]], Source["observations"])
     RowsValue = [
         EntryValue
@@ -15,15 +21,15 @@ def VerifyAxis(Source: dict[str, object], SourceHash: str, Expected: bool) -> No
                 "classification": "reader_reported_native_direction_owner",
                 "path": "/selections/0",
                 "source_sha256": SourceHash,
-                "selection_id": "sldprt:selection:34:axis:26:N_Axis",
-                "operation_id": "sldprt:feature:34",
-                "sketch_owner_id": "sldprt:feature:26",
-                "sketch_id": "sldprt:sketch:26",
+                "selection_id": f"sldprt:selection:{BossId}:axis:{ProfileId}:N_Axis",
+                "operation_id": f"sldprt:feature:{BossId}",
+                "sketch_owner_id": f"sldprt:feature:{ProfileId}",
+                "sketch_id": f"sldprt:sketch:{ProfileId}",
                 "support_plane_id": "sldprt:plane:2",
                 "provenance_span": {
                     "stream": "Contents/Config-0-ResolvedFeatures",
-                    "offset": 11996,
-                    "length": 3037,
+                    "offset": SpanOffset,
+                    "length": SpanLength,
                     "record_kind": "direction-axis",
                 },
             }

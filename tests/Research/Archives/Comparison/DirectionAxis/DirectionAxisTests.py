@@ -5,6 +5,9 @@ from tests.Research.Archives.Comparison.DirectionAxis.AlterAxis import AlterAxis
 from tests.Research.Archives.Comparison.DirectionAxis.AxisIssues import AxisIssues
 from tests.Research.Archives.Comparison.DirectionAxis.CaptureAxis import CaptureAxis
 from tests.Research.Archives.Comparison.DirectionAxis.VerifyAxis import VerifyAxis
+from tests.Research.Archives.Comparison.DirectionAxis.VerifyAxisPair import (
+    VerifyAxisPair,
+)
 from tests.Research.Archives.Comparison.SemanticComparisonTests import (
     ReadReport,
     RunComparison,
@@ -24,6 +27,7 @@ def CheckDirection(TmpPath: FilePath) -> None:
     VerifyAxis(Baseline["right"], SourceHash, True)
     Issues = AxisIssues(Baseline["left"])
     assert AxisIssues(Baseline["right"]) == Issues
+    VerifyAxisPair(TmpPath, Document)
     for FaultName in ("owner", "target", "normal", "provenance"):
         Changed = AlterAxis(Document, FaultName)
         Report = ReadReport(
