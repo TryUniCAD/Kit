@@ -215,7 +215,7 @@ jobs:
     runs-on: windows-2025
     timeout-minutes: 20
     concurrency:
-      group: Kit-windows-${{ matrix.group }}
+      group: Kit-windows-cli-${{ matrix.group }}
       cancel-in-progress: false
       queue: max
     strategy:
