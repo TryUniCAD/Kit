@@ -36,7 +36,7 @@ from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 
 
 # Expose actual ordered geometry without dropping the separately verified dimension records.
-def rectangle_shape(graph, context, rules):
+def rectangle_shape(graph, context, rules, *, line_normal=(0.0, 0.0, -1.0)):
     lines = OrderLines(graph, graph.ByClass("Line3D"))
     points = graph.ByClass("Point3D")
     dimensions = LinkedNodes(graph, context.Sketch, "dimensions")
@@ -52,7 +52,7 @@ def rectangle_shape(graph, context, rules):
         == {row["id"] for row in rules["dimensions"]},
         "The emitted P03 sketch has an unexpected child or geometry owner",
     )
-    geometry = tuple(ReadLine(graph, row) for row in lines)
+    geometry = tuple(ReadLine(graph, row, line_normal) for row in lines)
     xs = {row.start.x for row in geometry}
     ys = {row.start.y for row in geometry}
     require(

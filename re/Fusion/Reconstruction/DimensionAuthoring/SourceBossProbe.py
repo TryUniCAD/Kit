@@ -95,16 +95,16 @@ def source_geometry(snapshot, case):
 
 
 # Resolve the actual stored Boss recipe and compare it to independent source edges and body measurements.
-def candidate_evidence(case, payload, sizes, edges, measured, tolerances):
+def candidate_evidence(case, payload, sizes, edges, measured, tolerances, *, settings_ranks=(0, 1), line_normal=(0.0, 0.0, -1.0)):
     model = ReadDocument(payload)
     graph = BuildGraph(model)
     context = SelectExtrusion(graph)
     CheckScopes(graph, context, model.Asset.AssetId)
     parameters = inspect_parameters(graph, context, sizes)
-    rules = inspect_sketch_rules(payload, graph, context, parameters)
-    shape = rectangle_shape(graph, context, rules)
+    rules = inspect_sketch_rules(payload, graph, context, parameters, settings_ranks=settings_ranks)
+    shape = rectangle_shape(graph, context, rules, line_normal=line_normal)
     profile = inspect_selected_profile(graph, context, shape, model.Asset.AssetId)
-    target, points, frame, incidence = candidate_edges(payload, rules)
+    target, points, frame, incidence = candidate_edges(payload, rules, graph=graph)
     tolerance = tolerances["length_mm_absolute"]
     match = match_perimeters(edges, target, tolerance)
     require(
@@ -176,13 +176,19 @@ def build_case(snapshot, case, observations, tolerances):
     }
 
 
-# Build and verify every archive before creating a new caller-owned directory outside the checkout.
-def generate_report(output):
+# Reject an occupied destination before reading any inputs.
+def new_output(output):
+    require(not output.is_symlink(), "Use a new private output directory outside the Git checkout")
     output = output.resolve()
     require(
         not output.is_relative_to(ROOT) and not output.exists(),
         "Use a new private output directory outside the Git checkout",
     )
+    return output
+
+
+# Resolve measured source custody only in the modes that have the trusted Git checkout.
+def read_pinned_cases():
     snapshot = GitSnapshot(ROOT)
     source = source_report()
     require(
@@ -206,6 +212,13 @@ def generate_report(output):
         tuple(row["variant"] for row in cases) == VARIANTS["P03"],
         "Unexpected positive XY P03 candidate roster",
     )
+    return snapshot, report_pin, reopened, tolerances, cases
+
+
+# Build and verify every archive before creating a new caller-owned directory outside the checkout.
+def generate_report(output):
+    output = new_output(output)
+    snapshot, report_pin, reopened, tolerances, cases = read_pinned_cases()
     results = [build_case(snapshot, case, reopened, tolerances) for case in cases]
     result = {
         "schema": 1,
@@ -240,4 +253,34 @@ if __name__ == "__main__":
         description="Generate verified private positive XY P03 candidates"
     )
     parser.add_argument("--output", type=Path, required=True)
-    print(generate_report(parser.parse_args().output))
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--prepare", action="store_true")
+    modes.add_argument("--request", type=Path)
+    parser.add_argument("--source-json", type=Path)
+    parser.add_argument("--logical-json", type=Path)
+    parser.add_argument("--request-sha256")
+    parser.add_argument("--source-witness", type=Path)
+    parser.add_argument("--source-witness-sha256")
+    parser.add_argument("--seed-helper", type=Path)
+    parser.add_argument("--snapshot-builder", type=Path)
+    parser.add_argument("--snapshot-owners", type=Path)
+    parser.add_argument("--written-at", type=int)
+    args = parser.parse_args()
+    prepare = (args.source_json, args.logical_json)
+    replay = (args.request_sha256, args.source_witness, args.source_witness_sha256,
+              args.seed_helper, args.snapshot_builder, args.snapshot_owners, args.written_at)
+    try:
+        if args.prepare and all(value is not None for value in prepare) and all(value is None for value in replay):
+            from SourceBossReplay import prepare_output
+
+            print(json.dumps(prepare_output(args.output, *prepare), sort_keys=True))
+        elif args.request is not None and all(value is not None for value in replay) and all(value is None for value in prepare):
+            from SourceBossReplay import replay_output
+
+            print(json.dumps(replay_output(args.output, args.request, *replay), sort_keys=True))
+        elif not args.prepare and args.request is None and all(value is None for value in (*prepare, *replay)):
+            print(generate_report(args.output))
+        else:
+            parser.error("prepare needs both source JSON paths; replay needs a request, two digests, witness, three pinned code helpers and epoch")
+    except (AttributeError, KeyError, TypeError, ValueError, OSError) as exc:
+        raise SystemExit(str(exc)) from exc
