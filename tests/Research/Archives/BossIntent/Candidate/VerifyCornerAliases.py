@@ -63,5 +63,8 @@ def VerifyCorners(
             TargetRules[RuleValue.id].references == RuleValue.references
             and not TargetRules[RuleValue.id].attributes
         )
+    assert (
+        SourceProof["origin"] == OriginId
+    ), "persisted P03 Origin differs from the fixed source point"
     assert SourceProof["shared_corner_aliases"] == AliasIds
     assert len(set(AliasIds)) == 4 and OriginId not in AliasIds
