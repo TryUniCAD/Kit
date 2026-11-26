@@ -15,6 +15,9 @@ from tests.Research.Archives.FusionBossRequest.CheckRefusals import CheckRefusal
 from tests.Research.Archives.FusionBossRequest.CopySeedHelper import CopySeedHelper
 from tests.Research.Archives.FusionBossRequest.CopySnapshot import CopySnapshot
 from tests.Research.Archives.FusionBossRequest.MirrorBossCode import MirrorBossCode
+from tests.Research.Archives.FusionBossRequest.NativeWitness.CheckNativePlan import (
+    CheckNativePlan,
+)
 from tests.Research.Archives.FusionBossRequest.PrepareBoss import PrepareBoss
 from tests.Research.Archives.FusionBossRequest.ReplayBoss import ReplayBoss
 from tests.Research.Archives.FusionBossRequest.VerifyBossArc import VerifyBossArc
@@ -46,3 +49,4 @@ def TestBossReplay(TmpPath: FilePath) -> None:
     CheckObsReject(MirrorRoot, TmpPath, ArchiveBytes)
     CheckRefusals(MirrorRoot, PrepPath, TmpPath)
     CheckHelperBad(MirrorRoot, PrepPath, TmpPath)
+    CheckNativePlan(SourceRoot, TmpPath, FirstPath, PrepPath, MirrorRoot)

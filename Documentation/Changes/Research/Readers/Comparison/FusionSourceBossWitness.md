@@ -12,6 +12,8 @@ to you under it immediately and permanently.
 
 Prepare the plan on the signed-in macOS Fusion host from a checkout containing the witness and candidate sources. Use the private baseline archive and generation manifest supplied by the authoring owner. Preparation rechecks the original SOLIDWORKS receipt and baseline archive, then reopens the exact prepared Fusion archive offline and compares its full saved profile, binding, dependency and body evidence with the manifest. [Candidate evidence](FusionSourceBossProbe.md)
 
+For a recent request-based replay bundle, use the [sealed replay preparation](FusionBossNativePlan.md). The procedure below keeps the original schema 1 bundle path.
+
 For the recorded private bundle, the manifest SHA-256 is `f7074e12dafd45c329cf4ef11cae6443a7471ed948499b317134b7b5736bbb31`. The baseline archive has 99,883 bytes and SHA-256 `4e77340e23e5b3f6354990a08c39f329d1549a3bcddb2aaf893037c3ab88ce64`. The plan retains the original generation revision and independently matches the generator files in the operator's checkout. For a later regeneration, use the new input hashes certified by its owner.
 
 ```sh

@@ -9,6 +9,8 @@
 import argparse
 import json
 from pathlib import Path
+import sys
+from tempfile import TemporaryDirectory
 import re
 import time
 
@@ -184,6 +186,104 @@ def prepare(directory, output, manifest_sha, archive_sha, build):
     }
 
 
+def replay_launch_file(fresh, pins, plan_path, plan_sha, phase, host):
+    if host == "licensed_macos":
+        return fresh["launcher"](
+            contract.REPO / contract.PINS["runtime"],
+            pins["runtime"]["sha256"],
+            plan_path,
+            plan_sha,
+            phase,
+        )
+    message = (
+        f"P03 phase {phase} of plan {plan_sha} is offline-only. "
+        "Prepare and reseal on the approved licensed macOS host."
+    )
+    return f"raise RuntimeError({message!r})\n".encode("utf-8")
+
+
+def prepare_replay(paths, digests, output, build):
+    from ApplicationWorkers.ApplicationProtocol import exclusive_rename, sync_directory
+    from SourceBossReplayIntake import inspect_replay
+
+    contract.require(not output.is_symlink(), "Use a new private witness directory")
+    output = output.resolve()
+    contract.require(
+        not output.is_relative_to(contract.REPO)
+        and not output.exists()
+        and re.fullmatch(r"[0-9]+(?:\.[0-9]+){2}", build),
+        "Use a new private witness directory and specify the exact Fusion build",
+    )
+    revision = git("rev-parse", "--verify", "HEAD^{commit}").decode().strip()
+    pins = {
+        name: committed_pin(revision, relpath)
+        for name, relpath in contract.pinned_paths(2).items()
+    }
+    payloads, candidate = inspect_replay(paths, digests, revision)
+    fresh = contract.load_helper(contract.PINS["fresh_process"], pins["fresh_process"])
+    host = {"darwin": "licensed_macos", "win32": "offline_windows"}.get(
+        sys.platform, "offline_other"
+    )
+    plan = {
+        "schema": 2,
+        "scope": contract.SCOPE,
+        "preparation_host": host,
+        "execution_paths": contract.execution_paths(output / "plan.json") if host == "licensed_macos" else None,
+        "prepared_unix_seconds": int(time.time()),
+        "source_revision": revision,
+        "fusion_version": build,
+        "candidate": candidate,
+        "pins": pins,
+    }
+    with TemporaryDirectory(prefix=".kit-p03-plan-", dir=output.parent) as temp:
+        staging = Path(temp) / "witness"
+        staging.mkdir(mode=0o700)
+        inputs = staging / "inputs"
+        inputs.mkdir(mode=0o700)
+        for role, name in contract.REPLAY_FILES.items():
+            fresh["write_new"](inputs / name, payloads[role])
+        plan_path = staging / "plan.json"
+        plan_sha = fresh["write_json"](plan_path, plan)
+        for phase in ("a", "b"):
+            launcher = replay_launch_file(fresh, pins, output / "plan.json", plan_sha, phase, host)
+            fresh["write_new"](staging / f"phase-{phase}.py", launcher)
+        contract.read_plan(plan_path, plan_sha)
+        for role, path in paths.items():
+            limit = contract.ARCHIVE_LIMIT if role == "input" else contract.METADATA_LIMIT
+            contract.require(
+                contract.read_file(path, limit) == payloads[role],
+                f"P03 replay {role} changed during native plan preparation",
+            )
+        exclusive_rename(staging, output)
+        sync_directory(output.parent)
+    return {
+        "status": "prepared_for_licensed_fusion" if host == "licensed_macos" else "prepared_p03_custody_offline",
+        "directory": str(output),
+        "preparation_host": host,
+        "plan_sha256": plan_sha,
+        "candidate": candidate,
+    }
+
+
+def inspect_prepared_replay(root, plan):
+    from SourceBossReplayIntake import inspect_replay
+
+    candidate = plan["candidate"]
+    rows = {"input": candidate["input"], "manifest": candidate["manifest"], **candidate["replay_inputs"]}
+    paths = {role: root / "inputs" / name for role, name in contract.REPLAY_FILES.items()}
+    digests = {role: rows[role]["sha256"] for role in ("input", "manifest", "request", "witness")}
+    _, verified = inspect_replay(paths, digests, plan["source_revision"])
+    fresh = contract.load_helper(contract.PINS["fresh_process"], plan["pins"]["fresh_process"])
+    plan_path = root / "plan.json"
+    plan_sha = contract.pin(contract.read_file(plan_path))["sha256"]
+    for phase in ("a", "b"):
+        expected = replay_launch_file(fresh, plan["pins"], plan_path, plan_sha, phase, plan["preparation_host"])
+        contract.require(
+            contract.read_file(root / f"phase-{phase}.py") == expected,
+            f"Prepared P03 phase {phase} launcher changed",
+        )
+    return verified
+
 # Validate the retained plan without running native launchers or writing evidence.
 def inspect_plan(root, digest):
     root = contract.direct_directory(root)
@@ -192,17 +292,21 @@ def inspect_plan(root, digest):
     contract.require(
         plan["pins"]
         == {
-            name: committed_pin(revision, path) for name, path in contract.PINS.items()
+            name: committed_pin(revision, path)
+            for name, path in contract.pinned_paths(plan["schema"]).items()
         },
         "Retained P03 helpers or control differ from their Git source",
     )
     candidate = plan["candidate"]
-    _, _, verified = inspect_candidate(
-        root / "inputs",
-        candidate["manifest"]["sha256"],
-        candidate["input"]["sha256"],
-        revision,
-    )
+    if plan["schema"] == 2:
+        verified = inspect_prepared_replay(root, plan)
+    else:
+        _, _, verified = inspect_candidate(
+            root / "inputs",
+            candidate["manifest"]["sha256"],
+            candidate["input"]["sha256"],
+            revision,
+        )
     contract.require(
         verified == candidate,
         "P03 retained plan does not match its verified source evidence",
@@ -357,6 +461,19 @@ def main():
     prepare_command.add_argument("--manifest-sha256", required=True)
     prepare_command.add_argument("--archive-sha256", required=True)
     prepare_command.add_argument("--fusion-version", required=True)
+    replay_command = command.add_parser("prepare-replay")
+    replay_command.add_argument("--candidate", type=Path, required=True)
+    replay_command.add_argument("--output", type=Path, required=True)
+    replay_command.add_argument("--manifest-sha256", required=True)
+    replay_command.add_argument("--archive-sha256", required=True)
+    replay_command.add_argument("--fusion-version", required=True)
+    replay_command.add_argument("--request", type=Path, required=True)
+    replay_command.add_argument("--request-sha256", required=True)
+    replay_command.add_argument("--source-witness", type=Path, required=True)
+    replay_command.add_argument("--source-witness-sha256", required=True)
+    replay_command.add_argument("--seed-helper", type=Path, required=True)
+    replay_command.add_argument("--snapshot-builder", type=Path, required=True)
+    replay_command.add_argument("--snapshot-owners", type=Path, required=True)
     for name in ("inspect-plan", "verify"):
         subparser = command.add_parser(name)
         subparser.add_argument("--witness", type=Path, required=True)
@@ -373,6 +490,23 @@ def main():
             args.archive_sha256,
             args.fusion_version,
         )
+    elif args.command == "prepare-replay":
+        paths = {
+            "input": args.candidate / contract.ARCHIVE,
+            "manifest": args.candidate / contract.MANIFEST,
+            "request": args.request,
+            "witness": args.source_witness,
+            "seed_helper": args.seed_helper,
+            "snapshot_builder": args.snapshot_builder,
+            "snapshot_owners": args.snapshot_owners,
+        }
+        digests = {
+            "input": args.archive_sha256,
+            "manifest": args.manifest_sha256,
+            "request": args.request_sha256,
+            "witness": args.source_witness_sha256,
+        }
+        result = prepare_replay(paths, digests, args.output, args.fusion_version)
     elif args.command == "inspect-plan":
         plan = inspect_plan(args.witness, args.plan_sha256)
         result = {
@@ -380,6 +514,8 @@ def main():
             "plan_sha256": args.plan_sha256,
             "candidate": plan["candidate"],
         }
+        if plan["schema"] == 2:
+            result["preparation_host"] = plan["preparation_host"]
     else:
         result = verify(
             args.witness,
