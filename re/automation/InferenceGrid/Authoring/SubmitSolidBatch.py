@@ -52,7 +52,6 @@ def SubmitBatch(Directory, PlanValue, Resource):
                     "resources": [Resource],
                     "options": {"cases_sha256": CasePin},
                     "timeout_seconds": 3600,
-                    "max_attempts": 1,
                 }
             ]
             for IndexValue, Sample in enumerate(Batch):

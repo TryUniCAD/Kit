@@ -1,0 +1,292 @@
+[
+  {
+    "event": {
+      "name": "discovery-01-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-01-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647909.3251898,
+      "pid": 72078,
+      "exit_code": 1,
+      "end": 1795647916.100995
+    },
+    "log": "catalogue run refused: [Errno 2] No such file or directory: '/private<campaign-output>/Automatic/discovery-01-source'\n",
+    "raw_log_sha256": "4a9302a540a7b3f4cc0413138baaecdcb890b978edb3415452ab01c44d35e6b7"
+  },
+  {
+    "event": {
+      "name": "discovery-01-generated-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-01-generated",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647918.744915,
+      "pid": 72626,
+      "exit_code": 1,
+      "end": 1795647924.417772
+    },
+    "log": "catalogue run refused: [Errno 2] No such file or directory: '/private<campaign-output>/Automatic/discovery-01-generated'\n",
+    "raw_log_sha256": "d980c6ca86c90b0d3d7af90fa466dece4fb4a4b059d45cdcf90b91b7342af9eb"
+  },
+  {
+    "event": {
+      "name": "discovery-02-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-02-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647926.97536,
+      "pid": 72894,
+      "exit_code": 1,
+      "end": 1795647932.658614
+    },
+    "log": "catalogue run refused: [Errno 2] No such file or directory: '/private<campaign-output>/Automatic/discovery-02-source'\n",
+    "raw_log_sha256": "557a7c4e0f8154838ca1bdec9a096899ff42ac0e244f37a73e11b0e162836f14"
+  },
+  {
+    "event": {
+      "name": "discovery-03-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-03-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647943.791245,
+      "pid": 73580,
+      "exit_code": 1,
+      "end": 1795647964.170481
+    },
+    "log": "Prepared p03-blind-boss.fusion: submitted\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 0 queued | 0 completed | 8 waiting for evidence\n{\"features\":{\"fusion\":{\"failed\":1}},\"file_scope\":\"/private<campaign-output>/Automatic/discovery-03-source/FileScope.json\",\"file_stall\":\"/private<campaign-output>/Automatic/discovery-03-source/FileStall.json\",\"native_verification\":{},\"plan_sha256\":\"c044fe7f905c7677aa07038fc1f535ff444e2de85f241f5450b2924346437e7b\",\"reader_patch\":\"/private<campaign-output>/Automatic/discovery-03-source/Reader.patch\",\"result\":\"/private<campaign-output>/Automatic/discovery-03-source/CatalogueResult.json\",\"schema_version\":1,\"scopes\":{\"p03-blind-boss.fusion\":{\"assessment_job\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"jobs\":[{\"attempts\":3,\"deadline\":null,\"fingerprint\":\"e8436a66aa23a2023b131cddf3df68f9e58c77c9a9fe5b8c12b90a136327adf7\",\"generation\":1,\"id\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"kind\":\"inference.fields\",\"lease_until\":null,\"reason\":\"runner exited with status 1\",\"receipt\":\"3061123f55cb939126c03664ecd140dee307eb0951826da8f924ba8c4c9b3fe7\",\"result\":\"dca32ec7717b13ad5e209ecaa6b46ac2e060c045cb349bdeb61ec6a7d4b85287\",\"state\":\"failed\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:ceb1aaebd78eafc63209899db27cec53849128142619a6d3953c5d629b943166\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2abe8ac9ffc05ad650bd61cb25d73e441e7fb7116a04fbb92b37e642c4a7d870\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2c7f07eecb45f61c09ed11b5ee6038d1bb016986188af75fef49bd52e362de21\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:b9b988578decec21feeae0ebcaacbcbed72b4e5bdee98dd58cbb99c1366b37d5\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:5b61dac8b62f000e2ca5e938610fe602308c3508a19423ba7221b86e8be3699d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:75f2e22224f821cbf7dd973ad0afd01c5f9b25ae69a6bf50f0604f534a204d8d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:652ce1abbc875ddc7285a4def672f20f956dd71aac38f36e00676766a0089229\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:e970855e5b9869a0ddb5ee0e4462925e4d3caf91d41091ac29901968c46433f0\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"}],\"status\":\"failed\"}},\"status\":\"failed\",\"supervisor_failures\":[]}\n",
+    "raw_log_sha256": "0ef8964074cb02a7eeaef0ab3f18f754f1089ead443792230a035578a004bce0"
+  },
+  {
+    "event": {
+      "name": "discovery-04-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-04-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795647976.483598,
+      "pid": 75041,
+      "exit_code": 1,
+      "end": 1795647996.64973
+    },
+    "log": "Prepared p03-blind-boss.fusion: submitted\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 0 queued | 0 completed | 8 waiting for evidence\n{\"features\":{\"fusion\":{\"failed\":1}},\"file_scope\":\"/private<campaign-output>/Automatic/discovery-04-source/FileScope.json\",\"file_stall\":\"/private<campaign-output>/Automatic/discovery-04-source/FileStall.json\",\"native_verification\":{},\"plan_sha256\":\"35b0c905941e7fec1b579f8c09baab7ddb93b50e4a3718791493f81fd43dd690\",\"reader_patch\":\"/private<campaign-output>/Automatic/discovery-04-source/Reader.patch\",\"result\":\"/private<campaign-output>/Automatic/discovery-04-source/CatalogueResult.json\",\"schema_version\":1,\"scopes\":{\"p03-blind-boss.fusion\":{\"assessment_job\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"jobs\":[{\"attempts\":3,\"deadline\":null,\"fingerprint\":\"e8436a66aa23a2023b131cddf3df68f9e58c77c9a9fe5b8c12b90a136327adf7\",\"generation\":1,\"id\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"kind\":\"inference.fields\",\"lease_until\":null,\"reason\":\"runner exited with status 1\",\"receipt\":\"11b3b12fcde3f124c61894b46a1e73a0de31e09aa1c45e619c86900f9b3abb97\",\"result\":\"4ce8d04b0d229e8c86576042dbcacbc405174f5a2a64fdd314e38330d5a25a89\",\"state\":\"failed\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:ceb1aaebd78eafc63209899db27cec53849128142619a6d3953c5d629b943166\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2abe8ac9ffc05ad650bd61cb25d73e441e7fb7116a04fbb92b37e642c4a7d870\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2c7f07eecb45f61c09ed11b5ee6038d1bb016986188af75fef49bd52e362de21\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:b9b988578decec21feeae0ebcaacbcbed72b4e5bdee98dd58cbb99c1366b37d5\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:5b61dac8b62f000e2ca5e938610fe602308c3508a19423ba7221b86e8be3699d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:75f2e22224f821cbf7dd973ad0afd01c5f9b25ae69a6bf50f0604f534a204d8d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:652ce1abbc875ddc7285a4def672f20f956dd71aac38f36e00676766a0089229\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:e970855e5b9869a0ddb5ee0e4462925e4d3caf91d41091ac29901968c46433f0\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"}],\"status\":\"failed\"}},\"status\":\"failed\",\"supervisor_failures\":[]}\n",
+    "raw_log_sha256": "475b71614c9a4479d414cc5e87facacb84ffdd384882f645ea5451a4b14a2535"
+  },
+  {
+    "event": {
+      "name": "discovery-05-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-05-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648008.844262,
+      "pid": 76368,
+      "exit_code": 1,
+      "end": 1795648029.322044
+    },
+    "log": "Prepared p03-blind-boss.fusion: submitted\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 0 queued | 0 completed | 8 waiting for evidence\n{\"features\":{\"fusion\":{\"failed\":1}},\"file_scope\":\"/private<campaign-output>/Automatic/discovery-05-source/FileScope.json\",\"file_stall\":\"/private<campaign-output>/Automatic/discovery-05-source/FileStall.json\",\"native_verification\":{},\"plan_sha256\":\"e8aa60c079c31f0048b4afe65f0b5458fa69c52bf3e3fa8719a29c88d39d7ee4\",\"reader_patch\":\"/private<campaign-output>/Automatic/discovery-05-source/Reader.patch\",\"result\":\"/private<campaign-output>/Automatic/discovery-05-source/CatalogueResult.json\",\"schema_version\":1,\"scopes\":{\"p03-blind-boss.fusion\":{\"assessment_job\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"jobs\":[{\"attempts\":3,\"deadline\":null,\"fingerprint\":\"e8436a66aa23a2023b131cddf3df68f9e58c77c9a9fe5b8c12b90a136327adf7\",\"generation\":1,\"id\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"kind\":\"inference.fields\",\"lease_until\":null,\"reason\":\"runner exited with status 1\",\"receipt\":\"4695205b668e7b2d379d8ba13ce99faccfd6e8978110053bea6a40f503a68b2f\",\"result\":\"ae28aa5f8593acf0e86368a18f9b049891e8dbeb63c21e02f111f2be478ce19e\",\"state\":\"failed\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:ceb1aaebd78eafc63209899db27cec53849128142619a6d3953c5d629b943166\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2abe8ac9ffc05ad650bd61cb25d73e441e7fb7116a04fbb92b37e642c4a7d870\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2c7f07eecb45f61c09ed11b5ee6038d1bb016986188af75fef49bd52e362de21\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:b9b988578decec21feeae0ebcaacbcbed72b4e5bdee98dd58cbb99c1366b37d5\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:5b61dac8b62f000e2ca5e938610fe602308c3508a19423ba7221b86e8be3699d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:75f2e22224f821cbf7dd973ad0afd01c5f9b25ae69a6bf50f0604f534a204d8d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:652ce1abbc875ddc7285a4def672f20f956dd71aac38f36e00676766a0089229\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:e970855e5b9869a0ddb5ee0e4462925e4d3caf91d41091ac29901968c46433f0\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"}],\"status\":\"failed\"}},\"status\":\"failed\",\"supervisor_failures\":[]}\n",
+    "raw_log_sha256": "8a075bdb2e433c70e53a7b4b227940ab669c62d2d471aedf8bc592727809973d"
+  },
+  {
+    "event": {
+      "name": "discovery-06-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/discovery-06-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648041.435564,
+      "pid": 77782,
+      "exit_code": 1,
+      "end": 1795648061.411057
+    },
+    "log": "Prepared p03-blind-boss.fusion: submitted\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 0 queued | 0 completed | 8 waiting for evidence\n{\"features\":{\"fusion\":{\"failed\":1}},\"file_scope\":\"/private<campaign-output>/Automatic/discovery-06-source/FileScope.json\",\"file_stall\":\"/private<campaign-output>/Automatic/discovery-06-source/FileStall.json\",\"native_verification\":{},\"plan_sha256\":\"f32c52cc3db1e29ebcfe7215f678a5cd1c296460fce69b23aeab3d7de87fd070\",\"reader_patch\":\"/private<campaign-output>/Automatic/discovery-06-source/Reader.patch\",\"result\":\"/private<campaign-output>/Automatic/discovery-06-source/CatalogueResult.json\",\"schema_version\":1,\"scopes\":{\"p03-blind-boss.fusion\":{\"assessment_job\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"jobs\":[{\"attempts\":3,\"deadline\":null,\"fingerprint\":\"e8436a66aa23a2023b131cddf3df68f9e58c77c9a9fe5b8c12b90a136327adf7\",\"generation\":1,\"id\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"kind\":\"inference.fields\",\"lease_until\":null,\"reason\":\"runner exited with status 1\",\"receipt\":\"9d3877c3caa740a150465e7c88599ef1440c3fcdcec922d6d324178247dd4eb5\",\"result\":\"25ecb87d22c2540d36d0faf730293d9ea33ca6ea396f144d7c759775a1b3e213\",\"state\":\"failed\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:ceb1aaebd78eafc63209899db27cec53849128142619a6d3953c5d629b943166\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2abe8ac9ffc05ad650bd61cb25d73e441e7fb7116a04fbb92b37e642c4a7d870\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2c7f07eecb45f61c09ed11b5ee6038d1bb016986188af75fef49bd52e362de21\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:b9b988578decec21feeae0ebcaacbcbed72b4e5bdee98dd58cbb99c1366b37d5\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:5b61dac8b62f000e2ca5e938610fe602308c3508a19423ba7221b86e8be3699d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:75f2e22224f821cbf7dd973ad0afd01c5f9b25ae69a6bf50f0604f534a204d8d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:652ce1abbc875ddc7285a4def672f20f956dd71aac38f36e00676766a0089229\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:e970855e5b9869a0ddb5ee0e4462925e4d3caf91d41091ac29901968c46433f0\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"}],\"status\":\"failed\"}},\"status\":\"failed\",\"supervisor_failures\":[]}\n",
+    "raw_log_sha256": "7b374ab9ffc5ea643604bf22dc9f04e665563fe6ea5702695a2ef54795c225ed"
+  },
+  {
+    "event": {
+      "name": "holdout-01-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-01-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648074.413825,
+      "pid": 80646,
+      "exit_code": 1,
+      "end": 1795648094.887132
+    },
+    "log": "Prepared p03-blind-boss.fusion: submitted\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 0 queued | 0 completed | 8 waiting for evidence\n{\"features\":{\"fusion\":{\"failed\":1}},\"file_scope\":\"/private<campaign-output>/Automatic/holdout-01-source/FileScope.json\",\"file_stall\":\"/private<campaign-output>/Automatic/holdout-01-source/FileStall.json\",\"native_verification\":{},\"plan_sha256\":\"dde18aff1e5f125e0bafd82699afff1bd2abe4a2b5349907378ccb8dc32de437\",\"reader_patch\":\"/private<campaign-output>/Automatic/holdout-01-source/Reader.patch\",\"result\":\"/private<campaign-output>/Automatic/holdout-01-source/CatalogueResult.json\",\"schema_version\":1,\"scopes\":{\"p03-blind-boss.fusion\":{\"assessment_job\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"jobs\":[{\"attempts\":3,\"deadline\":null,\"fingerprint\":\"e8436a66aa23a2023b131cddf3df68f9e58c77c9a9fe5b8c12b90a136327adf7\",\"generation\":1,\"id\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"kind\":\"inference.fields\",\"lease_until\":null,\"reason\":\"runner exited with status 1\",\"receipt\":\"2ed3202abc9ac9d0bcce8fbded487c5a76f7aaa7c36274891bc35d99f724fde3\",\"result\":\"bb7df89f0589c0a74c4ae027dde2adfd96dd95b50fceced134d67b2e7756f165\",\"state\":\"failed\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:ceb1aaebd78eafc63209899db27cec53849128142619a6d3953c5d629b943166\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2abe8ac9ffc05ad650bd61cb25d73e441e7fb7116a04fbb92b37e642c4a7d870\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2c7f07eecb45f61c09ed11b5ee6038d1bb016986188af75fef49bd52e362de21\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:b9b988578decec21feeae0ebcaacbcbed72b4e5bdee98dd58cbb99c1366b37d5\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:5b61dac8b62f000e2ca5e938610fe602308c3508a19423ba7221b86e8be3699d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:75f2e22224f821cbf7dd973ad0afd01c5f9b25ae69a6bf50f0604f534a204d8d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:652ce1abbc875ddc7285a4def672f20f956dd71aac38f36e00676766a0089229\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:e970855e5b9869a0ddb5ee0e4462925e4d3caf91d41091ac29901968c46433f0\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"}],\"status\":\"failed\"}},\"status\":\"failed\",\"supervisor_failures\":[]}\n",
+    "raw_log_sha256": "40a6c860cabe95a51f419fcf031ea524cda01987fa1951f7ddb29c0b50af8590"
+  },
+  {
+    "event": {
+      "name": "holdout-02-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-02-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648107.0813398,
+      "pid": 82095,
+      "exit_code": 1,
+      "end": 1795648127.142196
+    },
+    "log": "Prepared p03-blind-boss.fusion: submitted\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 0 queued | 0 completed | 8 waiting for evidence\n{\"features\":{\"fusion\":{\"failed\":1}},\"file_scope\":\"/private<campaign-output>/Automatic/holdout-02-source/FileScope.json\",\"file_stall\":\"/private<campaign-output>/Automatic/holdout-02-source/FileStall.json\",\"native_verification\":{},\"plan_sha256\":\"e2ca7ed17ba887eaec4128d5adbfd2ff7ea60c0f37323c8ab153b7343f268e69\",\"reader_patch\":\"/private<campaign-output>/Automatic/holdout-02-source/Reader.patch\",\"result\":\"/private<campaign-output>/Automatic/holdout-02-source/CatalogueResult.json\",\"schema_version\":1,\"scopes\":{\"p03-blind-boss.fusion\":{\"assessment_job\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"jobs\":[{\"attempts\":3,\"deadline\":null,\"fingerprint\":\"e8436a66aa23a2023b131cddf3df68f9e58c77c9a9fe5b8c12b90a136327adf7\",\"generation\":1,\"id\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"kind\":\"inference.fields\",\"lease_until\":null,\"reason\":\"runner exited with status 1\",\"receipt\":\"8a00f2104225f689389b2975fcea1c76de170474c69151aa8ae788cda1faded7\",\"result\":\"0e66051995029403c6de251e064caa02612162989e198893a5864ccd34433f48\",\"state\":\"failed\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:ceb1aaebd78eafc63209899db27cec53849128142619a6d3953c5d629b943166\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2abe8ac9ffc05ad650bd61cb25d73e441e7fb7116a04fbb92b37e642c4a7d870\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2c7f07eecb45f61c09ed11b5ee6038d1bb016986188af75fef49bd52e362de21\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:b9b988578decec21feeae0ebcaacbcbed72b4e5bdee98dd58cbb99c1366b37d5\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:5b61dac8b62f000e2ca5e938610fe602308c3508a19423ba7221b86e8be3699d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:75f2e22224f821cbf7dd973ad0afd01c5f9b25ae69a6bf50f0604f534a204d8d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:652ce1abbc875ddc7285a4def672f20f956dd71aac38f36e00676766a0089229\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:e970855e5b9869a0ddb5ee0e4462925e4d3caf91d41091ac29901968c46433f0\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"}],\"status\":\"failed\"}},\"status\":\"failed\",\"supervisor_failures\":[]}\n",
+    "raw_log_sha256": "08eddb6e528a968144739778058687f98c545960f3d6f8bb8603134833e47e1f"
+  },
+  {
+    "event": {
+      "name": "holdout-03-source-automatic",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "run",
+        "--root",
+        "<research-checkout>",
+        "fusion",
+        "--input",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "--directory",
+        "<campaign-output>/Automatic/holdout-03-source",
+        "--max-seconds",
+        "180",
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "512"
+      ],
+      "start": 1795648139.590228,
+      "pid": 83410,
+      "exit_code": 1,
+      "end": 1795648159.7020218
+    },
+    "log": "Prepared p03-blind-boss.fusion: submitted\nkit: 0 workers active | 1 queued | 0 completed | 8 waiting for evidence\nkit: 1 workers active | 0 queued | 0 completed | 8 waiting for evidence\nkit: 0 workers active | 0 queued | 0 completed | 8 waiting for evidence\n{\"features\":{\"fusion\":{\"failed\":1}},\"file_scope\":\"/private<campaign-output>/Automatic/holdout-03-source/FileScope.json\",\"file_stall\":\"/private<campaign-output>/Automatic/holdout-03-source/FileStall.json\",\"native_verification\":{},\"plan_sha256\":\"4d4d62ea32bd180c68dff5b1a076f75120aa2ca3af85b7dc94b84372162c7b43\",\"reader_patch\":\"/private<campaign-output>/Automatic/holdout-03-source/Reader.patch\",\"result\":\"/private<campaign-output>/Automatic/holdout-03-source/CatalogueResult.json\",\"schema_version\":1,\"scopes\":{\"p03-blind-boss.fusion\":{\"assessment_job\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"jobs\":[{\"attempts\":3,\"deadline\":null,\"fingerprint\":\"e8436a66aa23a2023b131cddf3df68f9e58c77c9a9fe5b8c12b90a136327adf7\",\"generation\":1,\"id\":\"inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30\",\"kind\":\"inference.fields\",\"lease_until\":null,\"reason\":\"runner exited with status 1\",\"receipt\":\"86b0eb17b57fd344fa00ae406cdbd7220187b43265d60bacd5bbe72dee1f14d3\",\"result\":\"bc1c7619abf20e0353da29292b1e781ad9c765a5f278d2a03f568df421384aad\",\"state\":\"failed\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:ceb1aaebd78eafc63209899db27cec53849128142619a6d3953c5d629b943166\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2abe8ac9ffc05ad650bd61cb25d73e441e7fb7116a04fbb92b37e642c4a7d870\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:2c7f07eecb45f61c09ed11b5ee6038d1bb016986188af75fef49bd52e362de21\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:b9b988578decec21feeae0ebcaacbcbed72b4e5bdee98dd58cbb99c1366b37d5\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:5b61dac8b62f000e2ca5e938610fe602308c3508a19423ba7221b86e8be3699d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:75f2e22224f821cbf7dd973ad0afd01c5f9b25ae69a6bf50f0604f534a204d8d\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:652ce1abbc875ddc7285a4def672f20f956dd71aac38f36e00676766a0089229\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"},{\"attempts\":0,\"deadline\":null,\"fingerprint\":null,\"generation\":1,\"id\":\"rescan:e970855e5b9869a0ddb5ee0e4462925e4d3caf91d41091ac29901968c46433f0\",\"kind\":\"inference.rescan\",\"lease_until\":null,\"reason\":\"prerequisites changed\",\"receipt\":null,\"result\":null,\"state\":\"waiting_evidence\"}],\"status\":\"failed\"}},\"status\":\"failed\",\"supervisor_failures\":[]}\n",
+    "raw_log_sha256": "943f4de682bdff176fcc0bd73c90b5c63e6f80b2eb0d8150114da35171322efb"
+  }
+]

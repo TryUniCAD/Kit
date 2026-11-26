@@ -1,15 +1,16 @@
-from convert.Formats.Fusion.BrepCodec.EmitSnapshot import EmitSnapshot
 from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.EmitGeometry import EmitGeometry
 from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
     GeometryState,
 )
-from convert.Formats.Fusion.BrepCodec.Models.BrepHeader import BrepHeader
 from convert.Formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.EmitPrismSnap import (
     EmitPrismSnap,
 )
 from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Models.PrismSnapshot import (
     PrismSnapshot,
+)
+from convert.Formats.Fusion.DocumentCodec.Auxiliary.Snapshots.EmitTypedSnap import (
+    EmitTypedSnap,
 )
 from convert.Formats.Fusion.DocumentCodec.Auxiliary.Snapshots.SnapshotName import (
     SnapshotName,
@@ -25,11 +26,4 @@ def EmitSnapPart(Value: DocumentSnap) -> ContainerPart:
         return ContainerPart(Value.Name, EmitGeometry(Snapshot))
     if isinstance(Snapshot, PrismSnapshot):
         return ContainerPart(Value.Name, EmitPrismSnap(Snapshot))
-    if Snapshot.Header != BrepHeader(23200, 4, 2, 10.0, 1e-6, 1e-10):
-        raise ValueError("Unsupported Fusion snapshot header")
-    return ContainerPart(
-        Value.Name,
-        EmitSnapshot(
-            Snapshot.Model, Snapshot.TagSet, Snapshot.Stamp, Snapshot.Vertices
-        ),
-    )
+    return ContainerPart(Value.Name, EmitTypedSnap(Snapshot))
