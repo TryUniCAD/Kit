@@ -671,3 +671,10 @@ Current-head publication checks and configured review are tracked in the deliver
 The exit requires measured batch session reuse, independent reopening, per-case decoder receipts, and current-revision CI and configured review.
 The [change entry](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) retains verification limits.
 Production decoding and conversion qualification remain open.
+
+## Circular rim fillet qualification packs
+
+`A08h-RimFillet20261125` is a checking B06 child owned by Codex on `feat/native-conversion-campaign-20261125`.
+The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-circular-rim-fillet-readwrite-packs) records dependencies and delivery.
+The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
+The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.

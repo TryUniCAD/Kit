@@ -73,6 +73,8 @@ Label each release with its actual supported matrix and remaining roadmap gaps.
 
 Continue **B02** using the [step register on PR #158](https://github.com/TryUniCAD/Kit/blob/8509332301a665bf0e618f00089e185c8c3c7cd3/Documentation/Reference/Research/AutomationSteps.md).
 PR #94 reported native Fusion observations for P01–P04.
+The bounded [rim-fillet snapshot transport repair](Documentation/Changes/Fusion/Serialization/FusionNarrowSnapshotTransport.md) has typed/native evidence on PR #301; neutral fillet projection and editable cross-format conversion remain unfinished.
+
 Check those observations against the pinned source captures before accepting them as independent evidence for A02d.
 Use the accepted evidence to qualify the sketches, bosses and cuts in A04c and A05c before comparing graphs in A06.
 Keep P05 reserved for independent validation.

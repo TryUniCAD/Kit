@@ -18,7 +18,6 @@ import pytest as Pytest
         ("check", "Pyright"),
         ("check", "Mypy"),
         ("check", "Python steering"),
-        ("check", "Research CLI compatibility"),
         ("check", "Research CLI Windows compatibility"),
         ("check", "Verify CI policy and pytest compatibility"),
         ("check", "Verify rationale comments on changed sources"),
@@ -74,7 +73,6 @@ def CheckReportFlow(CaseMode: str, CheckName: str) -> None:
         ("Pyright", 1),
         ("Mypy", 1),
         ("Python steering", 1),
-        ("Research CLI compatibility", 0),
         ("Test suite / Platform (windows-2025) / ${{ matrix.group }}", 0),
         ("Test suite / Platform (macos-26) / ${{ matrix.group }}", 0),
         ("Native file compatibility / ${{ matrix.group }}", 0),
@@ -98,24 +96,6 @@ def CheckPhaseSkip(CheckName: str, ExitCode: int, TmpPath: FilePath) -> None:
         assert f"CI failed: {CheckName}" in Result.stderr
     else:
         assert "CI passed" in Result.stdout
-
-
-# the queue aggregate must finish once the retiring research cli job stops reporting
-def CheckRetiredCli(TmpPath: FilePath) -> None:
-    ScriptPath = (
-        FilePath(__file__).resolve().parents[2]
-        / "tests/Policy/CiAggregation/RunAggregate.cjs"
-    )
-    Result = Subprocess.run(
-        ["node", str(ScriptPath), "queue-retired-cli", "success", "Pyright"],
-        cwd=TmpPath,
-        capture_output=True,
-        text=True,
-        timeout=20,
-    )
-    assert Result.returncode == 0, Result.stderr
-    assert "CI passed" in Result.stdout
-    assert "Research CLI compatibility" not in Result.stdout
 
 
 # process execution verifies trusted base phase selection and rejects unreadable markers
