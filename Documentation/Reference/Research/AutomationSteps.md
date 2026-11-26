@@ -130,6 +130,13 @@ independent endpoints. If the remaining bytes prevent a join, record
 where the proof stops. The research does not change the production SDK
 or require a new native acquisition.
 
+The [active graph evidence](../../../re/solidworks/records/SavedActiveOwnerBoundary.md)
+reaches the exact terminator, resolves all declared pointers and retains
+the three saved attributed vertices. An independent native comparison
+matches all edge endpoints and outward face loops. The offline typed
+builder reproduces one closed solid. Public geometry recovery and source
+annotation binding remain separate.
+
 ### PR 158 implementation follow-up
 
 #### A08b-SharedQueue: shared research requests and advice budgets

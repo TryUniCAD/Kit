@@ -1,0 +1,118 @@
+{
+  "current_descriptor_linked_initializer": {
+    "callback": {
+      "end_exclusive": "0x18144e09b",
+      "sha256": "3efd0d7492acf25a11b0e97af0899ac682744bc219b479b5fb0e7c0b4bb61969",
+      "start": "0x18144e050"
+    },
+    "callback_store": "0x18143adf3",
+    "runtime_pointer_offsets_cleared": [
+      0,
+      8,
+      16,
+      24
+    ]
+  },
+  "descriptor_sha256": "e20e859e81c8f71f34629e6ed6aa97affca47bae1a77afaffcf81c71edf847f3",
+  "independent_known_boundary_sha256": "27592931434e802b9645f975e95a40954471eeb07307a7808209de3728afd1dc",
+  "independent_wire_scope": {
+    "active_partition_sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56",
+    "following_trimmed_curve_body_span": [
+      3705,
+      3790
+    ],
+    "geometric_owner_body_span": [
+      3692,
+      3705
+    ],
+    "geometric_owner_index": 116
+  },
+  "kernel_sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+  "method_sha256": "a880099ce321c7aa85b52129e51f9072ef0970c4e94041f0f3e908952fb168c0",
+  "native_processes_launched": 0,
+  "ordinary_pointer_fixup": {
+    "class_predicate": "0x1804f8590",
+    "null_input_zeros_slot_at": "0x180a230e7",
+    "reference_id_from_runtime_slot_at": "0x180a22e31",
+    "resolved_pointer_to_same_slot_at": "0x180a22e5c",
+    "window": {
+      "end_exclusive": "0x180a230f0",
+      "sha256": "d13dcb6dd1dab1b599ba46925df36b63ebb311aa2b60fbef56b5cc2316f43b7a",
+      "start": "0x180a22d40"
+    },
+    "wrong_class_clears_slot_at": "0x180a22f29"
+  },
+  "ordinary_transfer_sha256": "e6ce9e8c793de907d019a46220be806ccdaea4e555cf00886ed30e37169aaac7",
+  "p1003": {
+    "class_flag_promotion": {
+      "end_exclusive": "0x1804f6571",
+      "sha256": "2222d86678c94944062f7d35c85ce0beb1d8e1c41e038320a206d06fa0f9a684",
+      "start": "0x1804f6550"
+    },
+    "dispatch_cell": {
+      "end_exclusive": "0x1804f8a10",
+      "sha256": "10d0331cc9ec9abc27f33f2bb827094f44cf06e6346e02b51b2d5a093d22bb6f",
+      "start": "0x1804f8a0c"
+    },
+    "handler": "0x1804f85f7",
+    "initialization": {
+      "end_exclusive": "0x1804f6afc",
+      "sha256": "13655a5724887f05dbf12011ca25097cb93060d89aa8247f8996c3c254b14f35",
+      "start": "0x1804f63b6"
+    },
+    "observed_targets": [
+      {
+        "class": "TRIMMED_CURVE",
+        "class_registration": "0x1804f6480",
+        "flags_entry": "0x1845d5eb4",
+        "index": 46,
+        "native_kind": 133,
+        "role": "owner"
+      },
+      {
+        "class": "LINE",
+        "class_registration": "0x1804f6546",
+        "flags_entry": "0x1845d5d18",
+        "index": 118,
+        "native_kind": 30,
+        "role": "shared_geometry"
+      }
+    ],
+    "physical_class_upper_exclusive": 239,
+    "predicate_dispatch": {
+      "end_exclusive": "0x1804f8660",
+      "sha256": "b23eaa4ae71d33a5dcf02962e621dcef01d67239c5c88e0576a3e1b6b76f881a",
+      "start": "0x1804f8590"
+    },
+    "promotion_input_masks_any": [
+      1,
+      2
+    ],
+    "required_flag_mask": 4,
+    "runtime_flag_stride": 4,
+    "runtime_flags_base": "0x1845d5ca0",
+    "use": [
+      "owner",
+      "shared_geometry"
+    ]
+  },
+  "p141": {
+    "physical_class_equality": 141,
+    "predicate": {
+      "end_exclusive": "0x1804f89fd",
+      "sha256": "6bbdf043519b3d3df56485aa94b70aff962c7e694c84ff7ebf6b98108ebf1b92",
+      "start": "0x1804f89f8"
+    },
+    "use": [
+      "next",
+      "previous"
+    ]
+  },
+  "schema": "kit.sw2026.p03.geometric-owner-static-pointers.v1",
+  "unqualified": [
+    "complete p1003 class roster",
+    "whole active partition",
+    "public SDK read",
+    "native application acceptance"
+  ]
+}

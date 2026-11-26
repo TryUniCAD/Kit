@@ -1,0 +1,232 @@
+{
+  "schema": "kit.research.p03-active-owner-boundary.v1",
+  "source_sha256": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+  "active_sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56",
+  "stream_sha256": "d638c0c902a737e950ac0c9230f69fec746c54c111a6f52febf7c79472517729",
+  "body_bytes": 7014,
+  "sdk_source_tree": "3739be2f567a3285dd3dc725be9d0d07865a7b18",
+  "authorities": {
+    "133": {
+      "field_spec": "node_id:d attributes_features:p1019 owner:p1010 next:p1008 previous:p1008 geometric_owner:p141 sense:c basis_curve:p1008 point_1:v point_2:v parm_1:f parm_2:f",
+      "file": "LoaderDescriptor.json",
+      "sha256": "8fb352968f34ccf229e5b97b762c772f55743c8958ab77f8215a834070c763a5"
+    },
+    "141": {
+      "field_spec": "owner:p1003 next:p141 previous:p141 shared_geometry:p1003",
+      "file": "LoaderDescriptor.json",
+      "sha256": "e20e859e81c8f71f34629e6ed6aa97affca47bae1a77afaffcf81c71edf847f3"
+    }
+  },
+  "pointer_evidence_sha256": "3953847c6cc9f2a1751d4cdb6a50d34dad96b1738f650797166d5b816e455b22",
+  "walk_sha256": "3519ddfafa1ef3cebb86f479719acb944ca36d5eb97438f384b6c1d29c75b967",
+  "walk_method_sha256": "dc15eb9f5a9b6e3337a55f1043c26b1f706efa2c51662dc02c59a1cceecd90d9",
+  "independent_first_walk_sha256": "4ffe386cfdcbdd38b0b9fcc5df39dac7584322eb0d67544bc1631fd9fd4bf337",
+  "semantic_receipt_sha256": "1ba25308324871712c18738c79e7f196eefe0ca6802aac2c664e1caded03cf10",
+  "semantic_method_sha256": "b5d29a400dd58aa6ab86748b0edb08871d5329a9f7469eb6f041f108b2d243e7",
+  "topology_receipt_sha256": "570496dfc519227db04cb62f74daa8e2d02f8e4b894b4588e5dd08042da318e9",
+  "topology_method_sha256": "0cc09945c0e5828ba19a1e0027d95f6762e29dbcb44baeacfe1d2f03897b7818",
+  "vertex_receipt_sha256": "1396a5f21037fa0155ec5819b8e82458c1ed69f3f9c055e298161bfd5dff02d3",
+  "lower_geometry_receipt_sha256": "e50bee135e0ddbd7691d17a79abf62310a054f78f6137ec22b3e3e10821f8626",
+  "nodes": 189,
+  "world_alive_unique_index1": true,
+  "world_reachable_typed_records": 189,
+  "checked_concrete_references": 411,
+  "unresolved_declared_pointers": 0,
+  "terminator": {
+    "body_span": [
+      7010,
+      7014
+    ],
+    "wire_sha256": "76cc5805dab9b4eacefdb477f498020fd82bccdbc9c6a2d9ce10586ac85512b4"
+  },
+  "extra_layout_rows": [
+    {
+      "index": 6,
+      "kind": 133,
+      "body_span": [
+        1840,
+        1926
+      ],
+      "fields": {
+        "attributes_features": 0,
+        "basis_curve": 50,
+        "geometric_owner": 0,
+        "next": 46,
+        "node_id": 211,
+        "owner": 2,
+        "parm_1": 0.0,
+        "parm_2": 0.02,
+        "point_1": [
+          0.04,
+          0.0,
+          0.0
+        ],
+        "point_2": [
+          0.04,
+          0.02,
+          0.0
+        ],
+        "previous": 0,
+        "sense": "+"
+      },
+      "raw_record_sha256": "809814201601c679ccf1e3229c1f37c13878e673c0bb4cee69043cc034b7a205"
+    },
+    {
+      "index": 116,
+      "kind": 141,
+      "body_span": [
+        3692,
+        3705
+      ],
+      "fields": {
+        "next": 116,
+        "owner": 46,
+        "previous": 116,
+        "shared_geometry": 118
+      },
+      "raw_record_sha256": "6d7d07c2a59d6811920716bf41033c701db41b5150a2e7f209e66d379c7e439d"
+    },
+    {
+      "index": 46,
+      "kind": 133,
+      "body_span": [
+        3705,
+        3790
+      ],
+      "fields": {
+        "attributes_features": 0,
+        "basis_curve": 118,
+        "geometric_owner": 0,
+        "next": 0,
+        "node_id": 190,
+        "owner": 2,
+        "parm_1": 0.0,
+        "parm_2": 0.04,
+        "point_1": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "point_2": [
+          0.04,
+          0.0,
+          0.0
+        ],
+        "previous": 6,
+        "sense": "+"
+      },
+      "raw_record_sha256": "1eb14f680fab7061b9c1215ff7db4aa34072f5d00cde9ea1519539c349689b8c"
+    },
+    {
+      "index": 123,
+      "kind": 141,
+      "body_span": [
+        3889,
+        3901
+      ],
+      "fields": {
+        "next": 123,
+        "owner": 6,
+        "previous": 123,
+        "shared_geometry": 50
+      },
+      "raw_record_sha256": "9ee55ffea900d38cd812d187d6566d0641d6414c346ba847a0ec29d141a26f87"
+    }
+  ],
+  "trim_links": [
+    {
+      "edge": 84,
+      "endpoint_binary64_words": [
+        [
+          "3fa47ae147ae147b",
+          "0000000000000000",
+          "0000000000000000"
+        ],
+        [
+          "3fa47ae147ae147b",
+          "3f947ae147ae147b",
+          "0000000000000000"
+        ]
+      ],
+      "geometric_owner": 123,
+      "line": 50,
+      "trim": 6
+    },
+    {
+      "edge": 110,
+      "endpoint_binary64_words": [
+        [
+          "0000000000000000",
+          "0000000000000000",
+          "0000000000000000"
+        ],
+        [
+          "3fa47ae147ae147b",
+          "0000000000000000",
+          "0000000000000000"
+        ]
+      ],
+      "geometric_owner": 116,
+      "line": 118,
+      "trim": 46
+    }
+  ],
+  "owned_attributes": 33,
+  "owned_attribute_values": 32,
+  "independent_topology": {
+    "checks": {
+      "all_eight_measured_null_terminated_vertex_incidence_lists": true,
+      "body_face_loop_edge_fin_vertex_point_inventory": true,
+      "body_owner_rosters_complete": true,
+      "every_physical_fin_used_once_as_face_and_edge": true,
+      "independent_authored_control_exact_unordered_edge_endpoints": true,
+      "native_all_both_directions_edge_uses": true,
+      "native_distinct_outward_face_loops": true,
+      "native_exact_unordered_edge_endpoints": true,
+      "native_exact_vertex_points": true,
+      "no_local_unresolved_topology": true
+    },
+    "same_raw_native_edge_direction_count": 12,
+    "reversed_raw_native_edge_direction_count": 0,
+    "independent_control_sha256": "fbb7e64901270cb4e7e9e6906590d94cba12d0d94c13fbe3c25426513ae1df43",
+    "native_record_sha256": "800b853bde09fd171487262ab0d1f49e73a621c500435895c281908bdc0153d0",
+    "rejected_circular_incidence_hypothesis_receipt_sha256": "28c5f5fc164c9bd14a0ee7b6633bbb5b59fa4c24f39011df6304c69b700fa4ec"
+  },
+  "lower_geometry": {
+    "body_face_edge_vertex_loop_fin_counts": [
+      1,
+      6,
+      12,
+      8,
+      6,
+      24
+    ],
+    "centroid_mm": [
+      20.0,
+      10.0,
+      6.0
+    ],
+    "closed": true,
+    "exact_native_unordered_edges": 12,
+    "outward_ring_dots": [
+      9600.0,
+      9600.0,
+      9600.0,
+      9600.0,
+      9600.0,
+      9600.0
+    ],
+    "signed_volume_mm3": 9600.0,
+    "surface_area_mm2": 3040.0
+  },
+  "pocket_profile_refusal": "local pocket vertex has inconsistent fin rotation",
+  "wrong_owner_authority": {
+    "exit_code": 1,
+    "published": false,
+    "supplied_sha256": "8fb352968f34ccf229e5b97b762c772f55743c8958ab77f8215a834070c763a5"
+  },
+  "unknown_records_skipped": 0,
+  "payload_fields_written": 0,
+  "public_decoder_calls": 0,
+  "native_launches": 0
+}
