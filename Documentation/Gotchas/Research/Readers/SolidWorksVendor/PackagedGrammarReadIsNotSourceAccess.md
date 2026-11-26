@@ -10,4 +10,4 @@ For readback, permit only the exact declared grammar resource in read mode and b
 Report that resource read separately from model-input reads.
 Do not allow arbitrary files or native archives as a workaround.
 
-[Fresh-process evidence](../../../../re/solidworks/WriterResearch/Evidence/TopCompositionBoundary.json) records one named JSON read, one hash-bound grammar read and no other external access.
+[Fresh-process evidence](../../../../../re/solidworks/WriterResearch/Evidence/TopCompositionBoundary.json) records one named JSON read, one hash-bound grammar read and no other external access.

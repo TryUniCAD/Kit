@@ -11,4 +11,4 @@ It does not by itself prove the API preference's filed meaning.
 
 Retain the stopped result, exact continuation link and process distinction.
 Use same-process no-op and inverse contrasts to isolate save effects, then require independent loader/save-load authority and held-out validation before qualifying a rule.
-[Exact offline comparison and custody](../../../../re/solidworks/PlaneVisibility/ComparisonProof.json)
+[Exact offline comparison and custody](../../../../../re/solidworks/PlaneVisibility/ComparisonProof.json)

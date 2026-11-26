@@ -15,7 +15,7 @@ The current same-session no-op changed four clear streams; the cross-session tog
 The strict Definition reader refused the alternate renderer profile in every compared endpoint.
 The schema-only observations do not relax that guard.
 
-The [session-confounding gotcha](../../../Gotchas/Research/Readers/PlaneToggleContinuationRetainsSessionEffects.md) records the limitation.
+The [session-confounding gotcha](../../../Gotchas/Research/Readers/SolidWorksVendor/PlaneToggleContinuationRetainsSessionEffects.md) records the limitation.
 The observed low-word difference does not establish a bit-17 rule.
 This tranche adds no production serializer, source admission or native acceptance claim.
 No CAD application was launched and no reserved holdout was read.
