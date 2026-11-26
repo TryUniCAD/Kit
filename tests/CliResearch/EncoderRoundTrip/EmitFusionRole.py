@@ -22,7 +22,7 @@ from sys import argv as KArguments, path as KModulePath
 
 # the independent caller supplies only the trusted checkout and durable writer inputs
 KRootPath, KInputPath, KOutputPath, KLocator, KEpoch = KArguments[1:]
-# checkout sources preserve the installed command research sdk boundary in isolation
+
 KModulePath[:0] = [
     str(FilePath(KRootPath) / Entry) for Entry in ('src', 're/automation')
 ]
@@ -31,6 +31,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # typed reconstruction consumes the persisted constructor document as the sole model input
 KDocument = CadDocument.from_json(FilePath(KInputPath).read_text(encoding='utf-8'))
+
 # the location and epoch bind the constructor output to its recorded role
 KPayload = EmitCandidate(KDocument, native_locator=KLocator, written_at=int(KEpoch))
 FilePath(KOutputPath).write_bytes(KPayload)

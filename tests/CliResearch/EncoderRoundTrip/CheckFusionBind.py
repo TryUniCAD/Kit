@@ -6,7 +6,7 @@ from tests.CliResearch.EncoderRoundTrip.RebindWriter import RebindWriter
 from tests.CliResearch.ResearchClient import ResearchCli
 
 
-# unmeasured protocol ingress must validate persisted role inputs before considering native receipt evidence
+# unmeasured protocol ingress must validate both persisted roles before considering native receipt evidence
 def CheckFusionBind(OutputPath: FilePath, Snapshot: dict[str, bytes]) -> None:
     TmpPath = OutputPath.parent
     Manifest = DecodeJson(Snapshot["manifest.json"])
@@ -14,10 +14,10 @@ def CheckFusionBind(OutputPath: FilePath, Snapshot: dict[str, bytes]) -> None:
     Envelope = {
         "schema": 1,
         "application": "fusion",
-        "role": "edited",
+        "role": "reconstruction",
         "run_fingerprint": "0" * 64,
         "source_sha256": Manifest["source_sha256"],
-        "candidate_sha256": Manifest["candidate_sha256"]["edited"],
+        "candidate_sha256": Manifest["candidate_sha256"]["reconstruction"],
         "sdk_revision": Manifest["sdk_revision"],
     }
     assert Envelope["run_fingerprint"] != Manifest["run_fingerprint"]
@@ -41,12 +41,12 @@ def CheckFusionBind(OutputPath: FilePath, Snapshot: dict[str, bytes]) -> None:
             "--output",
             str(RunPath),
             "--role",
-            "edited",
+            "reconstruction",
             "--receipt",
             str(ReceiptPath),
         )
         assert Result.returncode == 1, Result.stdout + Result.stderr
         assert DecodeJson(Result.stderr)["error"] == FailureText
-        assert not (RunPath / "edited-receipt.json").exists()
+        assert not (RunPath / "reconstruction-receipt.json").exists()
         assert {Entry.name: Entry.read_bytes() for Entry in RunPath.iterdir()} == Before
     assert ReceiptPath.read_bytes() == ReceiptBytes
