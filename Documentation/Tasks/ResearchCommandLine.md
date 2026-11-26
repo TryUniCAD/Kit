@@ -113,6 +113,9 @@ Use `kit research --root /path/to/KitPr94 fusion --help` for the authoritative r
 Expected result: the existing reader publishes its normal artifacts or reports its existing failure.
 Successful receipts do not establish portable completeness or native conversion acceptance.
 
+The [Fusion saved cuboid binding procedure](../Changes/Research/Encoder/FusionSavedParameterBindings.md) uses a persisted semantic request to verify parameter names, order and feature ownership.
+Run this offline research procedure from a checkout. Its result has no direct Fusion application verification.
+
 The [blind-boss audit](../Changes/Research/Solidworks/BlindBossDecodeAudit.md) records an executed offline scope and its limits.
 Offline readers decode existing native files without launching CAD applications.
 Archived application measurements support replay checks, not fresh vendor acceptance.
