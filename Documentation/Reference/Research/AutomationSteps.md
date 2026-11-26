@@ -98,6 +98,11 @@ The test records the exported payload hashes and exact admitted source.
 The merge queue, production writer and whole-source conversion remain
 separate. No new CAD run is required for this decoder evidence.
 
+The [reader evidence](../../Changes/Solidworks/Archive/Partition/SolidworksAttributedActivePartition.md)
+records the disclosed source's verified strict SDK and CLI geometry,
+matching raw and model-only output, and a passing planned component
+regression. Independent native-saved generalization remains open.
+
 ### PR 158 implementation follow-up
 
 #### A08b-SharedQueue: shared research requests and advice budgets

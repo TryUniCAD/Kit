@@ -33,6 +33,13 @@ three original exported geometry payloads were byte-identical to the
 previous reader's results. The actual private source bytes remained
 unchanged. No native session ran for this decoder verification.
 
+Both regression modules passed through the repository's existing planner,
+tracked shard and completeness report in 20.22 seconds. The older module
+keeps its six-case matrix. The new installed-component test covers
+seventeen refusal cases and the complete measured attributed geometry.
+Independent screening verified the checked-in member and both expanded
+frames. The original source archive stays private.
+
 Unsupported carrier, fin, owner and attribute relationships remain
 outside this geometry profile. Whole-source conversion and writer
 acceptance are separate work.
