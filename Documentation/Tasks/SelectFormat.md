@@ -55,6 +55,7 @@ The Fusion entry is registered for reading and writing, with `f3d` as an alias.
 Its strict route accepts qualified graphs, not arbitrary Fusion documents or neutral models.
 `strict=False` explicitly selects the older partial reader, whose output the qualified writer refuses.
 Read the [qualified Fusion contract](../Changes/Fusion/Adapter/FusionPublicAdapter.md) before selecting that route.
+For qualified read-only Fusion documents, [public JSON can retain material resource folders](../Changes/Fusion/Adapter/FusionMaterialFolderJson.md).
 The earlier [research import restriction](../Changes/Fusion/FusionResearchImport.md) is historical.
 Use the [roadmap](../../Roadmap.md) and [backlog](../Maintenance/ConversionBacklog.md) for remaining coverage and ownership.
 
