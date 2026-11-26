@@ -100,6 +100,24 @@ def CheckPhaseSkip(CheckName: str, ExitCode: int, TmpPath: FilePath) -> None:
         assert "CI passed" in Result.stdout
 
 
+# the queue aggregate must finish once the retiring research cli job stops reporting
+def CheckRetiredCli(TmpPath: FilePath) -> None:
+    ScriptPath = (
+        FilePath(__file__).resolve().parents[2]
+        / "tests/Policy/CiAggregation/RunAggregate.cjs"
+    )
+    Result = Subprocess.run(
+        ["node", str(ScriptPath), "queue-retired-cli", "success", "Pyright"],
+        cwd=TmpPath,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+    assert Result.returncode == 0, Result.stderr
+    assert "CI passed" in Result.stdout
+    assert "Research CLI compatibility" not in Result.stdout
+
+
 # process execution verifies trusted base phase selection and rejects unreadable markers
 @Pytest.mark.parametrize(
     "CaseMode,PhaseName,ExitCode",

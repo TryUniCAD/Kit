@@ -126,6 +126,8 @@ thresholds are removed. The stable acceptance gate depends explicitly on every h
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
 Queue-only type, steering, and research CLI jobs also gate the aggregate.
+The aggregate accepts an absent Linux `Research CLI compatibility` report ahead of its
+[retirement](Documentation/Changes/Ci/ResearchCliReportRetirement.md); a reported failure still fails it.
 The Windows research CLI compatibility job partitions its existing collected roster
 across four Windows runners. Its stable report requires every shard and verifies
 that each collected case has exactly one outcome. Shard artifacts include the
