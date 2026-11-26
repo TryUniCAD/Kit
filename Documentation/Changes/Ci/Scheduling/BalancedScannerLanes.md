@@ -50,9 +50,9 @@ This change does not touch the test lanes because the planner already balances t
 This change alone is not expected to shorten candidate wall time much until the Windows lanes are also relieved.
 See [the lane pacing gotcha](../../../Gotchas/Ci/Scheduling/HeaviestLanePacing.md).
 
-The single queue `CI Agg` slot stays.
-It delayed 3 of 29 successful candidates from 23–26 November by 4.6–6.6 minutes; across all 29 the median delay was 0.4 minutes.
-Polling per candidate would exceed the repository's `GITHUB_TOKEN` rate limit at three to four concurrent candidates.
+This change kept the single queue `CI Agg` slot.
+Its stated reason, a median delay of 0.4 minutes across 29 successful candidates from 23–26 November, missed the candidates the slot ejected on the queue's response timeout.
+[Queue aggregation polling](QueueAggregationPolling.md) and per-candidate aggregation replace the shared slot.
 See [the aggregation slot gotcha](../../../Gotchas/Ci/Scheduling/QueueAggregationSlot.md).
 
 ## Verification
