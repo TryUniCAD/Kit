@@ -36,6 +36,11 @@ Lanes 6 and 7 stay slightly lighter because PR-phase Pyright, Mypy and Python st
 Lane serialization is only one constraint.
 In the first four candidates after PR #347 (23.7, 32.5, 38.8 and 44.5 minutes), the last jobs to finish were the Windows platform shards.
 Each `Kit-windows-shard-N` lane carries a Windows research CLI shard (about 2.6 minutes) and a Windows platform shard (about 6.0 minutes) per candidate, so it is now the heaviest lane.
+The `Kit-test-linux-*` lanes come next: the runtime planner gave each candidate seven shards of 5.5–8 minutes, so lanes 0–6 each carry about 6 minutes per candidate and lane 7 stays idle.
+Candidates move through those lanes in lockstep.
+On every test lane, PR #347's shard waited 12–15 minutes while the #349 shard and then the #297 shard ran ahead of it.
+macOS platform lanes carry about 6.2 minutes per candidate.
+This change does not touch the test lanes because the planner already balances them; using the idle eighth lane needs an eight-shard plan, which is a planner change.
 This change alone is not expected to shorten candidate wall time much until the Windows lanes are also relieved.
 See [the lane pacing gotcha](../../../Gotchas/Ci/Scheduling/HeaviestLanePacing.md).
 
