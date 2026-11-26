@@ -39,6 +39,7 @@ from convert.adapters.Fusion.State.EncodeState import EncodeState
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from interchange import CadDocument
+from interchange.Records.RecordSource import CadSource
 
 AUTHORING = "fusion.authoring"
 NATIVE = "fusion.native_state"
@@ -349,13 +350,14 @@ def _require_same_constructor_state(
         raise ValueError("Native Fusion material provenance has inconsistent timestamps")
 
 
-def generate_candidate(
+def _prepare_generation(
     document: CadDocument,
-    edit: dict[str, object] | None = None,
+    edit: dict[str, object] | None,
     *,
     native_locator: str,
     written_at: int,
-) -> bytes:
+) -> tuple[CadDocument, bytes | None]:
+    reconstruction = None
     if set(document.metadata) == {AUTHORING}:
         spec = _authoring_spec(document)
     elif set(document.metadata) == {NATIVE}:
@@ -372,12 +374,53 @@ def generate_candidate(
             model, _native_model(base_projection), identities
         )
         if edit is None:
-            return base
+            reconstruction = base
     else:
         raise ValueError("Fusion encoder requires a complete versioned Fusion semantic contract")
+    return MakeFusionDoc(_edit_height(spec, edit)), reconstruction
 
-    desired_spec = _edit_height(spec, edit)
-    desired = MakeFusionDoc(desired_spec)
+
+def _check_prepared_source(source: CadSource) -> None:
+    if (
+        not isinstance(source, CadSource)
+        or source.format_id != "fusion.f3d"
+        or source.attributes
+    ):
+        raise ValueError("Fusion prepared writer input requires plain Fusion source custody")
+
+
+def prepare_generation_input(
+    document: CadDocument,
+    edit: dict[str, object] | None = None,
+    *,
+    native_locator: str,
+    written_at: int,
+) -> CadDocument:
+    _check_prepared_source(document.source)
+    desired, _ = _prepare_generation(
+        document, edit, native_locator=native_locator, written_at=written_at
+    )
+    return replace(desired, source=document.source)
+
+
+def generate_prepared_candidate(
+    prepared: CadDocument, *, native_locator: str, written_at: int
+) -> bytes:
+    if type(prepared) is not CadDocument or set(prepared.metadata) != {AUTHORING}:
+        raise ValueError(
+            "Fusion prepared writer input requires a complete authoring contract"
+        )
+    _check_prepared_source(prepared.source)
+    desired = replace(prepared, source=CadSource("fusion.f3d", "", ""))
+    return _emit_authored_candidate(
+        desired, native_locator=native_locator, written_at=written_at
+    )
+
+
+def _emit_authored_candidate(
+    desired: CadDocument, *, native_locator: str, written_at: int
+) -> bytes:
+    desired_spec = _authoring_spec(desired)
     candidate, _ = _seeded_write(
         desired, native_locator=native_locator, written_at=written_at
     )
@@ -396,6 +439,23 @@ def generate_candidate(
     if expected != projected:
         raise ValueError("Strict Fusion output projection and regenerated cuboid disagree")
     return candidate
+
+
+def generate_candidate(
+    document: CadDocument,
+    edit: dict[str, object] | None = None,
+    *,
+    native_locator: str,
+    written_at: int,
+) -> bytes:
+    desired, reconstruction = _prepare_generation(
+        document, edit, native_locator=native_locator, written_at=written_at
+    )
+    if reconstruction is not None:
+        return reconstruction
+    return _emit_authored_candidate(
+        desired, native_locator=native_locator, written_at=written_at
+    )
 
 
 if __name__ == "__main__":
