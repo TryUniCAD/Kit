@@ -99,7 +99,7 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
         ("failure", False, ("CI failed: Merge queue",)),
     ),
 )
-def CheckQueuePolling(CaseName: str, Passed: bool, Expected: tuple[str, ...]) -> None:
+def CheckPolling(CaseName: str, Passed: bool, Expected: tuple[str, ...]) -> None:
     ScriptPath = (
         FilePath(__file__).resolve().parents[2]
         / "tests/Policy/CiAggregation/RunPolling.cjs"
@@ -115,5 +115,5 @@ def CheckQueuePolling(CaseName: str, Passed: bool, Expected: tuple[str, ...]) ->
     assert ResultInfo.returncode == (0 if Passed else 1), Output
     assert ("CI passed" in ResultInfo.stdout) == Passed
     assert "No candidate workflow has finished since the last read" in Output
-    for Text in Expected:
-        assert Text in Output, Output
+    for Snippet in Expected:
+        assert Snippet in Output, Output
