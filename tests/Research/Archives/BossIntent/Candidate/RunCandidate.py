@@ -10,7 +10,13 @@ from tests.Research.Archives.BossIntent.Candidate.CandidateProgram import (
 
 
 # independent processes must consume only the request and explicitly authored constructor context
-def RunCandidate(RequestPath: FilePath, Digest: str) -> CompletedProcess[str]:
+def RunCandidate(
+    RequestPath: FilePath,
+    Digest: str,
+    CandidatePath: FilePath | None = None,
+    *,
+    PreserveKeywordOrder: bool = False,
+) -> CompletedProcess[str]:
     RootPath = FilePath(__file__).resolve().parents[5]
     return RunProcess(
         [
@@ -22,6 +28,8 @@ def RunCandidate(RequestPath: FilePath, Digest: str) -> CompletedProcess[str]:
             str(RootPath),
             str(RequestPath),
             Digest,
+            str(CandidatePath) if CandidatePath is not None else "",
+            "source" if PreserveKeywordOrder else "default",
         ],
         cwd=RootPath,
         input=WriteJson(MakeContext()),
