@@ -6,7 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath)
+param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath, [switch]$CompileOnly)
 $ErrorActionPreference = 'Stop'
 $Web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 $Program = @'
@@ -41,4 +41,5 @@ public static class ProgressFixture
 }
 '@
 Add-Type -TypeDefinition ((Get-Content -LiteralPath $Source -Raw) + "`n" + $Program) -ReferencedAssemblies @('System.Core.dll', $Web)
+if ($CompileOnly) { exit 0 }
 [ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)
