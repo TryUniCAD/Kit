@@ -7,6 +7,9 @@ from convert.Formats.Fusion.MaterialCodec.Package.Model.MaterialPackage import (
     MaterialPackage,
 )
 from convert.Formats.Fusion.MaterialCodec.Package.Model.PackageCore import PackageCore
+from convert.Formats.Fusion.MaterialCodec.Package.Model.PackageFolder import (
+    PackageFolder,
+)
 from convert.Formats.Fusion.MaterialCodec.Package.Model.ResourceInfo import ResourceInfo
 from convert.Formats.Fusion.MaterialCodec.Package.Model.SchemaNode import SchemaNode
 
@@ -19,6 +22,7 @@ KMaterialTypes: tuple[type[object], ...] = (
     UnitValue,
     MaterialPackage,
     PackageCore,
+    PackageFolder,
     ResourceInfo,
     SchemaNode,
 )
