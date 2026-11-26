@@ -11,6 +11,7 @@ from convert.Security.PathBoundary import ResolveTemp
 from json import dumps as EncodeJson, loads as DecodeJson
 from os import environ as ProcessEnv
 from importlib import import_module as ImportModule
+from time import monotonic as MonoTime, sleep as WaitBriefly
 from typing import Callable, cast as CastValue
 from pathlib import Path as FilePath
 from tests.Research.Inference.BuilderDevelopment.Contracts.LiveStart import LiveStart
@@ -56,11 +57,19 @@ def MainProbe() -> int:
         assert isinstance(ChildPid, int)
         if PlatformName == "win32":
             assert isinstance(ChildStart, str)
-    ResultInfo["child_still_live"] = isinstance(ChildPid, int) and (
-        LiveStart(ChildPid) == ChildStart
-        if PlatformName == "win32"
-        else LiveStart(ChildPid) is not None
-    )
+
+    # windows can report an owned child alive briefly after its job closes
+    def ChildLive() -> bool:
+        return isinstance(ChildPid, int) and (
+            LiveStart(ChildPid) == ChildStart
+            if PlatformName == "win32"
+            else LiveStart(ChildPid) is not None
+        )
+
+    Deadline = MonoTime() + 3
+    while ChildLive() and MonoTime() < Deadline:
+        WaitBriefly(0.02)
+    ResultInfo["child_still_live"] = ChildLive()
     print(EncodeJson(ResultInfo), flush=True)
     return 0
 
