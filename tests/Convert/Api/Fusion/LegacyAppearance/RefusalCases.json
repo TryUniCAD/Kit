@@ -1,0 +1,59 @@
+[
+  {
+    "group": "emission_normal",
+    "key": "luminance",
+    "remove": true,
+    "reason": "emission_normal fields do not match (missing 'luminance')"
+  },
+  {
+    "group": "emission_normal",
+    "key": "connections",
+    "value": {
+      "enabled": true,
+      "target": "research:External"
+    },
+    "reason": "emission_normal fields do not match (unexpected 'connections')"
+  },
+  {
+    "group": "reflection_transmission",
+    "key": "glossiness",
+    "value": 0,
+    "reason": "reflection_transmission.glossiness must be a finite binary64 number"
+  },
+  {
+    "group": "reflection_transmission",
+    "key": "metal",
+    "value": 1,
+    "reason": "reflection_transmission.metal must be a boolean"
+  },
+  {
+    "group": "ambient_occlusion_edges",
+    "key": "samples",
+    "value": true,
+    "reason": "ambient_occlusion_edges.samples must be a signed 32-bit integer"
+  },
+  {
+    "group": "diffuse_tint",
+    "key": "tint_rgba",
+    "value": [
+      0.125,
+      0.375,
+      0.625
+    ],
+    "reason": "diffuse_tint.tint_rgba must be a four-channel RGBA array"
+  },
+  {
+    "group": "definition",
+    "key": "thumbnail",
+    "value": [
+      "external.png"
+    ],
+    "reason": "definition.thumbnail must be an empty array in this wire profile"
+  },
+  {
+    "group": "diffuse_tint",
+    "key": "diffuse_color_space",
+    "value": 9,
+    "reason": "diffuse_tint.diffuse_color_space must be one of (0, 1, 2)"
+  }
+]

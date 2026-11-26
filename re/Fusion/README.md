@@ -27,6 +27,12 @@ The [Design texture placement procedure](../../Documentation/Changes/Research/En
 generates a fixed cuboid with two modern finishes and an explicit wood origin.
 It covers the Design mapping with empty texture bounds. Historical bounds and the graphics scene remain outside this research scope.
 
+## Legacy appearance property streams
+
+The [legacy appearance property streams procedure](../../Documentation/Changes/Research/Encoder/FusionLegacyPropertyStreams.md)
+describes authoring the two logical property groups of an untextured `GenericSchema` appearance.
+The scope covers the binary value groups. Schema resource resolution and native package generation are still open.
+
 ## Feature index
 
 | Feature                                                                    | Verified scope and open work                                                                                                   | Decoder                                                                                                         | Focused check                                                                       |

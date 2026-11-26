@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "scope": "legacy_generic_body_wire_values",
+  "definition": {
+    "hidden": true,
+    "ui_name": "Independent asymmetric appearance",
+    "version_symbol": "research:VersionOrbit",
+    "categories": [
+      "authored",
+      "asymmetric"
+    ],
+    "description": "Independent explicit wire values",
+    "keywords": [
+      "north",
+      "south",
+      "west"
+    ],
+    "thumbnail": []
+  },
+  "metadata": {
+    "library_symbol": "research:LibraryNorth",
+    "exchange_guid": "",
+    "shared_asset_code": 1,
+    "mode": 9,
+    "revision": 7,
+    "swatch": "",
+    "version": 6
+  },
+  "diffuse_tint": {
+    "color_by_object": true,
+    "tint_rgba": [
+      0.125,
+      0.375,
+      0.625,
+      0.875
+    ],
+    "tint_color_space": 1,
+    "tint_enabled": true,
+    "diffuse_rgba": [
+      0.75,
+      0.5,
+      0.25,
+      1.0
+    ],
+    "diffuse_color_space": 0,
+    "diffuse_image_fade": 0.3125
+  },
+  "reflection_transmission": {
+    "glossiness": -0.0,
+    "metal": false,
+    "reflection_depth": 3,
+    "reflection_glossy_samples": 5,
+    "reflectivity_at_0deg": 0.1875,
+    "reflectivity_at_90deg": 0.9375,
+    "refraction_depth": -3,
+    "refraction_glossy_samples": 9,
+    "refraction_index": 1.625,
+    "refraction_translucency_weight": 0.4375,
+    "transparency": 0.5625,
+    "transparency_image_fade": 0.6875
+  },
+  "ambient_occlusion_edges": {
+    "details": false,
+    "distance": 2.375,
+    "enabled": true,
+    "samples": 11,
+    "backface_cull": true,
+    "roundcorners_allow_different_materials": true,
+    "roundcorners_radius": 0.8125
+  },
+  "emission_normal": {
+    "bump_amount": 0.09375,
+    "bump_rgba": [
+      0.0625,
+      0.1875,
+      0.3125,
+      0.4375
+    ],
+    "cutout_opacity": 0.90625,
+    "color_temperature": 3250.5,
+    "filter_rgba": [
+      0.875,
+      0.625,
+      0.375,
+      0.125
+    ],
+    "filter_color_space": 2,
+    "luminance": 8.25
+  }
+}

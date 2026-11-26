@@ -4,7 +4,7 @@
 | --- | --- |
 | Task | `A05c-FusionLegacyAppearanceDescriptor20261126` |
 | Owner | Fusion encoder swarm worker 3 |
-| Status | Active property-stream qualification. Complete descriptor and package emission remain blocked. |
+| Status | Property-stream process verification passed. Complete descriptor and package emission remain blocked. |
 | Delivery | Separate normal dependent PR, `codex/fusion-legacy-appearance-descriptor`, based on [PR #341](https://github.com/TryUniCAD/Kit/pull/341) at `679e0d61d507365c77a11950a67da38b840ca550`. PR pending. |
 | Dependencies | A05c source qualification, strict `FusionReader` and `FusionCensus`, the established material value codec, and the distinct-owner model from [PR #337](https://github.com/TryUniCAD/Kit/pull/337). |
 | Owned paths | `re/Fusion/LegacyBodyAppearance/`, dedicated `tests/Convert/Api/Fusion/LegacyAppearance/` cases and the dedicated research change and gotcha pages. |
@@ -22,3 +22,5 @@
 | Independent cases | The reserved uninspected corpus file fails strict Design reading and its capture provenance is unverified. | A previously observed control cannot establish a fresh accepted holdout. |
 
 The strict five-file discovery run produced a census with zero partial or failed results. Its SHA-256 is `494297a808ecf160108264b514c6ab6f2cbbc3ad1db4732755f7ba75882d1925`. The property task cannot promote resource paths, sampled defaults or descriptor XML into a writer. Native application acceptance and historical texture or graphics generation stay outside this increment.
+
+Local compatibility evidence covers three real process cases in 20.57 seconds. The native field vectors came from the actual Protein record chains and agree with the strict persisted JSON on five discovery archives. The independently authored request reproduced both logical streams byte for byte. A change to glossiness affected only its decoded value. These measurements leave the complete descriptor and native exits open.
