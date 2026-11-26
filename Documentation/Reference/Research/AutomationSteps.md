@@ -68,7 +68,7 @@ acceptance and complete source preservation have separate exit criteria.
 The SOLIDWORKS reader lane owns this active research child on
 `codex/sw-p03-trimmed-carrier-boundary`. The
 [ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7183988012)
-is recorded. The separate delivery PR is pending.
+is recorded. [PR #343](https://github.com/TryUniCAD/Kit/pull/343) delivers this child.
 It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
 at `a5ffad5483db0f99a6162e1934786da41cbc2063` and uses
 [PR #121](https://github.com/TryUniCAD/Kit/pull/121) at
