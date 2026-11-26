@@ -16,14 +16,13 @@ The aggregated checks, failure rules and 80-minute aggregation deadline are unch
 
 This change depends on [queue aggregation polling](QueueAggregationPolling.md), which must be on `main` first.
 The merge-group `CI Agg` loads `CiReports.cjs` from the candidate's base commit, while this concurrency group comes from the candidate's own workflow file.
-Without the slower polling in the base, several concurrent aggregators would poll every 30 seconds and could exceed the repository's `GITHUB_TOKEN` limit of 1,000 REST requests per hour.
+Without the paced polling in the base, concurrent aggregators would each poll every 30 seconds, exceed the repository's `GITHUB_TOKEN` limit of 1,000 REST requests per hour, and fail on rate-limit responses.
 
 ## Cost
 
-Each building candidate holds one more hosted Linux runner while its aggregator waits; GitHub counts that against the Team plan's 60 concurrent jobs.
-With the slower polling, one aggregator makes about 90 REST requests an hour after its first ten idle minutes.
-About ten candidates can aggregate at once for a whole hour within the 1,000-request limit.
-The live queue setting allows 25 concurrent builds, so a full queue could still approach that limit; most aggregators finish well within the hour.
+Each building candidate holds one more hosted Linux runner while its aggregator waits, counted against the Team plan's 60 concurrent jobs. At the 25-build ruleset limit that is 25 aggregator runners alongside at most 35 cooperating worker and control jobs.
+
+API use stays within the `GITHUB_TOKEN` limit at 25 candidates because of [queue aggregation polling](QueueAggregationPolling.md). Each later poll is one conditional request, so a `304` does not count against the limit. Each aggregator spends at most 1/25 of the budget above a reserve of 500, spread over the time to reset, so all 25 together never take the remaining budget below 500. With a full budget and an hour to reset, 25 aggregators poll every 180 seconds, 500 requests in total. A rate-limit response delays `CI Agg` instead of failing it. The rate budget section of that entry has the arithmetic, including other jobs' use.
 
 See [the queue aggregation timeout gotcha](../../../Gotchas/Ci/Scheduling/QueueAggregationTimeout.md).
 
