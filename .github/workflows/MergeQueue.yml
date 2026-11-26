@@ -43,6 +43,7 @@ jobs:
       matrix: ${{ steps.plan.outputs.matrix }}
       native: ${{ steps.capacity.outputs.native }}
       count: ${{ steps.capacity.outputs.count }}
+      lanes: ${{ steps.lanes.outputs.prefix }}
     steps:
       - &AuditSource
         name: Validate the requested audit source
@@ -88,6 +89,15 @@ jobs:
           script: |
             const { SelectBudget } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectBudget.cjs`);
             await SelectBudget(github, context, core);
+
+      - name: Select this candidate's lane set
+        id: lanes
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SelectLaneSet } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectLaneSet.cjs`);
+            await SelectLaneSet(github, context, core);
 
       - name: Confirm the pinned audit revision
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -229,7 +239,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '1' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -284,7 +294,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     concurrency:
-      group: ${{ github.event_name == 'merge_group' && format('Kit-test-linux-{0}', matrix.slot) || format('Kit-linux-{0}', matrix.auditSlot) }}
+      group: ${{ github.event_name == 'merge_group' && format('Kit-{0}test-linux-{1}', needs.test-plan.outputs.lanes, matrix.slot) || format('Kit-linux-{0}', matrix.auditSlot) }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -407,7 +417,7 @@ jobs:
     runs-on: windows-2025
     timeout-minutes: 30
     concurrency:
-      group: Kit-windows-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
+      group: Kit-${{ matrix.group != 'shard-5' && needs.test-plan.outputs.lanes || '' }}windows-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -687,7 +697,7 @@ jobs:
     permissions:
       contents: read
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -863,7 +873,7 @@ jobs:
       contents: read
       security-events: read # Lets CodeQL query its Action API endpoints.
     concurrency:
-      group: Kit-linux-${{ github.event_name != 'merge_group' && '7' || matrix.language == 'python' && '0' || matrix.language == 'actions' && '3' || matrix.language == 'java-kotlin' && '1' || '5' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name != 'merge_group' && '7' || matrix.language == 'python' && '0' || matrix.language == 'actions' && '3' || matrix.language == 'java-kotlin' && '1' || '5' }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -967,7 +977,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '0' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -999,7 +1009,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1034,7 +1044,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1068,7 +1078,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '3' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '3' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1102,7 +1112,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1134,7 +1144,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-6
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-6
       cancel-in-progress: false
       queue: max
     steps:
@@ -1166,7 +1176,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '6' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '6' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1207,7 +1217,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1244,7 +1254,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1279,7 +1289,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1372,7 +1382,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '2' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '2' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1428,7 +1438,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1464,7 +1474,7 @@ jobs:
     permissions:
       contents: read
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '2' || '7' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '2' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1521,7 +1531,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1561,7 +1571,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-7
+      group: Kit-${{ needs.test-plan.outputs.lanes }}linux-7
       cancel-in-progress: false
       queue: max
     steps:

@@ -11,6 +11,8 @@ import pytest as Pytest
     (
         "budget-new",
         "budget-audit",
+        "budget-previous",
+        "budget-single",
         "budget-legacy",
         "budget-uncontrolled",
         "budget-minimum",
@@ -23,6 +25,11 @@ import pytest as Pytest
         "admit-stale",
         "admit-timeout",
         "admit-error",
+        "lanes-even",
+        "lanes-odd",
+        "lanes-pull",
+        "lanes-missing",
+        "lanes-error",
     ),
 )
 def CheckScheduler(CaseName: str) -> None:
@@ -36,6 +43,9 @@ def CheckScheduler(CaseName: str) -> None:
     )
     Failures = {
         "budget-invalid": "Unsupported shared runner budget",
+        "budget-single": "Unsupported shared runner budget",
+        "lanes-missing": "could not count candidate ancestors",
+        "lanes-error": "Lane API unavailable",
         "budget-error": "Budget API unavailable",
         "admit-error": "Admission API unavailable",
         "admit-timeout": "Manual audit admission timed out",
@@ -45,9 +55,13 @@ def CheckScheduler(CaseName: str) -> None:
         assert Failures[CaseName] in Outcome.stderr
         return
     Evidence = LoadJson(Outcome.stdout)
+    if CaseName.startswith("lanes-"):
+        assert Evidence["Outputs"] == {"prefix": "B-" if CaseName == "lanes-odd" else ""}
+        assert Evidence["Requests"] == int(CaseName != "lanes-pull")
+        return
     if CaseName.startswith("budget-"):
         Shards = LoadJson(Evidence["Outputs"]["native"])
-        assert len(Shards) == (5 if CaseName == "budget-new" else 4)
+        assert len(Shards) == (5 if CaseName in {"budget-new", "budget-previous"} else 4)
         assert [Shard["index"] for Shard in Shards] == list(range(len(Shards)))
         assert Evidence["Outputs"]["runtime-target"] == (
             "0"

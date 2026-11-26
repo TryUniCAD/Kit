@@ -14,10 +14,13 @@ async function SelectBudget(Github, Context, Logger) {
     );
     if (
       !(
-        (Config.Version === 1 && Config.Linux === 8) ||
-        (Config.Version === 2 && Config.Linux === 16)
+        (Config.Version === 1 && Config.Linux === 8 && Config.Windows === 5) ||
+        (Config.Version === 2 && Config.Linux === 16 && Config.Windows === 5) ||
+        (Config.Version === 3 &&
+          Config.LaneSets === 2 &&
+          Config.Linux === 32 &&
+          Config.Windows === 9)
       ) ||
-      Config.Windows !== 5 ||
       Config.Macos !== 5 ||
       Config.Control !== 2
     )
@@ -43,7 +46,7 @@ async function SelectBudget(Github, Context, Logger) {
   Logger.setOutput("max-tests", Expanded ? "1000" : "1200");
   Logger.setOutput("runtime-target", Expanded ? "1200" : "0");
   Logger.info(
-    `Native shards: ${Count}; Linux test lanes: 8; other Linux lanes: 8; trusted budget active: ${Enabled}`,
+    `Native shards: ${Count}; candidate lane sets: 2; trusted budget active: ${Enabled}`,
   );
 }
 
