@@ -27,3 +27,22 @@ Repeat with `AppearanceValue` set to absent/1 and with the property checkout's `
 A separate verification run emitted the same archive, reproduced the four refusals, and verified the two owners in a separate pinned read process. It measured equality of the regenerated structural B-rep across the exact base and composition, including bounds, surface area and volume. The report retains the independent method and result digests. [Independent process summary](../measurements/2026/EmptyOwnersPartComposition.json)
 
 #121 ordinary Definition refuses allocator 4. With default strict public read options, #121 refuses both the unchanged base and composition for lack of a readable Parasolid payload. With B-rep disabled, #121 returns both and projects the boss as `create` in the base and `join` in the composition. Frozen #316 returns both at default strict with `create`, the same D1 and the same topology, but reports its unsupported text-property-manager diagnostic for the composition. These reader outcomes limit production admission. Native load, edit, save and the remaining source appearance, property and provenance are unqualified. [Distinct strict-reader checks](../../../Documentation/Gotchas/Research/Writers/SolidworksStrictGeometryDependsOnPropertyStreamRoster.md)
+
+## Maintained process coverage
+
+`tests/CliResearch/EmptyOwners/CompositionTests.py` belongs to the complete
+compatibility suite and the existing merge-queue planner. It uses the existing
+candidate `ResearchCheckout` and `OpenLegacy` mechanism to provision the exact
+reader and property revisions above. The property checkout selectively hydrates
+its property and encoder research directories. No private native inputs or
+additional runner are required.
+
+The real three-request CLI must emit the fourteen-member scoped archive and
+retain both typed owner reports, native depth, Top identity, exact clear member
+digests and the known reader refusals. A second process must refuse integer
+cut-owner presence before output. The input JSON and successful archive must
+remain unchanged. The smoke binds compressed bytes to the emitted receipt so
+the normal platform compression backend may differ. This complements the
+recorded full proof rather than repeating its complete control matrix.
+
+[Process coverage change](../../../Documentation/Changes/Research/Encoder/SolidworksEmptyOwnersProcessCoverage.md)

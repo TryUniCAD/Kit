@@ -36,8 +36,12 @@ def initialize(sdk, property_root):
     import interchange
     demand(all(Path(module.__file__).resolve().is_relative_to(sdk / "src")
                for module in (convert, interchange)), "SDK packages escaped the pinned checkout")
-    sys.path.insert(0, str(property_root / "re/solidworks/PropertyBoundary"))
-    import EmptyCutPropertyOwner
+    search_path = list(sys.path)
+    try:
+        sys.path.insert(0, str(property_root / "re/solidworks/PropertyBoundary"))
+        import EmptyCutPropertyOwner
+    finally:
+        sys.path[:] = search_path
     demand(Path(EmptyCutPropertyOwner.__file__).resolve() ==
            property_root / "re/solidworks/PropertyBoundary/EmptyCutPropertyOwner.py",
            "property implementation escaped the pinned checkout")
@@ -53,6 +57,8 @@ def check_imports(sdk, property_root):
         "ExactSketchIntent": ROOT / "re/solidworks/EncoderBoundary/ExactSketchIntent.py",
         "ReplayEmptyAppearance": ROOT / "re/solidworks/RendererBoundary/ReplayEmptyAppearance.py",
         "EmptyCutPropertyOwner": property_root / "re/solidworks/PropertyBoundary/EmptyCutPropertyOwner.py",
+        "InspectVendorBodyOwners": ROOT / "re/solidworks/EncoderBoundary/InspectVendorBodyOwners.py",
+        "EncoderRoundTrip.Artifacts": ROOT / "re/automation/EncoderRoundTrip/Artifacts.py",
     }
     for name, path in paths.items():
         demand(Path(sys.modules[name].__file__).resolve() == path, f"{name} escaped its expected checkout")
