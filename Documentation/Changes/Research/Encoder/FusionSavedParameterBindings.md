@@ -25,9 +25,9 @@ Fresh CLI processes prepared and regenerated all four [saved cuboid controls](..
 | Baseline control | `0354dc762ab7dd2ef4f196e5be42c6aa0da2bb53e3bd596e463ba9b3e4604869` |
 | Baseline edit | `7d9b710f9ce3cc2aa8879364ca49469952c5cfc5c35c7b3de860b1e8970b2718` |
 | Baseline restore | `226d82f642160de71608aef13dcd217f18ada1daaf8db5d674dd981fe23e3505` |
-| Held-out control | `7608aee633b7117cde73ca4c8a0c27e8ec169783b6b5fdc372ab2e1aad7b12b5` |
+| Previously reserved control | `7608aee633b7117cde73ca4c8a0c27e8ec169783b6b5fdc372ab2e1aad7b12b5` |
 
-The saved-cuboid compatibility roster passed all 55 cases across two runs. The first run passed 54 cases in 113.54 seconds. Its missing sparse-checkout fixture was restored and the remaining case passed in 5.69 seconds. The parameter cases use the normal process and fixture boundaries in that roster. Separate CLI checks refused a foreign archive field, a formula, a mismatched model and driver value, duplicate roles and a nonzero taper. Both commands preserved occupied destinations.
+The saved-cuboid compatibility roster passed all 55 cases across two runs. The first run passed 54 cases in 113.54 seconds. Its missing sparse-checkout fixture was restored and the remaining case passed in 5.69 seconds. The parameter cases use the normal process and fixture boundaries in that roster. A follow-up four-case run verified independent display-name and comment preservation with a nonempty label and comment, plus the exact wrong-binding diagnostic. The previously reserved geometry control was inspected before the parameter mapping was implemented. Separate CLI checks refused a foreign archive field, a formula, a mismatched model and driver value, duplicate roles and a nonzero taper. Both commands preserved occupied destinations.
 
 ## Limits
 

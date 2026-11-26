@@ -21,4 +21,8 @@ def TestWrongDriver(TmpPath: FilePath) -> None:
     _ = Request.write_text(DumpJson(Payload), encoding="utf-8")
     Candidate = TmpPath / "Candidate.f3d"
     Generate = RunParamStage("GenerateSavedCuboid.py", Request, Candidate)
-    assert Generate.returncode != 0 and not Candidate.exists()
+    assert Generate.returncode == 1 and not Candidate.exists()
+    assert Generate.stderr.strip() == (
+        "Saved cuboid generation refused: width model must use the exact independent "
+        "width_driver name and value"
+    )

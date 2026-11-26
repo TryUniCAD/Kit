@@ -4,6 +4,7 @@ from pathlib import Path as FilePath
 from pytest import approx as NearValue, mark as MarkTests
 
 from convert import open_document as OpenDocument
+from tests.Convert.Api.Fusion.SavedCuboid.LabelSavedParam import LabelSavedParam
 from tests.Convert.Api.Fusion.SavedCuboid.ReadParamRoles import ReadParamRoles
 from tests.Convert.Api.Fusion.SavedCuboid.ReadParamSem import ReadParamSem
 from tests.Convert.Api.Fusion.SavedCuboid.RunParamStage import RunParamStage
@@ -13,13 +14,24 @@ from tests.Convert.Api.Fusion.SavedCuboid.SavedSource import SavedSource
 
 
 # a fresh writer must preserve the saved parameter roster when its source path is absent
-@MarkTests.parametrize("CaseValue", (KSavedCases[0], KSavedCases[1]))
-def TestSavedParams(TmpPath: FilePath, CaseValue: SavedCase) -> None:
+@MarkTests.parametrize(
+    "CaseValue,AddLabels",
+    ((KSavedCases[0], False), (KSavedCases[1], False), (KSavedCases[1], True)),
+)
+def TestSavedParams(TmpPath: FilePath, CaseValue: SavedCase, AddLabels: bool) -> None:
     Payload = SavedSource(CaseValue).read_bytes()
     assert HashBytes(Payload).hexdigest() == CaseValue.DigestValue
+    if AddLabels:
+        Payload = LabelSavedParam(Payload)
     Source = TmpPath / "Original.f3d"
     _ = Source.write_bytes(Payload)
     Before = OpenDocument(Payload, source_format="f3d")
+    if AddLabels:
+        assert any(
+            Param.attributes["native_name"] == "Extrusion height label"
+            and Param.attributes["comment"] == "Shop note"
+            for Param in Before.parameters
+        )
     Replay = TmpPath / "Replay"
     Replay.mkdir()
     Request = Replay / "Request.json"
