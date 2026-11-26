@@ -56,12 +56,16 @@ def CheckScheduler(CaseName: str) -> None:
         return
     Evidence = LoadJson(Outcome.stdout)
     if CaseName.startswith("lanes-"):
-        assert Evidence["Outputs"] == {"prefix": "B-" if CaseName == "lanes-odd" else ""}
+        assert Evidence["Outputs"] == {
+            "prefix": "B-" if CaseName == "lanes-odd" else ""
+        }
         assert Evidence["Requests"] == int(CaseName != "lanes-pull")
         return
     if CaseName.startswith("budget-"):
         Shards = LoadJson(Evidence["Outputs"]["native"])
-        assert len(Shards) == (5 if CaseName in {"budget-new", "budget-previous"} else 4)
+        assert len(Shards) == (
+            5 if CaseName in {"budget-new", "budget-previous"} else 4
+        )
         assert [Shard["index"] for Shard in Shards] == list(range(len(Shards)))
         assert Evidence["Outputs"]["runtime-target"] == (
             "0"
