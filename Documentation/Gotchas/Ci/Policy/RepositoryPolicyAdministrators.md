@@ -12,6 +12,6 @@ The designation does not establish GitHub platform admin access.
 
 ## Required handling
 
-Verify the requester's identity against the [repository administrator policy](../../../.agents/skills/standard-pr-practice/SKILL.md#administrator-requested-merges).
+Verify the requester's identity against the [repository administrator policy](../../../../.agents/skills/standard-pr-practice/SKILL.md#administrator-requested-merges).
 Keep platform capability, explicit merge authorization, and passing readiness gates separate.
 Do not bypass enforced protections or claim that documentation changes GitHub permissions.
