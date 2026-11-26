@@ -68,7 +68,7 @@ M6 requires all promised routes, not merely the first narrow release subset.
 B14 can qualify earlier subsets while B06–B09 continue.
 B03's parent is not complete merely because its deterministic scheduler has process evidence.
 B04's parent is not complete merely because controlled constructor probes exist.
-The [P03 constraint intent scope](../Reference/Research/AutomationSteps.md#a12-solidworks-writer-research) covers source-bound logical input for one constrained rectangle in [PR #314](https://github.com/TryUniCAD/Kit/pull/314). The [Fusion cuboid generator](https://github.com/TryUniCAD/Kit/pull/307) and [native SOLIDWORKS plane witness](https://github.com/TryUniCAD/Kit/pull/310) cover separate bounded research milestones. Full source and public writer qualification remain open.
+The [P03 constraint intent scope](../Reference/Research/AutomationSteps.md#a12-solidworks-writer-research) covers source-bound logical input for one constrained rectangle in [PR #314](https://github.com/TryUniCAD/Kit/pull/314). [PR #325](https://github.com/TryUniCAD/Kit/pull/325) generates the bounded candidate from a persisted request. Its [independent SDK readback](../Changes/Research/Encoder/ConstrainedBossSdkReadback.md) records the default geometry refusal and the design-only relation-order difference. The [Fusion cuboid generator](https://github.com/TryUniCAD/Kit/pull/307) and [native SOLIDWORKS plane witness](https://github.com/TryUniCAD/Kit/pull/310) cover separate bounded research milestones. Full source and public writer qualification remain open.
 
 ## B14-RecordDecodeCache: JSON reconstruction performance
 
