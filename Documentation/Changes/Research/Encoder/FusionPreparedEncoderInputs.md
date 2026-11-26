@@ -40,3 +40,7 @@ Repeating both attachments preserved the manifest and receipt bytes.
 Changing role inputs, source identity, or saved geometry withheld receipt attachment even when the artifact hashes and fingerprint were recalculated.
 An original schema 1 receipt cannot authorize a different schema 2 run fingerprint.
 The refusal probes preserved the output directories without writing receipt sidecars.
+
+At `1810844e4d`, both affected installed CLI cases passed in 115.92 seconds. After the native source was removed, receipt intake reached the expected fingerprint refusal on the intact schema 2 run. Transplanting and rebinding the other role's writer JSON failed candidate regeneration. Both refusals preserved all run and receipt files without creating a sidecar.
+
+For archiving completed Windows test roots, see [pytest retention links](../../../Gotchas/Research/Workers/Windows/PytestRetentionLinks.md).
