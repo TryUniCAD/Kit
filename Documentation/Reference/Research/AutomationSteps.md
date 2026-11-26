@@ -105,7 +105,7 @@ and the three missing vertex uses in the general reader remain open.
 The SOLIDWORKS reader lane owns this active research child on
 `codex/sw-p03-active-owner-boundary`. The
 [ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7184604274)
-is recorded. The separate delivery PR is pending.
+is recorded. [PR #345](https://github.com/TryUniCAD/Kit/pull/345) delivers this child.
 It starts from [PR #343](https://github.com/TryUniCAD/Kit/pull/343) at
 `0170e1a96b6972f48a5b2d0050b59eff792f25dd`. The two loader and wire
 evidence commands preserve the original trim findings.
