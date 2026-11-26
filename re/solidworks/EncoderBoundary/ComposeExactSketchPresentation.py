@@ -55,7 +55,7 @@ def read_request(payload):
     return document, top, flag
 
 
-def construct(document, top, flag, locator, epoch):
+def construct(document, top, flag, locator, epoch, *, document_decimal_places=None):
     plan = validate_si_plan(document)
     configuration, = document.configurations
     demand(configuration.active is True and configuration.id == top.configuration_id,
@@ -64,6 +64,9 @@ def construct(document, top, flag, locator, epoch):
     PlanPartWrite(mm)
     output = RequirePartPath(locator, epoch)
     recipe = MakePartRecipe(plan, epoch)
+    if document_decimal_places is not None:
+        document_units = replace(recipe.DocumentUnits, DecimalPlaces=document_decimal_places)
+        recipe = replace(recipe, DocumentUnits=document_units)
     demand(not recipe.DefinitionValue.DisplayBits, "plane intent requires the ordinary generated Definition")
     definition = replace(recipe.DefinitionValue, DisplayBits=(PLANE_VISIBILITY_BIT,) if flag else ())
     inputs = BindPartIntent(mm, plan, replace(recipe, DefinitionValue=definition), output)
@@ -75,7 +78,7 @@ def construct(document, top, flag, locator, epoch):
     return FinishBlindMut(system, profile, inputs, plan, allocator), mm
 
 
-def guarded_construct(document, top, flag, locator, epoch):
+def guarded_construct(document, top, flag, locator, epoch, *, document_decimal_places=None):
     for codec in ("ascii", "latin-1", "cp1252", "utf-8", "utf-16-le", "utf-16-be"):
         lookup(codec)
     active, attempts = True, []
@@ -84,6 +87,7 @@ def guarded_construct(document, top, flag, locator, epoch):
         if active and (
             event in ("open", "os.listdir", "os.scandir", "os.system", "os.exec", "os.startfile",
                       "os.spawn", "os.posix_spawn", "os.fork", "os.forkpty")
+            or (document_decimal_places is not None and event == "import")
             or event.startswith(("subprocess.", "socket.", "ctypes.", "winreg."))
         ):
             attempts.append(event)
@@ -91,7 +95,7 @@ def guarded_construct(document, top, flag, locator, epoch):
 
     sys.addaudithook(audit)
     try:
-        result = construct(document, top, flag, locator, epoch)
+        result = construct(document, top, flag, locator, epoch, document_decimal_places=document_decimal_places)
     finally:
         active = False
     demand(not attempts and not any(name.startswith(("pythoncom", "win32com")) for name in sys.modules),
@@ -165,10 +169,11 @@ def inspect_solid(raw, mm, depth):
     return {"topology": count, "volume_mm3": body.topology.volume, "directed_face_rings": len(actual_rings)}
 
 
-def generate(args):
+def generate(args, *, document_decimal_places=None):
     payload = args.request.read_bytes()
     document, top, flag = read_request(payload)
-    candidate, mm = guarded_construct(document, top, flag, args.locator, args.epoch)
+    candidate, mm = guarded_construct(document, top, flag, args.locator, args.epoch,
+                                      document_decimal_places=document_decimal_places)
     raw = candidate.BytesValue
     archive = SldprtArchive.from_bytes(raw, "<generated exact sketch presentation>")
     demand(not any(name.startswith("Kit/") or name.endswith("-Partition") for name in archive.streams),
