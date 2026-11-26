@@ -20,7 +20,7 @@ Without the paced polling in the base, concurrent aggregators would each poll ev
 
 ## Cost
 
-Each building candidate holds one more hosted Linux runner while its aggregator waits, counted against the Team plan's 60 concurrent jobs. At the 25-build ruleset limit that is 25 aggregator runners alongside at most 35 cooperating worker and control jobs.
+Each building candidate holds one more hosted Linux runner while its aggregator waits, counted against the Team plan's 60 concurrent jobs. The cooperating lane budget is 28 jobs on `main`, 35 with the separate pull-request lanes and 39 with the Windows CLI lanes. At the ruleset's 25-build limit, 25 aggregators plus 39 lane jobs would exceed 60, and GitHub would queue the excess jobs until runners free up; they wait, they do not fail. Up to eight candidates were observed building at once on 26 November 2026.
 
 API use stays within the `GITHUB_TOKEN` limit at 25 candidates because of [queue aggregation polling](QueueAggregationPolling.md). Each later poll is one conditional request, so a `304` does not count against the limit. Each aggregator spends at most 1/25 of the budget above a reserve of 500, spread over the time to reset, so all 25 together never take the remaining budget below 500. With a full budget and an hour to reset, 25 aggregators poll every 180 seconds, 500 requests in total. A rate-limit response delays `CI Agg` instead of failing it. The rate budget section of that entry has the arithmetic, including other jobs' use.
 
