@@ -12,6 +12,9 @@ from typing import cast as CastValue
 from tests.Research.Archives.FusionBossRequest.NativeWitness.ArtifactPin import (
     ArtifactPin,
 )
+from tests.Research.Archives.FusionBossRequest.NativeWitness.CheckExecGate import (
+    CheckExecGate,
+)
 from tests.Research.Archives.FusionBossRequest.NativeWitness.CheckInspection import (
     CheckInspection,
 )
@@ -58,6 +61,7 @@ def CheckNativePlan(
         PlanRoot, Candidate, Inputs, CastValue(dict[str, object], PlanData["candidate"])
     )
     CheckInspection(RepoPath, PlanRoot, PlanData)
+    CheckExecGate(RepoPath, PlanRoot)
     CheckSourceBad(RepoPath, Candidate, WorkPath, Inputs)
     CheckPlanBad(RepoPath, Candidate, WorkPath, Inputs, ArchiveHash, ManifestHash)
     assert {

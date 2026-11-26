@@ -39,7 +39,7 @@ python -B re/Fusion/Reconstruction/DimensionAuthoring/SourceBossWitness.py inspe
 
 ## Host and acceptance limits
 
-Windows and other non-macOS preparations return `prepared_p03_custody_offline`. Each offline launcher refuses before loading any native code. Prepare and independently reseal on the approved licensed macOS host before any authorized execution. Its original two-phase runner binds that checkout and plan location. A Windows plan cannot be used as evidence of host readiness.
+Windows and other non-macOS preparations return `prepared_p03_custody_offline`. Each offline launcher refuses before loading any native code. The native entry also rejects an offline plan before it loads any helper or opens a phase directory. Prepare and independently reseal on the approved licensed macOS host before any authorized execution. The schema 2 seal binds that checkout and plan location. A Windows plan cannot be used as evidence of host readiness.
 
 The healthy control archive is pinned for the existing before-and-after checks. A successful offline inspection measures its custody. The native phases still need an exclusive matching Fusion build and separate process lifetimes. After a successful Phase A, the existing Phase B checks the archived restoration and that the earlier process exited. The retained offline verifier accepts separate externally held phase receipt hashes. [Licensed witness procedure](FusionSourceBossWitness.md)
 
@@ -56,5 +56,11 @@ An independent audited process prepared and inspected offline plan `0ae9d109dda6
 The extended integration case passed in 187.26 seconds on the same producer revision. Two fresh replays from a newly prepared witness produced identical archives and reports. The plan retained all seven files, and `inspect-plan` preserved every prepared byte. The process refused a changed archive or report and rehashed claims about the snapshot and generator. It refused a changed helper and an occupied destination. A modified retained archive also refused under the original plan digest. [Process test](../../../../../tests/Research/Archives/FusionBossRequest/BossReplayTests.py)
 
 The original Boss generation, schema 1 prepare and read-only inspection completed in 34.89 seconds. The schema 1 plan digest was `ac27ddc8e021d3bb4926f0f17bbcd7225c1a55b9cb92581d4ded22c736789f93`. No launcher or phase ran in either test.
+
+The independent final guard test prepared and inspected offline plan `a6dc92c7f9b8436c8a97bb37b79ac1a842ad7f2bab847ae7bc7d750e8ccfdac1`. A fresh execution check refused before reading any helper or input archive. A new hash over a changed host label also refused because the execution path binding was absent. The valid plan and all seven files remained unchanged.
+
+The final maintained integration case passed in 173.62 seconds with the execution guard. Three fresh validation processes rejected native execution of the offline plan, its changed host under the original seal, and its changed host after rehashing. The valid plan SHA-256 remained `613e8be6465754a49de7f1c8ce12c6c51227ebd93a3b12c0f7307f8298284243`. No phase directories were created.
+
+The final execution guard keeps schema 1 valid. At producer revision `8e1e79ae387200661bad7f6081702d98becaef58`, a fresh schema 1 preparation and execution validation passed in 24.97 seconds with no phase directory. The plan SHA-256 was `5202d2b332b7ff963fe7f5394614230af074b72189fb764b58a45adb3c326fc6`.
 
 The isolated checkout originally failed to resolve a deep chain of alternate object stores. The verified workaround restored the pinned checkout without changing other worktrees. [Git alternate stores](../../../../Gotchas/Research/Workers/Windows/GitAlternateObjectStores.md)
