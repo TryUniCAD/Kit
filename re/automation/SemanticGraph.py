@@ -8,9 +8,13 @@ from enum import Enum
 from fractions import Fraction
 
 from interchange.Features.DistanceParam import KLengthFactors
+from interchange.Features.FeatureExtrude import ExtrudeFeature
 from interchange.Features.FeatureKinds import NativeFeature
 from interchange.Features.FeatureStep import FeatureStep
+from interchange.geometry.Models.Selection import SelectPathElem
 from interchange.geometry.Models.Sketch import ConstraintRef, Sketch, SketchRelation
+from interchange.geometry.Models.VectorSpace import SpaceVector
+from interchange.Records.RecordParameter import ParameterValue
 from interchange.Core.Reflection import CanonName
 from interchange.Records.RecordProvenance import Provenance, ProvenanceSpan
 from interchange.serialization.Wire import ResolveField
@@ -135,6 +139,246 @@ def evidence_digest(value):
     return hashlib.sha256(encoded.encode()).hexdigest()
 
 
+SW_PART_FORMAT = "solidworks.sldprt"
+SW_RESOLVED_STREAM = "Contents/Config-0-ResolvedFeatures"
+FRONT_NORMAL = (0.0, 0.0, 1.0)
+
+
+def only(records):
+    values = tuple(records)
+    return values[0] if len(values) == 1 else None
+
+
+def source_record_span(record, native_id, record_kind):
+    proof = record.provenance
+    if (
+        proof is None
+        or (proof.adapter, proof.native_id, proof.confidence)
+        != (SW_PART_FORMAT, str(native_id), 1.0)
+        or proof.attributes
+    ):
+        return None
+    span = only(item for item in proof.spans if item.record_kind == record_kind)
+    if span is not None and (
+        span.stream == SW_RESOLVED_STREAM
+        and type(span.offset) is int
+        and type(span.length) is int
+        and span.offset >= 0
+        and span.length > 0
+    ):
+        return span
+    return None
+
+
+def span_frame(span):
+    return span.offset, span.length
+
+
+def span_contains(owner, child, width):
+    return (
+        owner is not None
+        and child is not None
+        and child.length == width
+        and owner.offset <= child.offset <= owner.offset + owner.length - width
+    )
+
+
+def unique_native_record(records, identity, native_id, sketch_id=None):
+    if not identity:
+        return None
+    record = only(
+        item
+        for item in records
+        if item.id == identity
+        or item.attributes.get("native_object_id") == native_id
+        or (item.provenance is not None and item.provenance.native_id == str(native_id))
+        or (sketch_id is not None and item.sketch_id == sketch_id)
+    )
+    if record is None or record.id != identity:
+        return None
+    local_id = record.attributes.get("native_object_id")
+    return record if type(local_id) is int and local_id == native_id else None
+
+
+def normal_xyz(value):
+    return (value.x, value.y, value.z) if isinstance(value, SpaceVector) else None
+
+
+def own_sketch_axis(selections):
+    hit = only(
+        (index, item)
+        for index, item in enumerate(selections)
+        if (
+            isinstance(item.query, Mapping)
+            and item.query.get("topology_role") == "direction_axis"
+        )
+        or any(
+            isinstance(element, SelectPathElem) and element.subelement == "N_Axis"
+            for element in item.path
+        )
+    )
+    if hit is None:
+        return None
+    index, selection = hit
+    query = selection.query
+    if (
+        not isinstance(query, Mapping)
+        or set(query) != {"topology_role", "native_owner_id", "native_target_id"}
+        or query["topology_role"] != "direction_axis"
+        or len(selection.path) != 1
+        or selection.point is not None
+        or selection.attributes
+    ):
+        return None
+    owner_id, target_id = query["native_owner_id"], query["native_target_id"]
+    if (
+        type(owner_id) is not int
+        or type(target_id) is not int
+        or min(owner_id, target_id) <= 0
+        or owner_id == target_id
+    ):
+        return None
+    span = source_record_span(selection, f"{owner_id}:axis:N_Axis", "direction-axis")
+    if span is None or len(selection.provenance.spans) != 1:
+        return None
+    return index, selection, span, owner_id, target_id
+
+
+def positive_blind_boss(boss):
+    feature = boss.definition
+    return (
+        not boss.suppressed
+        and (tag(boss.kind), tag(boss.operation)) == ("extrusion", "join")
+        and isinstance(feature, ExtrudeFeature)
+        and tag(feature.end_condition) == "blind"
+        and not feature.reversed
+        and not feature.symmetric
+        and normal_xyz(feature.direction) == FRONT_NORMAL
+        and isinstance(feature.length, ParameterValue)
+        and tag(feature.length.kind) == "length"
+        and feature.length.unit in KLengthFactors
+        and type(feature.length.value) in (float, int)
+        and 0 < feature.length.value < math.inf
+    )
+
+
+def front_support(document, owner, sketch):
+    plane = unique_native_record(document.support_planes, sketch.support_plane_id, 2)
+    datum = unique_native_record(
+        document.feature_timeline, only(owner.input_feature_ids), 2
+    )
+    if (
+        plane is None
+        or datum is None
+        or datum.suppressed
+        or datum.operation is not None
+        or tag(datum.kind) != "reference"
+        or datum.order >= owner.order
+        or source_record_span(datum, 2, "feature-record") is None
+        or source_record_span(plane, 2, "support-plane-frame") is None
+        or plane.name != "Front Plane"
+        or plane.attributes.get("principal") is not True
+        or normal_xyz(plane.transform.z_axis) != FRONT_NORMAL
+        or sketch.attributes.get("support_plane_source") != "typed-archive-reference"
+        or sketch.attributes.get("support_plane_native_id") != 2
+        or sketch.attributes.get("unframed_support_plane_native_id") is not None
+    ):
+        return None
+    return plane
+
+
+def direction_owner_observation(document):
+    if document.source.format_id != SW_PART_FORMAT:
+        return None
+    evidence = own_sketch_axis(document.selections)
+    boss = only(
+        step for step in document.feature_timeline if step.operation is not None
+    )
+    if evidence is None or boss is None or not positive_blind_boss(boss):
+        return None
+    index, selection, span, owner_id, target_id = evidence
+    if unique_native_record(document.feature_timeline, boss.id, owner_id) is not boss:
+        return None
+    sketch = unique_native_record(document.sketches, boss.sketch_id, target_id)
+    if (
+        sketch is None
+        or sketch.suppressed
+        or boss.attributes.get("profile_native_id") != target_id
+    ):
+        return None
+    (element,) = selection.path
+    if not isinstance(element, SelectPathElem) or (
+        element.entity_kind,
+        element.entity_id,
+        element.subelement,
+    ) != ("native", sketch.name, "N_Axis"):
+        return None
+    owner = unique_native_record(
+        (step for step in document.feature_timeline if step is not boss),
+        only(boss.input_feature_ids),
+        target_id,
+        sketch.id,
+    )
+    if (
+        owner is None
+        or owner.sketch_id != sketch.id
+        or owner.order >= boss.order
+        or owner.suppressed
+        or owner.operation is not None
+        or tag(owner.kind) != "reference"
+        or not isinstance(owner.definition, NativeFeature)
+        or owner.definition.object_data.get("native_class") != "moProfileFeature_c"
+    ):
+        return None
+    owner_span = source_record_span(owner, target_id, "feature-record")
+    sketch_span = source_record_span(sketch, target_id, "sketch-record")
+    support_ref = source_record_span(sketch, target_id, "sketch-support-reference")
+    boss_span = source_record_span(boss, owner_id, "feature-record")
+    profile_ref = source_record_span(boss, owner_id, "operation-profile-reference")
+    if (
+        not span_contains(sketch_span, support_ref, 4)
+        or owner_span is None
+        or span_frame(owner_span) != span_frame(sketch_span)
+        or not span_contains(boss_span, profile_ref, 2)
+        or span_frame(span) != span_frame(boss_span)
+    ):
+        return None
+    plane = front_support(document, owner, sketch)
+    if plane is None:
+        return None
+    # Retained bytes bind the reader's source identity without re-reading their native records.
+    metadata = document.metadata
+    if not isinstance(metadata, Mapping):
+        return None
+    source_bytes, source_sha = (
+        metadata.get("solidworks_source_bytes"),
+        document.source.sha256,
+    )
+    if (
+        metadata.get("adapter") != SW_PART_FORMAT
+        or metadata.get("solidworks_source_format_id") != SW_PART_FORMAT
+        or metadata.get("solidworks_source_sha256") != source_sha
+        or not isinstance(source_bytes, bytes)
+        or not source_bytes
+        or hashlib.sha256(source_bytes).hexdigest() != source_sha
+    ):
+        return None
+    return {
+        "classification": "reader_reported_native_direction_owner",
+        "path": f"/selections/{index}",
+        "source_sha256": source_sha,
+        "selection_id": selection.id,
+        "operation_id": boss.id,
+        "sketch_owner_id": owner.id,
+        "sketch_id": sketch.id,
+        "support_plane_id": plane.id,
+        "provenance_span": {
+            "stream": span.stream,
+            "offset": span.offset,
+            "length": span.length,
+            "record_kind": span.record_kind,
+        },
+    }
 def matching_record_span(owner, sketch):
     definition = owner.definition
     if (
@@ -577,4 +821,7 @@ def build_graph(document, geometry_unit, *, max_nodes=4096, max_fields=100000):
                     node["path"] + link["role"], "unresolved_reference", link["target"]
                 )
     graph["field_count"] = count
+    direction_owner = direction_owner_observation(document)
+    if direction_owner is not None:
+        graph["observations"].append(direction_owner)
     return graph

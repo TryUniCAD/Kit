@@ -82,6 +82,8 @@ Every report retains `semantic_qualification: unverified` and `native_acceptance
 Reader agreement cannot prove that both readers preserved every required source relationship.
 The report does not authorize a writer to remove retained source evidence.
 
+The [Boss direction-owner observation](../../Changes/Research/Readers/Comparison/ConstrainedBossDirectionOwner.md) can record one supported SOLIDWORKS P03 direction reference per source. It uses local record identities and leaves correspondence, unresolved links and native qualification under the existing rules.
+
 ## Limits and failures
 
 Each document is limited to 32 MiB and the tolerance file to 64 KiB.
