@@ -17,8 +17,8 @@ from tests.Research.Windows.Readback.ReadbackGit import ReadbackGit
 def InstallReadback(TmpPath: FilePath) -> tuple[FilePath, FilePath]:
     RootPath = TmpPath / "Installed"
     RootPath.mkdir()
-    ReadbackGit(RootPath, "init", "--initial-branch=fixture/readback")
-    ReadbackGit(RootPath, "config", "core.autocrlf", "false")
+    _ = ReadbackGit(RootPath, "init", "--initial-branch=fixture/readback")
+    _ = ReadbackGit(RootPath, "config", "core.autocrlf", "false")
     for RelativePath in (
         "ApplicationWorkers/SolidWorksReadbackWorker.py",
         "ApplicationWorkers/SolidWorksProgress.py",
@@ -34,8 +34,8 @@ def InstallReadback(TmpPath: FilePath) -> tuple[FilePath, FilePath]:
         _ = Destination.write_bytes(
             (KRepoRoot / "re/automation" / RelativePath).read_bytes()
         )
-    ReadbackGit(RootPath, "add", "re")
-    ReadbackGit(
+    _ = ReadbackGit(RootPath, "add", "re")
+    _ = ReadbackGit(
         RootPath,
         "-c",
         "user.name=Fixture",
