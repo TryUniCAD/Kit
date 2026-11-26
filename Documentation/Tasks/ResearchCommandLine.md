@@ -122,6 +122,8 @@ The [configuration procedure](../Changes/Research/Encoder/FusionSavedConfigEnvel
 
 The [authored material procedure](../Changes/Research/Encoder/FusionAuthoredMaterialProperties.md) adds mechanical, thermal and finish data to the typed cuboid request.
 
+The [distinct appearance procedure](../Changes/Research/Encoder/FusionDistinctMaterialAppearances.md) adds independently editable body and physical aspect finishes.
+
 The [blind-boss audit](../Changes/Research/Solidworks/BlindBossDecodeAudit.md) records an executed offline scope and its limits.
 Offline readers decode existing native files without launching CAD applications.
 Archived application measurements support replay checks, not fresh vendor acceptance.
