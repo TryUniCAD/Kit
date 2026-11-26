@@ -106,8 +106,10 @@ The SOLIDWORKS reader lane owns this active research child on
 `codex/sw-p03-active-owner-boundary`. The
 [ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7184604274)
 is recorded. The separate delivery PR is pending.
-It starts from the [trimmed carrier findings](../../../re/solidworks/records/SavedTrimmedCarrierBoundary.md)
-at `a3ba7818782945435bb80a4594ee3780a90ee53a`. It retains the production
+It starts from [PR #343](https://github.com/TryUniCAD/Kit/pull/343) at
+`0170e1a96b6972f48a5b2d0050b59eff792f25dd`. The two loader and wire
+evidence commands preserve the original trim findings.
+It retains the production
 and rollback ownership of [PR #340](https://github.com/TryUniCAD/Kit/pull/340),
 [PR #121](https://github.com/TryUniCAD/Kit/pull/121) and
 [PR #255](https://github.com/TryUniCAD/Kit/pull/255). The measured native save
