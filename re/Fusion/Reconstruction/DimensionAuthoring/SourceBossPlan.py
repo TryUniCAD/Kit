@@ -8,7 +8,8 @@
 
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+import sys
 import re
 
 # The P03 plan is scoped to one source-derived first blind Boss.
@@ -204,8 +205,33 @@ def prepared_input(root, plan):
     return archive
 
 
+def execution_paths(path):
+    return {"checkout": str(REPO), "plan": str(path.resolve())}
+
+
+def require_replay_host(plan, path, execution):
+    host = plan["preparation_host"]
+    paths = plan.get("execution_paths")
+    if host == "licensed_macos":
+        valid = (
+            isinstance(paths, dict)
+            and set(paths) == {"checkout", "plan"}
+            and all(isinstance(value, str) and PurePosixPath(value).is_absolute() for value in paths.values())
+        )
+    else:
+        valid = paths is None and "execution_paths" in plan
+    require(valid, "P03 plan host and its execution binding disagree")
+    if execution:
+        require(
+            host == "licensed_macos"
+            and sys.platform == "darwin"
+            and paths == execution_paths(path),
+            "P03 native execution requires a plan resealed on the approved licensed macOS host",
+        )
+
+
 # Check the sealed plan scope before running any CAD code or accepting receipts.
-def read_plan(path, digest):
+def read_plan(path, digest, *, execution=False):
     _, plan = read_object(path, digest)
     require(
         type(plan["schema"]) is int
@@ -222,5 +248,7 @@ def read_plan(path, digest):
         ),
         "Invalid prepared P03 plan",
     )
+    if plan["schema"] == 2:
+        require_replay_host(plan, path, execution)
     prepared_input(path.parent, plan)
     return plan

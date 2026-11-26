@@ -183,7 +183,7 @@ def run_phase(plan_path, plan_hash, phase):
     contract = load_contract(plan_path, plan_hash)
     require = contract["require"]
     require(plan_path == plan_path.resolve(), "Prepared P03 plan path changed")
-    plan = contract["read_plan"](plan_path, plan_hash)
+    plan = contract["read_plan"](plan_path, plan_hash, execution=True)
     pins = plan["pins"]
     loads, paths = contract["load_helper"], contract["PINS"]
     fresh = loads(paths["fresh_process"], pins["fresh_process"])

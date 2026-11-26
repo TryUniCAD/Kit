@@ -228,6 +228,7 @@ def prepare_replay(paths, digests, output, build):
         "schema": 2,
         "scope": contract.SCOPE,
         "preparation_host": host,
+        "execution_paths": contract.execution_paths(output / "plan.json") if host == "licensed_macos" else None,
         "prepared_unix_seconds": int(time.time()),
         "source_revision": revision,
         "fusion_version": build,
