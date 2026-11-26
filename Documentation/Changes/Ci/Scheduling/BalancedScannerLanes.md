@@ -2,14 +2,20 @@
 
 ## Behavior
 
-Merge-group jobs on the eight shared `Kit-linux-*` lanes are reassigned so each lane carries about the same work per candidate.
+Merge-group jobs on the eight shared `Kit-linux-*` lanes are reassigned so lanes 0–5 each carry about the same work per candidate.
 Before, lanes 0–3 carried 5.4–6.8 minutes of serial work per candidate, while lanes 4 and 5 carried 1.1 and 2.3 minutes.
 Each lane runs one job at a time across every candidate (`queue: max`), so the heaviest lane sets how quickly candidates can finish behind each other.
+Lanes 6 and 7 carry less queue work than before, because manual audits run there.
+
+Pull-request runs of the jobs that also had a `Kit-linux-*` lane (Ruff, Black, Pyright, Mypy, Python steering, Zizmor and actionlint) now use their own `Kit-pull-<job>` lanes.
+Before, a PR's Mypy and Python steering waited behind queue candidates' work on `Kit-linux-7`, and its Pyright behind `Kit-linux-6`.
+Each PR lane still runs one job at a time, so PR jobs remain bounded: `.github/CiResources.json` records them as `PullRequest: 7`, which makes the cooperating budget 35 jobs, within the Team plan's 60 concurrent hosted jobs.
+Merge-group runs of Pyright, Mypy and Python steering keep `Kit-linux-6` and `Kit-linux-7`.
 
 No job, check name, test, scanner, threshold or allowlist entry changes.
-Only the `concurrency.group` lane number of merge-group jobs moves.
-Manual audit jobs keep lanes 6 and 7, PR-phase jobs keep their lanes, and test shards keep the separate `Kit-test-linux-*` lanes.
-The lanes still exist for the same reason: they cap how many heavy Linux jobs run at once within the [shared runner budget](../RunnerBudgetScheduling.md), and they keep lanes 0–5 free of manual audits.
+Only `concurrency.group` values move.
+Manual audit jobs keep lanes 6 and 7, and test shards keep the separate `Kit-test-linux-*` lanes.
+The `Kit-linux-*` lanes exist to cap how many heavy Linux jobs run at once within the [shared runner budget](../RunnerBudgetScheduling.md) and to keep lanes 0–5 free of manual audits; both still hold.
 
 `Native file compatibility` shards select their lane from a new `lane` matrix value (1–4) instead of their `index`, which still selects the shard's cases.
 
@@ -19,17 +25,17 @@ Minutes are median job durations (setup to finish) per candidate: merge-group ca
 
 | Lane | Before | Minutes | After | Minutes |
 | --- | --- | --- | --- | --- |
-| `Kit-linux-0` | Analyze python, CycloneDX SBOM, OOM witness, Native shard-1, CI policy | 6.8 / 8.0 | Analyze python, Gitleaks, OOM witness | 4.3 / 5.1 |
-| `Kit-linux-1` | Analyze actions, Bandit, Native shard-2, Qualify patches, dlint | 5.9 / 7.5 | Analyze java-kotlin, Native shard-1, OSV-Scanner | 4.0 / 5.2 |
-| `Kit-linux-2` | Analyze java-kotlin, Gitleaks, Native shard-3, Semgrep | 5.5 / 7.6 | Grype, Native shard-2, Safety | 4.3 / 5.4 |
-| `Kit-linux-3` | Analyze javascript-typescript, Grype, Native shard-4, pip-audit | 5.4 / 6.4 | Qualify patches, Native shard-3, Analyze actions | 4.1 / 5.3 |
-| `Kit-linux-4` | OSV-Scanner, Safety | 1.1 / 1.2 | Native shard-4, Checkov, dlint, Syft | 4.4 / 5.4 |
-| `Kit-linux-5` | Checkov, Scorecard | 2.3 / 2.5 | detect-secrets, Semgrep, Analyze javascript-typescript, pip-audit | 4.2 / 5.0 |
-| `Kit-linux-6` | Pyright, Trivy, detect-secrets | 3.4 / 3.8 | Pyright, CI policy, Scorecard, CycloneDX SBOM | 4.1 / 4.5 |
-| `Kit-linux-7` | Mypy, Python steering, Syft, TruffleHog | 3.4 / 3.7 | Mypy, Python steering, TruffleHog, Trivy, Bandit | 4.4 / 4.8 |
+| `Kit-linux-0` | Analyze python, CycloneDX SBOM, OOM witness, Native shard-1, CI policy | 6.8 / 8.0 | Analyze python, Bandit, OSV-Scanner | 4.5 / 4.8 |
+| `Kit-linux-1` | Analyze actions, Bandit, Native shard-2, Qualify patches, dlint | 5.9 / 7.5 | Analyze java-kotlin, Native shard-1, Gitleaks, OOM witness | 4.6 / 6.4 |
+| `Kit-linux-2` | Analyze java-kotlin, Gitleaks, Native shard-3, Semgrep | 5.5 / 7.6 | Grype, Native shard-2, Scorecard | 4.6 / 5.8 |
+| `Kit-linux-3` | Analyze javascript-typescript, Grype, Native shard-4, pip-audit | 5.4 / 6.4 | Qualify patches, Native shard-3, Analyze actions, Safety | 4.7 / 6.0 |
+| `Kit-linux-4` | OSV-Scanner, Safety | 1.1 / 1.2 | Native shard-4, Checkov, dlint, pip-audit | 4.6 / 5.7 |
+| `Kit-linux-5` | Checkov, Scorecard | 2.3 / 2.5 | Semgrep, Analyze javascript-typescript, CI policy, CycloneDX SBOM, Trivy | 4.6 / 5.2 |
+| `Kit-linux-6` | Pyright, Trivy, detect-secrets | 3.4 / 3.8 | Pyright, detect-secrets, Syft | 3.2 / 3.6 |
+| `Kit-linux-7` | Mypy, Python steering, Syft, TruffleHog | 3.4 / 3.7 | Mypy, Python steering, TruffleHog | 3.0 / 3.2 |
 
-The heaviest lane drops from 6.8 to 4.4 minutes per candidate (8.0 to 5.4 on the older medians).
-Lanes 6 and 7 stay slightly lighter because PR-phase Pyright, Mypy and Python steering and manual audits also use them.
+The heaviest lane drops from 6.8 to 4.7 minutes per candidate on the post-#347 medians.
+The older medians include slower native shards (2.2–2.5 minutes), which is why lane 1 shows 6.4 there.
 
 ## Limits
 

@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     concurrency:
-      group: Kit-linux-4
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-ruff' || 'Kit-linux-4' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     concurrency:
-      group: Kit-linux-5
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-black' || 'Kit-linux-5' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     concurrency:
-      group: Kit-linux-6
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-pyright' || 'Kit-linux-6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -130,7 +130,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     concurrency:
-      group: Kit-linux-7
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-mypy' || 'Kit-linux-7' }}
       cancel-in-progress: false
       queue: max
     steps:

@@ -687,7 +687,7 @@ jobs:
     permissions:
       contents: read
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -967,7 +967,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-7
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1034,7 +1034,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '7' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1068,7 +1068,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '2' || '6' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '3' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1134,7 +1134,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
+      group: Kit-linux-6
       cancel-in-progress: false
       queue: max
     steps:
@@ -1166,7 +1166,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '4' || '7' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '6' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1207,7 +1207,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-6
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1279,7 +1279,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1428,7 +1428,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '1' || '6' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '0' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1464,7 +1464,7 @@ jobs:
     permissions:
       contents: read
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '6' || '7' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '2' || '7' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -1521,7 +1521,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-${{ github.event_name == 'merge_group' && '7' || '6' }}
+      group: Kit-linux-${{ github.event_name == 'merge_group' && '5' || '6' }}
       cancel-in-progress: false
       queue: max
     steps:

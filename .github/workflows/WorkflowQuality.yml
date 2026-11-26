@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     concurrency:
-      group: Kit-linux-6
+      group: Kit-linux-5
       cancel-in-progress: false
       queue: max
     steps:
@@ -350,7 +350,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-3
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-zizmor' || 'Kit-linux-3' }}
       cancel-in-progress: false
       queue: max
     steps:
@@ -381,7 +381,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     concurrency:
-      group: Kit-linux-4
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-actionlint' || 'Kit-linux-4' }}
       cancel-in-progress: false
       queue: max
     steps:
