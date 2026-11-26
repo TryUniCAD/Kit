@@ -1,3 +1,4 @@
+from convert.adapters.freecad.EditRead.Sketch.SavedSketchRules import CheckFixedRows
 from convert.adapters.freecad.EditRead.EditGeometry import CheckEditGeom
 from convert.adapters.freecad.EditRead.XmlField import EditChild
 from convert.adapters.freecad.Native import NativeObject
@@ -18,11 +19,7 @@ def CheckEditSketch(Native: NativeObject, Original: Sketch) -> None:
         if NodeValue.tag != "Geometry" or NodeValue.get("id") != str(Index):
             raise ValueError("FreeCAD editable sketch geometry order changed")
         CheckEditGeom(NodeValue, Entity, Entity.id == Selected)
-    Rules = EditChild(
-        Native, "Constraints", "Sketcher::PropertyConstraintList", "ConstraintList"
-    )
-    if len(Rules) or Rules.get("count") != "0":
-        raise ValueError("FreeCAD editable sketch constraints changed")
+    CheckFixedRows(Native, Original)
     if "ExternalGeometry" in Native.properties:
         External = EditChild(
             Native, "ExternalGeometry", "App::PropertyLinkSubList", "LinkSubList"

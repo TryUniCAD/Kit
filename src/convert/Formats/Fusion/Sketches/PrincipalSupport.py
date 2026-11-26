@@ -32,7 +32,7 @@ def AttachPrincipal(
         Component.Offset = 66
         if (
             ReadNativeRef(Component) != ContainerId
-            or NameValue not in ("XY", "YZ")
+            or NameValue not in ("XY", "XZ", "YZ")
             or PlaneValue.transform.origin != DatumFrame.origin
             or PlaneValue.transform.z_axis != DatumFrame.z_axis
         ):

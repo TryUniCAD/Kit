@@ -1,0 +1,727 @@
+{
+  "schema": "kit.solidworks.reverification-count-owners.v1",
+  "source_revision": "960ffde7a866ba94a83043fc8a7d21d0b9edb882",
+  "observed_build": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "runtime": {
+    "python": "3.13.15",
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "scope": "Static reads of external licensed images and disclosed tracked native-save fixtures. P04 is a native-saved derivative of a generated tree prediction and is used solely as a reader fixture. No native process ran. No held-out credit, new output or acceptance is claimed.",
+  "method": [
+    "Check SHA-256 and length of the external executable and studied modules against Manifest2026.json.",
+    "Read 1,000 big-endian u32 IDs at 0x582ed0 and 1,000 three-word signature rows at 0x583e70. Reverse bytes in each signature word to file order. Compare all four fields and index against the recorded 2025 research inventory.",
+    "Open the tracked fixture bytes only with SldprtArchive.from_bytes after comparing the committed fixture digest with the public corpus manifest. Read local, central and end signatures for comparison with that fixture's exact file ID row.",
+    "Read the container version, stream name version markers, Features XML swVersion when present, and KeyWords framing tuple. Tuple positions are XML marker present, BOM present, CRLF count and bare LF count.",
+    "For typed cases, observe the original Schema.P.load and Schema.Cnt.load calls with cursor before and after, active Registry.run_load schema, enclosing object class and value. Correlate observed count values with the actual decoded collection lengths.",
+    "Load CMgr from rooted base 1. Load Config-0 with the typed ModelHeader direct identities and pass its actual final map to load_resolved_compat. Record each stream's undecoded tail length and the resolved prefix."
+  ],
+  "source_files_sha256": {
+    "src/convert/adapters/solidworks/Container/Container.py": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ConfigurationFields.py": "06f005cde3edd32c4890635d752e90ea100c9a611b839983f3d1eb3cd48d2e3f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/CoreFields.py": "6ab6b62ef09e14d92938db1422f1505b26bec574b60a08860f0dbb134a5b3cd4",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/FolderFields.py": "6f51d10b5b784d285f06f108d51a97d1e3c815a82e15cd8535566ffe96d39484",
+    "re/tooling/sw2026/serial/Classes.py": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b",
+    "re/tooling/sw2026/serial/Schema.py": "cd7c8230a76caa1f2a23c47c337d8b024476dd8f0afce73d79a840c3d9eea788",
+    "re/tooling/sw2026/serial/Streams.py": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5",
+    "re/tooling/sw2026/serial/defs/SmallCMgr.py": "76c46ab9d70235fa5346e449a34df0850484cfeb9ad10553bd5f54ff811db11d",
+    "re/tooling/sw2026/serial/defs/ConfigPart.py": "861747fe96fde0ea8c98d3f17597177587d72e9ddfae3c185fa4d40c1caa87a9",
+    "re/tooling/sw2026/serial/defs/ResolvedCore.py": "dbd41924f02e18da88765be32aaee9449ae145635397159c52903b30fc85761c",
+    "re/solidworks/v2026/Manifest2026.json": "e046379b265c216a40c2dc29e9a93afb3377401e23fa5044ebb7ff44667d3909"
+  },
+  "serialize_map_files_sha256": {
+    "re/data/Serialization/SerializeMap.json": "ebf2a28982e3c26d621432233153340bc4490387b24089b846d46c157ac87eef",
+    "re/data/Serialization/SerializeMap2026.json": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "re/solidworks/v2026/SerializeMapDiff2025To2026.json": "5a02cb8899384c360c7ba9cde2792d5f5f0446655b63d1b9726f0bc0d7f0c2e4"
+  },
+  "external_image_identities": {
+    "sldworks.exe": {
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    },
+    "sldmfcu.dll": {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "bytes": 8274520,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    },
+    "swccu.dll": {
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "bytes": 252504,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    },
+    "sldmodu.dll": {
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    },
+    "sldarchiveu.dll": {
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "bytes": 231512,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    },
+    "sldvisualstateu.dll": {
+      "sha256": "fb85d7921c52393e8bb847258b72d8cd006b37c118138c8260c6efe7dcc22c2c",
+      "bytes": 1326168,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    },
+    "sldmopartu.dll": {
+      "sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+      "bytes": 6836824,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    },
+    "sldasmu.dll": {
+      "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390",
+      "bytes": 10863704,
+      "pe_machine": "0x8664",
+      "matches_build_manifest": true
+    }
+  },
+  "signature_inventory": {
+    "legacy_research_json_sha256": "2405af0d178ae2846ef30f83151475b9ca496ee0d769b02651ed7ef410b3cf66",
+    "2026_ids_file_offset": 5779152,
+    "2026_signatures_file_offset": 5783152,
+    "2026_id_array_sha256": "d9471bd7aa9e338fd106140636cfc2819f0f7678dde6bad1668e82e0d0d66d08",
+    "2026_signature_array_sha256": "f153d284fa0cc5a516b4ba32fea8b6169de7236655b5d2c18a1339780a4a2b49",
+    "2026_combined_arrays_sha256": "315bebe5c09a28ba122f7095cffd53acad52a551956e2bb8c497f593fdb60f3f",
+    "unique_2026_file_ids": 1000,
+    "same_index_complete_rows_matching_2025_research_json": 1000
+  },
+  "corpus_manifests_sha256": {
+    "re/solidworks/v2026/corpus/ladder/Manifest.json": "7c84fd4ef75ecf5f8b0cf00fbc12e932aa7e7955ecb5bb414c22d309f9362e79",
+    "re/solidworks/v2026/corpus/assemblies/Manifest.json": "e60ba221757cf1452d70d952eecc1eb41c75e2bc0711c0c6aac7c457f9cd15c8",
+    "re/solidworks/v2026/corpus/tree-parity-saves/Manifest.json": "daa760007e98281c0384d4dc15f8abb7a8c9474ce5e79c56e27c61fd1e13dc5c",
+    "re/solidworks/v2026/corpus/end-conditions/Manifest.json": "37a8726fa154bd2c19c9b3062d2cb0073b0abe4d430668bc343251cb713f7c50",
+    "re/solidworks/v2026/corpus/curves-discovery/Manifest.json": "83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e"
+  },
+  "disclosed_fixtures": {
+    "re/solidworks/v2026/corpus/ladder/C1a_control.SLDPRT": {
+      "fixture_sha256": "da3d7292dd7a7e0bfa8f4dc528a1aabf28dfc03be06ebc6759c2f44925207d21",
+      "unredacted_source_sha256_from_manifest": "5c23b4e2fbf3cf29c800c3b59ec4a8682068262298ac5d30f165d2500be131d3",
+      "container_version": 4,
+      "signature_row": 464,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 1,
+      "resolved_legacy_604_u16": 2,
+      "resolved_u32_prefix": 110
+    },
+    "re/solidworks/v2026/corpus/ladder/C1b_control.SLDPRT": {
+      "fixture_sha256": "fb41e09ab45b3119548f0e08e39ee6eef359cd523bb1bffd551292cec55dbccb",
+      "unredacted_source_sha256_from_manifest": "3319994b6c64646cbc7f2009f2b8790c8e6e30f784912e3bbbbb5678ff7077c7",
+      "container_version": 4,
+      "signature_row": 910,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 1,
+      "resolved_legacy_604_u16": 2,
+      "resolved_u32_prefix": 110
+    },
+    "re/solidworks/v2026/corpus/ladder/E0_empty.SLDPRT": {
+      "fixture_sha256": "eaf294476c1e998edcbf6183d77f50768f74fd509f030300c9ce7375dd7c1afb",
+      "unredacted_source_sha256_from_manifest": "2a3979f046254d6f680874bd8da27b9a9915f22d77381a6680d7fb2b553f535f",
+      "container_version": 4,
+      "signature_row": 513,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 0,
+      "resolved_legacy_604_u16": 0,
+      "resolved_u32_prefix": 103,
+      "typed_archive_observation": {
+        "cmgr": {
+          "stream_sha256": "161aefe817db3c5292720a006273902273ea8381def0919a03aa2954d9a9be18",
+          "archive_start_map_count": 1,
+          "remaining_tail_bytes": 0,
+          "scalar_at_1610": [
+            {
+              "start": 1610,
+              "end_exclusive": 1614,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 0
+            }
+          ],
+          "fb00_count_owners": [
+            {
+              "start": 1610,
+              "end_exclusive": 1614,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 0,
+              "collection": "fb00",
+              "actual_elements": 0
+            }
+          ]
+        },
+        "config": {
+          "stream_sha256": "10c7325af681fcbd6ae3ba844de3f3d7006ef41069bd62ef630b6546f6b1b3b5",
+          "remaining_tail_bytes": 0,
+          "start_map_count": 4,
+          "final_map_count": 103
+        },
+        "resolved": {
+          "stream_sha256": "d5d8b3f0ee2baee2ed77763ec76b21c6b97c14ebf1245ff48e6acb54cdca56f2",
+          "remaining_tail_bytes": 0,
+          "scalar_at_604": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 0
+            }
+          ],
+          "history_collection_count_owners": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 0,
+              "collection": "items",
+              "actual_elements": 0
+            }
+          ],
+          "resolved_start_map_count": 103,
+          "resolved_final_map_count": 167
+        }
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT": {
+      "fixture_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "unredacted_source_sha256_from_manifest": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "container_version": 4,
+      "signature_row": 492,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 1,
+      "resolved_legacy_604_u16": 2,
+      "resolved_u32_prefix": 110,
+      "typed_archive_observation": {
+        "cmgr": {
+          "stream_sha256": "599e3fea664a9788e402297ed0997b680efbf72cfc8a714abe6a8a140ef2d541",
+          "archive_start_map_count": 1,
+          "remaining_tail_bytes": 0,
+          "scalar_at_1610": [
+            {
+              "start": 1610,
+              "end_exclusive": 1614,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 1
+            }
+          ],
+          "fb00_count_owners": [
+            {
+              "start": 1610,
+              "end_exclusive": 1614,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 1,
+              "collection": "fb00",
+              "actual_elements": 1
+            }
+          ]
+        },
+        "config": {
+          "stream_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+          "remaining_tail_bytes": 0,
+          "start_map_count": 4,
+          "final_map_count": 110
+        },
+        "resolved": {
+          "stream_sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525",
+          "remaining_tail_bytes": 0,
+          "scalar_at_604": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 2
+            }
+          ],
+          "history_collection_count_owners": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 2,
+              "collection": "items",
+              "actual_elements": 2
+            }
+          ],
+          "resolved_start_map_count": 110,
+          "resolved_final_map_count": 288
+        }
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L2_boss.SLDPRT": {
+      "fixture_sha256": "eaa3292009a2faf4fe2e9b07997ba3cf207bc06fcc89867310a9ee0377f1e533",
+      "unredacted_source_sha256_from_manifest": "b754d6adc0f534e2cdc08df1e4d931e0508dfe75f7a957ed02eb3405833a6b90",
+      "container_version": 4,
+      "signature_row": 567,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 2,
+      "resolved_legacy_604_u16": 4,
+      "resolved_u32_prefix": 111
+    },
+    "re/solidworks/v2026/corpus/ladder/L3_boss.SLDPRT": {
+      "fixture_sha256": "b35942e076fc0d29433ab4e695462b7570d2588b321abb650734a79b65cd04ce",
+      "unredacted_source_sha256_from_manifest": "4fdc02e3bd717f70b82ce3c938342e9e53a0589948ecbcf388dc77c0a1865279",
+      "container_version": 4,
+      "signature_row": 262,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 3,
+      "resolved_legacy_604_u16": 6,
+      "resolved_u32_prefix": 112
+    },
+    "re/solidworks/v2026/corpus/ladder/L4_boss.SLDPRT": {
+      "fixture_sha256": "906f3d92df24ef8c04dc1ca36859d4d4c575fdf25115a75945218dcb3f8dc9a0",
+      "unredacted_source_sha256_from_manifest": "51476e2660c71adbe3d901b62c4a5f5d6d4ffead3f74a18448cdf349b1c9a7d1",
+      "container_version": 4,
+      "signature_row": 837,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 4,
+      "resolved_legacy_604_u16": 8,
+      "resolved_u32_prefix": 113,
+      "typed_archive_observation": {
+        "cmgr": {
+          "stream_sha256": "eb5a463ca7e1f2481c817126e0e1fa1d13f7c83d50972123091d72f6afdfba53",
+          "archive_start_map_count": 1,
+          "remaining_tail_bytes": 0,
+          "scalar_at_1610": [
+            {
+              "start": 1610,
+              "end_exclusive": 1614,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 4
+            }
+          ],
+          "fb00_count_owners": [
+            {
+              "start": 1610,
+              "end_exclusive": 1614,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 4,
+              "collection": "fb00",
+              "actual_elements": 4
+            }
+          ]
+        },
+        "config": {
+          "stream_sha256": "1e33df81b216bbe3f4318936ea01ffe5cfe3800d1313af621fee1fd6a42cbe30",
+          "remaining_tail_bytes": 0,
+          "start_map_count": 4,
+          "final_map_count": 113
+        },
+        "resolved": {
+          "stream_sha256": "bcab7bba4ef4ddc1f43638936291935df59bac2aa1435c7ece7431775602a439",
+          "remaining_tail_bytes": 0,
+          "scalar_at_604": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 8
+            }
+          ],
+          "history_collection_count_owners": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 8,
+              "collection": "items",
+              "actual_elements": 8
+            }
+          ],
+          "resolved_start_map_count": 113,
+          "resolved_final_map_count": 593
+        }
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/P0_plain.SLDPRT": {
+      "fixture_sha256": "2d11caf833f3e604006ed6920c62d4ca4c592a0a2059743ff1364548522d3cf8",
+      "unredacted_source_sha256_from_manifest": "0a3d426f40d45cf4c9386fdebd07c0533b334504d9146212b7e34b76e7e61025",
+      "container_version": 4,
+      "signature_row": 481,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 1,
+      "resolved_legacy_604_u16": 2,
+      "resolved_u32_prefix": 109
+    },
+    "re/solidworks/v2026/corpus/assemblies/A0_one.SLDASM": {
+      "fixture_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "unredacted_source_sha256_from_manifest": "54eb2475f10754077920339493ceeb3aba7caf226fcebfa2282293d2634e6d21",
+      "container_version": 4,
+      "signature_row": 241,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": null,
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 65280,
+      "cmgr_legacy_1610_u32": 256,
+      "resolved_legacy_604_u16": 1,
+      "resolved_u32_prefix": 103,
+      "typed_archive_observation": {
+        "cmgr": {
+          "stream_sha256": "f11a6c8019943791eb80fd610dee4c127b12b5db2285f537d509983e078328f4",
+          "archive_start_map_count": 1,
+          "remaining_tail_bytes": 0,
+          "scalar_at_1610": [
+            {
+              "start": 1607,
+              "end_exclusive": 1611,
+              "schema": "moExtObject_c",
+              "object_class": "moExtObject_c",
+              "field": "f48",
+              "wire_kind": "i32",
+              "value": 0
+            }
+          ],
+          "fb00_count_owners": [
+            {
+              "start": 765,
+              "end_exclusive": 769,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 0,
+              "collection": "fb00",
+              "actual_elements": 0
+            }
+          ]
+        },
+        "config": {
+          "stream_sha256": "8ed41cbefe04dde1b76328c273f93a81e3f105f4fbbb43e1305cf9b0476d9a4d",
+          "remaining_tail_bytes": 0,
+          "start_map_count": 5,
+          "final_map_count": 103
+        },
+        "resolved": {
+          "stream_sha256": "2c9894392b3adf1a43249f05d71fff2dee2b6c7ce6f412b26559eca1330ae870",
+          "remaining_tail_bytes": 0,
+          "scalar_at_604": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 1
+            }
+          ],
+          "history_collection_count_owners": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 1,
+              "collection": "items",
+              "actual_elements": 1
+            }
+          ],
+          "resolved_start_map_count": 103,
+          "resolved_final_map_count": 172
+        }
+      }
+    },
+    "re/solidworks/v2026/corpus/assemblies/A1_two.SLDASM": {
+      "fixture_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "unredacted_source_sha256_from_manifest": "bdd593786c4f6750c03d7c911d6a1b1a718f938c7d33c2f48d5bb94c03c36418",
+      "container_version": 4,
+      "signature_row": 579,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": null,
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 65280,
+      "cmgr_legacy_1610_u32": 256,
+      "resolved_legacy_604_u16": 2,
+      "resolved_u32_prefix": 108
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-open-save.SLDPRT": {
+      "fixture_sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570",
+      "unredacted_source_sha256_from_manifest": "5a792ad5ecf6f0cf600c8f55056327b0dbd07acf485d27b80e7810adb976290d",
+      "container_version": 4,
+      "signature_row": 564,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 0,
+      "resolved_legacy_604_u16": 0,
+      "resolved_u32_prefix": 121,
+      "typed_archive_observation": {
+        "cmgr": {
+          "stream_sha256": "436a6eab7fa1d339018405b4a80ea631b254f753cb141dcd61febab5be48240a",
+          "archive_start_map_count": 1,
+          "remaining_tail_bytes": 0,
+          "scalar_at_1610": [
+            {
+              "start": 1610,
+              "end_exclusive": 1614,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "f82c",
+              "wire_kind": "i32",
+              "value": 0
+            }
+          ],
+          "fb00_count_owners": [
+            {
+              "start": 1662,
+              "end_exclusive": 1666,
+              "schema": "moBaseConfiguration_c",
+              "object_class": "moPartConfiguration_c",
+              "field": "nb00",
+              "wire_kind": "u32",
+              "value": 1,
+              "collection": "fb00",
+              "actual_elements": 1
+            }
+          ]
+        },
+        "config": {
+          "stream_sha256": "cd2614f57952793eba5a247860abe6531a84ab9ed1772e0aeb7c3a52dbe20ef6",
+          "remaining_tail_bytes": 0,
+          "start_map_count": 4,
+          "final_map_count": 121
+        },
+        "resolved": {
+          "stream_sha256": "2a8679cd5331d524046732a53b48f4dd37cf67b9d7fe26cf8d6d5682e086f368",
+          "remaining_tail_bytes": 0,
+          "scalar_at_604": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 0
+            }
+          ],
+          "history_collection_count_owners": [
+            {
+              "start": 604,
+              "end_exclusive": 606,
+              "schema": "rf.suObArray",
+              "object_class": "moHistoryFolder_c",
+              "field": "n",
+              "wire_kind": "Count",
+              "value": 0,
+              "collection": "items",
+              "actual_elements": 0
+            }
+          ],
+          "resolved_start_map_count": 121,
+          "resolved_final_map_count": 277
+        }
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D10TwoDirections.SLDPRT": {
+      "fixture_sha256": "c2ab625827632e606efaad0e8ec2e3c75ef10355152a7df012f2cd92ec669083",
+      "unredacted_source_sha256_from_manifest": "9d5a69bc05ae25b708d892eb3b76b18ac1d0478ad8b5179f558ed4f69041f7fd",
+      "container_version": 4,
+      "signature_row": 201,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 1,
+      "resolved_legacy_604_u16": 2,
+      "resolved_u32_prefix": 109
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D24NearFullArc.SLDPRT": {
+      "fixture_sha256": "e804f6507f3ee3a57a11be1494b0a040b7c3d0a8b3d90e1dab1dd61a2e109084",
+      "unredacted_source_sha256_from_manifest": "0fcbcea5879d18514fb5f42d33214d4e85d14181ae500302cc69b56425087e2c",
+      "container_version": 4,
+      "signature_row": 726,
+      "signature_triplet_matches": true,
+      "version_markers": [
+        "_DL_VERSION_19000",
+        "_MO_VERSION_19000"
+      ],
+      "features_xml_sw_version": "19000",
+      "keyword_framing": [
+        true,
+        false,
+        2,
+        0
+      ],
+      "cmgr_legacy_1414_u16": 0,
+      "cmgr_legacy_1610_u32": 1,
+      "resolved_legacy_604_u16": 2,
+      "resolved_u32_prefix": 110
+    }
+  }
+}

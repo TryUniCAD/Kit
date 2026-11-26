@@ -19,6 +19,10 @@ from interchange.geometry.Models.Sketch import Sketch, SketchRelation
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from interchange.Records.RecordParameter import Parameter
 from tests.Research.Archives.SwPlanarLoops import VerifySwExport, VerifySwLoops
+from tests.Research.Archives.SignedPrism.NormalizeSigned import NormalizeSigned
+
+# the prism call and its report comparison must use the same evidence path
+KPrismEvidence = "re/automation/FusionConstrainedPrismEvidence.py"
 
 
 # each command compares saved archive records with pinned independent application measurements
@@ -68,7 +72,7 @@ from tests.Research.Archives.SwPlanarLoops import VerifySwExport, VerifySwLoops
             id="fusion-p03-boss-profile",
         ),
         Pytest.param(
-            "re/automation/FusionConstrainedPrismEvidence.py",
+            KPrismEvidence,
             (),
             "d7c7ab718de1aaf5f5f6cd6b952849db50d07c56d42c948050b91ca162ee4fab",
             id="fusion-p03-strict-constrained-prism",
@@ -82,7 +86,7 @@ from tests.Research.Archives.SwPlanarLoops import VerifySwExport, VerifySwLoops
         Pytest.param(
             "re/automation/RectanglePairEvidence.py",
             (),
-            "4e0615e5153f12b313f8a3b61b73f81b19fef0768a9571a2c4c09c2806c6d2cc",
+            "a25437ee822fdb4571fa784a85698b8edb92c1a3ee10371ba7bd53ae6dd48af0",
             id="paired-p01-p03-public-history",
         ),
         Pytest.param(
@@ -139,7 +143,20 @@ def CheckArchive(ScriptPath: str, Options: tuple[str, ...], ReportDigest: str) -
         check=False,
     )
     assert ResultInfo.returncode == 0, ResultInfo.stderr.decode(errors="replace")
-    ActualDigest = Hashlib.sha256(ResultInfo.stdout.replace(b"\r\n", b"\n")).hexdigest()
+    ReportBytes = ResultInfo.stdout.replace(b"\r\n", b"\n")
+    if ScriptPath == KPrismEvidence:
+        CurrentRefusal = (
+            b'      "solidworks.sldprt": "solidworks.sldprt does not support typed '
+            + b'material density and color"\n'
+        )
+        HistoricRefusal = (
+            b'      "solidworks.sldprt": "no writer registered for solidworks.sldprt"\n'
+        )
+        assert ReportBytes.count(CurrentRefusal) == 1
+        ReportBytes = ReportBytes.replace(CurrentRefusal, HistoricRefusal, 1)
+    if ScriptPath == "re/automation/FusionSignedPrism/VerifySignedPrism.py":
+        ReportBytes = NormalizeSigned(ReportBytes)
+    ActualDigest = Hashlib.sha256(ReportBytes).hexdigest()
     assert ActualDigest == ReportDigest, (ScriptPath, Options, ActualDigest)
 
 

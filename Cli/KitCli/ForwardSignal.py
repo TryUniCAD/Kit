@@ -1,5 +1,11 @@
+import sys
 from subprocess import Popen
 from types import FrameType
+
+if sys.platform == "win32":
+    from signal import CTRL_BREAK_EVENT as KBreakEvent
+else:
+    from signal import SIGSTOP, SIGTSTP
 
 
 # the launcher must deliver terminal and direct signals to its separate research session
@@ -9,13 +15,14 @@ def ForwardSignal(
     if ChildProcess.poll() is not None:
         return
     try:
-        from signal import SIGSTOP, SIGTSTP
-
-        if SignalNumber == SIGTSTP:
-            ChildProcess.send_signal(SIGSTOP)
-            SendSignal(GetProcessId(), SIGSTOP)
-            return
-        ChildProcess.send_signal(SignalNumber)
+        if sys.platform == "win32":
+            ChildProcess.send_signal(KBreakEvent)
+        else:
+            if SignalNumber == SIGTSTP:
+                ChildProcess.send_signal(SIGSTOP)
+                SendSignal(GetProcessId(), SIGSTOP)
+                return
+            ChildProcess.send_signal(SignalNumber)
     except ProcessLookupError:
         return
 

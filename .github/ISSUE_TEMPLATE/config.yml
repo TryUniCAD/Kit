@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Contact Parashell
-    url: mailto:odin.glynn@parashell.cloud
-    about: For anything other than a bug report, contact Parashell directly.
+  - name: Kit documentation
+    url: https://github.com/TryUniCAD/Kit/blob/main/Documentation/Index.md
+    about: Read installation, usage, and supported-format guidance.
+  - name: Report a vulnerability privately
+    url: https://github.com/TryUniCAD/Kit/security/advisories/new
+    about: Do not disclose suspected vulnerabilities in public issues.

@@ -21,7 +21,8 @@ class HandleCodec(Protocol):
     # the enclosing archive supplies the generation and condition for the optional handle fields
     def WriteHandleMut(
         self, Writer: ArchiveWriter, *, Generation: int, ConditionOne: bool
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
 
 # the dimension codec links its independent geometry inputs and the shared archive state
@@ -30,7 +31,8 @@ class DistCodec(Protocol):
     # the selected frame and signed operation travel together into the encoder
     def DimGeometry(
         self, Frame: Transform, Normal: SpaceVector, Tangent: SpaceVector, Reverse: bool
-    ) -> object: ...
+    ) -> object:
+        raise NotImplementedError
 
     # scope and authored values must reach the same guarded writer used in research
     def WriteDistMut(
@@ -44,7 +46,8 @@ class DistCodec(Protocol):
         NameValue: str,
         DepthMm: float,
         Geometry: object,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
 
 # the generated outer tail takes caller settings separately from the model length
@@ -63,7 +66,8 @@ class PlacementCodec(Protocol):
         ArrowHead: int,
         Precision: int,
         AltPrecision: int,
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
 
 # the bare research imports must resolve to these exact files for the scoped hosted test
@@ -102,7 +106,8 @@ class CacheCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
     # observed native load state is distinct from the model depth
     def ReadBossCache(
@@ -112,7 +117,8 @@ class CacheCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> tuple[float, bool]: ...
+    ) -> tuple[float, bool]:
+        raise NotImplementedError
 
 
 # the guarded archive check loads the research cache by its exact local path

@@ -73,7 +73,14 @@ def ReadEditProfile(Native: NativeObject, Original: Sketch) -> Sketch:
     CheckProfileIds(Native, Original, SketchData)
     CheckExtensions(Native)
     CheckSketchOpts(Native)
-    CheckProfileRow(Native, SketchData, Indices, CircleId, Center.id)
+    CheckProfileRow(
+        Native,
+        SketchData,
+        Indices,
+        CircleId,
+        Center.id,
+        sum(Entity.fixed for Entity in Original.entities),
+    )
     Edited = ReadSketchGeom(Native, Original)
     Movable = {CircleId, Center.id}
     if any(

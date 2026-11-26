@@ -1,0 +1,471 @@
+[
+  {
+    "run": "Automatic/holdout-02-source",
+    "status": "failed",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "failed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "failed": 1,
+        "waiting_evidence": 8
+      }
+    },
+    "native_verification": {},
+    "full_result_sha256": "ab14f66fb8fc707a226531eea01c2a23ae5d2edd367f50d7651da2a23ef5fd29"
+  },
+  {
+    "run": "Automatic/holdout-04-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "2cbeb8b9f2ac5736bbe4e7f1239ed82daaabf0934dce66f6b9914c5785efd731"
+  },
+  {
+    "run": "Automatic/discovery-05-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "b21e0aab2f3354b67d9a60507a58f7f109ac2818d34aeee7ded89a19c131a59b"
+  },
+  {
+    "run": "Automatic/discovery-05-source",
+    "status": "failed",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "failed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "failed": 1,
+        "waiting_evidence": 8
+      }
+    },
+    "native_verification": {},
+    "full_result_sha256": "c7faf5b440bd7fe0b43a41dac3f5bad643177eb842040f1652d3cf62268d8f4d"
+  },
+  {
+    "run": "Automatic/discovery-03-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "c1aec94dc0a7fa0f3643019e33e0ba16c15434fc073778a2b07e50d9363355e2"
+  },
+  {
+    "run": "Automatic/holdout-02-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "9efd80d17db661e4331a50d92f668410dc77a578f16a2ee57d79df7a34097334"
+  },
+  {
+    "run": "Automatic/holdout-05-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "3b218629e7f1d58557f4d04a24d1d7951852eafc8f1d3f2d2e88bc377d985159"
+  },
+  {
+    "run": "Automatic/discovery-04-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "4effbd323cb1c84c9b36893bb57a34b8b3bdaf9ef9d931cc1d35a26f422a862a"
+  },
+  {
+    "run": "Automatic/holdout-04-source",
+    "status": "coverage_incomplete",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "completed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "completed": 9
+      }
+    },
+    "native_verification": {
+      "fusion": {
+        "action": "Inspect failed checks and semantic_gaps in this report; incomplete or differing observations do not verify decoding",
+        "application": "fusion",
+        "cases": [
+          {
+            "evidence": {
+              "path": "NativeVerification-fusion.Evidence-arqvnanj/case-0-detail.json",
+              "sha256": "8b5a169156e0cab27584aea1e7ec0135396deaf4adc436c121869147762e30ab"
+            },
+            "full_semantics_verified": true,
+            "measurement_status": "passed",
+            "neutral_sha256": "cb7c43f5074679e57cbf330ce535eae852df37b5978cdf5ab7f8b4c0aa05d20b",
+            "path": "p03-blind-boss.fusion:106767a536e453242e4b202af4db53d27973b16b7cf5f447b99a381cb8e09644",
+            "semantic_gap_count": 0,
+            "semantic_gaps": {
+              "path": "NativeVerification-fusion.Evidence-arqvnanj/case-0-gaps.json",
+              "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+            },
+            "source_sha256": "106767a536e453242e4b202af4db53d27973b16b7cf5f447b99a381cb8e09644",
+            "status": "passed"
+          },
+          {
+            "evidence": {
+              "path": "NativeVerification-fusion.Evidence-arqvnanj/case-1-detail.json",
+              "sha256": "450b2fc6707adfbac1473707bd12f81710c4f223dc2d8c50f0cb76904f97f652"
+            },
+            "full_semantics_verified": true,
+            "measurement_status": "passed",
+            "neutral_sha256": "55cbe1580e4e88fe902040507a8c7c681e1dcccbfc03ebf5021c918885806e28",
+            "path": "p03-blind-boss.fusion:1880e585d2ff39dea2d95ef0d04ed9191be2efc921d8a52c6990e735288c1505",
+            "semantic_gap_count": 0,
+            "semantic_gaps": {
+              "path": "NativeVerification-fusion.Evidence-arqvnanj/case-1-gaps.json",
+              "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+            },
+            "source_sha256": "1880e585d2ff39dea2d95ef0d04ed9191be2efc921d8a52c6990e735288c1505",
+            "status": "passed"
+          },
+          {
+            "checks": {
+              "path": "NativeVerification-fusion.Evidence-arqvnanj/case-2-checks.json",
+              "sha256": "198625dd37f86e15206574a875f0a8643f3bbca1778104eb56df59366968a317"
+            },
+            "edits": [
+              {
+                "checks": {
+                  "path": "NativeVerification-fusion.Evidence-arqvnanj/case-2-edit-0-checks.json",
+                  "sha256": "87f300a1042604823fb6de533720faefef66f41e4c4eeb8331f8e8c8691ff5f3"
+                },
+                "full_semantics_verified": true,
+                "geometry_changed": true,
+                "measurement_status": "passed",
+                "parameter": "width_mm",
+                "reopened": {
+                  "path": "NativeVerification-fusion.Evidence-arqvnanj/case-2-edit-0-reopened.json",
+                  "sha256": "347cbe98a88ec0e1e615bc35fe3e4c0844166516afb3178383c33cf9c2cd66f5"
+                },
+                "restored": true,
+                "saved_sha256": "339b37dbe162b24532bb79977f3e364f56f10b6eceb9cc0aafe87f721d829fa7",
+                "status": "passed"
+              },
+              {
+                "checks": {
+                  "path": "NativeVerification-fusion.Evidence-arqvnanj/case-2-edit-1-checks.json",
+                  "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+                },
+                "full_semantics_verified": false,
+                "geometry_changed": true,
+                "measurement_status": "failed",
+                "parameter": "height_mm",
+                "reopened": {
+                  "path": "NativeVerification-fusion.Evidence-arqvnanj/case-2-edit-1-reopened.json",
+                  "sha256": "611ee324c3293b3b5e60358942439dfd6e271f7425598e010213b9e816b54bc2"
+                },
+                "restored": true,
+                "saved_sha256": "b5434801da88dfbabead3975e8d135a58e16fcd0186587f308c58d05db421c8e",
+                "status": "failed"
+              }
+            ],
+            "full_semantics_verified": false,
+            "measurement": {
+              "path": "NativeVerification-fusion.Evidence-arqvnanj/case-2-measurement.json",
+              "sha256": "9f3788a42a8cb3e7e8d7b1931fe12154318d34eec15ad3d26559edded096c935"
+            },
+            "measurement_status": "failed",
+            "neutral_sha256": "b09b65d534d66524287b1efc8c6e294bc149db78908ca2d11d83aebb774102ed",
+            "path": "p03-blind-boss.fusion:4cfc1e792d33d48e4b80f9829a4496cf70c2059378ce1b3cfa716b3a1c9e8aab",
+            "source_sha256": "4cfc1e792d33d48e4b80f9829a4496cf70c2059378ce1b3cfa716b3a1c9e8aab",
+            "status": "failed"
+          }
+        ],
+        "controls": {
+          "after": {
+            "error": "an earlier native process requires owner recovery",
+            "status": "failed"
+          },
+          "before": {
+            "path": "NativeVerification-fusion.Evidence-arqvnanj/control-before.json",
+            "sha256": "2bae41fb1ac2652eb7e6c49f3619049c043a73851e574c2e7c39773c6fbc580b"
+          }
+        },
+        "controls_healthy": false,
+        "conversion_qualified": false,
+        "error": "ValueError: Native reverse distance requires a negative millimeter literal",
+        "evidence_directory": "NativeVerification-fusion.Evidence-arqvnanj",
+        "full_semantics_verified": false,
+        "live_batch_verified": false,
+        "measurement_status": "invalid_batch",
+        "portable_complete": false,
+        "schema": 2,
+        "scope": "native_source_reader_verification",
+        "semantic_gaps": [],
+        "source_inventory_sha256": "a70ae3d2f0358a1d2ff6c06cc2b3b4453e39430d0e06aae6d5d4994b2a86c94d",
+        "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+        "sources_unchanged": true,
+        "status": "invalid_batch"
+      }
+    },
+    "full_result_sha256": "748f5afbd8ca47c68e1ab85ab138858c5b656fc5e57f19f6841b86a9b7e9bf9f"
+  },
+  {
+    "run": "Automatic/holdout-06-source",
+    "status": "coverage_incomplete",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "completed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "completed": 9
+      }
+    },
+    "native_verification": {
+      "fusion": {
+        "action": "Sign in on thy-pc, close existing CAD sessions, and inspect cad-api status for recovery requirements",
+        "application": "fusion",
+        "cases": [],
+        "controls": {},
+        "conversion_qualified": false,
+        "full_semantics_verified": false,
+        "live_batch_verified": false,
+        "portable_complete": false,
+        "schema": 2,
+        "scope": "native_source_reader_verification",
+        "semantic_gaps": [
+          "complete_feature_definitions",
+          "constraint_operands",
+          "reference_bindings"
+        ],
+        "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+        "status": "api_unavailable"
+      }
+    },
+    "full_result_sha256": "247aa3e3aa7dfd8406b6cb5f67672dae9973a9fd8806e169f8636656c609f156"
+  },
+  {
+    "run": "Automatic/discovery-02-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "3a6076d93c173424b7e7a94cb94b36c3734b0ffbd54cb6e8c736a9bf54095afc"
+  },
+  {
+    "run": "Automatic/holdout-03-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "0cafb03159a3a4e0f0d8d804cafad71bc7ba543780b563273a9d86eae4bcacb4"
+  },
+  {
+    "run": "Automatic/discovery-03-source",
+    "status": "failed",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "failed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "failed": 1,
+        "waiting_evidence": 8
+      }
+    },
+    "native_verification": {},
+    "full_result_sha256": "5f171f52c1c8974a4b5f07823c7cc2d691ccc587c3dd5188d3329493881ec237"
+  },
+  {
+    "run": "Automatic/discovery-06-source",
+    "status": "failed",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "failed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "failed": 1,
+        "waiting_evidence": 8
+      }
+    },
+    "native_verification": {},
+    "full_result_sha256": "fdbf17a2133137fe3f608918006b778df9e0338e32633c8ac0e53da178abbf40"
+  },
+  {
+    "run": "Automatic/holdout-06-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "dccf6d45a7d10ddd32d4f4c9992302af9457d831f2c8aed6f387aa8c09459f30"
+  },
+  {
+    "run": "Automatic/holdout-03-source",
+    "status": "failed",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "failed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "failed": 1,
+        "waiting_evidence": 8
+      }
+    },
+    "native_verification": {},
+    "full_result_sha256": "5ca7a7c642d4aebe151e78117032f9571e179c30ea514c332bcb1350c5e45382"
+  },
+  {
+    "run": "Automatic/holdout-01-source",
+    "status": "failed",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "failed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "failed": 1,
+        "waiting_evidence": 8
+      }
+    },
+    "native_verification": {},
+    "full_result_sha256": "e14bfe231c6d709c28c9cde3412641d12a3d481bd9ca1407339abe126c121db1"
+  },
+  {
+    "run": "Automatic/discovery-04-source",
+    "status": "failed",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "failed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "failed": 1,
+        "waiting_evidence": 8
+      }
+    },
+    "native_verification": {},
+    "full_result_sha256": "afb6614e545a25c1791931cd75acc09182d08be682c24736e4b9f058168242dc"
+  },
+  {
+    "run": "Automatic/holdout-05-source",
+    "status": "coverage_incomplete",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "completed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "completed": 9
+      }
+    },
+    "native_verification": {
+      "fusion": {
+        "action": "Sign in on thy-pc, close existing CAD sessions, and inspect cad-api status for recovery requirements",
+        "application": "fusion",
+        "cases": [],
+        "controls": {},
+        "conversion_qualified": false,
+        "full_semantics_verified": false,
+        "live_batch_verified": false,
+        "portable_complete": false,
+        "schema": 2,
+        "scope": "native_source_reader_verification",
+        "semantic_gaps": [
+          "complete_feature_definitions",
+          "constraint_operands",
+          "reference_bindings"
+        ],
+        "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+        "status": "api_unavailable"
+      }
+    },
+    "full_result_sha256": "dfbe06eecf8b2a6d42084f7546e9efdbe205bb0cc6ceb77e1fce62a3fbe23df7"
+  },
+  {
+    "run": "Automatic/discovery-06-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "0fd1537d2bf67e3670c8b84c678ee548c9293ba4b52df596058f494e87bbc38f"
+  },
+  {
+    "run": "Automatic/holdout-01-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "480efb98f36adf1209ff115356de714eb2f6efed449f51d04309f085ccb232c1"
+  },
+  {
+    "run": "AutomaticRetries/discovery-01-source",
+    "status": "coverage_incomplete",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "completed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "completed": 9
+      }
+    },
+    "native_verification": {
+      "fusion": {
+        "action": "Sign in on thy-pc, close existing CAD sessions, and inspect cad-api status for recovery requirements",
+        "application": "fusion",
+        "cases": [],
+        "controls": {},
+        "conversion_qualified": false,
+        "full_semantics_verified": false,
+        "live_batch_verified": false,
+        "portable_complete": false,
+        "schema": 2,
+        "scope": "native_source_reader_verification",
+        "semantic_gaps": [
+          "complete_feature_definitions",
+          "constraint_operands",
+          "reference_bindings"
+        ],
+        "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+        "status": "api_unavailable"
+      }
+    },
+    "full_result_sha256": "fcf9b4d8dc8809c079259db2f07e9dde288b1cde0550f8a315070f2f91f0b2f4"
+  },
+  {
+    "run": "AutomaticRetries/discovery-01-generated",
+    "status": "coverage_incomplete",
+    "scope_statuses": {},
+    "job_states": {},
+    "native_verification": {},
+    "full_result_sha256": "6a2ef70504ebdc171db7f3095b1d47db9e3385686bff8f90f08946ebcefd7cca"
+  },
+  {
+    "run": "AutomaticRetries/discovery-02-source",
+    "status": "coverage_incomplete",
+    "scope_statuses": {
+      "p03-blind-boss.fusion": "completed"
+    },
+    "job_states": {
+      "p03-blind-boss.fusion": {
+        "completed": 9
+      }
+    },
+    "native_verification": {
+      "fusion": {
+        "action": "Sign in on thy-pc, close existing CAD sessions, and inspect cad-api status for recovery requirements",
+        "application": "fusion",
+        "cases": [],
+        "controls": {},
+        "conversion_qualified": false,
+        "full_semantics_verified": false,
+        "live_batch_verified": false,
+        "portable_complete": false,
+        "schema": 2,
+        "scope": "native_source_reader_verification",
+        "semantic_gaps": [
+          "complete_feature_definitions",
+          "constraint_operands",
+          "reference_bindings"
+        ],
+        "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+        "status": "api_unavailable"
+      }
+    },
+    "full_result_sha256": "b633d341cebf910990d6c95507d9f165bd84a435372e10cbc4e046e3627b7917"
+  }
+]

@@ -1,0 +1,453 @@
+{
+  "archive_version": 19000,
+  "cases": {
+    "concave": {
+      "config_bytes": 22700,
+      "config_next_slot": 94,
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "file_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "rows": [
+        {
+          "fields_sha256": "f8f312682227a80904061cf83cdec95fd9403a141ac92a1605ea2c198ba55e65",
+          "interval": [
+            14626,
+            14972
+          ],
+          "layout": "moSFDataHelper_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8"
+          ],
+          "wire_sha256": "e6ab28092afb8b1176b3d94ef66908fbbf14ad528fc62f8c30b8154a4e7c8a95"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            14691,
+            14791
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8",
+            "fc0"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "0fd826df64dd4f05d80a1b6f8a3ed5183f4f26b524af7a9dead15a1c477e552a",
+          "interval": [
+            14793,
+            14944
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8",
+            "f128"
+          ],
+          "wire_sha256": "c1f31635f79b001df26707da1c5a1d298d3819692b0fe30870fb5651fca63908"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            14810,
+            14910
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "f8f312682227a80904061cf83cdec95fd9403a141ac92a1605ea2c198ba55e65",
+          "interval": [
+            15839,
+            16185
+          ],
+          "layout": "moSFDataHelper_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260"
+          ],
+          "wire_sha256": "e6ab28092afb8b1176b3d94ef66908fbbf14ad528fc62f8c30b8154a4e7c8a95"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            15904,
+            16004
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260",
+            "fc0"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "0fd826df64dd4f05d80a1b6f8a3ed5183f4f26b524af7a9dead15a1c477e552a",
+          "interval": [
+            16006,
+            16157
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260",
+            "f128"
+          ],
+          "wire_sha256": "c1f31635f79b001df26707da1c5a1d298d3819692b0fe30870fb5651fca63908"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            16023,
+            16123
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "f8f312682227a80904061cf83cdec95fd9403a141ac92a1605ea2c198ba55e65",
+          "interval": [
+            16185,
+            16531
+          ],
+          "layout": "moSFDataHelper_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268"
+          ],
+          "wire_sha256": "e6ab28092afb8b1176b3d94ef66908fbbf14ad528fc62f8c30b8154a4e7c8a95"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            16250,
+            16350
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268",
+            "fc0"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "0fd826df64dd4f05d80a1b6f8a3ed5183f4f26b524af7a9dead15a1c477e552a",
+          "interval": [
+            16352,
+            16503
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268",
+            "f128"
+          ],
+          "wire_sha256": "c1f31635f79b001df26707da1c5a1d298d3819692b0fe30870fb5651fca63908"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            16369,
+            16469
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 54,
+          "map_entries": 53,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        }
+      ]
+    },
+    "ladder": {
+      "config_bytes": 25390,
+      "config_next_slot": 110,
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "rows": [
+        {
+          "fields_sha256": "f3c69749ed02bd488ab5c2a78a4ae3581f9c0a48a6c57a73df703fc7ed9052fa",
+          "interval": [
+            16177,
+            16499
+          ],
+          "layout": "moSFDataHelper_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8"
+          ],
+          "wire_sha256": "140e622af90241ea7d7290dee6f407d2fea7993e025671142bae1065011d4c80"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            16242,
+            16330
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8",
+            "fc0"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "e1f19902574364ad451e5cc2ee9072975479aa931cfb4a0c79319d274cfd4eb2",
+          "interval": [
+            16332,
+            16471
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8",
+            "f128"
+          ],
+          "wire_sha256": "205f10591833f5cf4c95d28f5ce58efa06b7d9d26033fe98c78937221a5dd9e8"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            16349,
+            16437
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f2e8",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "f3c69749ed02bd488ab5c2a78a4ae3581f9c0a48a6c57a73df703fc7ed9052fa",
+          "interval": [
+            17306,
+            17628
+          ],
+          "layout": "moSFDataHelper_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260"
+          ],
+          "wire_sha256": "140e622af90241ea7d7290dee6f407d2fea7993e025671142bae1065011d4c80"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17371,
+            17459
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260",
+            "fc0"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "e1f19902574364ad451e5cc2ee9072975479aa931cfb4a0c79319d274cfd4eb2",
+          "interval": [
+            17461,
+            17600
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260",
+            "f128"
+          ],
+          "wire_sha256": "205f10591833f5cf4c95d28f5ce58efa06b7d9d26033fe98c78937221a5dd9e8"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17478,
+            17566
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f260",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "f3c69749ed02bd488ab5c2a78a4ae3581f9c0a48a6c57a73df703fc7ed9052fa",
+          "interval": [
+            17628,
+            17950
+          ],
+          "layout": "moSFDataHelper_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268"
+          ],
+          "wire_sha256": "140e622af90241ea7d7290dee6f407d2fea7993e025671142bae1065011d4c80"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17693,
+            17781
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268",
+            "fc0"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "e1f19902574364ad451e5cc2ee9072975479aa931cfb4a0c79319d274cfd4eb2",
+          "interval": [
+            17783,
+            17922
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268",
+            "f128"
+          ],
+          "wire_sha256": "205f10591833f5cf4c95d28f5ce58efa06b7d9d26033fe98c78937221a5dd9e8"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17800,
+            17888
+          ],
+          "layout": "utCharFormat_c",
+          "map_base": 4,
+          "map_counter": 69,
+          "map_entries": 68,
+          "map_identity_preserved": true,
+          "role": [
+            "f730",
+            "f268",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        }
+      ]
+    }
+  },
+  "format_version": 4,
+  "native_launches": 0,
+  "runtime_external_accesses": 0,
+  "trace_revision": "fe592b8e7a4922dccf8298541453baf41d60b001"
+}
