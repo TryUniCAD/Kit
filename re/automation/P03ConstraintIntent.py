@@ -28,7 +28,7 @@ from RectanglePairEvidence import (
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-def pinned_source():
+def pinned_source_evidence():
     snapshot = GitSnapshot(ROOT)
     recipe_data = snapshot.blob(REVISION, SPECIFICATION)
     require(
@@ -51,7 +51,11 @@ def pinned_source():
         if plane.id == sketch.support_plane_id
     ]
     solidworks_boss(document, sketch, frame, raw, spec["comparison_tolerances"])
-    return document
+    return raw, document, observations["baseline-a"][1]
+
+
+def pinned_source():
+    return pinned_source_evidence()[1]
 
 
 def logical_summary(document):
