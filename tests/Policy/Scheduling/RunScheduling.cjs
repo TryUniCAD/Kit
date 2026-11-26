@@ -30,7 +30,14 @@ const Github = {
               ? null
               : {
                   history: {
-                    totalCount: CaseName === "lanes-odd" ? 1001 : 1000,
+                    totalCount:
+                      1000 +
+                      Math.max(
+                        0,
+                        ["lanes-a", "lanes-b", "lanes-c", "lanes-d"].indexOf(
+                          CaseName,
+                        ),
+                      ),
                   },
                 },
         },
@@ -70,12 +77,24 @@ const Github = {
                   ),
                 ),
                 ...(CaseName === "budget-audit"
-                  ? { Version: 1, Linux: 8, Windows: 5 }
+                  ? { Version: 1, Linux: 8, Windows: 5, Macos: 5 }
                   : {}),
                 ...(CaseName === "budget-previous"
-                  ? { Version: 2, Linux: 16, Windows: 5 }
+                  ? { Version: 2, Linux: 16, Windows: 5, Macos: 5 }
                   : {}),
-                ...(CaseName === "budget-invalid" ? { Version: 4 } : {}),
+                ...(CaseName === "budget-team"
+                  ? {
+                      Version: 3,
+                      Plan: undefined,
+                      LaneSets: 2,
+                      Linux: 32,
+                      Windows: 9,
+                      WindowsCompatibility: 4,
+                      Macos: 5,
+                    }
+                  : {}),
+                ...(CaseName === "budget-invalid" ? { Version: 5 } : {}),
+                ...(CaseName === "budget-team-macos" ? { Macos: 5 } : {}),
                 ...(CaseName === "budget-single" ? { LaneSets: 1 } : {}),
               }),
             ).toString("base64"),
@@ -98,9 +117,13 @@ const Github = {
             max_entries_to_build:
               CaseName === "budget-uncontrolled"
                 ? 25
-                : CaseName === "budget-audit"
-                  ? 1
-                  : 2,
+                : CaseName === "budget-five"
+                  ? 5
+                  : CaseName === "budget-audit"
+                    ? 1
+                    : CaseName === "budget-team"
+                      ? 2
+                      : 4,
             min_entries_to_merge: CaseName === "budget-minimum" ? 2 : 1,
             min_entries_to_merge_wait_minutes:
               CaseName === "budget-wait" ? 10 : 0,

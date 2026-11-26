@@ -417,7 +417,7 @@ jobs:
     runs-on: windows-2025
     timeout-minutes: 30
     concurrency:
-      group: Kit-${{ matrix.group != 'shard-5' && needs.test-plan.outputs.lanes || '' }}windows-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}windows-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -611,7 +611,7 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 30
     concurrency:
-      group: Kit-macos-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
+      group: Kit-${{ needs.test-plan.outputs.lanes }}macos-${{ github.event_name == 'merge_group' && matrix.group || 'shard-5' }}
       cancel-in-progress: false
       queue: max
     strategy:

@@ -3,6 +3,7 @@
 The [separate Linux test lanes](Documentation/Changes/Ci/Scheduling/SeparateTestLanes.md) increase the cooperating heavy-job budget to sixteen Linux lanes, five Windows lanes, and five macOS lanes, with two control slots. Eight Linux lanes serve candidate tests; the other eight serve scanners, policy jobs, and admitted audits. This fits the observed Team plan’s sixty-job allowance.
 The [separate Windows CLI lanes](Documentation/Changes/Ci/Scheduling/WindowsCliLanes.md) add four `Kit-windows-cli-*` lanes for the Windows research CLI shards, so they no longer share the five Windows platform lanes; the cooperating budget becomes thirty-two jobs.
 The [candidate lane sets](Documentation/Changes/Ci/Scheduling/CandidateLaneSets.md) give merge-group candidates two Linux and Windows lane sets, chosen by the parity of the candidate's ancestor count. Two candidates run their heavy Linux and Windows jobs side by side, and a third waits. macOS, the fifth Windows lane, the Windows CLI lanes and the `CI Agg` slot stay shared. The worst-case cooperating budget is fifty-nine jobs, within sixty.
+The organisation now has GitHub Enterprise limits: 500 concurrent hosted jobs, at most 50 of them macOS. The [four candidate lane sets](Documentation/Changes/Ci/Scheduling/EnterpriseLaneSets.md) choose set A–D by the candidate's ancestor count modulo 4 and give every heavy job a per-set lane, including all macOS and Windows platform shards and the Windows CLI shards, so four candidates build fully in parallel. Only the `CI Agg` slot stays shared. The worst case, with four candidates, an audit, a `main` push and four pull-request pushes, is 303 standard and 20 macOS jobs.
 
 The [balanced scanner lanes](Documentation/Changes/Ci/Scheduling/BalancedScannerLanes.md) spread merge-group jobs so `Kit-linux-0` to `5` each carry about 4.6 minutes per candidate, keep lanes 6 and 7 lighter for audits, and give pull-request runs their own `Kit-pull-*` lanes.
 
@@ -185,7 +186,7 @@ Completed-result process checks remain; pending-process liveness and evidence pu
 See the [removal scope and evidence](Documentation/Changes/Ci/FlakyPendingGateRemoval.md).
 
 The checked-in desired queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
-up to two candidates at a time, and merges one entry at a time. Its
+up to four candidates at a time, and merges one entry at a time. Its
 90-minute response timeout allows the existing 60-minute analyses plus runner
 scheduling. Each candidate has its own concurrency group; a later PR update
 cannot cancel a different queue candidate. Heavy workflows do not repeat on
@@ -196,6 +197,7 @@ were preserved; only the required status contexts were changed for this repair.
 The 22 November 2026 investigation observed newer live settings: 25 concurrent builds,
 a two-entry merge minimum, a ten-minute minimum-entry wait, and a ten-entry merge maximum.
 These differ from the desired manifest and require separate administrator activation.
+The 26 November 2026 read-back still showed 25 builds with a 60-minute response timeout. An administrator must set max entries to build 4, minimum entries to merge 1, minimum-entries wait 0 and response timeout 90 minutes for the four lane sets and native shard expansion to take effect.
 
 ## Activate after this PR merges
 

@@ -7,7 +7,7 @@ async function ReadExpansion(Github, RepoInfo, Logger) {
     const Queues = Rules.filter((Rule) => Rule.type === "merge_queue");
     return (
       Queues.length === 1 &&
-      [1, 2].includes(Queues[0].parameters.max_entries_to_build) &&
+      [1, 2, 3, 4].includes(Queues[0].parameters.max_entries_to_build) &&
       Queues[0].parameters.min_entries_to_merge === 1 &&
       Queues[0].parameters.min_entries_to_merge_wait_minutes === 0
     );

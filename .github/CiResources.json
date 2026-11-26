@@ -1,10 +1,11 @@
 {
-  "Version": 3,
-  "LaneSets": 2,
-  "Linux": 32,
-  "Windows": 9,
-  "WindowsCompatibility": 4,
-  "Macos": 5,
+  "Version": 4,
+  "Plan": "Enterprise",
+  "LaneSets": 4,
+  "Linux": 64,
+  "Windows": 20,
+  "WindowsCompatibility": 16,
+  "Macos": 20,
   "Control": 2,
   "PullRequest": 7
 }
