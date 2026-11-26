@@ -24,6 +24,9 @@ Batch captures use the controller's existing three-attempt limit for the
 single-case worker. Each attempt starts with a fresh native directory.
 The controller retains failed attempts and only releases the dependent
 decoder jobs after a batch passes independent reopen and normal exit.
+New authoring plans record this limit as `solidworks_capture_attempts`. Saved
+plans without it keep their original single-attempt batch job definitions so
+that resumed runs reuse their stores unchanged.
 
 Use the existing `kit run solidworks --author-samples` workflow and registered
 native host. The catalogue binds each run to its starting source revision. To

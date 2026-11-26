@@ -58,14 +58,15 @@ def CheckBatchPaths(TmpPath: FilePath) -> None:
 
 
 # repeated canonical cases must fail before creating an output directory or starting any native application
-def CheckBatchDup(TmpPath: FilePath) -> None:
+@CaseMark.parametrize("Recipe", ("extrude-midplane", "P03"))
+def CheckBatchDup(TmpPath: FilePath, Recipe: str) -> None:
     OutputPath = TmpPath / "Capture"
     Process = RunBatchProbe(
         TmpPath,
         OutputPath,
         [
-            {"recipe": "extrude-midplane"},
-            {"recipe": "extrude-midplane", "parameters": {"depth_mm": 10.0}},
+            {"recipe": Recipe},
+            {"recipe": Recipe, "parameters": {"depth_mm": 10}},
         ],
     )
     assert Process.returncode != 0
@@ -75,9 +76,32 @@ def CheckBatchDup(TmpPath: FilePath) -> None:
 
 # excessive native path length must be rejected without creating even the output directory
 @CaseMark.parametrize("Folder", ("x" * 180, "\U0001f4c1" * 90))
-def CheckBatchLong(TmpPath: FilePath, Folder: str) -> None:
+@CaseMark.parametrize("Recipe", ("extrude-midplane", "P03"))
+def CheckBatchLong(TmpPath: FilePath, Folder: str, Recipe: str) -> None:
     OutputPath = TmpPath / Folder / "Capture"
-    Process = RunBatchProbe(TmpPath, OutputPath, [{"recipe": "extrude-midplane"}])
+    Process = RunBatchProbe(TmpPath, OutputPath, [{"recipe": Recipe}])
     assert Process.returncode != 0
     assert "native archive path exceeds the application limit" in Process.stderr
     assert not OutputPath.exists()
+
+
+# earlier paired cases must share native startup without changing their validated parameters or canonical input identities
+@CaseMark.parametrize(
+    "Recipes",
+    (("P01", "P02", "P03"), ("P04", "P05", "extrude-midplane")),
+)
+def CheckPairedRun(TmpPath: FilePath, Recipes: tuple[str, ...]) -> None:
+    OutputPath = TmpPath / "Capture"
+    Process = RunBatchProbe(
+        TmpPath, OutputPath, [{"recipe": Recipe} for Recipe in Recipes]
+    )
+    assert Process.returncode == 0, Process.stderr
+    Prepared = DecodeJson(Process.stdout)
+    Manifest = DecodeJson(FilePath(Prepared["manifest"]).read_bytes())
+    assert len(Manifest["cases"]) == len(Prepared["cases"]) == 3
+    assert tuple(CaseValue["recipe"] for CaseValue in Prepared["cases"]) == Recipes
+    for Entry, CaseValue in zip(Manifest["cases"], Prepared["cases"], strict=True):
+        Configuration = FilePath(Entry["configuration"])
+        assert Configuration.parent == FilePath(Entry["output"])
+        assert DecodeJson(Configuration.read_bytes()) == CaseValue
+        assert not (Configuration.parent / CaseValue["recipe"]).exists()

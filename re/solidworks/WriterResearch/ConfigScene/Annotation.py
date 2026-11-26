@@ -17,6 +17,7 @@ KWorldZ = (0.0, 0.0, 1.0)
 KFront = ("*Front", None)
 KRight = ("*Right", (*KWorldZ, *KWorldY, *(-Value for Value in KWorldX)))
 KTop = ("*Top", (*KWorldX, *KWorldZ, *(-Value for Value in KWorldY)))
+KPrincipalViews = {Name: (Name, Basis) for Name, Basis in (KFront, KRight, KTop)}
 
 
 # the inherited view is followed by four absent archive references in store order
@@ -36,18 +37,23 @@ def WriteAnnotViews(
     Writer: PartArchiveWriter, Generation: int, FirstName: str, IncludeTop: bool
 ) -> None:
     RequireArch(Generation, 19000, "ordinary annotation view generation")
-    RequireArch(FirstName in ("*Front", "*Right"), True, "principal annotation view")
+    RequireArch(FirstName in ("*Front", "*Right", "*Top"), True, "principal annotation view")
     RequireArch(type(IncludeTop) is bool, True, "optional top annotation view")
+    RequireArch(FirstName != "*Top" or not IncludeTop, True, "one top annotation view")
     Slots = 3 + int(IncludeTop)
     RequireArch(
         0 < Writer.next_index <= KBigObjectTag - Slots
         and KObjectList in Writer.classes
         and KBlockManager in Writer.classes
-        and KAnnotation not in Writer.classes,
+        and KAnnotation not in Writer.classes
+        and all(
+            Index not in Writer.objects and Index not in Writer.classes.values()
+            for Index in range(Writer.next_index, Writer.next_index + Slots)
+        ),
         True,
         "ordinary annotation view archive allocation",
     )
-    FirstView = KFront if FirstName == "*Front" else KRight
+    FirstView = KPrincipalViews[FirstName]
     Views = (FirstView, KTop) if IncludeTop else (FirstView,)
     Writer.begin_object(KObjectList, 1)
     Writer.u16(len(Views))
