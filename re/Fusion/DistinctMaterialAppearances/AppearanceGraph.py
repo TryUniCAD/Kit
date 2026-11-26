@@ -18,7 +18,7 @@ from convert.Formats.Fusion.DocumentCodec.Materials.ProjectMaterial import Proje
 
 from AppearanceRequest import Material, SCHEMA, SCOPE, finish_record, require, validate
 from AppearanceAssets import assemble
-from MaterialGraph import COMPONENT_EMPTY, PACKAGE_PREFIX, PHYSICAL, ROLE_SCHEMAS
+from MaterialGraph import COMPONENT_EMPTY, PACKAGE_PREFIX, PHYSICAL, ROLE_SCHEMAS, require_no_design_mapping
 
 VISUAL = {
     *PHYSICAL,
@@ -193,6 +193,7 @@ def project_appearances(model):
     require(model.Graphics is None, "Saved graphics and procedural material mapping are unsupported here")
     graph = BuildGraph(model)
     context = SelectExtrusion(graph)
+    require_no_design_mapping(graph, context.BodyNode)
     physical_binding = ObjectFields(context.BodyNode.Fields["physicalMaterial"])
     visual_binding = ObjectFields(context.BodyNode.Fields["visualMaterial"])
     require(

@@ -30,6 +30,8 @@ Eight independent replays passed in 157.681 seconds. They tested two finishes wi
 
 Sixteen invalid requests and four captured legacy-alias sources refused publication. A deliberately shared appearance passed the general read-only SDK and failed scoped preparation. The lower codec refused a visual link to an incompatible asset role.
 
+All five tracked compatibility cases passed in 91.98 seconds after the mapping guard. A [Design texture mapping without graphics](../../../Gotchas/Conversion/Fusion/Materials/FusionDesignTextureWithoutOgs.md) survived strict read-only JSON. The preparation command refused both linked and unlinked mappings without writing an output. Independent checks verified that an existing destination retained its bytes and an unmapped source prepared to byte-identical JSON.
+
 ## Limits
 
 Both appearances use supported modern material schemas. Historical legacy compatibility aliases, packages with additional resources or assets, and procedural texture mappings require further rules. See the [appearance role gotcha](../../../Gotchas/Conversion/Fusion/Materials/FusionPhysicalAndBodyFinish.md). The strict version-2 read-only contract continues to apply. Whole saved-source and native Fusion acceptance remain open.
