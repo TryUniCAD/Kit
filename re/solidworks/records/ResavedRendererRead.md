@@ -40,3 +40,23 @@ Two final command runs produced identical `Report.json` SHA-256 `54a70755349c7bf
 The private evidence holder retains `ResavedRendererRead01/RendererInputs.private.zip`, 300,268 bytes, SHA-256 `2e5785fe96fb97c8766ff697ec9f41be7230752058f0c9acc5c3b3b1d2477856`. Its twelve members are the eight approved CAD inputs, private input manifest, two matching reports and negative-check summary. `Custody.private.json`, SHA-256 `bfb97680323aa04376d4ad8ee091fe94c40a85b64b3c2226f836003130a3c65e`, binds every member to its original path, size and hash. Every archive member was reread and compared, and all eight original inputs were rehashed after packaging. No installed software is retained. Extract only to an unused private directory after verifying the archive and inventory hashes. Repointing private input paths changes the manifest digest; it must not be described as byte-identical report custody.
 
 A future isolated change could coordinate with PR #121 to validate the ordinary part's empty appearance manager through its existing owner-preserving typed semantics. It must preserve both allocator halves, exact presence and empty-list validation, and retain populated/foreign-owner, unrelated UI and assembly boundaries. The observed counters are evidence, not a whitelist or a factory default. Product extension requires the parent owner's approval and separate acceptance. No new held-out input, native run, full-source conversion or public writing qualification occurred here.
+
+## Replay the empty allocator in a fresh Definition
+
+Use the named native save from the private custody record above. Set `$source` to that exact archive, `$reader121` to an unmodified checkout of `c0a401a607759fb0c2589647c2a22af65ebb7ce1`, and `$out` to a new scratch directory outside the checkout. The three commands run in separate fresh Python processes. Each output path must be unused.
+
+```powershell
+New-Item -ItemType Directory -Path $out
+$replay = 're/solidworks/RendererBoundary/ReplayEmptyAppearance.py'
+python -I -B $replay --dependency-root $reader121 extract --source $source --output "$out/Source.json"
+python -I -B $replay --dependency-root $reader121 generate --request "$out/Source.json" --output "$out/Source.definition"
+python -I -B $replay --dependency-root $reader121 verify --request "$out/Source.json" --definition "$out/Source.definition"
+```
+
+The extractor checks the archive and Definition digests, format 4, archive version 19000, concrete part schema one and the existing typed empty-list rule. Its canonical output is `{"AppearanceValue":{"ManagerOnWire":true,"NextAppearanceId":4}}` plus a newline. This is the existing [PR #121 appearance state shape](https://github.com/TryUniCAD/Kit/blob/c0a401a607759fb0c2589647c2a22af65ebb7ce1/re/tooling/sw2026/throughempty/ManagerProcess01.py).
+
+Generation receives the JSON only. Independent settings select ISO drafting, plane bit 17, tessellation `(26, 4, 25, true)`, environment preference false, journal title `Journal` and density `1000 kg/m³`. The current typed factories construct a fresh Definition and derive the empty manager representation. Readback checks both signed halves, the count and rows, map identity in typed re-emission and bytes against the independent settings. The input archive belongs exclusively to extraction.
+
+The [offline report](../measurements/2026/EmptyAppearanceReplay.json) binds the method, pinned codec, source and all fragment digests. Two process runs reproduced all four cases. For the controls, write the same canonical JSON fields with `(ManagerOnWire, NextAppearanceId)` set to `(false, 1)`, `(true, 1)` or `(true, 9223372043297226759)`. Pass each request through generation and verification in separate processes. Generation refused `(false, 4)` and an extra `references` field before output. Verification also refused an absent request paired with a present fragment at the same counter. [Exact integer and presence gotcha](../../../Documentation/Gotchas/Research/Writers/SolidworksAppearanceAllocatorRequiresExactJsonIntegers.md)
+
+The generated artifact is a Definition fragment. The probe leaves appearance references in the model, configuration and VisualStates outside its scope. It establishes neither full source reconstruction nor native acceptance. The ordinary and public reader boundaries described above still apply.
