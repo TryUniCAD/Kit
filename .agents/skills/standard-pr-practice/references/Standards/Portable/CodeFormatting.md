@@ -15,7 +15,7 @@ All code committed to this workspace MUST be auto-formatted. Run the appropriate
 
 ## Python Environment
 
-Black is installed in the base/system Python environment, NOT in the pixi/conda environment under `/Parashell/`. Always invoke Black directly (`black <files>`), which resolves to the normal environment on PATH. Never run Black through `pixi run`, and never add Black as a dependency of the pixi/FreeCAD runtime environment.
+Black is installed in the base/system Python environment, NOT in the pixi/conda environment under `/FreeCAD/`. Always invoke Black directly (`black <files>`), which resolves to the normal environment on PATH. Never run Black through `pixi run`, and never add Black as a dependency of the pixi/FreeCAD runtime environment.
 
 ## Formatters by Language
 
@@ -36,5 +36,5 @@ After formatting, confirm the files are clean by running the formatter in check 
 
 ## Ignored directories
 
-- /Parashell/
+- /FreeCAD/
 - /re/

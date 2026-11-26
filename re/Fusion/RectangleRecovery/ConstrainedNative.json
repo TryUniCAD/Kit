@@ -1,0 +1,1659 @@
+{
+  "status": "completed",
+  "scope": "new constrained rectangle controls; independent semantic qualification pending",
+  "source_revision": "7a0a987ec2f1ab4099c839621a8e51d18bcfa872",
+  "cases": [
+    {
+      "case": "control-before",
+      "basis": "XY",
+      "direction": 1,
+      "sha256": "6289de9cfb7b800d46e55e855c786fda6fac6b6c7ac3e5c3c1861d8fb2148896",
+      "body": {
+        "body_count": 1,
+        "volume_mm3": 9361.0,
+        "center_of_mass_mm": [
+          18.5,
+          11.5,
+          5.5
+        ],
+        "mass_properties": "measured",
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 9361.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.0,
+                23.0,
+                11.0
+              ]
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "width_mm",
+          "kind": "ModelParameter",
+          "expression": "37 mm",
+          "unit": "mm",
+          "value_internal": 3.7,
+          "role": "Linear Dimension-2",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "height_mm",
+          "kind": "ModelParameter",
+          "expression": "23 mm",
+          "unit": "mm",
+          "value_internal": 2.3000000000000003,
+          "role": "Linear Dimension-3",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "depth_mm",
+          "kind": "ModelParameter",
+          "expression": "11 mm",
+          "unit": "mm",
+          "value_internal": 1.1,
+          "role": "AlongDistance",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "d4",
+          "kind": "ModelParameter",
+          "expression": "0.0 deg",
+          "unit": "deg",
+          "value_internal": 0.0,
+          "role": "TaperAngle",
+          "dependencies": [],
+          "dependents": []
+        }
+      ],
+      "timeline": [
+        {
+          "index": 0,
+          "name": "RectangleSketch",
+          "type": "Sketch",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        },
+        {
+          "index": 1,
+          "name": "BlindBoss",
+          "type": "ExtrudeFeature",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ],
+      "sketches": [
+        {
+          "name": "RectangleSketch",
+          "support": "ConstructionPlane",
+          "support_name": "XY",
+          "origin_world_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "curves": [
+            {
+              "type": "SketchLine",
+              "index": 0,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 1,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                23.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 2,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                23.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                23.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 3,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                23.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "point_count": 5,
+          "constraints": [
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "CoincidentConstraint"
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "width_mm",
+              "expression": "37 mm"
+            },
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "height_mm",
+              "expression": "23 mm"
+            }
+          ],
+          "profile_areas_mm2": [
+            851.0
+          ],
+          "fully_constrained": true,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ]
+    },
+    {
+      "case": "reverse-xy",
+      "basis": "XY",
+      "direction": -1,
+      "sha256": "eb512f8fccce60040e561b0406ad3a31c7b5321035bdf4bdcdb5d39660981f09",
+      "body": {
+        "body_count": 1,
+        "volume_mm3": 9361.0,
+        "center_of_mass_mm": [
+          18.5,
+          11.5,
+          5.5
+        ],
+        "mass_properties": "measured",
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 9361.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.0,
+                23.0,
+                11.0
+              ]
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "width_mm",
+          "kind": "ModelParameter",
+          "expression": "37 mm",
+          "unit": "mm",
+          "value_internal": 3.7,
+          "role": "Linear Dimension-2",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "height_mm",
+          "kind": "ModelParameter",
+          "expression": "23 mm",
+          "unit": "mm",
+          "value_internal": 2.3000000000000003,
+          "role": "Linear Dimension-3",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "depth_mm",
+          "kind": "ModelParameter",
+          "expression": "11 mm",
+          "unit": "mm",
+          "value_internal": 1.1,
+          "role": "AlongDistance",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "d4",
+          "kind": "ModelParameter",
+          "expression": "0.0 deg",
+          "unit": "deg",
+          "value_internal": 0.0,
+          "role": "TaperAngle",
+          "dependencies": [],
+          "dependents": []
+        }
+      ],
+      "timeline": [
+        {
+          "index": 0,
+          "name": "RectangleSketch",
+          "type": "Sketch",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        },
+        {
+          "index": 1,
+          "name": "BlindBoss",
+          "type": "ExtrudeFeature",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ],
+      "sketches": [
+        {
+          "name": "RectangleSketch",
+          "support": "ConstructionPlane",
+          "support_name": "XY",
+          "origin_world_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "curves": [
+            {
+              "type": "SketchLine",
+              "index": 0,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 1,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                23.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 2,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                23.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                23.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 3,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                23.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "point_count": 5,
+          "constraints": [
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "CoincidentConstraint"
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "width_mm",
+              "expression": "37 mm"
+            },
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "height_mm",
+              "expression": "23 mm"
+            }
+          ],
+          "profile_areas_mm2": [
+            851.0
+          ],
+          "fully_constrained": true,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ]
+    },
+    {
+      "case": "forward-yz",
+      "basis": "YZ",
+      "direction": 1,
+      "sha256": "b5227a46ebc22f12ac431751599a8c629a06eb636ee3dba733ce5344671c847f",
+      "body": {
+        "body_count": 1,
+        "volume_mm3": 9361.0,
+        "center_of_mass_mm": [
+          5.5,
+          18.5,
+          11.5
+        ],
+        "mass_properties": "measured",
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 9361.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                11.0,
+                37.0,
+                23.0
+              ]
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "width_mm",
+          "kind": "ModelParameter",
+          "expression": "37 mm",
+          "unit": "mm",
+          "value_internal": 3.7,
+          "role": "Linear Dimension-2",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "height_mm",
+          "kind": "ModelParameter",
+          "expression": "23 mm",
+          "unit": "mm",
+          "value_internal": 2.3000000000000003,
+          "role": "Linear Dimension-3",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "depth_mm",
+          "kind": "ModelParameter",
+          "expression": "11 mm",
+          "unit": "mm",
+          "value_internal": 1.1,
+          "role": "AlongDistance",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "d4",
+          "kind": "ModelParameter",
+          "expression": "0.0 deg",
+          "unit": "deg",
+          "value_internal": 0.0,
+          "role": "TaperAngle",
+          "dependencies": [],
+          "dependents": []
+        }
+      ],
+      "timeline": [
+        {
+          "index": 0,
+          "name": "RectangleSketch",
+          "type": "Sketch",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        },
+        {
+          "index": 1,
+          "name": "BlindBoss",
+          "type": "ExtrudeFeature",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ],
+      "sketches": [
+        {
+          "name": "RectangleSketch",
+          "support": "ConstructionPlane",
+          "support_name": "YZ",
+          "origin_world_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_direction": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "y_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "curves": [
+            {
+              "type": "SketchLine",
+              "index": 0,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                37.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 1,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                37.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                37.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 2,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                37.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 3,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "point_count": 5,
+          "constraints": [
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "CoincidentConstraint"
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "width_mm",
+              "expression": "37 mm"
+            },
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "height_mm",
+              "expression": "23 mm"
+            }
+          ],
+          "profile_areas_mm2": [
+            851.0
+          ],
+          "fully_constrained": true,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ]
+    },
+    {
+      "case": "reverse-yz",
+      "basis": "YZ",
+      "direction": -1,
+      "sha256": "a6acafeba0bc04730368f4115a66f851c4b8250472692a936a05a34fb1270c9a",
+      "body": {
+        "body_count": 1,
+        "volume_mm3": 9361.0,
+        "center_of_mass_mm": [
+          5.5,
+          18.5,
+          11.5
+        ],
+        "mass_properties": "measured",
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 9361.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                11.0,
+                37.0,
+                23.0
+              ]
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "width_mm",
+          "kind": "ModelParameter",
+          "expression": "37 mm",
+          "unit": "mm",
+          "value_internal": 3.7,
+          "role": "Linear Dimension-2",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "height_mm",
+          "kind": "ModelParameter",
+          "expression": "23 mm",
+          "unit": "mm",
+          "value_internal": 2.3000000000000003,
+          "role": "Linear Dimension-3",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "depth_mm",
+          "kind": "ModelParameter",
+          "expression": "11 mm",
+          "unit": "mm",
+          "value_internal": 1.1,
+          "role": "AlongDistance",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "d4",
+          "kind": "ModelParameter",
+          "expression": "0.0 deg",
+          "unit": "deg",
+          "value_internal": 0.0,
+          "role": "TaperAngle",
+          "dependencies": [],
+          "dependents": []
+        }
+      ],
+      "timeline": [
+        {
+          "index": 0,
+          "name": "RectangleSketch",
+          "type": "Sketch",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        },
+        {
+          "index": 1,
+          "name": "BlindBoss",
+          "type": "ExtrudeFeature",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ],
+      "sketches": [
+        {
+          "name": "RectangleSketch",
+          "support": "ConstructionPlane",
+          "support_name": "YZ",
+          "origin_world_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_direction": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "y_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "curves": [
+            {
+              "type": "SketchLine",
+              "index": 0,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                37.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 1,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                37.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                37.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 2,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                37.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 3,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "point_count": 5,
+          "constraints": [
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "CoincidentConstraint"
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "width_mm",
+              "expression": "37 mm"
+            },
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "height_mm",
+              "expression": "23 mm"
+            }
+          ],
+          "profile_areas_mm2": [
+            851.0
+          ],
+          "fully_constrained": true,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ]
+    },
+    {
+      "case": "forward-xz",
+      "basis": "XZ",
+      "direction": 1,
+      "sha256": "4ed029d6eb4b0d5cd7c093b7439c9025a9168b239d4cbafd694374bdc7e80ba5",
+      "body": {
+        "body_count": 1,
+        "volume_mm3": 9361.0,
+        "center_of_mass_mm": [
+          18.5,
+          5.5,
+          11.5
+        ],
+        "mass_properties": "measured",
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 9361.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.0,
+                11.0,
+                23.0
+              ]
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "width_mm",
+          "kind": "ModelParameter",
+          "expression": "37 mm",
+          "unit": "mm",
+          "value_internal": 3.7,
+          "role": "Linear Dimension-2",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "height_mm",
+          "kind": "ModelParameter",
+          "expression": "23 mm",
+          "unit": "mm",
+          "value_internal": 2.3000000000000003,
+          "role": "Linear Dimension-3",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "depth_mm",
+          "kind": "ModelParameter",
+          "expression": "11 mm",
+          "unit": "mm",
+          "value_internal": 1.1,
+          "role": "AlongDistance",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "d4",
+          "kind": "ModelParameter",
+          "expression": "0.0 deg",
+          "unit": "deg",
+          "value_internal": 0.0,
+          "role": "TaperAngle",
+          "dependencies": [],
+          "dependents": []
+        }
+      ],
+      "timeline": [
+        {
+          "index": 0,
+          "name": "RectangleSketch",
+          "type": "Sketch",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        },
+        {
+          "index": 1,
+          "name": "BlindBoss",
+          "type": "ExtrudeFeature",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ],
+      "sketches": [
+        {
+          "name": "RectangleSketch",
+          "support": "ConstructionPlane",
+          "support_name": "XZ",
+          "origin_world_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y_direction": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "curves": [
+            {
+              "type": "SketchLine",
+              "index": 0,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 1,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                0.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 2,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                0.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 3,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "point_count": 5,
+          "constraints": [
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "CoincidentConstraint"
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "width_mm",
+              "expression": "37 mm"
+            },
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "height_mm",
+              "expression": "23 mm"
+            }
+          ],
+          "profile_areas_mm2": [
+            851.0
+          ],
+          "fully_constrained": true,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ]
+    },
+    {
+      "case": "reverse-xz",
+      "basis": "XZ",
+      "direction": -1,
+      "sha256": "9d4e6650b8e6d4d078035f4e57fc6dc0acdc93ef4c5b177c9c964fce29216108",
+      "body": {
+        "body_count": 1,
+        "volume_mm3": 9361.0,
+        "center_of_mass_mm": [
+          18.5,
+          5.5,
+          11.5
+        ],
+        "mass_properties": "measured",
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 9361.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.0,
+                11.0,
+                23.0
+              ]
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "width_mm",
+          "kind": "ModelParameter",
+          "expression": "37 mm",
+          "unit": "mm",
+          "value_internal": 3.7,
+          "role": "Linear Dimension-2",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "height_mm",
+          "kind": "ModelParameter",
+          "expression": "23 mm",
+          "unit": "mm",
+          "value_internal": 2.3000000000000003,
+          "role": "Linear Dimension-3",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "depth_mm",
+          "kind": "ModelParameter",
+          "expression": "11 mm",
+          "unit": "mm",
+          "value_internal": 1.1,
+          "role": "AlongDistance",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "d4",
+          "kind": "ModelParameter",
+          "expression": "0.0 deg",
+          "unit": "deg",
+          "value_internal": 0.0,
+          "role": "TaperAngle",
+          "dependencies": [],
+          "dependents": []
+        }
+      ],
+      "timeline": [
+        {
+          "index": 0,
+          "name": "RectangleSketch",
+          "type": "Sketch",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        },
+        {
+          "index": 1,
+          "name": "BlindBoss",
+          "type": "ExtrudeFeature",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ],
+      "sketches": [
+        {
+          "name": "RectangleSketch",
+          "support": "ConstructionPlane",
+          "support_name": "XZ",
+          "origin_world_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y_direction": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "curves": [
+            {
+              "type": "SketchLine",
+              "index": 0,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 1,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                0.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 2,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                0.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 3,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                23.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "point_count": 5,
+          "constraints": [
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "CoincidentConstraint"
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "width_mm",
+              "expression": "37 mm"
+            },
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "height_mm",
+              "expression": "23 mm"
+            }
+          ],
+          "profile_areas_mm2": [
+            851.0
+          ],
+          "fully_constrained": true,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ]
+    },
+    {
+      "case": "control-after",
+      "basis": "XY",
+      "direction": 1,
+      "sha256": "bfcc42b4a315e420dd101c70927003687f634c7d66eb7b62c3df25e8977bfd0e",
+      "body": {
+        "body_count": 1,
+        "volume_mm3": 9361.0,
+        "center_of_mass_mm": [
+          18.5,
+          11.5,
+          5.5
+        ],
+        "mass_properties": "measured",
+        "bodies": [
+          {
+            "name": "Body1",
+            "solid": true,
+            "volume_mm3": 9361.0,
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "bounding_box_mm": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.0,
+                23.0,
+                11.0
+              ]
+            ]
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "width_mm",
+          "kind": "ModelParameter",
+          "expression": "37 mm",
+          "unit": "mm",
+          "value_internal": 3.7,
+          "role": "Linear Dimension-2",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "height_mm",
+          "kind": "ModelParameter",
+          "expression": "23 mm",
+          "unit": "mm",
+          "value_internal": 2.3000000000000003,
+          "role": "Linear Dimension-3",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "depth_mm",
+          "kind": "ModelParameter",
+          "expression": "11 mm",
+          "unit": "mm",
+          "value_internal": 1.1,
+          "role": "AlongDistance",
+          "dependencies": [],
+          "dependents": []
+        },
+        {
+          "name": "d4",
+          "kind": "ModelParameter",
+          "expression": "0.0 deg",
+          "unit": "deg",
+          "value_internal": 0.0,
+          "role": "TaperAngle",
+          "dependencies": [],
+          "dependents": []
+        }
+      ],
+      "timeline": [
+        {
+          "index": 0,
+          "name": "RectangleSketch",
+          "type": "Sketch",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        },
+        {
+          "index": 1,
+          "name": "BlindBoss",
+          "type": "ExtrudeFeature",
+          "suppressed": false,
+          "rolled_back": false,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ],
+      "sketches": [
+        {
+          "name": "RectangleSketch",
+          "support": "ConstructionPlane",
+          "support_name": "XY",
+          "origin_world_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x_direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "curves": [
+            {
+              "type": "SketchLine",
+              "index": 0,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 1,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                0.0,
+                0.0
+              ],
+              "end_world_mm": [
+                37.0,
+                23.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 2,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                37.0,
+                23.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                23.0,
+                0.0
+              ]
+            },
+            {
+              "type": "SketchLine",
+              "index": 3,
+              "construction": false,
+              "fixed": false,
+              "reference": false,
+              "start_world_mm": [
+                0.0,
+                23.0,
+                0.0
+              ],
+              "end_world_mm": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "point_count": 5,
+          "constraints": [
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "HorizontalConstraint"
+            },
+            {
+              "type": "VerticalConstraint"
+            },
+            {
+              "type": "CoincidentConstraint"
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "width_mm",
+              "expression": "37 mm"
+            },
+            {
+              "type": "SketchLinearDimension",
+              "driving": true,
+              "parameter": "height_mm",
+              "expression": "23 mm"
+            }
+          ],
+          "profile_areas_mm2": [
+            851.0
+          ],
+          "fully_constrained": true,
+          "health": {
+            "state": "healthy",
+            "message": ""
+          }
+        }
+      ]
+    }
+  ]
+}

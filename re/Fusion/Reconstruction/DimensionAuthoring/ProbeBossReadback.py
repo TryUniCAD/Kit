@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -62,7 +62,7 @@ def rectangle_shape(graph, context, rules):
         > 0,
         "The emitted P03 profile is outside the anchored positive XY winding",
     )
-    return RectGeometry((), geometry, lines, max(xs), max(ys), (0.0, 0.0, 0.0))
+    return RectGeometry((), geometry, lines, max(xs), max(ys), (0.0, 0.0, 0.0), tuple(PointCoords(ResolveField(graph, node, field, "Point3D").Fields["point"]) for node in lines for field in ("rStartPoint", "rEndPoint")))
 
 
 # The saved Boss must own the exact typed region selecting the measured sketch edges.

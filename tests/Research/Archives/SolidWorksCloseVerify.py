@@ -30,7 +30,8 @@ class FavoriteCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
     # the typed reader stops before any properties of the enclosing display
     def ReadFavorMut(
@@ -40,7 +41,8 @@ class FavoriteCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
 
 # the subtype returns separately from the nested favorite
@@ -49,7 +51,8 @@ class ReturnCodec(Protocol):
     # the scope uses plain distance defaults from its native constructor
     def EncodeDistReturn(
         self, *, Generation: int, DisplayMode: int, ConditionOne: bool
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
     # the radial parent must be absent on this bounded route
     def ReadDistReturn(
@@ -59,7 +62,8 @@ class ReturnCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> None: ...
+    ) -> None:
+        raise NotImplementedError
 
 
 # the generated fragments use exact owner boundaries from the actual closing archive

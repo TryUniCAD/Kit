@@ -1,0 +1,208 @@
+{
+  "baseline_revision": "f3d8760f214d65fbe71aa4b8bf81a17f553dbb60",
+  "disclosed_results": {
+    "C017-P01": {
+      "baseline": {
+        "dependency_ids": [],
+        "forbidden_events": 0,
+        "normalized_whole_document_sha256": "ec56d3326392e8c1ecf823c03a00991131877b536e15a3a4e7563f3a1d792e9f",
+        "provided_source_reads": 1,
+        "saved_expression": "Sketch.Constraints.width / 2",
+        "saved_length_mm": 20.0,
+        "saved_width_mm": 40.0,
+        "source_immutable": true,
+        "stored_replay_digest_matches": true,
+        "unsupported_reference_diagnostics": 1
+      },
+      "input_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
+      "linked": {
+        "dependency_ids": [
+          "freecad:parameter:Sketch:constraint:9"
+        ],
+        "forbidden_events": 0,
+        "historical_replay": {
+          "cached_replay": {
+            "additional_archive_parses": 0,
+            "reused_independently_verified_projection": true
+          },
+          "edited_model_declined_exact_replay": true,
+          "exact_restore_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
+          "old_explicit_suppression_marker": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
+        },
+        "normalized_whole_document_sha256": "ec56d3326392e8c1ecf823c03a00991131877b536e15a3a4e7563f3a1d792e9f",
+        "provided_source_reads": 1,
+        "saved_expression": "Sketch.Constraints.width / 2",
+        "saved_length_mm": 20.0,
+        "saved_width_mm": 40.0,
+        "source_immutable": true,
+        "stored_replay_digest_matches": true,
+        "unmarked_replay": {
+          "exact_restore_sha256": "215d76c07e95dd13f791b404eeacd6f625a0bbefa603e3653b007a73a853184c",
+          "independent_archive_parses": 2,
+          "migrated_active_explicit_sketch": true,
+          "migrated_digest_matches": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
+        },
+        "unsupported_reference_diagnostics": 0
+      }
+    },
+    "C123-P01": {
+      "baseline": {
+        "dependency_ids": [],
+        "forbidden_events": 0,
+        "normalized_whole_document_sha256": "e8d695e39031d7e57bfd7f567229bb29d24fc71cb810081169c4dc9655320855",
+        "provided_source_reads": 1,
+        "saved_expression": "Sketch.Constraints.width / 2",
+        "saved_length_mm": 20.0,
+        "saved_width_mm": 40.0,
+        "source_immutable": true,
+        "stored_replay_digest_matches": true,
+        "unsupported_reference_diagnostics": 1
+      },
+      "input_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
+      "linked": {
+        "dependency_ids": [
+          "freecad:parameter:Sketch:constraint:9"
+        ],
+        "forbidden_events": 0,
+        "historical_replay": {
+          "cached_replay": {
+            "additional_archive_parses": 0,
+            "reused_independently_verified_projection": true
+          },
+          "edited_model_declined_exact_replay": true,
+          "exact_restore_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
+          "old_explicit_suppression_marker": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
+        },
+        "normalized_whole_document_sha256": "e8d695e39031d7e57bfd7f567229bb29d24fc71cb810081169c4dc9655320855",
+        "provided_source_reads": 1,
+        "saved_expression": "Sketch.Constraints.width / 2",
+        "saved_length_mm": 20.0,
+        "saved_width_mm": 40.0,
+        "source_immutable": true,
+        "stored_replay_digest_matches": true,
+        "unmarked_replay": {
+          "exact_restore_sha256": "c965847aa2a1ba6c1bacc43ae0c911db1610e57497ab5ca19fea5e6aed33ada4",
+          "independent_archive_parses": 2,
+          "migrated_active_explicit_sketch": true,
+          "migrated_digest_matches": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
+        },
+        "unsupported_reference_diagnostics": 0
+      }
+    },
+    "C130-P01": {
+      "baseline": {
+        "dependency_ids": [],
+        "derived_stale_control": {
+          "dependency_ids": [],
+          "diagnostic": "freecad.sheet_alias.unresolved",
+          "saved_depth_mm": 20.0,
+          "strict_read_retained_expression": true,
+          "strict_write_refused_without_mutation": true
+        },
+        "forbidden_events": 0,
+        "normalized_whole_document_sha256": "7c92b0703e8b95193ebe054d77c6bcb848a4670ee2f322c8b7150b9c8dfa7690",
+        "provided_source_reads": 1,
+        "saved_expression": "Sketch.Constraints.width / 2",
+        "saved_length_mm": 20.0,
+        "saved_width_mm": 40.0,
+        "source_immutable": true,
+        "stored_replay_digest_matches": true,
+        "unsupported_reference_diagnostics": 1
+      },
+      "input_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+      "linked": {
+        "dependency_ids": [
+          "freecad:parameter:Sketch:constraint:9"
+        ],
+        "derived_stale_control": {
+          "dependency_ids": [],
+          "diagnostic": "freecad.sheet_alias.unresolved",
+          "saved_depth_mm": 20.0,
+          "strict_read_retained_expression": true,
+          "strict_write_refused_without_mutation": true
+        },
+        "forbidden_events": 0,
+        "historical_replay": {
+          "cached_replay": {
+            "additional_archive_parses": 0,
+            "reused_independently_verified_projection": true
+          },
+          "edited_model_declined_exact_replay": true,
+          "exact_restore_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+          "old_explicit_suppression_marker": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
+        },
+        "normalized_whole_document_sha256": "7c92b0703e8b95193ebe054d77c6bcb848a4670ee2f322c8b7150b9c8dfa7690",
+        "provided_source_reads": 1,
+        "saved_expression": "Sketch.Constraints.width / 2",
+        "saved_length_mm": 20.0,
+        "saved_width_mm": 40.0,
+        "source_immutable": true,
+        "stored_replay_digest_matches": true,
+        "unmarked_replay": {
+          "exact_restore_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+          "independent_archive_parses": 2,
+          "migrated_active_explicit_sketch": true,
+          "migrated_digest_matches": true,
+          "strict_public_reopen": {
+            "expression": "Sketch.Constraints.width / 2",
+            "saved_depth_mm": 20.0,
+            "width_parameter": "freecad:parameter:Sketch:constraint:9"
+          }
+        },
+        "unsupported_reference_diagnostics": 0
+      }
+    }
+  },
+  "edited_carriers_declined_exact_replay": 3,
+  "faithful_native_restorations_strictly_reopened_with_bound_width": 6,
+  "fresh_processes": 6,
+  "inventory_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
+  "method_sha256": "d49110f191bbc38df3eb915f680b552fee7db5414c6361e3c7a9896cd3d18989",
+  "native_processes": 0,
+  "native_products": 0,
+  "pre_binding_archives_restored_exactly_in_memory": 3,
+  "production_corpus_credit": 0,
+  "production_source_sha256": {
+    "src/convert/adapters/freecad/ArchiveNodes/NativeObject.py": "04c722d446970268145b4a7c935906d246b55209737b50eefef4f24b3b627d5a",
+    "src/convert/adapters/freecad/Native.py": "032c49ee624f4f74d48bff314e0fe21c5a0739cd1060b07851f886e422fab80c",
+    "src/convert/adapters/freecad/NativeParameters/BindPadExprMut.py": "bea59c2efccbdd8d565e57c0f199d6ecf74149240d212787b1c1ed02f965ffa5",
+    "src/convert/adapters/freecad/NativeParameters/IndexSketchDims.py": "7021cbfc0275706408733390b267a1c2e923eff56f3a71562e909ac39d54f0fc",
+    "src/convert/adapters/freecad/NativeParameters/LinkPadLength.py": "9565af8831b54e8d80808c4cb34e4c0d1bb879479a7fde34e29d43bfe7f663a7",
+    "src/convert/adapters/freecad/NativeParameters/ReadPadExpr.py": "d8634f9735750dc86ffe347bb60f3a70906a4a2a2da0edf3f8bfd014740048df",
+    "src/convert/adapters/freecad/Replay/HasPadReplay.py": "c25075147b668a7ecd41b43f11f6b16a18ce64df7e63d41cf57db48821d7f786",
+    "src/convert/adapters/freecad/Replay/OuterState.py": "24d9f52d98d0135511f34a11e3de058d3e39a107a3b2f039ac4f36d5197c0971",
+    "src/convert/adapters/freecad/Replay/PrepareBound.py": "baeb9b19b9bbd299bd72d08b35bc35cd0cdf1f1d5b02487dd5580eb296629f5d",
+    "src/convert/adapters/freecad/Replay/ReadCache.py": "b8eece48b324e5eb74efcf587132c88941289f3773ec7588ba7d71dabc2c39f5",
+    "src/convert/adapters/freecad/Replay/ReadNativeArc.py": "9407b5b24147b0dad3e3d480e7214c63a6b797356e906df8d5a85dc41ca0d5ad",
+    "src/convert/adapters/freecad/Replay/ReadReplayGraph.py": "1a4c342524d174011cb9897a0e56518ebce3ceb50d9d21690f98e8083d89e849",
+    "src/convert/adapters/freecad/Replay/ReplayReadScope.py": "6b61bb28b20c06c20722a9e8ca7e246138c3fef2fb6980b7c5339bef487ab240"
+  },
+  "schema": "kit.freecad.native-pad-sketch-expression.v1",
+  "unmarked_carriers_migrated_with_two_parses": 3,
+  "verified_pre_binding_cache_reused_without_archive_parse": 3
+}

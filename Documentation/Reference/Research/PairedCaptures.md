@@ -269,7 +269,7 @@ The scripts do not use a Kit reader, writer or source archive.
 Run a script in one of two ways:
 
 - Open **File > View > Show Text Commands** in Fusion, select **Txt** and enter `Python.RunScript "<absolute path to GenerateFusion.py>"`.
-- Start the [`KitCaptureRunner`](../../../re/automation/PairedCaptures/Runner/KitCaptureRunner/KitCaptureRunner.py) add-in from **Utilities > Add-Ins > Scripts and Add-Ins**.
+- Start the [`KitCaptureRunner`](../../../re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.py) add-in from **Utilities > Add-Ins > Scripts and Add-Ins**.
 
 The runner add-in works on Windows and macOS.
 

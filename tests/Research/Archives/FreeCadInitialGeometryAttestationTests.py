@@ -3,6 +3,7 @@ from hashlib import sha256 as DigestBytes
 from io import BytesIO as ByteStream
 from json import dumps as EncodeJson, loads as ParseJson
 from pathlib import Path as FilePath
+from tempfile import TemporaryDirectory as TempDirectory
 from subprocess import run as RunProcess
 from sys import argv as Arguments, executable as PythonExe
 from typing import cast as CastValue
@@ -169,7 +170,7 @@ def ObserveCase(CaseName: str, RootPath: FilePath) -> dict[str, object]:
 
 # independent processes distinguish public write policy from private adapter return values
 @MarkValue.parametrize("CaseName", KCaseNames)
-def CheckAttest(TmpPath: FilePath, CaseName: str) -> None:
+def CheckAttest(CaseName: str) -> None:
     Process = RunProcess(
         [
             PythonExe,
@@ -177,7 +178,6 @@ def CheckAttest(TmpPath: FilePath, CaseName: str) -> None:
             "-m",
             "tests.Research.Archives.FreeCadInitialGeometryAttestationTests",
             CaseName,
-            str(TmpPath),
         ],
         cwd=KRepoRoot,
         capture_output=True,
@@ -194,4 +194,5 @@ def CheckAttest(TmpPath: FilePath, CaseName: str) -> None:
 
 
 if __name__ == "__main__":
-    print(EncodeJson(ObserveCase(Arguments[1], FilePath(Arguments[2])), sort_keys=True))
+    with TempDirectory() as Folder:
+        print(EncodeJson(ObserveCase(Arguments[1], FilePath(Folder)), sort_keys=True))

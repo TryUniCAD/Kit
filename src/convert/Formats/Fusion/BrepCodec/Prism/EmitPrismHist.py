@@ -3,6 +3,7 @@ from convert.Formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
 from convert.Formats.Fusion.BrepCodec.Models.HistoryState import HistoryState
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismFrame import PrismFrame
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismTags import PrismTags
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismIds import PrismIds
 from convert.Formats.Fusion.BrepCodec.Prism.Validation.CheckPrismFrame import (
     CheckPrismFrame,
 )
@@ -26,11 +27,12 @@ def EmitPrismHist(
     History: HistoryState,
     Stamp: GeometryStamp,
     Frame: PrismFrame | None = None,
+    Tracking: PrismIds | None = None,
 ) -> bytes:
     Layout = Frame if Frame is not None else FreshPrism(Model)
     CheckPrismFrame(Model, Layout)
     CheckPrismTags(Identity, TagSet)
-    Records = PrismRecords(Identity, TagSet, Layout)
+    Records = PrismRecords(Identity, TagSet, Layout, Tracking)
     CheckBrepRefs(Records, 2)
     return (
         EmitBrepHeader(Stamp, 2, True, 50.0)

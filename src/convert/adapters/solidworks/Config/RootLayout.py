@@ -1,5 +1,5 @@
 from dataclasses import dataclass as DataClass, replace as ReplaceData
-from importlib.resources import files as ResFiles
+from pkgutil import get_data as ReadPackage
 import json as JsonModule
 
 from convert.adapters.solidworks.Container.Archive import (
@@ -25,10 +25,10 @@ class PartLayouts:
 
 # the format grammar must remain available when the package is installed alone
 def LoadPartLayouts() -> PartLayouts:
-    Resource = ResFiles("convert.adapters.solidworks.Config").joinpath(
-        "RootLayout.json"
-    )
-    Value: object = JsonModule.loads(Resource.read_text(encoding="utf-8"))
+    Resource = ReadPackage("convert.adapters.solidworks.Config", "RootLayout.json")
+    if Resource is None:
+        raise ArchiveError("missing packaged configuration layout")
+    Value: object = JsonModule.loads(Resource.decode("utf-8"))
     if not IsLayoutObject(Value):
         raise ArchiveError("invalid packaged configuration layout")
     return PartLayouts(

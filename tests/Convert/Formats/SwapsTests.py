@@ -150,13 +150,11 @@ KPartSuffixes = (".SLDPRT", ".FCStd", ".CATPart")
 # this binding exists because shared behavior needs one stable value
 KAssemblySuffixes = (".SLDASM", ".FCStd", ".CATProduct")
 
-# the read only suffixes cases must remain explicit so format translation exercises the intended compatibility boundary
-KReadOnlySuffixes = frozenset({".SLDPRT", ".SLDASM"})
+# assembly writing remains unavailable through the native solidworks registry
+KReadOnlySuffixes = frozenset({".SLDASM"})
 
-# the part targets cases must remain explicit so format translation exercises the intended compatibility boundary
-KPartTargets = tuple(
-    SuffixName for SuffixName in KPartSuffixes if SuffixName not in KReadOnlySuffixes
-)
+# the legacy swap fixtures use the established targets while authored parts exercise the scoped native writer
+KPartTargets = (".FCStd", ".CATPart")
 
 # the assembly targets cases must remain explicit so format translation exercises the intended compatibility boundary
 KAssemblyTargets = tuple(
@@ -600,6 +598,16 @@ def TestEVFSRBD(
     ForwardDirectory = TmpPath / f"{NameValue}_forward"
     ForwardDirectory.mkdir()
     Destination = ForwardDirectory / f"{NameValue}_swapped{DestinationSuffix}"
+    Refusal = {
+        "catpart": r"native-only feature definitions cannot be exported: .*catia:feature:graph \(catia\.v5\.osmx:CATPrtCont\)",
+        "catproduct": r"native-only feature definitions cannot be exported: .*catia:feature:graph \(catia\.v5\.osmx:CATPrtCont\)",
+        "sldprt": r"unqualified SOLIDWORKS sketch support references: .*example\.SLDPRT: sldprt:sketch:40",
+    }.get(NameValue)
+    if Refusal is not None:
+        with Pytest.raises(ValueError, match=Refusal):
+            _ = Convert(Source, Destination)
+        assert list(ForwardDirectory.iterdir()) == []
+        return
     Result = ConvertWAG(Source, Destination)
     Restored = OpenDocument(Destination)
     assert Result.source_format == KFormatBySuffix[SourceSuffix]
@@ -610,7 +618,7 @@ def TestEVFSRBD(
     assert DocumentS(Restored) == OriginalSignature
     AssertTarget(Restored, DestinationSuffix, Destination, IsAssembly)
     AssertTVR(Result, DestinationSuffix, IsAssembly)
-    if SourceSuffix not in KReadOnlySuffixes:
+    if SourceSuffix in (KAssemblyTargets if IsAssembly else KPartTargets):
         AssertReverse(
             (NameValue, SourceSuffix, DestinationSuffix),
             Destination,
@@ -643,13 +651,13 @@ def AssertReverse(
     AssertTVR(ReverseResult, SourceSuffix, IsAssembly)
 
 
-# the no sw writer contract needs boundary coverage so independent codecs retain consistent data contracts
+# legacy fixture models and assembly destinations must still refuse before native publication
 @Pytest.mark.parametrize(
     ("NameValue", "SourceSuffix", "Source", "IsAssembly"),
     KMatrixSources,
     ids=[CaseValue[0] for CaseValue in KMatrixSources],
 )
-def TestNoSwWriter(
+def TestSolidRefuse(
     NameValue: str,
     SourceSuffix: str,
     Source: PathValue,

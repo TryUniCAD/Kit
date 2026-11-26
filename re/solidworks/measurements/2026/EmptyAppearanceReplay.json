@@ -1,0 +1,129 @@
+{
+  "archive_version": 19000,
+  "cases": {
+    "absent_seed_one": {
+      "appearance": {
+        "ManagerOnWire": false,
+        "NextAppearanceId": 1
+      },
+      "definition": {
+        "bytes": 459,
+        "sha256": "984487530772d4c3099f70c75ce35d44b605de188e3c241affdad409bbd0c7af"
+      },
+      "exact_replay": true,
+      "external_generation_attempts": 0,
+      "generation_report_sha256": "9946cb282ed29dc4db0b57a5173392f4b70632ce3596f632852ec851665e0498",
+      "map_next": 7,
+      "readback_report_sha256": "647509b0b2a265685e9a5cd1e2b946a96fe0ab8ad48ec1e06489f51052e12b00",
+      "reference_count": null,
+      "reference_rows": null,
+      "request_sha256": "fb1d1ec6689723934841f847c322106086f5087a2b8d87fee3428b552961a510",
+      "signed_counter_words": null
+    },
+    "named_resave": {
+      "appearance": {
+        "ManagerOnWire": true,
+        "NextAppearanceId": 4
+      },
+      "definition": {
+        "bytes": 469,
+        "sha256": "88bdf38bd957f45e54a95340dfb74a593408b2aa30c51f62f0faf5a3e312378a"
+      },
+      "exact_replay": true,
+      "external_generation_attempts": 0,
+      "generation_report_sha256": "80453a411291561dcb944b2a67a5f48de327856cc63d3532d2b63541b70ff897",
+      "map_next": 7,
+      "readback_report_sha256": "9d9ee5d93474d7d69018a43675b95bad7aafbacf87089b7982ab40d4adcee710",
+      "reference_count": 0,
+      "reference_rows": 0,
+      "request_sha256": "02da48e4745fc60dbe2d6f23146ab185e981703a5a66a78c8e4f277ff82c1f30",
+      "signed_counter_words": [
+        4,
+        0
+      ]
+    },
+    "present_both_halves_negative": {
+      "appearance": {
+        "ManagerOnWire": true,
+        "NextAppearanceId": 9223372043297226759
+      },
+      "definition": {
+        "bytes": 469,
+        "sha256": "4756d0482eefe6b3c1a3a3071a973487b4c49c001470a18b6ebfcfbfb00c2953"
+      },
+      "exact_replay": true,
+      "external_generation_attempts": 0,
+      "generation_report_sha256": "40f59e9a0590e94675fb7dc666deb9c9ef07a245ce3e93f56a590256a7953f97",
+      "map_next": 7,
+      "readback_report_sha256": "a4b88ae7ac2c53cf9f24c4900fca6004c226e3e6f0b814cb83505a571c0677d5",
+      "reference_count": 0,
+      "reference_rows": 0,
+      "request_sha256": "f150919a079a07f778d31e100e24028e9b0158b3df64c49b6b0a0243c0b414f4",
+      "signed_counter_words": [
+        -2147483641,
+        -2147483647
+      ]
+    },
+    "present_seed_one": {
+      "appearance": {
+        "ManagerOnWire": true,
+        "NextAppearanceId": 1
+      },
+      "definition": {
+        "bytes": 469,
+        "sha256": "14cf0025aa68b492bdbc64d4c601506daeb3ff02f384463c2be0ba7eb443679d"
+      },
+      "exact_replay": true,
+      "external_generation_attempts": 0,
+      "generation_report_sha256": "2ed2e29c971a9ee8b0c77b59ecbcd6063eb4f67b2a175eaa11ea5bd2019ba9eb",
+      "map_next": 7,
+      "readback_report_sha256": "a09e68a2d73a7d261ae453b2c2af5ef913b08470e1fd456189a1d9bee8b61f3d",
+      "reference_count": 0,
+      "reference_rows": 0,
+      "request_sha256": "52e7f0d1af12121caf73317aed93c77c608b7db820ef24e156d4e6f3e21d4a61",
+      "signed_counter_words": [
+        1,
+        0
+      ]
+    }
+  },
+  "dependency_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+  "fresh_process_rounds": 2,
+  "method_dependencies_sha256": {
+    "Artifacts.py": "5ff87aae7c5ec141ee5349f29587c745fc0fab17f9f41f9d65c5850ba27ad651",
+    "InspectResavedRenderer.py": "5c8f1519dc758b185fbb062f0c634ab9bce2ddf2d354e39787e45569432e7f40",
+    "InspectVendorBodyOwners.py": "e03308c9c2a3f5273af61b9f8c131225fd17b958dc9227a7be6be1007a588cfb"
+  },
+  "method_sha256": "04a464f9433ef1903e7214a23790d8655e1d443f760199536d4a484a7ed4140c",
+  "native_launches": 0,
+  "refusals": {
+    "absent_nonseed": {
+      "diagnostic": "ValueError: an absent appearance manager requires the constructor seed",
+      "exit": 1,
+      "output_exists": false
+    },
+    "foreign_field": {
+      "diagnostic": "ValueError: expected the existing two appearance state fields",
+      "exit": 1,
+      "output_exists": false
+    },
+    "same_counter_wrong_presence": {
+      "diagnostic": "ValueError: generated appearance state differs from the request",
+      "exit": 1
+    }
+  },
+  "refused_fresh_processes": 4,
+  "runtime": {
+    "arch": "AMD64",
+    "python": "3.14.6"
+  },
+  "schema": "kit.research.empty-appearance-replay.v1",
+  "scope": "Appearance allocator only, version-19000 Definition fragments from independent authored settings.",
+  "source": {
+    "archive_sha256": "15fbc8da9c56d5b1a99e8f568de369fd9b992e40386a04c577ab8c0e2d45e356",
+    "definition_sha256": "99e7d629b1cb52b1b12b8a0818aee73a38578e039ede1bb7e4a823da3d7163d9",
+    "extraction_report_sha256": "fd3905d7eaa399b70d782d6b73be378b4b9520e03faa4b361496486f4942bc4d",
+    "request_sha256": "02da48e4745fc60dbe2d6f23146ab185e981703a5a66a78c8e4f277ff82c1f30"
+  },
+  "successful_fresh_processes": 18
+}

@@ -1,3 +1,4 @@
+from convert.adapters.freecad.EditShape.FixedOrigin import IsFixedOrigin
 from math import isclose as IsClose
 
 from convert.adapters.base.WriteValidate import IsObjectTuple
@@ -34,7 +35,7 @@ def GetEditCircle(
     Circle = None
     for Entity in SketchValue.entities:
         Geometry = Entity.geometry
-        if Entity.fixed:
+        if Entity.fixed and not IsFixedOrigin(Entity):
             return None
         if Entity.id == Membership[0]:
             if (

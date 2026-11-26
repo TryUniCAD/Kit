@@ -2,12 +2,12 @@ import json as JsonCodec
 import signal as Signals
 import sys as System
 import time as TimeClock
-from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 
 # adaptive scheduling needs predictable workers that can finish normally or survive graceful shutdown
 def RunAdaptive() -> None:
-    SessionPath = FilePath(System.argv[1])
+    SessionPath = SessionRoot(System.argv[1])
     JobText = (SessionPath / "job.json").read_text(encoding="utf-8")
     SessionInfo = JsonCodec.loads(JobText)
     Options = SessionInfo["job"]["options"]

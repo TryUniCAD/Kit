@@ -38,3 +38,6 @@ require further coverage.
 
 The [study index](Study/README.md) links saved findings and evidence by topic.
 The [corpus notes](Notes/Corpus.md) record import provenance and historical audits.
+The [rectangle refusal investigation](Notes/RectangleRefusals.md) partitions the
+72 remaining ladder refusals at PR #265's inspected revision and traces their
+datum-frame and signed-volume boundaries.

@@ -9,7 +9,7 @@ from convert import write_document as WriteDocument
 from convert.adapters.solidworks import SldprtArchive
 from convert.adapters.solidworks import build_sldprt as BuildSldprt
 from convert.adapters.solidworks.Container.Container import container_signatures as ContainerSignatures
-from convert.adapters.solidworks.Core.BindInch import KUnresolvedInchDimension
+from convert.adapters.solidworks.Core.Inch.BindInch import KUnresolvedInchDimension
 from tests.Convert.Api.ApiTestPaths import KRootPath
 
 

@@ -11,7 +11,7 @@ from collections import Counter
 from dataclasses import replace
 from pathlib import Path, PurePosixPath
 
-from Corpus import git, read_tree
+from Corpus import git, open_blob_batch, read_pinned_blob, read_tree
 from ReaderEvidence import reader_evidence
 
 MANIFEST_LIMIT = 32 * 1024 * 1024
@@ -35,7 +35,7 @@ def load_manifest(manifest_path):
     return manifest, manifest_bytes
 
 
-def pinned_content(root, manifest, entries, asset_path):
+def pinned_asset(manifest, entries, asset_path):
     if not 1 <= len(asset_path) <= 4096 or PurePosixPath(asset_path).is_absolute() or ".." in PurePosixPath(asset_path).parts:
         raise ValueError("asset must be a bounded repository-relative path")
     matches = [asset for asset in manifest["assets"] if asset.get("path") == asset_path]
@@ -47,17 +47,20 @@ def pinned_content(root, manifest, entries, asset_path):
         raise ValueError("this reader accepts pinned F3D and F3Z files only")
     if not re.fullmatch(r"[0-9a-f]{40}", asset["git_blob"]) or entries.get(asset_path) != asset["git_blob"]:
         raise ValueError("asset blob does not match its pinned revision/path")
-    size = int(git(root, "cat-file", "-s", asset["git_blob"]))
-    if not 8 <= size <= 256 * 1024 * 1024 or size != asset["size_bytes"]:
-        raise ValueError("asset size mismatch or input exceeds 256 MiB")
-    content = git(root, "cat-file", "blob", asset["git_blob"])
-    if len(content) != size or hashlib.sha256(content).hexdigest() != asset["sha256"] or content[:16].hex() != asset["prefix_hex"]:
-        raise ValueError("asset bytes differ from the pinned digest/prefix")
-    return asset, content
+    return asset
 
 
 def source_digests(root):
-    return {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted((root / "src").rglob("*.py"))}
+    top = os.path.join(root, "src")
+    paths = []
+    for directory, directories, names in os.walk(top):
+        relative = "src" + directory[len(top):]
+        paths.extend(os.path.join(relative, name) for name in directories + names if os.path.normcase(name).endswith(".py"))
+    digests = {}
+    for path in sorted(paths, key=lambda path: os.path.normcase(path).split(os.sep)):
+        with open(os.path.join(root, path), "rb", buffering=0) as handle:
+            digests[path] = hashlib.sha256(handle.read()).hexdigest()
+    return digests
 
 
 def read_document(content, allow_partial):
@@ -89,11 +92,11 @@ def encode_document(document):
     encoded = document.to_json(indent=None).encode("utf-8")
     if len(encoded) > DOCUMENT_LIMIT:
         raise ValueError("neutral artifact exceeds 64 MiB")
-    rebuilt = CadDocument.from_json(encoded.decode("utf-8"))
-    rebuilt.assert_valid()
+    wire = json.loads(encoded.decode("utf-8"))
+    rebuilt = CadDocument.from_dict(wire)
     if rebuilt.to_json(indent=None).encode("utf-8") != encoded:
         raise ValueError("neutral serialization changed after typed reconstruction")
-    return encoded
+    return encoded, wire
 
 
 def write_private(path, payload):
@@ -104,11 +107,11 @@ def write_private(path, payload):
         os.fsync(target.fileno())
 
 
-def build_receipt(asset, identity, allow_partial, encoded, mode, strict_reason):
+def build_receipt(asset, identity, allow_partial, encoded, wire, mode, strict_reason):
     options = {"mode": mode, "allow_partial": allow_partial, "strict": mode == "strict", "include_brep": True, "include_tessellation": True}
     asset_identity = {**identity, "source": asset, "options": options}
     fingerprint = hashlib.sha256(json.dumps(asset_identity, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
-    evidence = reader_evidence(json.loads(encoded))
+    evidence = reader_evidence(wire)
     if mode == "partial":
         evidence["unresolved"].append({"path": "", "reason": "strict_reader_rejected_partial_reader_used", "strict_rejection": strict_reason})
         evidence["counts"]["unresolved"] = len(evidence["unresolved"])
@@ -127,8 +130,8 @@ def build_receipt(asset, identity, allow_partial, encoded, mode, strict_reason):
 def decode_asset(asset, content, identity, allow_partial, staging):
     try:
         document, mode, strict_reason = read_document(content, allow_partial)
-        encoded = encode_document(document)
-        receipt, receipt_bytes = build_receipt(asset, identity, allow_partial, encoded, mode, strict_reason)
+        encoded, wire = encode_document(document)
+        receipt, receipt_bytes = build_receipt(asset, identity, allow_partial, encoded, wire, mode, strict_reason)
     except ValueError as error:
         return {"path": asset["path"], "outcome": "rejected", "reason": str(error)[:2048]}, 0
     except Exception as error:
@@ -168,14 +171,16 @@ def decode(root, manifest_path, asset_paths, allow_partial, output):
         sys.path.insert(0, str(root / "src"))
         results = []
         written = 0
-        for asset_path in asset_paths:
-            asset, content = pinned_content(root, manifest, entries, asset_path)
-            entry, size = decode_asset(asset, content, identity, allow_partial, staging)
-            del content
-            written += size
-            if written > RUN_LIMIT:
-                raise ValueError("run output exceeds 4 GiB; select fewer assets")
-            results.append(entry)
+        with open_blob_batch(root) as process:
+            for asset_path in asset_paths:
+                asset = pinned_asset(manifest, entries, asset_path)
+                content = read_pinned_blob(process, asset)
+                entry, size = decode_asset(asset, content, identity, allow_partial, staging)
+                del content
+                written += size
+                if written > RUN_LIMIT:
+                    raise ValueError("run output exceeds 4 GiB; select fewer assets")
+                results.append(entry)
         if source_files != source_digests(root):
             raise ValueError("SDK source changed during decoding; retry against a stable checkout")
         outcomes = Counter(entry["outcome"] for entry in results)
@@ -199,13 +204,21 @@ def main():
     parser.add_argument("--manifest", type=Path, default=Path(__file__).with_name("Corpus.json"))
     parser.add_argument("--asset", action="append", required=True)
     parser.add_argument("--allow-partial", action="store_true")
+    parser.add_argument("--native-verify", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     try:
         if args.root.resolve() != Path(__file__).resolve().parents[2]:
             raise ValueError("root must be this reader's SDK checkout")
         result = decode(args.root.resolve(), args.manifest, args.asset, args.allow_partial, args.output)
+        if args.native_verify:
+            from NativeAcceptance.ReaderBatch import VerifyReader
+
+            verification = VerifyReader(args.root.resolve(), "fusion", args.output)
+            result["native_verification"] = {key: verification[key] for key in ("status", "action") if key in verification}
         print(json.dumps(result, sort_keys=True))
+        if args.native_verify and result["counts"]["decoded"] == result["counts"]["assets"] and verification["status"] != "passed":
+            return 4 if verification["status"] == "api_unavailable" else 5
         return 0 if result["counts"]["decoded"] == result["counts"]["assets"] else 3
     except (OSError, ValueError, KeyError, TypeError, RecursionError, subprocess.SubprocessError) as error:
         print(json.dumps({"error": str(error)[:2048], "portable_complete": False}, sort_keys=True), file=sys.stderr)
