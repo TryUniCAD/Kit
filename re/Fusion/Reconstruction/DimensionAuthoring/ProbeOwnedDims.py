@@ -47,7 +47,7 @@ def generate(*, sizes=(40.0, 20.0)):
         "a pair of positive finite rectangle lengths is required",
     )
     width, height = sizes
-    build = import_module("convert.Formats.Fusion.DocumentCodec.BuildDesign")
+    build = import_module("convert.Formats.Fusion.DocumentCodec.DraftDesign")
     dims = import_module("convert.Formats.Fusion.DocumentCodec.Rectangle.Dimensions.ConstrainMut")
     add_collections, add_constraints, emit = (
         build.AddCollectMut,
