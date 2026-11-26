@@ -171,6 +171,7 @@ function RateLimitWait(ErrorInfo) {
 
 async function QueueRunsSettled(Github, Context, Workflows, Gate) {
   let Response;
+  Gate.polls = (Gate.polls ?? 0) + 1;
   try {
     Response = await Github.request("GET /repos/{owner}/{repo}/actions/runs", {
       ...Context.repo,
@@ -182,6 +183,7 @@ async function QueueRunsSettled(Github, Context, Workflows, Gate) {
     if (ErrorInfo.status === 304) return false;
     throw ErrorInfo;
   }
+  Gate.charged = (Gate.charged ?? 0) + 1;
   Gate.etag = Response.headers?.etag;
   const Latest = new Map();
   for (const Run of Response.data.workflow_runs) {
@@ -205,19 +207,22 @@ async function QueueRunsSettled(Github, Context, Workflows, Gate) {
   );
 }
 
-async function QueueDelay(Github, Context, Core) {
+async function QueueDelay(Github, Context, Core, Gate) {
   const Created = Date.parse(
     Context.payload.merge_group?.head_commit?.timestamp ?? "",
   );
-  const Idle = Number.isNaN(Created) ? 0 : Created + 10 * 60000 - Date.now();
+  const Idle = Number.isNaN(Created) ? 0 : Created + 8 * 60000 - Date.now();
   const Limit = (await Github.rest.rateLimit.get()).data.resources.core;
   const Window = Math.max(0, Limit.reset * 1000 - Date.now());
   const Spendable = Limit.remaining - QueueReserve;
   const Paced =
     Spendable > 0
-      ? Math.ceil((Window * QueueShare) / Spendable)
+      ? Math.ceil(
+          ((Window * QueueShare) / Spendable) *
+            (Gate.polls ? (Gate.charged ?? 0) / Gate.polls : 1),
+        )
       : Window + 1000;
-  const Delay = Math.max(120000, Idle, Paced);
+  const Delay = Math.max(30000, Idle, Paced);
   Core.info(
     `API rate limit ${Limit.remaining}/${Limit.limit} remaining; next poll in ${Math.ceil(Delay / 1000)} s`,
   );
@@ -300,7 +305,7 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
         `CI aggregation timed out waiting for: ${Pending.map((Row) => Row.name).join(", ")}`,
       );
     const Delay =
-      Wait ?? (IsPull ? 30000 : await QueueDelay(Github, Context, Core));
+      Wait ?? (IsPull ? 30000 : await QueueDelay(Github, Context, Core, Gate));
     await new Promise((Resolve) =>
       setTimeout(
         Resolve,

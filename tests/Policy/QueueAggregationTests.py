@@ -86,7 +86,11 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
 @Pytest.mark.parametrize(
     "CaseName, Passed, Expected",
     (
-        ("plain", True, ("next poll in 600 s", "next poll in 150 s")),
+        (
+            "plain",
+            True,
+            ("next poll in 480 s", "next poll in 156 s", "next poll in 75 s"),
+        ),
         ("ratelimit", True, ("GitHub API rate limit reached; retrying in 601 s",)),
         ("secondary", True, ("GitHub API rate limit reached; retrying in 60 s",)),
         ("forbidden", False, ("Resource not accessible by integration",)),
