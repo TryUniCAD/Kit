@@ -96,7 +96,8 @@ def worker(args):
 
     sys.addaudithook(audit)
     try:
-        open("top-composition-no-source", "rb")
+        with open("top-composition-no-source", "rb"):
+            pass
     except PermissionError:
         require(
             external == [{"phase": "calibration", "event": "open"}],
