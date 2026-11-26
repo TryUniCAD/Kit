@@ -66,11 +66,18 @@ def RunBatchJob(SessionPath, HostPath):
         Revision=JobValue["tool_version"],
     )
     if not isinstance(Reports, list) or len(Reports) != len(Samples):
-        raise ValueError("native batch lacks a verified report for every case")
+        raise ValueError("native batch lacks a result for every case")
     Bundles, Cases, Artifacts = {}, {}, {}
     for IndexValue, (Sample, Report) in enumerate(zip(Samples, Reports, strict=True)):
         if Report["case"] != Sample["case"]:
             raise ValueError("native batch report belongs to another case")
+        if "native_rejection" in Report:
+            Cases[Sample["sample"]] = {
+                "case": Sample["case"],
+                "native_verified": False,
+                "native_rejection": Report["native_rejection"],
+            }
+            continue
         BundlePath, Manifest = PackNative(WorkPath, Report, f"Samples{IndexValue}.zip")
         RoleValue = f"bundle.{IndexValue}"
         Bundles[RoleValue] = Manifest
@@ -99,7 +106,11 @@ def RunBatchJob(SessionPath, HostPath):
         SessionPath / "result.json",
         {
             "outcome": "completed",
-            "reason": "captured and measured every native case using the recorded verification mode",
+            "reason": (
+                "captured and measured every native case using the recorded verification mode"
+                if len(Bundles) == len(Samples)
+                else "recorded native acceptance and rejection by case using the recorded verification mode"
+            ),
             "records": {
                 "application": "solidworks",
                 "bundles": Bundles,

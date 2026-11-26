@@ -290,6 +290,10 @@ Each batch uses one authoring process and a separate fresh verification process.
 Per-case decoder jobs start after native acceptance.
 Saved plans retain their original job definitions.
 See [paired-case batching](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) for limits and verification.
+After both owned native phases finish, a case-level verification failure
+records a `native_rejection` in the catalogue result. Verified sibling cases
+can continue through their own decoder jobs.
+[Batch rejection handling](../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
 The [thin-wall side check](../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)

@@ -95,6 +95,11 @@ retry recovered the same case on a third fresh attempt after two timeouts.
 The written-recipe geometry repair has separate delivery in
 [PR #291](https://github.com/TryUniCAD/Kit/pull/291).
 
+Task `A08h-CaseIsolation` consolidates the shutdown and thin-wall repair and
+adds per-case catalogue rejection handling. Its exit requires real process
+evidence that healthy sibling decoders can run when a bad bundle is withheld.
+[Owning register](../Reference/Research/AutomationSteps.md#a08h-caseisolation)
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction
