@@ -1,6 +1,7 @@
 from json import loads as DecodeJson
 from pathlib import Path as FilePath
 
+from tests.CliResearch.EncoderRoundTrip.CheckFusionBind import CheckFusionBind
 from tests.CliResearch.EncoderRoundTrip.ReplayRole import ReplayRole
 
 
@@ -24,6 +25,8 @@ def ReplayFusion(
         ReplayPath = OutputPath.parent / (RoleName + "-replay")
         ReplayPath.mkdir()
         ReplayRole(ReplayPath, Snapshot, RoleName)
+    if "edited" in RoleNames:
+        CheckFusionBind(OutputPath, Snapshot)
     assert not SourcePath.exists()
     assert {
         Entry.name: Entry.read_bytes() for Entry in OutputPath.iterdir()

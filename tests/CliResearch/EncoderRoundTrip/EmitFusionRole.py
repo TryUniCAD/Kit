@@ -17,17 +17,23 @@ def EmitFusionRole(InputPath: FilePath, LocatorValue: str, WrittenAt: int) -> by
             "-B",
             "-c",
             """
-import sys
-from pathlib import Path
+from pathlib import Path as FilePath
+from sys import argv as KArguments, path as KModulePath
 
-root, input_path, output_path, locator, epoch = sys.argv[1:]
-sys.path[:0] = [str(Path(root) / item) for item in ('src', 're/automation')]
-from EncoderRoundTrip.Fusion import generate_prepared_candidate
-from interchange import CadDocument
+# the independent caller supplies only the trusted checkout and durable writer inputs
+KRootPath, KInputPath, KOutputPath, KLocator, KEpoch = KArguments[1:]
+# checkout sources preserve the installed command research sdk boundary in isolation
+KModulePath[:0] = [
+    str(FilePath(KRootPath) / Entry) for Entry in ('src', 're/automation')
+]
+from EncoderRoundTrip.Fusion import generate_prepared_candidate as EmitCandidate
+from interchange.document.Models.DocumentModel import CadDocument
 
-document = CadDocument.from_json(Path(input_path).read_text(encoding='utf-8'))
-payload = generate_prepared_candidate(document, native_locator=locator, written_at=int(epoch))
-Path(output_path).write_bytes(payload)
+# typed reconstruction consumes the persisted constructor document as the sole model input
+KDocument = CadDocument.from_json(FilePath(KInputPath).read_text(encoding='utf-8'))
+# the location and epoch bind the constructor output to its recorded role
+KPayload = EmitCandidate(KDocument, native_locator=KLocator, written_at=int(KEpoch))
+FilePath(KOutputPath).write_bytes(KPayload)
 """,
             str(ResearchRoot()),
             str(InputPath),
