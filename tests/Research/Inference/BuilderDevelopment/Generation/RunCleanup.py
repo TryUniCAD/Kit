@@ -59,7 +59,7 @@ def MainProbe() -> int:
             assert isinstance(ChildStart, str)
 
     # windows can report an owned child alive briefly after its job closes
-    def ChildLive() -> bool:
+    def IsChildLive() -> bool:
         return isinstance(ChildPid, int) and (
             LiveStart(ChildPid) == ChildStart
             if PlatformName == "win32"
@@ -67,9 +67,9 @@ def MainProbe() -> int:
         )
 
     Deadline = MonoTime() + 3
-    while ChildLive() and MonoTime() < Deadline:
+    while IsChildLive() and MonoTime() < Deadline:
         WaitBriefly(0.02)
-    ResultInfo["child_still_live"] = ChildLive()
+    ResultInfo["child_still_live"] = IsChildLive()
     print(EncodeJson(ResultInfo), flush=True)
     return 0
 
