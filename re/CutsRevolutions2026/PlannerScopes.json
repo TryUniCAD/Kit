@@ -1,0 +1,1233 @@
+{
+  "SolidHoldoutPlan": {
+    "original_plan_sha256": "a6fe3e30518ef9d3e28c56a8d463fc36deafaee12fdbdeea06b386e5b285ab4c",
+    "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+    "catalogues": {
+      "solidworks": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1"
+    },
+    "mode": "holdout",
+    "status_counts": {
+      "solidworks": {
+        "authoring_recipe_unavailable": 580,
+        "planned": 5
+      }
+    },
+    "planned_features": {
+      "solidworks": {
+        "family:revolve:boss-base-revolve": {
+          "samples": [
+            "solidworks:563fa847705ebe07",
+            "solidworks:6fcef44a8b23a911",
+            "solidworks:474a0f5fd82c8518",
+            "solidworks:cf87a64dac55f21a",
+            "solidworks:c27e771434b37c88",
+            "solidworks:e4fe7fdbdb8c93bf",
+            "solidworks:64c5af29f5d52dbc",
+            "solidworks:85b9b6dd7bfaad2a",
+            "solidworks:dae5475160b8c1d3"
+          ],
+          "status": "planned"
+        },
+        "family:revolve:cut-revolve": {
+          "samples": [
+            "solidworks:8659f34b3c07883a",
+            "solidworks:a76831b9eb15075b",
+            "solidworks:0fb4a0980a4049bb",
+            "solidworks:4fa344848695cc23",
+            "solidworks:2cffa6d74d7dfdc5",
+            "solidworks:fc13035ec1e3b386",
+            "solidworks:63df4da0d0420c97",
+            "solidworks:02eec7c3e0884939",
+            "solidworks:11769bca3a80f515"
+          ],
+          "status": "planned"
+        },
+        "family:revolve:midplane-revolve": {
+          "samples": [
+            "solidworks:7d45c0c2e1a4b7c3",
+            "solidworks:465d9ecad74ecea0",
+            "solidworks:2a868014248a0565",
+            "solidworks:13ae1bad1329bceb",
+            "solidworks:a10bcc87d41dce55",
+            "solidworks:3290bdf83be7d832",
+            "solidworks:f8cf66fe6e226c0c",
+            "solidworks:20a666dbab3e5b14",
+            "solidworks:de579b566f589162"
+          ],
+          "status": "planned"
+        },
+        "family:revolve:thin-revolve": {
+          "samples": [
+            "solidworks:589278ae261285bf",
+            "solidworks:5608d3e630094c90",
+            "solidworks:e2bb45c1cb1af09e",
+            "solidworks:b1c7d8b9a6ea7398",
+            "solidworks:0cf5905394cfc652",
+            "solidworks:22f5f18fcdfc594d",
+            "solidworks:0206914be6aa61da",
+            "solidworks:144def1ff5c7ae0c",
+            "solidworks:11d42daf317725fc"
+          ],
+          "status": "planned"
+        },
+        "family:revolve:two-direction-revolve": {
+          "samples": [
+            "solidworks:8af94508a67d907c",
+            "solidworks:a47c6bed0affc07b",
+            "solidworks:f72c4a4dfda5176c",
+            "solidworks:29ebeca34da52a91",
+            "solidworks:2e11d359d731748d",
+            "solidworks:af4b4aabd8cf824c",
+            "solidworks:a4c900e05f9d5d66",
+            "solidworks:c8f87942900d60ec",
+            "solidworks:0d29706917a0eeda",
+            "solidworks:19fa710c9f7d5fd7",
+            "solidworks:9c42aff00d0ac3ee"
+          ],
+          "status": "planned"
+        }
+      }
+    },
+    "samples": {
+      "solidworks:0206914be6aa61da": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 10.0,
+          "radius_mm": 13.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:02eec7c3e0884939": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 2.0,
+          "inner_radius_mm": 8.0,
+          "outer_radius_mm": 8.5
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:0cf5905394cfc652": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 13.0,
+          "radius_mm": 10.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:0d29706917a0eeda": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 45.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 13.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:0fb4a0980a4049bb": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 306.0,
+          "height_mm": 2.0,
+          "inner_radius_mm": 8.0,
+          "outer_radius_mm": 10.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:11769bca3a80f515": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 2.0,
+          "inner_radius_mm": 8.0,
+          "outer_radius_mm": 8.7500125
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:11d42daf317725fc": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 10.0,
+          "radius_mm": 10.0,
+          "thickness_mm": 2.6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:13ae1bad1329bceb": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 90.0,
+          "height_mm": 7.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:144def1ff5c7ae0c": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 10.0,
+          "radius_mm": 10.0,
+          "thickness_mm": 1.4
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:19fa710c9f7d5fd7": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 45.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 14.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:20a666dbab3e5b14": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 90.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 14.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:22f5f18fcdfc594d": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 10.0,
+          "radius_mm": 7.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:29ebeca34da52a91": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 31.499999999999996,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:2a868014248a0565": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 117.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:2cffa6d74d7dfdc5": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 2.6,
+          "inner_radius_mm": 8.0,
+          "outer_radius_mm": 10.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:2e11d359d731748d": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 58.5,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:3290bdf83be7d832": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 90.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 7.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:465d9ecad74ecea0": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 62.99999999999999,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:474a0f5fd82c8518": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 306.0,
+          "height_mm": 12,
+          "inner_radius_mm": 2,
+          "outer_radius_mm": 6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:4fa344848695cc23": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 1.4,
+          "inner_radius_mm": 8.0,
+          "outer_radius_mm": 10.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:5608d3e630094c90": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 251.99999999999997,
+          "height_mm": 10.0,
+          "radius_mm": 10.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:563fa847705ebe07": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360,
+          "height_mm": 12,
+          "inner_radius_mm": 2,
+          "outer_radius_mm": 6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:589278ae261285bf": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 10.0,
+          "radius_mm": 10.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:63df4da0d0420c97": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 2.0,
+          "inner_radius_mm": 6.8,
+          "outer_radius_mm": 10.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:64c5af29f5d52dbc": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360,
+          "height_mm": 12,
+          "inner_radius_mm": 2.6,
+          "outer_radius_mm": 6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:6fcef44a8b23a911": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 251.99999999999997,
+          "height_mm": 12,
+          "inner_radius_mm": 2,
+          "outer_radius_mm": 6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:7d45c0c2e1a4b7c3": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 90.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:85b9b6dd7bfaad2a": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360,
+          "height_mm": 12,
+          "inner_radius_mm": 2,
+          "outer_radius_mm": 4.199999999999999
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:8659f34b3c07883a": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 2.0,
+          "inner_radius_mm": 8.0,
+          "outer_radius_mm": 10.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:8af94508a67d907c": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 45.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:9c42aff00d0ac3ee": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 45.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 26.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:a10bcc87d41dce55": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 90.0,
+          "height_mm": 13.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:a47c6bed0affc07b": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 62.99999999999999,
+          "angle2_deg": 45.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:a4c900e05f9d5d66": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 45.0,
+          "height_mm": 13.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:a76831b9eb15075b": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 251.99999999999997,
+          "height_mm": 2.0,
+          "inner_radius_mm": 8.0,
+          "outer_radius_mm": 10.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:af4b4aabd8cf824c": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 45.0,
+          "height_mm": 7.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:b1c7d8b9a6ea7398": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 7.0,
+          "radius_mm": 10.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:c27e771434b37c88": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360,
+          "height_mm": 15.600000000000001,
+          "inner_radius_mm": 2,
+          "outer_radius_mm": 6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:c8f87942900d60ec": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 90.0,
+          "angle2_deg": 45.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 7.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:cf87a64dac55f21a": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360,
+          "height_mm": 8.399999999999999,
+          "inner_radius_mm": 2,
+          "outer_radius_mm": 6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:dae5475160b8c1d3": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360,
+          "height_mm": 12,
+          "inner_radius_mm": 2,
+          "outer_radius_mm": 7.800000000000001
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:de579b566f589162": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 90.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 26.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:e2bb45c1cb1af09e": {
+        "application": "solidworks",
+        "recipe": "revolve-thin",
+        "parameters": {
+          "angle_deg": 306.0,
+          "height_mm": 10.0,
+          "radius_mm": 10.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:e4fe7fdbdb8c93bf": {
+        "application": "solidworks",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360,
+          "height_mm": 12,
+          "inner_radius_mm": 1.4,
+          "outer_radius_mm": 6
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:f72c4a4dfda5176c": {
+        "application": "solidworks",
+        "recipe": "revolve-two-direction",
+        "parameters": {
+          "angle1_deg": 117.0,
+          "angle2_deg": 45.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 10.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:f8cf66fe6e226c0c": {
+        "application": "solidworks",
+        "recipe": "revolve-midplane",
+        "parameters": {
+          "angle_deg": 90.0,
+          "height_mm": 10.0,
+          "inner_radius_mm": 13.0,
+          "outer_radius_mm": 20.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:fc13035ec1e3b386": {
+        "application": "solidworks",
+        "recipe": "revolve-cut",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 2.0,
+          "inner_radius_mm": 5.6,
+          "outer_radius_mm": 10.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      }
+    }
+  },
+  "FusionHoldoutPlan": {
+    "original_plan_sha256": "bc4e6222475c51b87132a904db9d0b54ee90afc762f49984a1cb0c191c198cb8",
+    "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+    "catalogues": {
+      "fusion": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718"
+    },
+    "mode": "holdout",
+    "status_counts": {
+      "fusion": {
+        "authoring_recipe_unavailable": 84,
+        "planned": 1
+      }
+    },
+    "planned_features": {
+      "fusion": {
+        "api:adsk.fusion.RevolveFeature": {
+          "samples": [
+            "fusion:1b6b028414c9142d",
+            "fusion:66802da979ea8c36",
+            "fusion:bfdf13a23f2d98f1",
+            "fusion:402886c31430fa91",
+            "fusion:a80cf5e0c4780538",
+            "fusion:df5fb9f5ed0df50b",
+            "fusion:be1cd0976cc624ed",
+            "fusion:397d94aa909dbddd",
+            "fusion:c89c67d1e716774c"
+          ],
+          "status": "planned"
+        }
+      }
+    },
+    "samples": {
+      "fusion:1b6b028414c9142d": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 12.0,
+          "inner_radius_mm": 2.0,
+          "outer_radius_mm": 6.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:397d94aa909dbddd": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 12.0,
+          "inner_radius_mm": 2.0,
+          "outer_radius_mm": 4.199999999999999
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:402886c31430fa91": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 8.399999999999999,
+          "inner_radius_mm": 2.0,
+          "outer_radius_mm": 6.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:66802da979ea8c36": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 251.99999999999997,
+          "height_mm": 12.0,
+          "inner_radius_mm": 2.0,
+          "outer_radius_mm": 6.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:a80cf5e0c4780538": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 15.600000000000001,
+          "inner_radius_mm": 2.0,
+          "outer_radius_mm": 6.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:be1cd0976cc624ed": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 12.0,
+          "inner_radius_mm": 2.6,
+          "outer_radius_mm": 6.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:bfdf13a23f2d98f1": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 306.0,
+          "height_mm": 12.0,
+          "inner_radius_mm": 2.0,
+          "outer_radius_mm": 6.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:c89c67d1e716774c": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 12.0,
+          "inner_radius_mm": 2.0,
+          "outer_radius_mm": 7.800000000000001
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:df5fb9f5ed0df50b": {
+        "application": "fusion",
+        "recipe": "P05",
+        "parameters": {
+          "angle_deg": 360.0,
+          "height_mm": 12.0,
+          "inner_radius_mm": 1.4,
+          "outer_radius_mm": 6.0
+        },
+        "options": {
+          "basis": "XZ",
+          "direction": 1,
+          "termination": "blind"
+        }
+      }
+    }
+  },
+  "SolidCutPlan": {
+    "original_plan_sha256": "ac500f9037fa41bcee7076e5d05d4a466da0cd20d09dd3a0d5bece95f5295120",
+    "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+    "catalogues": {
+      "solidworks": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1"
+    },
+    "mode": "discovery",
+    "status_counts": {
+      "solidworks": {
+        "authoring_recipe_unavailable": 575,
+        "planned": 10
+      }
+    },
+    "planned_features": {
+      "solidworks": {
+        "family:extrude:boss-base-extrude": {
+          "samples": [
+            "solidworks:127a95ceb3d5a43d"
+          ],
+          "status": "planned"
+        },
+        "family:extrude:cut-extrude": {
+          "samples": [
+            "solidworks:8b271a245bd6fe3a"
+          ],
+          "status": "planned"
+        },
+        "family:extrude:midplane-extrude": {
+          "samples": [
+            "solidworks:71a85157bb787e35"
+          ],
+          "status": "planned"
+        },
+        "family:extrude:offset-start-extrude": {
+          "samples": [
+            "solidworks:5d0b80ef43ed604f"
+          ],
+          "status": "planned"
+        },
+        "family:extrude:thin-extrude": {
+          "samples": [
+            "solidworks:29c1e59beb3cb368"
+          ],
+          "status": "planned"
+        },
+        "family:extrude:two-direction-extrude": {
+          "samples": [
+            "solidworks:eacd375d8c7ce988"
+          ],
+          "status": "planned"
+        },
+        "family:extrude:up-to-geometry-extrude": {
+          "samples": [
+            "solidworks:d32dc6a5ef970c6f"
+          ],
+          "status": "planned"
+        },
+        "family:sketchdimensions:driving-dimension": {
+          "samples": [
+            "solidworks:d51c3ea7384f8b5c"
+          ],
+          "status": "planned"
+        },
+        "family:sketchdimensions:linear-dimension": {
+          "samples": [
+            "solidworks:d51c3ea7384f8b5c"
+          ],
+          "status": "planned"
+        },
+        "family:sketchlines:corner-rectangle": {
+          "samples": [
+            "solidworks:d51c3ea7384f8b5c"
+          ],
+          "status": "planned"
+        }
+      }
+    },
+    "samples": {
+      "solidworks:127a95ceb3d5a43d": {
+        "application": "solidworks",
+        "recipe": "P03",
+        "parameters": {
+          "depth_mm": 10,
+          "height_mm": 20,
+          "width_mm": 40
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:29c1e59beb3cb368": {
+        "application": "solidworks",
+        "recipe": "extrude-thin",
+        "parameters": {
+          "depth_mm": 10.0,
+          "length_mm": 40.0,
+          "thickness_mm": 2.0
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:5d0b80ef43ed604f": {
+        "application": "solidworks",
+        "recipe": "extrude-offset-start",
+        "parameters": {
+          "depth_mm": 10.0,
+          "height_mm": 20.0,
+          "offset_mm": 5.0,
+          "width_mm": 40.0
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:71a85157bb787e35": {
+        "application": "solidworks",
+        "recipe": "extrude-midplane",
+        "parameters": {
+          "depth_mm": 10.0,
+          "height_mm": 20.0,
+          "width_mm": 40.0
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:8b271a245bd6fe3a": {
+        "application": "solidworks",
+        "recipe": "P04",
+        "parameters": {
+          "cut_depth_mm": 4,
+          "cut_height_mm": 8,
+          "cut_width_mm": 10,
+          "depth_mm": 10,
+          "height_mm": 20,
+          "width_mm": 40
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:d32dc6a5ef970c6f": {
+        "application": "solidworks",
+        "recipe": "extrude-up-to",
+        "parameters": {
+          "diameter_mm": 10.0,
+          "plane_z_mm": 30.0
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      },
+      "solidworks:d51c3ea7384f8b5c": {
+        "application": "solidworks",
+        "recipe": "P01",
+        "parameters": {
+          "height_mm": 20,
+          "width_mm": 40
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "solidworks:eacd375d8c7ce988": {
+        "application": "solidworks",
+        "recipe": "extrude-two-direction",
+        "parameters": {
+          "depth1_mm": 10.0,
+          "depth2_mm": 5.0,
+          "height_mm": 20.0,
+          "width_mm": 40.0
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "variant": "baseline"
+        }
+      }
+    }
+  },
+  "FusionCutPlan": {
+    "original_plan_sha256": "07fab27541519653140cb56998d9b0050793d086609dd777ceef667fff3650c7",
+    "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+    "catalogues": {
+      "fusion": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718"
+    },
+    "mode": "discovery",
+    "status_counts": {
+      "fusion": {
+        "authoring_recipe_unavailable": 83,
+        "planned": 2
+      }
+    },
+    "planned_features": {
+      "fusion": {
+        "api:adsk.fusion.ExtrudeFeature": {
+          "samples": [
+            "fusion:f7bbae394f6ba637"
+          ],
+          "status": "planned"
+        },
+        "api:adsk.fusion.SketchLines.addTwoPointRectangle": {
+          "samples": [
+            "fusion:c0b6ba2d13f36510"
+          ],
+          "status": "planned"
+        }
+      }
+    },
+    "samples": {
+      "fusion:c0b6ba2d13f36510": {
+        "application": "fusion",
+        "recipe": "P01",
+        "parameters": {
+          "height_mm": 20.0,
+          "width_mm": 40.0
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        }
+      },
+      "fusion:f7bbae394f6ba637": {
+        "application": "fusion",
+        "recipe": "P03",
+        "parameters": {
+          "depth_mm": 10.0,
+          "height_mm": 20.0,
+          "width_mm": 40.0
+        },
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        }
+      }
+    }
+  }
+}

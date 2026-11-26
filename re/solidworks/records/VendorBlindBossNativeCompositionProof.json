@@ -1,0 +1,3084 @@
+{
+  "archive_round_trip_all_members_exact": true,
+  "candidates": {
+    "Off": "784a627c0fae6c308250dad8ccf2cc8397ca4473ad7bf0d2df11e5c11be4f254",
+    "On": "67f78d14ba9f858dcd507ea34c70cd496b2ced862f6fd6a81b29f6f7c1febd72",
+    "SourceMatched": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29"
+  },
+  "comparisons": {
+    "captured_default_edit_exact_d1": "0x1.458cd20afa2f0p-6",
+    "captured_default_edit_max_com_z_residual_m": 1.734723475976807e-18,
+    "captured_default_edit_max_com_z_residual_ulp": 1,
+    "captured_default_edit_right_minus_independent": {
+      "area_m2": 0.0,
+      "bounds_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "centre_of_mass_m": [
+        0.0,
+        0.0,
+        1.734723475976807e-18
+      ],
+      "mass_kg": 0.0,
+      "volume_m3": 0.0
+    },
+    "captured_default_reopen_right_minus_edit": {
+      "initial": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          -1.734723475976807e-18
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      },
+      "rebuilt": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          -1.734723475976807e-18
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      }
+    },
+    "generated_clear_stream_count": 10,
+    "matching_control_geometry_numeric_right_minus_left": {
+      "initial": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      },
+      "rebuilt": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      }
+    },
+    "modeled_default_edit_right_minus_independent": {
+      "area_m2": 0.0,
+      "bounds_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "centre_of_mass_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mass_kg": 0.0,
+      "volume_m3": 0.0
+    },
+    "modeled_default_reopen_right_minus_edit": {
+      "initial": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      },
+      "rebuilt": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          1.734723475976807e-18
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      }
+    },
+    "named_vs_source_matched": {
+      "initial": {
+        "configuration_names": {
+          "left": [
+            "modeled default"
+          ],
+          "right": [
+            "Default"
+          ]
+        },
+        "display": {
+          "left": {
+            "configuration": "modeled default",
+            "construct_planes_visible": true,
+            "display_states": [
+              "<modeled default>_Display State 1"
+            ],
+            "feature_visibility": {
+              "Front Plane": 1,
+              "Origin": 2,
+              "Right Plane": 1,
+              "Sketch1": 1,
+              "Top Plane": 1
+            },
+            "linked_display_state": false,
+            "visible_solids": 1
+          },
+          "right": {
+            "configuration": "Default",
+            "construct_planes_visible": true,
+            "display_states": [
+              "<Default>_Display State 1"
+            ],
+            "feature_visibility": {
+              "Front Plane": 1,
+              "Origin": 2,
+              "Right Plane": 1,
+              "Sketch1": 1,
+              "Top Plane": 1
+            },
+            "linked_display_state": false,
+            "visible_solids": 1
+          }
+        }
+      },
+      "rebuilt": {
+        "configuration_names": {
+          "left": [
+            "modeled default"
+          ],
+          "right": [
+            "Default"
+          ]
+        },
+        "display": {
+          "left": {
+            "configuration": "modeled default",
+            "construct_planes_visible": true,
+            "display_states": [
+              "<modeled default>_Display State 1"
+            ],
+            "feature_visibility": {
+              "Front Plane": 1,
+              "Origin": 2,
+              "Right Plane": 1,
+              "Sketch1": 1,
+              "Top Plane": 1
+            },
+            "linked_display_state": false,
+            "visible_solids": 1
+          },
+          "right": {
+            "configuration": "Default",
+            "construct_planes_visible": true,
+            "display_states": [
+              "<Default>_Display State 1"
+            ],
+            "feature_visibility": {
+              "Front Plane": 1,
+              "Origin": 2,
+              "Right Plane": 1,
+              "Sketch1": 1,
+              "Top Plane": 1
+            },
+            "linked_display_state": false,
+            "visible_solids": 1
+          }
+        }
+      }
+    },
+    "native_save_derivatives": {
+      "captured_default": {
+        "clear_streams": 36,
+        "sha256": "15fbc8da9c56d5b1a99e8f568de369fd9b992e40386a04c577ab8c0e2d45e356"
+      },
+      "modeled_default": {
+        "clear_streams": 36,
+        "sha256": "6981083b0f12be667fbec0eef523686b3f7b1787398263d90bc5a4168549c9b8"
+      },
+      "strict_offline_Definition_observation": "Both native-saved derivatives hit the exact revision alternate renderer profile guard. Fresh native opens and rebuilds succeeded."
+    },
+    "numeric_acceptance_abs_tol_si": 1e-12,
+    "numeric_acceptance_rel_tol": 1e-08,
+    "off_on_numeric_right_minus_left": {
+      "initial": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      },
+      "rebuilt": {
+        "area_m2": 0.0,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centre_of_mass_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass_kg": 0.0,
+        "volume_m3": 0.0
+      }
+    },
+    "off_on_other_state_equal": {
+      "initial": true,
+      "rebuilt": true
+    },
+    "source_clear_stream_count": 36,
+    "source_definition_unqualified": {
+      "additional_unqualified_set_bits": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        15,
+        18,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        32,
+        35,
+        42,
+        44,
+        61,
+        62
+      ],
+      "candidate_words": [
+        "0x00020000",
+        "0x00000000"
+      ],
+      "qualified_bit": 17,
+      "source_words": [
+        "0x3fa68cfa",
+        "0x60001409"
+      ]
+    },
+    "source_matched_measured_api_residual_groups": {
+      "get_units_stock_and_candidate": [
+        [
+          0,
+          1,
+          8,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          4,
+          0
+        ]
+      ],
+      "nested_features": {
+        "distinct_native_ids": 25,
+        "ordered_names_type_and_parent_match": true,
+        "rows_stock_and_candidate": 26,
+        "stock_to_generated_bijection": [
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            3,
+            15
+          ],
+          [
+            4,
+            16
+          ],
+          [
+            5,
+            17
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            10,
+            7
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            13,
+            26
+          ],
+          [
+            14,
+            27
+          ],
+          [
+            15,
+            28
+          ],
+          [
+            16,
+            11
+          ],
+          [
+            17,
+            29
+          ],
+          [
+            18,
+            30
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            22,
+            5
+          ],
+          [
+            23,
+            2
+          ],
+          [
+            24,
+            3
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            26,
+            18
+          ],
+          [
+            32,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  "diagnostic_runs": {
+    "NativeProbe01": {
+      "reason": "Observer inventory erroneously included standard-library modules from the isolated Python runtime; both stock records independently measured healthy",
+      "records": {
+        "StockAfter": {
+          "actual_imports_sha256": "5219ecacf6e03455fa289c36ca18ab09bccda8c3b8b7da834f3fe207a040dea1",
+          "normal_exit": 0,
+          "record_sha256": "dd465a16d378467035f9ecbeff9fb2ffad1e0f9123b1589aec5c19035883170d",
+          "request_sha256": "8d073f25b76974e437201a2acd73eab35167eff1633f60d27a1d594e454c128c",
+          "seconds": 12.296
+        },
+        "StockBefore": {
+          "actual_imports_sha256": "5219ecacf6e03455fa289c36ca18ab09bccda8c3b8b7da834f3fe207a040dea1",
+          "normal_exit": 0,
+          "record_sha256": "1a4a061bd8ec5584e111971b43604436a5a4fffb38c0bfcf8970a0f91d5db5a0",
+          "request_sha256": "372ecb59267abb14c96260bbc0239d94a63cf9731316d6730c164866dff833ac",
+          "seconds": 10.471
+        }
+      },
+      "runner_sha256": "62fc131c2640870e936bbf569e1357b25054dcd8d9f94f23954859dd431734f8",
+      "terminal_sha256": "43e2d8e4b8486c2e1de6d330e0e0fd9c3d2acdb491c7622f28ca7de43dd2d0d6",
+      "withheld_from_qualified_count": "StockBefore is diagnostic. StockAfter was independently revalidated and counts only once, as NativeProbe02 StockBefore."
+    },
+    "NativeProbe03": {
+      "reason": "Observer compared a COM sequence tuple with a Python list; both records showed the requested singleton Default display roster, and no depth edit or save ran",
+      "records": {
+        "SourceMatchedEdit": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "normal_exit": 0,
+          "record_sha256": "e36f106a2be7ea41863b3521aa63b6f692d49750dc725ee4ecbda4dc4e16f02a",
+          "request_sha256": "1ac1a5096cbe52b8e3189a4c55b3b25f090a260cb3116f1f44b28a07c11ea171",
+          "seconds": 10.989
+        },
+        "StockAfter": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "normal_exit": 0,
+          "record_sha256": "f474d655c11dae001edd5ddf4588d21a9c2db3467949d36f57937d32cf4767e8",
+          "request_sha256": "8d073f25b76974e437201a2acd73eab35167eff1633f60d27a1d594e454c128c",
+          "seconds": 10.895
+        }
+      },
+      "runner_sha256": "5cb09d60ba3b5ca43853942aad55f7b5ee98f3a3e91db2d08b973656387d3bd1",
+      "terminal_sha256": "d2d1e77bedbdfe87b4ed53f43924344a6e9f1f3309075ffa3b049b0cf632a2fc",
+      "withheld_from_qualified_count": "Both lifetimes are diagnostic only. NativeProbe04 used all distinct fresh process identities."
+    }
+  },
+  "frozen_method_sha256": {
+    "ComposeExactSketchPresentation.py": "deabdbdbc4e5685ad2326f0cb33b81e6e6b85c385830c8936766aad805afaed7",
+    "ComposeTopAnnotation.py": "35dc75f89a9ef4970c6bc3514d8eb2522e53130f6a6d3c3ca89e8bcd704d2d89",
+    "ExactSketchIntent.py": "8455c052d58c5927265dedbf93c9dc9a8fe3831bdacc9d521a61621da13ad5ca",
+    "ExtractTopAnnotation.py": "f3acaf0edbc9670f0d674aa7caebc373ae7f090c28dc976adf2353b55e43a73b",
+    "FrozenCompositionProof.json": "a750096ffe43218b01d5bf338f5989ea9790fdbb3f68ddc8478a322fab671f7c"
+  },
+  "frozen_revision": "0d1f6633e6e9e834a200d3c02990b3dea3174c9b",
+  "helper_bytes": {
+    "ObserveEncoderRoundTrip": {
+      "repository_path": "re/tooling/sw2026/ObserveEncoderRoundTrip.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3"
+    },
+    "ObserveVendorBossCorpus": {
+      "repository_path": "re/tooling/sw2026/ObserveVendorBossCorpus.py",
+      "revision": "1240bdac99957a42d9b61ed506fa8a7600813022",
+      "sha256": "695f1fda489a95b49ec195101a0fea36e4e3aff93164f55e54bcddff7a9eae45"
+    },
+    "ObserveVendorBossPlaneVisibility": {
+      "repository_path": "re/tooling/sw2026/ObserveVendorBossPlaneVisibility.py",
+      "revision": "1240bdac99957a42d9b61ed506fa8a7600813022",
+      "sha256": "75d9e645818c9b44c4c0cf63507042c6f7deaff2a0c93f8c636a674092926f1a"
+    },
+    "ObserveVendorBossPresentation": {
+      "repository_path": "re/tooling/sw2026/ObserveVendorBossPresentation.py",
+      "revision": "1240bdac99957a42d9b61ed506fa8a7600813022",
+      "sha256": "c6b849e67cf76ceccae0de7ca3889f16fa6ea2b42a73019a269d6132c78b44f9"
+    },
+    "PriorExactSketchObserver": {
+      "sha256": "8eeed8683f58c387df900ea5148cb4e14af145809f3484efa871f2053a0969af"
+    },
+    "SolidWorksAvailability": {
+      "repository_path": "re/automation/ApplicationWorkers/SolidWorksAvailability.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "1e58d7a78d3dbde8c34d1598688f831dd9eee288a4612b5c774434f8f3249507"
+    },
+    "WindowsIdentity": {
+      "repository_path": "re/automation/ApplicationWorkers/WindowsIdentity.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "7650dd6453d36b679c5dc059c7ac8c29eac2a40565933cf4e9dc8c34d04997e0"
+    },
+    "WindowsProcessExit": {
+      "repository_path": "re/automation/ApplicationWorkers/WindowsProcessExit.py",
+      "revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+      "sha256": "b634d8ffaef80bc4b485fa797c03b2a0ac51d59df624e68e520c9b940301e0c7"
+    }
+  },
+  "neutral_requests": {
+    "Off": "f8629c15f1428fcdfcead278fc55ff38943668d008867b22f97d50041bc555d6",
+    "On": "a983d54216602ba5d8779c1a699df05bb5bebc69bdd3d37a38f0d920f117e523",
+    "SourceMatched": "cdefa9be027d8257c0f5b08cf722efff746f38960b86e5e73eac2e63bf7d1ac4"
+  },
+  "offline_proof_sha256": "a750096ffe43218b01d5bf338f5989ea9790fdbb3f68ddc8478a322fab671f7c",
+  "oracle": {
+    "additional_diagnostic_lifetimes": 3,
+    "archive_origin_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+    "chronology_strict": true,
+    "encoded_locator_stayed_absent": true,
+    "executable_sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+    "file_build": "34.4.1.1011",
+    "independent_authoring_template_sha256": "e338c3a1de8734934e78c3fa1558833330ee54cec13fc38f9d8f0f460e97954a",
+    "originals_unchanged": true,
+    "product": "SOLIDWORKS 2026 SP04.1",
+    "qualified_lifetimes": 12,
+    "remaining_cad": false,
+    "separate_process_start_and_normal_exit": true
+  },
+  "private_archive_bytes": 364329,
+  "private_archive_member_map_sha256": "7602334d01acf47b4b6138d33167f5baa883347a4f29e37421061617d04435cf",
+  "private_archive_members": 114,
+  "private_archive_sha256": "4e1d742205095af2c70f7586a0c94a0e0c772066fd95eea45099f28690f4ed61",
+  "qualification_runs": {
+    "NativeProbe02": {
+      "controls_healthy": true,
+      "duration_seconds": 79.758,
+      "helper_maps_sha256": {
+        "After": "f389f45d375f28d003c05f42f345b27d78d25c77b1f59a7a6066b255e296c3b2",
+        "Before": "f389f45d375f28d003c05f42f345b27d78d25c77b1f59a7a6066b255e296c3b2"
+      },
+      "phases": {
+        "EditReference": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "6054f513faafcb817c4384cae559643c881ed88db417d2dffa7be43136bbcc4e",
+          "request_sha256": "9ba0866a51e582542ac6dbf7b1daf06c3d91012c7f6a9b608d8b2c82bf9ffe34",
+          "seconds": 10.819,
+          "state_sha256s": {
+            "initial": "ead058c684581213bdd4c0067e5660095a70598a038069fb49a704a6365f3ce1",
+            "rebuilt": "ead058c684581213bdd4c0067e5660095a70598a038069fb49a704a6365f3ce1"
+          }
+        },
+        "Off": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "784a627c0fae6c308250dad8ccf2cc8397ca4473ad7bf0d2df11e5c11be4f254",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "24297eb3766d8e4504178f2a39f5200c2cdcfe9fc28063f04379a06ae7b09acb",
+          "request_sha256": "141c7425c2c5b9a61f7a9f9b58b4f9c12a7f631123e1124b0adafe360c2a3dc0",
+          "seconds": 10.55,
+          "state_sha256s": {
+            "initial": "330e34976b4d8f6f633b4582792f6c38286fc3d33d5872d1e08235f962e76d44",
+            "rebuilt": "330e34976b4d8f6f633b4582792f6c38286fc3d33d5872d1e08235f962e76d44"
+          }
+        },
+        "On": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "67f78d14ba9f858dcd507ea34c70cd496b2ced862f6fd6a81b29f6f7c1febd72",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "47f94e4b3247fa3ae55fb8146b566c8331f3db79e63dff93b70bf88769c69a5d",
+          "request_sha256": "fc9ba5303983064fef0a5f192ebbdaa5efde3b096dc573bdc2bd1275a3d60db1",
+          "seconds": 10.421,
+          "state_sha256s": {
+            "initial": "f4be899bef9a51a5db1f81470bc43298a58cfbdeea4c3355c8342a4630d06648",
+            "rebuilt": "f4be899bef9a51a5db1f81470bc43298a58cfbdeea4c3355c8342a4630d06648"
+          }
+        },
+        "OnEdit": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "edit_rebuilt_ok": true,
+          "force_rebuild_succeeded": true,
+          "input_sha256": "67f78d14ba9f858dcd507ea34c70cd496b2ced862f6fd6a81b29f6f7c1febd72",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "59e275336f58040c0817ee4be4eff7bb17d0fa70b0c380167ba4457f5feff892",
+          "request_sha256": "415cc76d7a295bfd8bbca8b75c6e2a2e56d23191699d08aad5825a2e27f8970a",
+          "save_status": {
+            "errors": 0,
+            "saved": true,
+            "warnings": 0
+          },
+          "saved_sha256": "6981083b0f12be667fbec0eef523686b3f7b1787398263d90bc5a4168549c9b8",
+          "seconds": 11.317,
+          "state_sha256s": {
+            "edited": "46d581bf0b9f91dfb759e61a895abdc13c322f76e0c5d47504b1738b4ae9db72",
+            "initial": "d80d00595208399e7e75b353815c7c3e9e2044878c47f2b53146a855970c6779",
+            "rebuilt": "0d6a029fe8d3dda4d6e74b24566b4b25ee2fa902d83a969a2081433ce518b627"
+          }
+        },
+        "OnReopen": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "6981083b0f12be667fbec0eef523686b3f7b1787398263d90bc5a4168549c9b8",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "bd2c4ad44889b1df446faf5c96dfc5533a5f697152ffcf81139be2efd643d401",
+          "request_sha256": "5c0b2426314f0e52e84925c4a3dec8101bb8aaf7af5a9eac0d08c568582e1a55",
+          "seconds": 11.004,
+          "state_sha256s": {
+            "initial": "d544be487bfb0fae52f051dba8a7ce4a3b49b5dd3696ce6d9416f3d411fc1c72",
+            "rebuilt": "4dc561f5b34354f09907cc748adb5a5c94f53f5589f8f2beb3105f2d613b59f6"
+          }
+        },
+        "SourceMatched": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "6506f289865a707e826db9c20dfbbb18654ace4b7507942a575690bd36438f5b",
+          "request_sha256": "907a605c7bba16753cd84f755233595b5eae9bd8b49360b680d9461d4ddc1e91",
+          "seconds": 10.626,
+          "state_sha256s": {
+            "initial": "2184111297af771d10188f72bfe5723263322df939522d23b378d998c04b98a6",
+            "rebuilt": "2184111297af771d10188f72bfe5723263322df939522d23b378d998c04b98a6"
+          }
+        },
+        "StockAfter": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "33f65a275d1fb495f68c3e3973f16fee8b7e3099ce25341f7ae4d2ac2f0d0aa0",
+          "request_sha256": "8d073f25b76974e437201a2acd73eab35167eff1633f60d27a1d594e454c128c",
+          "seconds": 10.696,
+          "state_sha256s": {
+            "initial": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f",
+            "rebuilt": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f"
+          }
+        },
+        "StockBefore": {
+          "actual_imports_sha256": "5219ecacf6e03455fa289c36ca18ab09bccda8c3b8b7da834f3fe207a040dea1",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "prior_control_terminal_sha256": "43e2d8e4b8486c2e1de6d330e0e0fd9c3d2acdb491c7622f28ca7de43dd2d0d6",
+          "raw_role": "StockAfter",
+          "record_sha256": "dd465a16d378467035f9ecbeff9fb2ffad1e0f9123b1589aec5c19035883170d",
+          "request_sha256": "8d073f25b76974e437201a2acd73eab35167eff1633f60d27a1d594e454c128c",
+          "seconds": 12.296,
+          "state_sha256s": {
+            "initial": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f",
+            "rebuilt": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f"
+          }
+        }
+      },
+      "phases_in_order": [
+        "StockBefore",
+        "EditReference",
+        "Off",
+        "On",
+        "SourceMatched",
+        "OnEdit",
+        "OnReopen",
+        "StockAfter"
+      ],
+      "runner_sha256": "6a8e8e7331b510131206e942f51144e4d85cfd7eb645afa48041a41b686f9626",
+      "terminal_sha256": "a893730ff2eb4b34e31f861a7e18557b1822e48b057ad2530f9ec1f3ee09518a"
+    },
+    "NativeProbe04": {
+      "controls_healthy": true,
+      "duration_seconds": 45.516,
+      "helper_maps_sha256": {
+        "After": "f389f45d375f28d003c05f42f345b27d78d25c77b1f59a7a6066b255e296c3b2",
+        "Before": "f389f45d375f28d003c05f42f345b27d78d25c77b1f59a7a6066b255e296c3b2"
+      },
+      "phases": {
+        "SourceMatchedEdit": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "edit_rebuilt_ok": true,
+          "force_rebuild_succeeded": true,
+          "input_sha256": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "1da18120a1ec4d5a45b2cc29ec083526052ab11209000906fc5e343528486034",
+          "request_sha256": "ed20fdf9a7b31dbb50e0233425fcb9dbb6aa79a508ccb185c7d8d81fa75f51a2",
+          "save_status": {
+            "errors": 0,
+            "saved": true,
+            "warnings": 0
+          },
+          "saved_sha256": "15fbc8da9c56d5b1a99e8f568de369fd9b992e40386a04c577ab8c0e2d45e356",
+          "seconds": 10.879,
+          "state_sha256s": {
+            "edited": "b5f0d7a124460381b2b602c90cfdcac8ea1e5a27dd665d2c3d4519d3ed22e045",
+            "initial": "7fb4a0f507ab3861c55f1088c48f9992c47c6c88c67bc21ee8a5da5a74d9647a",
+            "rebuilt": "7fb4a0f507ab3861c55f1088c48f9992c47c6c88c67bc21ee8a5da5a74d9647a"
+          }
+        },
+        "SourceMatchedReopen": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "15fbc8da9c56d5b1a99e8f568de369fd9b992e40386a04c577ab8c0e2d45e356",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "8c64cc60cdd6a0c0a8bb494206b854ea7828b2b390dee805fd511c3224ec4879",
+          "request_sha256": "88362e08da63e9601e5945f943f7606cbedf422d9cd83753a2b5fd5b58c46c24",
+          "seconds": 11.335,
+          "state_sha256s": {
+            "initial": "74a5a303e95fc61103fb29a9d91758c029b4a4619deece6635b3ec5610140c41",
+            "rebuilt": "74a5a303e95fc61103fb29a9d91758c029b4a4619deece6635b3ec5610140c41"
+          }
+        },
+        "StockAfter": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "fc85eec815cbf0953ccf4f3394b8487b2bd805bed29a2edcda709f9c86225d4b",
+          "request_sha256": "8d073f25b76974e437201a2acd73eab35167eff1633f60d27a1d594e454c128c",
+          "seconds": 10.377,
+          "state_sha256s": {
+            "initial": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f",
+            "rebuilt": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f"
+          }
+        },
+        "StockBefore": {
+          "actual_imports_sha256": "4a1805f24bc14b2717de36c249fc6b73b132f2051643530c996a86c30338f9bf",
+          "force_rebuild_succeeded": true,
+          "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+          "input_unchanged": true,
+          "normal_exit": 0,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "record_sha256": "a5a8e9f70e3c09ddc4f9f8eb9c162a43ca239353dcad59f6e72278211677d6aa",
+          "request_sha256": "372ecb59267abb14c96260bbc0239d94a63cf9731316d6730c164866dff833ac",
+          "seconds": 10.246,
+          "state_sha256s": {
+            "initial": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f",
+            "rebuilt": "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f"
+          }
+        }
+      },
+      "phases_in_order": [
+        "StockBefore",
+        "SourceMatchedEdit",
+        "SourceMatchedReopen",
+        "StockAfter"
+      ],
+      "runner_sha256": "53a1ba05582d44730f5eeb8376dc222a3dfed28435e0f65a408b7d2aa9f5f090",
+      "terminal_sha256": "43d28fdbc9f0f36a2792e20381d5a8718aea14ba9a947480e80cec9fdbfb5a9f"
+    }
+  },
+  "schema": "kit.sw2026.exact-sketch-presentation-native-companion.v1",
+  "scope": "The exact generated SLDPRT research cases on the measured installed build, with independently authored matching reference geometry. Public publication and source-family or whole-file qualification remain unclaimed.",
+  "shared_exact_native_state_all_qualified_stages": {
+    "annotation_views": {
+      "active": {
+        "always_2d": false,
+        "annotation_count": 0,
+        "flat_pattern": false,
+        "rotation_m_words": [
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0"
+        ],
+        "shown": true,
+        "unassigned": true
+      },
+      "actual_annotations": 0,
+      "count": 2,
+      "views": [
+        {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "-0x0.0p+0",
+            "-0x1.0000000000000p+0",
+            "-0x0.0p+0"
+          ],
+          "shown": false,
+          "unassigned": false
+        }
+      ]
+    },
+    "directed_endpoint_words": [
+      [
+        [
+          "-0x1.a9fbe76c8b439p-7",
+          "-0x1.89374bc6a7efap-9",
+          "0x0.0p+0"
+        ],
+        [
+          "0x1.0624dd2f1a9fcp-7",
+          "-0x1.26e978d4fdf3bp-7",
+          "0x0.0p+0"
+        ]
+      ],
+      [
+        [
+          "0x1.0624dd2f1a9fcp-7",
+          "-0x1.26e978d4fdf3bp-7",
+          "0x0.0p+0"
+        ],
+        [
+          "0x1.374bc6a7ef9dbp-6",
+          "0x1.89374bc6a7efap-8",
+          "0x0.0p+0"
+        ]
+      ],
+      [
+        [
+          "0x1.374bc6a7ef9dbp-6",
+          "0x1.89374bc6a7efap-8",
+          "0x0.0p+0"
+        ],
+        [
+          "0x1.0624dd2f1a9fcp-8",
+          "0x1.78d4fdf3b645ap-6",
+          "0x0.0p+0"
+        ]
+      ],
+      [
+        [
+          "0x1.0624dd2f1a9fcp-8",
+          "0x1.78d4fdf3b645ap-6",
+          "0x0.0p+0"
+        ],
+        [
+          "-0x1.a9fbe76c8b439p-7",
+          "-0x1.89374bc6a7efap-9",
+          "0x0.0p+0"
+        ]
+      ]
+    ],
+    "frame_words": [
+      "0x1.0000000000000p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x1.0000000000000p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x1.0000000000000p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x1.0000000000000p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0"
+    ],
+    "light_roster_sha256": "5e8a35163232c2f6f83e505ae35c8a6bff33040e98e3d03bdbc939e00a447a66",
+    "material_roster_sha256": "19cd126847924d706a25e97b246e58a6813e863c9a164de7d26e25e74dd7e7ef"
+  },
+  "state_values_by_sha256": {
+    "0d6a029fe8d3dda4d6e74b24566b4b25ee2fa902d83a969a2081433ce518b627": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.003812578616352201,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "modeled default"
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "modeled default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 7.5843e-06,
+      "read_only": false,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 7.5843e-06
+    },
+    "2184111297af771d10188f72bfe5723263322df939522d23b378d998c04b98a6": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "Default"
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "Default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<Default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 7.584300000000001e-06,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    },
+    "330e34976b4d8f6f633b4582792f6c38286fc3d33d5872d1e08235f962e76d44": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "modeled default"
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "modeled default",
+        "construct_planes_visible": false,
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": false,
+      "mass_kg": 7.584300000000001e-06,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    },
+    "46d581bf0b9f91dfb759e61a895abdc13c322f76e0c5d47504b1738b4ae9db72": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.002931305377864321,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01987
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515723,
+        0.009934999999999998
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "modeled default"
+      ],
+      "d1_m_word": "0x1.458cd20afa2f0p-6",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "modeled default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 1.05311e-05,
+      "read_only": false,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 1.05311e-05
+    },
+    "4dc561f5b34354f09907cc748adb5a5c94f53f5589f8f2beb3105f2d613b59f6": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.002931305377864321,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01987
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515723,
+        0.009935
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "modeled default"
+      ],
+      "d1_m_word": "0x1.458cd20afa2f0p-6",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "modeled default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 1.05311e-05,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 1.05311e-05
+    },
+    "74a5a303e95fc61103fb29a9d91758c029b4a4619deece6635b3ec5610140c41": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.002931305377864321,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01987
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515723,
+        0.009934999999999998
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "Default"
+      ],
+      "d1_m_word": "0x1.458cd20afa2f0p-6",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "Default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<Default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 1.05311e-05,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 1.05311e-05
+    },
+    "7fb4a0f507ab3861c55f1088c48f9992c47c6c88c67bc21ee8a5da5a74d9647a": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "Default"
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "Default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<Default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 7.584300000000001e-06,
+      "read_only": false,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    },
+    "b5f0d7a124460381b2b602c90cfdcac8ea1e5a27dd665d2c3d4519d3ed22e045": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.002931305377864321,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01987
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515723,
+        0.009935
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "Default"
+      ],
+      "d1_m_word": "0x1.458cd20afa2f0p-6",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "Default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<Default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 1.05311e-05,
+      "read_only": false,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 1.05311e-05
+    },
+    "cf62c0784c5dc8197139d06129f4fca3eee872bfdde097343f03ba3822b0540f": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "Default"
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "Default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<Default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 7.584300000000001e-06,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        8,
+        2,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    },
+    "d544be487bfb0fae52f051dba8a7ce4a3b49b5dd3696ce6d9416f3d411fc1c72": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.002931305377864321,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01987
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515723,
+        0.009934999999999998
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "modeled default"
+      ],
+      "d1_m_word": "0x1.458cd20afa2f0p-6",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "modeled default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 1.05311e-05,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 1.05311e-05
+    },
+    "d80d00595208399e7e75b353815c7c3e9e2044878c47f2b53146a855970c6779": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "modeled default"
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "modeled default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 7.584300000000001e-06,
+      "read_only": false,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    },
+    "ead058c684581213bdd4c0067e5660095a70598a038069fb49a704a6365f3ce1": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.002931305377864321,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01987
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515723,
+        0.009934999999999998
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "Default"
+      ],
+      "d1_m_word": "0x1.458cd20afa2f0p-6",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "Default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<Default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 1.05311e-05,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        8,
+        2,
+        0
+      ],
+      "volume_m3": 1.05311e-05
+    },
+    "f4be899bef9a51a5db1f81470bc43298a58cfbdeea4c3355c8342a4630d06648": {
+      "annotation_views": {
+        "active": {
+          "always_2d": false,
+          "annotation_count": 0,
+          "flat_pattern": false,
+          "rotation_m_words": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0"
+          ],
+          "shown": true,
+          "unassigned": true
+        },
+        "actual_annotations": 0,
+        "count": 2,
+        "views": [
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0"
+            ],
+            "shown": true,
+            "unassigned": true
+          },
+          {
+            "always_2d": false,
+            "annotation_count": 0,
+            "flat_pattern": false,
+            "rotation_m_words": [
+              "0x1.0000000000000p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x0.0p+0",
+              "0x1.0000000000000p+0",
+              "-0x0.0p+0",
+              "-0x1.0000000000000p+0",
+              "-0x0.0p+0"
+            ],
+            "shown": false,
+            "unassigned": false
+          }
+        ]
+      },
+      "area_m2": 0.0024076789107820044,
+      "bounds_m": [
+        -0.013000000000000001,
+        -0.009000000000000001,
+        0.0,
+        0.019,
+        0.023,
+        0.01431
+      ],
+      "centre_of_mass_m": [
+        0.0038125786163522007,
+        0.004832704402515722,
+        0.007154999999999999
+      ],
+      "coincident_adjacent_endpoint_ids": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "configuration_names": [
+        "modeled default"
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "dimension_driving": true,
+      "display": {
+        "configuration": "modeled default",
+        "construct_planes_visible": true,
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Origin": 2,
+          "Right Plane": 1,
+          "Sketch1": 1,
+          "Top Plane": 1
+        },
+        "linked_display_state": false,
+        "visible_solids": 1
+      },
+      "document_getter_planes": true,
+      "mass_kg": 7.584300000000001e-06,
+      "read_only": true,
+      "sketch_point_id_pairs": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "solid_topology": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "units_api": [
+        0,
+        1,
+        1,
+        4,
+        0
+      ],
+      "volume_m3": 7.584300000000001e-06
+    }
+  }
+}

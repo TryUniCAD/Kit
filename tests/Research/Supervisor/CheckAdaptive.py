@@ -3,7 +3,9 @@ from typing import Mapping
 
 
 # a pool may grow only after a full healthy interval with spare resources
-def CheckAdaptive(Events: list[Mapping[str, object]]) -> None:
+def CheckAdaptive(
+    Events: list[Mapping[str, object]], LaunchIndex: int | None = None
+) -> None:
     Admissions = [
         JsonCodec.loads(JsonCodec.dumps(Event))
         for Event in Events
@@ -21,9 +23,25 @@ def CheckAdaptive(Events: list[Mapping[str, object]]) -> None:
             if Event["adaptive_reason"] == "healthy_minute"
         }.values()
     )
+    if LaunchIndex is not None:
+        assert Increased, Admissions[-1]
+        FirstRaise = Increased[-1]
+        assert FirstRaise["active_limit"] == First["active_limit"] + 1
+        assert FirstRaise["running"] == First["active_limit"]
+        assert 0 <= FirstRaise["host"]["cpu_busy_fraction_1m"] < 0.85
+        assert any(
+            Event.get("event") == "admission"
+            and Event.get("adaptive_reason") == "healthy_minute"
+            and Event.get("adaptive_revision") == FirstRaise["adaptive_revision"]
+            for Event in Events[:LaunchIndex]
+        )
     for Event in Increased:
         assert Event["healthy_seconds"] >= 60
-        assert Event["host"]["load_average_1m"] < Event["host"]["logical_cpus"] * 0.85
+        HostInfo = Event["host"]
+        if "cpu_busy_fraction_1m" in HostInfo:
+            assert 0 <= HostInfo["cpu_busy_fraction_1m"] < 0.85
+        else:
+            assert HostInfo["load_average_1m"] < HostInfo["logical_cpus"] * 0.85
         assert (
             Event["host"]["available_memory_bytes"]
             > Event["reserved_memory_bytes"] + Event["estimated_memory_bytes"]

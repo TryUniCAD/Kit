@@ -3,6 +3,7 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     ResolveField,
     SameNodes,
 )
+from convert.adapters.Fusion.Native.Graph.OrderedFeatures import OrderedFeatures
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 
@@ -10,11 +11,7 @@ from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 # select extrusion must resolve unambiguously so public document claims remain grounded in native records
 def SelectExtrusion(Graph: NativeGraph) -> ExtrudeContext:
     Component = Graph.OneClass("FusionComponent")
-    Fragment = ResolveField(Graph, Component, "rDesignFragment", "DcDesignFragment")
-    Order = ResolveField(
-        Graph, Fragment, "rCreationOrderFeatures", "DcCreationOrderFeatures"
-    )
-    Features = LinkedNodes(Graph, Order, "representationFeatures")
+    Fragment, Features = OrderedFeatures(Graph, Component)
     if tuple(NodeValue.ClassName for NodeValue in Features) != (
         "DcSketch",
         "DcExtrudeFeature",

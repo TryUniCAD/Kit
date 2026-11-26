@@ -1,15 +1,20 @@
+from interchange.Features.Distance.DistanceCut import DistanceCut
+from interchange.document.Validation.GetDistanceErrs import GetDistanceErrs
 from typing import Mapping as TypeMap
 
 from interchange.document.Validation.AngleRevValidate import GetAngleRevErrs
 from interchange.document.Validation.BoundPlaneValidate import CheckBoundPlane
-from interchange.document.Validation.DistExtValidate import GetDistExtErrs
+from interchange.document.Validation.PlaneAxisValidate import GetAxisErrors
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
+from interchange.Features.Axes.AxisExtentConfig import AxisConfigView
+from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
+from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.FeatureStep import FeatureStep
@@ -49,18 +54,27 @@ def GetDefErrors(
     Params: TypeMap[str, Parameter],
     Frames: TypeMap[str, SupportPlane],
     Sketches: TypeMap[str, Sketch],
+    AxisView: AxisConfigView | None = None,
 ) -> tuple[str, ...]:
     Definition = StepValue.definition
     if isinstance(Definition, ScopedExtrude):
         return GetScopeErrors(StepValue, Definition, IdentitySets["bodies"])
+    if isinstance(Definition, (PlaneAxis, BoundPlaneAxis)):
+        return GetAxisErrors(StepValue, Selections, Frames, Params, AxisView)
     if isinstance(Definition, PlaneRevolve):
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]
         )
     if isinstance(Definition, AngularRevolve):
         return GetAngleRevErrs(StepValue, Definition, Selections, Params)
-    if isinstance(Definition, DistanceExtrude):
-        return GetDistExtErrs(StepValue, Definition, IdentitySets["sketches"], Params)
+    if isinstance(Definition, (DistanceExtrude, DistanceCut)):
+        return GetDistanceErrs(
+            StepValue,
+            Definition,
+            IdentitySets["sketches"],
+            IdentitySets["bodies"],
+            Params,
+        )
     if isinstance(Definition, ExtrudeFeature):
         return GetExtrudeErrs(StepValue, Definition)
     if isinstance(Definition, BoundDatum):

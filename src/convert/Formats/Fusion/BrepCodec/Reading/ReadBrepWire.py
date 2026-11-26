@@ -16,12 +16,18 @@ def ReadBrepWire(Payload: bytes, HasHistory: bool) -> BrepWire:
     Cursor = MetaCursor(Payload)
     Header, Stamp = ReadBrepHeadMut(Cursor, HasHistory)
     Count = 35 if HasHistory else 59
-    Records = tuple(ReadAsmRecord(Cursor, ReadAsmName(Cursor)) for _ in range(Count))
+    Records = tuple(
+        ReadAsmRecord(Cursor, ReadAsmName(Cursor), Header.IntWidth)
+        for _ in range(Count)
+    )
     Journal: tuple[AsmRecord, ...] = ()
     if HasHistory:
         if ReadAsmName(Cursor) != "Begin-of-ASM-History-Data":
             raise ValueError("Missing Fusion BRep insertion journal")
-        Journal = tuple(ReadAsmRecord(Cursor, ReadAsmName(Cursor)) for _ in range(3))
+        Journal = tuple(
+            ReadAsmRecord(Cursor, ReadAsmName(Cursor), Header.IntWidth)
+            for _ in range(3)
+        )
         if ReadAsmName(Cursor) != "End-of-ASM-History-Section":
             raise ValueError("Unsupported Fusion BRep archived revisions")
     if ReadAsmName(Cursor) != "End-of-ASM-data" or Cursor.Offset != len(Payload):

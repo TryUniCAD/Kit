@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
-from convert.adapters.solidworks.Sketch.Cursor import SketchArchive
-from convert.adapters.solidworks.Sketch.DimFields import ReadDimBase, ReadDimFields
+from convert.adapters.solidworks.Sketch.Cursor import (
+    SketchArchive,
+    ReadDimBase,
+    ReadDimFields,
+)
 from convert.adapters.solidworks.Sketch.GeometryTypes import (
     Coincidence,
     KPointId,

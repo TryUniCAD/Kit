@@ -15,15 +15,21 @@ def BuildPrismEdges(
     Points: tuple[PlaneVector, ...],
     LowerMm: float,
     UpperMm: float,
+    UpperPoints: tuple[PlaneVector, ...] | None = None,
 ) -> tuple[tuple[BrepVertex, ...], tuple[LineCurve, ...], tuple[BrepEdge, ...]]:
     Count = len(Points)
+    Outlines = (Points, Points if UpperPoints is None else UpperPoints)
+    if len(Outlines[1]) != Count:
+        raise ValueError("Extrude prism cap vertex counts disagree")
     Vertices = tuple(
         BrepVertex(
             f"{Prefix}-vertex-{Station * Count + Index}",
             PlacePrismPoint(FrameValue, PointValue, Height),
         )
-        for Station, Height in enumerate((LowerMm, UpperMm))
-        for Index, PointValue in enumerate(Points)
+        for Station, (Height, Outline) in enumerate(
+            zip((LowerMm, UpperMm), Outlines, strict=True)
+        )
+        for Index, PointValue in enumerate(Outline)
     )
     Segments = (
         tuple((Index, (Index + 1) % Count) for Index in range(Count))
@@ -32,9 +38,13 @@ def BuildPrismEdges(
     )
     RimLengths = tuple(
         Hypot(Second.x - First.x, Second.y - First.y)
-        for First, Second in zip(Points, Points[1:] + Points[:1])
+        for Outline in Outlines
+        for First, Second in zip(Outline, Outline[1:] + Outline[:1], strict=True)
     )
-    Lengths = RimLengths * 2 + (UpperMm - LowerMm,) * Count
+    Lengths = RimLengths + tuple(
+        Hypot(Second.x - First.x, Second.y - First.y, UpperMm - LowerMm)
+        for First, Second in zip(*Outlines, strict=True)
+    )
     Curves: list[LineCurve] = []
     Edges: list[BrepEdge] = []
     for Index, (Start, Finish) in enumerate(Segments):

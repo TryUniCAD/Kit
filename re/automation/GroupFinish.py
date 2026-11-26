@@ -27,8 +27,9 @@ def finish_group(ledger, claim_path, request_path):
         records.append((item["outcome"], item["reason"], path, payload, manifest is not None))
     oversized = total > MAX_OUTPUT_BYTES
     results = []
-    for claim, (outcome, reason, path, payload, intake) in zip(claims, records):
-        renew_group(ledger, claims)
+    for index, (outcome, reason, path, payload, intake) in enumerate(records):
+        renew_group(ledger, claims[index:])
+        claim = claims[index]
         if oversized:
             outcome, reason, intake = "retry", "group output declarations exceed 256 MiB in aggregate", False
             payload = {**payload, "result": None, "error": reason}

@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "bytes": 8094,
+      "editor_depth_mm": 12.750000000000002,
+      "native_transfers": 10,
+      "normal_routes": 3,
+      "other_destination_refused": true,
+      "point_count": 3,
+      "refusals_both_routes": [
+        "unknown_metadata",
+        "changed_topology",
+        "changed_source_hash",
+        "changed_retained_bytes"
+      ],
+      "role": "Skew",
+      "runtime_input_reads": 0,
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "staged_file_writes": 1
+    },
+    {
+      "bytes": 8180,
+      "editor_depth_mm": 18.625,
+      "native_transfers": 10,
+      "normal_routes": 3,
+      "other_destination_refused": true,
+      "point_count": 6,
+      "refusals_both_routes": [
+        "unknown_metadata",
+        "changed_topology",
+        "changed_source_hash",
+        "changed_retained_bytes"
+      ],
+      "role": "Step",
+      "runtime_input_reads": 0,
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "staged_file_writes": 1
+    }
+  ],
+  "fresh_worker_processes": 2,
+  "method_sha256": "71649b50616456e5afd7b9b210824468c59e37e69e4bcc9a2dfd3aba758b9c22",
+  "native_launches": 0,
+  "native_measurement_sha256": "273b95745b147c6acaf4e51130bd521687651ad65d2edcb29f79ab50a9c3b7bc",
+  "protected_inputs_read": 0,
+  "schema": "kit.sw2026.measured-cold-part-roundtrip.v1"
+}

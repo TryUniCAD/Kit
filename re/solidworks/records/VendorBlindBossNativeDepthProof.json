@@ -1,0 +1,1027 @@
+{
+  "archive_reader_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+  "base_revision": "225bd69aded9a103de46b7e17759573ccde45601",
+  "baseline_no_edit_native_save": {
+    "persisted_f58_binary64": "0x1.d4e8fb00bcbe6p-7",
+    "readback": {
+      "initial": {
+        "area_m2": 0.0024076789107820044,
+        "bodies": 1,
+        "bounds_m": [
+          -0.013000000000000001,
+          -0.009000000000000001,
+          0.0,
+          0.019,
+          0.023,
+          0.01431
+        ],
+        "centre_of_mass_m": [
+          0.003812578616352201,
+          0.004832704402515723,
+          0.007155
+        ],
+        "driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+        "faces_edges_vertices": [
+          6,
+          12,
+          8
+        ],
+        "model_to_sketch_frame": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "read_only": true,
+        "segments": 4,
+        "volume_mm3": 7584.299999999999
+      },
+      "rebuilt": {
+        "area_m2": 0.0024076789107820044,
+        "bodies": 1,
+        "bounds_m": [
+          -0.013000000000000001,
+          -0.009000000000000001,
+          0.0,
+          0.019,
+          0.023,
+          0.01431
+        ],
+        "centre_of_mass_m": [
+          0.003812578616352201,
+          0.004832704402515723,
+          0.007155
+        ],
+        "driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+        "faces_edges_vertices": [
+          6,
+          12,
+          8
+        ],
+        "model_to_sketch_frame": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "read_only": true,
+        "segments": 4,
+        "volume_mm3": 7584.299999999999
+      }
+    },
+    "sampled_save_reopen_mass_property_deltas_ulp": {
+      "area_m2": [
+        0.0
+      ],
+      "centre_of_mass_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mass_kg": [
+        0.0
+      ],
+      "volume_m3": [
+        0.0
+      ]
+    },
+    "save_status": {
+      "errors": 0,
+      "saved": true,
+      "warnings": 0
+    },
+    "sha256": "7d1e6d8a03e47b88e5fa59a413a19c94d214d2c31a91fd62a52106be29fc96a3"
+  },
+  "cases": {
+    "Baseline": {
+      "candidate_measurements": {
+        "initial": {
+          "area_m2": 0.0024076789107820044,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01431
+          ],
+          "centre_of_mass_m": [
+            0.003812578616352201,
+            0.004832704402515723,
+            0.007155
+          ],
+          "driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 7584.299999999999
+        },
+        "rebuilt": {
+          "area_m2": 0.0024076789107820044,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01431
+          ],
+          "centre_of_mass_m": [
+            0.003812578616352201,
+            0.004832704402515723,
+            0.007155
+          ],
+          "driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 7584.299999999999
+        }
+      },
+      "candidate_sha256": "6b816ac20707492ccf432d31725a3b4653c66db3e2e826afc3461e03ecd50ac4",
+      "driver_bits": {
+        "candidate_f58": "0x1.d4e8fb00bcbe6p-7",
+        "offline_strict_readback": "0x1.d4e8fb00bcbe6p-7",
+        "source_f58": "0x1.d4e8fb00bcbe6p-7",
+        "typed_request_metres": "0x1.d4e8fb00bcbe6p-7"
+      },
+      "presentation": {
+        "candidate": {
+          "annotation_count": 1,
+          "assigned_annotation_count": 0,
+          "configuration": "modeled default",
+          "display_state_names": [
+            "<modeled default>_Display State 1"
+          ],
+          "feature_visibility": {
+            "Front Plane": 1,
+            "Origin": 2,
+            "Right Plane": 1,
+            "Sketch1": 1,
+            "Top Plane": 1
+          },
+          "global_plane_getters": [
+            false,
+            false
+          ]
+        },
+        "equal_observations": [
+          "lights",
+          "material_and_appearance"
+        ],
+        "independent_reference": {
+          "annotation_count": 2,
+          "assigned_annotation_count": 1,
+          "configuration": "Default",
+          "display_state_names": [
+            "<Default>_Display State 1"
+          ],
+          "feature_visibility": {
+            "Front Plane": 1,
+            "Origin": 2,
+            "Right Plane": 1,
+            "Sketch1": 1,
+            "Top Plane": 1
+          },
+          "global_plane_getters": [
+            true,
+            true
+          ]
+        }
+      },
+      "reference_measurements": {
+        "initial": {
+          "area_m2": 0.0024076789107820044,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01431
+          ],
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515722,
+            0.007154999999999999
+          ],
+          "driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 7584.300000000001
+        },
+        "rebuilt": {
+          "area_m2": 0.0024076789107820044,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01431
+          ],
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515722,
+            0.007154999999999999
+          ],
+          "driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 7584.300000000001
+        }
+      },
+      "request_sha256": "d12ab8c5bb0568fa2987e0139dec407171630707c46290e836bdcb6ad3f372c4",
+      "sampled_differences_si": {
+        "area_m2": 0.0,
+        "max_bound_coordinate_m": 0.0,
+        "max_centre_of_mass_coordinate_m": 8.673617379884035e-19,
+        "max_model_to_sketch_frame_component": 0.0,
+        "max_ordered_sketch_coordinate_m": 1.734723475976807e-18,
+        "volume_m3": 1.6940658945086007e-21
+      },
+      "source_archive_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "source_author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a"
+    },
+    "Edit": {
+      "candidate_measurements": {
+        "initial": {
+          "area_m2": 0.002931305377864321,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01987
+          ],
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009935
+          ],
+          "driver_m_binary64": "0x1.458cd20afa2f0p-6",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 10531.1
+        },
+        "rebuilt": {
+          "area_m2": 0.002931305377864321,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01987
+          ],
+          "centre_of_mass_m": [
+            0.0038125786163522002,
+            0.004832704402515722,
+            0.009935
+          ],
+          "driver_m_binary64": "0x1.458cd20afa2f0p-6",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 10531.099999999999
+        }
+      },
+      "candidate_sha256": "ec82302a7c35e643b9d53cab76ac89aaa93a78adf4ca9fe31898f233f75323da",
+      "driver_bits": {
+        "candidate_f58": "0x1.458cd20afa2f0p-6",
+        "offline_strict_readback": "0x1.458cd20afa2f0p-6",
+        "source_f58": "0x1.458cd20afa2f0p-6",
+        "typed_request_metres": "0x1.458cd20afa2f0p-6"
+      },
+      "presentation": {
+        "candidate": {
+          "annotation_count": 1,
+          "assigned_annotation_count": 0,
+          "configuration": "modeled default",
+          "display_state_names": [
+            "<modeled default>_Display State 1"
+          ],
+          "feature_visibility": {
+            "Front Plane": 1,
+            "Origin": 2,
+            "Right Plane": 1,
+            "Sketch1": 1,
+            "Top Plane": 1
+          },
+          "global_plane_getters": [
+            false,
+            false
+          ]
+        },
+        "equal_observations": [
+          "lights",
+          "material_and_appearance"
+        ],
+        "independent_reference": {
+          "annotation_count": 2,
+          "assigned_annotation_count": 1,
+          "configuration": "Default",
+          "display_state_names": [
+            "<Default>_Display State 1"
+          ],
+          "feature_visibility": {
+            "Front Plane": 1,
+            "Origin": 2,
+            "Right Plane": 1,
+            "Sketch1": 1,
+            "Top Plane": 1
+          },
+          "global_plane_getters": [
+            true,
+            true
+          ]
+        }
+      },
+      "reference_measurements": {
+        "initial": {
+          "area_m2": 0.002931305377864321,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01987
+          ],
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009934999999999998
+          ],
+          "driver_m_binary64": "0x1.458cd20afa2f0p-6",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 10531.1
+        },
+        "rebuilt": {
+          "area_m2": 0.002931305377864321,
+          "bodies": 1,
+          "bounds_m": [
+            -0.013000000000000001,
+            -0.009000000000000001,
+            0.0,
+            0.019,
+            0.023,
+            0.01987
+          ],
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009934999999999998
+          ],
+          "driver_m_binary64": "0x1.458cd20afa2f0p-6",
+          "faces_edges_vertices": [
+            6,
+            12,
+            8
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 4,
+          "volume_mm3": 10531.1
+        }
+      },
+      "request_sha256": "0c3ff28db0ef057f1428938740efc807c94033b75423653cd5f4fa24097ed90e",
+      "sampled_differences_si": {
+        "area_m2": 0.0,
+        "max_bound_coordinate_m": 0.0,
+        "max_centre_of_mass_coordinate_m": 1.734723475976807e-18,
+        "max_model_to_sketch_frame_component": 0.0,
+        "max_ordered_sketch_coordinate_m": 1.734723475976807e-18,
+        "volume_m3": 1.6940658945086007e-21
+      },
+      "source_archive_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+      "source_author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a"
+    },
+    "Warm": {
+      "candidate_measurements": {
+        "initial": {
+          "area_m2": 0.002825181814193373,
+          "bodies": 1,
+          "bounds_m": [
+            -0.011,
+            -0.013000000000000001,
+            0.0,
+            0.021,
+            0.02,
+            0.013371
+          ],
+          "centre_of_mass_m": [
+            0.005247869154572681,
+            0.0036823312600783222,
+            0.0066855
+          ],
+          "driver_m_binary64": "0x1.b62413db7f173p-7",
+          "faces_edges_vertices": [
+            7,
+            15,
+            10
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 5,
+          "volume_mm3": 9673.9185
+        },
+        "rebuilt": {
+          "area_m2": 0.002825181814193373,
+          "bodies": 1,
+          "bounds_m": [
+            -0.011,
+            -0.013000000000000001,
+            0.0,
+            0.021,
+            0.02,
+            0.013371
+          ],
+          "centre_of_mass_m": [
+            0.00524786915457268,
+            0.0036823312600783222,
+            0.0066855
+          ],
+          "driver_m_binary64": "0x1.b62413db7f173p-7",
+          "faces_edges_vertices": [
+            7,
+            15,
+            10
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 5,
+          "volume_mm3": 9673.918500000002
+        }
+      },
+      "candidate_sha256": "f8e9b0a6e8818312551b34e06f167df223d76f494a3aa4e8e42c65b28267b34e",
+      "driver_bits": {
+        "candidate_f58": "0x1.b62413db7f173p-7",
+        "offline_strict_readback": "0x1.b62413db7f173p-7",
+        "source_f58": "0x1.b62413db7f173p-7",
+        "typed_request_metres": "0x1.b62413db7f173p-7"
+      },
+      "presentation": {
+        "candidate": {
+          "annotation_count": 1,
+          "assigned_annotation_count": 0,
+          "configuration": "modeled default",
+          "display_state_names": [
+            "<modeled default>_Display State 1"
+          ],
+          "feature_visibility": {
+            "Front Plane": 1,
+            "Origin": 2,
+            "Right Plane": 1,
+            "Sketch1": 1,
+            "Top Plane": 1
+          },
+          "global_plane_getters": [
+            false,
+            false
+          ]
+        },
+        "equal_observations": [
+          "lights",
+          "material_and_appearance"
+        ],
+        "independent_reference": {
+          "annotation_count": 2,
+          "assigned_annotation_count": 1,
+          "configuration": "Default",
+          "display_state_names": [
+            "<Default>_Display State 1"
+          ],
+          "feature_visibility": {
+            "Front Plane": 1,
+            "Origin": 2,
+            "Right Plane": 1,
+            "Sketch1": 1,
+            "Top Plane": 1
+          },
+          "global_plane_getters": [
+            true,
+            true
+          ]
+        }
+      },
+      "reference_measurements": {
+        "initial": {
+          "area_m2": 0.002825181814193373,
+          "bodies": 1,
+          "bounds_m": [
+            -0.011,
+            -0.013000000000000001,
+            0.0,
+            0.021,
+            0.02,
+            0.013371
+          ],
+          "centre_of_mass_m": [
+            0.005247869154572679,
+            0.003682331260078323,
+            0.0066855
+          ],
+          "driver_m_binary64": "0x1.b62413db7f173p-7",
+          "faces_edges_vertices": [
+            7,
+            15,
+            10
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 5,
+          "volume_mm3": 9673.918499999998
+        },
+        "rebuilt": {
+          "area_m2": 0.002825181814193373,
+          "bodies": 1,
+          "bounds_m": [
+            -0.011,
+            -0.013000000000000001,
+            0.0,
+            0.021,
+            0.02,
+            0.013371
+          ],
+          "centre_of_mass_m": [
+            0.005247869154572679,
+            0.003682331260078323,
+            0.0066855
+          ],
+          "driver_m_binary64": "0x1.b62413db7f173p-7",
+          "faces_edges_vertices": [
+            7,
+            15,
+            10
+          ],
+          "model_to_sketch_frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "read_only": true,
+          "segments": 5,
+          "volume_mm3": 9673.9185
+        }
+      },
+      "request_sha256": "4998be206a8e187f7ad02300d220283b29a5a613c5ffff002e12c388c6992a7c",
+      "sampled_differences_si": {
+        "area_m2": 0.0,
+        "max_bound_coordinate_m": 0.0,
+        "max_centre_of_mass_coordinate_m": 8.673617379884035e-19,
+        "max_model_to_sketch_frame_component": 0.0,
+        "max_ordered_sketch_coordinate_m": 3.469446951953614e-18,
+        "volume_m3": 1.6940658945086007e-21
+      },
+      "source_archive_sha256": "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc",
+      "source_author_record_sha256": "4af9a9eb2e2c69e4c556494333ab6fba9ed49fdd259c99a8b6ffceb8580928ae"
+    }
+  },
+  "direct_helper_checkout_revision": "1240bdac99957a42d9b61ed506fa8a7600813022",
+  "dynamic_helper_checkout_revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+  "first_start_through_final_exit_seconds": 125.980106,
+  "geometry_tolerances": {
+    "absolute_si": 1e-12,
+    "depth_binary64_tolerance_ulp": 0,
+    "relative": 1e-08,
+    "saved_baseline_mass_property_tolerance_ulp": 1
+  },
+  "helper_binding": {
+    "ObserveEncoderRoundTrip.py": {
+      "binding": "Retrospectively rehashed from the clean pinned integration checkout. Neither native terminal captures it directly.",
+      "sha256": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3"
+    },
+    "ObserveVendorBossCorpus.py": {
+      "binding": "Terminal-bound in the separately verified plane run. Retrospectively matched on the clean exact-depth oracle checkout. No helper hash appears in the exact-depth terminal.",
+      "sha256": "695f1fda489a95b49ec195101a0fea36e4e3aff93164f55e54bcddff7a9eae45"
+    },
+    "ObserveVendorBossPlaneVisibility.py": {
+      "binding": "Terminal-bound in the separately verified plane run. Retrospectively matched on the clean exact-depth oracle checkout. No helper hash appears in the exact-depth terminal.",
+      "sha256": "75d9e645818c9b44c4c0cf63507042c6f7deaff2a0c93f8c636a674092926f1a"
+    },
+    "ObserveVendorBossPresentation.py": {
+      "binding": "Terminal-bound in the separately verified plane run. Retrospectively matched on the clean exact-depth oracle checkout. No helper hash appears in the exact-depth terminal.",
+      "sha256": "c6b849e67cf76ceccae0de7ca3889f16fa6ea2b42a73019a269d6132c78b44f9"
+    },
+    "SolidWorksAvailability.py": {
+      "binding": "Retrospectively rehashed from the clean pinned integration checkout. Neither native terminal captures it directly.",
+      "sha256": "1e58d7a78d3dbde8c34d1598688f831dd9eee288a4612b5c774434f8f3249507"
+    },
+    "WindowsIdentity.py": {
+      "binding": "Retrospectively rehashed from the clean pinned integration checkout. Neither native terminal captures it directly.",
+      "sha256": "7650dd6453d36b679c5dc059c7ac8c29eac2a40565933cf4e9dc8c34d04997e0"
+    },
+    "WindowsProcessExit.py": {
+      "binding": "Retrospectively rehashed from the clean pinned integration checkout. Neither native terminal captures it directly.",
+      "sha256": "b634d8ffaef80bc4b485fa797c03b2a0ac51d59df624e68e520c9b940301e0c7"
+    }
+  },
+  "helper_plane_terminal_sha256": "8a3fa55e41370c3d1534045d022f4251169fbe80a2d55e36b311621605f532e2",
+  "input_custody": {
+    "all_originals_rehashed_after_packaging": true,
+    "private_member_map_sha256": "80ab373898724c947c1a836d96658768bbc9539c778585c69298c275aaf9b680",
+    "private_zip_sha256": "7824c468322354f6497a6309f2e909f342e84e51b99eba7fa2caa00023cd9aa7",
+    "protected_encoded_locator_absent": true,
+    "raw_uncompressed_bytes": 1128731,
+    "zip_members": 58
+  },
+  "lifetimes": [
+    {
+      "active_s": 12.253,
+      "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "6825d4ea9e27b5d1471ebd33cf79481353585c0e25a5656ad5227039df839cc5",
+      "request_sha256": "466b9f218254595404188bc8172133d77272fd0aa15919e1fdf494698c21d6eb",
+      "role": "StockBefore",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 10.932,
+      "input_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "e7c4886a920ef1560329a745dde086786234f22d30e012e460b5514fa49b0aa3",
+      "request_sha256": "179fcb11e501259504b86f0802737f514f6da1a9feef61e7a1e6790a93f52e18",
+      "role": "EditReference",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 13.742,
+      "input_sha256": "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "1ab1cb2f2a4d78ec24fc20093015f792be831d4398795fcb6fc1dbc3ee936037",
+      "request_sha256": "16707c8af337a4d5cc7a85e16b7de3874d8bd9e59da7e6040038c2a06d3cf8a4",
+      "role": "WarmReference",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 17.542,
+      "input_sha256": "6b816ac20707492ccf432d31725a3b4653c66db3e2e826afc3461e03ecd50ac4",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "2b1ecd89e7cabb11261847a3fb3d134a8096a3e1674f9f52e7d16fd0e9e91af0",
+      "request_sha256": "d3a9382a9b79d21c081d1ef8ccf87fd8f88b49f287efaa4ce7c0ff1da74123ef",
+      "role": "Baseline",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 17.811,
+      "input_sha256": "ec82302a7c35e643b9d53cab76ac89aaa93a78adf4ca9fe31898f233f75323da",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "9e164460c99013b27318cc18f8861d5b4f7d89094c46474134d594921516c527",
+      "request_sha256": "54e45ef81d440c13ea6ae05a1c9856d5b598059ea866c500cde0a8260b9fe265",
+      "role": "Edit",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 16.962,
+      "input_sha256": "f8e9b0a6e8818312551b34e06f167df223d76f494a3aa4e8e42c65b28267b34e",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "0316e7fb187225fbb219c21ff3a81d7dc754f23330072e9e1f518cfb14de3b1c",
+      "request_sha256": "5d850e6780ff7916094e9431f9e754f113990d72fc67e9b7d7602cbd1456b141",
+      "role": "Warm",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 11.349,
+      "input_sha256": "6b816ac20707492ccf432d31725a3b4653c66db3e2e826afc3461e03ecd50ac4",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "df76269e6c3221fcdd8dc89fa00d5876d459b03ae29c410c9a4632ec50d3b924",
+      "request_sha256": "60025d0139463fda8508f30a7e5c5e7df6ac10a8348149bedf47d85163292122",
+      "role": "BaselineSave",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 10.985,
+      "input_sha256": "7d1e6d8a03e47b88e5fa59a413a19c94d214d2c31a91fd62a52106be29fc96a3",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "b0fc8ff0ec6e02dcf71cc06c16f1479a440b8f87c46fe6109865b55702ccb963",
+      "request_sha256": "62873169c798dda09d147d5d3ff0a37ba631c803e1f0aa79bd8a6e2a90269f9b",
+      "role": "BaselineReopen",
+      "worker_exit_code": 0
+    },
+    {
+      "active_s": 10.991,
+      "input_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_exit_code": 0,
+      "record_sha256": "94a995cdf211b99bce6ea15ba0b11b57b8356728f648e523558e66fb8b1cf021",
+      "request_sha256": "9c96a15245c648e564090ce152eaab8a0c6a6632e492c593360fba76a7b809fc",
+      "role": "StockAfter",
+      "worker_exit_code": 0
+    }
+  ],
+  "native_observer_sha256": "004c512259aa51a696ea16150eff2059dfcfee7879b634ccdbe7ba34ad518566",
+  "offline_bridge_sha256": "e96f6442f8e888c3a79ad71bfef5dd55168c42122e2fd0a5fd8aec66b41e164e",
+  "offline_proof_sha256": "e43320c067c49fd2e7eee9ab7df0d020b9ab9c0967deb3208795d17f0c6cac22",
+  "oracle": {
+    "build": "34.4.1.1011",
+    "controls_healthy": true,
+    "elapsed_s": 125.98,
+    "executable_sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+    "normal_exit_method": "windows_process_exit_handle",
+    "post_inventory_remaining": 0,
+    "processes": 9
+  },
+  "private_recovery": {
+    "archive": "NativeDepthRaw.private.zip",
+    "archive_bytes": 290446,
+    "archive_members": 58,
+    "archive_sha256": "7824c468322354f6497a6309f2e909f342e84e51b99eba7fa2caa00023cd9aa7",
+    "private_members_sha256": "80ab373898724c947c1a836d96658768bbc9539c778585c69298c275aaf9b680",
+    "unredacted_summary_sha256": "8e729ae5d38043fa20b41d54cde309f477cd0edbb7c69a2e67f5e634c2290b83"
+  },
+  "public_publication_qualified": false,
+  "schema": "kit.sw2026.exact-depth-native-proof.v1",
+  "scope": "Measured exact driving depth and bounded ordinary Front-plane polygon geometry of these three generated research parts. Presentation differences are recorded for each case. This scope does not establish a public writer, broader vendor-source admission, or family qualification.",
+  "terminal_sha256": "065b9fd8c864fa60317b043c352a11ce07116c2caafc1891a9c599912c6ac19d",
+  "vendor_source_admission": false
+}

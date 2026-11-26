@@ -6,6 +6,9 @@ Submit a scoped change with its documentation, CI evidence, and configured revie
 The canonical workflow is [standard-pr-practice](../../../.agents/skills/standard-pr-practice/SKILL.md).
 The repository has one discoverable skill.
 
+Core contributors are Odin Glynn-Martin, Stephen Harcourt, and James Harcourt.
+They are copyright holders under the repository's [MIT License](../../../LICENSE).
+
 ## Before you start
 
 Read [AGENTS.md](../../../AGENTS.md), the skill, and its complete standards index.

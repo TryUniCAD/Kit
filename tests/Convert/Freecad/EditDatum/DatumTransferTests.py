@@ -7,7 +7,6 @@ from convert import (
     ApplicationUsabilityError,
     write_document as WriteDocument,
 )
-from convert.adapters.base.TransferContract import CarrierReason
 from tests.Convert.FusionRead import OpenResearch as OpenDocument
 from interchange.Enums.EnumDocument import Capability
 from interchange.geometry.Models.Sketch import Sketch
@@ -39,25 +38,22 @@ def TestDatumMove(Method: str) -> None:
 
 
 # a dependent sketch cannot be silently detached by a standalone datum export
-def TestDatumDeps() -> None:
+@Pytest.mark.parametrize("AllowCarrier", (True, False))
+def TestDatumDeps(AllowCarrier: bool) -> None:
     Datum = PlaneDocument("offset")
     Source = Replace(Datum, sketches=(Sketch("sketch", "Dependent", "datum", ()),))
     assert Source.validate() == ()
-    Target = BytesIO()
-    Result = WriteDocument(Source, Target, destination_format="freecad.fcstd")
-    (History,) = tuple(
-        Value
-        for Value in Result.transfers
-        if Value.capability == Capability.PARAMETRIC_HISTORY
-    )
-    assert History.carrier_reason is CarrierReason.WRITER_UNIMPLEMENTED
-    Strict = BytesIO()
-    with Pytest.raises(ApplicationUsabilityError) as Captured:
+    Target = BytesIO(b"existing destination")
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features: plane: plane"
+    ):
         _ = WriteDocument(
-            Source, Strict, destination_format="freecad.fcstd", allow_carrier=False
+            Source,
+            Target,
+            destination_format="freecad.fcstd",
+            allow_carrier=AllowCarrier,
         )
-    assert "unimplemented_translation" in Captured.value.issues
-    assert not Strict.getvalue()
+    assert Target.getvalue() == b"existing destination"
 
 
 # transferring an editable plane preserves the opaque archive gate on its fusion source

@@ -1,0 +1,55 @@
+{
+  "status": "completed",
+  "application": "solidworks",
+  "cases": [
+    {
+      "case": "control-before",
+      "parameters_mm": {
+        "width": 40,
+        "height": 20,
+        "depth": 10
+      },
+      "volume_m3": 8.000000000000001e-06,
+      "area_m2": 0.0028,
+      "centroid_m": [
+        0.02,
+        -0.005,
+        -0.01
+      ],
+      "sha256": "e2ea643c1ff677b169bb7593828b7ea7f23040883367684915ce1d86412b2236"
+    },
+    {
+      "case": "variation",
+      "parameters_mm": {
+        "width": 40,
+        "height": 20,
+        "depth": 4
+      },
+      "volume_m3": 3.2000000000000003e-06,
+      "area_m2": 0.0020800000000000003,
+      "centroid_m": [
+        0.020000000000000004,
+        -0.002,
+        -0.010000000000000002
+      ],
+      "sha256": "4d375345a9cde101763180986de1e46e28a96d0c45456bb5528184f05bbb05bb"
+    },
+    {
+      "case": "control-after",
+      "parameters_mm": {
+        "width": 40,
+        "height": 20,
+        "depth": 10
+      },
+      "volume_m3": 8.000000000000001e-06,
+      "area_m2": 0.0028,
+      "centroid_m": [
+        0.02,
+        -0.005,
+        -0.01
+      ],
+      "sha256": "34b9831c0fea2655a1fbf092673707b39e10567194c9b1e2c090dda771f2c59e"
+    }
+  ],
+  "acceptance": "authoring_only; neutral semantic comparison pending"
+}

@@ -77,7 +77,8 @@ class BossStyleCodec(Protocol):
     # generation and display controls are explicit inputs to the native field encoder
     def EncodeBlindBossDisplayStyle(
         self, *, Generation: int, DisplayMode: int, ConditionOne: bool
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
     # the reader exposes its next offset so the archive caller can resume
     def ReadBlindBossDisplayStyle(
@@ -88,12 +89,14 @@ class BossStyleCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
     # plain text and points end before the archive allocates a feature handle
     def EncodeBlindBossDisplayAfterStyle(
         self, *, Generation: int, DisplayMode: int, ConditionOne: bool, HandleCount: int
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
     # independently parsed offsets must agree with the production handle boundary
     def ReadBlindBossDisplayAfterStyle(
@@ -104,7 +107,8 @@ class BossStyleCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
 
 # an exact path keeps the research module independent of import search ordering

@@ -13,7 +13,8 @@ def MakeLearnHost(RootPath: FilePath) -> SessionHost:
     RunnerInfo = Registry["runners"]["fixture.decode"]
     RunnerInfo["argv"] = [
         System.executable,
-        str(FilePath(__file__).with_name("LearningRunner.py")),
+        "-m",
+        "tests.Research.Supervisor.LearningRunner",
         "{session}",
     ]
     RunnerInfo["initial_peak_memory_mib"] = 128
