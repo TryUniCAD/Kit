@@ -102,9 +102,11 @@ and the three missing vertex uses in the general reader remain open.
 
 #### B04-SW2026-P03-ACTIVE-OWNER-BOUNDARY
 
-The SOLIDWORKS reader lane owns this planned research child on
-`codex/sw-p03-active-owner-boundary`. The external claim and separate
-delivery PR are pending. It starts from the [trimmed carrier findings](../../../re/solidworks/records/SavedTrimmedCarrierBoundary.md)
+The SOLIDWORKS reader lane owns this active research child on
+`codex/sw-p03-active-owner-boundary`. The
+[ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7184604274)
+is recorded. The separate delivery PR is pending.
+It starts from the [trimmed carrier findings](../../../re/solidworks/records/SavedTrimmedCarrierBoundary.md)
 at `a3ba7818782945435bb80a4594ee3780a90ee53a`. It retains the production
 and rollback ownership of [PR #340](https://github.com/TryUniCAD/Kit/pull/340),
 [PR #121](https://github.com/TryUniCAD/Kit/pull/121) and
