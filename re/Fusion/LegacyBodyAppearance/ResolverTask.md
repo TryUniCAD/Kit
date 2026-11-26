@@ -4,7 +4,7 @@
 | --- | --- |
 | Task | `A05c-FusionLegacyResolverEvidence20261126` |
 | Owner | Fusion encoder swarm worker 3 |
-| Status | Static alias evidence recorded. Runtime dispatch and catalog lookup remain open. |
+| Status | Static alias and system-library evidence recorded. The document-open caller and individual resource lookups remain open. |
 | Delivery | Separate normal dependent branch from [PR #344](https://github.com/TryUniCAD/Kit/pull/344) at `b83d253b1876d027655e79384058ebd5b9a0dda5`. Dependent evidence delivery pending. |
 | Dependencies | [Legacy property streams](Task.md), the pinned Fusion 2706.1.17 build, the archive comparison and the existing local analysis provider. |
 | Owned outputs | This task page and its scoped semantic evidence. Private licensed-analysis database outside Git. |
@@ -48,3 +48,13 @@ Both lookups had data references and no resolved direct code caller. This static
 An inspected `AdvancedUIDefinition` use checks the type of a named entry. An inspected `ImplementationOGS` use registers the lookup key. The parent schema name appears in schema initialization. These observations identify selection and validation boundaries. The runtime resolution and requiredness of the `Mats/Generic` UI, implementation and logical thumbnail paths need separate evidence.
 
 The private evidence index has SHA-256 `37f89a34090bcd787ff0be4dc25424604c8ef03f205afc5696c85d7faf1c938b`. The indexed first and second lookup receipts have SHA-256 `1a66f48580a57b6c04d47c57036f1ce069873c25df94621ce471aa7a49028daa` and `c03a58c8b737f6e599b029c816a06fffb82de1063cacd75a21c58334b9a147ac`. Both isolated provider sessions closed. No Fusion application ran. No loaded appearance, writer or native acceptance is claimed. See the [appearance lookup gotcha](../../../Documentation/Gotchas/Conversion/Fusion/Materials/FusionAppearanceLookupMode.md).
+
+## Generic appearance and the system library
+
+The next static pass followed each data reference to the two alias lookups. The four locations are data. The provider reported no further reference to those locations. This bounds what the static provider recovered. It leaves the calling interface and selected mode unresolved. The historical import and reopen receipts use `ImportManager.importToNewDocument` and report the resulting body's modern appearance. They do not record the internal alias mode.
+
+The `GenericSchema` name has three inspected code references. One belongs to schema registration. A separate path reads the `ImplementationGeneric` lookup key and uses the system-library identifier from `IAssetLibraryManager` in its Generic branch. It obtains library content and explicitly handles `swatch`. This establishes one system-library path for Generic material handling. The package-owned thumbnail proof remains distinct. The path does not yet identify the resolver for each `Mats/Generic` UI, renderer and thumbnail string.
+
+The additional code reference to the Generic system-library branch is a forwarding jump. The analyzer lists no resolved direct caller for that forwarding entry. Both focused UI and renderer reference requests reached the provider's 180-second analysis deadline. All of the private sessions closed. The separate continuation evidence index has SHA-256 `c98b06484c6bf61eca58949aaa1e19c09a7697b195441e58bf757e266684308d`.
+
+The system-library procedure receipt has SHA-256 `2874bd88a8cfdcd9f6dd7d489592b14298190da8e9d88cdc88331fc85849945a`. Its reference receipt has SHA-256 `891c9f7adc44b836a8acd7f5dd96a9916b826ff02169ef7f9bb5c3adac268da0`. See the [Fusion legacy resolver evidence procedure](../../../Documentation/Changes/Research/Encoder/FusionLegacyResolverEvidence.md).

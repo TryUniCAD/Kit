@@ -32,6 +32,7 @@ It covers the Design mapping with empty texture bounds. Historical bounds and th
 The [legacy appearance property streams procedure](../../Documentation/Changes/Research/Encoder/FusionLegacyPropertyStreams.md)
 describes authoring the two logical property groups of an untextured `GenericSchema` appearance.
 The scope covers the binary value groups. Schema resource resolution and native package generation are still open.
+The [legacy resolver evidence](../../Documentation/Changes/Research/Encoder/FusionLegacyResolverEvidence.md) records the observed alias modes and the Generic system-library branch.
 
 ## Feature index
 
