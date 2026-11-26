@@ -28,6 +28,20 @@ Eight SDK publications reproduced those measured archives through the registry a
 Fusion measurements target the observed installed build `2706.1.17`.
 Native execution, output acceptance, public publication, PR checks, and merge-queue acceptance each retain their own evidence.
 
+### A13a-FusionPreparedInputs: per-role Fusion writer input replay
+
+The Codex shared encoder worker owns this active task on `codex/fusion-prepared-encoder-inputs`.
+Delivery is a separate PR based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The task depends on A11c's constrained constructor and A13a's schema 2 artifact and receipt checks.
+The exit requires source-free process replay of exact measured candidate bytes and continued acceptance of earlier schema 1 evidence.
+Unsupported and changed source states must still be refused. A05c saved-source generation remains separate.
+
+The Fusion worker owns the vendor-resaved constrained cuboid reader in [PR #299](https://github.com/TryUniCAD/Kit/pull/299).
+[PR #303](https://github.com/TryUniCAD/Kit/pull/303) records the same-source writer research and native measurements. Independent archive-free generation and complete acceptance remain open.
+The SOLIDWORKS worker owns vendor-authored blind boss work under A12b. [PR #300](https://github.com/TryUniCAD/Kit/pull/300) records reader and custody evidence.
+[PR #304](https://github.com/TryUniCAD/Kit/pull/304) records the single Top annotation research generator and fresh native observations for its exact output.
+Broader source-family admission and measured public writer acceptance remain open.
+
 ## Programme status
 
 A01 is complete as a source-backed contract and capability audit.
