@@ -25,7 +25,7 @@ model_only = open_document(
 )
 ```
 
-Both modes returned 26 feature rows, one sketch and one design body. They preserved seven saved sketch relations, four inferred corner joins and the 12 mm driving parameter on `BlindBoss`. The SDK projected a blind +Z `ExtrusionFeature` with operation Join. The design body names it as the final feature and has no bound native body identifier. Default strict retained three current-schema Parasolid payloads and returned `brep=None` with no diagnostics. Model-only returned no B-rep, native geometry payloads or meshes. The independent full typed graph attempt refused `moSimpleSurfIdRep_c` schema 1. The acquisition used one fresh offline process and preserved the derivative hash. [Saved partition read limit](../../../Gotchas/Research/Readers/SavedP03PayloadsCanLackPublicBrep.md)
+Both modes returned 26 feature rows, one sketch and one design body. They preserved seven saved sketch relations, four inferred corner joins and the 12 mm driving parameter on `BlindBoss`. The SDK projected a blind +Z `ExtrusionFeature` with operation Join. The design body names it as the final feature and has no bound native body identifier. Default strict retained three current-schema Parasolid payloads and returned `brep=None` with no diagnostics. Model-only returned no B-rep, native geometry payloads or meshes. The independent full typed graph attempt refused `moSimpleSurfIdRep_c` schema 1. The acquisition used one fresh offline process and preserved the derivative hash. [Saved partition read limit](../../../Gotchas/Research/Readers/SavedBossPayloadsCanLackPublicBrep.md)
 
 ## Scope
 
