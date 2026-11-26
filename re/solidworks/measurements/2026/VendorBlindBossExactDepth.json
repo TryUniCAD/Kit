@@ -1,0 +1,137 @@
+{
+  "bridge_lf_sha256": "e96f6442f8e888c3a79ad71bfef5dd55168c42122e2fd0a5fd8aec66b41e164e",
+  "cases": {
+    "BaselineEditedControl": {
+      "replay": {
+        "analytic_volume_mm3": 10531.099999999999,
+        "candidate_bytes": 9338,
+        "candidate_sha256": "ec82302a7c35e643b9d53cab76ac89aaa93a78adf4ca9fe31898f233f75323da",
+        "directed_brep_rings": 6,
+        "external_generation_attempts": 0,
+        "faces_edges_vertices": [
+          6,
+          12,
+          8
+        ],
+        "native_launches": 0,
+        "native_locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+        "readback_driver_m_binary64": "0x1.458cd20afa2f0p-6",
+        "request_sha256": "0c3ff28db0ef057f1428938740efc807c94033b75423653cd5f4fa24097ed90e",
+        "volume_mm3": 10531.1,
+        "written_at": 1785626030
+      },
+      "source": {
+        "author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+        "authored_geometry_sha256": "53f2a09a2d622c5de44e9dd25089738a7aec3d25b6afde293de5f508e293111d",
+        "case": "BaselineEditedControl",
+        "directed_body_comparisons": 11,
+        "driver_owner": "moLengthParameter_c.f58",
+        "faces_edges_vertices": [
+          6,
+          12,
+          8
+        ],
+        "native_driver_m_binary64": "0x1.458cd20afa2f0p-6",
+        "partition_sha256": "a4aa7ab2a2e13178aa0a8febf0ac532a4fc79b9e55fedbd407e398329209d06c",
+        "reader_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+        "request_sha256": "0c3ff28db0ef057f1428938740efc807c94033b75423653cd5f4fa24097ed90e",
+        "scope": "Independent native depth evidence for an authored geometry request",
+        "source_archive_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+        "source_feature_id": "sldprt:feature:32",
+        "source_sketch_id": "sldprt:sketch:26",
+        "source_volume_mm3": 10531.1
+      }
+    },
+    "BaselineSource": {
+      "replay": {
+        "analytic_volume_mm3": 7584.299999999999,
+        "candidate_bytes": 9337,
+        "candidate_sha256": "6b816ac20707492ccf432d31725a3b4653c66db3e2e826afc3461e03ecd50ac4",
+        "directed_brep_rings": 6,
+        "external_generation_attempts": 0,
+        "faces_edges_vertices": [
+          6,
+          12,
+          8
+        ],
+        "native_launches": 0,
+        "native_locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+        "readback_driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+        "request_sha256": "d12ab8c5bb0568fa2987e0139dec407171630707c46290e836bdcb6ad3f372c4",
+        "volume_mm3": 7584.299999999999,
+        "written_at": 1785626030
+      },
+      "source": {
+        "author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+        "authored_geometry_sha256": "53f2a09a2d622c5de44e9dd25089738a7aec3d25b6afde293de5f508e293111d",
+        "case": "BaselineSource",
+        "directed_body_comparisons": 11,
+        "driver_owner": "moLengthParameter_c.f58",
+        "faces_edges_vertices": [
+          6,
+          12,
+          8
+        ],
+        "native_driver_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+        "partition_sha256": "7198c051f6aa6f5b0d3f8ee77ee634671c23e2e3e8127ae03bcc7b9d2c53414f",
+        "reader_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+        "request_sha256": "d12ab8c5bb0568fa2987e0139dec407171630707c46290e836bdcb6ad3f372c4",
+        "scope": "Independent native depth evidence for an authored geometry request",
+        "source_archive_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "source_feature_id": "sldprt:feature:32",
+        "source_sketch_id": "sldprt:sketch:26",
+        "source_volume_mm3": 7584.299999999999
+      }
+    },
+    "WarmedNoOpAfter": {
+      "replay": {
+        "analytic_volume_mm3": 9673.9185,
+        "candidate_bytes": 9383,
+        "candidate_sha256": "f8e9b0a6e8818312551b34e06f167df223d76f494a3aa4e8e42c65b28267b34e",
+        "directed_brep_rings": 7,
+        "external_generation_attempts": 0,
+        "faces_edges_vertices": [
+          7,
+          15,
+          10
+        ],
+        "native_launches": 0,
+        "native_locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+        "readback_driver_m_binary64": "0x1.b62413db7f173p-7",
+        "request_sha256": "4998be206a8e187f7ad02300d220283b29a5a613c5ffff002e12c388c6992a7c",
+        "volume_mm3": 9673.9185,
+        "written_at": 1785626030
+      },
+      "source": {
+        "author_record_sha256": "4af9a9eb2e2c69e4c556494333ab6fba9ed49fdd259c99a8b6ffceb8580928ae",
+        "authored_geometry_sha256": "556f09a94863e4862de5fffe774069dd12b4c41a96471c5f9aa81f47c6341be8",
+        "case": "WarmedNoOpAfter",
+        "directed_body_comparisons": 11,
+        "driver_owner": "moLengthParameter_c.f58",
+        "faces_edges_vertices": [
+          7,
+          15,
+          10
+        ],
+        "native_driver_m_binary64": "0x1.b62413db7f173p-7",
+        "partition_sha256": "477a6a7474e3ea2a58caf26b75711a1a9188692eb4a3bcf81b512aed1dd12995",
+        "reader_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+        "request_sha256": "4998be206a8e187f7ad02300d220283b29a5a613c5ffff002e12c388c6992a7c",
+        "scope": "Independent native depth evidence for an authored geometry request",
+        "source_archive_sha256": "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc",
+        "source_feature_id": "sldprt:feature:32",
+        "source_sketch_id": "sldprt:sketch:26",
+        "source_volume_mm3": 9673.9185
+      }
+    }
+  },
+  "refusals": {
+    "millimetre_depth_replay": "requires typed metres within a millimetre document",
+    "source_record_mutation": "authoring record differs from its pinned provenance",
+    "unknown_case": "requires a disclosed calibration case",
+    "whole_vendor_source": "SOLIDWORKS source requires a complete ordinary cold part readback",
+    "wrong_directed_geometry": "does not match the independently authored directed profile"
+  },
+  "schema": "kit.sw2026.exact-depth-intent-proof.v1",
+  "scope": "offline exact saved D1 through authored neutral geometry"
+}

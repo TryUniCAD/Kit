@@ -1,0 +1,342 @@
+{
+  "schema": "kit.sw2026.vendor-boss-plane-inverse-custody.v1",
+  "scope": "Independent process records for one inverse toggle on a private copy of the prior native off-state sample.",
+  "terminal_sha256": "5beefed619a76375a15e186fee15c9b480a7f632f8f639830e2282e233ded3bf",
+  "previous_native_terminal_sha256": "84e928b8f611d107fccb4e2b9604e6503e1ef8ec6f53c2c8013b66f2d77836cf",
+  "plan_sha256": "abb7dd159ff7f0b56b32993d015f6b74e39f3a1502f1de378b7ddd7382d64502",
+  "method_sha256": {
+    "ObserveVendorBossPlaneVisibility.py": "75d9e645818c9b44c4c0cf63507042c6f7deaff2a0c93f8c636a674092926f1a",
+    "ObserveVendorBossCorpus.py": "695f1fda489a95b49ec195101a0fea36e4e3aff93164f55e54bcddff7a9eae45",
+    "ObserveVendorBossPresentation.py": "c6b849e67cf76ceccae0de7ca3889f16fa6ea2b42a73019a269d6132c78b44f9"
+  },
+  "executable_sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+  "build": "34.4.1.1011",
+  "controls_healthy": true,
+  "distinct_lifetimes": 5,
+  "elapsed_s": 135.34,
+  "mutation": {
+    "method": "IModelDocExtension.SetUserPreferenceToggle",
+    "preference": 5,
+    "option": 0,
+    "requested_value": true,
+    "return_value": true
+  },
+  "snapshot_readback": {
+    "Before": {
+      "archive_sha256": "b3a7a6a30e17627d06bcbc8a6c620408e41c962743e27538c34ad01b87166cb7",
+      "bytes": 46499,
+      "definition_sha256": "c45cf8bbf2715eb42c2c6e15ed5b6e0a11bbdc7bd92f04b45346b33f82d61d05",
+      "definition_bytes": 3816,
+      "fad8_0": "3fa48cfa",
+      "fad8_1": "60001409",
+      "definition_byte_186": "a4"
+    },
+    "NoOp": {
+      "archive_sha256": "ef867627688b19fe737cbab0476aea34cea9b34cf0097b3d60d4f5530b86c1c3",
+      "bytes": 46457,
+      "definition_sha256": "c45cf8bbf2715eb42c2c6e15ed5b6e0a11bbdc7bd92f04b45346b33f82d61d05",
+      "definition_bytes": 3816,
+      "fad8_0": "3fa48cfa",
+      "fad8_1": "60001409",
+      "definition_byte_186": "a4"
+    },
+    "Toggled": {
+      "archive_sha256": "9e0386506ee24395be86e4b079fb4900ec076bdf5a4795ae5f3c4c362fbc7cc2",
+      "bytes": 46291,
+      "definition_sha256": "cf75cd49d0923aaf1dca5366b7b5b7ef5931be7e9a98ab2ed016e1a648a3f050",
+      "definition_bytes": 3816,
+      "fad8_0": "3fa68cfa",
+      "fad8_1": "60001409",
+      "definition_byte_186": "a6"
+    }
+  },
+  "snapshots_share_encoded_working_locator": true,
+  "same_process_no_op_definition_equal": true,
+  "definition_only_change": {
+    "offset": 186,
+    "before": "a4",
+    "after": "a6",
+    "typed_field": "uiPartDoc_c.fad8_0",
+    "mask": "00020000",
+    "field_start": 184,
+    "reader_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1"
+  },
+  "clear_stream_contrast": {
+    "same_encoded_locator": true,
+    "clear_stream_counts": {
+      "Before": 36,
+      "NoOp": 36,
+      "Toggled": 36
+    },
+    "no_op_changed_streams": [
+      "Contents/3DExperienceExchange_ConfigHeader",
+      "Contents/Config-0",
+      "Contents/Config-0-Partition",
+      "_MO_VERSION_19000/Biography"
+    ],
+    "toggle_changed_streams": [
+      "Contents/3DExperienceExchange2",
+      "Contents/3DExperienceExchange_ConfigHeader",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/Config-0",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Header2",
+      "ModelStamps",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "_DL_VERSION_19000/DLUpdateStamp",
+      "_MO_VERSION_19000/Biography",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/core.xml",
+      "swXmlContents/Features"
+    ],
+    "changed_streams_outside_no_op_set": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Header2",
+      "ModelStamps",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "_DL_VERSION_19000/DLUpdateStamp",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/core.xml",
+      "swXmlContents/Features"
+    ]
+  },
+  "lifetimes": {
+    "ControlBefore": {
+      "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "record_sha256": "bd81b02d1d0ee37fc75bbc44f13b4405c9fd5cd4a18201adf3beb5f9ad740208",
+      "request_sha256": "94d1d724216321f951be5668991aa88c135b3a251bd3bdf2c6d18542911a91ff",
+      "pid": 25528,
+      "start_filetime": 134401277313317827,
+      "exit_filetime": 134401277564626407,
+      "active_s": 25.131,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "exit_code": 0,
+      "states": {
+        "initial": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "volume_m3": 7.584300000000001e-06,
+          "area_m2": 0.0024076789107820044,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515722,
+            0.007154999999999999
+          ],
+          "bodies": 1,
+          "read_only": true
+        },
+        "rebuilt": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "volume_m3": 7.5843e-06,
+          "area_m2": 0.0024076789107820044,
+          "centre_of_mass_m": [
+            0.003812578616352201,
+            0.004832704402515722,
+            0.007154999999999999
+          ],
+          "bodies": 1,
+          "read_only": true
+        }
+      }
+    },
+    "Author": {
+      "source_sha256": "c076af4a2397f4b58456196f25f91feac791ca11b5e21b8d591f51820996e159",
+      "record_sha256": "40a51205f34d5027fdc44cbc383be069a485d25b223ffb69fdebe9fe72499714",
+      "request_sha256": "077185038008e8a7f0217246c537c048a367a7f4e4ae867801b7c3c3e9c83189",
+      "pid": 30296,
+      "start_filetime": 134401277571482294,
+      "exit_filetime": 134401277739527429,
+      "active_s": 16.805,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "exit_code": 0,
+      "states": {
+        "initial": {
+          "construct_planes_visible": false,
+          "document_sw_display_planes": false,
+          "depth_binary64": "0x1.458cd20afa2f0p-6",
+          "volume_m3": 1.05311e-05,
+          "area_m2": 0.002931305377864321,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009934999999999998
+          ],
+          "bodies": 1,
+          "read_only": false
+        },
+        "after_set": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.458cd20afa2f0p-6",
+          "volume_m3": 1.0531099999999998e-05,
+          "area_m2": 0.002931305377864321,
+          "centre_of_mass_m": [
+            0.0038125786163522002,
+            0.004832704402515722,
+            0.009934999999999998
+          ],
+          "bodies": 1,
+          "read_only": false
+        },
+        "after_toggle_rebuild": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.458cd20afa2f0p-6",
+          "volume_m3": 1.0531099999999998e-05,
+          "area_m2": 0.002931305377864321,
+          "centre_of_mass_m": [
+            0.0038125786163522002,
+            0.004832704402515722,
+            0.009934999999999998
+          ],
+          "bodies": 1,
+          "read_only": false
+        }
+      }
+    },
+    "NoOp": {
+      "source_sha256": "ef867627688b19fe737cbab0476aea34cea9b34cf0097b3d60d4f5530b86c1c3",
+      "record_sha256": "81299100271773d7641d1aca27d9b4d8a07f3e288d8965c9886fee9ec1f4b5d4",
+      "request_sha256": "19c4848d76476303dde96f86d9a18a046f25f8e0b84f9cb9c2eb176b4eab91e3",
+      "pid": 36232,
+      "start_filetime": 134401277743159401,
+      "exit_filetime": 134401278121660428,
+      "active_s": 37.85,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "exit_code": 0,
+      "states": {
+        "initial": {
+          "construct_planes_visible": false,
+          "document_sw_display_planes": false,
+          "depth_binary64": "0x1.458cd20afa2f0p-6",
+          "volume_m3": 1.05311e-05,
+          "area_m2": 0.002931305377864321,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009934999999999998
+          ],
+          "bodies": 1,
+          "read_only": true
+        },
+        "rebuilt": {
+          "construct_planes_visible": false,
+          "document_sw_display_planes": false,
+          "depth_binary64": "0x1.458cd20afa2f0p-6",
+          "volume_m3": 1.05311e-05,
+          "area_m2": 0.002931305377864321,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009934999999999998
+          ],
+          "bodies": 1,
+          "read_only": true
+        }
+      }
+    },
+    "Toggled": {
+      "source_sha256": "9e0386506ee24395be86e4b079fb4900ec076bdf5a4795ae5f3c4c362fbc7cc2",
+      "record_sha256": "929c3b099109bdbbee8955ab78808c12eb8c6acb629e53e617b3933df00f3d40",
+      "request_sha256": "7f3fb8bd023b984d768db30015524b6556cdf9ba9c1034bf2400591d45a38e3d",
+      "pid": 32740,
+      "start_filetime": 134401278130029245,
+      "exit_filetime": 134401278494284594,
+      "active_s": 36.426,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "exit_code": 0,
+      "states": {
+        "initial": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.458cd20afa2f0p-6",
+          "volume_m3": 1.05311e-05,
+          "area_m2": 0.002931305377864321,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009934999999999998
+          ],
+          "bodies": 1,
+          "read_only": true
+        },
+        "rebuilt": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.458cd20afa2f0p-6",
+          "volume_m3": 1.05311e-05,
+          "area_m2": 0.002931305377864321,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515723,
+            0.009934999999999998
+          ],
+          "bodies": 1,
+          "read_only": true
+        }
+      }
+    },
+    "ControlAfter": {
+      "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "record_sha256": "98e5e00e3b89612400b6854b0a82151f8e2c295f33237bfab77a9feaf8417c9e",
+      "request_sha256": "e749b8d810ad1d2a749015bb2afd4b89691b844e512eb84df30c6faffc82b45e",
+      "pid": 15844,
+      "start_filetime": 134401278502859301,
+      "exit_filetime": 134401278666717054,
+      "active_s": 16.386,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "exit_code": 0,
+      "states": {
+        "initial": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "volume_m3": 7.584300000000001e-06,
+          "area_m2": 0.0024076789107820044,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515722,
+            0.007154999999999999
+          ],
+          "bodies": 1,
+          "read_only": true
+        },
+        "rebuilt": {
+          "construct_planes_visible": true,
+          "document_sw_display_planes": true,
+          "depth_binary64": "0x1.d4e8fb00bcbe6p-7",
+          "volume_m3": 7.584300000000001e-06,
+          "area_m2": 0.0024076789107820044,
+          "centre_of_mass_m": [
+            0.0038125786163522007,
+            0.004832704402515722,
+            0.007154999999999999
+          ],
+          "bodies": 1,
+          "read_only": true
+        }
+      }
+    }
+  }
+}
