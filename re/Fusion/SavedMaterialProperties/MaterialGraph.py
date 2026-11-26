@@ -22,6 +22,7 @@ from convert.Formats.Fusion.MaterialCodec.Package.MakePackage import MakePackage
 from MaterialRequest import Config, SCHEMA, SCOPE, channels, material_properties, require, validate
 
 PACKAGE_PREFIX = "ProteinAssets.BlobParts/"
+TEXTURE_MAPPING_GUID = "EB7847AF-E60D-4AB0-A736-4AC00C1F1D21"
 PHYSICAL = ("ProteinAssetManager", "assetReference", "libraryID", "name", "proteinMaterialID")
 COMPONENT_EMPTY = {key: None if key == "ProteinAssetManager" else "" for key in PHYSICAL}
 ROLE_SCHEMAS = {
@@ -82,6 +83,18 @@ def canonical_package(part, spec, roles, library):
     require(package == expected, "Material package has unsupported fields, schemas, values or resources")
 
 
+def require_no_design_mapping(graph, body):
+    require(
+        body.Fields.get("textureMapping") is None
+        and not any(
+            graph.HasBase(node, "TextureMapping")
+            or any(group.ClassGuid.upper() == TEXTURE_MAPPING_GUID for group in node.Groups)
+            for node in graph.Nodes.values()
+        ),
+        "Saved Design texture mapping is unsupported",
+    )
+
+
 def project_material(model):
     require(len(model.Materials) == 1, "Expected one body material package")
     (part,) = model.Materials
@@ -109,6 +122,7 @@ def project_material(model):
     )
     graph = BuildGraph(model)
     context = SelectExtrusion(graph)
+    require_no_design_mapping(graph, context.BodyNode)
     manager = graph.OneClass("ProteinAssetManager")
     physical = ObjectFields(context.BodyNode.Fields["physicalMaterial"])
     visual = ObjectFields(context.BodyNode.Fields["visualMaterial"])
