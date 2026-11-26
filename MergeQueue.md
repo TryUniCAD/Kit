@@ -3,6 +3,8 @@
 The [separate Linux test lanes](Documentation/Changes/Ci/Scheduling/SeparateTestLanes.md) increase the cooperating heavy-job budget to sixteen Linux lanes, five Windows lanes, and five macOS lanes, with two control slots. Eight Linux lanes serve candidate tests; the other eight serve scanners, policy jobs, and admitted audits. This fits the observed Team plan’s sixty-job allowance.
 The [separate Windows CLI lanes](Documentation/Changes/Ci/Scheduling/WindowsCliLanes.md) add four `Kit-windows-cli-*` lanes for the Windows research CLI shards, so they no longer share the five Windows platform lanes; the cooperating budget becomes thirty-two jobs.
 
+The [balanced scanner lanes](Documentation/Changes/Ci/Scheduling/BalancedScannerLanes.md) spread merge-group jobs so `Kit-linux-0` to `5` each carry about 4.6 minutes per candidate, keep lanes 6 and 7 lighter for audits, and give pull-request runs their own `Kit-pull-*` lanes.
+
 The [shared runner budget](Documentation/Changes/Ci/RunnerBudgetScheduling.md) bounds cooperating heavy jobs and gives native merge acceptance priority over manual audits.
 Native shard expansion starts only after the trusted base includes its resource marker and updated CI allowlist.
 

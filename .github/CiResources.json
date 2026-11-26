@@ -4,5 +4,6 @@
   "Windows": 5,
   "WindowsCompatibility": 4,
   "Macos": 5,
-  "Control": 2
+  "Control": 2,
+  "PullRequest": 7
 }
