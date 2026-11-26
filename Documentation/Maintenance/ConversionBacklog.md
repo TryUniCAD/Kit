@@ -63,6 +63,8 @@ The [P03 constraint intent scope](../Reference/Research/AutomationSteps.md#a12-s
 
 `B04-SW2026-PARTITION-VERTEX-BOUNDARIES` is active in the SOLIDWORKS reader lane on `codex/sw-active-partition-vertex-read`. The separate delivery PR is pending. It depends on the [PR #121 reader](https://github.com/TryUniCAD/Kit/pull/121) at `c0a401a607` and the existing B04 partition proof. It must validate whole-owned vertex boundaries through the existing complete graph check and recover only absent active partitions. Existing legacy and terminal-fin behavior remain required. [Child claim](https://github.com/TryUniCAD/Kit/pull/334#issuecomment-7183089655) [B04 partition proof](https://github.com/TryUniCAD/Kit/blob/c0a401a607759fb0c2589647c2a22af65ebb7ce1/re/solidworks/records/SdkPrismPartition2026.md)
 
+`A13-P03FusionNativePlan` proposes a sealed preparation path for the exact [generated Fusion Boss](https://github.com/TryUniCAD/Kit/pull/339). The shared owner verifies the request, archive, report, helper code and healthy control for the existing two-phase witness. Preparation produces a plan for later native execution. [Owning register](../Reference/Research/AutomationSteps.md#step-register)
+
 ## Important gap boundaries
 
 ### Fusion schemas
