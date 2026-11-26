@@ -1,8 +1,10 @@
 from json import loads as LoadJson
 from os import environ as KEnvironment
+from os.path import abspath as AbsolutePath, expanduser as ExpandUser
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 
+from convert.Security.LexicalBoundary import ResolveLexical
 from KitCli.RunDefaults.ReadPreset import ReadPreset
 from KitCli.RunDefaults.RunPreset import RunPreset
 
@@ -10,11 +12,15 @@ from KitCli.RunDefaults.RunPreset import RunPreset
 # saved user configuration makes catalogue shortcuts independent of shell profiles and working directories
 def LoadPreset(FormatName: str) -> RunPreset | None:
     ConfigValue = KEnvironment.get("KIT_RUN_DEFAULTS")
-    ConfigPath = (
-        FilePath(ConfigValue).expanduser()
-        if ConfigValue
-        else FilePath.home() / ".kit" / "RunDefaults.json"
-    )
+    HomePath = FilePath.home()
+    ConfigPath = HomePath / ".kit" / "RunDefaults.json"
+    if ConfigValue:
+        try:
+            ConfigPath = ResolveLexical(AbsolutePath(ExpandUser(ConfigValue)), HomePath)
+        except ValueError as Error:
+            raise ValueError(
+                "KIT_RUN_DEFAULTS must name a file inside the user home"
+            ) from Error
     if ConfigValue is None and not ConfigPath.exists():
         return None
     with ConfigPath.open("rb") as ConfigFile:

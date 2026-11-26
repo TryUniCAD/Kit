@@ -25,3 +25,13 @@ def CheckHomeError(TmpPath: FilePath, FieldName: str, Prefix: str) -> None:
     assert Reply.returncode == 1
     assert LoadJson(Reply.stderr)["error"] == "ValueError"
     assert "Traceback" not in Reply.stderr and not (TmpPath / "run outputs").exists()
+
+
+# an override outside the account home must be refused before its file is opened or research starts
+def CheckOutsideHome(TmpPath: FilePath) -> None:
+    ConfigPath, Checkout = PresetFiles(TmpPath)
+    Reply = ShortcutCli(Checkout, ConfigPath, "run", "solidworks")
+    assert Reply.returncode == 1
+    Error = LoadJson(Reply.stderr)
+    assert Error["error"] == "ValueError" and "inside the user home" in Error["message"]
+    assert "Traceback" not in Reply.stderr and not (TmpPath / "run outputs").exists()

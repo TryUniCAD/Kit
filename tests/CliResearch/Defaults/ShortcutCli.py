@@ -8,10 +8,14 @@ from sys import executable as KPythonPath
 def ShortcutCli(
     Directory: FilePath, ConfigPath: FilePath, *Arguments: str, UseHome: bool = False
 ) -> CompletedProcess[str]:
-    Environment = {**KEnvironment, "KIT_RUN_DEFAULTS": str(ConfigPath)}
+    Environment = {
+        **KEnvironment,
+        "KIT_RUN_DEFAULTS": str(ConfigPath),
+        "USERPROFILE": str(Directory),
+        "HOME": str(Directory),
+    }
     if UseHome:
         _ = Environment.pop("KIT_RUN_DEFAULTS")
-        Environment.update({"USERPROFILE": str(Directory), "HOME": str(Directory)})
     return RunProcess(
         (KPythonPath, "-I", "-m", "KitCli", *Arguments),
         cwd=Directory,

@@ -1,7 +1,8 @@
 from argparse import ArgumentParser
 from hashlib import sha256 as HashBytes
 from json import dumps as DumpJson, loads as LoadJson
-from pathlib import Path as FilePath
+
+from convert.Security.PathBoundary import ResolveLocal
 
 
 # process compatibility needs an independent receiver for the forwarded catalogue arguments
@@ -35,13 +36,13 @@ def ReceiveArgs() -> None:
         )
     Result = vars(Options)
     if Options.catalogue is not None:
-        RawBytes = FilePath(Options.catalogue).read_bytes()
+        RawBytes = ResolveLocal(Options.catalogue).read_bytes()
         Expected = getattr(Options, Options.batch_format + "_sha256")
         if Expected is not None and HashBytes(RawBytes).hexdigest() != Expected:
             Parser.error("catalogue SHA-256 does not match")
         Result["catalogue_content"] = LoadJson(RawBytes)
     if Options.directory is not None:
-        FilePath(Options.directory).mkdir(parents=True, exist_ok=False)
+        ResolveLocal(Options.directory).mkdir(parents=True, exist_ok=False)
     print(DumpJson(Result))
     raise SystemExit(7)
 

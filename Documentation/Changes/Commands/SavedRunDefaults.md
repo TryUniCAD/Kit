@@ -7,7 +7,8 @@ No preset is supplied by the package.
 ## Configuration
 
 Save UTF-8 JSON at `~/.kit/RunDefaults.json`.
-Alternatively, set `KIT_RUN_DEFAULTS` to a selected JSON file.
+Alternatively, set `KIT_RUN_DEFAULTS` to a selected JSON file inside the current user's home directory.
+A relative value resolves from the working directory, and a file outside the home directory is rejected with the structured error before any research starts.
 The file is limited to 64 KiB.
 
 ```json
@@ -56,7 +57,7 @@ Other CLI commands do not read this file.
 
 ## Verification and limits
 
-Installed-process checks cover both formats, fresh destinations, explicit overrides, operation isolation, malformed presets, and explicit-root recovery.
+Installed-process checks cover both formats, fresh destinations, explicit overrides, operation isolation, malformed presets, overrides outside the home directory, and explicit-root recovery.
 They run through the existing complete-suite planner and compatibility paths.
 Desktop acceptance passed in Windows PowerShell 5.1 with `-NoProfile` and the installed executable.
 The real catalogue runner prepared 62 samples using the selected batching checkout at `d2478698bc97864f371b6eef0b7f1745ffa2672d`.
