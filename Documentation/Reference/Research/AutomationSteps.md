@@ -68,7 +68,7 @@ acceptance and complete source preservation have separate exit criteria.
 The SOLIDWORKS reader lane owns this active production child on
 `codex/sw-p03-attributed-active-brep`. The
 [ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7184890467)
-is recorded. The separate delivery PR is pending.
+is recorded. Delivery goes through [PR #348](https://github.com/TryUniCAD/Kit/pull/348).
 It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
 at `a5ffad5483db0f99a6162e1934786da41cbc2063`. It uses the
 [trim research](https://github.com/TryUniCAD/Kit/pull/343), the

@@ -10,6 +10,7 @@ the directed fin ring on its positive-sense plane carrier.
 
 Open the part through `convert.open_document` or `kit decode`. The
 supported profile contains one closed planar solid with line edges.
+Each face must have one quadrilateral loop.
 The reader validates saved free trim and geometric-owner
 relationships without treating the trims as direct edge geometry.
 It preserves the active payload, including the attributed vertices,
