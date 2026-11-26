@@ -165,6 +165,7 @@ class PackageIdentity:
     Pmi: PmiIndex
     Content: PackageContent
     PreviewColors: Palette | None = None
+    WidthFirst: bool = True
 
 
 # the historical fixture keeps its independent defaults and existing keyword API
@@ -350,7 +351,7 @@ def BuildPackageState(
         FileProperties=Metadata.FileProperties,
         Ole=Metadata.Ole,
         OpenTime=Metadata.OpenTime,
-        Indices=PackageXmlState(Context.SavedPath, True, Information),
+        Indices=PackageXmlState(Context.SavedPath, Context.WidthFirst, Information),
         Exchange=Context.Exchange,
         Objects=Context.Objects,
         Pmi=Context.Pmi,
@@ -607,7 +608,7 @@ def VerifyXml(
             "Sketch",
             Part.Profile.FeatureId,
             Part.Profile.NameValue,
-            (Width, Height),
+            (Width, Height) if State.Indices.WidthFirst else (Height, Width),
         ),
         (
             "Extrusion",

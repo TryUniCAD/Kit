@@ -163,10 +163,45 @@ def read_request(payload, expected_sha256):
     return record, CadDocument.from_json(target)
 
 
-def generate_request(payload, expected_sha256, context, *, candidate=None):
+def bind_source_keyword_order(record, target, context):
+    from BossInput import ProjectBoss
+
+    logical = ProjectBoss(target)
+    width = (logical.Width.RelationId, logical.Width.Length.ParameterId)
+    height = (logical.Height.RelationId, logical.Height.Length.ParameterId)
+    (sketch,) = target.sketches
+    driving = [
+        [
+            rule.id,
+            rule.kind,
+            [[ref.entity_id, ref.point] for ref in rule.references],
+            rule.parameter_id,
+        ]
+        for rule in sketch.constraints
+        if rule.kind == "distance"
+    ]
+    source_rows = [
+        row for row in record["source_ordered_relations"] if row[1] == "distance"
+    ]
+    order = tuple((row[0], row[3]) for row in driving)
+    require(
+        source_rows == driving and order in ((width, height), (height, width)),
+        "P03 keyword order differs from the two ordered source driving dimensions",
+    )
+    return replace(
+        context, Package=replace(context.Package, WidthFirst=order == (width, height))
+    )
+
+
+def generate_request(
+    payload, expected_sha256, context, *, candidate=None, preserve_keyword_order=False
+):
     from VerifyFreshBoss import VerifyPortableBoss
 
     record, target = read_request(payload, expected_sha256)
+    require(type(preserve_keyword_order) is bool, "P03 keyword-order selection must be a Boolean")
+    if preserve_keyword_order:
+        context = bind_source_keyword_order(record, target, context)
     observed = VerifyPortableBoss(target, context, Candidate=candidate)
     return {
         "request_sha256": expected_sha256,

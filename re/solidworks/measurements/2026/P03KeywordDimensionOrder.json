@@ -1,0 +1,615 @@
+{
+  "candidate_base_revision": "e0bd3718c622d06848f1816da2c75866a0a8d76c",
+  "changed_clear_streams": {
+    "swXmlContents/KeyWords": [
+      "1100ee74c413cb9bea3703119d13b4452b32e4a5c5444f25aa76e184445c14cd",
+      "f4ec511201c8b3db14c42ab3effeec9b5af6640930a34e3477c55240e33e932f"
+    ]
+  },
+  "constructor_artifacts": {
+    "Control04": {
+      "candidate_sha256": "a0e524cc73b844042c7da6bf86b3a12120fb4f73aaf34de7f0d6cc481ebda15f",
+      "stream_count": 32
+    },
+    "SourceOrderA": {
+      "candidate_sha256": "29b581feaf693b2a5e38e2f8bac70d2f3ab2b7f3f4f56be104e64701e0c0a62a",
+      "stream_count": 32
+    },
+    "SourceOrderB": {
+      "candidate_sha256": "29b581feaf693b2a5e38e2f8bac70d2f3ab2b7f3f4f56be104e64701e0c0a62a",
+      "stream_count": 32
+    }
+  },
+  "constructor_readback": {
+    "authored": {
+      "bounds_metres": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.04,
+          0.02,
+          0.01
+        ]
+      ],
+      "datum_id": 2,
+      "datum_time": 1783600226,
+      "density_kg_m3": 1000.0,
+      "dimension_ids": [
+        91,
+        92,
+        93
+      ],
+      "dimensions_mm": [
+        40.0,
+        20.0,
+        10.0
+      ],
+      "feature_ids": [
+        57,
+        71
+      ],
+      "origin_support_id": 2,
+      "origin_support_time": 1783600226
+    },
+    "centroid_metres": [
+      0.02,
+      0.01,
+      0.005
+    ],
+    "preview_sha256": {
+      "Preview": "b8d6575a06a736d3f767f2a0fbd92a1c396834e2ffbe247850fdb1c0938d3c25",
+      "PreviewPNG": "0d2b38a2f38414ed9c15557880704f4ab174465753440bdafe02bbc0fff00609"
+    },
+    "readback": {
+      "bounds_metres": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.04,
+          0.02,
+          0.01
+        ]
+      ],
+      "datum_id": 2,
+      "datum_time": 1783600226,
+      "density_kg_m3": 1000.0,
+      "dimension_ids": [
+        91,
+        92,
+        93
+      ],
+      "dimensions_mm": [
+        40.0,
+        20.0,
+        10.0
+      ],
+      "feature_ids": [
+        57,
+        71
+      ],
+      "origin_support_id": 2,
+      "origin_support_time": 1783600226
+    },
+    "volume_m3": 8.000000000000001e-06
+  },
+  "context_sha256": "796f3924afbff0adef17e4e215f67a0ddf2a17d1f83f09418f9f969f90ae716c",
+  "default": {
+    "binary_dimensions": [
+      {
+        "handles": [
+          201,
+          202
+        ],
+        "metres": 0.04,
+        "name": "width_mm",
+        "refs": [
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "row_offset": 7436,
+        "value_offset": 7509
+      },
+      {
+        "handles": [
+          206,
+          207
+        ],
+        "metres": 0.02,
+        "name": "height_mm",
+        "refs": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "row_offset": 7613,
+        "value_offset": 7665
+      }
+    ],
+    "bytes": 33844,
+    "full_typed_graph": {
+      "reason": "unsupported SOLIDWORKS body class moSimpleSurfIdRep_c schema 1",
+      "status": "refused"
+    },
+    "keyword_dimensions": [
+      "width_mm",
+      "height_mm"
+    ],
+    "ordered_rules": {
+      "reason": "P03 ordered constraint endpoints differ from the saved anchored sides",
+      "status": "refused"
+    },
+    "projected_saved_rules": [
+      {
+        "operands": [
+          [
+            "edge0",
+            ""
+          ]
+        ],
+        "role": "horizontal"
+      },
+      {
+        "operands": [
+          [
+            "edge1",
+            ""
+          ]
+        ],
+        "role": "vertical"
+      },
+      {
+        "operands": [
+          [
+            "edge2",
+            ""
+          ]
+        ],
+        "role": "horizontal"
+      },
+      {
+        "operands": [
+          [
+            "edge3",
+            ""
+          ]
+        ],
+        "role": "vertical"
+      },
+      {
+        "operands": [
+          [
+            "edge0",
+            "start"
+          ],
+          [
+            "edge0",
+            "end"
+          ]
+        ],
+        "role": "width_mm"
+      },
+      {
+        "operands": [
+          [
+            "edge3",
+            "end"
+          ],
+          [
+            "edge3",
+            "start"
+          ]
+        ],
+        "role": "height_mm"
+      },
+      {
+        "operands": [
+          [
+            "origin",
+            ""
+          ],
+          [
+            "edge0",
+            "start"
+          ]
+        ],
+        "role": "coincident"
+      }
+    ],
+    "sdk_model_only_operation": "join",
+    "sdk_strict_default": {
+      "reason": "SLDPRT contains no readable Parasolid payload",
+      "status": "refused"
+    },
+    "sha256": "a0e524cc73b844042c7da6bf86b3a12120fb4f73aaf34de7f0d6cc481ebda15f"
+  },
+  "equal_clear_streams": 31,
+  "independent_read_method_sha256": "b50932259e615527e26b15b9167726ceb74e0e41e3ba88e7073ba843505f64cf",
+  "launches": {
+    "fresh_generation_refused": 4,
+    "fresh_generation_success": 3,
+    "independent_comparison": 1,
+    "native": 0,
+    "unpublished_stale_xml_comparison": 1
+  },
+  "method_sha256": "699d44b115fc444a6205cd70f8df0a18b5c7ca82a508f3c1b0d64760969c8ffe",
+  "original": {
+    "binary_dimensions": [
+      {
+        "handles": [
+          203,
+          204
+        ],
+        "metres": 0.04,
+        "name": "width_mm",
+        "refs": [
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "row_offset": 7436,
+        "value_offset": 7509
+      },
+      {
+        "handles": [
+          208,
+          209
+        ],
+        "metres": 0.02,
+        "name": "height_mm",
+        "refs": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "row_offset": 7613,
+        "value_offset": 7665
+      }
+    ],
+    "bytes": 44796,
+    "full_typed_graph": {
+      "reason": "unsupported SOLIDWORKS body class moSimpleSurfIdRep_c schema 1",
+      "status": "refused"
+    },
+    "keyword_dimensions": [
+      "height_mm",
+      "width_mm"
+    ],
+    "ordered_rules": {
+      "inferred": 4,
+      "saved": 7,
+      "status": "verified"
+    },
+    "projected_saved_rules": [
+      {
+        "operands": [
+          [
+            "edge0",
+            ""
+          ]
+        ],
+        "role": "horizontal"
+      },
+      {
+        "operands": [
+          [
+            "edge1",
+            ""
+          ]
+        ],
+        "role": "vertical"
+      },
+      {
+        "operands": [
+          [
+            "edge2",
+            ""
+          ]
+        ],
+        "role": "horizontal"
+      },
+      {
+        "operands": [
+          [
+            "edge3",
+            ""
+          ]
+        ],
+        "role": "vertical"
+      },
+      {
+        "operands": [
+          [
+            "edge3",
+            "end"
+          ],
+          [
+            "edge3",
+            "start"
+          ]
+        ],
+        "role": "height_mm"
+      },
+      {
+        "operands": [
+          [
+            "edge0",
+            "start"
+          ],
+          [
+            "edge0",
+            "end"
+          ]
+        ],
+        "role": "width_mm"
+      },
+      {
+        "operands": [
+          [
+            "origin",
+            ""
+          ],
+          [
+            "edge0",
+            "start"
+          ]
+        ],
+        "role": "coincident"
+      }
+    ],
+    "sdk_model_only_operation": "join",
+    "sdk_strict_default": {
+      "bodies": 1,
+      "status": "returned"
+    },
+    "sha256": "db1390476325f5817e6f80fb4067a3c6df5cc063315604c133ccbeaafdeac357"
+  },
+  "processes": {
+    "Control04": {
+      "application_usable": false,
+      "model_input_names": [
+        "Request.json",
+        "RootLayout.json"
+      ],
+      "report_sha256": "25055f923717872f75fb5ce8a39022528a02724eb6c1d4e3d569796ce788b4fc",
+      "requested_operation": "create",
+      "source_operation": "join",
+      "vendor_loadable": false
+    },
+    "SourceOrderA": {
+      "application_usable": false,
+      "model_input_names": [
+        "Request.json",
+        "RootLayout.json"
+      ],
+      "report_sha256": "94371243be26672d8c6368638b3fc2c96dea91d8a2ff057237c5d3f69e0d4af0",
+      "requested_operation": "create",
+      "source_operation": "join",
+      "vendor_loadable": false
+    },
+    "SourceOrderB": {
+      "application_usable": false,
+      "model_input_names": [
+        "Request.json",
+        "RootLayout.json"
+      ],
+      "report_sha256": "0c80a40b60accf671e3525200f4fa470320778d1cea1686f030edc67b19b11b4",
+      "requested_operation": "create",
+      "source_operation": "join",
+      "vendor_loadable": false
+    }
+  },
+  "reader_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+  "refusals": {
+    "Duplicate": {
+      "diagnostic": "ValueError: P03 keyword order differs from the two ordered source driving dimensions",
+      "exit": 1,
+      "output_exists": false,
+      "request_sha256": "1dde1f6bd2c3a98b9b5d5e11aea85764707aa843ce7019a5a63f03ce57e99310"
+    },
+    "Foreign": {
+      "diagnostic": "ValueError: P03 keyword order differs from the two ordered source driving dimensions",
+      "exit": 1,
+      "output_exists": false,
+      "request_sha256": "db4fa02359f7cdbc679a98acaa8e0f824d35d37ff924fec13813ff0b59630940"
+    },
+    "SwappedOperands": {
+      "diagnostic": "ValueError: P03 keyword order differs from the two ordered source driving dimensions",
+      "exit": 1,
+      "output_exists": false,
+      "request_sha256": "672590fcabd456ac97bc63244590bd7dc60fae7989c636bf3784aca829f010de"
+    },
+    "WrongOrder": {
+      "diagnostic": "ValueError: P03 keyword order differs from the two ordered source driving dimensions",
+      "exit": 1,
+      "output_exists": false,
+      "request_sha256": "73d9a5467521e779caebdd8e054a267cd566e119d7bcbaa34a10c7aebb9621eb"
+    }
+  },
+  "repeat_candidate_sha256": "29b581feaf693b2a5e38e2f8bac70d2f3ab2b7f3f4f56be104e64701e0c0a62a",
+  "request_sha256": "d460d8352b7e34526a5e95d451d5671454d8b30d8ef96e5adf90111d67812a49",
+  "runtime": {
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "zlib": "1.3.1.zlib-ng"
+  },
+  "schema": "kit.research.p03-keyword-order.v1",
+  "scope": "keyword order and model-only relation projection; offline research",
+  "source_files_sha256": {
+    "re/automation/P03CandidateRequest.py": "6c68fc458886603d986f1c8858d3716626212c74c9ff0e4aee32706d012f084f",
+    "re/solidworks/WriterResearch/VerifyFreshBoss.py": "c360e127933bfc28599f00a80481db6386056c1fd5b459e51b4e4eb8c7cf639f"
+  },
+  "source_order": {
+    "binary_dimensions": [
+      {
+        "handles": [
+          201,
+          202
+        ],
+        "metres": 0.04,
+        "name": "width_mm",
+        "refs": [
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "row_offset": 7436,
+        "value_offset": 7509
+      },
+      {
+        "handles": [
+          206,
+          207
+        ],
+        "metres": 0.02,
+        "name": "height_mm",
+        "refs": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "row_offset": 7613,
+        "value_offset": 7665
+      }
+    ],
+    "bytes": 33844,
+    "full_typed_graph": {
+      "reason": "unsupported SOLIDWORKS body class moSimpleSurfIdRep_c schema 1",
+      "status": "refused"
+    },
+    "keyword_dimensions": [
+      "height_mm",
+      "width_mm"
+    ],
+    "ordered_rules": {
+      "inferred": 4,
+      "saved": 7,
+      "status": "verified"
+    },
+    "projected_saved_rules": [
+      {
+        "operands": [
+          [
+            "edge0",
+            ""
+          ]
+        ],
+        "role": "horizontal"
+      },
+      {
+        "operands": [
+          [
+            "edge1",
+            ""
+          ]
+        ],
+        "role": "vertical"
+      },
+      {
+        "operands": [
+          [
+            "edge2",
+            ""
+          ]
+        ],
+        "role": "horizontal"
+      },
+      {
+        "operands": [
+          [
+            "edge3",
+            ""
+          ]
+        ],
+        "role": "vertical"
+      },
+      {
+        "operands": [
+          [
+            "edge3",
+            "end"
+          ],
+          [
+            "edge3",
+            "start"
+          ]
+        ],
+        "role": "height_mm"
+      },
+      {
+        "operands": [
+          [
+            "edge0",
+            "start"
+          ],
+          [
+            "edge0",
+            "end"
+          ]
+        ],
+        "role": "width_mm"
+      },
+      {
+        "operands": [
+          [
+            "origin",
+            ""
+          ],
+          [
+            "edge0",
+            "start"
+          ]
+        ],
+        "role": "coincident"
+      }
+    ],
+    "sdk_model_only_operation": "join",
+    "sdk_strict_default": {
+      "reason": "SLDPRT contains no readable Parasolid payload",
+      "status": "refused"
+    },
+    "sha256": "29b581feaf693b2a5e38e2f8bac70d2f3ab2b7f3f4f56be104e64701e0c0a62a"
+  },
+  "stale_keyword_readback": {
+    "diagnostic": "keyword dimensions preserve authored magnitudes: got (('width_mm', Decimal('40')), ('height_mm', Decimal('20'))), expected (('height_mm', Decimal('20.00')), ('width_mm', Decimal('40.00')))",
+    "fresh_generation_writes": 0,
+    "stale_archive_refused": true
+  },
+  "stale_readback_method_sha256": "8480f19fbfdb528749d234783fabb992e340da408bce612f29e9dc0cd6da9528"
+}
