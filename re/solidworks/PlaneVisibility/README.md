@@ -80,3 +80,5 @@ The sole oracle has since reported a same-process inverse capture; it is availab
 The next exit requires unconfounded contrasts plus the actual loader and save/load ownership proof before a field rule can be qualified.
 Source admission, neutral intent, generative emission and fresh native acceptance retain separate exits.
 Both acceptance flags remain false.
+
+[Exact-build field ownership and generated plane request](FieldAndWriter.md)
