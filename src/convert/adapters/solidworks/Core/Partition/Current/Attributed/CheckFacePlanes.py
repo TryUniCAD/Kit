@@ -27,13 +27,15 @@ def CheckFacePlanes(Nodes: Mapping[int, XmtNode], FaceIds: Sequence[int]) -> Non
                     Normal, AxisVector, strict=True
                 )
             )
+            != 0.0
         ):
             raise ValueError("attributed active face has an unsupported plane")
         for FinId in FinIds:
             Vertex = Nodes[Nodes[FinId].Integer("vertex")]
             Point = ReadXmtVector(Nodes[Vertex.Integer("point")], "pvec")
-            if sum(
+            Distance = sum(
                 (Value - Start) * AxisValue
                 for Value, Start, AxisValue in zip(Point, Origin, Normal, strict=True)
-            ):
+            )
+            if Distance != 0.0:
                 raise ValueError("attributed active face loop is outside its plane")

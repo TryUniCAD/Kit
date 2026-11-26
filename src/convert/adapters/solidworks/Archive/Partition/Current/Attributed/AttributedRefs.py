@@ -1,5 +1,6 @@
 from collections.abc import Mapping
 from math import isfinite as IsFinite
+from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Partition.Current.Attributed.AttributedShapes import (
     KAttributedShapes,
@@ -32,7 +33,11 @@ def AttributedRefs(Nodes: Mapping[int, XmtNode], NodeValue: XmtNode) -> tuple[in
                 References.append(IndexValue)
         elif Field.EncodingValue in ("f", "v"):
             Value = NodeValue.FieldsValue[Field.NameValue]
-            Members = Value if isinstance(Value, tuple) else (Value,)
+            Members = (
+                CastValue(tuple[object, ...], Value)
+                if isinstance(Value, tuple)
+                else (Value,)
+            )
             if any(
                 type(Member) is not float or not IsFinite(Member) for Member in Members
             ):
