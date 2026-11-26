@@ -317,6 +317,7 @@ jobs:
             tests/CliResearch/BridgeRejectTests.py \
             tests/CliResearch/Comparison \
             tests/CliResearch/Defaults \
+            tests/CliResearch/EncoderRoundTrip \
             tests/CliResearch/SwReaderTests.py \
             tests/CliResearch/EncodedReaderTests.py \
             tests/CliResearch/LegacyReaderTests.py \
