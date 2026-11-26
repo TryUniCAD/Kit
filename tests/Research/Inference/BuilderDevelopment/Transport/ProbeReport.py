@@ -37,6 +37,8 @@ def WriteReport(
     ]
     for ChildPid in Children:
         assert isinstance(ChildPid, int)
+        while LiveStart(ChildPid) and MonoTime() < Deadline:
+            WaitBriefly(0.02)
         assert LiveStart(ChildPid) is None
     print(
         EncodeJson(

@@ -164,6 +164,17 @@ recovered on the third fresh attempt with six reopened archives and a
 completed decoder job. The applicable PR and queue gates remain separate.
 [Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
 
+#### A08h-CaseIsolation
+
+Codex owns the consolidated SOLIDWORKS repair and case isolation on
+`codex/solidworks-capture-resilience`. It depends on the catalogue worker
+and artifact intake from PR #207. Delivery combines the changes from PRs
+#289 and #291. Exit requires proven shutdown recovery, held-out thin-wall
+measurements, and a process check showing that a refused case cannot block
+or supply evidence to a healthy sibling decoder.
+[Delivery PR #292](https://github.com/TryUniCAD/Kit/pull/292)
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
+
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
 on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,
@@ -462,6 +473,17 @@ This observation does not replace current-head hosted A06c/A06d checks or A06b q
 The subsequent [fresh P03 replay at `880bf0be`](../../Changes/Research/Readers/Comparison/SemanticSketchReferences.md#verification-evidence) removed only the false sketch-definition finding in both reader inventories and dependent comparisons, retaining `different` and `ambiguous` results and preserving the original `7317092e` run.
 A07 acceptance and A09 continue to depend on A06b.
 
+### A06d-NativeSketchOwnership: saved SOLIDWORKS sketch ownership in comparison
+
+The Codex shared encoder worker owns this checking task on `codex/native-sketch-ownership`.
+Delivery is [PR #302](https://github.com/TryUniCAD/Kit/pull/302), based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The task depends on A04c typed saved source reads, A06a comparison, and A06d reader evidence.
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains ownership of its SOLIDWORKS reader changes.
+The exit requires a real comparison report that relates one uniquely typed sketch to its same-source native timeline owner.
+The report must preserve ordered constraint references and keep the original unresolved findings and verdict.
+The P01 and P03 sources remain discovery evidence. Independent source inventory and native acceptance remain open.
+The [change entry](../../Changes/Research/Encoder/NativeSketchOwnership.md) records the observed report and comparison boundary.
+
 ## A09 scoped codec research
 
 Stephen316's accepted research constructs the [two configured atom owners](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadConfigAtoms.md), the upper sketch's [ordered same-length relation](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadEqualRelation.md) and the earlier boss's [cap and boundary occurrences](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadCapRefs.md).
@@ -491,14 +513,13 @@ Neither the scoped constructor nor its observation receipt closes A11 or qualifi
 ### A12b: vendor-authored blind boss admission
 
 The Codex SOLIDWORKS encoder worker owns this active task on `codex/solidworks-vendor-boss-admission`.
-Delivery PR is pending. Dependencies are A04, A06, A08, A12a, A14, and [PR #297](https://github.com/TryUniCAD/Kit/pull/297).
-The scope is ordinary version-19000 parts with one supported straight-line loop and a driving blind boss.
-The exit requires complete vendor state, including feature tree, manager, and partition ownership, in archive-free JSON.
-Generation must use that JSON alone and refuse sources with unresolved required state.
-The worker must verify fresh native open, rebuild, edit, save, and reopen on held-out inputs with healthy controls.
-Exact public SDK evidence remains required where the measured publication gate applies.
-[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains ownership of its property-reader changes at `c0a401a607`.
+[PR #300](https://github.com/TryUniCAD/Kit/pull/300) delivers the research evidence and a safe manifest for exact private replay.
+The task depends on A04, A06, A08, A12a, A14, and [PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains property-reader ownership at `c0a401a607`.
 [PR #288](https://github.com/TryUniCAD/Kit/pull/288) retains ownership of catalogue capture supervision.
+The scope is ordinary version-19000 parts with one supported straight-line loop and a driving blind boss.
+Whole-source admission requires complete feature, manager, partition, and presentation semantics in archive-free JSON.
+Generation, independent held-out native verification, and the exact SDK publication evidence remain open.
 
 ### Existing A12 evidence
 

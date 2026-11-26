@@ -53,7 +53,11 @@ def RunSolidBatch(Cases, OutputDirectory, HostConfig):
                     ReceiptFile.write(Evidence)
     Reports = []
     for CaseValue, CaseOutput in zip(Normal, CasePaths, strict=True):
-        Report = VerifySolid(CaseValue, CaseOutput)
+        try:
+            Report = VerifySolid(CaseValue, CaseOutput)
+        except ValueError as Error:
+            Reports.append({"case": CaseValue, "native_rejection": str(Error)})
+            continue
         Report["native_batch"] = {
             "manifest_sha256": ManifestPin,
             "case_count": len(Normal),

@@ -86,6 +86,11 @@ retry recovered the same case on a third fresh attempt after two timeouts.
 The written-recipe geometry repair has separate delivery in
 [PR #291](https://github.com/TryUniCAD/Kit/pull/291).
 
+Task `A08h-CaseIsolation` consolidates the shutdown and thin-wall repair and
+adds per-case catalogue rejection handling. Its exit requires real process
+evidence that healthy sibling decoders can run when a bad bundle is withheld.
+[Owning register](../Reference/Research/AutomationSteps.md#a08h-caseisolation)
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction
@@ -602,6 +607,13 @@ The shared encoder worker owns [A08d-FileScopeAttribution](../Reference/Research
 Delivery is [PR #298](https://github.com/TryUniCAD/Kit/pull/298).
 The task corrects physical stream coverage reporting for strict Fusion reads and keeps the existing native qualification requirements.
 These follow-ups depend on the [bounded round-trip work in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+
+## Native sketch ownership and blind boss evidence
+
+The shared encoder worker owns [A06d-NativeSketchOwnership](../Reference/Research/AutomationSteps.md#a06d-nativesketchownership-saved-solidworks-sketch-ownership-in-comparison).
+[PR #302](https://github.com/TryUniCAD/Kit/pull/302) adds reader-reported native sketch ownership to comparison reports. Independent semantic qualification remains required.
+[PR #300](https://github.com/TryUniCAD/Kit/pull/300) is the research evidence delivery for [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
+Whole-source admission, writing, and measured native acceptance remain open.
 
 ## Shared research queue coordination
 
