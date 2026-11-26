@@ -70,6 +70,22 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### A08h-OwnedExit: SOLIDWORKS catalogue shutdown repair
+
+Task `A08h-OwnedExit` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ownedexit-catalogue-capture-shutdown).
+Codex owns the scoped repair on `codex/solidworks-capture-shutdown`, with
+delivery in [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
+The exit requires licensed native replay of the failed P04 captures and batch
+controls, normal process exits, independent reopen and dependent decoder
+receipts, plus the applicable publication gates. Six previously failed
+cut-extrude cases passed both native phases and ran the decoder. The
+driving-dimension singleton passed after the standalone worker retried a
+shutdown timeout. The combined probe passed the singleton on the first
+attempt after the empty-session exit request. The final worker and batch
+retry recovered the same case on a third fresh attempt after two timeouts.
+The written-recipe geometry repair has separate delivery in
+[PR #291](https://github.com/TryUniCAD/Kit/pull/291).
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction
@@ -535,6 +551,14 @@ No row below declares readiness, successful queue acceptance or permission to me
 | [#150](https://github.com/TryUniCAD/Kit/pull/150) | odinglyn0                                     | Bounded removal of historically flaky pending-gate cases. It does not qualify CAD conversion.                                           | [3c92c155](https://github.com/TryUniCAD/Kit/commit/3c92c15575cb807a1c118765d3a2bb7c0925dd7e)  |
 | [#151](https://github.com/TryUniCAD/Kit/pull/151) | odinglyn0                                     | Fusion design import, local native export and Kit readback. Cloud save and broader acceptance remain separate.                          | [c4d7173d](https://github.com/TryUniCAD/Kit/commit/c4d7173d0f5ddb570470af493050d27107e146fe)  |
 
+### A08i-ThinWall
+
+The SOLIDWORKS catalogue correction passed source-pinned wall-side checks,
+independent reopen and decoder execution for the three written cases.
+Portable semantic findings remain open.
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
+[Owning register](../Reference/Research/AutomationSteps.md#a08i-thinwall)
+
 ## Choose and maintain a task
 
 1. Read the task, dependencies, current PR diff and owning register.
@@ -629,3 +653,10 @@ The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlaceme
 Review and queue follow-ups require explicit refusal of unsupported sketch rotations and contradictory principal identities, while preserving origin owner fallback.
 Fresh revision-bound shared-suite and merge-group verification remain pending for these follow-ups.
 Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.
+
+## Circular rim fillet qualification packs
+
+`A08h-RimFillet20261125` is a checking B06 child owned by Codex on `feat/native-conversion-campaign-20261125`.
+The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-circular-rim-fillet-readwrite-packs) records dependencies and delivery.
+The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
+The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.

@@ -48,6 +48,7 @@ Add-Type -Path (@((Join-Path $PSScriptRoot '../../SolidWorksAuthoring/SolidWorks
     (Join-Path $PSScriptRoot 'SolidOwner.cs')) + $ProgramSources) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
 if ($Batch) { [SolidWorksCapture]::CheckBatch($CaseFile, $Destination) }
 else { [SolidWorksCapture]::CheckConfigured($CaseFile) }
+. (Join-Path $PSScriptRoot 'WaitOwnedExit.ps1')
 if ($CompileOnly) {
     Write-Output 'Compiled configured SOLIDWORKS authoring without starting an application'
     return
@@ -58,6 +59,7 @@ $Native = $null
 $ExitObserved = $false
 $ForcedCleanup = $false
 $Failure = $null
+$FrameHandle = 0
 try {
     try { $Acquired = $Mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $Acquired = $true }
     if (-not $Acquired) { throw 'The shared SOLIDWORKS oracle is owned by another operation.' }
@@ -72,15 +74,17 @@ try {
     }
     if ($Batch) {
         [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase)
-        [GC]::Collect()
-        [GC]::WaitForPendingFinalizers()
-        [GC]::Collect()
-        [GC]::WaitForPendingFinalizers()
     }
     else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
+    $Receipt = Get-Content -LiteralPath (Join-Path $Destination ($Phase + '-native.json')) -Raw | ConvertFrom-Json
+    if ($Receipt.pid -ne $Native.Id -or $Receipt.normal_exit_requested -ne $true) {
+        throw 'The native exit request receipt does not identify the owned application.'
+    }
+    $FrameHandle = [long]$Receipt.frame_handle
 } catch { $Failure = $_ } finally {
     if ($null -ne $Native) {
-        $ExitObserved = $Native.WaitForExit(30000)
+        $NativeExit = Wait-OwnedExit -Process $Native -Created $Created -AllowClose ($null -eq $Failure) -FrameHandle $FrameHandle
+        $ExitObserved = $NativeExit.Observed
         if (-not $ExitObserved -and $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
             $Native.Kill()
             $ForcedCleanup = $Native.WaitForExit(10000)
@@ -90,6 +94,8 @@ try {
         if (-not (Test-Path -LiteralPath $Destination)) { [IO.Directory]::CreateDirectory($Destination) | Out-Null }
         $OwnerPath = Join-Path $Destination ($Phase + '-owner.json')
         $Owner = [ordered]@{ phase = $Phase; pid = $ProcessId; created = $Created; owned_process_exit_observed = $ExitObserved; forced_owned_cleanup = $ForcedCleanup }
+        $Owner.window_close_requested = $NativeExit.CloseRequested
+        if ($null -ne $NativeExit.CloseError) { $Owner.window_close_error = $NativeExit.CloseError }
         $OwnerJson = ($Owner | ConvertTo-Json -Compress) + [Environment]::NewLine
         $OwnerBytes = [Text.UTF8Encoding]::new($false).GetBytes($OwnerJson)
         $OwnerStream = [IO.File]::Open($OwnerPath, [IO.FileMode]::CreateNew, [IO.FileAccess]::Write)
