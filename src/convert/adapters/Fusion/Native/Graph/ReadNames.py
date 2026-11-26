@@ -24,7 +24,7 @@ def ReadNames() -> tuple[NativeSchema, ...]:
     )
     Catalog = {
         Schema.Value.ClassGuid.upper(): Schema
-        for Schema in AuthorSchemas("cuboid", True)
+        for Schema in AuthorSchemas("cuboid", True, HasFeatures=True)
     }
     for Source in Paths:
         for Schema in ReadVocabulary(Source):

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -50,13 +50,13 @@ def RunCircleProof() -> None:
     from interchange.document.Models.DocumentModel import CadDocument
     from interchange.serialization.JsonCodec import DumpJson, LoadJson
 
-    SourcePath = FilePath(ArgValues[2])
     if ArgValues[1] == "read":
-        Document = OpenDocument(SourcePath, IncludeBrep=False, IncludeTess=False)
-        _ = FilePath(ArgValues[3]).write_text(DumpJson(Document), encoding="utf-8")
+        Document = OpenDocument(FilePath("Source.SLDPRT"), IncludeBrep=False, IncludeTess=False)
+        _ = FilePath("Model.json").write_text(DumpJson(Document), encoding="utf-8")
     elif ArgValues[1] == "replay":
-        Document = LoadJson(SourcePath.read_text(encoding="utf-8"))
-        assert isinstance(Document, CadDocument)
+        Decoded = LoadJson(FilePath("Model.json").read_text(encoding="utf-8"))
+        assert isinstance(Decoded, CadDocument)
+        Document = Decoded
     else:
         raise ValueError("unknown circle proof operation")
     Document.assert_valid()

@@ -1,0 +1,618 @@
+{
+  "evidence_origin": {
+    "kind": "offline_fixture",
+    "source": "P03 independently authored 40 by 20 by 10 rectangle recipe",
+    "recorded_observations": "re/automation/PairedCaptures/P03/fusion-8d53584027ff/measurements.json",
+    "native_acceptance": false
+  },
+  "bodies": [
+    {
+      "name": "Body1",
+      "volume_mm3": 8000.0,
+      "center_mm": [20.0, 10.0, 5.0],
+      "faces": 6,
+      "edges": 12,
+      "vertices": 8,
+      "bounding_box_mm": [
+        [0, 0, 0],
+        [40, 20, 10]
+      ],
+      "geometry": {
+        "vertices_mm": [
+          [0, 0, 0],
+          [40, 0, 0],
+          [40, 20, 0],
+          [0, 20, 0],
+          [0, 0, 10],
+          [40, 0, 10],
+          [40, 20, 10],
+          [0, 20, 10]
+        ],
+        "edges": [
+          {
+            "kind": "line",
+            "start_mm": [0, 0, 0],
+            "end_mm": [40, 0, 0]
+          },
+          {
+            "kind": "line",
+            "start_mm": [40, 0, 0],
+            "end_mm": [40, 20, 0]
+          },
+          {
+            "kind": "line",
+            "start_mm": [40, 20, 0],
+            "end_mm": [0, 20, 0]
+          },
+          {
+            "kind": "line",
+            "start_mm": [0, 20, 0],
+            "end_mm": [0, 0, 0]
+          },
+          {
+            "kind": "line",
+            "start_mm": [0, 0, 10],
+            "end_mm": [40, 0, 10]
+          },
+          {
+            "kind": "line",
+            "start_mm": [40, 0, 10],
+            "end_mm": [40, 20, 10]
+          },
+          {
+            "kind": "line",
+            "start_mm": [40, 20, 10],
+            "end_mm": [0, 20, 10]
+          },
+          {
+            "kind": "line",
+            "start_mm": [0, 20, 10],
+            "end_mm": [0, 0, 10]
+          },
+          {
+            "kind": "line",
+            "start_mm": [0, 0, 0],
+            "end_mm": [0, 0, 10]
+          },
+          {
+            "kind": "line",
+            "start_mm": [40, 0, 0],
+            "end_mm": [40, 0, 10]
+          },
+          {
+            "kind": "line",
+            "start_mm": [40, 20, 0],
+            "end_mm": [40, 20, 10]
+          },
+          {
+            "kind": "line",
+            "start_mm": [0, 20, 0],
+            "end_mm": [0, 20, 10]
+          }
+        ],
+        "faces": [
+          {
+            "kind": "plane",
+            "normal": [0, 0, -1],
+            "offset_mm": 0,
+            "loops": [
+              [
+                {
+                  "start_mm": [0, 0, 0],
+                  "end_mm": [0, 20, 0]
+                },
+                {
+                  "start_mm": [0, 20, 0],
+                  "end_mm": [40, 20, 0]
+                },
+                {
+                  "start_mm": [40, 20, 0],
+                  "end_mm": [40, 0, 0]
+                },
+                {
+                  "start_mm": [40, 0, 0],
+                  "end_mm": [0, 0, 0]
+                }
+              ]
+            ]
+          },
+          {
+            "kind": "plane",
+            "normal": [0, 0, 1],
+            "offset_mm": 10,
+            "loops": [
+              [
+                {
+                  "start_mm": [0, 0, 10],
+                  "end_mm": [40, 0, 10]
+                },
+                {
+                  "start_mm": [40, 0, 10],
+                  "end_mm": [40, 20, 10]
+                },
+                {
+                  "start_mm": [40, 20, 10],
+                  "end_mm": [0, 20, 10]
+                },
+                {
+                  "start_mm": [0, 20, 10],
+                  "end_mm": [0, 0, 10]
+                }
+              ]
+            ]
+          },
+          {
+            "kind": "plane",
+            "normal": [0, -1, 0],
+            "offset_mm": 0,
+            "loops": [
+              [
+                {
+                  "start_mm": [0, 0, 0],
+                  "end_mm": [40, 0, 0]
+                },
+                {
+                  "start_mm": [40, 0, 0],
+                  "end_mm": [40, 0, 10]
+                },
+                {
+                  "start_mm": [40, 0, 10],
+                  "end_mm": [0, 0, 10]
+                },
+                {
+                  "start_mm": [0, 0, 10],
+                  "end_mm": [0, 0, 0]
+                }
+              ]
+            ]
+          },
+          {
+            "kind": "plane",
+            "normal": [1, 0, 0],
+            "offset_mm": 40,
+            "loops": [
+              [
+                {
+                  "start_mm": [40, 0, 0],
+                  "end_mm": [40, 20, 0]
+                },
+                {
+                  "start_mm": [40, 20, 0],
+                  "end_mm": [40, 20, 10]
+                },
+                {
+                  "start_mm": [40, 20, 10],
+                  "end_mm": [40, 0, 10]
+                },
+                {
+                  "start_mm": [40, 0, 10],
+                  "end_mm": [40, 0, 0]
+                }
+              ]
+            ]
+          },
+          {
+            "kind": "plane",
+            "normal": [0, 1, 0],
+            "offset_mm": 20,
+            "loops": [
+              [
+                {
+                  "start_mm": [40, 20, 0],
+                  "end_mm": [0, 20, 0]
+                },
+                {
+                  "start_mm": [0, 20, 0],
+                  "end_mm": [0, 20, 10]
+                },
+                {
+                  "start_mm": [0, 20, 10],
+                  "end_mm": [40, 20, 10]
+                },
+                {
+                  "start_mm": [40, 20, 10],
+                  "end_mm": [40, 20, 0]
+                }
+              ]
+            ]
+          },
+          {
+            "kind": "plane",
+            "normal": [-1, 0, 0],
+            "offset_mm": 0,
+            "loops": [
+              [
+                {
+                  "start_mm": [0, 20, 0],
+                  "end_mm": [0, 0, 0]
+                },
+                {
+                  "start_mm": [0, 0, 0],
+                  "end_mm": [0, 0, 10]
+                },
+                {
+                  "start_mm": [0, 0, 10],
+                  "end_mm": [0, 20, 10]
+                },
+                {
+                  "start_mm": [0, 20, 10],
+                  "end_mm": [0, 20, 0]
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "features": [
+    {
+      "name": "RectangleSketch",
+      "type": "adsk::fusion::Sketch",
+      "suppressed": false,
+      "health": 0,
+      "message": ""
+    },
+    {
+      "name": "BlindBoss",
+      "type": "adsk::fusion::ExtrudeFeature",
+      "suppressed": false,
+      "health": 0,
+      "message": ""
+    }
+  ],
+  "parameters": [
+    {
+      "name": "width_mm",
+      "value": 4.0,
+      "unit": "cm",
+      "value_unit": "cm",
+      "display_unit": "mm",
+      "expression": "40 mm"
+    },
+    {
+      "name": "height_mm",
+      "value": 2.0,
+      "unit": "cm",
+      "value_unit": "cm",
+      "display_unit": "mm",
+      "expression": "20 mm"
+    },
+    {
+      "name": "depth_mm",
+      "value": 1.0,
+      "unit": "cm",
+      "value_unit": "cm",
+      "display_unit": "mm",
+      "expression": "10 mm"
+    },
+    {
+      "name": "d4",
+      "value": 0.0,
+      "unit": "rad",
+      "value_unit": "rad",
+      "display_unit": "deg",
+      "expression": "0.0 deg"
+    }
+  ],
+  "sketches": [
+    {
+      "name": "RectangleSketch",
+      "entities": 4,
+      "constraints": 5,
+      "dimensions": 2
+    }
+  ],
+  "semantics": {
+    "schema": 1,
+    "features": [
+      {
+        "name": "RectangleSketch",
+        "kind": "sketch",
+        "dependencies": []
+      },
+      {
+        "name": "BlindBoss",
+        "kind": "extrude",
+        "dependencies": ["RectangleSketch"],
+        "operation": "create",
+        "profile": "RectangleSketch",
+        "length_mm": 10.0,
+        "end_condition": "blind",
+        "direction": [0, 0, 1],
+        "taper_rad": 0.0,
+        "start_offset_mm": 0.0,
+        "side_mode": "one_sided",
+        "bindings": {
+          "length": "depth_mm",
+          "taper": "d4",
+          "start_offset": null
+        }
+      }
+    ],
+    "sketches": [
+      {
+        "name": "RectangleSketch",
+        "frame": {
+          "origin_mm": [0, 0, 0],
+          "x_axis": [1, 0, 0],
+          "y_axis": [0, 1, 0]
+        },
+        "support": {
+          "kind": "principal_plane",
+          "normal": [0, 0, 1]
+        },
+        "entities": [
+          {
+            "kind": "point",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "point_mm": [0, 0, 0]
+            },
+            "construction": false,
+            "fixed": false
+          },
+          {
+            "kind": "point",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "point_mm": [40, 0, 0]
+            },
+            "construction": false,
+            "fixed": false
+          },
+          {
+            "kind": "point",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "point_mm": [40, 20, 0]
+            },
+            "construction": false,
+            "fixed": false
+          },
+          {
+            "kind": "point",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "point_mm": [0, 20, 0]
+            },
+            "construction": false,
+            "fixed": false
+          },
+          {
+            "kind": "point",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "point_mm": [0, 0, 0]
+            },
+            "construction": true,
+            "fixed": true
+          },
+          {
+            "kind": "line",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "start_mm": [0, 0, 0],
+              "end_mm": [40, 0, 0]
+            },
+            "construction": false,
+            "fixed": false
+          },
+          {
+            "kind": "line",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "start_mm": [40, 0, 0],
+              "end_mm": [40, 20, 0]
+            },
+            "construction": false,
+            "fixed": false
+          },
+          {
+            "kind": "line",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "start_mm": [40, 20, 0],
+              "end_mm": [0, 20, 0]
+            },
+            "construction": false,
+            "fixed": false
+          },
+          {
+            "kind": "line",
+            "owner": "RectangleSketch",
+            "geometry": {
+              "start_mm": [0, 20, 0],
+              "end_mm": [0, 0, 0]
+            },
+            "construction": false,
+            "fixed": false
+          }
+        ],
+        "constraints": [
+          {
+            "kind": "horizontal",
+            "operands": [
+              {
+                "kind": "line",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "start_mm": [0, 0, 0],
+                  "end_mm": [40, 0, 0]
+                },
+                "construction": false,
+                "fixed": false
+              }
+            ],
+            "parameter": null,
+            "driving": true,
+            "suppressed": false
+          },
+          {
+            "kind": "vertical",
+            "operands": [
+              {
+                "kind": "line",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "start_mm": [40, 0, 0],
+                  "end_mm": [40, 20, 0]
+                },
+                "construction": false,
+                "fixed": false
+              }
+            ],
+            "parameter": null,
+            "driving": true,
+            "suppressed": false
+          },
+          {
+            "kind": "horizontal",
+            "operands": [
+              {
+                "kind": "line",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "start_mm": [40, 20, 0],
+                  "end_mm": [0, 20, 0]
+                },
+                "construction": false,
+                "fixed": false
+              }
+            ],
+            "parameter": null,
+            "driving": true,
+            "suppressed": false
+          },
+          {
+            "kind": "vertical",
+            "operands": [
+              {
+                "kind": "line",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "start_mm": [0, 20, 0],
+                  "end_mm": [0, 0, 0]
+                },
+                "construction": false,
+                "fixed": false
+              }
+            ],
+            "parameter": null,
+            "driving": true,
+            "suppressed": false
+          },
+          {
+            "kind": "coincident",
+            "operands": [
+              {
+                "kind": "point",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "point_mm": [0, 0, 0]
+                },
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "kind": "point",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "point_mm": [0, 0, 0]
+                },
+                "construction": true,
+                "fixed": true
+              }
+            ],
+            "parameter": null,
+            "driving": true,
+            "suppressed": false
+          },
+          {
+            "kind": "distance_x",
+            "operands": [
+              {
+                "kind": "point",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "point_mm": [0, 0, 0]
+                },
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "kind": "point",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "point_mm": [40, 0, 0]
+                },
+                "construction": false,
+                "fixed": false
+              }
+            ],
+            "parameter": "width_mm",
+            "driving": true,
+            "suppressed": false
+          },
+          {
+            "kind": "distance_y",
+            "operands": [
+              {
+                "kind": "point",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "point_mm": [0, 20, 0]
+                },
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "kind": "point",
+                "owner": "RectangleSketch",
+                "geometry": {
+                  "point_mm": [0, 0, 0]
+                },
+                "construction": false,
+                "fixed": false
+              }
+            ],
+            "parameter": "height_mm",
+            "driving": true,
+            "suppressed": false
+          }
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "width_mm",
+        "expression": null,
+        "dependencies": [],
+        "owner": "RectangleSketch",
+        "role": "driving"
+      },
+      {
+        "name": "height_mm",
+        "expression": null,
+        "dependencies": [],
+        "owner": "RectangleSketch",
+        "role": "driving"
+      },
+      {
+        "name": "depth_mm",
+        "expression": null,
+        "dependencies": [],
+        "owner": "BlindBoss",
+        "role": "driving"
+      },
+      {
+        "name": "d4",
+        "expression": null,
+        "dependencies": [],
+        "owner": "BlindBoss",
+        "role": "driving"
+      }
+    ],
+    "gaps": []
+  }
+}

@@ -8,7 +8,7 @@ param(
     [string]$SourceRevision,
     [ValidatePattern('^[a-f0-9]{64}$')]
     [string]$QueuedRequestSha256,
-    [ValidateSet('P04', 'P01-P03', 'P02', 'P01-P03-P04')]
+    [ValidateSet('P04', 'P01-P03', 'P02')]
     [string]$ReadbackScope = 'P04'
 )
 
@@ -24,6 +24,9 @@ if ([bool]$SourceRoot -ne [bool]$SourceRevision) {
 }
 if ($QueuedRequestSha256 -and -not $SourceRevision) {
     throw 'Queued launch requires a pinned source revision.'
+}
+if ($QueuedRequestSha256 -and $ReadbackScope -eq 'P02') {
+    throw 'The P02 scope is a standalone readback.'
 }
 $repository = if ($SourceRoot) {
     (Resolve-Path -LiteralPath $SourceRoot).Path
@@ -90,10 +93,11 @@ function Write-NewJson([string]$Path, $Value) {
 }
 
 $authoringRoot = 're/automation/PairedCaptures/SolidWorksAuthoring'
-$cutCapture = @{ recipe = 'P04'; capture = 'c1986308375a'; count = 11;
-                 sha256 = '7fd2fffa3c690998753a80cab81da2f1c2446c9fcec39574e3983a7f4345cae5' }
 if ($ReadbackScope -eq 'P04') {
-    $captureSets = @($cutCapture)
+    $captureSets = @(
+        @{ recipe = 'P04'; capture = 'c1986308375a'; count = 11;
+           sha256 = '7fd2fffa3c690998753a80cab81da2f1c2446c9fcec39574e3983a7f4345cae5' }
+    )
 } elseif ($ReadbackScope -eq 'P02') {
     $captureSets = @(
         @{ recipe = 'P02'; capture = '4a9e35f34a39'; count = 5;
@@ -106,9 +110,6 @@ if ($ReadbackScope -eq 'P04') {
         @{ recipe = 'P03'; capture = 'db1390476325'; count = 8;
            sha256 = 'f2308ae749f3d739746301873a49e997e2cf494f9d459e954403b66b17e22a94' }
     )
-    if ($ReadbackScope -eq 'P01-P03-P04') {
-        $captureSets += $cutCapture
-    }
 }
 $spec = Get-Pin 're/automation/PairSpecs.json'
 $control = Get-Pin 're/solidworks/examples/.SLDPRT/example.SLDPRT'
@@ -118,7 +119,6 @@ if ($spec.sha256 -cne '3c93e024f9fbdda50e610bda3b363bf30e8e7cdc914ef0728087befe1
 }
 $collector = Get-Pin "$authoringRoot/P04Readback.cs"
 $CircleCollector = Get-Pin "$authoringRoot/P02Readback.cs"
-$progressCollector = Get-Pin "$authoringRoot/ReadbackProgress.cs"
 $launcher = Get-Pin "$authoringRoot/ReadP04SolidWorks.ps1"
 Assert-Bytes $PSCommandPath $launcher
 $files = [ordered]@{}
@@ -193,8 +193,6 @@ $collectorCopy = Join-Path $output 'P04Readback.cs'
 Copy-Pinned $collector $collectorCopy
 $CircleCopy = Join-Path $output 'P02Readback.cs'
 Copy-Pinned $CircleCollector $CircleCopy
-$progressCopy = Join-Path $output 'ReadbackProgress.cs'
-Copy-Pinned $progressCollector $progressCopy
 $provenance = [ordered]@{
     source_revision = $revision
     recipe = $ReadbackScope
@@ -202,7 +200,6 @@ $provenance = [ordered]@{
     launcher = $launcher
     collector = $collector
     circle_collector = $CircleCollector
-    progress_collector = $progressCollector
     control = $control
     native_files = $files
     installed_executable_sha256 = (Get-FileHash -LiteralPath $binary.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -225,7 +222,7 @@ $planPin = @{
 $webExtensions = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 Add-Type -Path $constants.FullName
 Add-Type -Path $interop.FullName
-Add-Type -Path @($collectorCopy, $CircleCopy, $progressCopy) -ReferencedAssemblies @($interop.FullName, $constants.FullName, 'System.Core.dll', $webExtensions)
+Add-Type -Path @($collectorCopy, $CircleCopy) -ReferencedAssemblies @($interop.FullName, $constants.FullName, 'System.Core.dll', $webExtensions)
 if ($QueuedRequestSha256) {
     Write-NewJson (Join-Path $output 'native-ready.json') ([ordered]@{
         version = 1
@@ -247,7 +244,7 @@ if ($QueuedRequestSha256) {
         throw 'Direct launch belongs to another queued operation.'
     }
     $run = [P04Readback]::RunOwned($inputs, [string[]]@($files.Keys), $binary.FullName, $launchPath,
-        (Join-Path $output 'native-owner.json'), (Join-Path $output 'native-progress.jsonl')) | ConvertFrom-Json
+        (Join-Path $output 'native-owner.json')) | ConvertFrom-Json
 } else {
     $run = [P04Readback]::Run($inputs, [string[]]@($files.Keys), $binary.FullName) | ConvertFrom-Json
 }
@@ -263,7 +260,6 @@ foreach ($capture in $capturePins.Values) {
 }
 Assert-Bytes $collectorCopy $collector
 Assert-Bytes $CircleCopy $CircleCollector
-Assert-Bytes $progressCopy $progressCollector
 Assert-Bytes $provenancePath $planPin
 
 $reportPath = Join-Path $output 'measurements.json'
@@ -279,10 +275,6 @@ $verified = if ($ReadbackScope -eq 'P04') {
     @($observed | Where-Object { $_.face_verified_before_and_after_rebuild })
 } elseif ($ReadbackScope -eq 'P02') {
     @($observed | Where-Object { $_.circle_verified_before_and_after_rebuild })
-} elseif ($ReadbackScope -eq 'P01-P03-P04') {
-    @($observed | Where-Object {
-        $_.file -cnotlike 'P04-*' -or $_.face_verified_before_and_after_rebuild
-    })
 } else {
     @($observed)
 }
@@ -300,18 +292,11 @@ $receiptValue = [ordered]@{
 $countField = switch ($ReadbackScope) {
     'P04' { 'supporting_faces_verified' }
     'P02' { 'circle_bindings_verified' }
-    'P01-P03-P04' { 'discovery_files_observed' }
     'P01-P03' { 'principal_profiles_observed' }
 }
 $receiptValue.Add($countField, @($verified).Count)
 Write-NewJson (Join-Path $output 'receipt.json') $receiptValue
 if ($status -cne 'observed') {
     throw "Readback verification is incomplete. Inspect $reportPath"
-}
-if ($QueuedRequestSha256 -and $ReadbackScope -eq 'P01-P03-P04') {
-    foreach ($name in $files.Keys) {
-        [IO.File]::Delete((Join-Path $inputs $name))
-    }
-    [IO.File]::Delete($controlCopy)
 }
 Write-Output $output

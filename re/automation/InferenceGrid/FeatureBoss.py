@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -56,9 +56,9 @@ def BossSchedule(Revision, Application="solidworks"):
 
 
 # all source objects and jobs are published in one store transaction
-def ProvisionBoss(Store, Revision, Application="solidworks"):
+def ProvisionBoss(Store, Revision, Application="solidworks", Dependencies=()):
     return ProvisionAssessment(
-        Store, Revision, REVISION, partial(BossSchedule, Application=Application)
+        Store, Revision, REVISION, partial(BossSchedule, Application=Application), Dependencies
     )
 
 

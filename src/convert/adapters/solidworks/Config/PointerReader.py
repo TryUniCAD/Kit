@@ -10,4 +10,5 @@ class PointerReader(Protocol):
         KindValue: str,
         NameValue: str | None = None,
         SchemaValue: int = 1,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError

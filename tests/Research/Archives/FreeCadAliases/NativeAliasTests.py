@@ -2,9 +2,10 @@ from collections.abc import Mapping, Sequence
 from hashlib import sha256 as DigestBytes
 from io import BytesIO as ByteStream
 from json import dumps as EncodeJson, loads as ParseJson
+from os import environ as Environment, pathsep as PathSep
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
-from sys import argv as Arguments, executable as PythonExe
+from sys import executable as PythonExe
 from typing import cast as CastValue
 from xml.etree import ElementTree as XmlTree
 from zipfile import ZipFile
@@ -442,11 +443,15 @@ def CheckAliases(TmpPath: FilePath, CaseName: str) -> None:
         [
             PythonExe,
             "-B",
+            "-P",
             "-m",
             "tests.Research.Archives.FreeCadAliases.NativeAliasTests",
-            str(SourcePath),
         ],
-        cwd=KRepoRoot,
+        cwd=TmpPath,
+        env={
+            **Environment,
+            "PYTHONPATH": PathSep.join((str(KRepoRoot), str(KRepoRoot / "src"))),
+        },
         capture_output=True,
         text=True,
         check=False,
@@ -468,4 +473,6 @@ def CheckAliases(TmpPath: FilePath, CaseName: str) -> None:
 
 
 if __name__ == "__main__":
-    print(EncodeJson(ObserveAlias(FilePath(Arguments[1])), sort_keys=True))
+    print(
+        EncodeJson(ObserveAlias(FilePath.cwd() / "NativeAliases.FCStd"), sort_keys=True)
+    )

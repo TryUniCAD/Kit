@@ -1,0 +1,296 @@
+{
+  "aggregate_layout_revision": "db7a68ef02fa0ac4cb9d7711d59ee053861d870d",
+  "archive_version": 19000,
+  "controls": {
+    "one": {
+      "config_bytes": 24930,
+      "config_sha256": "37f4d4c35de98d6458e4947a145de43ac697ea0f61919087297d66240bde635f",
+      "directional_count": 1,
+      "earlier_name": {
+        "bounds": [26, 58],
+        "class_slot": 4,
+        "counter": [4, 6],
+        "name": "Part1",
+        "object_slot": 5,
+        "sha256": "bb99c34b0373d8268ac5923a04543fb128c0ca38162f7ff23a75cc43cbc42ac3"
+      },
+      "header_bytes": 2613,
+      "header_sha256": "b23696b22d5506fa59e9f3393b0aa7e4edfcf0ca014b9890ffee95ce97cf5f67",
+      "linked_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "8cdb65891e38dcae7cfaaf1dae2ad0dbf4da5e381774071d141599396a55142e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "ca28af72ba8b372e6ff36f7c9e10e9bcb09b97652d27fb1410cd1e120f33dbe9"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 24930,
+          "sha256": "37f4d4c35de98d6458e4947a145de43ac697ea0f61919087297d66240bde635f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2613,
+          "sha256": "b23696b22d5506fa59e9f3393b0aa7e4edfcf0ca014b9890ffee95ce97cf5f67"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "163d9f7023208a0d437a96777ee1e789e6be198dec9f2864903c27b3b2a3bb69"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2613,
+          "sha256": "b23696b22d5506fa59e9f3393b0aa7e4edfcf0ca014b9890ffee95ce97cf5f67"
+        }
+      },
+      "list_count_span": [20909, 20911],
+      "native_header_slot": 3,
+      "native_header_standalone_slot": 78,
+      "native_seed_entries": 69,
+      "parent_member": "moPart_c.f1e0",
+      "part_bytes": 66664,
+      "part_root": {
+        "bounds": [0, 14],
+        "class_slot": 1,
+        "complete_end": 24930,
+        "object_slot": 2,
+        "sha256": "11bba7ab76912873a06da79bab0539045bcc9a1809541f4bbb69362f081e7036"
+      },
+      "part_sha256": "b2772eebfd9f11038f72c76fe3a6ace4b9cd45373425f75921be45174943edb7",
+      "path": "re/solidworks/v2026/corpus/light-counts/OneLights.SLDPRT",
+      "scene": [
+        {
+          "bounds": [20822, 21668],
+          "class": "moEnvFolder_c",
+          "class_slot": 70,
+          "name": "Lights and Cameras",
+          "name_bounds": [20841, 20883],
+          "name_sha256": "e1cc744a3b5c0436633d24a9e328b20053b59f8f1bb2acce444492ecc56f47e8",
+          "name_slot": 72,
+          "native_f08": 6,
+          "object_slot": 71,
+          "sha256": "a2c9d81bef7fdb60dc608d76339dbc5661b7b551af27a79d28c11f9b43dae321"
+        },
+        {
+          "bounds": [20911, 21202],
+          "class": "moAmbientLight_c",
+          "class_slot": 73,
+          "name": "Ambient",
+          "name_bounds": [20933, 20953],
+          "name_sha256": "4917b5dd918f0445bc907cba416e9df65c34fd851c03312527bc0c2dcb2e24fe",
+          "name_slot": 75,
+          "native_f08": 12,
+          "normalized_word_offset": 21136,
+          "object_slot": 74,
+          "property_count_offset": 21198,
+          "sha256": "1212ab37128faafb4c344e21d8d895c0ecb8c959539f82a2340598164810cdb2"
+        },
+        {
+          "bounds": [21202, 21545],
+          "class": "moDirectionLight_c",
+          "class_slot": 76,
+          "direction": [
+            0.5417,
+            0.7071,
+            -0.4545
+          ],
+          "name": "Directional1",
+          "name_bounds": [21226, 21256],
+          "name_sha256": "348d69488a0acb3f12912a5c2419f5b211a3412169ed266592b313ba324aa3cb",
+          "name_slot": 78,
+          "native_f08": 13,
+          "normalized_word_offset": 21439,
+          "object_slot": 77,
+          "property_count_offset": 21509,
+          "sha256": "ab57a8e60baa2fa0787c667834a0b47a04cabf5cda106d34c3f63a87d276099d"
+        }
+      ],
+      "scene_counter": [70, 79]
+    },
+    "two": {
+      "config_bytes": 25251,
+      "config_sha256": "c0c25d72f1085f184aefdbc6a3cd61d72a2c3ebb0bc1697463af346f981dd54b",
+      "directional_count": 2,
+      "earlier_name": {
+        "bounds": [26, 58],
+        "class_slot": 4,
+        "counter": [4, 6],
+        "name": "Part1",
+        "object_slot": 5,
+        "sha256": "bb99c34b0373d8268ac5923a04543fb128c0ca38162f7ff23a75cc43cbc42ac3"
+      },
+      "header_bytes": 2583,
+      "header_sha256": "2f515996721921cd532ea36b194417269030f5b70591407dd3b053f8ce44dded",
+      "linked_streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "77a3fc88ba2eec2bfdc77874751388fe5d6c46d003a8b69cdee15598de636e3e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "475e1c5f119012e1e0461c834f2e97f948394b11e719805d46306d9a35fc71d4"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25251,
+          "sha256": "c0c25d72f1085f184aefdbc6a3cd61d72a2c3ebb0bc1697463af346f981dd54b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2583,
+          "sha256": "2f515996721921cd532ea36b194417269030f5b70591407dd3b053f8ce44dded"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "6c1d7b249fee07fea101bc3443a9b684e8686792f0262e8fa2a29a4e521637e1"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2583,
+          "sha256": "2f515996721921cd532ea36b194417269030f5b70591407dd3b053f8ce44dded"
+        }
+      },
+      "list_count_span": [20909, 20911],
+      "native_header_slot": 3,
+      "native_header_standalone_slot": 77,
+      "native_seed_entries": 69,
+      "parent_member": "moPart_c.f1e0",
+      "part_bytes": 66103,
+      "part_root": {
+        "bounds": [0, 14],
+        "class_slot": 1,
+        "complete_end": 25251,
+        "object_slot": 2,
+        "sha256": "11bba7ab76912873a06da79bab0539045bcc9a1809541f4bbb69362f081e7036"
+      },
+      "part_sha256": "287f64869f8d037ebf3c92712453440e3f162beb6d1ac9226afd215d965b7dba",
+      "path": "re/solidworks/v2026/corpus/light-counts/TwoLights.SLDPRT",
+      "scene": [
+        {
+          "bounds": [20822, 21989],
+          "class": "moEnvFolder_c",
+          "class_slot": 70,
+          "name": "Lights and Cameras",
+          "name_bounds": [20841, 20883],
+          "name_sha256": "e1cc744a3b5c0436633d24a9e328b20053b59f8f1bb2acce444492ecc56f47e8",
+          "name_slot": 72,
+          "native_f08": 6,
+          "object_slot": 71,
+          "sha256": "f1d3f794a256035d858ac30fd574b775a793d0e9a042b769320fe6d330f6cc50"
+        },
+        {
+          "bounds": [20911, 21202],
+          "class": "moAmbientLight_c",
+          "class_slot": 73,
+          "name": "Ambient",
+          "name_bounds": [20933, 20953],
+          "name_sha256": "4917b5dd918f0445bc907cba416e9df65c34fd851c03312527bc0c2dcb2e24fe",
+          "name_slot": 75,
+          "native_f08": 12,
+          "normalized_word_offset": 21136,
+          "object_slot": 74,
+          "property_count_offset": 21198,
+          "sha256": "1212ab37128faafb4c344e21d8d895c0ecb8c959539f82a2340598164810cdb2"
+        },
+        {
+          "bounds": [21202, 21545],
+          "class": "moDirectionLight_c",
+          "class_slot": 76,
+          "direction": [
+            0.5417,
+            0.7071,
+            -0.4545
+          ],
+          "name": "Directional1",
+          "name_bounds": [21226, 21256],
+          "name_sha256": "348d69488a0acb3f12912a5c2419f5b211a3412169ed266592b313ba324aa3cb",
+          "name_slot": 78,
+          "native_f08": 13,
+          "normalized_word_offset": 21439,
+          "object_slot": 77,
+          "property_count_offset": 21509,
+          "sha256": "ab57a8e60baa2fa0787c667834a0b47a04cabf5cda106d34c3f63a87d276099d"
+        },
+        {
+          "bounds": [21545, 21866],
+          "class": "moDirectionLight_c",
+          "class_slot": 76,
+          "direction": [
+            -0.3971,
+            0.342,
+            0.8517
+          ],
+          "name": "Directional2",
+          "name_bounds": [21547, 21577],
+          "name_sha256": "ecd0e761abf41f5c52039ede709f855f0822196a9186b6031772ca7d072d3738",
+          "name_slot": 80,
+          "native_f08": 14,
+          "normalized_word_offset": 21760,
+          "object_slot": 79,
+          "property_count_offset": 21830,
+          "sha256": "2853a8f84230a036d44bbe1193d8a646a17944242d62681092ad0694d2417f76"
+        }
+      ],
+      "scene_counter": [70, 81]
+    }
+  },
+  "header_stream": "Contents/Config-0-ModelHeader",
+  "native_executable_version": "34.5.2.0604",
+  "native_receipt_sha256": "e716b46e72d8f37081cdf5bf7ca7832d5a3445532bed7a840e631d497b305081",
+  "schema": "kit.sw2026.config-scene-counts.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py": "0b2d424b1a0832369704c684d7cc7d6e42691b16e8dffe61db7d782589ca45b8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFieldsMut.py": "e53a0c4504433791c8821568bf8db53cd4204b432acd08b782cc2e460cea887a",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "154f9b3bb35bd37a9a731ea8ef55befb5f4342b7c544d96599f6fbea0487ed48"
+  },
+  "stream": "Contents/Config-0",
+  "typed_probe_sha256": "c413d0be30786fafa782749b7e21c0d6f57093b226727fc89abd707917147423",
+  "native_oracle": {
+    "api_sha256": "84582cba463deddf3e4e45fcb1fe69634dc30d94a9e4caceda446e6140e5c31b",
+    "distinct_processes": 8,
+    "freeze_sha256": "f6598214aac389db6579b8345a9210c373830aa32874c286a231ac7b0cf5729a",
+    "healthy_bracket": true,
+    "heldout_coverage": 0,
+    "passed": false,
+    "phases": {
+      "After": {
+        "passed": true,
+        "sha256": "645afbfb9ea1678705f2d818b6c8cb973460f80514c40de4b6029f96bdaccc83"
+      },
+      "Before": {
+        "passed": true,
+        "sha256": "13a6b8b5b30cb52ff113a51612763da6bcf826c1c83bd457b4465d4d699d34a2"
+      },
+      "OneAuthor": {
+        "passed": true,
+        "sha256": "798472fe1ce0cf13bd13d81e4e84972daa4060324ce80dd14c956a5c40c0c73d"
+      },
+      "OneReopen": {
+        "passed": true,
+        "sha256": "3278fe6e71bd3f99c8bf699ec85d064e99f998f6361c5aab46a7ff1448790f8c"
+      },
+      "TwoAuthor": {
+        "passed": true,
+        "sha256": "34861d2b038a74441f22baee67ce8d96114a30c222e78e24ec1b4436b143b55c"
+      },
+      "TwoReopen": {
+        "passed": true,
+        "sha256": "3d547ac3ecd9e0f283aa3bf9d2a90a87c6fa3ad1c4582e4a95fefd467ef46cb6"
+      }
+    },
+    "production_coverage": 0,
+    "sealed_payloads_read": 0,
+    "selected_numeric_checks": {
+      "one": [14, 14],
+      "two": [14, 14]
+    }
+  }
+}

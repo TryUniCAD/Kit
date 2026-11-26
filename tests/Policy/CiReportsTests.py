@@ -18,7 +18,6 @@ import pytest as Pytest
         ("check", "Pyright"),
         ("check", "Mypy"),
         ("check", "Python steering"),
-        ("check", "Research CLI compatibility"),
         ("check", "Research CLI Windows compatibility"),
         ("check", "Verify CI policy and pytest compatibility"),
         ("check", "Verify rationale comments on changed sources"),
@@ -26,6 +25,10 @@ import pytest as Pytest
         ("check", "Label first-time contributors"),
         ("check", "Test suite / Plan"),
         ("check", "Test suite / Report"),
+        ("check", "Test suite / Platform (windows-2025) / ${{ matrix.group }}"),
+        ("check", "Test suite / Platform (macos-26) / ${{ matrix.group }}"),
+        ("check", "Native file compatibility / ${{ matrix.group }}"),
+        ("check", "Research CLI Windows compatibility / ${{ matrix.group }}"),
         ("quality-fork", "Ruff"),
         ("quality-docs", "Ruff"),
     ),
@@ -61,6 +64,38 @@ def CheckReportFlow(CaseMode: str, CheckName: str) -> None:
         assert "Ruff" in ResultInfo.stdout
     else:
         assert f"CI failed: {CheckName}" in ResultInfo.stderr
+
+
+# skipped shared checks must block enrollment while a deferred integration check may wait
+@Pytest.mark.parametrize(
+    "CheckName,ExitCode",
+    (
+        ("Pyright", 1),
+        ("Mypy", 1),
+        ("Python steering", 1),
+        ("Test suite / Platform (windows-2025) / ${{ matrix.group }}", 0),
+        ("Test suite / Platform (macos-26) / ${{ matrix.group }}", 0),
+        ("Native file compatibility / ${{ matrix.group }}", 0),
+        ("Research CLI Windows compatibility / ${{ matrix.group }}", 0),
+    ),
+)
+def CheckPhaseSkip(CheckName: str, ExitCode: int, TmpPath: FilePath) -> None:
+    ScriptPath = (
+        FilePath(__file__).resolve().parents[2]
+        / "tests/Policy/CiAggregation/RunAggregate.cjs"
+    )
+    Result = Subprocess.run(
+        ["node", str(ScriptPath), "check", "skipped", CheckName],
+        cwd=TmpPath,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+    assert Result.returncode == ExitCode, Result.stderr
+    if ExitCode:
+        assert f"CI failed: {CheckName}" in Result.stderr
+    else:
+        assert "CI passed" in Result.stdout
 
 
 # process execution verifies trusted base phase selection and rejects unreadable markers

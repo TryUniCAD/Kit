@@ -1,0 +1,95 @@
+{
+  "status": "completed",
+  "application": "fusion",
+  "cases": [
+    {
+      "case": "control-before",
+      "parameters_mm": {
+        "width": 37,
+        "height": 23,
+        "depth": 11
+      },
+      "body_count": 1,
+      "volume_cm3": 9.361,
+      "area_cm2": 30.22,
+      "centroid_cm": [
+        1.85,
+        1.15,
+        0.55
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "xYConstructionPlane",
+      "direction": 1,
+      "sha256": "bd94ae33e87d3c2ec967b8e629ca99d7290bc26aeb5c64a293d5bf634f437aa4"
+    },
+    {
+      "case": "reverse-xy",
+      "parameters_mm": {
+        "width": 37,
+        "height": 23,
+        "depth": 11
+      },
+      "body_count": 1,
+      "volume_cm3": 9.361,
+      "area_cm2": 30.22,
+      "centroid_cm": [
+        1.85,
+        1.15,
+        -0.55
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "xYConstructionPlane",
+      "direction": -1,
+      "sha256": "06411d6e1d167a148c51cb6d31588dd8d2ccdce45feba9c3bd8ac81250d79ff7"
+    },
+    {
+      "case": "datum-yz",
+      "parameters_mm": {
+        "width": 37,
+        "height": 23,
+        "depth": 11
+      },
+      "body_count": 1,
+      "volume_cm3": 9.361,
+      "area_cm2": 30.22,
+      "centroid_cm": [
+        0.55,
+        1.15,
+        -1.85
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "yZConstructionPlane",
+      "direction": 1,
+      "sha256": "3c391508646124ca5a44080b93e43c4de11516951a2c477a8e935c9c98a5ccd6"
+    },
+    {
+      "case": "control-after",
+      "parameters_mm": {
+        "width": 37,
+        "height": 23,
+        "depth": 11
+      },
+      "body_count": 1,
+      "volume_cm3": 9.361,
+      "area_cm2": 30.22,
+      "centroid_cm": [
+        1.85,
+        1.15,
+        0.55
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "xYConstructionPlane",
+      "direction": 1,
+      "sha256": "ab9821bbbaaea61365b852f2e5b8e4b7eb1b372fb2c57c5b2190e40390bcb87c"
+    }
+  ],
+  "acceptance": "authoring_only; neutral semantic comparison pending"
+}

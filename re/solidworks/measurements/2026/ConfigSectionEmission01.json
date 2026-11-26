@@ -1,0 +1,202 @@
+{
+  "complete_config_admission": false,
+  "ghosts": [
+    {
+      "case": "ladder",
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "f80": 10000,
+      "native_interval": [
+        3174,
+        3182
+      ],
+      "row_count": 0,
+      "signed_flags": 1,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "wire_bytes": 8,
+      "wire_sha256": "92fe14bf563b32217307d459e91ae6010962c02a71eea5e40c4dc9604de57523"
+    },
+    {
+      "case": "concave",
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "f80": 10000,
+      "native_interval": [
+        2227,
+        2235
+      ],
+      "row_count": 0,
+      "signed_flags": 0,
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "wire_bytes": 8,
+      "wire_sha256": "8e965763e6a4bbc1088a94bf6c9cb3cbbdb4955f88355c807362a0fd43de4e3a"
+    },
+    {
+      "case": "signed",
+      "f80": 25,
+      "row_count": 0,
+      "signed_flags": -8,
+      "wire_bytes": 8,
+      "wire_sha256": "bc2cc7786f9a62005d82db195ff3ab495a4862dcf5d4e26b04fd09181551db43"
+    }
+  ],
+  "guarded_fresh_processes": 2,
+  "models": [
+    {
+      "bytes": 32,
+      "case": "single",
+      "config_ref_slot": 3,
+      "map_base": 4,
+      "map_counter": 4,
+      "missing_alias": {
+        "diagnostic": "unresolved archive object reference 3",
+        "outer_cursor": 22,
+        "windows": [
+          {
+            "body": [
+              18,
+              22
+            ],
+            "cursor": 22,
+            "map_after": [
+              3,
+              3
+            ],
+            "map_before": [
+              1,
+              3
+            ]
+          },
+          {
+            "body": [
+              26,
+              32
+            ],
+            "cursor": 28,
+            "map_after": [
+              3,
+              3
+            ],
+            "map_before": [
+              3,
+              3
+            ]
+          }
+        ]
+      },
+      "outer_cursor": 32,
+      "standalone_slots": [
+        4
+      ],
+      "windows": [
+        [
+          18,
+          22
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "wire_sha256": "19cd64cc71a81cbe850c873c8d51445cb6217c38c726d360f99ec821734135c8"
+    },
+    {
+      "bytes": 44,
+      "case": "directory",
+      "config_ref_slot": 5,
+      "map_base": 6,
+      "map_counter": 6,
+      "missing_alias": null,
+      "outer_cursor": 44,
+      "standalone_slots": [
+        12,
+        6,
+        10
+      ],
+      "windows": [
+        [
+          18,
+          22
+        ],
+        [
+          26,
+          44
+        ]
+      ],
+      "wire_sha256": "f8a076fd0b4264c6b79f234a4cbda3c711c140f938bfa044753eb939d3290db3"
+    }
+  ],
+  "native_launches": 0,
+  "refusals": [
+    {
+      "case": "wrong_version",
+      "diagnostic": "SOLIDWORKS typed body grammar requires archive version 19000",
+      "outer_bytes": 14
+    },
+    {
+      "case": "skip_lightweight",
+      "diagnostic": "unsupported SOLIDWORKS skipped model section",
+      "outer_bytes": 14
+    },
+    {
+      "case": "skip_resolved",
+      "diagnostic": "unsupported SOLIDWORKS skipped model section",
+      "outer_bytes": 14
+    },
+    {
+      "case": "absent_alias",
+      "diagnostic": "SOLIDWORKS direct part header needs distinct new aliases",
+      "outer_bytes": 14
+    },
+    {
+      "case": "duplicate_alias",
+      "diagnostic": "SOLIDWORKS direct part header needs distinct new aliases",
+      "outer_bytes": 14
+    },
+    {
+      "case": "wrong_alias_class",
+      "diagnostic": "SOLIDWORKS direct part header needs distinct new aliases",
+      "outer_bytes": 14
+    },
+    {
+      "case": "wrong_owner",
+      "diagnostic": "unsupported SOLIDWORKS direct part header owner",
+      "outer_bytes": 18
+    },
+    {
+      "case": "nested_part",
+      "diagnostic": "unsupported SOLIDWORKS direct part header owner",
+      "outer_bytes": 18
+    },
+    {
+      "case": "flag_underflow",
+      "diagnostic": "SOLIDWORKS body moPart_c field Section at 14: SOLIDWORKS body moPart_c field Section/fd90 at 4: SOLIDWORKS body moPart_c/moGhostBodyIdManager_c.FUN_4bf050e0 field Section/fd90/n at 4: native ghost flags require a signed four bit integer",
+      "outer_bytes": 14
+    },
+    {
+      "case": "flag_overflow",
+      "diagnostic": "SOLIDWORKS body moPart_c field Section at 14: SOLIDWORKS body moPart_c field Section/fd90 at 4: SOLIDWORKS body moPart_c/moGhostBodyIdManager_c.FUN_4bf050e0 field Section/fd90/n at 4: native ghost flags require a signed four bit integer",
+      "outer_bytes": 14
+    },
+    {
+      "case": "boolean_flag",
+      "diagnostic": "SOLIDWORKS body moPart_c field Section at 14: SOLIDWORKS body moPart_c field Section/fd90 at 4: SOLIDWORKS body moPart_c/moGhostBodyIdManager_c.FUN_4bf050e0 field Section/fd90/n at 4: native ghost flags require a signed four bit integer",
+      "outer_bytes": 14
+    },
+    {
+      "case": "populated_ghost",
+      "diagnostic": "unqualified populated SOLIDWORKS ghost rows",
+      "outer_bytes": 14
+    }
+  ],
+  "runtime_external_accesses": 0,
+  "source_sha256": {
+    "re/solidworks/measurements/2026/ConfigSectionSource01.json": "6dcf0410fb3718cd8f9adea3d73406f797ee84ded54deefab7906ade5e35cb65",
+    "re/tooling/sw2026/CheckCfgSection.py": "c68d1488829051b52ba317e6c0539e477d71b09c7b6175a4aa2e0d1e98f4d9e6",
+    "re/tooling/sw2026/CheckCfgSectionWrite.py": "ecf45bdc1b7c4401e141461d67aba23a90c64047d686e3ef3efce0a54e6e8993",
+    "re/tooling/sw2026/MakeHeadAliasCase.py": "d3f10efe2f7506b60e16558b88014bbee68e5772e0908d2b705b6c99bfd127fd",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "d074b9ad011b47829803019ca8749778cee8b53c0eff2ef81d1dcbc0d34b6933",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteDirectMut.py": "dcfa5ef5b9dc54a10ea3068b593a1c15a8d7d0a29f7a2ac50816ac0413026eac",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteGhostMut.py": "52c5fe927e6dcd8e3b614672ca3ea8552737347c9f424ea045ac147ed24d4433",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteSectionMut.py": "0889a498a1f678a29c841e6ff01e88a121431cf4a6ea8313ea77c95c724c2e1e"
+  },
+  "tested_base": "e3b75f8860497fd92583e5397b7d0c4ac40528cf"
+}

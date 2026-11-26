@@ -1,0 +1,1017 @@
+{
+  "schema": "kit.sw2026.vendor-boss-corpus-index.v1",
+  "pinned_sdk_revision": "c4e8a34186bdd173dad37d843b79bc8a3a59ebb9",
+  "scope": "Vendor-authored source contrasts and native readback only. No generated candidate was observed.",
+  "oracle": {
+    "build": "34.4.1.1011",
+    "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f"
+  },
+  "distinct_native_processes": 20,
+  "method_snapshots": {
+    "Discovery01": "9a6ca9b4cd486b7431d4f7badb231cac8bf89372:re/tooling/sw2026/ObserveVendorBossCorpus.py",
+    "Discovery02": "7e93b3cc6e2fe94ce64c14e18c699b02e8cb1368:re/tooling/sw2026/ObserveVendorBossCorpus.py",
+    "Reserved01": "7e93b3cc6e2fe94ce64c14e18c699b02e8cb1368:re/tooling/sw2026/ObserveVendorBossCorpus.py"
+  },
+  "outside_checkout": [
+    "Author records and originals",
+    "per-process inputs, logs and native observations",
+    "reserved profile specification and original"
+  ],
+  "known_prior_controls": "../EncoderRoundTrip/NativeSummary.json",
+  "baseline_sdk_depth_comparison": {
+    "NoOpBefore_mm": {
+      "native": 13.371,
+      "strict_public_reader": 13.37
+    },
+    "DepthContrast_mm": {
+      "native": 21.463,
+      "strict_public_reader": 21.46
+    },
+    "source_role_in_strict_sdk": "unresolved"
+  },
+  "limits": [
+    "Discovery01 first save had a blank encoded self locator. Use Discovery02 for warmed no-op save variation.",
+    "The vendor-authored property mutation is visible and unlinked in COM. The current empty-owner proof refuses its populated binary child.",
+    "Nested notes and lights have confirmed COM owners. Exploded Views 19 is present in keyword XML and absent from the observed recursive COM traversal.",
+    "The holdout geometry remains sealed from rule derivation."
+  ],
+  "runs": {
+    "Discovery01": {
+      "terminal_sha256": "c26fe38495204a296e28fce2856b02633b6eeab45e37fbca8aa5eaa4be5afd26",
+      "observer_sha256": "eca0e42bdde6a90d14385b9e2a3574aa3dd3a305a50a450faff192fd860719ff",
+      "source_observer_sha256": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3",
+      "split": "discovery",
+      "healthy_controls": true,
+      "exact_control_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "lifetimes": {
+        "ControlBefore": {
+          "record_sha256": "ced91cee35245722e39057fafb8b0f0234e6965c3798942a9b265414e1eeb325",
+          "request_sha256": "30d8318c804f0b54777e305b86169dde5705a5c8b663b6b685056dea2082efaa",
+          "pid": 37320,
+          "start_filetime": 134401205744648049,
+          "exit_filetime": 134401205924625832,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "Author": {
+          "record_sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda",
+          "request_sha256": "b74d70b3dc700ec060dcb159c291e81eb86a07fcb3aada3f7295458830750a98",
+          "pid": 10836,
+          "start_filetime": 134401205929581923,
+          "exit_filetime": 134401206171368089,
+          "exit_code": 0
+        },
+        "NoOpBefore": {
+          "record_sha256": "4c2ca4164f87a3f59c8daeb796aa42da25967d3f0aa6000d969bbd2ab881158a",
+          "request_sha256": "163cecc95beccbb702bfebd1ea65f00dc390f3e491db0b2ddb4e3df47d724bcf",
+          "pid": 35240,
+          "start_filetime": 134401206174943943,
+          "exit_filetime": 134401206339525469,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "NoOpAfter": {
+          "record_sha256": "a65d2f4a213ecf8143c08ef982aa437b634f067e3cf76dcd8da488479edd9dc8",
+          "request_sha256": "2b7243a08b4bdc51f78922710ff050006782c111e8f244a071eb79f90a64f66a",
+          "pid": 22096,
+          "start_filetime": 134401206343538537,
+          "exit_filetime": 134401206489025264,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CustomText": {
+          "record_sha256": "af503d64f9a025b5f8bdd8d4d1868edb09278434ab4de58fe842038d51afe618",
+          "request_sha256": "42b643b001755fc0392a3b5928841baf5c7f74aa321fa571482f460df5c151d4",
+          "pid": 21956,
+          "start_filetime": 134401206493125960,
+          "exit_filetime": 134401206649301954,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ProfileContrast": {
+          "record_sha256": "22e376fe86209c87126634ccb899b8924300c006a68f0e85aebc55ad6c3f7d98",
+          "request_sha256": "63a55a3c6a8c3a7c56c87f4bb8db06256710c0062556719587b3f8b8fb562ff3",
+          "pid": 35616,
+          "start_filetime": 134401206653829102,
+          "exit_filetime": 134401206786317229,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "DepthContrast": {
+          "record_sha256": "83ec916446ed02351d99630711a49fd88a23238e2d3b52740c7e77ac5c93ff97",
+          "request_sha256": "7b590da35390a1b09bb23ee041ebd831bc2057c441f81433f26e2b6e06ca6f85",
+          "pid": 31268,
+          "start_filetime": 134401206791538699,
+          "exit_filetime": 134401206947263782,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ControlAfter": {
+          "record_sha256": "444f763e28acb2b03f7a3e4600cfdb5b4c8ae6d524cb3510db28bfefc731571c",
+          "request_sha256": "20b787fab0e67851c3a75a6fc23f402d0413207c6a5c7f92ed564db193baa0a0",
+          "pid": 34680,
+          "start_filetime": 134401206951372948,
+          "exit_filetime": 134401207091610559,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        }
+      },
+      "elapsed_native_seconds": 134.696,
+      "started_utc": "2026-11-25T22:49:34.464806+00:00",
+      "authoring_template_sha256": "e338c3a1de8734934e78c3fa1558833330ee54cec13fc38f9d8f0f460e97954a",
+      "cases": {
+        "NoOpBefore": {
+          "relative_file": "NoOpBefore/Prism.SLDPRT",
+          "archive_sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246",
+          "archive_bytes": 47174,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 9.673918499999998e-06,
+            "area_m2": 0.002825181814193373,
+            "centre_of_mass_m": [
+              0.005247869154572679,
+              0.003682331260078323,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "locator_present": false,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "bbf934266d3982631652223000a6f8d7d61fce641d4ca8c14a7fa5264f47aa8e",
+          "partition_bytes": 4305
+        },
+        "NoOpAfter": {
+          "relative_file": "NoOpAfter/Prism.SLDPRT",
+          "archive_sha256": "ed5193322a7166ed8d0cdca9e0fe3abe46233e11c7368f0b42fdabaed60c3269",
+          "archive_bytes": 47572,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 9.673918499999998e-06,
+            "area_m2": 0.002825181814193373,
+            "centre_of_mass_m": [
+              0.005247869154572678,
+              0.003682331260078323,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "b5e6bfaafa38e1be9be56882956956ce14cf5745bae673061fd875c4bb2a01d5",
+          "locator_present": true,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "476cc98700dbf161dc33cf2f42c917f723ef3b0e4ba2d8081711a2ce35004552",
+          "partition_bytes": 4344
+        },
+        "CustomText": {
+          "relative_file": "CustomText/Prism.SLDPRT",
+          "archive_sha256": "fc27be9236f286777726cc2dcc2b38049295b2d52d4375c583ebf3823e49f5f2",
+          "archive_bytes": 47899,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 9.673918499999998e-06,
+            "area_m2": 0.002825181814193373,
+            "centre_of_mass_m": [
+              0.005247869154572679,
+              0.003682331260078323,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {
+            "A12bProbe": {
+              "literal": "only this authored literal should differ",
+              "resolved": "only this authored literal should differ",
+              "was_resolved": true,
+              "linked": false,
+              "status": 2
+            }
+          },
+          "complete_empty_owner_proof": false,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "b5e6bfaafa38e1be9be56882956956ce14cf5745bae673061fd875c4bb2a01d5",
+          "locator_present": true,
+          "property_manager_sha256": "52ee70944060552f5d4c923dd286adce5ccba206317f04cf0f5ae317ae5d81ee",
+          "property_manager_bytes": 525,
+          "partition_sha256": "d7b266e4c1109f2cfe859a10c3c3969ca36b0832f61ffc963893604efa875bc2",
+          "partition_bytes": 4345
+        },
+        "ProfileContrast": {
+          "relative_file": "ProfileContrast/Prism.SLDPRT",
+          "archive_sha256": "acedc181f6da5b8d4a0a17521d957b89250e71a1be865533958bd2f5f298195c",
+          "archive_bytes": 46056,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.004,
+              -0.015
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 1.00884195e-05,
+            "area_m2": 0.0029158838269036412,
+            "centre_of_mass_m": [
+              0.00508924232383477,
+              0.0030949856417053236,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.015000000000000001,
+              0.0,
+              0.021,
+              0.020000000000000004,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "locator_present": false,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "b11d1b310f79c78c07b943cc43a199e1038c54dc2d89b4a6319781cd83f12659",
+          "partition_bytes": 4293
+        },
+        "DepthContrast": {
+          "relative_file": "DepthContrast/Prism.SLDPRT",
+          "archive_sha256": "49b9afe5366d6af21dd848f7bcb68cb81d01a6f7f2b2a1dc404778c66db3467e",
+          "archive_bytes": 47516,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.021463,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 1.55284805e-05,
+            "area_m2": 0.003659244131181838,
+            "centre_of_mass_m": [
+              0.005247869154572679,
+              0.003682331260078323,
+              0.0107315
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.021463
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "locator_present": false,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "a779db97382fca28c998ade31bfa7fecfb3c69c6c93aa3d5f626ff3b292617da",
+          "partition_bytes": 4309
+        }
+      },
+      "representative_auxiliary_features": [
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "id": 17,
+          "parent": "Annotations"
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "id": 18,
+          "parent": "Annotations"
+        },
+        {
+          "name": "Ambient",
+          "type": "AmbientLight",
+          "id": 12,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Directional1",
+          "type": "DirectionLight",
+          "id": 13,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Directional2",
+          "type": "DirectionLight",
+          "id": 14,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Directional3",
+          "type": "DirectionLight",
+          "id": 15,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "id": 26,
+          "parent": "Boss-Extrude1"
+        }
+      ],
+      "changed_clear_streams": {
+        "NoOpBefore to NoOpAfter": [
+          "Contents/3DExperienceExchange2",
+          "Contents/3DExperienceExchange_ConfigHeader",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/PMISemanticDataDB",
+          "Header2",
+          "_MO_VERSION_19000/Biography",
+          "docProps/ISolidWorksInformation.xml",
+          "docProps/core.xml",
+          "swXmlContents/Features",
+          "swXmlContents/KeyWords"
+        ],
+        "NoOpAfter to CustomText": [
+          "Contents/3DExperienceExchange_ConfigHeader",
+          "Contents/Config-0-Partition",
+          "Contents/CusProps",
+          "_MO_VERSION_19000/Biography",
+          "docProps/custom.xml"
+        ]
+      }
+    },
+    "Reserved01": {
+      "terminal_sha256": "15a758c62e96c2ceb3e7531ef3c21bee13c55c02596e9da8765abd52c5f56bc5",
+      "observer_sha256": "c061cd9d5a11d3fad8e1288b7701e161bc68f0de21b920c86ccc85fb97d45b78",
+      "source_observer_sha256": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3",
+      "split": "held-out",
+      "healthy_controls": true,
+      "exact_control_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "lifetimes": {
+        "ControlBefore": {
+          "record_sha256": "fd01cb11f0bebf14b936752b95aed5bb8f0b2487ee534085e0e2d955120edaf3",
+          "request_sha256": "30d8318c804f0b54777e305b86169dde5705a5c8b663b6b685056dea2082efaa",
+          "pid": 30152,
+          "start_filetime": 134401208084813016,
+          "exit_filetime": 134401208249827602,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "Author": {
+          "record_sha256": "d16227a8ee662e4b71802dc678c45a7cd249c743e7f723e2ee8b7def627e1c22",
+          "request_sha256": "f3291ff2ac85ca3e70d79d1ed7d6a8d6b625a509618823d5db74b9fae3b2a42b",
+          "pid": 37176,
+          "start_filetime": 134401208254611966,
+          "exit_filetime": 134401208413014093,
+          "exit_code": 0
+        },
+        "HeldOut": {
+          "record_sha256": "611cdc1611c51de77710636aeee1b870a632034cec5c0f80c2c4c5cf3d0def73",
+          "request_sha256": "5d76aa097d13a0a61718fe230c9e799a4545d479920fe957ceef210d971b2e48",
+          "pid": 31160,
+          "start_filetime": 134401208417139125,
+          "exit_filetime": 134401208555209029,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ControlAfter": {
+          "record_sha256": "e00fed6a66c417a51e0eb247bfd18660c20ed38fd396b99eba51c0886ebd9e48",
+          "request_sha256": "20b787fab0e67851c3a75a6fc23f402d0413207c6a5c7f92ed564db193baa0a0",
+          "pid": 20112,
+          "start_filetime": 134401208559505679,
+          "exit_filetime": 134401208741309222,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        }
+      },
+      "elapsed_native_seconds": 65.65,
+      "started_utc": "2026-11-25T22:53:28.481302+00:00",
+      "spec_sha256": "55bf36f8c93f59a0ace70688049794ecb6222ad3d7a91570595d6be2a19c951b",
+      "archive_sha256": "0de0b983f46e1a0a2553efd192f916b13227b23a95a62b806e1795a7fa8ff3f1",
+      "sealed_geometry": true,
+      "authoring_template_sha256": "e338c3a1de8734934e78c3fa1558833330ee54cec13fc38f9d8f0f460e97954a"
+    },
+    "Discovery02": {
+      "terminal_sha256": "246ffe49c63d703aa7f9cb926f11b681cab4fe7d45138a62f42ec4b251af4025",
+      "observer_sha256": "c061cd9d5a11d3fad8e1288b7701e161bc68f0de21b920c86ccc85fb97d45b78",
+      "source_observer_sha256": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3",
+      "split": "discovery",
+      "healthy_controls": true,
+      "exact_control_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "lifetimes": {
+        "ControlBefore": {
+          "record_sha256": "3cc80750af4d21ea785c1e626f02da9c4a30162e042a1336c06166487cac96e8",
+          "request_sha256": "30d8318c804f0b54777e305b86169dde5705a5c8b663b6b685056dea2082efaa",
+          "pid": 24616,
+          "start_filetime": 134401208747718910,
+          "exit_filetime": 134401208915170464,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "Author": {
+          "record_sha256": "4af9a9eb2e2c69e4c556494333ab6fba9ed49fdd259c99a8b6ffceb8580928ae",
+          "request_sha256": "b74d70b3dc700ec060dcb159c291e81eb86a07fcb3aada3f7295458830750a98",
+          "pid": 28604,
+          "start_filetime": 134401208920424081,
+          "exit_filetime": 134401209167247173,
+          "exit_code": 0
+        },
+        "NoOpBefore": {
+          "record_sha256": "62c27a4408f2c468dace3c5c5e02d39125ac72cde9905243ff16bf36589c130e",
+          "request_sha256": "47d9611799f904aa6396c512617d0054e60437f7e45995538587b973476801b6",
+          "pid": 17848,
+          "start_filetime": 134401209171006067,
+          "exit_filetime": 134401209359617759,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "NoOpAfter": {
+          "record_sha256": "a14cea15816b781941c872fd8a0e25881f2c874fe395df7afa0cd7dc70beea54",
+          "request_sha256": "d8afbdb8024bb3e1a2c3a6610f8e9d20afe6f5a5b50e2f5f077a15cacbd49183",
+          "pid": 35336,
+          "start_filetime": 134401209363619680,
+          "exit_filetime": 134401209558198288,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "CustomText": {
+          "record_sha256": "27747d238a6a3becb132244f7b86bb814a7385b65953ef9a60620c230975a021",
+          "request_sha256": "81bcb0dd439990af357a380a06655b8eb5c4c8b1fad7ec60f41fed890a96d954",
+          "pid": 22480,
+          "start_filetime": 134401209563071720,
+          "exit_filetime": 134401209763913207,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ProfileContrast": {
+          "record_sha256": "ae4d6fef1abb058319fee19f5a292d3b57e1caece67b9521a5cf6f467391d4e4",
+          "request_sha256": "8b603e2dea457c7435a29777d06caf27f2a424be904906c5107a7a46064a1143",
+          "pid": 33120,
+          "start_filetime": 134401209768511985,
+          "exit_filetime": 134401209919218787,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "DepthContrast": {
+          "record_sha256": "6228c582d32b647d624c2d59a9d0cf220fa52bb29c2b44fe68de8dbfe539bff4",
+          "request_sha256": "a0aeedc694b279c59268cdaae0aeec0083f64a47c08a04d88b25b9b38514018f",
+          "pid": 32732,
+          "start_filetime": 134401209924916633,
+          "exit_filetime": 134401210083637504,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        },
+        "ControlAfter": {
+          "record_sha256": "14fdc6568287e388f85d14b9a2c19b70601084898a7e7f040345bdebf52b1888",
+          "request_sha256": "20b787fab0e67851c3a75a6fc23f402d0413207c6a5c7f92ed564db193baa0a0",
+          "pid": 22396,
+          "start_filetime": 134401210087376214,
+          "exit_filetime": 134401210225192067,
+          "exit_code": 0,
+          "open_errors": 0,
+          "open_warnings": 0
+        }
+      },
+      "elapsed_native_seconds": 147.747,
+      "started_utc": "2026-11-25T22:54:34.771891+00:00",
+      "authoring_template_sha256": "e338c3a1de8734934e78c3fa1558833330ee54cec13fc38f9d8f0f460e97954a",
+      "cases": {
+        "NoOpBefore": {
+          "relative_file": "NoOpBefore/Prism.SLDPRT",
+          "archive_sha256": "aed6df2efb84e04cf9104742742c8845f054f890376f52ecd8ede26890a56445",
+          "archive_bytes": 47858,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 9.6739185e-06,
+            "area_m2": 0.002825181814193373,
+            "centre_of_mass_m": [
+              0.005247869154572679,
+              0.003682331260078323,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "d8b1c561be9f9927eff8401416490e82ab2102aad92366cbd2ea3a93320e8be6",
+          "locator_present": true,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "a85258f712f3c12ebeb513fdb508cf1dbda71f13586d3b4bc1cd762403206d25",
+          "partition_bytes": 4294
+        },
+        "NoOpAfter": {
+          "relative_file": "NoOpAfter/Prism.SLDPRT",
+          "archive_sha256": "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc",
+          "archive_bytes": 47406,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 9.6739185e-06,
+            "area_m2": 0.002825181814193373,
+            "centre_of_mass_m": [
+              0.005247869154572679,
+              0.003682331260078323,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "d8b1c561be9f9927eff8401416490e82ab2102aad92366cbd2ea3a93320e8be6",
+          "locator_present": true,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "82a7d451466953310869f978484518b7ba6afb0d04431aab804467e90f9b504c",
+          "partition_bytes": 4346
+        },
+        "CustomText": {
+          "relative_file": "CustomText/Prism.SLDPRT",
+          "archive_sha256": "be2f59557dbe35c7d48706f0bd6ec9e6e6b9ef690232b392c284d4696bbc4894",
+          "archive_bytes": 49005,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 9.6739185e-06,
+            "area_m2": 0.002825181814193373,
+            "centre_of_mass_m": [
+              0.005247869154572679,
+              0.003682331260078323,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {
+            "A12bProbe": {
+              "literal": "only this authored literal should differ",
+              "resolved": "only this authored literal should differ",
+              "was_resolved": true,
+              "linked": false,
+              "status": 2
+            }
+          },
+          "complete_empty_owner_proof": false,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "d8b1c561be9f9927eff8401416490e82ab2102aad92366cbd2ea3a93320e8be6",
+          "locator_present": true,
+          "property_manager_sha256": "52ee70944060552f5d4c923dd286adce5ccba206317f04cf0f5ae317ae5d81ee",
+          "property_manager_bytes": 525,
+          "partition_sha256": "8de51fe9ba703e60c89499b41f7dc22bdae469af7355302e4dd4bf12ba6dcce0",
+          "partition_bytes": 4344
+        },
+        "ProfileContrast": {
+          "relative_file": "ProfileContrast/Prism.SLDPRT",
+          "archive_sha256": "1b24871178024ffbf7007fce8ea5d61d4faac439b5338755995ed5b285c81a39",
+          "archive_bytes": 47353,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.004,
+              -0.015
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.013371,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 1.00884195e-05,
+            "area_m2": 0.0029158838269036412,
+            "centre_of_mass_m": [
+              0.00508924232383477,
+              0.0030949856417053236,
+              0.0066855
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.015000000000000001,
+              0.0,
+              0.021,
+              0.020000000000000004,
+              0.013371
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "e9a739996715064585889401dd860f887bcb7f12e7037768a4e33fc70f4200c4",
+          "locator_present": true,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "d9b8be439327c02d248bfb607908884c55717fcc63c998e5ca49ff9ab67d4ff5",
+          "partition_bytes": 4284
+        },
+        "DepthContrast": {
+          "relative_file": "DepthContrast/Prism.SLDPRT",
+          "archive_sha256": "6f794e1dcec5064bfbcbe9ab4642546b5c768e12e4f941bfee34ec9ddf32615e",
+          "archive_bytes": 47797,
+          "profile_m": [
+            [
+              -0.011,
+              -0.004
+            ],
+            [
+              0.006,
+              -0.013
+            ],
+            [
+              0.021,
+              -0.003
+            ],
+            [
+              0.018,
+              0.015
+            ],
+            [
+              -0.004,
+              0.02
+            ]
+          ],
+          "depth_m": 0.021463,
+          "native_geometry": {
+            "bodies": 1,
+            "volume_m3": 1.55284805e-05,
+            "area_m2": 0.003659244131181838,
+            "centre_of_mass_m": [
+              0.005247869154572679,
+              0.003682331260078323,
+              0.0107315
+            ],
+            "bounds_m": [
+              -0.011,
+              -0.013000000000000001,
+              0.0,
+              0.021,
+              0.02,
+              0.021463
+            ],
+            "faces": 7,
+            "edges": 15,
+            "vertices": 10
+          },
+          "document_properties": {},
+          "complete_empty_owner_proof": true,
+          "nested_feature_count": 26,
+          "locator_sha256_utf8": "017555d449a32ecaf55028399c92ba52037a3a6baf74f35297a00622107a0e3d",
+          "locator_present": true,
+          "property_manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_manager_bytes": 138,
+          "partition_sha256": "e505e84fbb694191c0fd88e3fbf2460ec41c797b61753ea5b31e81511acfc14a",
+          "partition_bytes": 4297
+        }
+      },
+      "representative_auxiliary_features": [
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "id": 17,
+          "parent": "Annotations"
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "id": 18,
+          "parent": "Annotations"
+        },
+        {
+          "name": "Ambient",
+          "type": "AmbientLight",
+          "id": 12,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Directional1",
+          "type": "DirectionLight",
+          "id": 13,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Directional2",
+          "type": "DirectionLight",
+          "id": 14,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Directional3",
+          "type": "DirectionLight",
+          "id": 15,
+          "parent": "Lights and Cameras"
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "id": 26,
+          "parent": "Boss-Extrude1"
+        }
+      ],
+      "changed_clear_streams": {
+        "NoOpBefore to NoOpAfter": [
+          "Contents/3DExperienceExchange_ConfigHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Header2",
+          "_MO_VERSION_19000/Biography",
+          "docProps/ISolidWorksInformation.xml",
+          "docProps/core.xml"
+        ],
+        "NoOpAfter to CustomText": [
+          "Contents/3DExperienceExchange2",
+          "Contents/3DExperienceExchange_ConfigHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Contents/CusProps",
+          "Contents/PMISemanticDataDB",
+          "Header2",
+          "_MO_VERSION_19000/Biography",
+          "docProps/ISolidWorksInformation.xml",
+          "docProps/core.xml",
+          "docProps/custom.xml"
+        ]
+      }
+    }
+  }
+}

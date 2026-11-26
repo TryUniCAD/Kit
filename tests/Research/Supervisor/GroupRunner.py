@@ -2,7 +2,7 @@ import os as OsLayer
 import signal as Signals
 import sys as System
 import time as TimeClock
-from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 
 # shutdown needs a real descendant that ignores graceful termination to prove group reaping
@@ -19,7 +19,7 @@ def StartGroup() -> None:
     OsLayer.close(Writer)
     assert OsLayer.read(Reader, 5) == b"ready"
     OsLayer.close(Reader)
-    ChildFile = FilePath(System.argv[1]) / "work" / "child.pid"
+    ChildFile = SessionRoot(System.argv[1]) / "work" / "child.pid"
     _ = ChildFile.with_suffix(".pending").write_text(str(ChildId), encoding="ascii")
     _ = ChildFile.with_suffix(".pending").replace(ChildFile)
     TimeClock.sleep(120)

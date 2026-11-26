@@ -12,13 +12,18 @@ This reference distinguishes interchange storage from native CAD output.
 | ----------------- | ------------------------------------ |
 | Format identifier | `interchange.json`                   |
 | Suffix            | `.json`                              |
-| Media type        | `application/vnd.parashell.kit+json` |
+| Media type        | `application/vnd.unicad.kit+json`      |
 | Main model        | `CadDocument`                        |
 | Text encoding     | UTF-8                                |
 
 The probe examines a prefix for the `$type` and `CadDocument` markers.
 A `.json` suffix alone is weaker evidence than the document markers.
 The reader still needs to decode and validate the complete input.
+
+Custom JSON writers paired with the built-in reader must advertise `application/vnd.unicad.kit+json`.
+Update custom adapter metadata before registering it with the current reader.
+The registry rejects a writer whose media types are outside the reader's advertised set.
+The interchange document schema and `interchange.json` identifier are unchanged.
 
 ## Writing
 

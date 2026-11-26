@@ -1,0 +1,311 @@
+{
+  "aggregate_rule_revision": "8302c824a15830b837c72db75f79cabe5693d200",
+  "authored_wire_records_per_pass": 2,
+  "fresh_processes": 6,
+  "native_processes_started": 0,
+  "native_records_per_pass": 4,
+  "native_reference_build": "34.5.2.0604",
+  "observations": [
+    {
+      "case": "ladder",
+      "configuration_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "members": [
+        {
+          "bytes": 50,
+          "class": [
+            "moRelMgr_c",
+            1,
+            60
+          ],
+          "field_calls": {
+            "Array": 3,
+            "Embed": 3,
+            "Length": 1,
+            "Repeat": 1,
+            "Scalar": 5,
+            "Text": 1
+          },
+          "fields": {
+            "f10": {
+              "items": [],
+              "n": 0
+            },
+            "f150": 1,
+            "f170": "",
+            "f178": 0,
+            "f180": 0,
+            "f1b0": -1,
+            "f1c0": [],
+            "f58": {
+              "items": [],
+              "n": 0
+            },
+            "fa0": {
+              "items": [],
+              "n": 0
+            },
+            "ff4": -1,
+            "n1c0": 0
+          },
+          "inherited_slots": [],
+          "layouts": [
+            "RelCacheDimValueMap_c.Serialize",
+            "moRelMgr_c",
+            "suObList"
+          ],
+          "map_counter": 61,
+          "sha256": "fa18856e20508236ea27e49623afc36e24a874ac3cf9aba05fdb24eeb4fe6325"
+        },
+        {
+          "bytes": 26,
+          "class": [
+            "moFeatColorTab_c",
+            0,
+            96
+          ],
+          "field_calls": {
+            "Length": 1,
+            "Repeat": 1
+          },
+          "fields": {
+            "items": [],
+            "n": 0
+          },
+          "inherited_slots": [
+            59,
+            60
+          ],
+          "layouts": [
+            "moFeatColorTab_c"
+          ],
+          "map_counter": 97,
+          "sha256": "c23c2155d485734bacafdb26beb943aba5a96aad9bcc48f00af98fb6383b1421"
+        }
+      ],
+      "refusals": [
+        "relation_truncated",
+        "color_trailing",
+        "wrong_owner",
+        "version",
+        "null_relation",
+        "prior_relation_object"
+      ],
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "stdout_sha256": "c8d0afa37310d36c1cddda18e135646ccae96baaf700c8f3085f372d03cb7ca9"
+    },
+    {
+      "case": "concave",
+      "configuration_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "members": [
+        {
+          "bytes": 50,
+          "class": [
+            "moRelMgr_c",
+            1,
+            53
+          ],
+          "field_calls": {
+            "Array": 3,
+            "Embed": 3,
+            "Length": 1,
+            "Repeat": 1,
+            "Scalar": 5,
+            "Text": 1
+          },
+          "fields": {
+            "f10": {
+              "items": [],
+              "n": 0
+            },
+            "f150": 0,
+            "f170": "",
+            "f178": 0,
+            "f180": 0,
+            "f1b0": -1,
+            "f1c0": [],
+            "f58": {
+              "items": [],
+              "n": 0
+            },
+            "fa0": {
+              "items": [],
+              "n": 0
+            },
+            "ff4": -1,
+            "n1c0": 0
+          },
+          "inherited_slots": [],
+          "layouts": [
+            "RelCacheDimValueMap_c.Serialize",
+            "moRelMgr_c",
+            "suObList"
+          ],
+          "map_counter": 54,
+          "sha256": "36d9b58ea98f929c99fb07af9cfe08f68b8f7138b05c7005f1e43d09231e4391"
+        },
+        {
+          "bytes": 2,
+          "class": null,
+          "field_calls": {},
+          "fields": null,
+          "inherited_slots": [
+            52,
+            53
+          ],
+          "layouts": [],
+          "map_counter": 90,
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7"
+        }
+      ],
+      "refusals": [
+        "relation_truncated",
+        "color_trailing",
+        "wrong_owner",
+        "version",
+        "null_relation",
+        "prior_relation_object"
+      ],
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "stdout_sha256": "e523efeceb349826ab43984181710ba9691f1122865d6a335ec1d7e84fe92fcc"
+    },
+    {
+      "case": "authored",
+      "members": [
+        {
+          "bytes": 76,
+          "class": [
+            "moRelMgr_c",
+            1,
+            61
+          ],
+          "field_calls": {
+            "Array": 3,
+            "Embed": 3,
+            "Length": 1,
+            "Node": 2,
+            "Repeat": 1,
+            "Scalar": 6,
+            "Text": 2
+          },
+          "fields": {
+            "f10": {
+              "items": [
+                {
+                  "k": [
+                    "A",
+                    "relation length"
+                  ],
+                  "v": 1.25
+                }
+              ],
+              "n": 1
+            },
+            "f150": 2,
+            "f170": [
+              "A",
+              "ordered members"
+            ],
+            "f178": -7,
+            "f180": 4276949556,
+            "f1b0": 12,
+            "f1c0": [
+              {
+                "o": null
+              },
+              {
+                "o": null
+              }
+            ],
+            "f58": {
+              "items": [],
+              "n": 0
+            },
+            "fa0": {
+              "items": [],
+              "n": 0
+            },
+            "ff4": -8,
+            "n1c0": 2
+          },
+          "inherited_slots": [
+            59,
+            60
+          ],
+          "layouts": [
+            "RelCacheDimValueMap_c.Serialize",
+            "moRelMgr_c",
+            "suObList"
+          ],
+          "map_counter": 62,
+          "sha256": "9c5ee637f54e3d4413b1c49382afef165e49c467ff491635d7d7dbc23eae97e8"
+        },
+        {
+          "bytes": 26,
+          "class": [
+            "moFeatColorTab_c",
+            0,
+            63
+          ],
+          "field_calls": {
+            "Length": 1,
+            "Repeat": 1
+          },
+          "fields": {
+            "items": [],
+            "n": 2147483648
+          },
+          "inherited_slots": [
+            59,
+            60,
+            61
+          ],
+          "layouts": [
+            "moFeatColorTab_c"
+          ],
+          "map_counter": 64,
+          "sha256": "09bece23a20e247e821b8eaca66f84fd5276287482080edd84ce10332c61cbb5"
+        }
+      ],
+      "refusals": [
+        "missing_class",
+        "wrong_seed_kind",
+        "truncated_repeat",
+        "oversized_repeat",
+        "unqualified_relation_owner",
+        "wrong_color_schema",
+        "unqualified_color_row"
+      ],
+      "stdout_sha256": "2bf13ba974abc506f95487e250a7bef7b3a0b21f3284d7a3d1032d26c768a4ad"
+    }
+  ],
+  "preparation_base": "1e2a77b27759b3336fc04e965bf45a4098e71e84",
+  "proof_tool_sha256": "c3bd693d38fd754ba7a3ccc99a8a4cd0eeb50786a800cd45e3fd5e5a5d86b72f",
+  "python_version": "3.14.7",
+  "queue_source_sha256": {
+    "tests/Convert/Solidworks/Configuration/MemberNativeTests.py": "278eeb2c111839c7bbffd4c2319f7437d3e4d4f0319f5c442d5c6c1b59e69d6d",
+    "tests/Convert/Solidworks/Configuration/MemberWireTests.py": "cfb40daaffa1e73cb9ee3788ec98b9b87335d9cc04cfe7be2bb35d72a438ed24",
+    "tests/Convert/Solidworks/Configuration/ReadMemberCase.py": "2a699ad0eaa1e2f0772d89b95f4eebe32f70b827b479ae2209ac54309a9334d1"
+  },
+  "refusals_per_pass": 19,
+  "schema": "kit.sw2026.ordinary-config-members.v1",
+  "source_manifest_sha256": "6f0741d0e5d99d52b8eb98bdd7dfa764feaac3444d6ffa74ef33955ce2024768",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/FeatColorFields.py": "b0c839444ea8ee4b5370f1198a96f09039d9f618fa3765c37b51d93fb844620d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/RelMgrFields.py": "10050835279d09b9ad6ee516ffa229b255ace7de4fdd14d0672e0b0061225442",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "d3aa70bab87eae339c33f0db66bee16b6dccd10e5c058a72255478cd264b94e8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadLengthMut.py": "6685a2ef0849b74a7e304f9b719146d6a11c6d33ca916770d62b09a0463a7829",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadRepeatMut.py": "0daaf9c5dcfca550fc675f8b9da4ecfa2e6668d020718d1b16c0ae56bca272d7",
+    "src/convert/adapters/solidworks/Archive/Config/Members/CfgMemberGraph.py": "207045e8c692faff2c49d25c53f515a1fba100db18141e64e4b76f86bd89ff48",
+    "src/convert/adapters/solidworks/Archive/Config/Members/CfgMemberTypes.py": "e1b134bf0cf56651bc19f4fc3205b6177a7a3c3b97ea30c03122aa9d365f0e86",
+    "src/convert/adapters/solidworks/Archive/Config/Members/CheckCfgMember.py": "59a7b3628b43ea4f036e727f652e4b3757543cea69178b6b36ab105a47f45a9b",
+    "src/convert/adapters/solidworks/Archive/Config/Members/CheckRelMember.py": "c172ba2876683db1acf34e7df893867aab59ec9dd4dc1c635b427f503eff7401",
+    "src/convert/adapters/solidworks/Archive/Config/Members/MemberLayouts.py": "747e571311ec78b5243388bf10e656277ed00b952a1d9e589d6b99d7fc075356",
+    "src/convert/adapters/solidworks/Archive/Config/Members/ReadCfgMember.py": "c60152b63bdba6965db06a13f770571d5b1b5ba447fc37222a6344916dde81e9",
+    "src/convert/adapters/solidworks/Archive/Config/Members/ReadMemBodyMut.py": "ece8883ba1a68a552fb342303e05f60a02d3b7fb32970fb0be2c570829bf5d07"
+  },
+  "unit_compatibility_processes": 2,
+  "unit_compatibility_stdout_sha256": {
+    "concave": "f443b1ea9425ded2f716644ce4063942f5c3261c88662469ad60464164afd861",
+    "ladder": "ad2a58ec26ab42905f33c880bca7510f5598f3ef6f95da7771025ca5ae681fb1"
+  }
+}

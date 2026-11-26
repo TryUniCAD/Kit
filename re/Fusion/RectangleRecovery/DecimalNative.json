@@ -1,0 +1,95 @@
+{
+  "status": "completed",
+  "application": "fusion",
+  "cases": [
+    {
+      "case": "control-before",
+      "parameters_mm": {
+        "width": 16.2,
+        "height": 23.7,
+        "depth": 6.3
+      },
+      "body_count": 1,
+      "volume_cm3": 2.4188220000000005,
+      "area_cm2": 12.706200000000003,
+      "centroid_cm": [
+        0.81,
+        1.185,
+        0.315
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "xYConstructionPlane",
+      "direction": 1,
+      "sha256": "69b4768126f52426b2b815b18942628163d3655184edfb3c437d87daef4bb2fa"
+    },
+    {
+      "case": "reverse-xy",
+      "parameters_mm": {
+        "width": 16.2,
+        "height": 23.7,
+        "depth": 6.3
+      },
+      "body_count": 1,
+      "volume_cm3": 2.4188220000000005,
+      "area_cm2": 12.706200000000003,
+      "centroid_cm": [
+        0.81,
+        1.185,
+        -0.315
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "xYConstructionPlane",
+      "direction": -1,
+      "sha256": "678aefa49ad86937eace549b906ec8523e9693452605ac69d71bf280efc5cebe"
+    },
+    {
+      "case": "datum-yz",
+      "parameters_mm": {
+        "width": 16.2,
+        "height": 23.7,
+        "depth": 6.3
+      },
+      "body_count": 1,
+      "volume_cm3": 2.4188220000000005,
+      "area_cm2": 12.706200000000003,
+      "centroid_cm": [
+        0.315,
+        1.185,
+        -0.81
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "yZConstructionPlane",
+      "direction": 1,
+      "sha256": "a5854737797b7fe8823d3abf56288be33f1a81b81a6ee22dbefd1a535b4f697f"
+    },
+    {
+      "case": "control-after",
+      "parameters_mm": {
+        "width": 16.2,
+        "height": 23.7,
+        "depth": 6.3
+      },
+      "body_count": 1,
+      "volume_cm3": 2.4188220000000005,
+      "area_cm2": 12.706200000000003,
+      "centroid_cm": [
+        0.81,
+        1.185,
+        0.315
+      ],
+      "timeline_count": 2,
+      "sketch_constraint_count": 0,
+      "sketch_dimension_count": 0,
+      "plane_name": "xYConstructionPlane",
+      "direction": 1,
+      "sha256": "ea71a26dd21d8843a204520b10df7c49efa91fe58df76484e426dc16750262b9"
+    }
+  ],
+  "acceptance": "authoring_only; neutral semantic comparison pending"
+}

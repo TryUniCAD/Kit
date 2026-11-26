@@ -6,26 +6,45 @@ from convert.Formats.Fusion.SelectionProxy import SelectCursor
 from convert.Formats.Fusion.SelectionRef import ReadDescLeaf, ReadEntityLeaf
 
 
+# variable parameter and child lists precede the reciprocal controller reference
+def SketchRouteIds(FeatureBody: bytes) -> tuple[int, int]:
+    Cursor = MetaCursor(FeatureBody)
+    Cursor.Offset = 3
+    ParamIds = tuple(ReadNativeRef(Cursor) for _ in range(Cursor.ReadCount(1024)))
+    if (
+        len(set(ParamIds)) != len(ParamIds)
+        or Cursor.TakeBytes(1) not in (b"\0", b"\1")
+        or Cursor.ReadWord()
+    ):
+        raise ValueError(
+            "Unsupported Fusion principal sketch parameter or mesh section"
+        )
+    _ = ReadNativeRef(Cursor)
+    ControllerId = ReadNativeRef(Cursor)
+    if Cursor.TakeBytes(12) != bytes(12):
+        raise ValueError("Unsupported Fusion sketch projection or surface dependency")
+    _ = Cursor.ReadText(True, Maximum=1024)
+    if Cursor.TakeBytes(3) != bytes(3):
+        raise ValueError("Unsupported Fusion principal sketch feature flags")
+    Count = Cursor.ReadCount(1026)
+    Children = tuple(ReadNativeRef(Cursor) for _ in range(Count))
+    if (
+        Count != len(ParamIds) + 2
+        or len(set(Children)) != Count
+        or Children[1] != ControllerId
+    ):
+        raise ValueError("Fusion principal sketch controller copies disagree")
+    return ControllerId, Children[0]
+
+
 # placement alone cannot distinguish origin plane attachment from a coincident face
 def PrincipalRoute(
     BulkData: bytes, Owners: dict[int, RecordSpan], Feature: RecordSpan
 ) -> tuple[int, int, int, int]:
     FeatureBody = BulkData[Feature.PayloadOffset + 4 : Feature.EndOffset]
-    if len(FeatureBody) != 293:
-        raise ValueError("Unsupported Fusion principal sketch feature extent")
-    FeatureWire = MetaCursor(FeatureBody)
-    FeatureWire.Offset = 45
-    ControllerId = ReadNativeRef(FeatureWire)
-    FeatureWire.Offset = 147
-    if FeatureWire.ReadWord() != 4:
-        raise ValueError("Unsupported Fusion principal sketch dependency count")
-    DescriptorId = ReadNativeRef(FeatureWire)
-    if ReadNativeRef(FeatureWire) != ControllerId:
-        raise ValueError("Fusion principal sketch controller copies disagree")
+    ControllerId, DescriptorId = SketchRouteIds(FeatureBody)
     Controller = SelectCursor(BulkData, Owners, ControllerId, KOffsetBackend)
     ControllerSize = len(Controller.DataValue)
-    if ControllerSize not in (187, 315):
-        raise ValueError("Unsupported Fusion principal sketch controller extent")
     Controller.Offset = ControllerSize - 103
     if Controller.ReadWord() != 1 or ReadNativeRef(Controller) != DescriptorId:
         raise ValueError("Fusion principal sketch descriptor copies disagree")

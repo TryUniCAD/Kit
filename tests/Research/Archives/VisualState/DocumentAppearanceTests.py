@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -20,7 +20,7 @@ from tests.Research.Archives.VisualState.VisualStateProcess import (
 )
 
 # the native fixed gray shader must stay independent of the requested legacy color
-KIndependentShader = KCodecModel + r"""
+KExplicitMaterial = KCodecModel + r"""
 from CmgrVisualProfile import KExplicitProfile
 from ColorAppearance import EncodeColorDspbr
 locator = case["locator"]
@@ -48,6 +48,10 @@ if locator.startswith("<SystemTexture>"):
         pass
     else:
         raise AssertionError("wrong native locator spelling accepted")
+"""
+
+# the native shader must reject the legacy color even when the locator passes validation
+KIndependentShader = KExplicitMaterial + r"""
 native_shader = EncodeColorDspbr(19000, 0xE4E4E4)
 assert generated.count(native_shader) == 1
 incorrect_shader = EncodeColorDspbr(19000, explicit.SurfaceColor)
@@ -62,7 +66,7 @@ else:
 
 # arbitrary caller colors must survive all three ordinary owners during source free construction
 @MarkCases.parametrize("Channels", [[139, 71, 203], [34, 149, 83]])
-def CheckDocumentColor(Channels: list[int]) -> None:
+def CheckDocColor(Channels: list[int]) -> None:
     Settings = {**KVisualSettings, "document_rgb": Channels}
     Result = RunVisualCase(KSourceFreeProgram, [KFreshContext, Settings, None])
     assert Result.returncode == 0, Result.stderr
@@ -76,7 +80,7 @@ def CheckDocumentColor(Channels: list[int]) -> None:
 
 # invalid components must fail before any native candidate can be published
 @MarkCases.parametrize("Channels", [[0, True, 1], [0, 1, 256], [0, 1], None])
-def CheckInvalidDocumentColor(TmpPath: FilePath, Channels: object) -> None:
+def CheckBadColor(TmpPath: FilePath, Channels: object) -> None:
     Candidate = TmpPath / "RejectedColor.SLDPRT"
     Settings = {**KVisualSettings, "document_rgb": Channels}
     Result = RunVisualCase(
@@ -95,7 +99,7 @@ def CheckInvalidDocumentColor(TmpPath: FilePath, Channels: object) -> None:
         r"<SystemTexture>\graphics\Materials\color.p2m",
     ],
 )
-def CheckIndependentShader(Locator: str) -> None:
+def CheckShader(Locator: str) -> None:
     Settings = {
         "appearance": 99,
         "visible": True,

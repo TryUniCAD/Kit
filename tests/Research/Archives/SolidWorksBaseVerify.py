@@ -24,7 +24,8 @@ class MaskCodec(Protocol):
         inward_tolerance_rounding: bool,
         remove_zero: bool,
         uppercase_dimension: bool,
-    ) -> object: ...
+    ) -> object:
+        raise NotImplementedError
 
 
 # the bounded base section reconstructs numeric fields plus its identity transform
@@ -39,7 +40,8 @@ class BaseHeadCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
     # the typed read returns raw ignored padding while advancing to override text
     def ReadBaseHead(
@@ -51,7 +53,8 @@ class BaseHeadCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> int: ...
+    ) -> int:
+        raise NotImplementedError
 
 
 # the hosted comparison preserves every source byte outside the exact ignored word

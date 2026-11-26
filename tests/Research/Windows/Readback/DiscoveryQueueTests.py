@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -16,7 +16,7 @@ from tests.Research.Windows.Readback.InstallReadback import InstallReadback
 from tests.Research.Windows.Readback.QueueReadback import QueueReadback
 
 
-# a combined request must preserve each family and the collector's command state evidence across dispatch
+# a combined request must preserve each family and the collector command state evidence across dispatch
 @TestMark.skipif(HostPlatform != "win32", reason="Windows readback process boundary")
 @TestMark.parametrize(
     "FaultName,ExpectedReason",
@@ -29,7 +29,7 @@ from tests.Research.Windows.Readback.QueueReadback import QueueReadback
         ("command_inactive", "restored command batching state"),
     ),
 )
-def CheckDiscoveryQueue(TmpPath: FilePath, FaultName: str, ExpectedReason: str) -> None:
+def CheckDiscovery(TmpPath: FilePath, FaultName: str, ExpectedReason: str) -> None:
     RootPath, ConfigPath = InstallReadback(TmpPath)
     Result = QueueReadback(
         TmpPath, RootPath, ConfigPath, FaultName, "p01-p03-p04-readback"

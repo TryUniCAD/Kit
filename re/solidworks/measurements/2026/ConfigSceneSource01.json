@@ -1,0 +1,126 @@
+{
+  "schema": "kit.sw2026.config-scene-source.v1",
+  "native_executable_version": "34.5.2.0604",
+  "archive_version": 19000,
+  "stream": "Contents/Config-0",
+  "preparation_base": "62dbec1255b151b0cd0be00aa18b84cdfe26a873",
+  "aggregate_layout_revision": "f4fc8744235448c0ff6048e4447440bb7927a6d1",
+  "reference_checkout_revision": "9812f561bca43a7a303134799a4ab6d5307b6a74",
+  "method": "scoped full reference Config-0 cursor and map trace on the disclosed tracked inputs with distinct immutable native function evidence",
+  "candidate_queue_run_recorded": false,
+  "native_application_run": false,
+  "unchanged_aggregate_files": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/GeometryFields.py": "63ef92aa8039207e98c03bab8c743842111c92ee77ae53ba0242c9e1e201fcb4"
+  },
+  "controls": {
+    "ladder": {
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "parent_member": "moPart_c.f1e0",
+      "earlier_name": {
+        "bounds": [26, 58],
+        "sha256": "bb99c34b0373d8268ac5923a04543fb128c0ca38162f7ff23a75cc43cbc42ac3",
+        "counter": [4, 6],
+        "class_slot": 4,
+        "object_slot": 5
+      },
+      "scene_counter": [69, 82],
+      "list_count_span": [20821, 20823],
+      "scene": [
+        {
+          "class": "moEnvFolder_c",
+          "bounds": [20734, 22222],
+          "sha256": "01259ef38180554f3a162a247b727eecc6882dc87f34b36fe820e7d0dca2c16f",
+          "class_slot": 69,
+          "object_slot": 70,
+          "name_slot": 71,
+          "name_bounds": [20753, 20795]
+        },
+        {
+          "class": "moAmbientLight_c",
+          "bounds": [20823, 21114],
+          "sha256": "1212ab37128faafb4c344e21d8d895c0ecb8c959539f82a2340598164810cdb2",
+          "class_slot": 72,
+          "object_slot": 73,
+          "name_slot": 74,
+          "name_bounds": [20845, 20865],
+          "normalized_word_offset": 21048,
+          "property_count_offset": 21110
+        },
+        {
+          "class": "moDirectionLight_c",
+          "bounds": [21114, 21457],
+          "sha256": "ab57a8e60baa2fa0787c667834a0b47a04cabf5cda106d34c3f63a87d276099d",
+          "class_slot": 75,
+          "object_slot": 76,
+          "name_slot": 77,
+          "name_bounds": [21138, 21168],
+          "normalized_word_offset": 21351,
+          "property_count_offset": 21421
+        },
+        {
+          "class": "moDirectionLight_c",
+          "bounds": [21457, 21778],
+          "sha256": "5c8d6b0e5b5491b23b3d2575fd957771df1058459361ff47cc597dabaebed3c3",
+          "class_slot": 75,
+          "object_slot": 78,
+          "name_slot": 79,
+          "name_bounds": [21459, 21489],
+          "normalized_word_offset": 21672,
+          "property_count_offset": 21742
+        },
+        {
+          "class": "moDirectionLight_c",
+          "bounds": [21778, 22099],
+          "sha256": "76fe30f7d80a7c2d7d1b6fb2dc5e237bb30903776f3b130cd09d03c86cf75de0",
+          "class_slot": 75,
+          "object_slot": 80,
+          "name_slot": 81,
+          "name_bounds": [21780, 21810],
+          "normalized_word_offset": 21993,
+          "property_count_offset": 22063
+        }
+      ]
+    },
+    "concave": {
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "parent_member": "moPart_c.f1e0",
+      "earlier_name": {
+        "bounds": [26, 72],
+        "sha256": "266f46a1aead3e5b76ce595288bcbe44adcad07d88a0b442f6a048d58835476f",
+        "counter": [4, 6],
+        "class_slot": 4,
+        "object_slot": 5
+      },
+      "scene_counter": [54, 60],
+      "list_count_span": [18948, 18950],
+      "scene": [
+        {
+          "class": "moEnvFolder_c",
+          "bounds": [18861, 19392],
+          "sha256": "20bc96ccf49c14cf71cf77717f7dfe48e3d264fd0cbf3fa9bae5c20d1600ee76",
+          "class_slot": 54,
+          "object_slot": 55,
+          "name_slot": 56,
+          "name_bounds": [18880, 18922]
+        },
+        {
+          "class": "moAmbientLight_c",
+          "bounds": [18950, 19269],
+          "sha256": "be4e465473239a3ee42584bc36035483642be3e482d7d2a61f8ff0b5a12c160a",
+          "class_slot": 57,
+          "object_slot": 58,
+          "name_slot": 59,
+          "name_bounds": [18972, 19006],
+          "normalized_word_offset": 19189,
+          "property_count_offset": 19265,
+          "first_shadow_offset": 19233,
+          "second_shadow_offset": 19241
+        }
+      ]
+    }
+  }
+}

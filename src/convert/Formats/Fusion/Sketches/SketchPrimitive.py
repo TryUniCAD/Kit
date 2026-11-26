@@ -61,9 +61,7 @@ def ReadPrimitive(
     Extras: dict[str, object] = {}
     if KindValue == GeometryKind.KPoint:
         TagValue = Props.get("pt_tag")
-        if Width != 99 or not isinstance(TagValue, int):
-            raise ValueError("Unsupported Fusion sketch point layout")
-        Geometry = PointGeometry(ReadPoint(BodyValue, Offset + 19))
+        Geometry, Fixed, Extras = ReadPointState(BodyValue, Offset, TagValue)
     else:
         TagValue = Props.get("crv_primary_id")
         Expected = (171,) if KindValue == GeometryKind.KLine else (162, 182)
@@ -79,6 +77,7 @@ def ReadPrimitive(
         else:
             Geometry, Extras = ReadSketchCurve(BodyValue, Offset, Points, KindValue)
         Fixed, Construction = ReadCurveFlags(BodyValue)
+        Extras["fusion.geometry_is_projected"] = bool(BodyValue[-53] or BodyValue[-49])
     return SketchEntity(
         id=f"fusion-sketch-entity-{SpanValue.ObjectId}",
         kind=KindValue,
@@ -89,6 +88,24 @@ def ReadPrimitive(
         attributes=FreezeMapping(
             {"fusion.entity_tag": TagValue, "fusion.entity_genesis": Genesis, **Extras}
         ),
+    )
+
+
+# coincident point coordinates cannot distinguish a fixed corner from the native sketch origin
+def ReadPointState(
+    BodyValue: bytes, Offset: int, TagValue: object
+) -> tuple[PointGeometry, bool, dict[str, object]]:
+    if len(BodyValue) - Offset != 99 or not isinstance(TagValue, int):
+        raise ValueError("Unsupported Fusion sketch point layout")
+    return (
+        PointGeometry(ReadPoint(BodyValue, Offset + 19)),
+        bool(BodyValue[Offset + 14]),
+        {
+            "fusion.point_is_origin": bool(BodyValue[Offset + 16]),
+            "fusion.geometry_is_projected": bool(
+                BodyValue[Offset + 11] or BodyValue[Offset + 17]
+            ),
+        },
     )
 
 

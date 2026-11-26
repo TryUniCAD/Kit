@@ -18,6 +18,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       phase: ${{ steps.phase.outputs.phase }}
+      lanes: ${{ steps.lanes.outputs.prefix }}
     steps:
       - name: Checkout phase selector
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -32,6 +33,15 @@ jobs:
             const { SetPhase } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/CiPhase.cjs`);
             await SetPhase({ github, context, core });
 
+      - name: Select this candidate's lane set
+        id: lanes
+        if: github.event_name == 'merge_group'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SelectLaneSet } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Scheduling/SelectLaneSet.cjs`);
+            await SelectLaneSet(github, context, core);
+
   ruff:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
@@ -39,6 +49,10 @@ jobs:
     name: Ruff
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-ruff' || format('Kit-{0}linux-4', needs.pr-ci-reuse.outputs.lanes) }}
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -46,7 +60,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -65,6 +79,10 @@ jobs:
     name: Black
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-black' || format('Kit-{0}linux-5', needs.pr-ci-reuse.outputs.lanes) }}
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -72,7 +90,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -86,11 +104,15 @@ jobs:
 
   pyright:
     if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
     needs: pr-ci-reuse
     name: Pyright
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-pyright' || format('Kit-{0}linux-6', needs.pr-ci-reuse.outputs.lanes) }}
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -98,7 +120,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -112,11 +134,15 @@ jobs:
 
   mypy:
     if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
     needs: pr-ci-reuse
     name: Mypy
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-mypy' || format('Kit-{0}linux-7', needs.pr-ci-reuse.outputs.lanes) }}
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -124,7 +150,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true

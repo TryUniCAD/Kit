@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -18,7 +18,7 @@ def FreezeEvidence(
     RootPath: FilePath, RunRoot: FilePath, BundleRoot: FilePath
 ) -> dict[str, object]:
     FirstRoot = RootPath / "First"
-    Pins = FreezeCommand(RootPath, RunRoot, FirstRoot)
+    InputPins = FreezeCommand(RootPath, RunRoot, FirstRoot)
     Activity = JsonCodec.loads((FirstRoot / "Report.json").read_bytes())[
         "controller_activity"
     ]
@@ -38,9 +38,9 @@ def FreezeEvidence(
         RunRoot,
         BundleRoot,
         "--until-unix",
-        str(Pins["until_unix_seconds"]),
+        str(InputPins["until_unix_seconds"]),
         "--through",
-        str(Pins["through_event_id"]),
+        str(InputPins["through_event_id"]),
         "--evidence-manifest",
         str(Manifest),
         "--evidence-sha256",

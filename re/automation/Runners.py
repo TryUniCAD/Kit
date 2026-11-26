@@ -7,7 +7,19 @@ from OutputManifest import output_manifest
 SCHEMA_KEYS = {"$schema", "title", "description", "type", "properties", "required", "additionalProperties", "items", "enum", "const", "minLength", "maxLength", "minimum", "maximum", "minItems", "maxItems"}
 TYPES = {"object", "array", "string", "integer", "number", "boolean", "null"}
 OUTCOMES = {"completed", "rejected", "waiting_evidence", "waiting_ci", "waiting_application"}
-ENTRY_KEYS = {"pool", "argv", "result_schema", "threads", "initial_peak_memory_mib", "max_memory_mib", "group_protocol", "group_limit_bytes", "group_peak_memory_mib", "application_installation"}
+ENTRY_KEYS = {
+    "pool",
+    "argv",
+    "result_schema",
+    "threads",
+    "initial_peak_memory_mib",
+    "max_memory_mib",
+    "group_protocol",
+    "group_limit_bytes",
+    "group_peak_memory_mib",
+    "group_max_members",
+    "application_installation",
+}
 
 
 def check_schema(schema, depth=0):
@@ -147,7 +159,11 @@ class Registry:
             group = entry.get("group_protocol")
             if "group_protocol" in entry and (type(group) is not int or group != 1):
                 raise ValueError("group_protocol must be integer 1 when specified")
-            if group is None and entry.keys() & {"group_limit_bytes", "group_peak_memory_mib"}:
+            if group is None and entry.keys() & {
+                "group_limit_bytes",
+                "group_peak_memory_mib",
+                "group_max_members",
+            }:
                 raise ValueError("group limits require group_protocol 1")
             if group is not None and "group_peak_memory_mib" not in entry:
                 raise ValueError("group protocol requires an explicit group_peak_memory_mib floor")
@@ -170,8 +186,11 @@ class Registry:
                 "initial_peak_memory_mib": estimate,
                 "max_memory_mib": maximum,
                 "group_protocol": group,
-                "group_limit_bytes": bounded(entry.get("group_limit_bytes", 1048576), 1, 268435456),
+                "group_limit_bytes": bounded(
+                    entry.get("group_limit_bytes", 1048576), 1, 268435456
+                ),
                 "group_peak_memory_mib": floor,
+                "group_max_members": bounded(entry.get("group_max_members", 20), 2, 20),
                 "application_installation": installation,
             }
 

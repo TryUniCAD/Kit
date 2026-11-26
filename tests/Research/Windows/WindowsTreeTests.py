@@ -15,7 +15,7 @@ from tests.Research.Windows.WaitForPids import WaitForPids
 @Pytest.mark.skipif(System.platform != "win32", reason="Windows process boundary")
 def CheckWinTree() -> None:
     with TempFiles.TemporaryDirectory() as TempPath:
-        RootPath = FilePath(TempPath)
+        RootPath = FilePath(TempPath).resolve(strict=True)
         Harness = SessionHost(RootPath, {"decode": 1}, {"fixture.decode": "decode"})
         SetWinRunner(Harness)
         RecordPath = RootPath / "ProcessIds.json"

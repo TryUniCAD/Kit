@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -78,7 +78,8 @@ def ReadSignedBody(
             "Native reverse prism requires negative depth at the XY origin"
         )
     Lower = (0.0, 0.0, Depth)
-    Upper = (Shape.Width / 10, Shape.Depth / 10, 0.0)
+    AxisX, AxisY, _ = zip(*Shape.NativePoints, strict=True)
+    Upper = (max(AxisX), max(AxisY), 0.0)
     HistoryTable, Journal = ReadInsert(History)
     SavedTable, Saved = ReadSavedSolid(Snapshot, Journal.StateId)
     _ = CheckCuboid(HistoryTable, Journal, Lower, Upper)

@@ -11,5 +11,5 @@ The same stage reported 477 passes, including all 54 intended cache and attestat
 
 Reserve the configured prefixes for actual test entries.
 Use a descriptive helper name outside those patterns and update its callers without changing assertions or discovery settings.
-The [repair entry](../../../Changes/FreeCad/FreeCadProcessHelperCollection.md) records the exact scope.
+The [repair entry](../../../Changes/Freecad/FreeCadProcessHelperCollection.md) records the exact scope.
 Keep collection and execution in hosted CI under the local-test prohibition.

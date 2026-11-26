@@ -10,11 +10,16 @@ from xml.etree.ElementTree import fromstring as ParseTreeText  # noqa: DUO107
 KDoctypeMark = CompilePattern("<![dD][oO][cC][tT][yY][pP][eE]")
 
 
-# parsing rejects document types before feeding because references cannot expand without declarations
-def ParseUntrusted(ValueData: str | bytes) -> Element:
+# every xml parser entry checks for document types before feeding untrusted markup
+def CheckXmlDoctype(ValueData: str | bytes) -> None:
     ScanValue = (
         ValueData.decode("latin-1") if isinstance(ValueData, bytes) else ValueData
     )
     if KDoctypeMark.search(ScanValue) is not None:
         raise ValueError("untrusted XML must not declare a doctype")
+
+
+# parsing rejects document types before feeding because references cannot expand without declarations
+def ParseUntrusted(ValueData: str | bytes) -> Element:
+    CheckXmlDoctype(ValueData)
     return ParseTreeText(ValueData)

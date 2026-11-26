@@ -19,7 +19,7 @@ from SolidWorksAvailability import HoldMutex, IsSolidWorksRunning, OracleMutex
 WORKER = "re/automation/ApplicationWorkers/SolidWorksReadbackWorker.py"
 # the listener must use the same reviewed admission code as the batch watcher
 AVAILABILITY = "re/automation/ApplicationWorkers/SolidWorksAvailability.py"
-LAUNCHER = "re/automation/PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.ps1"
+LAUNCHER = "re/automation/CaptureTools/SolidWorksAuthoring/ReadP04SolidWorks.ps1"
 PROVIDER = "dassault.solidworks.com"
 OPERATION = "p04-readback"
 PRINCIPAL = "p01-p03-readback"

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -7,8 +7,8 @@
 # to you under it immediately and permanently.
 
 
-# the queue fixture needs independent native handles while avoiding licensed cad execution
-KReadbackScript = """import os
+# the isolated host must use the provisioned operation and session configuration
+KHostSetup = """import os
 import json
 import subprocess
 import sys
@@ -27,7 +27,11 @@ operation = sys.argv[4]
 scope, count_field, count = READBACK_SCOPES[operation]
 host = ReadbackQueue(config, PROVIDER, operation)
 
-def observe(request, work):
+"""
+
+
+# the fixture needs native process identity and a witnessed exit
+KNativeOwner = """def observe(request, work):
     assert request['body'] == phase_request(config, operation)
     output = work / 'readback'
     output.mkdir()
@@ -49,7 +53,11 @@ def observe(request, work):
             win32process.TerminateProcess(handle, 1)
             assert win32event.WaitForSingleObject(handle, 5000) == win32event.WAIT_OBJECT_0
         handle.Close()
-    names = ([f'{recipe}-solidworks-fixture-{index}.SLDPRT'
+"""
+
+
+# the planned fixture roster must be bound to the captured source revision
+KFixturePlan = """    names = ([f'{recipe}-solidworks-fixture-{index}.SLDPRT'
               for recipe, size in (('P01', 6), ('P03', 8), ('P04', 11)) for index in range(size)]
              if operation == DISCOVERY else
              [f'fixture-circle-{index}.SLDPRT' for index in range(count)])
@@ -61,7 +69,11 @@ def observe(request, work):
             'native_files': dict.fromkeys(names), 'fixture_only': True}
     write_record(output / 'plan.json', plan)
     plan_hash = sha256((output / 'plan.json').read_bytes())
-    observations = [{'file': name, 'status': 'observed',
+"""
+
+
+# the report exercises native lifetime and readback claims
+KObservations = """    observations = [{'file': name, 'status': 'observed',
                      'circle_verified_before_and_after_rebuild': True} for name in names]
     if fault == 'circle':
         observations[0]['circle_verified_before_and_after_rebuild'] = False
@@ -88,19 +100,27 @@ def observe(request, work):
             observations[-1]['face_verified_before_and_after_rebuild'] = False
         if fault == 'command_inactive':
             report['run']['readback_options']['command_in_progress_during'] = False
-    owner_path = output / 'fixture-owner.json'
+"""
+
+
+# the managed journal fixture must receive the same owner as the report
+KProgressCapture = """    owner_path = output / 'fixture-owner.json'
     write_record(owner_path, owner)
     powershell = Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe'
     journal_path = output / 'native-progress.jsonl'
     generated = subprocess.run([
         str(powershell), '-NoProfile', '-NonInteractive', '-File', str(Path(__file__).with_name('Progress.ps1')),
-        '-Source', str(Path(config['source_root']) / 're/automation/PairedCaptures/SolidWorksAuthoring/ReadbackProgress.cs'),
+        '-Source', str(Path(config['source_root']) / 're/automation/CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs'),
         '-OwnerPath', str(owner_path), '-JournalPath', str(journal_path), '-MarkerPath', str(output / 'fixture-action.txt'),
-    ], capture_output=True, check=False, timeout=15, creationflags=subprocess.CREATE_NO_WINDOW)
+    ], capture_output=True, check=False, timeout=60, creationflags=subprocess.CREATE_NO_WINDOW)
     assert generated.returncode == 0, generated.stderr.decode(errors='replace')
     native_progress = json.loads(generated.stdout)
     progress = journal_path.read_bytes().splitlines(keepends=True)
-    if fault == 'operand':
+"""
+
+
+# ordering and operand faults must preserve downstream hashes
+KOrderingFaults = """    if fault == 'operand':
         slot = next(index for index, line in enumerate(progress) if json.loads(line)['stage'] == 'quit_document')
         event = json.loads(progress[slot])
         event['detail']['operand'] = 'unrelated.SLDPRT'
@@ -124,7 +144,11 @@ def observe(request, work):
             event['sequence'] = index + 1
             event['previous_sha256'] = sha256(progress[index - 1]) if index else None
             progress[index] = encoded(event)
-    if fault == 'chain':
+"""
+
+
+# binding faults exercise distinct journal rejection paths
+KBindingFaults = """    if fault == 'chain':
         event = json.loads(progress[1])
         event['previous_sha256'] = '0' * 64
         progress[1] = encoded(event)
@@ -136,7 +160,11 @@ def observe(request, work):
         event = json.loads(progress[1])
         event['stage'] = 'other_control'
         progress[1] = encoded(event)
-    journal = b''.join(progress)
+"""
+
+
+# receipt generation pins the exact measurements and journal
+KReadbackReceipt = """    journal = b''.join(progress)
     if fault == 'incomplete':
         journal = journal[:-1]
     (output / 'native-progress.jsonl').write_bytes(journal)
@@ -152,7 +180,11 @@ def observe(request, work):
         **phase_request(config, operation), **proof,
         'claim': 'unqualified_application_observation', 'fixture_only': True}, files
 
-try:
+"""
+
+
+# the queue host serves requests until its parent signals shutdown
+KHostLoop = """try:
     write_record(Path(config['endpoint']) / 'ready.json', {'fixture_only': True})
     while not (Path(config['endpoint']) / 'stop-fixture').exists():
         request = host.next_path()
@@ -163,3 +195,17 @@ try:
 finally:
     host.close()
 """
+
+
+# the external python process needs one complete script with its callback and dispatch loop
+KReadbackScript = (
+    KHostSetup
+    + KNativeOwner
+    + KFixturePlan
+    + KObservations
+    + KProgressCapture
+    + KOrderingFaults
+    + KBindingFaults
+    + KReadbackReceipt
+    + KHostLoop
+)

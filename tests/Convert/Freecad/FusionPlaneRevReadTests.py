@@ -26,7 +26,7 @@ def ReadPlaneSeed() -> tuple[Element, CadDocument, PlaneRevPlan]:
     assert PlanValue is not None
     with TempDirectory() as Folder:
         Destination = FilePath(Folder) / "plane.FCStd"
-        _ = WriteDocument(DocValue, Destination, allow_carrier=True)
+        _ = WriteDocument(DocValue, Destination)
         with ZipFile(Destination) as Archive:
             return ParseXml(Archive.read("Document.xml")), DocValue, PlanValue
 

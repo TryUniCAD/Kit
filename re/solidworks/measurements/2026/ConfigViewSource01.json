@@ -1,0 +1,294 @@
+{
+  "archive_version": 19000,
+  "delivery_base": "15a4462ce69e516e36512b3185684e4778f87d30",
+  "native_build": "34.5.2.0604",
+  "native_view_serializer": {
+    "range": ["0x4c22c9d0", "0x4c22d028"],
+    "sha256": "dd858d51e82d3ff05842ef4a0c0ef1d31ff3e6cf26a34f7813247abde0ccb439"
+  },
+  "physical_owner": "moModel_c.FUN_4c234150.f9f8",
+  "reference_commit": "a98e89e7eb1ebcb0e0ccfb5387ff2fdd76aec605",
+  "reference_source_sha256": {
+    "re/solidworks/records/ConfigRuntimeDescriptors2026.json": "5a6f8158c835cd6e4f105c46fb3e3f22646a7d6aeb1b89f47617da4c92baaaeb",
+    "re/solidworks/records/StandardViewsConstruction2026.md": "da823dd4f641ec2392aeeaf3ddcbd9c8c47bbbd1579daebe1bbfd1f1e297efef",
+    "re/solidworks/records/GeometryArchive2026.md": "c34d15044b8816b7c8ecebb9d9cec2324b821473477d3bf3a2c76316cdb185b5",
+    "re/tooling/sw2026/serial/defs/SmallCMgr.py": "76c46ab9d70235fa5346e449a34df0850484cfeb9ad10553bd5f54ff811db11d",
+    "src/convert/adapters/solidworks/Archive/Bodies/ChangeContext.py": "dc6d0dc58398e3e53de45ec3c30a8c19b26c6e02b11eb48ba4f710bc90d53ca0",
+    "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "71f31190ed43fef58dd91f1e97eb5b521ee2c9d2ef9986451dea66047e552382",
+    "src/convert/adapters/solidworks/Archive/Bodies/IsFieldBranch.py": "2d151df6765beef4d0aa289da2f87bafdb466af3e6339c96fc9ae8f79a15c269",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/GeometryFields.py": "8fed1b002d7861e5c6546baa193764bb3bf3a1fcb7e0249c2b87f4d9f9eaf132",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py": "fb679705fcb9ae37b7de314d9c12bd2433d444dce3e928fe7d8d3469116247c7",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ViewFields.py": "0bbba0a61461375afdca707ef780124b6a4fcabd62e9c521da7a213c2387c9df",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadControlMut.py": "99deb854ca0fd34778e05db12bd9e3e0de438afa144387719f3f673795d96027",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "154f9b3bb35bd37a9a731ea8ef55befb5f4342b7c544d96599f6fbea0487ed48"
+  },
+  "runtime_class": [
+    "moView_c",
+    1
+  ],
+  "stream": "Contents/Config-0",
+  "vendor_modules": {
+    "sldmgu.dll": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c",
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "controls": {
+    "concave": {
+      "configuration_bytes": 22700,
+      "configuration_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "seed_relation_slots": [52,53],
+      "views": [
+        {
+          "class_slot": 79,
+          "context": [[20591,0,1],[20599,1,0],[20599,0,1],[20615,1,0]],
+          "counter": [79,81],
+          "embedded_intervals": {"f358":[20477,20501],"f368":[20501,20535],"f370":[20535,20569]},
+          "field_model_sha256": "a53c308f66d7d46c062c06edd1513361dc1c97c606df84090669c3fee2f0a402",
+          "interval": [20463,20623],
+          "name": "*Normal To",
+          "object_slot": 80,
+          "row": 0,
+          "wire_sha256": "bfdd2de3f9e47e264f9b4ed89c962c8686c8b5f1223fa5b2627b0eda58890035"
+        },
+        {
+          "class_slot": 79,
+          "context": [[20731,0,1],[20739,1,0],[20739,0,1],[20755,1,0]],
+          "counter": [81,82],
+          "embedded_intervals": {"f358":[20625,20641],"f368":[20641,20675],"f370":[20675,20709]},
+          "field_model_sha256": "a0c40de474a6c4e3269c497978a9d51270a014f379cbb13e8fd05af823eb3d9f",
+          "interval": [20623,20763],
+          "name": "*Front",
+          "object_slot": 81,
+          "row": 1,
+          "wire_sha256": "81c69427811d64d53b3334356c1cc02261fec4eb9f900b496b897add6f68a9be"
+        },
+        {
+          "class_slot": 79,
+          "context": [[20941,0,1],[20949,1,0],[20949,0,1],[20965,1,0]],
+          "counter": [82,83],
+          "embedded_intervals": {"f358":[20765,20779],"f368":[20779,20885],"f370":[20885,20919]},
+          "field_model_sha256": "67e28fc15c643960bac69ad6a81fa50b3420237174678c0bea0368747f3128d7",
+          "interval": [20763,20973],
+          "name": "*Back",
+          "object_slot": 82,
+          "row": 2,
+          "wire_sha256": "cdb2d89c78c1442b58c48d2b57bcd2aac82c0f9ea04c107b6dbb5c7080357640"
+        },
+        {
+          "class_slot": 79,
+          "context": [[21151,0,1],[21159,1,0],[21159,0,1],[21175,1,0]],
+          "counter": [83,84],
+          "embedded_intervals": {"f358":[20975,20989],"f368":[20989,21095],"f370":[21095,21129]},
+          "field_model_sha256": "68acb64242c3bc3dc13c1dee4fb544a0871d673f544831b4bca2c30925c8a13f",
+          "interval": [20973,21183],
+          "name": "*Left",
+          "object_slot": 83,
+          "row": 3,
+          "wire_sha256": "9a7c31a5af189766499894b70473c87782fb14ce27d01d19cfe935ce7a4c99a4"
+        },
+        {
+          "class_slot": 79,
+          "context": [[21363,0,1],[21371,1,0],[21371,0,1],[21387,1,0]],
+          "counter": [84,85],
+          "embedded_intervals": {"f358":[21185,21201],"f368":[21201,21307],"f370":[21307,21341]},
+          "field_model_sha256": "16f95d3a9e10cad669e2e4bc34a2e3dac96f2eefcde9e7005542be116b010ed8",
+          "interval": [21183,21395],
+          "name": "*Right",
+          "object_slot": 84,
+          "row": 4,
+          "wire_sha256": "07df52ce4f889a152f6457f9dc614a9c9bc7719890d580d2bb31102b22288229"
+        },
+        {
+          "class_slot": 79,
+          "context": [[21571,0,1],[21579,1,0],[21579,0,1],[21595,1,0]],
+          "counter": [85,86],
+          "embedded_intervals": {"f358":[21397,21409],"f368":[21409,21515],"f370":[21515,21549]},
+          "field_model_sha256": "a8202e8c69fa732455a9f899c9194f9efb6e0242b3970d48f25a8e12ca21b40f",
+          "interval": [21395,21603],
+          "name": "*Top",
+          "object_slot": 85,
+          "row": 5,
+          "wire_sha256": "0d09ea461e2509ed76f247345a685a960244ccf6cfa7cacd160d26fe21e0c58e"
+        },
+        {
+          "class_slot": 79,
+          "context": [[21785,0,1],[21793,1,0],[21793,0,1],[21809,1,0]],
+          "counter": [86,87],
+          "embedded_intervals": {"f358":[21605,21623],"f368":[21623,21729],"f370":[21729,21763]},
+          "field_model_sha256": "50a0702bec30330c7fc27ce0680ac9042d030ed9c89de3e2b855f4714ed4e99e",
+          "interval": [21603,21817],
+          "name": "*Bottom",
+          "object_slot": 86,
+          "row": 6,
+          "wire_sha256": "0c4cf8e29397b008d2ee58d3f7c1fdbb670b13141c2662a22ec8b863bf1438d9"
+        },
+        {
+          "class_slot": 79,
+          "context": [[22005,0,1],[22013,1,0],[22013,0,1],[22029,1,0]],
+          "counter": [87,88],
+          "embedded_intervals": {"f358":[21819,21843],"f368":[21843,21949],"f370":[21949,21983]},
+          "field_model_sha256": "a41aa01ea09cb2c890bd403597c96dde9691d612f18a1295ef5aeabd342b0257",
+          "interval": [21817,22037],
+          "name": "*Isometric",
+          "object_slot": 87,
+          "row": 7,
+          "wire_sha256": "111ed4e69bed499c460cea2dd7415754c96aa5617ef7354db6d8a03516f7d28b"
+        },
+        {
+          "class_slot": 79,
+          "context": [[22225,0,1],[22233,1,0],[22233,0,1],[22249,1,0]],
+          "counter": [88,89],
+          "embedded_intervals": {"f358":[22039,22063],"f368":[22063,22169],"f370":[22169,22203]},
+          "field_model_sha256": "a24ee4c3d0d3ddeb800bd1596507c04bc1cd0d8df0bf44f51cc68dbb41947352",
+          "interval": [22037,22257],
+          "name": "*Trimetric",
+          "object_slot": 88,
+          "row": 8,
+          "wire_sha256": "a1b57303cc29b4feb1865791080ccbc314199f7ca7186813287b3eb1ed03faf4"
+        },
+        {
+          "class_slot": 79,
+          "context": [[22443,0,1],[22451,1,0],[22451,0,1],[22467,1,0]],
+          "counter": [89,90],
+          "embedded_intervals": {"f358":[22259,22281],"f368":[22281,22387],"f370":[22387,22421]},
+          "field_model_sha256": "b0954538b249000375830acd3986714f039077124afb94a3c00dddae13eb5a68",
+          "interval": [22257,22475],
+          "name": "*Dimetric",
+          "object_slot": 89,
+          "row": 9,
+          "wire_sha256": "2695047cd6e8fb7a5e9769f8f2e9252bb259254641f343d77760d334ef76a131"
+        }
+      ]
+    },
+    "ladder": {
+      "configuration_bytes": 25390,
+      "configuration_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "seed_relation_slots": [59,60],
+      "views": [
+        {
+          "class_slot": 84,
+          "context": [[22368,0,1],[22376,1,0],[22376,0,1],[22392,1,0]],
+          "counter": [84,86],
+          "embedded_intervals": {"f358":[22254,22278],"f368":[22278,22312],"f370":[22312,22346]},
+          "field_model_sha256": "a53c308f66d7d46c062c06edd1513361dc1c97c606df84090669c3fee2f0a402",
+          "interval": [22240,22400],
+          "name": "*Normal To",
+          "object_slot": 85,
+          "row": 0,
+          "wire_sha256": "bfdd2de3f9e47e264f9b4ed89c962c8686c8b5f1223fa5b2627b0eda58890035"
+        },
+        {
+          "class_slot": 84,
+          "context": [[22508,0,1],[22516,1,0],[22516,0,1],[22532,1,0]],
+          "counter": [86,87],
+          "embedded_intervals": {"f358":[22402,22418],"f368":[22418,22452],"f370":[22452,22486]},
+          "field_model_sha256": "a0c40de474a6c4e3269c497978a9d51270a014f379cbb13e8fd05af823eb3d9f",
+          "interval": [22400,22540],
+          "name": "*Front",
+          "object_slot": 86,
+          "row": 1,
+          "wire_sha256": "78fe973db955e6efdfc9f6965e5885eccde2b30fb70d017e6d58fc65743e87e1"
+        },
+        {
+          "class_slot": 84,
+          "context": [[22718,0,1],[22726,1,0],[22726,0,1],[22742,1,0]],
+          "counter": [87,88],
+          "embedded_intervals": {"f358":[22542,22556],"f368":[22556,22662],"f370":[22662,22696]},
+          "field_model_sha256": "67e28fc15c643960bac69ad6a81fa50b3420237174678c0bea0368747f3128d7",
+          "interval": [22540,22750],
+          "name": "*Back",
+          "object_slot": 87,
+          "row": 2,
+          "wire_sha256": "26a2f4bf2b1f6b68fda218223667ad3733bc6c9b69e41f136de450c96c71d50e"
+        },
+        {
+          "class_slot": 84,
+          "context": [[22928,0,1],[22936,1,0],[22936,0,1],[22952,1,0]],
+          "counter": [88,89],
+          "embedded_intervals": {"f358":[22752,22766],"f368":[22766,22872],"f370":[22872,22906]},
+          "field_model_sha256": "893118e105725a429ae41d959f742c8f336ca691e3581fa0d68f69397516cf1c",
+          "interval": [22750,22960],
+          "name": "*Left",
+          "object_slot": 88,
+          "row": 3,
+          "wire_sha256": "cd8f1dbffaab79262503e34ae613a0c0437593514bf942aaef1b113121698b15"
+        },
+        {
+          "class_slot": 84,
+          "context": [[23140,0,1],[23148,1,0],[23148,0,1],[23164,1,0]],
+          "counter": [89,90],
+          "embedded_intervals": {"f358":[22962,22978],"f368":[22978,23084],"f370":[23084,23118]},
+          "field_model_sha256": "48b9eda8b4f2f3bf237599d86cd753ab17ef87bd858e4270e6729bfdc0cd08c3",
+          "interval": [22960,23172],
+          "name": "*Right",
+          "object_slot": 89,
+          "row": 4,
+          "wire_sha256": "6e0f963d3211dba5c5e720876518d9dd4b2e8961edd12af36339f76fa0339052"
+        },
+        {
+          "class_slot": 84,
+          "context": [[23348,0,1],[23356,1,0],[23356,0,1],[23372,1,0]],
+          "counter": [90,91],
+          "embedded_intervals": {"f358":[23174,23186],"f368":[23186,23292],"f370":[23292,23326]},
+          "field_model_sha256": "c80808cc2c97237467a61ab2055a1398fe69971c461157c7d1b91a6e36488a0c",
+          "interval": [23172,23380],
+          "name": "*Top",
+          "object_slot": 90,
+          "row": 5,
+          "wire_sha256": "ec052f5ac1895f4baa675124bf323b26124509fc8d2c335f662941c57d382bd6"
+        },
+        {
+          "class_slot": 84,
+          "context": [[23562,0,1],[23570,1,0],[23570,0,1],[23586,1,0]],
+          "counter": [91,92],
+          "embedded_intervals": {"f358":[23382,23400],"f368":[23400,23506],"f370":[23506,23540]},
+          "field_model_sha256": "2ae803300b6e124d522db26fd58c941f67b181ac26aa7e137a483913c4337271",
+          "interval": [23380,23594],
+          "name": "*Bottom",
+          "object_slot": 91,
+          "row": 6,
+          "wire_sha256": "24b9192f53d361940ec2cd915e4a736adc1b2621105fe9a06785b2e967b18849"
+        },
+        {
+          "class_slot": 84,
+          "context": [[23782,0,1],[23790,1,0],[23790,0,1],[23806,1,0]],
+          "counter": [92,93],
+          "embedded_intervals": {"f358":[23596,23620],"f368":[23620,23726],"f370":[23726,23760]},
+          "field_model_sha256": "a41aa01ea09cb2c890bd403597c96dde9691d612f18a1295ef5aeabd342b0257",
+          "interval": [23594,23814],
+          "name": "*Isometric",
+          "object_slot": 92,
+          "row": 7,
+          "wire_sha256": "8bc391d3a71d70460d6843ba6d74bd1934cb4adb81824845216f4e74c140b813"
+        },
+        {
+          "class_slot": 84,
+          "context": [[24002,0,1],[24010,1,0],[24010,0,1],[24026,1,0]],
+          "counter": [93,94],
+          "embedded_intervals": {"f358":[23816,23840],"f368":[23840,23946],"f370":[23946,23980]},
+          "field_model_sha256": "a24ee4c3d0d3ddeb800bd1596507c04bc1cd0d8df0bf44f51cc68dbb41947352",
+          "interval": [23814,24034],
+          "name": "*Trimetric",
+          "object_slot": 93,
+          "row": 8,
+          "wire_sha256": "247608f8d0fbb03c20aff6206a425fadea92965937c4dab42c3151317b9bec3c"
+        },
+        {
+          "class_slot": 84,
+          "context": [[24220,0,1],[24228,1,0],[24228,0,1],[24244,1,0]],
+          "counter": [94,95],
+          "embedded_intervals": {"f358":[24036,24058],"f368":[24058,24164],"f370":[24164,24198]},
+          "field_model_sha256": "b0954538b249000375830acd3986714f039077124afb94a3c00dddae13eb5a68",
+          "interval": [24034,24252],
+          "name": "*Dimetric",
+          "object_slot": 94,
+          "row": 9,
+          "wire_sha256": "45de122475cc7efe94abe745f4674a788c50dc5ce0a1bdc433b02eb53b91f5b3"
+        }
+      ]
+    }
+  }
+}

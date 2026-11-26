@@ -1,0 +1,7 @@
+# Native roles and operands in generated scalar readers
+
+The generated SOLIDWORKS reader cross-checks each recovered value against the native scalar parser at the same member offset, with the same label and numeric value. Its ownership report includes the trailer's role, object ID and operand offsets, kind codes and entity indices. The role_counts table groups driving, display and unclassified records by declaration evidence. Unparsed trailers remain explicit. A display record can agree with a declaration but cannot acquire a native driving measurement through the owner comparison.
+
+Angular declaration comparison now also accepts degree text with explicit fractional precision using the native reader's printed-angle rule. Such agreement remains labelled display_precision. Numeric equality, a shared dimension name or a trailer operand index alone cannot prove a sketch entity's identity.
+
+For repeated labels in the same feature-marker interval, the reader can select the sole driving record if every recovered trailer has a distinct object ID and every other record is a display copy. It preserves each copy and reports the driving selection separately. In the turbine wheel run 60 of 132 records were display records, 45 were driving records and 27 carried an unclassified role. Of the 60 without a matching declaration after angular rounding, 57 were display records and three had unclassified roles. The P05 90-degree save retained all four independent native feature and value matches.

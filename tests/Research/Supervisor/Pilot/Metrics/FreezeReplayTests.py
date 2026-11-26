@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -24,7 +24,7 @@ def CheckReplay(TmpPath: FilePath) -> None:
     CreateJobs(TmpPath, Client)
     RunRoot = CreateRun(TmpPath, StartTime)
     Bundle = TmpPath / "Frozen"
-    Pins = FreezeCommand(TmpPath, RunRoot, Bundle)
+    InputPins = FreezeCommand(TmpPath, RunRoot, Bundle)
     AssertSnapshot(Bundle)
     _ = Client.RunCli("resource", "fixture:later", "--available")
     with (RunRoot / "Events.jsonl").open("a", encoding="utf-8") as Journal:
@@ -38,10 +38,10 @@ def CheckReplay(TmpPath: FilePath) -> None:
             )
             + "\n"
         )
-    Replay = ReplayCommand(TmpPath, Bundle, str(Pins["snapshot_sha256"]))
+    Replay = ReplayCommand(TmpPath, Bundle, str(InputPins["snapshot_sha256"]))
     assert Replay["replay"] == "byte_identical"
     _ = (Bundle / "Events.jsonl").write_bytes(b"{}\n")
-    _ = ReplayCommand(TmpPath, Bundle, str(Pins["snapshot_sha256"]), ExitCode=1)
+    _ = ReplayCommand(TmpPath, Bundle, str(InputPins["snapshot_sha256"]), ExitCode=1)
 
 
 # future time and enabled models must be refused before a misleading report is produced

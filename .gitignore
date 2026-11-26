@@ -1043,6 +1043,7 @@ sdist/
 .installed.cfg
 *.egg
 *.manifest
+!re/automation/CaptureTools/Runner/KitCaptureRunner/KitCaptureRunner.manifest
 *.spec
 pip-log.txt
 pip-delete-this-directory.txt

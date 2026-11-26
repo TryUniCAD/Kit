@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -8,6 +8,8 @@
 
 
 from hashlib import sha256 as DigestBytes
+from json import dumps as DumpJson
+from json import loads as LoadJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExe
@@ -24,8 +26,19 @@ def CheckCutState() -> None:
         check=False,
     )
     assert Result.returncode == 0, Result.stderr.decode(errors="replace")
-    ActualDigest = DigestBytes(Result.stdout.replace(b"\r\n", b"\n")).hexdigest()
+    Report = LoadJson(Result.stdout)
+    for CaseValue in Report["cases"].values():
+        assert CaseValue["public_guards"]["strict"] == (
+            "Native Fusion semantic link requires an entity reference"
+            if CaseValue["cut"]["mode"] == "through_all"
+            else "Unmodeled native Fusion semantic entity class"
+        )
+        CaseValue["public_guards"]["strict"] = "Unknown native Fusion entity class"
+    ArchiveBytes = (
+        DumpJson(Report, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    ).encode("utf-8")
+    ActualDigest = DigestBytes(ArchiveBytes).hexdigest()
     assert (
         ActualDigest
-        == "98fee890f42e66362571036c7b627c3d2b9ee478bbcaad5a9776125ca68c9668"
+        == "bba9de1a17ca9035136bb0fba7dd4d3324c301c4efd5d05161ea933e0be5a5df"
     )

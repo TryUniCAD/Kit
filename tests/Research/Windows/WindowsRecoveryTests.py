@@ -24,7 +24,7 @@ def VerifyLostCap(Harness: SessionHost) -> None:
 @Pytest.mark.skipif(System.platform != "win32", reason="Windows process boundary")
 def CheckWinRestart() -> None:
     with TempFiles.TemporaryDirectory() as TempPath:
-        RootPath = FilePath(TempPath)
+        RootPath = FilePath(TempPath).resolve(strict=True)
         Harness = SessionHost(RootPath, {"decode": 1}, {"fixture.decode": "decode"})
         SetWinRunner(Harness)
         RecordPath = RootPath / "ProcessIds.json"
@@ -33,6 +33,7 @@ def CheckWinRestart() -> None:
                 FixtureJob(
                     "windows:restart",
                     "fixture.decode",
+                    lease_seconds=30,
                     max_attempts=1,
                     options={"mode": "hold", "pid_file": str(RecordPath)},
                 )
