@@ -101,7 +101,7 @@ def CheckPhaseSkip(CheckName: str, ExitCode: int, TmpPath: FilePath) -> None:
 
 
 # the queue aggregate must finish once the retiring research cli job stops reporting
-def CheckRetiredResearchCli(TmpPath: FilePath) -> None:
+def CheckRetiredCli(TmpPath: FilePath) -> None:
     ScriptPath = (
         FilePath(__file__).resolve().parents[2]
         / "tests/Policy/CiAggregation/RunAggregate.cjs"
