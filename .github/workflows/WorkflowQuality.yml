@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     concurrency:
-      group: Kit-linux-0
+      group: Kit-linux-6
       cancel-in-progress: false
       queue: max
     steps:
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     concurrency:
-      group: Kit-linux-${{ matrix.index }}
+      group: Kit-linux-${{ matrix.lane }}
       cancel-in-progress: false
       queue: max
     strategy:
@@ -85,12 +85,16 @@ jobs:
         include:
           - group: shard-1
             index: 0
+            lane: 1
           - group: shard-2
             index: 1
+            lane: 2
           - group: shard-3
             index: 2
+            lane: 3
           - group: shard-4
             index: 3
+            lane: 4
     env:
       ShardIndex: ${{ matrix.index }}
     steps:
@@ -185,7 +189,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     concurrency:
-      group: Kit-linux-1
+      group: Kit-linux-3
       cancel-in-progress: false
       queue: max
     steps:
