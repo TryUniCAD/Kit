@@ -8,6 +8,6 @@ from tests.Research.Windows.WaitForPids import WaitForPids
 
 # cancellation must reach the launcher only after its real supervised process tree exists
 def InterruptReady(RecordPath: FilePath, SignalName: str) -> None:
-    _ = WaitForPids(RecordPath)
+    _ = WaitForPids(RecordPath, Timeout=90)
     WriteSignal(RecordPath, SignalName)
     InterruptMain(Signals[SignalName])
