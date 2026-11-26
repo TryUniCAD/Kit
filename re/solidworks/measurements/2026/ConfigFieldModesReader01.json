@@ -1,0 +1,1246 @@
+{
+  "accepted_member_repeat_compatibility": {
+    "guarded_processes": 3,
+    "source_receipt": "re/solidworks/measurements/2026/ConfigMemberFieldsReader01.json",
+    "source_receipt_sha256": "94505bfaf868356c33c586abc959c2359abebcbecf2862945241fbecc61bfbf2",
+    "stdout_sha256": {
+      "authored": "2bf13ba974abc506f95487e250a7bef7b3a0b21f3284d7a3d1032d26c768a4ad",
+      "concave": "e523efeceb349826ab43984181710ba9691f1122865d6a335ec1d7e84fe92fcc",
+      "ladder": "c8d0afa37310d36c1cddda18e135646ccae96baaf700c8f3085f372d03cb7ca9"
+    }
+  },
+  "aggregate_reference": "9f0ccb5389c121e750ca3b73f8e5d248b34d2e15",
+  "compatibility": {
+    "atom_mode_bodies_preserved": true,
+    "new_comparator_modes": [
+      "Equals",
+      "Greater",
+      "NotCondition"
+    ],
+    "shared_wire_assignments_preserved": true,
+    "view_comparator_modes_preserved": [
+      "NotEquals",
+      "BitsEqual",
+      "Context"
+    ]
+  },
+  "exact_review_input": "ea508fb483ba02d9312078381448688bea5e9e7b",
+  "native_processes_started": 0,
+  "native_view_dependency": {
+    "accepted_revision": "c1809221c0910c301dd457ce92e51e7b1b74f522",
+    "shared_overlay_paths": [
+      "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py",
+      "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py"
+    ],
+    "source_sha256": {
+      "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/GeometryFields.py": "8fed1b002d7861e5c6546baa193764bb3bf3a1fcb7e0249c2b87f4d9f9eaf132",
+      "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ViewFields.py": "0bbba0a61461375afdca707ef780124b6a4fcabd62e9c521da7a213c2387c9df",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CfgMemberGraph.py": "b0d8335eb1048ff67eb5f7fe838496751b573f3003e97232a30f3ddb151559b8",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CfgMemberTypes.py": "693c9cc588d796119ee1c8f415e758cd644e751f342c65e6beb0456eedf29a15",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CheckBlockOwner.py": "c2b4f736b61f0bb6c397301ebc09e997b6eb15a9135c8e6486799387fe1ed43d",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CheckCfgMember.py": "776b6099a78bc6a842f7c196dec9e97df6ab800d607d80a4f45e043ec6bc79b7",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CheckCfgOwner.py": "77ccb6e280be51d5d058ca7558be09dda64605b835a9018fc1d207ecc1f8c136",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CheckCfgView.py": "f4b802878a8691b640ddb430af2ec966b421d7dcc1edf3718b4fa9332e489bf3",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CheckRelMember.py": "c172ba2876683db1acf34e7df893867aab59ec9dd4dc1c635b427f503eff7401",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CheckThreadMap.py": "bd23e87623ef3a4fa69b4c9ba8108e9187a2b6bafbf3e1ecfce8e26c1ec6b707",
+      "src/convert/adapters/solidworks/Archive/Config/Members/CopyMemberFlags.py": "8bc27a69ef59e1a582e53088b435a826e3edb942f038787b5aca4922d1a7e6a4",
+      "src/convert/adapters/solidworks/Archive/Config/Members/MemberLayouts.py": "46348fceb942b029c15e92bf289ea21cf77c85d44a993e28f79e653455bff32d",
+      "src/convert/adapters/solidworks/Archive/Config/Members/MemberVirtuals.py": "99363c38f49a77125b326b15cac327c43f6919a4fc85ef37421f8bff8002627d",
+      "src/convert/adapters/solidworks/Archive/Config/Members/ReadCfgMember.py": "0fe8a8336cb23610b8ebbc4552d6d851527c0efac6722bd9c5bd65126a1b0f46",
+      "src/convert/adapters/solidworks/Archive/Config/Members/ReadMemBodyMut.py": "ece8883ba1a68a552fb342303e05f60a02d3b7fb32970fb0be2c570829bf5d07"
+    }
+  },
+  "preparation_base": "2759bcdb61c76c6b00fd467354cd85ace50f86bc",
+  "queue_run_recorded": false,
+  "queue_source_sha256": {
+    "tests/Convert/Solidworks/Configuration/FieldModes/ModeNativeTests.py": "f32444270e7aa8b388c38a663fb6e0946fa9d5f5a18f2dd1c07de2e53faeebf4",
+    "tests/Convert/Solidworks/Configuration/FieldModes/ModeWireTests.py": "858d12027a8f621ca419abd5b796b37d0230c0d09009bf5450bfcf5a8ff1974f",
+    "tests/Convert/Solidworks/Configuration/FieldModes/ModeWitnessTests.py": "242b3bde9fca75d05ba4b2738be24d98671c01531bb435f5625065397ac2f17e",
+    "tests/Convert/Solidworks/Configuration/FieldModes/RunModeCase.py": "9b7be78217e9534d6565e5977682866116c35d5238f0937b2347135af403f551"
+  },
+  "review_checkout_source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "968cfbb3c55d6354e764dcb749e1c81870c34360322a0ca2682b8f87f4051d29",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ExternalFields.py": "256f7a8b7efcc4a5693ca6daf5793d443000622c2c18e03be5bac8aa68f2025a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/MaterialFields.py": "d75fbac7a62f4a8d40661a806d21576632955bda6a45b56a3afe89c6a6b0f7af",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ContainerFields.py": "08e5d03f5e7804fca94630fcacb44ea6793c25663ec057f2027eb767c52583f0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ReferenceFields.py": "6cde58afbf62a885da03384b287fc47e83c8d588ffb08204d4ca74c6decc45b4",
+    "src/convert/adapters/solidworks/Archive/Bodies/NormalizeWord.py": "1932d1ddc5ff1652dfd02744da53e398c21031d059beec7ecd7e855c0c8ec177",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "a5f9b1872b0b615d7258e03a9fc1335f9a543ca3ca5a2fbe2dfb034535463a2c",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwnMut.py": "1640aadb14b3e3d7e3192c49915a65624515121025b42e3a48b7e53e838241c6",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNormalMut.py": "198e7c95f4f84044575487b95bc728af261e0089dbdf54facea1b827c658c6ea",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadRepeatMut.py": "c51d9bea960d4df0af516689bbd50726dc07ede0af1cc780e4da4ee602f158ea",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadValueMut.py": "2b56fb1800445e3722d71704cda2d7cb863f5698a477a4f82c772e1bb77e6977"
+  },
+  "schema": "Kit.SolidworksConfigFieldModesReader.1",
+  "source_manifest_encoding": "sorted compact ASCII JSON of source path to lowercase SHA-256",
+  "source_manifest_sha256": "24dae01b3afd617c74ccb1ffdba0fd693a962ccfe1e2e9a27b34af3ef5e96105",
+  "source_proof": "re/solidworks/measurements/2026/ConfigFieldModesSource01.json",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "9bc897cce440f69c0313479a4ae52a7b7770609d949809f4ff1cc8f2bc07d73f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ExternalFields.py": "256f7a8b7efcc4a5693ca6daf5793d443000622c2c18e03be5bac8aa68f2025a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/MaterialFields.py": "d75fbac7a62f4a8d40661a806d21576632955bda6a45b56a3afe89c6a6b0f7af",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ContainerFields.py": "08e5d03f5e7804fca94630fcacb44ea6793c25663ec057f2027eb767c52583f0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ReferenceFields.py": "6cde58afbf62a885da03384b287fc47e83c8d588ffb08204d4ca74c6decc45b4",
+    "src/convert/adapters/solidworks/Archive/Bodies/NormalizeWord.py": "1932d1ddc5ff1652dfd02744da53e398c21031d059beec7ecd7e855c0c8ec177",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "b13b657f3fa77897c16ffe741ba7c21aec592b30c34d0a3540ff305ec074d509",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwnMut.py": "1640aadb14b3e3d7e3192c49915a65624515121025b42e3a48b7e53e838241c6",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNormalMut.py": "198e7c95f4f84044575487b95bc728af261e0089dbdf54facea1b827c658c6ea",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadRepeatMut.py": "c51d9bea960d4df0af516689bbd50726dc07ede0af1cc780e4da4ee602f158ea",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadValueMut.py": "2b56fb1800445e3722d71704cda2d7cb863f5698a477a4f82c772e1bb77e6977"
+  },
+  "tools_sha256": {
+    "re/tooling/sw2026/CheckCfgFieldModes.py": "09841eb64d9667bc40e7e75568ddf258ba8f8df8fcb856a6d28203a89a1051f3",
+    "re/tooling/sw2026/CheckCfgMembers.py": "d7aa8fcd744ffcc09df8f7297867dbcb3f5f0b8f7b5caf56c120dfe88c6303f4",
+    "re/tooling/sw2026/CheckCfgModeNative.py": "df26cb9055fa356a707ae0216719ca1480ad97b9f04efb54a67aca55bc8f5c49",
+    "re/tooling/sw2026/CheckCfgOwners.py": "a25c4a45c7da0d54cef240b58e3ac2b5628023949004472c793b504602360894",
+    "src/convert/adapters/solidworks/Archive/Config/Link/ReadPartStart.py": "cc619458c65a54dd888ded22c7c8259dd94a665a9683fd5d8f996e218d47f747"
+  },
+  "verified_host": {
+    "case_results": {
+      "authored": {
+        "case": "authored",
+        "identical_repeat": true,
+        "records": [
+          {
+            "bytes": 72,
+            "conditions": 0,
+            "fields": {
+              "atom": 0,
+              "atom#wire": 4026532033,
+              "clear": 59,
+              "different": 31,
+              "empty": [],
+              "fixed": [
+                {
+                  "value": -9
+                },
+                {
+                  "value": -8
+                },
+                {
+                  "value": -5
+                },
+                {
+                  "value": 0
+                },
+                {
+                  "value": 7
+                },
+                {
+                  "value": 16
+                },
+                {
+                  "value": 27
+                },
+                {
+                  "value": 40
+                },
+                {
+                  "value": 55
+                },
+                {
+                  "value": 72
+                }
+              ],
+              "identity": -78,
+              "identity#wire": -78,
+              "not_above": 47,
+              "scene": 0,
+              "scene#wire": -763,
+              "selector": 9,
+              "threshold": 10,
+              "threshold#wire": -4
+            },
+            "sha256": "aff2db50efb45e74b3d9695d889b7e1282b9c1ad4e93f9e1e0a1c100ba878693"
+          },
+          {
+            "bytes": 72,
+            "conditions": 32,
+            "fields": {
+              "atom": 0,
+              "atom#wire": 4026532033,
+              "clear": 59,
+              "empty": [],
+              "equal": 31,
+              "fixed": [
+                {
+                  "value": -9
+                },
+                {
+                  "value": -8
+                },
+                {
+                  "value": -5
+                },
+                {
+                  "value": 0
+                },
+                {
+                  "value": 7
+                },
+                {
+                  "value": 16
+                },
+                {
+                  "value": 27
+                },
+                {
+                  "value": 40
+                },
+                {
+                  "value": 55
+                },
+                {
+                  "value": 72
+                }
+              ],
+              "identity": -3,
+              "identity#wire": -3,
+              "not_above": 47,
+              "scene": 0,
+              "scene#wire": -523,
+              "selector": 10,
+              "threshold": 10,
+              "threshold#wire": 10
+            },
+            "sha256": "75e51ad356c9b850a5c437c7e7bb6841231577dd8e1f6b5d3de035947394f1c9"
+          },
+          {
+            "bytes": 72,
+            "conditions": 160,
+            "fields": {
+              "above": 47,
+              "atom": 4026532033,
+              "atom#wire": 4026532033,
+              "different": 31,
+              "empty": [],
+              "fixed": [
+                {
+                  "value": -9
+                },
+                {
+                  "value": -8
+                },
+                {
+                  "value": -5
+                },
+                {
+                  "value": 0
+                },
+                {
+                  "value": 7
+                },
+                {
+                  "value": 16
+                },
+                {
+                  "value": 27
+                },
+                {
+                  "value": 40
+                },
+                {
+                  "value": 55
+                },
+                {
+                  "value": 72
+                }
+              ],
+              "identity": 9,
+              "identity#wire": 9,
+              "masked": 59,
+              "scene": 0,
+              "scene#wire": -745,
+              "selector": 11,
+              "threshold": 15,
+              "threshold#wire": 15
+            },
+            "sha256": "9274bd33f543e4902102bad1f7ea89d2a6ae138814f05fd39c94f9b4f7281192"
+          }
+        ],
+        "refusals": [
+          "branch",
+          "fixed_negative",
+          "fixed_limit",
+          "fixed_truncated",
+          "normalization",
+          "signed_width",
+          "direct_owner",
+          "component_owner"
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "a328d95d46b1e32ae7fe040e23b6a2bc2942f4e35bb19e2d63b3f444e0114f99"
+      },
+      "circle": {
+        "case": "circle",
+        "component_refusals": [
+          {
+            "case": "null",
+            "diagnostic": "SOLIDWORKS component owner requires an existing object",
+            "offset": 0,
+            "word": 0
+          },
+          {
+            "case": "header_alias",
+            "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+            "offset": 0,
+            "word": 3
+          },
+          {
+            "case": "distinct_part",
+            "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+            "offset": 0,
+            "word": 4
+          },
+          {
+            "case": "new_class",
+            "diagnostic": "SOLIDWORKS component owner requires an existing object",
+            "offset": 0,
+            "word": 65535
+          }
+        ],
+        "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+        "identical_repeat": true,
+        "leaves": {
+          "mgBBox_c.restore": {
+            "bytes": 80,
+            "counter": 49,
+            "fields": {
+              "b0": 0.007124999999999999,
+              "b1": -0.0056749999999999995,
+              "b2": 0.0089125,
+              "b3": 0.0186,
+              "b4": 0.0058,
+              "b5": 0.017825,
+              "b6": -0.00435,
+              "b7": -0.01715,
+              "b8": 0,
+              "b9": 0.01851442427541294
+            }
+          },
+          "moComponent_c": {
+            "bytes": 2,
+            "counter": 45,
+            "fields": {
+              "owner": {
+                "class": "moPart_c",
+                "index": 2,
+                "schema": 1
+              }
+            }
+          },
+          "su_CStringArray": {
+            "bytes": 126,
+            "counter": 61,
+            "fields": {
+              "items": [
+                {
+                  "s": "Description"
+                },
+                {
+                  "s": "High Priority"
+                },
+                {
+                  "s": "Low Priority"
+                },
+                {
+                  "s": "Complete"
+                },
+                {
+                  "s": "Reminder"
+                }
+              ],
+              "n": 5
+            }
+          },
+          "utLineWidth_c.Serialize0": {
+            "bytes": 6,
+            "counter": 69,
+            "fields": {
+              "f00": -1,
+              "f06": 0
+            }
+          }
+        },
+        "normalizations": [
+          {
+            "counter": 114,
+            "field": "fd44",
+            "span": [
+              25026,
+              25030
+            ],
+            "value": 10,
+            "wire": 10
+          },
+          {
+            "counter": 114,
+            "field": "fd48",
+            "span": [
+              25034,
+              25038
+            ],
+            "value": 0,
+            "wire": 0
+          },
+          {
+            "counter": 120,
+            "field": "f152c",
+            "span": [
+              25538,
+              25542
+            ],
+            "value": 1,
+            "wire": 1
+          }
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "76f4e0596b5e10355fde060c82361289d28721129031720645cd03bc268b368d"
+      },
+      "circle_witness": {
+        "branch_witnesses": [
+          {
+            "compared": 2,
+            "conditions": 0,
+            "end": [
+              2712,
+              4,
+              49
+            ],
+            "field": "kind",
+            "mask": 2,
+            "mode": "Equals",
+            "predicate": true,
+            "raw_words": [
+              0,
+              -1431655766,
+              -1145324613
+            ],
+            "start": [
+              2702,
+              4,
+              49
+            ],
+            "width": 10,
+            "wire_sha256": "98ac7513f6dfc501cc7390c48649eefcdca1b8f88f58db021199ee549f2dc435"
+          },
+          {
+            "compared": 0,
+            "conditions": 0,
+            "end": [
+              25477,
+              4,
+              119
+            ],
+            "field": "n10c4",
+            "mask": 0,
+            "mode": "Greater",
+            "predicate": false,
+            "raw_words": [],
+            "start": [
+              25477,
+              4,
+              119
+            ],
+            "width": 0,
+            "wire_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "compared": null,
+            "conditions": 0,
+            "end": [
+              2716,
+              4,
+              49
+            ],
+            "field": "",
+            "mask": 128,
+            "mode": "NotCondition",
+            "predicate": true,
+            "raw_words": [
+              0
+            ],
+            "start": [
+              2712,
+              4,
+              49
+            ],
+            "width": 4,
+            "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          }
+        ],
+        "case": "circle",
+        "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+        "identical_repeat": true,
+        "native_repeat": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "class_slot": 101,
+          "end": [
+            24989,
+            4,
+            112
+          ],
+          "field": "f9f8",
+          "start": [
+            22977,
+            4,
+            101
+          ],
+          "views": [
+            {
+              "class": "moView_c",
+              "index": 102,
+              "interval": [
+                22977,
+                23137
+              ],
+              "name": "*Normal To",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 103,
+              "interval": [
+                23137,
+                23277
+              ],
+              "name": "*Front",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 104,
+              "interval": [
+                23277,
+                23487
+              ],
+              "name": "*Back",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 105,
+              "interval": [
+                23487,
+                23697
+              ],
+              "name": "*Left",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 106,
+              "interval": [
+                23697,
+                23909
+              ],
+              "name": "*Right",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 107,
+              "interval": [
+                23909,
+                24117
+              ],
+              "name": "*Top",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 108,
+              "interval": [
+                24117,
+                24331
+              ],
+              "name": "*Bottom",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 109,
+              "interval": [
+                24331,
+                24551
+              ],
+              "name": "*Isometric",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 110,
+              "interval": [
+                24551,
+                24771
+              ],
+              "name": "*Trimetric",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 111,
+              "interval": [
+                24771,
+                24989
+              ],
+              "name": "*Dimetric",
+              "schema": 1
+            }
+          ],
+          "width": 2012,
+          "wire_sha256": "13cfaf8ae662239a56f8ab379e03478f10a47a975cbb31cdef06b345e87b6dc8"
+        },
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "50030943ea8268e6c1f81cedcdd9b345c1af0a74da283e5261df9982740c21c1"
+      },
+      "concave": {
+        "case": "concave",
+        "component_refusals": [
+          {
+            "case": "null",
+            "diagnostic": "SOLIDWORKS component owner requires an existing object",
+            "offset": 0,
+            "word": 0
+          },
+          {
+            "case": "header_alias",
+            "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+            "offset": 0,
+            "word": 3
+          },
+          {
+            "case": "distinct_part",
+            "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+            "offset": 0,
+            "word": 4
+          },
+          {
+            "case": "new_class",
+            "diagnostic": "SOLIDWORKS component owner requires an existing object",
+            "offset": 0,
+            "word": 65535
+          }
+        ],
+        "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+        "identical_repeat": true,
+        "leaves": {
+          "moComponent_c": {
+            "bytes": 2,
+            "counter": 44,
+            "fields": {
+              "owner": {
+                "class": "moPart_c",
+                "index": 2,
+                "schema": 1
+              }
+            }
+          },
+          "su_CStringArray": {
+            "bytes": 126,
+            "counter": 54,
+            "fields": {
+              "items": [
+                {
+                  "s": "Description"
+                },
+                {
+                  "s": "High Priority"
+                },
+                {
+                  "s": "Low Priority"
+                },
+                {
+                  "s": "Complete"
+                },
+                {
+                  "s": "Reminder"
+                }
+              ],
+              "n": 5
+            }
+          },
+          "utLineWidth_c.Serialize0": {
+            "bytes": 6,
+            "counter": 54,
+            "fields": {
+              "f00": -1,
+              "f06": 0
+            }
+          }
+        },
+        "normalizations": [
+          {
+            "counter": 90,
+            "field": "fd44",
+            "span": [
+              22488,
+              22492
+            ],
+            "value": 10,
+            "wire": 10
+          },
+          {
+            "counter": 90,
+            "field": "fd48",
+            "span": [
+              22496,
+              22500
+            ],
+            "value": 0,
+            "wire": 0
+          },
+          {
+            "counter": 94,
+            "field": "f152c",
+            "span": [
+              22650,
+              22654
+            ],
+            "value": 0,
+            "wire": 0
+          }
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "d66d00d0efffdbd13f6da625b4a5cbd28210f2b7521b0a9f704d89b21731dc18"
+      },
+      "concave_witness": {
+        "branch_witnesses": [
+          {
+            "compared": 2,
+            "conditions": 0,
+            "end": [
+              1842,
+              4,
+              46
+            ],
+            "field": "kind",
+            "mask": 2,
+            "mode": "Equals",
+            "predicate": true,
+            "raw_words": [
+              0,
+              -1431655766,
+              -1145324613
+            ],
+            "start": [
+              1832,
+              4,
+              46
+            ],
+            "width": 10,
+            "wire_sha256": "98ac7513f6dfc501cc7390c48649eefcdca1b8f88f58db021199ee549f2dc435"
+          },
+          {
+            "compared": 0,
+            "conditions": 0,
+            "end": [
+              22589,
+              4,
+              93
+            ],
+            "field": "n10c4",
+            "mask": 0,
+            "mode": "Greater",
+            "predicate": false,
+            "raw_words": [],
+            "start": [
+              22589,
+              4,
+              93
+            ],
+            "width": 0,
+            "wire_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "compared": null,
+            "conditions": 0,
+            "end": [
+              1846,
+              4,
+              46
+            ],
+            "field": "",
+            "mask": 128,
+            "mode": "NotCondition",
+            "predicate": true,
+            "raw_words": [
+              0
+            ],
+            "start": [
+              1842,
+              4,
+              46
+            ],
+            "width": 4,
+            "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          }
+        ],
+        "case": "concave",
+        "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+        "identical_repeat": true,
+        "native_repeat": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "class_slot": 79,
+          "end": [
+            22475,
+            4,
+            90
+          ],
+          "field": "f9f8",
+          "start": [
+            20463,
+            4,
+            79
+          ],
+          "views": [
+            {
+              "class": "moView_c",
+              "index": 80,
+              "interval": [
+                20463,
+                20623
+              ],
+              "name": "*Normal To",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 81,
+              "interval": [
+                20623,
+                20763
+              ],
+              "name": "*Front",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 82,
+              "interval": [
+                20763,
+                20973
+              ],
+              "name": "*Back",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 83,
+              "interval": [
+                20973,
+                21183
+              ],
+              "name": "*Left",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 84,
+              "interval": [
+                21183,
+                21395
+              ],
+              "name": "*Right",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 85,
+              "interval": [
+                21395,
+                21603
+              ],
+              "name": "*Top",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 86,
+              "interval": [
+                21603,
+                21817
+              ],
+              "name": "*Bottom",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 87,
+              "interval": [
+                21817,
+                22037
+              ],
+              "name": "*Isometric",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 88,
+              "interval": [
+                22037,
+                22257
+              ],
+              "name": "*Trimetric",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 89,
+              "interval": [
+                22257,
+                22475
+              ],
+              "name": "*Dimetric",
+              "schema": 1
+            }
+          ],
+          "width": 2012,
+          "wire_sha256": "e188b482d13a55326df1e7bba767ca6f0e74c1969841b18062e6c9b5e7c4c6d5"
+        },
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "e8b551313a2036616575d2131baa93ad4b9688cf6b327aee4e738c81ecdb5b58"
+      },
+      "ladder": {
+        "case": "ladder",
+        "component_refusals": [
+          {
+            "case": "null",
+            "diagnostic": "SOLIDWORKS component owner requires an existing object",
+            "offset": 0,
+            "word": 0
+          },
+          {
+            "case": "header_alias",
+            "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+            "offset": 0,
+            "word": 3
+          },
+          {
+            "case": "distinct_part",
+            "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+            "offset": 0,
+            "word": 4
+          },
+          {
+            "case": "new_class",
+            "diagnostic": "SOLIDWORKS component owner requires an existing object",
+            "offset": 0,
+            "word": 65535
+          }
+        ],
+        "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+        "identical_repeat": true,
+        "leaves": {
+          "mgBBox_c.restore": {
+            "bytes": 80,
+            "counter": 49,
+            "fields": {
+              "b0": 0,
+              "b1": 0,
+              "b2": 0.005,
+              "b3": 0.02,
+              "b4": 0.01,
+              "b5": 0.01,
+              "b6": -0.02,
+              "b7": -0.01,
+              "b8": 0,
+              "b9": 0.0229128784747792
+            }
+          },
+          "moComponent_c": {
+            "bytes": 2,
+            "counter": 45,
+            "fields": {
+              "owner": {
+                "class": "moPart_c",
+                "index": 2,
+                "schema": 1
+              }
+            }
+          },
+          "su_CStringArray": {
+            "bytes": 126,
+            "counter": 61,
+            "fields": {
+              "items": [
+                {
+                  "s": "Description"
+                },
+                {
+                  "s": "High Priority"
+                },
+                {
+                  "s": "Low Priority"
+                },
+                {
+                  "s": "Complete"
+                },
+                {
+                  "s": "Reminder"
+                }
+              ],
+              "n": 5
+            }
+          },
+          "utLineWidth_c.Serialize0": {
+            "bytes": 6,
+            "counter": 69,
+            "fields": {
+              "f00": -1,
+              "f06": 0
+            }
+          }
+        },
+        "normalizations": [
+          {
+            "counter": 97,
+            "field": "fd44",
+            "span": [
+              24289,
+              24293
+            ],
+            "value": 12,
+            "wire": 12
+          },
+          {
+            "counter": 97,
+            "field": "fd48",
+            "span": [
+              24297,
+              24301
+            ],
+            "value": 0,
+            "wire": 0
+          },
+          {
+            "counter": 108,
+            "field": "f152c",
+            "span": [
+              25147,
+              25151
+            ],
+            "value": 1,
+            "wire": 1
+          }
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "b17302ac6c54fe27b3d67b021f47147b3fe341e0880b81e5b9bf069c5af68fec"
+      },
+      "ladder_witness": {
+        "branch_witnesses": [
+          {
+            "compared": 2,
+            "conditions": 0,
+            "end": [
+              2706,
+              4,
+              49
+            ],
+            "field": "kind",
+            "mask": 2,
+            "mode": "Equals",
+            "predicate": true,
+            "raw_words": [
+              0,
+              -1431655766,
+              -1145324613
+            ],
+            "start": [
+              2696,
+              4,
+              49
+            ],
+            "width": 10,
+            "wire_sha256": "98ac7513f6dfc501cc7390c48649eefcdca1b8f88f58db021199ee549f2dc435"
+          },
+          {
+            "compared": 0,
+            "conditions": 0,
+            "end": [
+              25057,
+              4,
+              105
+            ],
+            "field": "n10c4",
+            "mask": 0,
+            "mode": "Greater",
+            "predicate": false,
+            "raw_words": [],
+            "start": [
+              25057,
+              4,
+              105
+            ],
+            "width": 0,
+            "wire_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "compared": null,
+            "conditions": 0,
+            "end": [
+              2710,
+              4,
+              49
+            ],
+            "field": "",
+            "mask": 128,
+            "mode": "NotCondition",
+            "predicate": true,
+            "raw_words": [
+              0
+            ],
+            "start": [
+              2706,
+              4,
+              49
+            ],
+            "width": 4,
+            "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+          }
+        ],
+        "case": "ladder",
+        "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+        "identical_repeat": true,
+        "native_repeat": {
+          "anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "class_slot": 84,
+          "end": [
+            24252,
+            4,
+            95
+          ],
+          "field": "f9f8",
+          "start": [
+            22240,
+            4,
+            84
+          ],
+          "views": [
+            {
+              "class": "moView_c",
+              "index": 85,
+              "interval": [
+                22240,
+                22400
+              ],
+              "name": "*Normal To",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 86,
+              "interval": [
+                22400,
+                22540
+              ],
+              "name": "*Front",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 87,
+              "interval": [
+                22540,
+                22750
+              ],
+              "name": "*Back",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 88,
+              "interval": [
+                22750,
+                22960
+              ],
+              "name": "*Left",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 89,
+              "interval": [
+                22960,
+                23172
+              ],
+              "name": "*Right",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 90,
+              "interval": [
+                23172,
+                23380
+              ],
+              "name": "*Top",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 91,
+              "interval": [
+                23380,
+                23594
+              ],
+              "name": "*Bottom",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 92,
+              "interval": [
+                23594,
+                23814
+              ],
+              "name": "*Isometric",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 93,
+              "interval": [
+                23814,
+                24034
+              ],
+              "name": "*Trimetric",
+              "schema": 1
+            },
+            {
+              "class": "moView_c",
+              "index": 94,
+              "interval": [
+                24034,
+                24252
+              ],
+              "name": "*Dimetric",
+              "schema": 1
+            }
+          ],
+          "width": 2012,
+          "wire_sha256": "a851b4ead81929d81ad0870c153903fd684f9b8242e05baba27af14cb934dfc9"
+        },
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "93c0acf7988c69345709b71735bf88ef131bb57f8867a55e869701dc3f93275e"
+      }
+    },
+    "guarded_processes": 14,
+    "original_sources_pristine": true,
+    "python_version": "3.14.7",
+    "source_proof_sha256": "d79172351078d23e336a9d8564bf636920a1004cb447dd183e623e020da3eda0",
+    "source_scope": "accepted view revision plus the reviewed field mode source overlay"
+  }
+}

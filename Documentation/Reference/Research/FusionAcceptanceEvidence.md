@@ -322,6 +322,13 @@ Kit's views of BoxA, an unrelated Fusion-saved design, equal its stored rows in 
 That check ran offline, because no other Fusion-saved drawing has a single body seen along an axis.
 Fillets, part arcs and partly hidden edges have no Fusion evidence, and Kit raises for them.
 
+## Saved rectangular extrusion edits
+
+Native verification source hashing uses [bounded snapshot reads](../../Changes/Research/Verification/BoundedSnapshotReads.md).
+The configured file limits and file-identity protections remain in effect; the read request follows each observed file size.
+
+The [saved-edit reader change](../../Changes/Fusion/Reading/FusionSavedPrismEdits.md) retains four-byte ASM framing, allocated topology identities, and the driving rectangular taper parameter. Its [native report](../../../re/Fusion/Reconstruction/NativeEditedPrisms/NativeAcceptance.json) records healthy before/after controls and successful fresh-process readback for independently edited width, height, depth, and taper. Eight additional controls passed 216 comparisons with saved native observations. The [fixture manifest](../../../re/Fusion/Reconstruction/NativeEditedPrisms/Measurements.json) separates vendor-saved hashes from any privacy-scrubbed committed hashes. This qualifies the stated source-reader scope, not arbitrary conversion or a new native writer.
+
 ## Fixture privacy scrub
 
 Fusion-saved fixtures carried account data in nested protein assets. The [scrub ledger](../../../re/Fusion/LocalOracle/ScrubLedger.json), SHA-256 `1397150b5a27b2b768e0623b3ffcb69ff855642591fc6325c0d4cccd401ec1af`, lists 354 rewritten archives and one captured reflection archive. There are 237 fixtures under `re/Fusion/LocalOracle` and 117 study saves under `re/Fusion/Study`. Each archive records its Fusion-saved and committed SHA-256, and all 354 committed digests match the checked-in files. Fusion saved 28 part feature controls again during later acceptance runs. Those saves held no account residue, so the ledger no longer lists them. The rewrite uses same-length placeholders, and Kit readers do not decode the replaced bytes. See the [fixture scrub entry](../../Changes/Fusion/Privacy/FusionFixtureScrub.md), the [scrub rules entry](../../Changes/Fusion/Privacy/FusionScrubRules.md), the [study scrub entry](../../Changes/Fusion/Privacy/FusionStudyScrub.md) and the [heap residue gotcha](../../Gotchas/Conversion/Fusion/Records/FusionProteinHeapResidue.md).

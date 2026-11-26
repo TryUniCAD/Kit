@@ -14,7 +14,8 @@ from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.registry.NativeHistory import CheckHistory
+from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.registry.RegistrySelect import SelectWriter
@@ -23,6 +24,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WritePolicy import GetWriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.Formats.CheckSourceText import CheckSourceText
 
 # historical destination annotations need local resolution after public methods move to the registry facade
 Destination = KTargetType
@@ -110,6 +112,11 @@ class WriteApi(WriteLookup):
         TargetData: KTargetType,
         **NamedValues: object,
     ) -> WriteResult:
+        from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
+            IsColdRead,
+        )
+        from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+
         FormatId, OptionsData = GetWriteArgs(NamedValues)
         AdapterData = (
             self.GetWriter(FormatId)
@@ -121,7 +128,9 @@ class WriteApi(WriteLookup):
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
-        CheckNative(DocumentData)
+        CheckSourceText(DocumentData)
+        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+            CheckHistory(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)
@@ -130,6 +139,7 @@ class WriteApi(WriteLookup):
             raise NotFoundError(
                 f"{AdapterData.info.FormatId} does not support the destination"
             )
+        CheckReadOnly(DocumentData)
         if SelectedOpts.Validate:
             DocumentData.AssertValid()
         UnsupportedCaps = GetDocumentCaps(DocumentData) - AdapterData.info.Capabilities

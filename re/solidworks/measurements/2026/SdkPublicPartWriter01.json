@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "bytes": 8094,
+      "candidate_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "logical_shape_lines": 3,
+      "native_capabilities": 6,
+      "passed": true,
+      "request_sha256": "40fe22a746b0b5a41610d3dcc1ed9bc93fb6bb3a06b0a7765016fdb92049e751",
+      "role": "Skew",
+      "runtime_input_file_reads": 0,
+      "worker_sha256": "59243a0065b61c9d6ac87369c71acb3b87347db3300bd6fafef0611ee5a1a140"
+    },
+    {
+      "bytes": 8180,
+      "candidate_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "logical_shape_lines": 6,
+      "native_capabilities": 6,
+      "passed": true,
+      "request_sha256": "1583f881cf897e184d6a4abcd3b44bdf863dceff43fe73010992c864dae0a08b",
+      "role": "Step",
+      "runtime_input_file_reads": 0,
+      "worker_sha256": "0e4977dbbcce0660c6458cd5dd4a7db6f988cf4941885ee854958a6a46e9d6fc"
+    }
+  ],
+  "frozen_sdk_source_sha256": "9719ee5a916fd4a26ba2f16e0c19099b20c94e269c395dccbe1336b2432efb33",
+  "guarded_public_calls": 4,
+  "native_input_generation_sha256": "e8d6f43e9d11afc00233a558327fbdd0b161a4205871d5ce30fafda6b360a2f2",
+  "native_result_sha256": "8ca7b13b7bd69f916655539fa08d1df4d836c6c551f218b745e538b84b9bfc0c",
+  "passed": true,
+  "public_integration": [
+    "TestPartWriter",
+    "TestPartBridge",
+    "TestPartHost",
+    "TestBlindPart",
+    "TestPolygonPart"
+  ],
+  "public_worker_source_sha256": "285290f1c118c82b4e7ea5a5ab48abdfacc959d5c2b6bfa9b24ea3bee242d921",
+  "reader_parent": "58f472dc57ab3ace7ded412a4ac3f8eb372e51aa",
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.public-part-writer-proof.v1"
+}

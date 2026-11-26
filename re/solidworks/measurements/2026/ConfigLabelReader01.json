@@ -1,0 +1,691 @@
+{
+  "archive_version": 19000,
+  "base": "f3d8760f214d65fbe71aa4b8bf81a17f553dbb60",
+  "complete_config_admission": false,
+  "format_version": 4,
+  "guarded_fresh_processes": 3,
+  "native_launches": 0,
+  "production_manifest_sha256": "c4d097c71c1befc008e57ca182c65241bac83b5eb2b35e424c85b32dcd72da31",
+  "production_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "9bc897cce440f69c0313479a4ae52a7b7770609d949809f4ff1cc8f2bc07d73f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/FormatAnnotationFields.py": "22890d0b79fb70ade2ff91df49bf152aff13a48dccb8132ca6dde4d3c293b798",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/LabelAnnotationFields.py": "6c0a9d44f2087db1f5a0c465979e4d457853f06a3df2374c5dba4ef0902bf310",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/MaterialFields.py": "d75fbac7a62f4a8d40661a806d21576632955bda6a45b56a3afe89c6a6b0f7af",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ViewLabelFields.py": "594baca7b70ff6b1d92b4e8563cffec31eff84f36056117833f42eff2a9fca74"
+  },
+  "results": [
+    {
+      "anchor_slots": [
+        1,
+        2,
+        3
+      ],
+      "body_sha256": "3bd3131b1a5b3d1663c6946bc64341346ecfe41b0ca98d471c39dd4b7c2da7e1",
+      "case": "ladder",
+      "case_scope": "tracked_native_part",
+      "field_calls": {
+        "Base": 5,
+        "Branch": 5,
+        "Embed": 46,
+        "Scalar": 422,
+        "Text": 41
+      },
+      "field_sha256": "d7512b4a779284181f37f6cb849b9b193a5dd0626200d0c78faf8f28191fa3fb",
+      "header_alias": [
+        "moExtObject_c",
+        1,
+        69
+      ],
+      "intervals": {
+        "moAuxLabelData_c": [
+          [
+            14023,
+            14705
+          ]
+        ],
+        "moDetailLabelData_c": [
+          [
+            12615,
+            13301
+          ]
+        ],
+        "moDrViewLabelData_c": [
+          [
+            12615,
+            13293
+          ],
+          [
+            13301,
+            13979
+          ],
+          [
+            14023,
+            14701
+          ],
+          [
+            14805,
+            15483
+          ],
+          [
+            15491,
+            16169
+          ]
+        ],
+        "moLabelDefs_c": [
+          [
+            12607,
+            16177
+          ]
+        ],
+        "moMiscLabelData_c": [
+          [
+            15491,
+            16177
+          ]
+        ],
+        "moOrthoLabelData_c": [
+          [
+            14805,
+            15491
+          ]
+        ],
+        "moSectionLabelData_c": [
+          [
+            13301,
+            14023
+          ]
+        ]
+      },
+      "map_base": 4,
+      "map_counter": 69,
+      "part": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "root_interval": [
+        12607,
+        16177
+      ],
+      "runtime_external_accesses": 0,
+      "schema_calls": {
+        "moAuxLabelData_c": 1,
+        "moDetailLabelData_c": 1,
+        "moDrViewLabelData_c": 5,
+        "moLabelDefs_c": 1,
+        "moMiscLabelData_c": 1,
+        "moOrthoLabelData_c": 1,
+        "moSectionLabelData_c": 1,
+        "utCharFormat_c": 31,
+        "utLineWidth_c.Serialize0": 10
+      },
+      "selectors": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    {
+      "anchor_slots": [
+        1,
+        2,
+        3
+      ],
+      "body_sha256": "6ab5c510c13f30c8534d307dc96268e1a833a7153abf0cad2909cd42a45ef926",
+      "case": "concave",
+      "case_scope": "tracked_native_part",
+      "field_calls": {
+        "Base": 5,
+        "Branch": 5,
+        "Embed": 46,
+        "Scalar": 422,
+        "Text": 41
+      },
+      "field_sha256": "4ad85ef3909e0de77ab8d69c8f41cbda1701b280461c17f385ed266f460b7238",
+      "header_alias": [
+        "moExtObject_c",
+        1,
+        15
+      ],
+      "intervals": {
+        "moAuxLabelData_c": [
+          [
+            12472,
+            13154
+          ]
+        ],
+        "moDetailLabelData_c": [
+          [
+            11064,
+            11750
+          ]
+        ],
+        "moDrViewLabelData_c": [
+          [
+            11064,
+            11742
+          ],
+          [
+            11750,
+            12428
+          ],
+          [
+            12472,
+            13150
+          ],
+          [
+            13254,
+            13932
+          ],
+          [
+            13940,
+            14618
+          ]
+        ],
+        "moLabelDefs_c": [
+          [
+            11056,
+            14626
+          ]
+        ],
+        "moMiscLabelData_c": [
+          [
+            13940,
+            14626
+          ]
+        ],
+        "moOrthoLabelData_c": [
+          [
+            13254,
+            13940
+          ]
+        ],
+        "moSectionLabelData_c": [
+          [
+            11750,
+            12472
+          ]
+        ]
+      },
+      "map_base": 4,
+      "map_counter": 54,
+      "part": [
+        "moPart_c",
+        1,
+        2
+      ],
+      "root_interval": [
+        11056,
+        14626
+      ],
+      "runtime_external_accesses": 0,
+      "schema_calls": {
+        "moAuxLabelData_c": 1,
+        "moDetailLabelData_c": 1,
+        "moDrViewLabelData_c": 5,
+        "moLabelDefs_c": 1,
+        "moMiscLabelData_c": 1,
+        "moOrthoLabelData_c": 1,
+        "moSectionLabelData_c": 1,
+        "utCharFormat_c": 31,
+        "utLineWidth_c.Serialize0": 10
+      },
+      "selectors": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    {
+      "case": "wire",
+      "conditional_layer_admitted": false,
+      "map_base": 4,
+      "map_counter": 69,
+      "positives": [
+        {
+          "branch_calls": 5,
+          "bytes": 3105,
+          "case": "clear_condition",
+          "conditions": 0,
+          "field_sha256": "03bd4f4545ceeb940449cf06c163e875cbcebcaa800220cc8228f6aede55d4de",
+          "first_label": {
+            "f10": -76,
+            "f14": -420,
+            "f18": -437,
+            "f1c": -403,
+            "f20": -386,
+            "f24": -369,
+            "f28": -352,
+            "f2c": -318,
+            "f30": {
+              "f00": 0.125,
+              "f06": -30
+            },
+            "f38": -301,
+            "f3c": {
+              "f00": -0.0625,
+              "f06": 16
+            },
+            "f44": -335,
+            "f48": -2,
+            "f58": 137,
+            "f5c": 3959422986,
+            "f8": -471,
+            "f88": "View 1 \u03a9",
+            "f90": [
+              "A",
+              "C\u00f4t\u00e9 1"
+            ],
+            "f98": {
+              "f08": "\u00c59\ud801\udc37",
+              "f10": 0.28125,
+              "f18": -9,
+              "f20": -22.5,
+              "f28": 1.125,
+              "f30": 3221225481,
+              "f38": 4.0,
+              "f40": 15.0,
+              "f48": -26.5,
+              "f50": 20.0,
+              "f58": 2952790025
+            },
+            "fa0": {
+              "f08": "\u00c510\ud801\udc37",
+              "f10": 0.3125,
+              "f18": -10,
+              "f20": -25.0,
+              "f28": 1.25,
+              "f30": 3221225482,
+              "f38": 5.0,
+              "f40": 16.0,
+              "f48": -27.5,
+              "f50": 21.0,
+              "f58": 2952790026
+            },
+            "fa8": {
+              "f08": "\u00c511\ud801\udc37",
+              "f10": 0.34375,
+              "f18": -11,
+              "f20": -27.5,
+              "f28": 1.375,
+              "f30": 3221225483,
+              "f38": 6.0,
+              "f40": 17.0,
+              "f48": -28.5,
+              "f50": 22.0,
+              "f58": 2952790027
+            },
+            "fb0": {
+              "f08": "\u00c512\ud801\udc37",
+              "f10": 0.375,
+              "f18": -12,
+              "f20": -30.0,
+              "f28": 1.5,
+              "f30": 3221225484,
+              "f38": 7.0,
+              "f40": 18.0,
+              "f48": -29.5,
+              "f50": 23.0,
+              "f58": 2952790028
+            },
+            "fb8": {
+              "f08": "\u00c513\ud801\udc37",
+              "f10": 0.40625,
+              "f18": -13,
+              "f20": -32.5,
+              "f28": 1.625,
+              "f30": 3221225485,
+              "f38": 8.0,
+              "f40": 19.0,
+              "f48": -30.5,
+              "f50": 24.0,
+              "f58": 2952790029
+            },
+            "fc": -454,
+            "fc0": {
+              "f08": "\u00c514\ud801\udc37",
+              "f10": 0.4375,
+              "f18": -14,
+              "f20": -35.0,
+              "f28": 1.75,
+              "f30": 3221225486,
+              "f38": 9.0,
+              "f40": 20.0,
+              "f48": -31.5,
+              "f50": 25.0,
+              "f58": 2952790030
+            },
+            "fc8": -71,
+            "fcc": 3510086634
+          },
+          "section_suffix": 7,
+          "selectors": [
+            -2,
+            -1,
+            0,
+            37,
+            -32768
+          ],
+          "sha256": "d21fbb50d5e40c76ec53a668b0b56fe19c7dde703d31012f6c39c82cc2d13212"
+        },
+        {
+          "branch_calls": 5,
+          "bytes": 3105,
+          "case": "other_bit",
+          "conditions": 536870912,
+          "field_sha256": "03bd4f4545ceeb940449cf06c163e875cbcebcaa800220cc8228f6aede55d4de",
+          "first_label": {
+            "f10": -76,
+            "f14": -420,
+            "f18": -437,
+            "f1c": -403,
+            "f20": -386,
+            "f24": -369,
+            "f28": -352,
+            "f2c": -318,
+            "f30": {
+              "f00": 0.125,
+              "f06": -30
+            },
+            "f38": -301,
+            "f3c": {
+              "f00": -0.0625,
+              "f06": 16
+            },
+            "f44": -335,
+            "f48": -2,
+            "f58": 137,
+            "f5c": 3959422986,
+            "f8": -471,
+            "f88": "View 1 \u03a9",
+            "f90": [
+              "A",
+              "C\u00f4t\u00e9 1"
+            ],
+            "f98": {
+              "f08": "\u00c59\ud801\udc37",
+              "f10": 0.28125,
+              "f18": -9,
+              "f20": -22.5,
+              "f28": 1.125,
+              "f30": 3221225481,
+              "f38": 4.0,
+              "f40": 15.0,
+              "f48": -26.5,
+              "f50": 20.0,
+              "f58": 2952790025
+            },
+            "fa0": {
+              "f08": "\u00c510\ud801\udc37",
+              "f10": 0.3125,
+              "f18": -10,
+              "f20": -25.0,
+              "f28": 1.25,
+              "f30": 3221225482,
+              "f38": 5.0,
+              "f40": 16.0,
+              "f48": -27.5,
+              "f50": 21.0,
+              "f58": 2952790026
+            },
+            "fa8": {
+              "f08": "\u00c511\ud801\udc37",
+              "f10": 0.34375,
+              "f18": -11,
+              "f20": -27.5,
+              "f28": 1.375,
+              "f30": 3221225483,
+              "f38": 6.0,
+              "f40": 17.0,
+              "f48": -28.5,
+              "f50": 22.0,
+              "f58": 2952790027
+            },
+            "fb0": {
+              "f08": "\u00c512\ud801\udc37",
+              "f10": 0.375,
+              "f18": -12,
+              "f20": -30.0,
+              "f28": 1.5,
+              "f30": 3221225484,
+              "f38": 7.0,
+              "f40": 18.0,
+              "f48": -29.5,
+              "f50": 23.0,
+              "f58": 2952790028
+            },
+            "fb8": {
+              "f08": "\u00c513\ud801\udc37",
+              "f10": 0.40625,
+              "f18": -13,
+              "f20": -32.5,
+              "f28": 1.625,
+              "f30": 3221225485,
+              "f38": 8.0,
+              "f40": 19.0,
+              "f48": -30.5,
+              "f50": 24.0,
+              "f58": 2952790029
+            },
+            "fc": -454,
+            "fc0": {
+              "f08": "\u00c514\ud801\udc37",
+              "f10": 0.4375,
+              "f18": -14,
+              "f20": -35.0,
+              "f28": 1.75,
+              "f30": 3221225486,
+              "f38": 9.0,
+              "f40": 20.0,
+              "f48": -31.5,
+              "f50": 25.0,
+              "f58": 2952790030
+            },
+            "fc8": -71,
+            "fcc": 3510086634
+          },
+          "section_suffix": 7,
+          "selectors": [
+            -2,
+            -1,
+            0,
+            37,
+            -32768
+          ],
+          "sha256": "d21fbb50d5e40c76ec53a668b0b56fe19c7dde703d31012f6c39c82cc2d13212"
+        },
+        {
+          "branch_calls": 10,
+          "bytes": 3105,
+          "case": "signed_sentinel",
+          "conditions": 1073741824,
+          "field_sha256": "e26d02135423e9f024eac4d7885bcd36b9d28d88a3a474facef56882a27b36e0",
+          "first_label": {
+            "f10": -76,
+            "f14": -420,
+            "f18": -437,
+            "f1c": -403,
+            "f20": -386,
+            "f24": -369,
+            "f28": -352,
+            "f2c": -318,
+            "f30": {
+              "f00": 0.125,
+              "f06": -30
+            },
+            "f38": -301,
+            "f3c": {
+              "f00": -0.0625,
+              "f06": 16
+            },
+            "f44": -335,
+            "f48": -1,
+            "f58": 137,
+            "f5c": 3959422986,
+            "f8": -471,
+            "f88": "View 1 \u03a9",
+            "f90": [
+              "A",
+              "C\u00f4t\u00e9 1"
+            ],
+            "f98": {
+              "f08": "\u00c59\ud801\udc37",
+              "f10": 0.28125,
+              "f18": -9,
+              "f20": -22.5,
+              "f28": 1.125,
+              "f30": 3221225481,
+              "f38": 4.0,
+              "f40": 15.0,
+              "f48": -26.5,
+              "f50": 20.0,
+              "f58": 2952790025
+            },
+            "fa0": {
+              "f08": "\u00c510\ud801\udc37",
+              "f10": 0.3125,
+              "f18": -10,
+              "f20": -25.0,
+              "f28": 1.25,
+              "f30": 3221225482,
+              "f38": 5.0,
+              "f40": 16.0,
+              "f48": -27.5,
+              "f50": 21.0,
+              "f58": 2952790026
+            },
+            "fa8": {
+              "f08": "\u00c511\ud801\udc37",
+              "f10": 0.34375,
+              "f18": -11,
+              "f20": -27.5,
+              "f28": 1.375,
+              "f30": 3221225483,
+              "f38": 6.0,
+              "f40": 17.0,
+              "f48": -28.5,
+              "f50": 22.0,
+              "f58": 2952790027
+            },
+            "fb0": {
+              "f08": "\u00c512\ud801\udc37",
+              "f10": 0.375,
+              "f18": -12,
+              "f20": -30.0,
+              "f28": 1.5,
+              "f30": 3221225484,
+              "f38": 7.0,
+              "f40": 18.0,
+              "f48": -29.5,
+              "f50": 23.0,
+              "f58": 2952790028
+            },
+            "fb8": {
+              "f08": "\u00c513\ud801\udc37",
+              "f10": 0.40625,
+              "f18": -13,
+              "f20": -32.5,
+              "f28": 1.625,
+              "f30": 3221225485,
+              "f38": 8.0,
+              "f40": 19.0,
+              "f48": -30.5,
+              "f50": 24.0,
+              "f58": 2952790029
+            },
+            "fc": -454,
+            "fc0": {
+              "f08": "\u00c514\ud801\udc37",
+              "f10": 0.4375,
+              "f18": -14,
+              "f20": -35.0,
+              "f28": 1.75,
+              "f30": 3221225486,
+              "f38": 9.0,
+              "f40": 20.0,
+              "f48": -31.5,
+              "f50": 25.0,
+              "f58": 2952790030
+            },
+            "fc8": -71,
+            "fcc": 3510086634
+          },
+          "section_suffix": 7,
+          "selectors": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "sha256": "67eca2850f056d87f570e99be41839c92082413db861a0add641f6296dd8d70a"
+        }
+      ],
+      "refusals": [
+        {
+          "case": "active_layer_alias",
+          "diagnostic": "unsupported SOLIDWORKS native field path moDrViewLabelData_c.f50 layer object",
+          "offset": 54
+        },
+        {
+          "case": "active_zero_selector",
+          "diagnostic": "unsupported SOLIDWORKS native field path moDrViewLabelData_c.f50 layer object",
+          "offset": 54
+        },
+        {
+          "case": "active_layer_truncated",
+          "diagnostic": "unsupported SOLIDWORKS native field path moDrViewLabelData_c.f50 layer object",
+          "offset": 54
+        },
+        {
+          "case": "truncated_selector",
+          "diagnostic": "SOLIDWORKS body moLabelDefs_c field f18 at 52: SOLIDWORKS body moLabelDefs_c/moDetailLabelData_c field f18/moDrViewLabelData_c at 52: SOLIDWORKS body moLabelDefs_c/moDetailLabelData_c/moDrViewLabelData_c field f18/moDrViewLabelData_c/f48 at 52: truncated SOLIDWORKS archive field at 52",
+          "offset": 52
+        },
+        {
+          "case": "truncated_wide_text",
+          "diagnostic": "SOLIDWORKS body moLabelDefs_c field f18 at 54: SOLIDWORKS body moLabelDefs_c/moDetailLabelData_c field f18/moDrViewLabelData_c at 54: SOLIDWORKS body moLabelDefs_c/moDetailLabelData_c/moDrViewLabelData_c field f18/moDrViewLabelData_c/f88 at 54: archive string payload is truncated",
+          "offset": 54
+        },
+        {
+          "case": "truncated_detail_suffix",
+          "diagnostic": "SOLIDWORKS body moLabelDefs_c field f18 at 599: SOLIDWORKS body moLabelDefs_c/moDetailLabelData_c field f18/fc8 at 599: truncated SOLIDWORKS archive field at 599",
+          "offset": 599
+        },
+        {
+          "case": "truncated_misc_suffix",
+          "diagnostic": "SOLIDWORKS body moLabelDefs_c field f388 at 3101: SOLIDWORKS body moLabelDefs_c/moMiscLabelData_c field f388/fcc at 3101: truncated SOLIDWORKS archive field at 3101",
+          "offset": 3101
+        },
+        {
+          "case": "trailing_label_data",
+          "diagnostic": "bounded label definitions have trailing data",
+          "offset": 3105
+        },
+        {
+          "case": "wrong_archive_version",
+          "diagnostic": "SOLIDWORKS typed body grammar requires archive version 19000",
+          "offset": 0
+        }
+      ],
+      "runtime_external_accesses": 0
+    }
+  ],
+  "source_receipt_sha256": "8e6963898cb6173675260e86be014f02653dc4c8fc8c0be03b96fb5e059a4252",
+  "tool_sha256": {
+    "CheckCfgFonts.py": "9a2b724f2d67d26009945f6275d5484b0a363e9cdf15a23dd72fe8a9b60f7e0b",
+    "CheckCfgLabels.py": "43bef5096a5b6d0a47077f7b54f1a831d7bde26c2c59721ce8eb40316a5aff9d",
+    "CheckCfgMembers.py": "d7aa8fcd744ffcc09df8f7297867dbcb3f5f0b8f7b5caf56c120dfe88c6303f4",
+    "CheckCfgOwners.py": "a25c4a45c7da0d54cef240b58e3ac2b5628023949004472c793b504602360894",
+    "ReadWireCfgFont.py": "69a091999d9c13a80a84046f3811009548013a9c5fa2298c1be397b388577de7",
+    "ReadWireCfgLabel.py": "29681412bd876b1875b507453aa869bb0f2be9d42fa95e62f5de6b0675c02356",
+    "TraceCfgFont.py": "dbc09e341fd505e7d19428792473b7438133ed4e51f7565373f4e4dd43ea7c7e",
+    "TraceCfgLabels.py": "1d41638fa023add4698c5e5d8932781d0f06a97de4260fb0c0dd25803f7f8df5"
+  }
+}

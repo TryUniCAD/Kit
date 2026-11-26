@@ -1,0 +1,393 @@
+{
+  "base_revision": "b7236cc80e3f9e7d903b718592c8cbb058abbf5e",
+  "cases": {
+    "Off": {
+      "archive": {
+        "bytes": 9394,
+        "path": "reconstruction.SLDPRT",
+        "sha256": "784a627c0fae6c308250dad8ccf2cc8397ca4473ad7bf0d2df11e5c11be4f254"
+      },
+      "external_generation_attempts": 0,
+      "fields": {
+        "config_next_slot": 89,
+        "coordinate_words_m": [
+          [
+            "-0x1.a9fbe76c8b439p-7",
+            "-0x1.89374bc6a7efap-9"
+          ],
+          [
+            "0x1.0624dd2f1a9fcp-7",
+            "-0x1.26e978d4fdf3bp-7"
+          ],
+          [
+            "0x1.374bc6a7ef9dbp-6",
+            "0x1.89374bc6a7efap-8"
+          ],
+          [
+            "0x1.0624dd2f1a9fcp-8",
+            "0x1.78d4fdf3b645ap-6"
+          ]
+        ],
+        "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+        "definition_display_words": [
+          0,
+          0
+        ],
+        "native_unit_table_codes": [
+          [
+            0,
+            4
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "resolved_base": 89,
+        "resolved_next_slot": 204,
+        "resolved_roots": 19,
+        "show_construction_planes": false,
+        "top": {
+          "configuration_id": "sldprt:configuration:0",
+          "id": 200,
+          "matrix_binary64": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "-0x0.0p+0",
+            "-0x1.0000000000000p+0",
+            "-0x0.0p+0"
+          ],
+          "name": "*Top",
+          "slot": 87
+        }
+      },
+      "native_launches": 0,
+      "native_locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+      "request_sha256": "f8629c15f1428fcdfcead278fc55ff38943668d008867b22f97d50041bc555d6",
+      "schema": "kit.research.exact-sketch-presentation.v1",
+      "strict_readback": {
+        "directed_face_rings": 6,
+        "topology": [
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 7584.299999999999
+      },
+      "written_at": 1785626030
+    },
+    "On": {
+      "archive": {
+        "bytes": 9400,
+        "path": "reconstruction.SLDPRT",
+        "sha256": "67f78d14ba9f858dcd507ea34c70cd496b2ced862f6fd6a81b29f6f7c1febd72"
+      },
+      "external_generation_attempts": 0,
+      "fields": {
+        "config_next_slot": 89,
+        "coordinate_words_m": [
+          [
+            "-0x1.a9fbe76c8b439p-7",
+            "-0x1.89374bc6a7efap-9"
+          ],
+          [
+            "0x1.0624dd2f1a9fcp-7",
+            "-0x1.26e978d4fdf3bp-7"
+          ],
+          [
+            "0x1.374bc6a7ef9dbp-6",
+            "0x1.89374bc6a7efap-8"
+          ],
+          [
+            "0x1.0624dd2f1a9fcp-8",
+            "0x1.78d4fdf3b645ap-6"
+          ]
+        ],
+        "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+        "definition_display_words": [
+          131072,
+          0
+        ],
+        "native_unit_table_codes": [
+          [
+            0,
+            4
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "resolved_base": 89,
+        "resolved_next_slot": 204,
+        "resolved_roots": 19,
+        "show_construction_planes": true,
+        "top": {
+          "configuration_id": "sldprt:configuration:0",
+          "id": 200,
+          "matrix_binary64": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "-0x0.0p+0",
+            "-0x1.0000000000000p+0",
+            "-0x0.0p+0"
+          ],
+          "name": "*Top",
+          "slot": 87
+        }
+      },
+      "native_launches": 0,
+      "native_locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+      "request_sha256": "a983d54216602ba5d8779c1a699df05bb5bebc69bdd3d37a38f0d920f117e523",
+      "schema": "kit.research.exact-sketch-presentation.v1",
+      "strict_readback": {
+        "directed_face_rings": 6,
+        "topology": [
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 7584.299999999999
+      },
+      "written_at": 1785626030
+    }
+  },
+  "compositor_sha256": "deabdbdbc4e5685ad2326f0cb33b81e6e6b85c385830c8936766aad805afaed7",
+  "differentials": {
+    "control_to_top_only": [
+      "Contents/Config-0",
+      "Contents/Config-0-ResolvedFeatures"
+    ],
+    "definition_off_to_on_byte_changes": [
+      [
+        114,
+        0,
+        2
+      ]
+    ],
+    "exact_sketch_control_sha256": "4dd7782630c48f05cb64d11fc20c385313ca18db3893396842157597337d713b",
+    "top_only_to_top_and_planes": [
+      "Contents/Definition"
+    ]
+  },
+  "refusals": {
+    "ForeignTop": {
+      "diagnostic": "must bind the active neutral configuration",
+      "exit": 1,
+      "output_absent": true,
+      "request_sha256": "1b1f088e0bedcf456673a328452d3796c606f67c71fdfde74ce2d429cb4facf0"
+    },
+    "HiddenAlias": {
+      "diagnostic": "expected exact configuration-owned annotation view fields",
+      "exit": 1,
+      "output_absent": true,
+      "request_sha256": "d5184a212854a4d1ce625bd31241f5f75797fe35b9c9866bde61a1bd4a9060f5"
+    },
+    "MetresDisplay": {
+      "diagnostic": "explicit mm display intent",
+      "exit": 1,
+      "output_absent": true,
+      "request_sha256": "2874664b65ae8fc3076e1396ae8303ca2741b10574cd4ecf3a0f54f1bc015d03"
+    },
+    "NonCardinalTop": {
+      "diagnostic": "exact Top cardinal frame",
+      "exit": 1,
+      "output_absent": true,
+      "request_sha256": "e8f720fe372139ef5b7ea2386aab47385db22e8de37de92d15810e5b6c9852a7"
+    },
+    "PlaneInteger": {
+      "diagnostic": "must be a JSON boolean",
+      "exit": 1,
+      "output_absent": true,
+      "request_sha256": "e3e457712e58156a96b97c6d8f591513325c06b6621795ce974fce8d95f071d1"
+    }
+  },
+  "repeat_on_exact": true,
+  "runtime": {
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "system": "Windows",
+    "zlib": "1.3.1.zlib-ng"
+  },
+  "schema": "kit.research.exact-sketch-presentation.evidence.v1",
+  "scope": "offline typed output and strict SDK geometry. Native annotation visibility and native acceptance remain unmeasured for the composite",
+  "source_matched_name": {
+    "candidate_clear_stream_count": 10,
+    "configuration_readback": {
+      "active": true,
+      "keyword_configuration_id": 0,
+      "keyword_configuration_name": "Default",
+      "name": "Default",
+      "neutral_configuration_id": "sldprt:configuration:0",
+      "typed_cmgrhdr2_names": {
+        "0": "Default"
+      }
+    },
+    "generated": {
+      "archive": {
+        "bytes": 9351,
+        "path": "reconstruction.SLDPRT",
+        "sha256": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29"
+      },
+      "external_generation_attempts": 0,
+      "fields": {
+        "config_next_slot": 89,
+        "coordinate_words_m": [
+          [
+            "-0x1.a9fbe76c8b439p-7",
+            "-0x1.89374bc6a7efap-9"
+          ],
+          [
+            "0x1.0624dd2f1a9fcp-7",
+            "-0x1.26e978d4fdf3bp-7"
+          ],
+          [
+            "0x1.374bc6a7ef9dbp-6",
+            "0x1.89374bc6a7efap-8"
+          ],
+          [
+            "0x1.0624dd2f1a9fcp-8",
+            "0x1.78d4fdf3b645ap-6"
+          ]
+        ],
+        "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+        "definition_display_words": [
+          131072,
+          0
+        ],
+        "native_unit_table_codes": [
+          [
+            0,
+            4
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "resolved_base": 89,
+        "resolved_next_slot": 204,
+        "resolved_roots": 19,
+        "show_construction_planes": true,
+        "top": {
+          "configuration_id": "sldprt:configuration:0",
+          "id": 200,
+          "matrix_binary64": [
+            "0x1.0000000000000p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x0.0p+0",
+            "0x1.0000000000000p+0",
+            "-0x0.0p+0",
+            "-0x1.0000000000000p+0",
+            "-0x0.0p+0"
+          ],
+          "name": "*Top",
+          "slot": 87
+        }
+      },
+      "native_launches": 0,
+      "native_locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+      "request_sha256": "cdefa9be027d8257c0f5b08cf722efff746f38960b86e5e73eac2e63bf7d1ac4",
+      "schema": "kit.research.exact-sketch-presentation.v1",
+      "strict_readback": {
+        "directed_face_rings": 6,
+        "topology": [
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 7584.299999999999
+      },
+      "written_at": 1785626030
+    },
+    "name_only_clear_stream_changes": [
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/Config-0-ModelHeader",
+      "Header2",
+      "swXmlContents/KeyWords"
+    ],
+    "schema": "kit.research.exact-sketch-presentation.source-matched.v1",
+    "scope": "Exact known source configuration name, typed Top pose and generated global plane flag. Native combined visibility, display-state naming, full GetUnits formatting, configuration-manager graph and original source provenance remain unqualified.",
+    "source_archive_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+    "source_clear_stream_count": 36,
+    "source_only_clear_stream_count": 26,
+    "stock_before_oracle_build": "34.4.1.1011",
+    "stock_before_record_sha256": "229036b76e36d67eed1ce86cc940ae1fb697d3457f14f58de6b9989a534d790e",
+    "stock_before_request_sha256": "63bc6aa49622f9045aa4141d983759230ef1074442e73eb410ab19f7fb8e6f17",
+    "stock_before_stages": {
+      "initial": {
+        "annotation_views": 2,
+        "assigned_top_count": 1,
+        "assigned_top_matrix_binary64": [
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "-0x0.0p+0"
+        ],
+        "assigned_top_shown": false,
+        "both_global_plane_getters": true,
+        "configuration": "Default"
+      },
+      "rebuilt": {
+        "annotation_views": 2,
+        "assigned_top_count": 1,
+        "assigned_top_matrix_binary64": [
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "-0x0.0p+0"
+        ],
+        "assigned_top_shown": false,
+        "both_global_plane_getters": true,
+        "configuration": "Default"
+      }
+    },
+    "typed_unit_tables": {
+      "generated": {
+        "f9b8": {
+          "length_code": 0,
+          "length_precision": 4,
+          "system_code": 4
+        },
+        "f9c0": {
+          "length_code": 2,
+          "length_precision": 4,
+          "system_code": 1
+        }
+      },
+      "source": {
+        "f9b8": {
+          "length_code": 0,
+          "length_precision": 2,
+          "system_code": 4
+        },
+        "f9c0": null
+      }
+    }
+  },
+  "standalone_dependencies": {
+    "exact_sketch_sha256": "8455c052d58c5927265dedbf93c9dc9a8fe3831bdacc9d521a61621da13ad5ca",
+    "top_annotation_sha256": "35dc75f89a9ef4970c6bc3514d8eb2522e53130f6a6d3c3ca89e8bcd704d2d89"
+  }
+}

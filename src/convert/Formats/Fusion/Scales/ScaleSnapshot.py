@@ -17,9 +17,45 @@ from convert.Formats.Fusion.Topology.BodyInventory import ReadBodyInventory
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumDocument import Capability
+from interchange.Enums.EnumFeatures import FeatureKind
+from interchange.geometry.Models.Selection import Selection
 from interchange.Features.BoundScaleValues import GetScaleValues
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureStep import FeatureStep
+
+
+# the verified construction point keeps its source sketch and point identity as editable references
+def ScaleHistory(
+    Document: CadDocument, Updated: FeatureStep, Center: Selection
+) -> tuple[FeatureStep, ...]:
+    History = Document.feature_timeline[:-1]
+    if Center.query.get("kind") != "construction_point":
+        return (*History, Updated)
+    return (
+        *(
+            (
+                Replace(
+                    StepValue,
+                    kind=FeatureKind.KReference,
+                    attributes=FreezeMapping(
+                        {
+                            **StepValue.attributes,
+                            "fusion.by_point_sketch_id": Center.query[
+                                "support_sketch_id"
+                            ],
+                            "fusion.by_point_entity_id": Center.query[
+                                "support_point_id"
+                            ],
+                        }
+                    ),
+                )
+                if StepValue.id == Center.query["source_feature_id"]
+                else StepValue
+            )
+            for StepValue in History
+        ),
+        Updated,
+    )
 
 
 # only a complete terminal scale replaces the saved final body set
@@ -83,7 +119,7 @@ def ReadScaleSnap(
     Bodies, Links = LinkBodyRecords(Bodies, Members)
     return Replace(
         Document,
-        feature_timeline=(*Document.feature_timeline[:-1], Updated),
+        feature_timeline=ScaleHistory(Document, Updated, Center),
         selections=Selections,
         bodies=Bodies,
         brep=Model,

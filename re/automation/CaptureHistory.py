@@ -1,10 +1,13 @@
 import argparse
 import hashlib
+from http.client import HTTPSConnection
 import json
 import re
 import subprocess
 import sys
 from pathlib import Path
+from time import sleep
+from urllib.parse import quote
 
 from Corpus import asset_kind, git, read_tree
 
@@ -24,6 +27,25 @@ SOLIDWORKS_AUTHORING_PATH = (
 
 # only the reviewed authoring revision can replace the live entry at that path
 SOLIDWORKS_AUTHORING_BLOB = "32f05b05db457b68f56091bf73bda00043b103c7"
+
+ATTRIBUTION_INPUTS = {
+    "re/automation/Corpus.json": (
+        "c9ab93069474450d48ad56e11d23482c1a4f712f",
+        "cc4877e647ce21904542913e1f85f181675c228f",
+    ),
+    "re/automation/PairedCaptures/SolidWorksAuthoring/BossWitnessReadback.cs": (
+        "2cbadb2bace2225d84f778a10d455fe35e075319",
+        "21d5c2e151a6894e562f6091038e769ef5293716",
+    ),
+    "re/automation/PairedCaptures/SolidWorksAuthoring/P02Readback.cs": (
+        "210c13c2a66d239a391afcf4e53860d6515af96b",
+        "655dfed84ac7e53ef62d7cbdb4efa53ac963f86c",
+    ),
+    "re/automation/PairedCaptures/SolidWorksAuthoring/RunBossWitness.ps1": (
+        "d456572fa62aeba43c8f7a56972afd727ca0e150",
+        "67f45c5be3109f08bc10a26a601e1ef5eee90396",
+    ),
+}
 
 
 def unique_fields(pairs):
@@ -104,6 +126,8 @@ def bind_inputs(root, revision, source_revision, expected=None):
     if expected is not None and observed != expected:
         raise ValueError("historical lineage input tree differs from its contract")
     current = input_tree(root, revision)
+    current_digest = tree_digest(current)
+    migrations = []
     binding = "identical_tracked_file_modes_and_blob_ids"
     if (
         expected is not None
@@ -114,14 +138,29 @@ def bind_inputs(root, revision, source_revision, expected=None):
     ):
         current[SOLIDWORKS_AUTHORING_PATH] = original[SOLIDWORKS_AUTHORING_PATH]
         binding = "pinned_live_authoring_and_identical_historical_inputs"
+    if expected is not None:
+        for path, (before, after) in ATTRIBUTION_INPUTS.items():
+            if (
+                original.get(path) == {"mode": "100644", "git_blob": before}
+                and current.get(path) == {"mode": "100644", "git_blob": after}
+            ):
+                current[path] = original[path]
+                migrations.append({"path": path, "original_git_blob": before, "current_git_blob": after})
     if current != original:
         raise ValueError("current capture inputs differ from original lineage")
-    return {
+    result = {
         "lineage_revision": source_revision,
         "input_tree_sha256": observed,
         "bound_input_count": len(original),
         "binding": binding,
     }
+    if migrations:
+        result.update({
+            "binding": "pinned_attribution_and_" + binding,
+            "current_input_tree_sha256": current_digest,
+            "attribution_migrations": migrations,
+        })
+    return result
 
 
 def input_blobs(root, revision):
@@ -141,7 +180,7 @@ def input_blobs(root, revision):
     }
     if any(Path(path).suffix.lower() not in allowed for path in original):
         raise ValueError("historical input roster contains an unsupported artifact")
-    blobs = {entry["git_blob"] for entry in original.values()}
+    blobs = {entry["git_blob"]: (revision, path) for path, entry in original.items()}
     for path in original:
         if not path.startswith(INPUT_PATHS[0]) or not path.endswith("/receipt.json"):
             continue
@@ -163,7 +202,7 @@ def input_blobs(root, revision):
             raise ValueError("capture has no unique original introduction")
         for name, entry in input_tree(root, introductions[0]).items():
             if name.startswith(INPUT_PATHS[0]) and Path(name).suffix in {".py", ".cs"}:
-                blobs.add(entry["git_blob"])
+                blobs.setdefault(entry["git_blob"], (introductions[0], name))
     manifest_blob = original["re/automation/Corpus.json"]["git_blob"]
     manifest_raw = git(root, "cat-file", "blob", manifest_blob)
     if len(manifest_raw) > 32 * 1024 * 1024:
@@ -200,13 +239,40 @@ def input_blobs(root, revision):
             (b"MZ", b"\x7fELF", b"\xcf\xfa\xed\xfe", b"\xfe\xed\xfa\xcf")
         ):
             raise ValueError("runtime software is not an allowed historical input")
-        blobs.add(checksum)
+        blobs.setdefault(checksum, (manifest["source_revision"], asset["path"]))
     if len(blobs) > 4096:
         raise ValueError("historical input object roster exceeds its limit")
-    return sorted(blobs)
+    return blobs
+
+
+def fetch_pinned_blob(root, contract, revision, path, checksum):
+    repository = contract["source_repository"].removeprefix("https://github.com/").removesuffix(".git")
+    resource = f"/{repository}/{revision}/{quote(path)}"
+    for attempt in range(3):
+        connection = HTTPSConnection("raw.githubusercontent.com", timeout=30)
+        try:
+            connection.request("GET", resource)
+            response = connection.getresponse()
+            if response.status == 200:
+                data = response.read(100 * 1024 * 1024 + 1)
+                break
+            if response.status not in {502, 503, 504} or attempt == 2:
+                raise ValueError(f"sealed input {checksum} download returned HTTP {response.status}")
+        finally:
+            connection.close()
+        sleep(2 ** attempt)
+    if len(data) > 100 * 1024 * 1024:
+        raise ValueError("sealed input exceeds the GitHub single file limit")
+    observed = git(root, "hash-object", "--stdin", input_data=data).decode("ascii").strip()
+    if observed != checksum:
+        raise ValueError(f"sealed input {checksum} failed content verification")
+    stored = git(root, "hash-object", "-w", "--stdin", input_data=data).decode("ascii").strip()
+    if stored != checksum:
+        raise ValueError("sealed input changed while storing its verified blob")
 
 
 def hydrate_blobs(root, contract, blobs):
+    blobs = dict(sorted(blobs.items()))
     result = (
         git(
             root,
@@ -231,18 +297,17 @@ def hydrate_blobs(root, contract, blobs):
         if fields[1] == "missing":
             missing.append(checksum)
     for offset in range(0, len(missing), 64):
-        git(
-            root,
-            "-c",
-            "protocol.version=2",
-            "fetch",
-            "--filter=blob:none",
-            "--no-tags",
-            "--no-write-fetch-head",
-            "--recurse-submodules=no",
-            contract["source_repository"],
-            *missing[offset : offset + 64],
-        )
+        batch = missing[offset : offset + 64]
+        try:
+            git(
+                root, "-c", "protocol.version=2", "fetch", "--filter=blob:none",
+                "--no-tags", "--no-write-fetch-head", "--recurse-submodules=no",
+                contract["source_repository"], *batch,
+            )
+        except subprocess.CalledProcessError:
+            for checksum in batch:
+                revision, path = blobs[checksum]
+                fetch_pinned_blob(root, contract, revision, path, checksum)
     observed = (
         git(
             root,
@@ -261,7 +326,7 @@ def hydrate_blobs(root, contract, blobs):
 def hydrate_inputs(root, contract):
     original = input_tree(root, contract["source_revision"])
     hydrated = hydrate_blobs(
-        root, contract, [original["re/automation/Corpus.json"]["git_blob"]]
+        root, contract, {original["re/automation/Corpus.json"]["git_blob"]: (contract["source_revision"], "re/automation/Corpus.json")}
     )
     return hydrated + hydrate_blobs(
         root, contract, input_blobs(root, contract["source_revision"])

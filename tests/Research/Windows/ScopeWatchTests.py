@@ -6,7 +6,6 @@ from pathlib import Path as FilePath
 
 import pytest as Pytest
 
-from tests.Research.SupervisorClient import KRepoRoot
 from tests.Research.Windows.ScopeWatchStub import GetBasePython
 from tests.Research.Windows.WaitForExit import WaitForExit
 
@@ -50,9 +49,8 @@ def RunWatchdog(RunPath: FilePath) -> None:
             "-I",
             str(Script),
             "watch",
-            str(RunPath),
-            str(KRepoRoot / "re/automation"),
         ],
+        cwd=RunPath,
         capture_output=True,
         text=True,
         check=False,

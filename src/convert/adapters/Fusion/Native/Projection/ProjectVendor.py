@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Cuts.ProjectBoundary import ProjectBoundary
 from convert.adapters.Fusion.Native.Circular.ProjectCircular import ProjectCircular
 from convert.adapters.Fusion.Native.Graph.BuildGraph import BuildGraph
 from convert.adapters.Fusion.Native.Projection.ProjectPrism import ProjectPrism
@@ -15,6 +16,11 @@ def ProjectVendor(Model: DocumentModel, Source: CadSource) -> CadDocument:
             "Native-state version 2 requires the qualified auxiliary-bearing profile"
         )
     Graph = BuildGraph(Model)
+    Extrusions = Graph.ByClass("DcExtrudeFeature")
+    if len(Extrusions) == 2 and any(
+        Value.Fields["booleanOperation"] == 2 for Value in Extrusions
+    ):
+        return ProjectBoundary(Model, Source, Graph)
     if Graph.ByClass("CircArc3D"):
         return ProjectCircular(Model, Source, Graph)
     return ProjectPrism(Model, Source, Graph)

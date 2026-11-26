@@ -10,8 +10,8 @@ from convert.adapters.solidworks.Core.Native import DecodeNative
 # process isolation exercises the native reader independently of fixture construction
 def ParseRoster() -> None:
     Model = DecodeNative(
-        FilePath(System.argv[1]).read_bytes(),
-        FilePath(System.argv[2]).read_bytes(),
+        FilePath("Keywords.xml").read_bytes(),
+        FilePath("Resolved.bin").read_bytes(),
         Display=LinearDisplay("in", 2),
     )
     Report: dict[str, object] = {

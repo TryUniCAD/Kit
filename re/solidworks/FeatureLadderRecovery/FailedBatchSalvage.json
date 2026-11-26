@@ -1,0 +1,38 @@
+[
+  {
+    "source": "$RECOVERY/SolidWorksRemaining/solidworks-068-restart/Native/control-before.SLDPRT",
+    "source_sha256": "0d0eba6267680668af123f15006dd311d8664e543c6f90148d1ac03c290ebb29",
+    "command": [
+      "kit",
+      "decode",
+      "$RECOVERY/SolidWorksRemaining/solidworks-068-restart/Native/control-before.SLDPRT",
+      "-o",
+      "$RECOVERY/FailedBatchSalvage/control-before.json"
+    ],
+    "exit_code": 0,
+    "outcome": "strict_decoded",
+    "qualification": "original native batch failed; healthy after-control absent; no capture acceptance",
+    "full_semantics_verified": false
+  },
+  {
+    "source": "$RECOVERY/SolidWorksRemaining/solidworks-068-restart/Native/variation.SLDPRT",
+    "source_sha256": "94e0142abba0775fa762fb34ac00888640d2bb5db62c7578d7f8539309fe8094",
+    "command": [
+      "kit",
+      "decode",
+      "$RECOVERY/SolidWorksRemaining/solidworks-068-restart/Native/variation.SLDPRT",
+      "-o",
+      "$RECOVERY/FailedBatchSalvage/variation.json"
+    ],
+    "exit_code": 0,
+    "outcome": "strict_decoded",
+    "qualification": "original native batch failed; healthy after-control absent; no capture acceptance",
+    "full_semantics_verified": false
+  },
+  {
+    "source": "$RECOVERY/SolidWorksRemaining/solidworks-068-restart/Native/~$variation.SLDPRT",
+    "source_sha256": "d9ed2612d67aa3156316d7074bea2792a1749eaf5ff4a56356df1a644545ed25",
+    "outcome": "excluded_vendor_lockfile",
+    "reason": "application lock sidecar is not a native CAD document"
+  }
+]

@@ -1,0 +1,365 @@
+{
+  "scope": "typed face-offset source intent only; strict neutral native projection and native output acceptance unfinished",
+  "cases": [
+    {
+      "name": "HealthyAfter",
+      "source_sha256": "d3cf0d7504a38cbe366f4b81fe7dadf1e8e23cc4a3b417ddabdbb0f657473d81",
+      "status": "inspected",
+      "intents": [],
+      "native_measurement_match": null
+    },
+    {
+      "name": "HealthyBefore",
+      "source_sha256": "4c9170caa43d0c33670a184aef379d67c19ffb6cb0927cb29a0f48e712b79944",
+      "status": "inspected",
+      "intents": [],
+      "native_measurement_match": null
+    },
+    {
+      "name": "HeldOutSide",
+      "source_sha256": "c7bc3adc0a04f4cb95004dbede223a6224f06d118fb19017c9c3833b69a1b499",
+      "status": "inspected",
+      "intents": [
+        {
+          "definition": {
+            "$type": "FaceOffset",
+            "target_body_id": "fusion:0:275",
+            "face_selection_id": "fusion:0:283",
+            "distance_param_id": "fusion:0:290"
+          },
+          "feature_id": "fusion:0:282",
+          "parameter_id": "fusion:0:291",
+          "distance_cm": 0.27,
+          "target_reference_id": "fusion:0:283",
+          "operand_id": "fusion:0:286",
+          "body_id": "fusion:0:281",
+          "recipe_id": "fusion:0:289",
+          "selected_tag": {
+            "PrimaryId": "4",
+            "OperationIds": [
+              301
+            ],
+            "SecondaryId": 0,
+            "ApproachId": 0
+          },
+          "face_ref": 12,
+          "outward_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "axis": 1,
+          "start_state": 9,
+          "end_state": 14,
+          "box_rule_matches": {
+            "volume_cm3": true,
+            "area_cm2": true,
+            "centroid_cm": true,
+            "min_cm": true,
+            "max_cm": true
+          }
+        }
+      ],
+      "native_measurement_match": {
+        "volume_cm3": true,
+        "area_cm2": true,
+        "faces": true,
+        "edges": true,
+        "vertices": true,
+        "centroid_cm": true,
+        "min_cm": true,
+        "max_cm": true
+      }
+    },
+    {
+      "name": "HeldOutTop",
+      "source_sha256": "bd98dae380b1c92dd4a9d2652446bf7ba1ce6d04042b3aaffd0f42cd5a68371c",
+      "status": "inspected",
+      "intents": [
+        {
+          "definition": {
+            "$type": "FaceOffset",
+            "target_body_id": "fusion:0:275",
+            "face_selection_id": "fusion:0:283",
+            "distance_param_id": "fusion:0:290"
+          },
+          "feature_id": "fusion:0:282",
+          "parameter_id": "fusion:0:291",
+          "distance_cm": 0.73,
+          "target_reference_id": "fusion:0:283",
+          "operand_id": "fusion:0:286",
+          "body_id": "fusion:0:281",
+          "recipe_id": "fusion:0:289",
+          "selected_tag": {
+            "PrimaryId": "2",
+            "OperationIds": [
+              301
+            ],
+            "SecondaryId": 0,
+            "ApproachId": 0
+          },
+          "face_ref": 27,
+          "outward_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "axis": 2,
+          "start_state": 9,
+          "end_state": 14,
+          "box_rule_matches": {
+            "volume_cm3": true,
+            "area_cm2": true,
+            "centroid_cm": true,
+            "min_cm": true,
+            "max_cm": true
+          }
+        }
+      ],
+      "native_measurement_match": {
+        "volume_cm3": true,
+        "area_cm2": true,
+        "faces": true,
+        "edges": true,
+        "vertices": true,
+        "centroid_cm": true,
+        "min_cm": true,
+        "max_cm": true
+      }
+    },
+    {
+      "name": "SideNegative",
+      "source_sha256": "e29752e8a7df91371ac5caf6c8e4b4e23ed8bbfeed767ee1f662562e945ad0a8",
+      "status": "inspected",
+      "intents": [
+        {
+          "definition": {
+            "$type": "FaceOffset",
+            "target_body_id": "fusion:0:275",
+            "face_selection_id": "fusion:0:283",
+            "distance_param_id": "fusion:0:290"
+          },
+          "feature_id": "fusion:0:282",
+          "parameter_id": "fusion:0:291",
+          "distance_cm": -0.2,
+          "target_reference_id": "fusion:0:283",
+          "operand_id": "fusion:0:286",
+          "body_id": "fusion:0:281",
+          "recipe_id": "fusion:0:289",
+          "selected_tag": {
+            "PrimaryId": "5",
+            "OperationIds": [
+              301
+            ],
+            "SecondaryId": 0,
+            "ApproachId": 0
+          },
+          "face_ref": 8,
+          "outward_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "axis": 0,
+          "start_state": 9,
+          "end_state": 14,
+          "box_rule_matches": {
+            "volume_cm3": true,
+            "area_cm2": true,
+            "centroid_cm": true,
+            "min_cm": true,
+            "max_cm": true
+          }
+        }
+      ],
+      "native_measurement_match": {
+        "volume_cm3": true,
+        "area_cm2": true,
+        "faces": true,
+        "edges": true,
+        "vertices": true,
+        "centroid_cm": true,
+        "min_cm": true,
+        "max_cm": true
+      }
+    },
+    {
+      "name": "SidePositive",
+      "source_sha256": "c434a772c3188d252b7379f649037d6694123cea7391824461a33c4d49be8fc6",
+      "status": "inspected",
+      "intents": [
+        {
+          "definition": {
+            "$type": "FaceOffset",
+            "target_body_id": "fusion:0:275",
+            "face_selection_id": "fusion:0:283",
+            "distance_param_id": "fusion:0:290"
+          },
+          "feature_id": "fusion:0:282",
+          "parameter_id": "fusion:0:291",
+          "distance_cm": 0.4,
+          "target_reference_id": "fusion:0:283",
+          "operand_id": "fusion:0:286",
+          "body_id": "fusion:0:281",
+          "recipe_id": "fusion:0:289",
+          "selected_tag": {
+            "PrimaryId": "5",
+            "OperationIds": [
+              301
+            ],
+            "SecondaryId": 0,
+            "ApproachId": 0
+          },
+          "face_ref": 8,
+          "outward_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "axis": 0,
+          "start_state": 9,
+          "end_state": 14,
+          "box_rule_matches": {
+            "volume_cm3": true,
+            "area_cm2": true,
+            "centroid_cm": true,
+            "min_cm": true,
+            "max_cm": true
+          }
+        }
+      ],
+      "native_measurement_match": {
+        "volume_cm3": true,
+        "area_cm2": true,
+        "faces": true,
+        "edges": true,
+        "vertices": true,
+        "centroid_cm": true,
+        "min_cm": true,
+        "max_cm": true
+      }
+    },
+    {
+      "name": "TopNegative",
+      "source_sha256": "4393860d832f9ae1255b1cfb55fb541db3fb3b5e717091d59517d119eee95107",
+      "status": "inspected",
+      "intents": [
+        {
+          "definition": {
+            "$type": "FaceOffset",
+            "target_body_id": "fusion:0:275",
+            "face_selection_id": "fusion:0:283",
+            "distance_param_id": "fusion:0:290"
+          },
+          "feature_id": "fusion:0:282",
+          "parameter_id": "fusion:0:291",
+          "distance_cm": -0.30000000000000004,
+          "target_reference_id": "fusion:0:283",
+          "operand_id": "fusion:0:286",
+          "body_id": "fusion:0:281",
+          "recipe_id": "fusion:0:289",
+          "selected_tag": {
+            "PrimaryId": "2",
+            "OperationIds": [
+              301
+            ],
+            "SecondaryId": 0,
+            "ApproachId": 0
+          },
+          "face_ref": 27,
+          "outward_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "axis": 2,
+          "start_state": 9,
+          "end_state": 14,
+          "box_rule_matches": {
+            "volume_cm3": true,
+            "area_cm2": true,
+            "centroid_cm": true,
+            "min_cm": true,
+            "max_cm": true
+          }
+        }
+      ],
+      "native_measurement_match": {
+        "volume_cm3": true,
+        "area_cm2": true,
+        "faces": true,
+        "edges": true,
+        "vertices": true,
+        "centroid_cm": true,
+        "min_cm": true,
+        "max_cm": true
+      }
+    },
+    {
+      "name": "TopPositive",
+      "source_sha256": "5d96204bd3cda376fa85362067b2ba2e1629ca9fe9a154b3c78b0611eb6e628f",
+      "status": "inspected",
+      "intents": [
+        {
+          "definition": {
+            "$type": "FaceOffset",
+            "target_body_id": "fusion:0:275",
+            "face_selection_id": "fusion:0:283",
+            "distance_param_id": "fusion:0:290"
+          },
+          "feature_id": "fusion:0:282",
+          "parameter_id": "fusion:0:291",
+          "distance_cm": 0.5,
+          "target_reference_id": "fusion:0:283",
+          "operand_id": "fusion:0:286",
+          "body_id": "fusion:0:281",
+          "recipe_id": "fusion:0:289",
+          "selected_tag": {
+            "PrimaryId": "2",
+            "OperationIds": [
+              301
+            ],
+            "SecondaryId": 0,
+            "ApproachId": 0
+          },
+          "face_ref": 27,
+          "outward_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "axis": 2,
+          "start_state": 9,
+          "end_state": 14,
+          "box_rule_matches": {
+            "volume_cm3": true,
+            "area_cm2": true,
+            "centroid_cm": true,
+            "min_cm": true,
+            "max_cm": true
+          }
+        }
+      ],
+      "native_measurement_match": {
+        "volume_cm3": true,
+        "area_cm2": true,
+        "faces": true,
+        "edges": true,
+        "vertices": true,
+        "centroid_cm": true,
+        "min_cm": true,
+        "max_cm": true
+      }
+    }
+  ],
+  "implementation_sha256": {
+    "src/interchange/Features/Offsets/GetOffsetValue.py": "a778d40815e941a12daf8ce0b368f5f2498536c892eea270e038541697d820de",
+    "src/interchange/Features/Offsets/FaceOffset.py": "420ce414087f2b62696981c19ad209107d41aca3a4982a26b34d6eefa553b58e",
+    "src/interchange/document/Validation/Offsets/OffsetTopoErrs.py": "baf565a04ccb00fd323a0af5103234e44e57d1fadc4e6e3ebe2efabfc2b168de",
+    "src/interchange/document/Validation/Offsets/OffsetHistErrs.py": "d8646e6f7ad6650bd32e531e78eefbbc57a2fabfe40912ae30ab26da51bf227c",
+    "src/interchange/document/Validation/Offsets/OffsetGraphErrs.py": "d9045a862b656264afb1e8c40d422e53fe8e7edfd35050d331aa5d06bdd6c9ab",
+    "src/interchange/document/Validation/Offsets/OffsetDefErrors.py": "dbc706c6ae7d28dcd22a07a837b466843cffa93b9795f7a0d9a77c5c3c0108a2",
+    "re/Fusion/Reconstruction/FaceOffsets/TraceOffset.py": "1027134a3134c91596429797f47a09c0ae4a20e344c2a21be3ab92e70b8fb355",
+    "re/Fusion/Reconstruction/FaceOffsets/DecodeOffsets.py": "3dd6df733ea0a8cfe069b24b3310a88debd4703619b76769de0fe2e464d07869"
+  }
+}

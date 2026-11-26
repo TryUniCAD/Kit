@@ -1,9 +1,10 @@
 from hashlib import sha256 as DigestBytes
 from io import BytesIO as ByteStream
 from json import dumps as EncodeJson, loads as ParseJson
+from os import environ as Environment, pathsep as PathSep
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
-from sys import argv as Arguments, executable as PythonExe
+from sys import executable as PythonExe
 from typing import cast as CastValue
 from xml.etree import ElementTree as XmlTree
 from zipfile import ZipFile
@@ -114,11 +115,15 @@ def CheckNativeEnds(
         [
             PythonExe,
             "-B",
+            "-P",
             "-m",
             "tests.Research.Archives.FreeCadNativeEndTests",
-            str(SourcePath),
         ],
-        cwd=KRepoRoot,
+        cwd=TmpPath,
+        env={
+            **Environment,
+            "PYTHONPATH": PathSep.join((str(KRepoRoot), str(KRepoRoot / "src"))),
+        },
         capture_output=True,
         text=True,
         check=False,
@@ -171,4 +176,7 @@ def VerifyRawFlags(
 
 
 if __name__ == "__main__":
-    print(EncodeJson(ReadNative(FilePath(Arguments[1])), sort_keys=True))
+
+    # the parent stages exactly one archive for this process
+    (KSourcePath,) = FilePath.cwd().glob("*.FCStd")
+    print(EncodeJson(ReadNative(KSourcePath), sort_keys=True))

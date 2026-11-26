@@ -8,6 +8,9 @@ from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from CaptureTools.Catalogue.Fusion.FusionBatch import NormalizeCases
+from CaptureTools.Catalogue.Fusion.VerifyReport import CheckArtifacts, VerifyReport
+
 from AcknowledgeApplication import accepted_output, stored_bytes
 from Adapters import copy_verified
 from ApplicationProtocol import configuration, record, require, sha256, windows_process
@@ -64,9 +67,16 @@ def validate_queue(queue):
             and len(set(recipes)) == len(recipes),
             "expected a queued discovery recipe roster",
         )
+    elif scope == "catalogue-parametric-fusion":
+        require(
+            queue["cases"] == NormalizeCases(queue["cases"], queue["mode"]),
+            "expected normalized catalogue authoring cases",
+        )
     else:
-        require(queue.get("cases") == list(CASES) and "recipes" not in queue,
-                "expected the fixed Fusion scope control roster")
+        require(
+            queue.get("cases") == list(CASES) and "recipes" not in queue,
+            "expected the fixed Fusion scope control roster",
+        )
     require(
         isinstance(queue.get("jobs"), dict)
         and set(queue["jobs"]) == {"a", "b"}
@@ -191,8 +201,10 @@ def phase_evidence(owner, queue, phase, scratch, *, timing_plan=None):
     )
     files = output_manifest(dispatch["files"])
     if scope is not None:
-        require({role: item["path"] for role, item in files.items()} == expected_paths,
-                "accepted Fusion scope archive paths differ from their roles")
+        require(
+            {role: item["path"] for role, item in files.items()} == expected_paths,
+            "accepted Fusion scope archive paths differ from their roles",
+        )
     require(
         all(
             manifest[role]
@@ -250,7 +262,11 @@ def phase_evidence(owner, queue, phase, scratch, *, timing_plan=None):
         )
     )
     name = "measurements" if scope is None else "report"
-    previous_key = "previous_measurements_sha256" if scope is None else "previous_phase_report_sha256"
+    previous_key = (
+        "previous_measurements_sha256"
+        if scope is None
+        else "previous_phase_report_sha256"
+    )
     digest_key = f"{name}_sha256"
     measurements = stored_bytes(
         owner,
@@ -258,10 +274,20 @@ def phase_evidence(owner, queue, phase, scratch, *, timing_plan=None):
         scratch / f"{name}.json",
     )
     observed = json.loads(measurements)
-    if scope is not None:
+    if scope == "catalogue-parametric-fusion":
+        VerifyReport(
+            receipt, observed, measurements, queue["plan_sha256"], phase, queue["cases"]
+        )
+        CheckArtifacts(observed, files, phase)
+        require(
+            observed["mode"] == queue["mode"], "catalogue report changed capture mode"
+        )
+    elif scope is not None:
         check_scope_report(receipt, observed, measurements, queue["plan_sha256"], phase)
         check_scope_archives(observed, files, phase)
-    version = observed["fusion_version"] if scope is None else observed["application_build"]
+    version = (
+        observed["fusion_version"] if scope is None else observed["application_build"]
+    )
     require(
         receipt["schema"] == observed["schema"] == 1
         and receipt["status"] == observed["status"] == "complete"
@@ -281,7 +307,9 @@ def phase_evidence(owner, queue, phase, scratch, *, timing_plan=None):
         "fusion_version": version,
         "process": process,
         "ended_unix_seconds": observed["ended_unix_seconds"],
-        previous_key: observed[previous_key] if scope is None else observed.get(previous_key),
+        previous_key: (
+            observed[previous_key] if scope is None else observed.get(previous_key)
+        ),
         "artifacts": manifest,
         "dependencies": snapshot["dependencies"],
     }
@@ -354,11 +382,19 @@ def audit(store, queue, installation=None, *, window=None):
         )
         first, second = (phases[phase]["evidence"] for phase in ("a", "b"))
         digest_key = "measurements_sha256" if scope is None else "report_sha256"
-        previous_key = "previous_measurements_sha256" if scope is None else "previous_phase_report_sha256"
+        previous_key = (
+            "previous_measurements_sha256"
+            if scope is None
+            else "previous_phase_report_sha256"
+        )
         if scope is not None:
-            require(first["previous_process"] is None and second["previous_process"] == first["process"]
-                    and second["process"]["start_unix_seconds"] > first["ended_unix_seconds"],
-                    "accepted scope report does not bind the exact prior process and its end")
+            require(
+                first["previous_process"] is None
+                and second["previous_process"] == first["process"]
+                and second["process"]["start_unix_seconds"]
+                > first["ended_unix_seconds"],
+                "accepted scope report does not bind the exact prior process and its end",
+            )
         require(
             first["dependencies"] == {}
             and first[previous_key] is None

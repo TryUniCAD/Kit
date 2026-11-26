@@ -1,0 +1,158 @@
+{
+  "authoring_specs_sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+  "case": "H05RotatedCapsule",
+  "exact_partition": {
+    "schema": "SCH_3701250_37102_13006",
+    "sha256": "4db2fd50acd7d4bc42c150ba1550db3035f899dfc72a2bda55196d1dd1ec5b9f",
+    "stream": "Contents/Config-0-Partition"
+  },
+  "native_controls_healthy": true,
+  "native_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "native_phases": {
+    "ControlAfter": {
+      "body_count": 1,
+      "geometry_si": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "volume": 8.000000000000001e-06
+      },
+      "passed": true,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "zero_open_and_rebuild_diagnostics": true
+    },
+    "ControlBefore": {
+      "body_count": 1,
+      "geometry_si": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "volume": 8.000000000000001e-06
+      },
+      "passed": true,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "zero_open_and_rebuild_diagnostics": true
+    },
+    "H01TranslatedDiameter": {
+      "body_count": 1,
+      "geometry_si": {
+        "area": 0.00121554844757977,
+        "com": [
+          -0.013718999999999999,
+          0.029113,
+          0.0086465
+        ],
+        "volume": 3.247069323433514e-06
+      },
+      "passed": true,
+      "source_sha256": "16837814717ae5a5c2a815b42afda8583b2cc51db4411b5837ca904ee8d5dddc",
+      "zero_open_and_rebuild_diagnostics": true
+    },
+    "H05RotatedCapsule": {
+      "body_count": 1,
+      "geometry_si": {
+        "area": 0.0011029808663783934,
+        "com": [
+          0.021370999999999998,
+          -0.005193,
+          0.0035695
+        ],
+        "volume": 1.8557820046367875e-06
+      },
+      "passed": true,
+      "source_sha256": "f2ed589c9405bc81dc5d76b99ab469a2a14818ab0967cbb4a44128e5ea6b0662",
+      "zero_open_and_rebuild_diagnostics": true
+    }
+  },
+  "native_processes": 4,
+  "native_source_sha256": "f2ed589c9405bc81dc5d76b99ab469a2a14818ab0967cbb4a44128e5ea6b0662",
+  "native_tool_custody_sha256": "75c7850dfce5b81a32dd16cc6f4754a6bc63ea9d99714e0c4c7ae268316f416c",
+  "native_tool_sources": {
+    "ObserveHeldoutFinNative.py": {
+      "sha256": "4853d78f84dfdba4ef7dc38c315583ae36b5455c9d1e31b1f6fc343b26ed758c",
+      "source_revision": "bb4a78e05c67d912eeba26d2d51785c30c1ac5ec"
+    },
+    "OracleIdentity.py": {
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "source_revision": "dcfa8476bc1323ce0d6ee32b86b1b1b446ddf6a5"
+    },
+    "Swapp.py": {
+      "sha256": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+      "source_revision": "dcfa8476bc1323ce0d6ee32b86b1b1b446ddf6a5"
+    }
+  },
+  "native_version": "34.5.2.0604",
+  "original_authoring_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "original_implementation_revision": "87f780657c7b50d7877735d53e20df1ba806448a",
+  "previous_rule_same_partition": {
+    "passed": false,
+    "reason": "arc trim does not traverse the outer semicircle",
+    "typed_brep": true
+  },
+  "raw_guest_native_receipt_sha256": "f4b3bca195f4110614e84dc48253ea1d4ecb89169465a71ecc6717bacfba8355",
+  "raw_guest_sdk_receipt_sha256": "a17053d894f91904beb34ffba18e6d9610c7974a40bb963a80a0a8fb8d7a6928",
+  "result": true,
+  "schema": "kit.sw2026.curved-terminal-fin-qualification.v1",
+  "sdk_current_read": {
+    "caps": {
+      "bottom": {
+        "arcs": 2,
+        "lines": 2,
+        "outward_normal_z": -1.0,
+        "perimeter_mm": 81.6754670455578,
+        "signed_area_mm2": -259.9498535700781,
+        "z_mm": 0.0
+      },
+      "top": {
+        "arcs": 2,
+        "lines": 2,
+        "outward_normal_z": 1.0,
+        "perimeter_mm": 81.6754670455578,
+        "signed_area_mm2": 259.9498535700782,
+        "z_mm": 7.139
+      }
+    },
+    "expected": {
+      "centroid_mm": [
+        21.371,
+        -5.193,
+        3.5695
+      ],
+      "perimeter_mm": 81.67546704555781,
+      "profile_area_mm2": 259.94985357007806,
+      "surface_area_mm2": 1102.9808663783933,
+      "volume_mm3": 1855.7820046367874
+    },
+    "height_mm": 7.139,
+    "passed": true,
+    "signed_volume_mm3": 1855.782004636788,
+    "surface_area_mm2": 1102.9808663783933,
+    "topology": {
+      "bodies": 1,
+      "coedges": 24,
+      "edges": 12,
+      "faces": 6,
+      "loops": 6,
+      "regions": 1,
+      "shells": 1,
+      "vertices": 8
+    },
+    "typed_brep": true,
+    "walls": {
+      "cylinder": 2,
+      "plane": 2
+    }
+  },
+  "sdk_source_unchanged": true,
+  "source_lock_revision": "1cea817924b9",
+  "source_lock_sha256": "21da3f3e8a6e2a6fe732f69c377a9539bc26a3ee1111795319b4a95d0124ad25",
+  "source_manifest_sha256": "d2f5afc07f516bd36f40ca7a65ae96649e25cc7cc5e89af8dc84e7607a2241af",
+  "source_payloads_shared": 0,
+  "stage_revision": "f6eea274e2b34c987cfde24c3d5f624c1da1d719"
+}

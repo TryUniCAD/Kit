@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -15,7 +15,7 @@ from InferenceGrid.Evidence import KScopeGap
 from InferenceGrid.Resume import AttachQueuedGrid, ParkedGrid, ReadAttachedGrid
 from Ledger import Ledger
 from PairedCaptureIntake import require
-from PairedCaptures.ScopeControl.FusionScopeControl import prepare
+from CaptureTools.ScopeControl.FusionScopeControl import prepare
 from QueueFusionPhases import bind_pair, prepare_pair, queue_configuration
 from Records import digest
 
