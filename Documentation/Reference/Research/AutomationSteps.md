@@ -100,6 +100,32 @@ basis, and its endpoint agreement with the retained native measurement.
 The typed walk stops at kind 141 after 84 records. Full carrier ownership
 and the three missing vertex uses in the general reader remain open.
 
+#### B04-SW2026-P03-ACTIVE-OWNER-BOUNDARY
+
+The SOLIDWORKS reader lane owns this planned research child on
+`codex/sw-p03-active-owner-boundary`. The external claim and separate
+delivery PR are pending. It starts from the [trimmed carrier findings](../../../re/solidworks/records/SavedTrimmedCarrierBoundary.md)
+at `a3ba7818782945435bb80a4594ee3780a90ee53a`. It retains the production
+and rollback ownership of [PR #340](https://github.com/TryUniCAD/Kit/pull/340),
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) and
+[PR #255](https://github.com/TryUniCAD/Kit/pull/255). The measured native save
+and controls remain bound to [PR #338](https://github.com/TryUniCAD/Kit/pull/338).
+
+The exact saved derivative active payload is
+`af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56`.
+The typed research walk stops after 84 records at physical kind 141.
+This child qualifies its loader descriptor and pointer transfer, saved
+record extents and actual ownership. The offline walk must use the proved
+format layout, preserve record identities and stop at any further unknown.
+
+Exit requires the complete typed active graph or the exact subsequent
+boundary, and a comparison between the verified vertex records and the
+general reader's missing attributes 69, 73 and 78. Every newly claimed
+edge, point or carrier correspondence needs its actual reference and
+independent endpoints. If the remaining bytes prevent a join, record
+where the proof stops. The research does not change the production SDK
+or require a new native acquisition.
+
 ### PR 158 implementation follow-up
 
 #### A08b-SharedQueue: shared research requests and advice budgets
