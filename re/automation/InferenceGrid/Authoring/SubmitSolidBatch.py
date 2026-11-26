@@ -38,6 +38,10 @@ def SubmitBatch(Directory, PlanValue, Resource):
     BatchSize = PlanValue.get("solidworks_batch_size", KLegacySolidBatchCases)
     if type(BatchSize) is not int or not 1 <= BatchSize <= KSolidBatchCases:
         raise ValueError("invalid saved SOLIDWORKS batch size")
+    # saved plans predating capture retry keep their recorded single-attempt job definitions
+    Attempts = PlanValue.get("solidworks_capture_attempts", 1)
+    if Attempts not in (1, 3):
+        raise ValueError("invalid saved SOLIDWORKS capture attempts")
     Submissions = []
     with Ledger(Directory / "Store") as StateValue:
         for Offset in range(0, len(Samples), BatchSize):
@@ -63,6 +67,7 @@ def SubmitBatch(Directory, PlanValue, Resource):
                     "resources": [Resource],
                     "options": {"cases_sha256": CasePin},
                     "timeout_seconds": 3600 * SolidBatchScale(len(Batch)),
+                    "max_attempts": Attempts,
                 }
             ]
             for IndexValue, Sample in enumerate(Batch):

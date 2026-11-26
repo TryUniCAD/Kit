@@ -68,4 +68,5 @@ def BuildAuthorPlan(
     if "solidworks" in Catalogues:
         ResultValue["solidworks_batch_version"] = 1
         ResultValue["solidworks_batch_size"] = KSolidBatchCases
+        ResultValue["solidworks_capture_attempts"] = 3
     return ResultValue
