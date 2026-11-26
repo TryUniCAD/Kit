@@ -40,8 +40,11 @@ repository's planner, tracked shard and merged report. It checks public payload
 extraction, older and unsupported profiles, malformed active framing, and
 wrong-owner line and plane records. [Integration case](../../../../../tests/Convert/Solidworks/Partition/CurrentVertexTests.py)
 
-A six-edge part authored and sealed before implementation independently
-reproduced the missing vertex point failure. The frozen reader recovered a
+The coordinator sealed an independent six-edge recipe and its analytic
+expectations and withheld them until the reader and disclosed tests were
+frozen. The verifier generated the request and archive, then froze both
+before the first decode. The held-out part reproduced the missing vertex
+point failure. The frozen reader recovered a
 closed solid with eight faces, 18 edges and 12 vertices. All eight rings
 had outward orientation. Signed volume was 12,145.0224609375 mm³,
 matching the independent calculation. The original source, raw partition

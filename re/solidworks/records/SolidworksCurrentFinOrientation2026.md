@@ -67,13 +67,15 @@ establish native application acceptance.
 
 ## Held-out active partition
 
-The independent six-edge Front sketch was sealed before implementation,
-with its area, volume and centroid derived from the exact authored
-coordinates. The seal SHA-256 is
+The coordinator independently selected and sealed a six-edge Front sketch
+recipe and its area, volume and centroid expectations. The coordinator
+withheld the recipe until the reader and disclosed tests were frozen.
+The seal SHA-256 is
 `e7fe447e94526648bcd074e88b06b30e0535bcab98cb9784b66e5495412f28a9`.
 Implementation source tree `3739be2f567a3285dd3dc725be9d0d07865a7b18` and
 the disclosed process test at `8c645e5666081288fc619b62af11521e4441b036`
-were frozen before release.
+were frozen before release. The verifier then generated the request and
+archive and froze both before the first decode.
 
 Use the Front loop below with a 13.375 mm depth. Coordinates are in mm.
 
