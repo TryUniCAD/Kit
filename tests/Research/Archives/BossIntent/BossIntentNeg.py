@@ -76,6 +76,14 @@ def VerifyRefusals(
         for CaseDoc in ChangeRules(InputDoc)
     ]
     Cases.append((ShiftOwnerSpan(InputDoc), "P03 sketch owner span differs"))
+    Cases.append(
+        (
+            ReplaceValue(
+                InputDoc, metadata={**InputDoc.metadata, "audit_label": "changed"}
+            ),
+            "P03 source JSON differs from the exact pinned strict read",
+        )
+    )
     for CaseDoc, Message in Cases:
         _ = Changed.write_text(CaseDoc.to_json(), encoding="utf-8")
         Result = RunIntent(

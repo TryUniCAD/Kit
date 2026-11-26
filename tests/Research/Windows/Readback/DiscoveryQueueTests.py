@@ -16,7 +16,7 @@ from tests.Research.Windows.Readback.InstallReadback import InstallReadback
 from tests.Research.Windows.Readback.QueueReadback import QueueReadback
 
 
-# a combined request must preserve each family and the collector's command state evidence across dispatch
+# a combined request must preserve each family and command state evidence from the collector across dispatch
 @TestMark.skipif(HostPlatform != "win32", reason="Windows readback process boundary")
 @TestMark.parametrize(
     "FaultName,ExpectedReason",
