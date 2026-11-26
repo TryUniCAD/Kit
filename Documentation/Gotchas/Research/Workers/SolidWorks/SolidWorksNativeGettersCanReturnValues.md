@@ -1,0 +1,5 @@
+# SOLIDWORKS automation getters can materialize values on access
+
+The first P03 stock receipt recorded `'tuple' object is not callable` and stopped the run. The error omitted the getter name. The original observer source calls `vertex.GetPoint()` directly. A later trace on the same stock and SOLIDWORKS build 34.4.1.1011 showed that the body collection getters are callable and that `IVertex.GetPoint` on the first vertex already returns a three-value tuple. Calling that tuple would produce the recorded error. The later trace also recorded already materialized `GetLoops` tuples and `IsPlane` and `IsLine` booleans.
+
+Resolve no-argument getters through the qualified dispatch helper and record the actual callable or value form. Preserve geometry and getter errors independently. The corrected observer checked all 257 getter results per snapshot, including planar face loops, edge endpoints and the native topology. [P03 native lifecycle and stock diagnostics](../../../../Changes/Research/Encoder/SolidworksP03NativeLifecycle.md)
