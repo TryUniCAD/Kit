@@ -6,7 +6,9 @@ import pytest as Pytest
 
 
 # cleanup must preserve current acceptance while releasing abandoned runners through the complete workflow entry point
-@Pytest.mark.parametrize("WorkflowName", ("MergeQueue.yml", "WorkflowQuality.yml"))
+@Pytest.mark.parametrize(
+    "WorkflowName", ("MergeQueue.yml", "PullRequest.yml", "WorkflowQuality.yml")
+)
 @Pytest.mark.parametrize(
     "CaseName",
     (
