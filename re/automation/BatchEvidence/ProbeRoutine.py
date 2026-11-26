@@ -1,5 +1,4 @@
 from argparse import ArgumentParser
-from hashlib import sha256
 from json import dumps, loads
 from pathlib import Path
 from sys import path, executable

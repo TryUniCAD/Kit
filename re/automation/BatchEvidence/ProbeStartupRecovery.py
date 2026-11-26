@@ -34,12 +34,12 @@ def Main():
                 raise TimeoutError('First owned launch was not published')
             sleep(.05)
         shell=Path(environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/powershell.exe'
-        killed=run([str(shell),'-NoProfile','-NonInteractive','-Command',
-                    "$ErrorActionPreference='Stop'; $Native=[Diagnostics.Process]::GetProcessById([int]$env:KIT_PROBE_PID); "
-                    "if ($Native.StartTime.ToUniversalTime().ToFileTimeUtc().ToString() -cne $env:KIT_PROBE_CREATED) { throw 'Identity changed' }; "
-                    "$Native.Kill(); if (-not $Native.WaitForExit(10000)) { throw 'Owned startup did not exit' }"],
-                   env={**environ,'KIT_PROBE_PID':str(first['pid']),'KIT_PROBE_CREATED':str(first['created'])},
-                   capture_output=True,text=True,check=True,timeout=20)
+        run([str(shell),'-NoProfile','-NonInteractive','-Command',
+             "$ErrorActionPreference='Stop'; $Native=[Diagnostics.Process]::GetProcessById([int]$env:KIT_PROBE_PID); "
+             + "if ($Native.StartTime.ToUniversalTime().ToFileTimeUtc().ToString() -cne $env:KIT_PROBE_CREATED) { throw 'Identity changed' }; "
+             + "$Native.Kill(); if (-not $Native.WaitForExit(10000)) { throw 'Owned startup did not exit' }"],
+            env={**environ,'KIT_PROBE_PID':str(first['pid']),'KIT_PROBE_CREATED':str(first['created'])},
+            capture_output=True,text=True,check=True,timeout=20)
         (output/'InjectedStartupFailure.json').write_text(dumps({**first,'injected_owned_process_exit':True}),encoding='utf-8')
         if process.wait(timeout=900)!=0:
             raise RuntimeError('Native comparison failed after injected startup exit')

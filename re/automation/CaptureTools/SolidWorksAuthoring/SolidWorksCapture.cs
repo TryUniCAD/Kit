@@ -308,7 +308,6 @@ public sealed partial class SolidWorksCapture
     {
         string pin=Hash(path);
         int initialDocuments=app.GetDocumentCount();
-        var attempts=new List<object>();
         var elapsed=System.Diagnostics.Stopwatch.StartNew();
         status=null;
         for(int attempt=1;attempt<=3;attempt++) {
@@ -342,7 +341,6 @@ public sealed partial class SolidWorksCapture
                 record["warnings"]=warnings;
                 record["seconds"]=clock.Elapsed.TotalSeconds;
                 record["total_seconds"]=elapsed.Elapsed.TotalSeconds;
-                attempts.Add(record);
                 Directory.CreateDirectory(output);
                 File.AppendAllText(Path.Combine(output,"open-attempts.jsonl"),
                     Json.Serialize(Row("file",Path.GetFullPath(path),"pid",app.GetProcessID(),"attempt",record))+"\n",Utf8);

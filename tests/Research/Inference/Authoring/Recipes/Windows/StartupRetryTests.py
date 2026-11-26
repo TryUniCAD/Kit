@@ -24,8 +24,8 @@ def CheckStartRetry(TmpPath: Path) -> None:
             "-NonInteractive",
             "-Command",
             "$ErrorActionPreference='Stop'; . $env:KIT_RETRY_SCRIPT; "
-            "Start-OwnedSolid -Executable ([IO.FileInfo]::new($env:KIT_RETRY_MISSING)) "
-            "-Destination $env:KIT_RETRY_OUTPUT -Phase first",
+            + "Start-OwnedSolid -Executable ([IO.FileInfo]::new($env:KIT_RETRY_MISSING)) "
+            + "-Destination $env:KIT_RETRY_OUTPUT -Phase first",
         ],
         env={
             **SystemEnv,
