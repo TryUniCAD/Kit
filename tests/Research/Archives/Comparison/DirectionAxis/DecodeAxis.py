@@ -21,7 +21,7 @@ KDocument = OpenDocument(
     include_tessellation=False,
     strict=True,
 )
-print(KDocument.to_json())
+sys.stdout.buffer.write(KDocument.to_json().encode("utf-8"))
 """
 
 

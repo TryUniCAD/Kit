@@ -22,4 +22,6 @@ A separate run used the exact #121 SDK codec and both strict design-only documen
 
 Twelve additional controls across both exact reader outputs passed typed input validation. Each withheld the direction observation and retained the original unresolved path and reason counts. The wrong-owner controls used an internally consistent selection proof for the wrong feature. The control evidence SHA-256 is `874eff50a055c38c443a9e51d241391867fd78391ef7c6e404af4fb212a1d883`. No vendor application or model calls ran.
 
+The generated archive test uses a non-ASCII path and passed in 33.96 seconds. A separate fresh child with cp1252 text output settings reproduced the original encoding error. The repaired binary pipe returned the exact UTF-8 path and unchanged archive digest. [Direction readback encoding gotcha](../../../../Gotchas/Research/Readers/DirectionReadbackEncoding.md)
+
 [Direction selection name gotcha](../../../../Gotchas/Research/Readers/BossDirectionSelectionName.md) · [Task register](../../../../Reference/Research/AutomationSteps.md#a06-comparison-implementation-and-qualification)

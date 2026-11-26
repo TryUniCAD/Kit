@@ -10,7 +10,8 @@ from tests.Research.Archives.SolidWorksFreshBossTests import KFrontCases, RunPor
 
 # the comparison requires an independently generated archive with different feature identities
 def GenerateAxis(TmpPath: FilePath) -> CadDocument:
-    NativePath = TmpPath / "P03DirectionGenerated.SLDPRT"
+    NativePath = TmpPath / "Readback\u03a9" / "P03DirectionGenerated.SLDPRT"
+    NativePath.parent.mkdir()
     CaseValue = {
         **KFrontCases[1],
         "title": NativePath.stem,
@@ -28,5 +29,6 @@ def GenerateAxis(TmpPath: FilePath) -> CadDocument:
     Document = DecodeAxis(NativePath)
     assert Document.source.format_id == "solidworks.sldprt"
     assert Document.source.sha256 == Digest
+    assert FilePath(Document.source.path) == NativePath
     assert NativePath.read_bytes() == Payload
     return Document
