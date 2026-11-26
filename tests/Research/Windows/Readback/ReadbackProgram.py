@@ -7,21 +7,15 @@
 # to you under it immediately and permanently.
 
 
-from tests.Research.Windows.Readback.JournalFaults import (
-    KChainFault,
-    KJournalFault,
-    KOrderFault,
-)
-from tests.Research.Windows.Readback.ListenerEvidence import (
-    KFixturePlan,
-    KFixtureReceipt,
-    KObservationRows,
-    KReadbackReport,
-)
-from tests.Research.Windows.Readback.ListenerProcess import (
-    KCaptureProgress,
-    KNativeOwner,
-)
+from tests.Research.Windows.Readback.CaptureProgress import KCaptureProgress
+from tests.Research.Windows.Readback.ChainFault import KChainFault
+from tests.Research.Windows.Readback.FixturePlan import KFixturePlan
+from tests.Research.Windows.Readback.FixtureReceipt import KFixtureReceipt
+from tests.Research.Windows.Readback.JournalFault import KJournalFault
+from tests.Research.Windows.Readback.NativeOwner import KNativeOwner
+from tests.Research.Windows.Readback.ObservationRows import KObservationRows
+from tests.Research.Windows.Readback.OrderFault import KOrderFault
+from tests.Research.Windows.Readback.ReadbackReport import KReadbackReport
 
 # the child imports only the provisioned research worker before dispatching real requests
 KHostImports = """import json

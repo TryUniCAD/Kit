@@ -7,28 +7,6 @@
 # to you under it immediately and permanently.
 
 
-# targeted validation failures perturb only the requested binding or stage
-KChainFault = """# the selected invalid field must exercise only its intended refusal
-def ChainFault(Progress, FaultName):
-    if FaultName == 'chain':
-        Index = 1
-        Event = json.loads(Progress[Index])
-        Event['previous_sha256'] = '0' * 64
-    elif FaultName == 'binding':
-        Index = 0
-        Event = json.loads(Progress[Index])
-        Event['binding']['request_sha256'] = '0' * 64
-    else:
-        Index = 1
-        Event = json.loads(Progress[Index])
-        Event['stage'] = 'other_control'
-    Progress[Index] = encoded(Event)
-    return Progress
-
-
-"""
-
-
 # faults of ordering visibility and operands must keep the downstream hash chain intact
 KOrderFault = """# the ordering controls must retain the chain before native validation
 def OrderFault(Progress, FaultName):
@@ -51,19 +29,6 @@ def OrderFault(Progress, FaultName):
             Event['sequence'] = Index + 1
         Event['previous_sha256'] = sha256(Progress[Index - 1]) if Index else None
         Progress[Index] = encoded(Event)
-    return Progress
-
-
-"""
-
-
-# each journal scenario must exercise only its corresponding rejection boundary
-KJournalFault = """# the requested scenario selects exactly one journal mutation
-def JournalFault(Progress, FaultName):
-    if FaultName in ('operand', 'hidden', 'late_hidden'):
-        return OrderFault(Progress, FaultName)
-    if FaultName in ('chain', 'binding', 'stage'):
-        return ChainFault(Progress, FaultName)
     return Progress
 
 
