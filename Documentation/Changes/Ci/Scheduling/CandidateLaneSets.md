@@ -1,5 +1,7 @@
 # Two candidate lane sets
 
+The budget below assumes the Team plan's 60 concurrent jobs and 5 macOS jobs. The organisation now has Enterprise limits of 500 and 50; see [four candidate lane sets](EnterpriseLaneSets.md) for the current lanes and budget.
+
 ## Behavior
 
 Merge-group candidates now run their heavy Linux and Windows jobs in one of two lane sets.

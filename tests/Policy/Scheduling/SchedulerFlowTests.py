@@ -12,9 +12,12 @@ import pytest as Pytest
         "budget-new",
         "budget-audit",
         "budget-previous",
+        "budget-team",
         "budget-single",
+        "budget-team-macos",
         "budget-legacy",
         "budget-uncontrolled",
+        "budget-five",
         "budget-minimum",
         "budget-wait",
         "budget-rules-error",
@@ -25,8 +28,10 @@ import pytest as Pytest
         "admit-stale",
         "admit-timeout",
         "admit-error",
-        "lanes-even",
-        "lanes-odd",
+        "lanes-a",
+        "lanes-b",
+        "lanes-c",
+        "lanes-d",
         "lanes-pull",
         "lanes-missing",
         "lanes-error",
@@ -44,6 +49,7 @@ def CheckScheduler(CaseName: str) -> None:
     Failures = {
         "budget-invalid": "Unsupported shared runner budget",
         "budget-single": "Unsupported shared runner budget",
+        "budget-team-macos": "Unsupported shared runner budget",
         "lanes-missing": "could not count candidate ancestors",
         "lanes-error": "Lane API unavailable",
         "budget-error": "Budget API unavailable",
@@ -57,14 +63,19 @@ def CheckScheduler(CaseName: str) -> None:
     Evidence = LoadJson(Outcome.stdout)
     if CaseName.startswith("lanes-"):
         assert Evidence["Outputs"] == {
-            "prefix": "B-" if CaseName == "lanes-odd" else ""
+            "prefix": {"lanes-b": "B-", "lanes-c": "C-", "lanes-d": "D-"}.get(
+                CaseName, ""
+            )
         }
         assert Evidence["Requests"] == int(CaseName != "lanes-pull")
         return
     if CaseName.startswith("budget-"):
         Shards = LoadJson(Evidence["Outputs"]["native"])
         assert len(Shards) == (
-            5 if CaseName in {"budget-new", "budget-previous"} else 4
+            5
+            if CaseName
+            in {"budget-new", "budget-previous", "budget-team", "budget-five"}
+            else 4
         )
         assert [Shard["index"] for Shard in Shards] == list(range(len(Shards)))
         assert Evidence["Outputs"]["runtime-target"] == (
