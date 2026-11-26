@@ -65,9 +65,11 @@ acceptance and complete source preservation have separate exit criteria.
 
 #### B04-SW2026-P03-ATTRIBUTED-ACTIVE-BREP
 
-The SOLIDWORKS reader lane owns this planned production child on
-`codex/sw-p03-attributed-active-brep`. The external claim and separate
-delivery PR are pending. It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
+The SOLIDWORKS reader lane owns this active production child on
+`codex/sw-p03-attributed-active-brep`. The
+[ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7184890467)
+is recorded. The separate delivery PR is pending.
+It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
 at `a5ffad5483db0f99a6162e1934786da41cbc2063`. It uses the
 [trim research](https://github.com/TryUniCAD/Kit/pull/343), the
 [complete owner evidence](https://github.com/TryUniCAD/Kit/blob/3e679f036f48cce3b56950bad5a6cb6df637270d/re/solidworks/records/SavedActiveOwnerBoundary.md)
