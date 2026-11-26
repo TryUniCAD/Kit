@@ -6,6 +6,7 @@ from pytest import mark as TestMark
 
 from tests.CliResearch.EncoderRoundTrip.FreshCuboid import FreshCuboid
 from tests.CliResearch.EncoderRoundTrip.PreserveRetry import PreserveRetry
+from tests.CliResearch.EncoderRoundTrip.ReplayFusion import ReplayFusion
 from tests.CliResearch.EncoderRoundTrip.RunEncoder import RunEncoder
 from tests.CliResearch.EncoderRoundTrip.VerifyCandidate import VerifyCandidate
 
@@ -50,3 +51,4 @@ def CheckFusionFlow(TmpPath: FilePath, EditedHeight: float) -> None:
     assert SourcePath.read_bytes() == SourceBytes
     if IsNoop:
         PreserveRetry(TmpPath, SourcePath, OutputPath, EditedHeight)
+    ReplayFusion(SourcePath, OutputPath, tuple(RoleName for RoleName, _ in Cases))
