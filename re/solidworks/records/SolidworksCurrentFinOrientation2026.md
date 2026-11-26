@@ -107,6 +107,14 @@ mm². Signed volume was 12,145.0224609375 mm³. The measured centroid was
 (17.997214909073183, 13.074208745952673, 6.6875) mm. The model-only document
 and ordered raw partition and delta payloads remained identical.
 
+The per-face direction check used the persisted B-rep without opening the
+archive again. For each of the eight directed rings, the ring normal
+dotted with a vector from the independently calculated interior centroid
+to its face was strictly positive. The bottom ring's normal points toward
+negative Z, and its outward unit dot was 6.6875 mm. The evidence bundle's
+PersistedRingOrientation.json has SHA-256
+`75fe8e427ae2e5523b1756a8f45509a56c919cce54feee79bebbd9c3a0ea8359`.
+
 The separate native-saved P03 control still has a missing vertex use in
 the general decoder. Its fallback stops at an unmapped kind 133 before
 vertex recovery, and both its default and model-only public documents
