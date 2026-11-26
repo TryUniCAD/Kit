@@ -1,7 +1,7 @@
 # isolated execution must resolve the exact checkout rather than installed or ambient modules
 KRequestSetup = """
 import sys
-from os import fsdecode
+from os import O_CREAT, O_RDWR, O_WRONLY, fsdecode
 from pathlib import Path
 
 

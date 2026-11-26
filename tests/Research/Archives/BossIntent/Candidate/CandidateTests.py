@@ -4,6 +4,9 @@ from pathlib import Path as FilePath
 from typing import cast as CastValue
 
 from tests.Research.Archives.BossIntent.Candidate.BuildRequest import BuildRequest
+from tests.Research.Archives.BossIntent.Candidate.CheckKeyOrder import (
+    CheckKeyOrder,
+)
 from tests.Research.Archives.BossIntent.Candidate.RunCandidate import RunCandidate
 from tests.Research.Archives.BossIntent.Candidate.VerifyCandidate import VerifyCandidate
 
@@ -24,7 +27,12 @@ def CheckCandidate(TmpPath: FilePath) -> None:
         )
         Report = CastValue(dict[str, object], ReadJson(Result.stdout))
         Reports.append(VerifyCandidate(Report, Digest, RequestPath))
-    assert Reports[0] == Reports[1]
+    assert (
+        Reports[0]
+        == Reports[1]
+        == "a0e524cc73b844042c7da6bf86b3a12120fb4f73aaf34de7f0d6cc481ebda15f"
+    )
+    CheckKeyOrder(RequestPath, Digest, Payload)
     Refused = RunCandidate(RequestPath, "0" * 64)
     assert Refused.returncode == 1
     assert (

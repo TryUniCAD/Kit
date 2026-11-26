@@ -7,8 +7,14 @@ from P03CandidateRequest import generate_request as GenerateRequest
 # a changed external request must fail against the separately retained digest
 KPayload = KRequestPath.read_bytes()
 
-# the test needs the production research constructor result without writing another model file
-KReport = GenerateRequest(KPayload, sys.argv[3], context, candidate=None)
+# publication and order selection must use the same constructor as in-memory replay
+KReport = GenerateRequest(
+    KPayload,
+    sys.argv[3],
+    context,
+    candidate=KCandidatePath,
+    preserve_keyword_order=sys.argv[5] == "source",
+)
 assert KObservedReads <= {str(AllowedPath) for AllowedPath in KAllowed}, sorted(KObservedReads)
 print(WriteJson({"result": KReport, "model_reads": sorted(KObservedReads)}))
 """

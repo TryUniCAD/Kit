@@ -3,6 +3,9 @@ KRequestAudit = """
 # the audited model input must be the same file the caller pinned
 KRequestPath = Path(sys.argv[2]).resolve()
 
+# publication may stage only next to the explicit candidate selected by the parent
+KCandidatePath = Path(sys.argv[4]).resolve() if sys.argv[4] else None
+
 # the constructor may read the packaged layout schema alongside the pinned request
 KAllowed = {
     KRequestPath,
@@ -13,11 +16,21 @@ KAllowed = {
 KObservedReads = set()
 
 
-# repository model data and native sources must never enter the isolated constructor
+# the isolated constructor may read the pinned model and stage only its requested candidate
 def AuditModelReads(Event, Arguments):
     if Event != "open" or not isinstance(Arguments[0], (str, bytes)):
         return
     Selected = Path(fsdecode(Arguments[0])).resolve()
+    if Arguments[2] & (O_CREAT | O_RDWR | O_WRONLY):
+        if KCandidatePath is not None and (
+            Selected == KCandidatePath.parent
+            or (
+                Selected.parent == KCandidatePath.parent
+                and Selected.name.startswith(".kit-fresh-boss-")
+            )
+        ):
+            return
+        raise AssertionError(f"unapproved write during request replay: {Selected}")
     Suffix = Selected.suffix.lower()
     if Selected in KAllowed:
         KObservedReads.add(str(Selected))
