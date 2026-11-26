@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "log": "{\"error\": \"ValueError\", \"message\": \"Unsupported native Fusion feature class\"}\n",
+  "raw_sha256": "57793a9e7b98df6456558d70e6bd0ed4e533ae26fbe25bd77ba56f7a12e677cb"
+}

@@ -32,7 +32,6 @@ import pytest as Pytest
         "Pyright",
         "Mypy",
         "Python steering",
-        "Research CLI compatibility",
         "Research CLI Windows compatibility",
         "Research CLI Windows compatibility / shard-1",
         "Research CLI Windows compatibility / shard-2",

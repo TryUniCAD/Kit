@@ -282,11 +282,18 @@ Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
+The [thin-wall side check](../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+covers the written thin-extrude recipe's native mode, bounds, and reopen.
 
 SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
 Fusion needs its native worker options and `--fusion-lifecycle` for automatic
 owned restart. Use the same source revision across workers and the selected
 checkout. Pause/resume keeps the existing native and decoder receipts.
+
+If the SOLIDWORKS launcher reports an unobserved normal exit, inspect the
+native and owner receipts under `NativeAttempts`. Retain the run directory and
+use a fresh directory to verify a changed worker on the same case parameters.
+See [catalogue capture shutdown](../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md).
 
 See [catalogue sample authoring](../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md)
 for the case format, native host requirements, limitations, and evidence rules.
@@ -508,3 +515,8 @@ Another installation can shadow the executable installed with Python 3.14.
 Resolve `kit` before resuming a durable native campaign and inspect its entry-point interpreter.
 Use the verified installation's absolute path if necessary.
 The [shadowed launcher gotcha](../Gotchas/Research/Supervisor/Runtime/ShadowedKitLauncher.md) records the observed supervisor failure and safe repair.
+
+## Circular rim fillet qualification pack
+
+The [rim-fillet pack](../../re/Fusion/RimFilletPack/README.md) separates source-free writer acceptance, typed reconstruction and public conversion refusals.
+Replay uses existing codecs without a CAD runtime. Native measurements remain revision-bound research evidence.
