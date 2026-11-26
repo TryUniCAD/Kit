@@ -80,3 +80,36 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
     assert ("CI passed" in ResultInfo.stdout) == Passed
     if not Passed:
         assert "CI failed" in ResultInfo.stderr
+
+
+# queue aggregation polling must pace itself within the shared token budget and treat rate limits as waits
+@Pytest.mark.parametrize(
+    "CaseName, Passed, Expected",
+    (
+        ("plain", True, ("next poll in 600 s", "next poll in 150 s")),
+        ("ratelimit", True, ("GitHub API rate limit reached; retrying in 601 s",)),
+        ("secondary", True, ("GitHub API rate limit reached; retrying in 60 s",)),
+        ("forbidden", False, ("Resource not accessible by integration",)),
+        ("pacing", True, ("600/1000 remaining; next poll in 900 s",)),
+        ("exhausted", True, ("450/1000 remaining; next poll in 3601 s",)),
+        ("failure", False, ("CI failed: Merge queue",)),
+    ),
+)
+def CheckQueuePolling(CaseName: str, Passed: bool, Expected: tuple[str, ...]) -> None:
+    ScriptPath = (
+        FilePath(__file__).resolve().parents[2]
+        / "tests/Policy/CiAggregation/RunPolling.cjs"
+    )
+    ResultInfo = Subprocess.run(
+        ["node", str(ScriptPath), CaseName],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=20,
+    )
+    Output = ResultInfo.stdout + ResultInfo.stderr
+    assert ResultInfo.returncode == (0 if Passed else 1), Output
+    assert ("CI passed" in ResultInfo.stdout) == Passed
+    assert "No candidate workflow has finished since the last read" in Output
+    for Text in Expected:
+        assert Text in Output, Output

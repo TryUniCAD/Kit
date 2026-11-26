@@ -23,5 +23,5 @@ Candidates that time out never succeed, so they drop out of that sample.
 ## Workaround
 
 Give each candidate its own aggregation slot.
-Each aggregator's polling must stay within the repository's [1,000 REST requests per hour](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api) `GITHUB_TOKEN` limit, so reduce the queue polling rate first.
+Each aggregator must stay within the repository's [1,000 REST requests per hour](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api) `GITHUB_TOKEN` limit even with 25 candidates building, so pace queue polling by the live remaining budget first.
 See [queue aggregation polling](../../../Changes/Ci/Scheduling/QueueAggregationPolling.md).
