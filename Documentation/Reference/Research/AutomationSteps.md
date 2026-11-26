@@ -43,7 +43,7 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 #### B04-SW2026-PARTITION-VERTEX-BOUNDARIES
 
 The SOLIDWORKS reader lane owns this active child on
-`codex/sw-active-partition-vertex-read`. The separate delivery PR is pending.
+`codex/sw-active-partition-vertex-read`. [PR #340](https://github.com/TryUniCAD/Kit/pull/340) delivers this child.
 The branch starts from [PR #121](https://github.com/TryUniCAD/Kit/pull/121) at
 `c0a401a607759fb0c2589647c2a22af65ebb7ce1`. It depends on that revision's
 complete typed partition reader, the accepted
