@@ -86,7 +86,7 @@ jobs:
 
   pyright:
     if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
     needs: pr-ci-reuse
     name: Pyright
     runs-on: ubuntu-24.04
@@ -112,7 +112,7 @@ jobs:
 
   mypy:
     if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
     needs: pr-ci-reuse
     name: Mypy
     runs-on: ubuntu-24.04
