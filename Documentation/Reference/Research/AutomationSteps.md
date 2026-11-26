@@ -138,6 +138,26 @@ remaining native and process acceptance is recorded in
 This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
 requirements.
 
+#### A08h-OwnedExit: catalogue capture shutdown
+
+Codex owns the shutdown repair on `codex/solidworks-capture-shutdown`.
+Delivery is [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
+It depends on PR #207's configured native worker,
+the licensed SOLIDWORKS host and its exclusive application lease. [PR #288](https://github.com/TryUniCAD/Kit/pull/288)
+owns the separate paired-case batching work. Exit requires normal owned process
+exit, independent reopen and recorded decoder results for the failed P04 cases,
+plus batch and control coverage and the applicable CI and review gates.
+All six previously failed cut-extrude cases passed capture, reopen and
+decoder execution across the exact and paired replays. The written-recipe
+replay completed both native process exits and reached a separate thin-wall
+geometry check. PR #291 recovered all three written recipes. The standalone
+driving-dimension case passed after a retry. The combined probe verified
+both phases on the first attempt after adding the empty-session exit request.
+The final combined batch worker reproduced two shutdown timeouts and
+recovered on the third fresh attempt with six reopened archives and a
+completed decoder job. The applicable PR and queue gates remain separate.
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
+
 A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
 publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
 on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,

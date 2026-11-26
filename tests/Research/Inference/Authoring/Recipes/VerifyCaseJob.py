@@ -23,6 +23,7 @@ def VerifyCaseJob(
     BatchLimit: int,
 ) -> None:
     ArtifactRole = ReadText(Selector["artifact"])
+    assert Capture["max_attempts"] == 3
     if BatchPaired or ReadText(Selection["recipe"]) in KRecipeTargets:
         assert Capture["kind"] == "capture.catalogue.solidworks.batch"
         Bound = ReadObject(Records[ReadText(ReadObject(Capture["inputs"])["cases"])])
