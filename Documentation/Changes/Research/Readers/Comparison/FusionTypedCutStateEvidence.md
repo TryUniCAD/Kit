@@ -1,6 +1,6 @@
 <!--
 SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 
 This SPDX license identifier and copyright notice must not be
 removed, altered, or obscured. Doing so is a material breach of
@@ -65,4 +65,6 @@ uv run --frozen --no-default-groups --extra dev --python 3.14 python -B \
 ```
 
 The LF-normalized JSON report has SHA-256
-`98fee890f42e66362571036c7b627c3d2b9ee478bbcaad5a9776125ca68c9668`. The hosted archive gate pins this replay.
+`bba9de1a17ca9035136bb0fba7dd4d3324c301c4efd5d05161ea933e0be5a5df`. The hosted archive gate pins this replay.
+
+The current reader qualifies the first sketch. Six public refusal messages now identify only the remaining blockers. Restoring the old sketch refusal to those messages reproduces the previous report digest exactly. [Hosted digest comparison](https://github.com/TryUniCAD/Kit/actions/runs/44760481727/job/136371365355)

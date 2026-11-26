@@ -5,7 +5,8 @@ from pathlib import Path as FilePath
 from interchange import CadDocument
 
 from convert.adapters.base.ContractTypes import KSourceType as Source
-from convert.api.ApiOpen import OpenDocument
+from convert.adapters.base.ReadOptions import ReadOptions
+from convert.api.ApiContext import KConvertEngine
 from convert.Geometry.BrepNames import MakeBrepNameMut
 from convert.Geometry.BrepPayloads import GetBrepPayloads
 
@@ -21,7 +22,15 @@ def ExtractBrep(
     DocumentData = (
         SourceData
         if isinstance(SourceData, CadDocument)
-        else OpenDocument(SourceData, SourceFormat=SourceFormat, IncludeBrep=True)
+        else KConvertEngine.read(
+            SourceData,
+            format_id=SourceFormat,
+            options=ReadOptions(
+                include_brep=True,
+                strict=True,
+                extract_raw_brep=True,
+            ),
+        )
     )
     TargetPath = FilePath(FolderPath).expanduser().resolve()
     TargetPath.mkdir(parents=True, exist_ok=True)

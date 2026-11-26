@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -45,7 +45,7 @@ def ReplayRepo(TmpPath: FilePath) -> Iterator[FilePath]:
         timeout=30,
     )
     SourcePaths = ["re/automation/PairedEvidenceManifest.py"] + [
-        f"re/automation/PairedCaptures/{FileName}"
+        f"re/automation/CaptureTools/PairedCaptures/{FileName}"
         for FileName in (
             "FusionRunEvidence.py",
             "FusionRunReadbacks.py",
@@ -53,6 +53,7 @@ def ReplayRepo(TmpPath: FilePath) -> Iterator[FilePath]:
         )
     ]
     for SourcePath in SourcePaths:
+        (TargetRoot / SourcePath).parent.mkdir(parents=True, exist_ok=True)
         _ = CopyFile(SourceRoot / SourcePath, TargetRoot / SourcePath)
     _ = RunProcess(
         ["git", "-C", str(TargetRoot), "add", "--", *SourcePaths],

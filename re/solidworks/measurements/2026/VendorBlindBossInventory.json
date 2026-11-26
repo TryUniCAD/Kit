@@ -1,0 +1,289 @@
+{
+  "case_row_digest_convention": "UTF-8 sorted compact JSON without a terminal newline",
+  "cases": {
+    "BaselineEdited": {
+      "cold": {
+        "clear_stream_count": 10,
+        "clear_stream_inventory_sha256": "d539d88653eda2fd44f3caf98392b466dce954ddfc61ef5bddfbce16648e3c39",
+        "native_bytes": 9288,
+        "native_sha256": "38fe98ae5975626a6362f1a1ae72a030a7d78a18c4fdc36db64dd35938232f33",
+        "neutral_sha256": "56bfa7f001eeb14b13ccb775605f817fe9183faf799de0c6e664eceb9925534c",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/Config-0": {
+            "bytes": 22246,
+            "sha256": "005bed68da44e472952a5e7216a4338bf0dab1fea2dfad59de50076f90f58798"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 13867,
+            "sha256": "2acb6d41e3e4633c3fafdfc342899fc155150c54e2a9788f7bb9e2d190482d0e"
+          }
+        }
+      },
+      "full_case_row_sha256": "4912f58c4f2e98bf500f03e32e2fe8ce32c4742c7d3d97283c49bc9bcbd201ff",
+      "native_oracle_top_level_rows": 19,
+      "sdk_tree_rows_vendor_cold": [
+        26,
+        19
+      ],
+      "vendor": {
+        "clear_stream_count": 36,
+        "clear_stream_inventory_sha256": "6669715f7550bc8c7e883f3ee2d8bb5948b34c247ed6ed88afedba284f91cf30",
+        "native_bytes": 45703,
+        "native_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+        "neutral_sha256": "e74195c09960e81fff3b802d66cc0acea764ba6f18e2d672a4f8f816d2099bb4",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "c908dd57919f26b50f8a780d3a263a2773e0be2251644cb75dfd0ec43e23bf39"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "adcbb62f1fca1d12713c2423867a0ec4b82a0567d82361bab593ae1ae642df6b"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 3882,
+            "sha256": "72993d9c9c23d26cdb1eb09329c1cce91f1be621697c40914b5fb44911347c37"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 10619,
+            "sha256": "9a0c35a76907580584215da8c97453d13f429ab64f386c1c6d835110e5c112ec"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          }
+        }
+      }
+    },
+    "BaselineReconstruction": {
+      "cold": {
+        "clear_stream_count": 10,
+        "clear_stream_inventory_sha256": "ea1b5fd60be01fc3811ab7c2f85c458ad83c5a95879e51109c517b199aa4afc0",
+        "native_bytes": 9338,
+        "native_sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+        "neutral_sha256": "4241c7aff03533a87651994eef6c4a36b3c72f21129e00842573317f57723e4c",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/Config-0": {
+            "bytes": 22262,
+            "sha256": "bcb4e81e87beba77d4e9af9e88da625a1fe521032a77e1fd5355a9f88e75b1d7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 13867,
+            "sha256": "13300a27f0da8f95e0c07302d79d09f66c5b951fd772399183c5ef4c04a4c323"
+          }
+        }
+      },
+      "full_case_row_sha256": "072766bbe4420f3f276a93b55a6d02f0594ad962b243f776e8381eeddd44b13d",
+      "native_oracle_top_level_rows": 19,
+      "sdk_tree_rows_vendor_cold": [
+        26,
+        19
+      ],
+      "vendor": {
+        "clear_stream_count": 36,
+        "clear_stream_inventory_sha256": "087ad2ce695768726d5103fc9c8c0ec14d5a5869c14b6854a443b2e4613e838a",
+        "native_bytes": 45007,
+        "native_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "neutral_sha256": "eff547f5c3d78008f8fdba12fb76e7d6e8b65ad0fa2add009e0ff2023884cc51",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "5bd75e97426af5cdcd1c12b82aa2472820eef9e7350e99c7c702891767b54566"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "53219df31eba0cd8420ae48c113c007aaaf4b3460261252968423206696c899d"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 3867,
+            "sha256": "942fba4b7aa2904c6b3c94b999a51225ee918ba13f0e52fc590e3e1f69643668"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 10619,
+            "sha256": "65937a95e01902e87b1c0307a4b544cd5a67cd2fba28682f688a9fdfb9c7a298"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          }
+        }
+      }
+    },
+    "HeldOutEdited": {
+      "cold": {
+        "clear_stream_count": 10,
+        "clear_stream_inventory_sha256": "59ac5153c9150545bf5db9e6b12ffa54c2ae67a0492c62397d21c98eb3692867",
+        "native_bytes": 9406,
+        "native_sha256": "d670154e2eca290eba02440d24b28ac1ca11f0ef390aa01c7668909fba930bfd",
+        "neutral_sha256": "297ab1f701859dbe6cd96945cc9dd85936b6deb75987c523996296828034f666",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/Config-0": {
+            "bytes": 22246,
+            "sha256": "005bed68da44e472952a5e7216a4338bf0dab1fea2dfad59de50076f90f58798"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 14629,
+            "sha256": "c2cf3b1cd6078a653b8fbff9d5bc74f7b075f90589654ecf990540aa16052196"
+          }
+        }
+      },
+      "full_case_row_sha256": "829c89b9a50b2d77640440f4361a9226228507d1f520374b9b5ef27a0c9a1cc1",
+      "native_oracle_top_level_rows": 19,
+      "sdk_tree_rows_vendor_cold": [
+        26,
+        19
+      ],
+      "vendor": {
+        "clear_stream_count": 36,
+        "clear_stream_inventory_sha256": "a9b6f7710a5eb825762c8be90ff1b39764e2a8a55b1fbdc7ea32fed60500ede0",
+        "native_bytes": 50710,
+        "native_sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+        "neutral_sha256": "8c0bac5966a46710b5c2da6b88c525a2d34da0e66870d096ada1c677e6f3e862",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "beb280bc51a3292f5603ce33e421f5bbe0d295e562b560e2707c0003d19ada95"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "601a6d008231fe30582bac979380e32cf45a5e47cfa56d0f435cc37bb5e5e22a"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 5224,
+            "sha256": "006172ab8963db727cd4a4af2781abe4761547ccda8a17bd176a705f82f97a4a"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 11525,
+            "sha256": "2a7f7b9137555807724daf13fdf21eb84cd98f6e2bbb7fbe42d01329ad403b17"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          }
+        }
+      }
+    },
+    "HeldOutReconstruction": {
+      "cold": {
+        "clear_stream_count": 10,
+        "clear_stream_inventory_sha256": "ea705d000b0653a1bd7cbced2aa1f76da9e13eb2c192fe3bc54d4ebbf6dbc2f6",
+        "native_bytes": 9462,
+        "native_sha256": "0a58250e2c1aaaf717b5a6414656f622a9abba3d54ee9ca44b9120a7b04884d9",
+        "neutral_sha256": "f29cfaf8220e44374f3e378db81c190634d019061b6f28de0700fec009ea18c2",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "01c1bb93f3ba445f0100a1fdfdbae052e5f552bfc1e8c6a81d32246c8cb14f00"
+          },
+          "Contents/Config-0": {
+            "bytes": 22262,
+            "sha256": "bcb4e81e87beba77d4e9af9e88da625a1fe521032a77e1fd5355a9f88e75b1d7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 14629,
+            "sha256": "75b83098c77976945ebbca385ef9204deeb428ba8048b5d73dd366983308ea43"
+          }
+        }
+      },
+      "full_case_row_sha256": "a7d777745903506a9ee4a5f4ad8e61bcd18a9844ed8f2565e7447d017b18317c",
+      "native_oracle_top_level_rows": 19,
+      "sdk_tree_rows_vendor_cold": [
+        26,
+        19
+      ],
+      "vendor": {
+        "clear_stream_count": 36,
+        "clear_stream_inventory_sha256": "b8acc08f04e035d9be43eeced4d216216fa631feaa12a792b5a00908c33fe849",
+        "native_bytes": 49306,
+        "native_sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+        "neutral_sha256": "28fe8587d8325a407d9a2fcbae5fec656d5cac3a84eaa493fadda4608a0780ef",
+        "selected_clear_streams": {
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "47bb72680d6a6a661c9421bb15abb69a5959d9b035b6d99efe5efe0b2cc97274"
+          },
+          "Contents/Config-0": {
+            "bytes": 25202,
+            "sha256": "e5de35ea785ecbee51c8d2fda0c7bebd018355a34269b26f029d0ba4bc1a40d8"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 5234,
+            "sha256": "224d4d4d4f1038ee838ac860e11e3234b99f96790a1028b3ba999c4bd4addc62"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 11525,
+            "sha256": "510c0a5df87935429f7bee1f6270001ce5bcb1a7663443f9d5cb4f34bdb6e002"
+          },
+          "Contents/CusProps": {
+            "bytes": 138,
+            "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+          }
+        }
+      }
+    }
+  },
+  "full_inventory": {
+    "bytes": 127427,
+    "frozen_git_path": "re/solidworks/measurements/2026/VendorBlindBossInventory.json",
+    "frozen_git_revision": "ae2df5a0ef8fc7a5c63815afe40f5b17173b6a3d",
+    "generated_name": "Inventory.json",
+    "generator": "re/solidworks/EncoderBoundary/CompareVendorBoss.py",
+    "sha256": "4a7cc4ea357880411dd3d03713ebcb681f692ce64d669772ab7f828998431c09"
+  },
+  "oracle": {
+    "build": "34.4.1.1011",
+    "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f"
+  },
+  "pinned_reader_revision": "c4e8a34186bdd173dad37d843b79bc8a3a59ebb9",
+  "python": "3.14.6",
+  "schema": "kit.research.vendor-blind-boss-inventory-digest.v1",
+  "source_author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+  "typed_reads_all_cases": {
+    "cold": {
+      "legacy_property_profile": null,
+      "linked_model": {
+        "result": "NativeLink"
+      },
+      "manager": {
+        "result": "CmgrGraph"
+      },
+      "part_config": {
+        "result": "ConfigGraph"
+      },
+      "property_manager": null
+    },
+    "vendor": {
+      "legacy_property_profile": {
+        "result": "NoneType"
+      },
+      "linked_model": {
+        "error_type": "BodyUnsupported",
+        "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+      },
+      "manager": {
+        "error_type": "BodyUnsupported",
+        "refused": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+      },
+      "part_config": {
+        "result": "ConfigGraph"
+      },
+      "property_manager": {
+        "error_type": "ValueError",
+        "refused": "part properties require an empty compatible native manager"
+      }
+    }
+  },
+  "zlib": "1.3.1.zlib-ng"
+}

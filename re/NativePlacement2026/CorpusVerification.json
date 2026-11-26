@@ -1,0 +1,22 @@
+{
+  "canonical_manifest_sha256": "ba169845d9462579886498125fdbbd16186452195c634464fb7a55d1dc4e850d",
+  "canonical_check_exit_code": 0,
+  "canonical_summary": {
+    "evidence_files": 299,
+    "native_acceptance": "not_established",
+    "native_by_format": {
+      "f3d": 2040,
+      "f3z": 2,
+      "sldasm": 6,
+      "sldprt": 248
+    },
+    "qualified_pairs": 0
+  },
+  "initial_selected_scope_check": {
+    "exit_code": 1,
+    "diagnostic": "corpus error: manifest differs from pinned Git objects or authoring specifications\n",
+    "resolution": "use the full canonical snapshot for actual reader invocations; ScopePins.json only selects the 255 inputs"
+  },
+  "published_canonical_sha256": "27c6357d28d2ef81f955e3d107f7e1ce227c72f39caf91e1372ea2093ca998be",
+  "normalization": "204 historical external profile paths removed after original canonical snapshot/check; canonical_manifest_sha256 binds the private unmodified snapshot"
+}

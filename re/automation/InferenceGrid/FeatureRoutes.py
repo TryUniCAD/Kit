@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -22,10 +22,10 @@ class FeatureRecipe(NamedTuple):
 
 
 # cut submissions reuse the pinned paired scope and its two affected archives
-def SubmitCut(Store, Revision):
+def SubmitCut(Store, Revision, Dependencies=()):
     from InferenceGrid.Provision import ProvisionScope
 
-    return ProvisionScope(Store, Revision)
+    return ProvisionScope(Store, Revision, Dependencies)
 
 
 # the cut status includes its attached native phase identities
@@ -45,10 +45,10 @@ def AdvanceCut(Store, Config, Kind, Resource, WaitSeconds):
 
 
 # the boss route uses the retained solidworks signed depth archive cases
-def SubmitBoss(Store, Revision, Application="solidworks"):
+def SubmitBoss(Store, Revision, Application="solidworks", Dependencies=()):
     from InferenceGrid.FeatureBoss import ProvisionBoss
 
-    return ProvisionBoss(Store, Revision, Application)
+    return ProvisionBoss(Store, Revision, Application, Dependencies)
 
 
 # the boss route reports its independent assessment and consequent rescans
@@ -61,10 +61,10 @@ def StatusBoss(Store, Application="solidworks"):
 
 
 # bounds and driving dimensions can reuse the same measured corner rectangle cases
-def SubmitRectangle(Store, Revision):
+def SubmitRectangle(Store, Revision, Dependencies=()):
     from InferenceGrid.FeatureRectangle import SubmitRectangle as SubmitAssessment
 
-    return SubmitAssessment(Store, Revision)
+    return SubmitAssessment(Store, Revision, Dependencies)
 
 
 # aliases report one shared paired result regardless of the selected catalogue

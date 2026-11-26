@@ -1,0 +1,23 @@
+# declared geometry array vocabulary keeps absent native owners explicit without captured field operations
+KSketchArrays = (
+    ("npoints", "points"),
+    ("nlines", "lines"),
+    ("ntexts", "texts"),
+    ("nhatches", "hatches"),
+    ("narcs", "arcs"),
+    ("nellipses", "ellipses"),
+    ("nparabolas", "parabolas"),
+    ("nsplines", "splines"),
+    ("nplanes", "planes"),
+    ("ncylinders", "cylinders"),
+    ("nspheres", "spheres"),
+    ("ncones", "cones"),
+    ("nparametric", "parametric"),
+    ("noffsets", "offsets"),
+    ("nskoffsets", "sketch_offsets"),
+    ("nstyled", "styled"),
+    ("nintersections", "intersections"),
+    ("ntools", "tools"),
+    ("nblocks", "blocks"),
+    ("nsilhouettes", "silhouettes"),
+)

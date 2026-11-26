@@ -25,7 +25,7 @@ class AngularRevolve(FeatureDef):
         if self.SideMode not in KAngleModes:
             raise ValueError("angular revolution has an invalid side mode")
         Against = self.AgainstParameterId
-        if (self.SideMode == "one_sided") != (Against is None):
+        if (self.SideMode in ("one_sided", "symmetric_full")) != (Against is None):
             raise ValueError(
                 "angular revolution side mode and against parameter disagree"
             )

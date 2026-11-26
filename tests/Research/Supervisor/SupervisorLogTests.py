@@ -16,7 +16,8 @@ def CheckNoisyLogs() -> None:
         Registry = JsonCodec.loads(RegistryFile.read_text(encoding="utf-8"))
         Registry["runners"]["fixture.decode"]["argv"] = [
             System.executable,
-            str(FilePath(__file__).with_name("NoiseRunner.py")),
+            "-m",
+            "tests.Research.Supervisor.NoiseRunner",
             "{session}",
         ]
         _ = RegistryFile.write_text(JsonCodec.dumps(Registry), encoding="utf-8")

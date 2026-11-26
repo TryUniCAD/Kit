@@ -1,5 +1,11 @@
 from dataclasses import dataclass as MakeDataClass
 
+from convert.Formats.Fusion.Extrudes.Plane.OffsetBackend import KOffsetBackend
+from convert.Formats.Fusion.NativePlane import KPlaneObject
+from convert.Formats.Fusion.Revolves.OriginAxis import KComponentGuid, KOriginGuid
+from convert.Formats.Fusion.Revolves.SketchAxis import KFrameGuid
+from convert.Formats.Fusion.SelectionRef import KSelectDesc, KSelectLeaf
+from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchBase, KSketchFeature
 from convert.adapters.freecad.EditShape.OpenSketchGeom import ReadOpenGeom
 from convert.Geometry.Extrude.Polygon.PrismFrame import CheckPrismFrame
 from interchange.document.Models.DocumentModel import CadDocument
@@ -9,6 +15,23 @@ from interchange.Features.FeatureStep import FeatureStep
 from interchange.geometry.Models.Sketch import Sketch
 from interchange.geometry.Models.SupportPlane import SupportPlane
 from interchange.Payloads.PayloadRoles import PayloadRole
+
+
+# principal attachment adds an ordered support route to the original frame and sketch continuation
+def FrameKinds(PlaneValue: SupportPlane) -> tuple[str, ...]:
+    if PlaneValue.attributes.get("fusion.native_support_resolved") is True:
+        return (
+            KFrameGuid,
+            KSketchBase,
+            KSketchFeature,
+            KOffsetBackend,
+            KSelectDesc,
+            KSelectLeaf,
+            KPlaneObject,
+            KOriginGuid,
+            KComponentGuid,
+        )
+    return KFrameGuid, KSketchBase
 
 
 # each sketch only timeline step owns one exact sketch and support pair
@@ -65,7 +88,7 @@ def ReadSketchInput(
     Planes: dict[str, SupportPlane],
 ) -> EditSketchInput | None:
     if (
-        StepValue.kind != FeatureKind.KNative
+        StepValue.kind not in (FeatureKind.KNative, FeatureKind.KReference)
         or StepValue.operation is not None
         or StepValue.definition is not None
         or StepValue.input_feature_ids

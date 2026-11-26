@@ -1,3 +1,4 @@
+from convert.adapters.freecad.EditShape.FixedOrigin import IsFixedOrigin
 from math import hypot as Hypot
 
 from interchange.brep.Topology.BrepMath import IsFinitePlane
@@ -25,7 +26,7 @@ def ReadOpenGeom(
     Segment: LineGeometry | None = None
     for Entity in SketchValue.entities:
         Geometry = Entity.geometry
-        if Entity.fixed or Entity.construction:
+        if (Entity.fixed and not IsFixedOrigin(Entity)) or Entity.construction:
             return None
         if Entity.kind == GeometryKind.KPoint and isinstance(Geometry, PointGeometry):
             if not IsFinitePlane(Geometry.point):

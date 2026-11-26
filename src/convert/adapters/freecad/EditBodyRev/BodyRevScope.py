@@ -1,10 +1,11 @@
 from convert.adapters.freecad.EditExtScope import (
+    FrameKinds,
     EditSketchInput,
     HasEditState,
     ReadSketchInput,
 )
-from convert.Formats.Fusion.Revolves.SketchAxis import KFrameGuid, KSketchGuid
-from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchBase, KSketchFeature
+from convert.Formats.Fusion.Revolves.SketchAxis import KSketchGuid
+from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchFeature
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Enums.EnumUnits import UnitSystem
@@ -96,7 +97,7 @@ def ReadBodySketch(
             for Origin, Kinds in (
                 (StepValue.provenance, (KSketchFeature,)),
                 (SketchOrigin, (KSketchGuid,)),
-                (PlaneValue.provenance, (KFrameGuid, KSketchBase)),
+                (PlaneValue.provenance, FrameKinds(PlaneValue)),
             )
         )
     ):

@@ -40,42 +40,50 @@ class NativeReceipt(TypedDict):
 class GhostCodec(Protocol):
 
     # the caller supplies the enclosing graph allocation
-    def GhostAllocation(self, *Values: int) -> object: ...
+    def GhostAllocation(self, *Values: int) -> object:
+        raise NotImplementedError
 
     # each returned byte span has its own independent position in the partition graph
     def EncodeGhostRows(
         self, PointMm: SpaceVector, Slots: object, GhostId: int, *, Schema: str
-    ) -> tuple[bytes, bytes, bytes]: ...
+    ) -> tuple[bytes, bytes, bytes]:
+        raise NotImplementedError
 
 
 # the attribute writer receives the body binding independently of the vertex shell
 class GhostBindCodec(Protocol):
 
     # the tuple of owned references remains explicit at the research boundary
-    def GhostAttributeSlots(self, *Values: int) -> object: ...
+    def GhostAttributeSlots(self, *Values: int) -> object:
+        raise NotImplementedError
 
     # the name and attached attribute span end before the body list header
-    def EncodeGhostAttr(self, Slots: object, *, Schema: str) -> bytes: ...
+    def EncodeGhostAttr(self, Slots: object, *, Schema: str) -> bytes:
+        raise NotImplementedError
 
 
 # the root row keeps the world counters independent of body or transport identifiers
 class GhostWorldCodec(Protocol):
 
     # the enclosing partition supplies the five interpreted world fields
-    def GhostWorld(self, *Values: int) -> object: ...
+    def GhostWorld(self, *Values: int) -> object:
+        raise NotImplementedError
 
     # the returned class and row end at the following class definition
-    def EncodeGhostWorld(self, State: object, *, Schema: str) -> bytes: ...
+    def EncodeGhostWorld(self, State: object, *, Schema: str) -> bytes:
+        raise NotImplementedError
 
 
 # the body shell and region are independently allocated native nodes
 class GhostTopoCodec(Protocol):
 
     # shell and region identifiers are supplied through their typed allocation
-    def GhostTopology(self, *Values: int) -> object: ...
+    def GhostTopology(self, *Values: int) -> object:
+        raise NotImplementedError
 
     # the class declaration belongs only to the region row in this save
-    def EncodeGhostTopo(self, Slots: object, *, Schema: str) -> tuple[bytes, bytes]: ...
+    def EncodeGhostTopo(self, Slots: object, *, Schema: str) -> tuple[bytes, bytes]:
+        raise NotImplementedError
 
 
 # the shell and region must keep their reciprocal links after construction

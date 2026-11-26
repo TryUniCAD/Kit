@@ -2,9 +2,53 @@
 
 ## Status and ownership
 
+Task `A08c-SolidWorksOpenRetry` is active, owned by Codex on `codex/solidworks-open-retry`.
+Scope: three bounded startup and part-open attempts, retained failure evidence and separate native stage measurements.
+It depends on continuous capture in [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), alongside its continuous capture dependency.
+Exit: native compilation, bounded launch rejection, recovered native startup, measured stages and current-revision CI and review.
+See [retry and timing behavior](../../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md).
+At `d36d7d4806`, the injected first startup exit recovered on attempt two, two P03 batches shared the new process, and same-file independent-process measurements matched.
+Current-head CI and review remain open; a forced part-open failure was not induced.
+
+Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-capture-batching`.
+It depends on the shared batch preparation, existing measured readback and the serial native resource.
+Scope: persistent capture, document close/reopen verification, independent decoder dispatch and retained owner generations.
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Exit: consecutive same-process native batches, same-file fresh-process comparison, decoder overlap, recovery checks and current-revision CI and review.
+See [continuous SOLIDWORKS capture](../../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md).
+The `5c3ae3810c` native comparison matched P01/P03/P04 same-file measurements across routine and fresh processes.
+The `18d72e23ee` controller run completed four jobs, overlapped decoding with capture and preserved receipts across resume.
+Current-head readiness, broader feature qualification and merge-group acceptance remain open.
+
 PR #158 is based on main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b`. Its follow-on phase commits carry the remaining non-DLL work from the original PR #94 checkpoint `fb723e0a920b4d03ad2d5635882860b800a9b61c`. The entries below record the original programme and its revision-bound evidence. The licensed restart, native qualification, supplemental Fusion handoff, pending CI batch authority and two-week pilot retain their open exit criteria.
 
 This register belongs to the [neutral-first plan](AutomationPlan.md).
+
+## Deterministic encoder work
+
+The user assigned the first two-format encoder milestone to Codex on 2026-11-25.
+The delivery is [PR #297](https://github.com/TryUniCAD/Kit/pull/297), branch `codex/deterministic-encoder-roundtrip`.
+Three worker chats own the shared pipeline, SOLIDWORKS adapter, and Fusion adapter respectively.
+Each worker uses three subagents. Routine encoder jobs keep model advice disabled.
+PR #158 is closed. Its retained programme requirements and evidence remain the basis for these child steps.
+
+| ID   | Scope                                                         | Owner                   | Depends on                                    | Status   | Exit condition                                                                                                                                |
+| ---- | ------------------------------------------------------------- | ----------------------- | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| A11c | Qualified cuboid JSON reconstruction and extrusion-depth edit | Codex Fusion worker     | A05, A06, qualified public Fusion writer, A14 | checking | Generated candidates pass deterministic process checks and independent native open, edit, rebuild, save, and reopen measurements.             |
+| A12a | Bounded line-loop boss JSON reconstruction and depth edit     | Codex SOLIDWORKS worker | A04, A06, measured part writer, A14           | checking | Held-out candidates pass native measurements and the public SDK publishes bytes bound to a valid exact-build receipt.                         |
+| A13a | Shared encoder jobs and receipt handling                      | Codex shared worker     | A03, A11c, A12a, A14                          | checking | The existing research CLI generates both formats, preserves evidence through retries, and distinguishes generation from native qualification. |
+
+The SOLIDWORKS starting scope is a qualified cold part or supported authored graph.
+Ordinary vendor partition layouts still need reader semantics before they can enter this path.
+The [measured SOLIDWORKS build extension](../../Changes/Solidworks/Construction/SolidworksEncoderOracleBuild.md) qualifies exact build `34.4.1.1011` alongside `34.5.2.0604`.
+Four candidates passed twenty owned process lifetimes and 616 numeric comparisons on the observed SP04.1 executable.
+Eight SDK publications reproduced those measured archives through the registry and direct writer.
+Fusion measurements target the observed installed build `2706.1.17`.
+Native execution, output acceptance, public publication, PR checks, and merge-queue acceptance each retain their own evidence.
+
+## Programme status
+
 A01 is complete as a source-backed contract and capability audit.
 **Current work: A02d capture evidence, A04c/A05 semantic qualification, A06 comparison implementation, A08c/A08e workers and A14b regression evidence.**
 A05a reader integration and A08a supervisor process gates passed at `c1c3fcce5b8b67373113ec44ad5d122a52bd7260`.
@@ -40,15 +84,181 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A08b-CatalogueThroughput: catalogue rescan groups and A03 overhead
+
+Codex owns this checking task on [PR #282](https://github.com/TryUniCAD/Kit/pull/282) from `14570404846c8aa1f90b02e68d6f70a419719ca7`.
+Dependencies are A03 owner and lease fencing, A08b grouped sessions and the pinned offline calibration.
+The scope covers the fresh catalogue rescan cap, grouped staging renewal and grouped settlement lease checks.
+Exit requires matched calibration, equal per-archive output hashes, and coverage of grouped receipts, restart recovery and singleton retries.
+The Windows sweep and candidate replay accepted the same 64 archives once per arm with equal neutral hashes.
+The candidate cap-eight arm removed eight heartbeat calls, with higher total wall time in the replay.
+The short physical probe reached six simultaneous readers and did not sustain the requested overlaps.
+The matched P03 catalogue replay changed two groups of four into one group of eight and retained equal neutral outputs and job results.
+See [catalogue rescan throughput](../../Changes/Research/Supervisor/Catalogue/CatalogueRescanThroughput.md) for revisions, timings and limits.
+
+#### A04-PlanePlacement: timestamp-independent principal references
+
+Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
+Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
+Dependencies are the native ladder inputs and measured source observations from merged PRs #263 and #267.
+The [change entry](../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the original offline evidence for 144 files, 288 public-reader comparisons, 24 timestamp variants, ten principal-pose refusals, and nine explicitly unqualified fallbacks.
+All captured centroids agree; the 58 older pinned part documents retain identical serialized output.
+Review found that accepted in-plane rotation was lost at the neutral datum reference. The owned-sketch reader now explicitly refuses that unsupported rotation.
+Origin owner lookup retains its existing unavailable-owner fallback. A scoped process witness checks this boundary without changing a captured archive.
+The circular and rectangle attachment corruption cases now require the documented format error in both public read modes.
+Status is checking. Fresh revision-bound CI, review, source-audit and merge-group evidence must cover these follow-ups before completion.
+The exit covers source placement and its shared-suite process regressions.
+Fresh native acceptance, complete typed rectangle admission, and conversion qualification remain outside this result.
+
+#### A08b-SharedQueue: shared research requests and advice budgets
+
+Codex owns this checking task on `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).
+Dependencies are the A03 controller, A07 scheduling, A08 supervisor pools and the existing optional advisor integration.
+The scope is local shared request deduplication, subscriber-aware supersession, bounded priority queues and shared advisor admission.
+Independent instances explicitly select the same local controller store and advisor state; one supervisor owns the controller store.
+The exit requires real process-boundary concurrency, cancellation, recovery and provider-budget evidence, plus current-head PR checks and configured review.
+Six real-process queue scenarios and five disposable-provider advice groups passed locally with Python 3.14.7. The source and verification details are in the [change entry](../../Changes/Research/Supervisor/Coordination/SharedResearchScheduling.md).
+No CAD capability, native acceptance flag or production conversion route changes.
+
+#### A05-RectangleRecovery: bounded reader qualification
+
+Codex owns this active follow-up on `fix/native-rectangle-qualification-20261122`, based on main `7a0a987ec2f1ab4099c839621a8e51d18bcfa872`.
+Delivery PR is [#265](https://github.com/TryUniCAD/Kit/pull/265); current-head CI and configured review are pending. Queue candidate `06b002441448d2e961629215cdc09768ea8b1530` was rejected for the combined policy/native deadline after its subprocess tests passed. The [scheduling repair](../../Changes/Ci/NativeCompatibilityScheduling.md) shards the complete roster with the user-authorized twelve-minute buffer; fresh queue acceptance remains required. Dependencies are merged PR #263, the strict reader, and licensed native workers.
+Scope is unconstrained millimeter XY reverse and positive YZ rectangle evidence, plus native worker recovery investigation.
+Fresh constrained controls and separately authored unconstrained controls distinguish authoring deficiencies from unsupported reader grammar.
+The exit requires strict CLI replay, native numerical comparisons, retained negative cases, shared-suite integration, and current-head CI and review.
+This child does not close conversion acceptance, XZ or reverse-YZ support, or the full native catalogue.
+
+#### A08h-LadderRecovery: recovered native corpus
+
+Codex published this evidence on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
+Delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`. Dependencies are merged PR #263, the existing research controller and licensed source captures.
+The [package](../../../re/solidworks/FeatureLadderRecovery/README.md) retains 37 complete native cases and 111 strict decodes, plus two failed-batch salvage files.
+Original controller failures remain recorded. The archived reports retain fifteen matching front-plane centroids and 96 wrong top/right placements.
+The exit requires verified artifact hashes, sanitized provenance, explicit semantic failures and current-head publication checks and review.
+The separately verified A04-PlanePlacement repair above preserves those historical reports; this evidence does not close conversion acceptance.
+
+#### A08h-Ladders2026: native campaign evidence
+
+Codex owns this scoped research-evidence follow-up on `feat/deterministic-campaign-20261122`.
+Delivery PR: [#263](https://github.com/TryUniCAD/Kit/pull/263). Dependencies are merged PR #158, merged PR #207, and licensed native API workers.
+The [package](../../../re/FeatureLadders2026/README.md) records 96 planned batches at `c8d85d713dc357770115329e9f1bcb027dbfca4f`.
+Fifty-nine batches produced 177 files; 57 strictly projected to neutral documents and 120 retained explicit neutral refusals.
+All 120 refused Fusion files parsed at the typed native-state layer. Thirty-seven SOLIDWORKS cases failed or remained dispatch-blocked.
+Status: checking for publication; native recovery and semantic qualification remain blocked.
+The packaging exit requires verified corpus hashes, sanitized evidence, documented failures, and current-head PR readiness.
+This child does not close A07, A08c, A13, A15, B02, B03 or any supported production boundary.
+Production reader repairs require a separately scoped follow-up with independently corroborated rules and held-out evidence.
+
+A08h is checking on [PR #207](https://github.com/TryUniCAD/Kit/pull/207), branch
+`codex/catalogue-native-authoring`, owned by Codex. It
+connects catalogue selection to the existing native builders with parameter
+overrides and automatic downstream decoding. One complete configured P03 run
+created eight native archives, verified them in fresh processes, and automatically
+completed the dependent deterministic decoder job. Its 53 findings per sample
+remain explicit. Dependencies are A03/A08 worker
+ownership, the P01–P05 builders, and the catalogue/resume implementation. Its
+remaining native and process acceptance is recorded in
+[catalogue sample authoring](../../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md).
+This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
+requirements.
+
+#### A08h-OwnedExit: catalogue capture shutdown
+
+Codex owns the shutdown repair on `codex/solidworks-capture-shutdown`.
+Delivery is [PR #289](https://github.com/TryUniCAD/Kit/pull/289).
+It depends on PR #207's configured native worker,
+the licensed SOLIDWORKS host and its exclusive application lease. [PR #288](https://github.com/TryUniCAD/Kit/pull/288)
+owns the separate paired-case batching work. Exit requires normal owned process
+exit, independent reopen and recorded decoder results for the failed P04 cases,
+plus batch and control coverage and the applicable CI and review gates.
+All six previously failed cut-extrude cases passed capture, reopen and
+decoder execution across the exact and paired replays. The written-recipe
+replay completed both native process exits and reached a separate thin-wall
+geometry check. PR #291 recovered all three written recipes. The standalone
+driving-dimension case passed after a retry. The combined probe verified
+both phases on the first attempt after adding the empty-session exit request.
+The final combined batch worker reproduced two shutdown timeouts and
+recovered on the third fresh attempt with six reopened archives and a
+completed decoder job. The applicable PR and queue gates remain separate.
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md)
+
+#### A08h-CaseIsolation
+
+Codex owns the consolidated SOLIDWORKS repair and case isolation on
+`codex/solidworks-capture-resilience`. It depends on the catalogue worker
+and artifact intake from PR #207. Delivery combines the changes from PRs
+#289 and #291. Exit requires proven shutdown recovery, held-out thin-wall
+measurements, and a process check showing that a refused case cannot block
+or supply evidence to a healthy sibling decoder.
+[Delivery PR #292](https://github.com/TryUniCAD/Kit/pull/292)
+[Change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
+
+A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
+publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
+on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,
+edits, restoration and fresh reopen, then automatically completed its decoder job
+with unresolved findings. One of the nine new bindings is native verified; full
+decoder qualification remains incomplete. The focused process checks passed 103 cases.
+See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
+for the nine bindings, parameter grid, retained attempts, and execution limits.
+
+Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
+It extends the existing three-case native batches to P01–P05, preserving independent reopen verification and per-case decoder artifacts.
+Dependencies are A08h/A08i, owned native lifetimes, and controller artifact admission.
+Native verification passed on source `231ffae38c7a9ca83705c6705e7d382d05c1e208`. Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+The measured P01/P03/P04 batch reused two application processes for 25 saved files and automatically completed three overlapping decoder jobs.
+Both native processes exited normally. Decoder semantic findings remain explicit.
+Current-head publication checks and configured review are tracked in the delivery PR.
+Exit requires measured native batching, automatic decoder receipts, and current-revision CI and configured review.
+Saved plans retain their original submissions. Full decoding and conversion qualification remain separate requirements.
+See [paired-case batching](../../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md).
+
+#### A08i-ThinWall
+
+Codex owns the correction on `codex/solidworks-thin-wall-side`. The
+correction depends on the written-recipe worker from PR #207 and the
+licensed SOLIDWORKS measurement host. Its exit requires matching wall side
+with XY, YZ and XZ controls, edits, independent reopen and downstream
+decoder receipts plus the applicable publication gates. The combined native
+replay passed all three written recipes and ran the three dependent decoders.
+[Thin-wall change entry](../../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+[Delivery PR #291](https://github.com/TryUniCAD/Kit/pull/291)
+
+A08j, owned by Codex on the same local branch, is checking the
+[written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
+It depends on A08h/A08i and drives every written recipe through the existing
+runner with a persistent assistant handoff for missing mappings and failures.
+Its workflow checks cover the complete selected written roster, restart and
+rejection of unsupported assistant completion claims. Native recipe coverage and
+full decoder qualification remain separate exit criteria.
+
+A08k's bounded first delivery is complete on local branch `codex/automatic-builder-development`, owned by
+Codex, with dependencies A08h/A08i/A08j and the existing provider/native ownership
+contracts. The [automatic builder-development loop](../../Changes/Research/Supervisor/Catalogue/AutomaticBuilderDevelopment.md)
+implements opt-in generation, bounded repair, independently reserved qualification,
+immutable runtime registration and dependent capture/decoding for the scoped positive
+XY offset plane. At frozen source `d61c3be4`, an actual two-call loop repaired an
+injected distance defect, rejected a wrong-support plane, passed three reserved
+cases, registered its source and accepted a separate sample. The dependent decoder
+ran deterministically with 55 unresolved findings per archive; conversion remains
+unqualified. Eighteen new and two unchanged campaign process checks pass. This work
+does not close decoder, conversion or Fusion qualification. On 2026-11-21 the user
+authorized publishing the source changes to [PR #207](https://github.com/TryUniCAD/Kit/pull/207),
+head `codex/catalogue-native-authoring`. The isolated implementation branch and all
+private native evidence are preserved. Vendor binaries and native capture archives
+remain excluded from publication.
+
 The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026-11-17.
 Delivery remains on [PR #158](https://github.com/TryUniCAD/Kit/pull/158), from isolated branch `codex/pr158-solidworks-completion`.
 The starting source revision is `a6cc279f629d088c526a654149bb9dc99a8b2bb6`.
 
-| Child ID | Owner | Scope                                                                                   | Depends on                                             | Status   | Exit condition                                                                                                                                       |
-| -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | complete | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes      |
-| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | complete | Queue, timeout recovery and source-integrity process checks pass. The licensed queue accepted all five P02 observations with healthy controls        |
-| A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | complete | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup |
+| Child ID | Owner | Scope                                                                                   | Depends on                                             | Status   | Exit condition                                                                                                                                                            |
+| -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | complete | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes                           |
+| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | complete | Queue, timeout recovery and source-integrity process checks pass. The licensed queue accepted all five P02 observations with healthy controls                             |
+| A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | complete | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup                      |
+| A08i     | Codex | Reusable builders for nine named SOLIDWORKS catalogue recipes                           | PR #207 catalogue authoring and A03/A08 ownership      | checking | Source-pinned native creation, edits, fresh reopen, healthy controls, and dependent decoder receipts demonstrate each claimed binding without hiding unresolved semantics |
 
 Commit [`c572f1ac`](https://github.com/TryUniCAD/Kit/commit/c572f1ac8dfa613e8ff6bf9ea99e2be375deb63c) passed 63 combined inference, Windows launch, readback, and rearm process checks.
 The [inference session change](../../Changes/Research/Controller/InferenceSessionIntegrity.md) also records a passing historical archive gate.
@@ -208,7 +418,48 @@ A05c needs independent source inventories and distinguishing evidence rather tha
 The public Fusion partial reader now carries the [saved principal-plane identity](../../Changes/Fusion/Adapter/FusionPrincipalSketchSupport.md) and [signed axis-dimension operand order](../../Changes/Fusion/Adapter/FusionAxisDimensionOrder.md) into the neutral document. The hosted archive step passed all 25 checks at `fa7e92d8`. The partial reader also preserves the [saved point coincidence arguments](../../Changes/Fusion/Adapter/FusionPointCoincidence.md). Its three public-reader cases passed at `011ddb8b`. The latest reader also checks the [saved selected-profile proxy and descriptor](../../Changes/Fusion/Adapter/FusionOwnedProfileSelection.md) for the witnessed P03 and P04 extrusion layouts and projects the [historical P04 cut target body](../../Changes/Fusion/Adapter/FusionCutTargetSelection.md). Those cases passed on `b6ce2ec9`. The [P04 sketch's saved face recipe](../../Changes/Fusion/Adapter/FusionSketchFaceProvenance.md) passed its hosted checks at `f15b9cea`. The partial reader now joins that recipe to the [exact saved face occurrence](../../Changes/Fusion/Adapter/FusionSavedFaceOccurrence.md) on the verified prior body. It reads the [saved blind and through-all cut ends](../../Changes/Fusion/Adapter/FusionSavedCutEnds.md) and retains the [projected origin and center expression operands](../../Changes/Fusion/Adapter/FusionSavedCutCenter.md). All eleven saved P04 controls corroborate these reads. Hosted public checks, fresh licensed readback and editable acceptance remain open. [Hosted archive checks](https://github.com/TryUniCAD/Kit/actions/runs/43728415623/job/132855298357)
 See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
+### A05a-DecodeEfficiency
+
+Codex owns the strict Fusion decoding and receipt efficiency follow-up on `codex/fusion-decoder-efficiency-pr`.
+Delivery PR is [#280](https://github.com/TryUniCAD/Kit/pull/280).
+It depends on the A05a pinned reader and A05b exact outcome contract.
+The exit requires byte-exact neutral documents, equivalent receipts, unchanged refusal diagnostics, measured offline timings, and current-head PR checks and review.
+Offline verification matched 16 reader outcomes and preserved the ordered native profiles.
+Three pinned strict inputs had 11% to 15% lower median receipt times.
+Native read medians were mixed.
+The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) records the implementation and evidence.
+
+### A05c-FusionSavedCuboid20261125: vendor-resaved cuboid reading and writing
+
+The Codex Fusion encoder worker owns this active task on `codex/fusion-saved-cuboid-roundtrip`.
+[PR #299](https://github.com/TryUniCAD/Kit/pull/299) delivers the read-only reader and is checking.
+The saved-graph writer and independent native acceptance remain open.
+Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The scope is the supported vendor-resaved constrained cuboid family.
+The exit requires exact saved-state reading and deterministic native generation from JSON alone.
+Independent source controls and held-out native open, edit, rebuild, save, and reopen evidence remain required.
+
 ## A06 comparison implementation and qualification
+
+### A06g-BulkDecodedComparison: standalone bulk command
+
+Codex delivered the [standalone bulk comparison command](../../Tasks/CompareDecodedDocuments.md) in [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
+Dependencies are the existing A06a comparator and interchange codec, integrated through merged PR #158 (`22075ee5e77c3db9b56bd8c2bc8c415d6baf237d`).
+Scope is bulk comparison of existing decoded JSON, directory or manifest pairing, retained correspondence evidence, and outcome summaries.
+The exit requires process evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, CI and review.
+The [final source audit](https://github.com/TryUniCAD/Kit/actions/runs/45186955636) passed all 50 bulk process cases on `0a137c5e`.
+Status is complete for the standalone command. The [merge-group checks](https://github.com/TryUniCAD/Kit/actions/runs/45215523176) passed on `12b98c78`, the merged revision.
+This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
+
+#### A06g CLI follow-up
+
+Codex owns the shorter research command on `codex/bulk-comparison-cli`.
+Delivery is [PR #275](https://github.com/TryUniCAD/Kit/pull/275), now targeting `main` after [PR #273](https://github.com/TryUniCAD/Kit/pull/273) merged as `12b98c78`.
+The scope is positional folders, manifest mode, shared explicit units, short output syntax, trusted checkout dispatch and unified copies for exact resolved pairs.
+The exit requires installed-command process evidence for both pairing modes, copy provenance and refusal, older checkout diagnostics and current-revision CI and review.
+See the [bulk comparison CLI change](../../Changes/Commands/BulkComparisonCli.md).
+
+### Existing comparison implementation
 
 The [portable graph comparator](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md) reads sealed neutral documents through the actual codec and validator.
 It compares typed fields and dependency roles, normalizes explicitly declared quantities and retains ambiguous correspondences.
@@ -252,6 +503,17 @@ This observation does not replace current-head hosted A06c/A06d checks or A06b q
 The subsequent [fresh P03 replay at `880bf0be`](../../Changes/Research/Readers/Comparison/SemanticSketchReferences.md#verification-evidence) removed only the false sketch-definition finding in both reader inventories and dependent comparisons, retaining `different` and `ambiguous` results and preserving the original `7317092e` run.
 A07 acceptance and A09 continue to depend on A06b.
 
+### A06d-NativeSketchOwnership: saved SOLIDWORKS sketch ownership in comparison
+
+The Codex shared encoder worker owns this checking task on `codex/native-sketch-ownership`.
+Delivery is [PR #302](https://github.com/TryUniCAD/Kit/pull/302), based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The task depends on A04c typed saved source reads, A06a comparison, and A06d reader evidence.
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains ownership of its SOLIDWORKS reader changes.
+The exit requires a real comparison report that relates one uniquely typed sketch to its same-source native timeline owner.
+The report must preserve ordered constraint references and keep the original unresolved findings and verdict.
+The P01 and P03 sources remain discovery evidence. Independent source inventory and native acceptance remain open.
+The [change entry](../../Changes/Research/Encoder/NativeSketchOwnership.md) records the observed report and comparison boundary.
+
 ## A09 scoped codec research
 
 Stephen316's accepted research constructs the [two configured atom owners](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadConfigAtoms.md), the upper sketch's [ordered same-length relation](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadEqualRelation.md) and the earlier boss's [cap and boundary occurrences](../../Changes/Research/Writers/SolidWorks/Boss/SolidWorksTwoPadCapRefs.md).
@@ -276,19 +538,30 @@ The reported separate 37 × 21 × 11 mm feasibility case supports the compositio
 The owned licensed witness still needs driving edits, restoration, rebuild, save and fresh-process reopen with healthy controls.
 Neither the scoped constructor nor its observation receipt closes A11 or qualifies a conversion route.
 
-### A08 base Python verification recovery
-
-`A08-BasePythonChecks` is owned by the shared encoder worker on `codex/catalogue-base-python-checks`, based on open PR #168 at `e2fba13c8f`. [PR #322](https://github.com/TryUniCAD/Kit/pull/322) restores required Python steering, Pyright and Mypy on that catalogue base, and repairs only observed inherited structure and typing failures. Keep all existing tests, dispatch behavior and writer admission. The exit requires current-head full-tree gates and CI aggregation, exact baseline and repaired collection records, and targeted integration results. PR #314 depends on this work for its inherited checks.
-
 ## A12 SOLIDWORKS writer research
+
+### A12b: vendor-authored blind boss admission
+
+The Codex SOLIDWORKS encoder worker owns this active task on `codex/solidworks-vendor-boss-admission`.
+[PR #300](https://github.com/TryUniCAD/Kit/pull/300) delivers the research evidence and a safe manifest for exact private replay.
+The task depends on A04, A06, A08, A12a, A14, and [PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) retains property-reader ownership at `c0a401a607`.
+[PR #288](https://github.com/TryUniCAD/Kit/pull/288) retains ownership of catalogue capture supervision.
+The scope is ordinary version-19000 parts with one supported straight-line loop and a driving blind boss.
+Whole-source admission requires complete feature, manager, partition, and presentation semantics in archive-free JSON.
+Generation, independent held-out native verification, and the exact SDK publication evidence remain open.
+
+### A12b-P03ConstraintIntent
 
 | Child | Scope and owner | Dependencies | Delivery and exit |
 | --- | --- | --- | --- |
-| A12b-P03ConstraintIntent | Shared encoder worker. Project one source-bound positive XY P03 SOLIDWORKS rectangle and first blind Boss into the existing research logical constructor input. | A04c saved relations, A06d source-bound owner evidence, PR #168 logical Boss input and existing generative archive work. Coordinate with PR #121 and A12b exact SI, plane and depth owners. | [PR #314](https://github.com/TryUniCAD/Kit/pull/314) from `codex/p03-constrained-boss-intent`, with [PR #322](https://github.com/TryUniCAD/Kit/pull/322) as its Python verification dependency. Require deterministic source JSON replay, ordered native operands, distinct Origin, loop point aliases and owner/span checks. Reject changed evidence without publishing output. Native generation, editable measurement and public writer admission stay open. |
+| A12b-P03ConstraintIntent | Shared encoder worker. Project one source-bound positive XY P03 SOLIDWORKS rectangle and first blind Boss into the existing research logical constructor input. | A04c saved relations, A06d source-bound owner evidence, the catalogue logical Boss input on main and existing generative archive work. Coordinate with PR #121 and A12b exact SI, plane and depth owners. | [PR #314](https://github.com/TryUniCAD/Kit/pull/314) from `codex/p03-constrained-boss-intent`. Require deterministic source JSON replay, ordered native operands, distinct Origin, loop point aliases and owner/span checks. Reject changed evidence without publishing output. Native generation, editable measurement and public writer admission stay open. |
 
 Related deliveries preserve narrower boundaries. The [absolute depth units fix](https://github.com/TryUniCAD/Kit/pull/306) applies millimetre edits to already qualified authored requests. The [document plane visibility research](https://github.com/TryUniCAD/Kit/pull/308), [exact depth intent](https://github.com/TryUniCAD/Kit/pull/309) and [native plane witness](https://github.com/TryUniCAD/Kit/pull/310) remain separate. The plane witness measured the generated pair and On-state edit/save/reopen on the exact build in seven normal lifetimes, in 87.994 seconds. PR #310 has passing current-head CI and configured review on `95e76f0a4b`. Held-out plane coverage, visibility overrides, complete vendor-source state, public admission and merge-queue acceptance stay open. The [native exact-depth witness](https://github.com/TryUniCAD/Kit/pull/311) preserved the original D1 bits through an unchanged save and reopen in a nine-lifetime qualified batch. The [exact SI sketch intent research](https://github.com/TryUniCAD/Kit/pull/312) replays exact coordinates from prepared JSON. It still needs independent held-out and native acceptance. The [Fusion source-free cuboid candidate research](https://github.com/TryUniCAD/Kit/pull/307) remains a separate A11 delivery. Its bounded held-out candidate completed four guarded native stages. The [saved snapshot ownership fix](https://github.com/TryUniCAD/Kit/pull/313) refuses nine corruptions and preserves the existing constructor route. Two saved zero-address contrasts each passed seven native stages. Independently generated snapshots, complete vendor-source state and native qualification of that writer remain open.
 
 Recent independent writer evidence remains separately owned. The [Fusion snapshot generator](https://github.com/TryUniCAD/Kit/pull/318) generates snapshot geometry and ownership links from a fixed-cuboid request. Full saved-source writing remains open. The [combined SOLIDWORKS native witness](https://github.com/TryUniCAD/Kit/pull/319) records twelve healthy lifetimes across geometry and supported presentation. The [document precision native witness](https://github.com/TryUniCAD/Kit/pull/320) records four fresh controlled lifetimes. The [resaved renderer diagnostic](https://github.com/TryUniCAD/Kit/pull/321) identifies the appearance-allocator disagreement and preserves the strict reader refusals. Whole-source and public conversion qualification remain open.
+
+### Existing A12 evidence
 
 The [caller-supplied rectangular Boss candidate](../../Changes/Research/Writers/SolidWorks/Metadata/SolidWorksPortableBossCandidate.md) accepts a validated neutral document and explicit typed target state for the bounded Front/Right, signed blind-extrusion scope.
 It refuses unsupported required state and independently reads the complete generated archive before optional no-replace publication.
@@ -321,21 +594,21 @@ The separate SOLIDWORKS generative research in PR #121 records controlled load, 
 
 | Child ID | Deliverable                                                 | Owner      | Status   | Remaining evidence                                                                                                                                                                                                                                      |
 | -------- | ----------------------------------------------------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A16a     | Explicit forward and reverse FreeCAD extrusion dependencies | jdharcourt | checking | The [native emission repair](../../Changes/FreeCad/FreeCadTwoLengthBindings.md) preserves ordered end owners and physical units; an exact `abfba60a` operator replay reported correct links, with native acceptance still required                      |
-| A16b     | Native FreeCAD symmetry and reversal preservation           | jdharcourt | checking | The [native reader repair](../../Changes/FreeCad/FreeCadNativeEndSemantics.md) reads saved flags independently of distances; native-only public process and native acceptance evidence remain required                                                  |
-| A16c     | Independent FreeCAD direction and reversal emission         | jdharcourt | checking | The [inline writer repair](../../Changes/FreeCad/FreeCadReversedExtrusion.md) emits the normalized base direction and native reversal flag independently; hosted public-write process and native acceptance evidence remain required                    |
-| A16d     | Calculated initial FreeCAD extrusion geometry               | jdharcourt | checking | The [initial-shape implementation](../../Changes/FreeCad/FreeCadInitialExtrusionShapes.md) calculates an owned cache for the scoped inline profile family; hosted process checks and independent initial-open evidence before recompute remain required |
-| A16e     | Honest fresh FreeCAD extrusion acceptance flags             | jdharcourt | checking | The [attestation repair](../../Changes/FreeCad/FreeCadInitialGeometryAttestation.md) keeps fresh unqualified extrusion output explicitly incomplete and strict destinations protected; hosted process checks remain required                            |
-| A16f     | Refusal of changed inline FreeCAD snapshots                 | jdharcourt | checking | The [inline manifest guard](../../Changes/FreeCad/FreeCadInlineManifestGuard.md) checks scoped native controls before returning a snapshot; hosted process coverage, saved native edit controls and full edit reconstruction remain required            |
-| A16g     | Native FreeCAD spreadsheet alias dependencies               | jdharcourt | checking | The [alias recovery](../../Changes/FreeCad/FreeCadNativeSheetAliases.md) requires unique actual cells, raw saved numeric evidence and quantity corroboration; hosted read/replay process coverage remains required                                      |
+| A16a     | Explicit forward and reverse FreeCAD extrusion dependencies | jdharcourt | checking | The [native emission repair](../../Changes/Freecad/FreeCadTwoLengthBindings.md) preserves ordered end owners and physical units; an exact `abfba60a` operator replay reported correct links, with native acceptance still required                      |
+| A16b     | Native FreeCAD symmetry and reversal preservation           | jdharcourt | checking | The [native reader repair](../../Changes/Freecad/FreeCadNativeEndSemantics.md) reads saved flags independently of distances; native-only public process and native acceptance evidence remain required                                                  |
+| A16c     | Independent FreeCAD direction and reversal emission         | jdharcourt | checking | The [inline writer repair](../../Changes/Freecad/FreeCadReversedExtrusion.md) emits the normalized base direction and native reversal flag independently; hosted public-write process and native acceptance evidence remain required                    |
+| A16d     | Calculated initial FreeCAD extrusion geometry               | jdharcourt | checking | The [initial-shape implementation](../../Changes/Freecad/FreeCadInitialExtrusionShapes.md) calculates an owned cache for the scoped inline profile family; hosted process checks and independent initial-open evidence before recompute remain required |
+| A16e     | Honest fresh FreeCAD extrusion acceptance flags             | jdharcourt | checking | The [attestation repair](../../Changes/Freecad/FreeCadInitialGeometryAttestation.md) keeps fresh unqualified extrusion output explicitly incomplete and strict destinations protected; hosted process checks remain required                            |
+| A16f     | Refusal of changed inline FreeCAD snapshots                 | jdharcourt | checking | The [inline manifest guard](../../Changes/Freecad/FreeCadInlineManifestGuard.md) checks scoped native controls before returning a snapshot; hosted process coverage, saved native edit controls and full edit reconstruction remain required            |
+| A16g     | Native FreeCAD spreadsheet alias dependencies               | jdharcourt | checking | The [alias recovery](../../Changes/Freecad/FreeCadNativeSheetAliases.md) requires unique actual cells, raw saved numeric evidence and quantity corroboration; hosted read/replay process coverage remains required                                      |
 
 The [earlier readiness observation](../../Changes/Research/Readers/Comparison/FreeCadTwoLengthReadiness.md) records the missing reverse link and equal-length roster crossing on its original checkpoint.
 The repair does not admit unsupported linked definitions or fallback carriers.
-The [installed FreeCAD 1.1.4 witness](../../Changes/FreeCad/FreeCadEndNativeWitness.md) records scoped end-driver edits, restoration, save and fresh reopen at `b32222b5`; original packages required native recompute before exposing solids, so initial geometry availability and broader qualification remain unresolved.
+The [installed FreeCAD 1.1.4 witness](../../Changes/Freecad/FreeCadEndNativeWitness.md) records scoped end-driver edits, restoration, save and fresh reopen at `b32222b5`; original packages required native recompute before exposing solids, so initial geometry availability and broader qualification remain unresolved.
 Calculated cache presence does not qualify the route or establish the initial-open result.
-The [later calculated-cache witness](../../Changes/FreeCad/FreeCadInitialOpenWitness.md) at `161885d8` closes the pre-recompute initial-open measurement for three rectangular controls and records independent edits, restoration, save and fresh reopen.
+The [later calculated-cache witness](../../Changes/Freecad/FreeCadInitialOpenWitness.md) at `161885d8` closes the pre-recompute initial-open measurement for three rectangular controls and records independent edits, restoration, save and fresh reopen.
 It retains false research flags and leaves the other cache families and route qualification unfinished.
-The PR #158 [rectangle verification](../../Changes/FreeCad/FreeCadRectangleVerification.md) records a fresh FreeCAD 1.1.4 witness for three rectangular controls, plus supplemental saved-edit and spreadsheet alias cases. The [exact replay repair](../../Changes/FreeCad/FreeCadExactReplayOrdering.md) preserves admitted source bytes while retaining the strict usability flags and fresh-output checks. The broader A16 checking and qualification requirements remain open.
+The PR #158 [rectangle verification](../../Changes/Freecad/FreeCadRectangleVerification.md) records a fresh FreeCAD 1.1.4 witness for three rectangular controls, plus supplemental saved-edit and spreadsheet alias cases. The [exact replay repair](../../Changes/Freecad/FreeCadExactReplayOrdering.md) preserves admitted source bytes while retaining the strict usability flags and fresh-output checks. The broader A16 checking and qualification requirements remain open.
 The next independent native witness must measure the original package immediately after open and before explicit recompute, then repeat driving edits, restoration, rebuild, save and fresh reopen with healthy controls.
 A13, A15 and the remaining route-specific acceptance requirements stay open.
 The inline guard and alias recovery are separate reader repairs, not native qualification.
@@ -514,6 +787,12 @@ The [kernel OOM estimate](../../Changes/Research/Supervisor/KernelOomMemoryEstim
 
 The [A08b capacity status](../../Changes/Research/Supervisor/LiveSupervisorCapacity.md) reports the running supervisor's last admission decision and per-kind reservations. It validates owner identity, configuration, pause generation and freshness before returning the observations. At `648ddf5c`, the live status checks passed in the 59-case Linux, 92-case Windows and 143-case macOS supervisor runs. [Hosted workflow](https://github.com/TryUniCAD/Kit/actions/runs/43774889237)
 
+Codex owns the A08b Windows adaptive CPU follow-up on [PR #281](https://github.com/TryUniCAD/Kit/pull/281).
+It depends on the existing supervisor resource measurements and keeps the configured CPU and memory reserves.
+Exit requires a real Windows supervisor to observe a valid CPU interval and increase only when headroom and the existing interval permit it.
+The 256-job Windows replay observed increases from nine to eleven with equal neutral digests and intact reserves.
+[Windows adaptive CPU measurement](../../Changes/Research/Supervisor/Adaptive/WindowsAdaptiveCpu.md)
+
 The [A08b controller capacity refusal](../../Changes/Research/Supervisor/ControllerCapacityRefusal.md) at `c4526025` reports a real A03 concurrency refusal alongside the locally calculated headroom. The two-pool case passed on Linux, Windows and macOS at `b9efdb5e`. The Windows job failed an independent SOLIDWORKS rearm case. The [sampled A03 capacity view](../../Changes/Research/Supervisor/ControllerCapacitySnapshot.md) at `863c157b` counts shared logical slots separately from physical worker sessions. Its grouped-plus-singleton process check passed on hosted Linux and macOS at `3cd136ad`. [Earlier workflow](https://github.com/TryUniCAD/Kit/actions/runs/43779565898), [capacity process results](https://github.com/TryUniCAD/Kit/actions/runs/43781577583)
 
 The [A08b grouped offline calibration](../../Changes/Research/Supervisor/GroupedOfflineCalibration.md) accepted the same 64 pinned Fusion discovery archives once per arm and produced the same neutral output digest in two Windows runs at `50a4892b` and `ed0aa4bd`. The second run used 64 singleton sessions in 224.825 seconds and ten verified group sessions in 60.507 seconds. The grouped archive process case passed on hosted Linux and macOS at `f3e6b6cd`. Linux and macOS throughput remain unmeasured. [Hosted workflow](https://github.com/TryUniCAD/Kit/actions/runs/43777547783)
@@ -601,3 +880,67 @@ PR #119 merged into `main` at `249cf7dcde6197c41fafb052eda8afb210bcf49e`. Synchr
 The two compatibility jobs for `a006c275` independently checked the installed CLI and isolated research checkout at the workflow merge SHA `8d66aa9b38bb3f436678cdad6af3206d0189fb51`. Linux passed 27 with one Windows-only skip and Windows passed 17. [Linux](https://github.com/TryUniCAD/Kit/actions/runs/43745878592/job/132908934845), [Windows](https://github.com/TryUniCAD/Kit/actions/runs/43745878592/job/132908934840)
 
 PR head `b9efdb5ee15da0f802880b97816a8422865545b4` repeated the installed CLI verification on exact tested merge `e60486e0532b92b66a5637a490acea934cb03959`. Both jobs asserted that the installed source and the physically separate research checkout matched the candidate SHA. Linux passed 27 cases with one Windows-only skip. Windows passed 17 cases. The result completes the installed CLI compatibility milestone for the selected reader, receipt, controller and supervisor contracts. Native qualification remains open under its owning steps. [Linux compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013443659), [Windows compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013444080)
+
+### A08d-PinnedReaderBatches: pinned corpus reader overhead
+
+Codex owns this checking task on `codex/pinned-decoder-batches`, based on main `14570404846c8aa1f90b02e68d6f70a419719ca7`.
+Delivery is [PR #279](https://github.com/TryUniCAD/Kit/pull/279).
+Dependencies are the A04a and A05a readers, the sealed A02 corpus, and the A08d CLI bridge.
+The scope covers Git transport for both formats, the additive SOLIDWORKS batch, and the feature inventory session.
+The exit requires public CLI timings, exact neutral byte comparisons, intact pin and refusal behavior, current-head CI and configured review.
+At reader revision `654f00108c3e151c28b5e3e84eb48bd2ff7f9f2a`, the three-part SOLIDWORKS median fell from 37.20 s to 17.97 s.
+The eight-part Fusion median moved from 16.93 s to 17.01 s with fifteen fewer blob processes.
+The measured neutral documents matched exactly in both comparisons.
+See the [change entry](../../Changes/Research/Offline/PinnedReaderBatches.md).
+
+### A08d-FileScopeAttribution: stream provenance for strict Fusion inputs
+
+The Codex shared encoder worker owns this checking task on `codex/deterministic-encoder-admission`.
+Delivery is [PR #298](https://github.com/TryUniCAD/Kit/pull/298), based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+Dependencies are the A08d file-driven CLI, source-bound Fusion decode layers, and the container member inventory.
+The exit requires a real CLI run with strict features, source-bound partial spans, and both saved reports.
+The existing partial-only P04 run must preserve its recipe selection and incomplete coverage result.
+Both installed CLI cases passed on Windows at `d3b2cb982c` in 84.79 seconds. Hosted verification and review remain pending.
+See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) for the range and qualification limits.
+
+## A08h-Placement20261123: decimal native reader evidence
+
+Codex owns this evidence publication on `feat/native-placement-decoding-20261123`, from main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`. Delivery PR is [#274](https://github.com/TryUniCAD/Kit/pull/274).
+The [package](../../../re/NativePlacement2026/README.md) retains 47 complete native batches, one COM failure, 143 saved native files and all 255 committed-input replay outcomes. One expected after-control is missing.
+Dependencies are merged PRs #263, #265 and #267, the deterministic controller and licensed source workers. All executable capture/replay work has settled; publication CI and configured review remain pending.
+[PR 270](https://github.com/TryUniCAD/Kit/pull/270) owns the SOLIDWORKS attachment implementation. Its exact `78a1367e81b5748702289c2b2e733f24576df46e` candidate passes 138 comparisons on 69 fresh complete-batch inputs. [PR 269](https://github.com/TryUniCAD/Kit/pull/269) owns the remaining Fusion placement/sign investigation; this scope supplies fresh decimal controls.
+The exit requires sealed hashes, sanitized provenance, native/neutral comparisons, retained refusals/failures and current-head publication readiness. Numerical source acceptance is limited to the recorded cuboids. Full semantics, generative writing and editable target conversion remain open under B02–B05; this task does not duplicate either owning PR or close those milestones.
+
+## A08h-CutsRevolutions20261123: cut and revolution evidence
+
+Task `A08h-CutsRevolutions20261123` is owned by Codex on `feat/native-feature-campaign-20261123b`. Delivery PR: [#278](https://github.com/TryUniCAD/Kit/pull/278).
+Dependencies are merged PRs #158/#207, the verified catalogues, existing controller and licensed personal API.
+The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact native scopes, cut sign failures, correction attempts, COM failures and strict reader outcomes.
+The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
+Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
+Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+
+## A08h-LargeSolidWorksBatches: larger fresh verification groups
+
+Codex owns the scope on
+[`codex/solidworks-large-verification-batches`](https://github.com/TryUniCAD/Kit/tree/codex/solidworks-large-verification-batches).
+It builds on the paired-case batching delivery in
+[PR #288](https://github.com/TryUniCAD/Kit/pull/288). New plans group up to
+twelve cases while older plans retain their immutable jobs. The exit requires
+revision-bound Windows preparation, previous-job compatibility, native
+authoring and independent reopen of a full batch, and current CI and review.
+See the
+[change entry](../../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
+A licensed run accepted 12 selected cases and 111 archives at
+`1afeb59cc9a86f5e8a7ce981126a254073a806ac` with two normal process exits.
+All twelve offline decoder jobs completed. Hosted CI and review remain open.
+
+#### A08h-RimFillet20261125: circular rim fillet read/write packs
+
+Codex owns this checking task on `feat/native-conversion-campaign-20261125`, based on main `66d4f5b856833833bbf67fe62a61c3450d8dc76f`.
+Delivery: [PR #301](https://github.com/TryUniCAD/Kit/pull/301).
+Dependencies are the native API, source-free constructor, controller and typed codecs.
+The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native checks, 12 exact generated-payload cycles, five native-source cycles and seven snapshot-width refusals.
+All strict neutral and public conversion refusals remain explicit.
+The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
+The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.

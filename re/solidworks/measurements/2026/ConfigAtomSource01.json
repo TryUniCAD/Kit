@@ -1,0 +1,167 @@
+{
+  "archive_version": 19000,
+  "controls": {
+    "concave": {
+      "atom": {
+        "atom_id": 101,
+        "body_kind": 0,
+        "class_slot": 50,
+        "fields_sha256": "05f72c11623922d9256f33ee297e380df9c743c27ed2dbda6fd7925ba0cb04bd",
+        "fields_spans": {
+          "body_kind": [2191, 2195],
+          "f08": [2147, 2151],
+          "f12c": [2183, 2187],
+          "f130": [2179, 2183],
+          "f140": [2171, 2175],
+          "f144": [2175, 2179]
+        },
+        "interval": [2123, 2223],
+        "object_slot": 51,
+        "sha256": "a30d024ec17caad63dec6b72948975ba0ed7484b8cecdea8a344a92fa4595583",
+        "state": 0,
+        "wire_state": 0
+      },
+      "manager": {
+        "counter": [50, 52],
+        "f260": 101,
+        "fa8": 19000,
+        "header_slot": 3,
+        "header_standalone_slot": 15,
+        "interval": [2115, 2227],
+        "native_base": 4,
+        "original_entry_count": 49,
+        "root_slots": [1, 2],
+        "sha256": "cd514c6afb75ebccb1337b2ceb16b0a8bf328e3bddd930b3dc027a7db313e62e"
+      },
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "producer": {
+        "class": "moBaseBody_c",
+        "feature_id": 18,
+        "feature_id_span": [5152, 5156],
+        "link_sha256": "ac11339ffa8f270c4f781e0a3922bb1c80d9dee6e4b6911ca34538ed9ae03caa",
+        "link_span": [5303, 5305],
+        "object_slot": 154,
+        "output_id_span": [5315, 5319],
+        "resolved_counter": [94, 157],
+        "schema": 1
+      },
+      "streams": {
+        "cmgr": {
+          "bytes": 1129,
+          "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd"
+        },
+        "config": {
+          "bytes": 22700,
+          "sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1"
+        },
+        "header": {
+          "bytes": 789,
+          "sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa"
+        },
+        "resolved": {
+          "bytes": 5479,
+          "sha256": "bcd117b564f48f894c53c27b6bda506aade635837eb97fdd583655b832627c6e"
+        }
+      }
+    },
+    "ladder": {
+      "atom": {
+        "atom_id": 101,
+        "body_kind": 0,
+        "class_slot": 57,
+        "fields_sha256": "d622213ba12323ae0fc5bb518bed280ebc07193587337f23cf0dcc3bf9b125ee",
+        "fields_spans": {
+          "body_kind": [3138, 3142],
+          "f08": [3094, 3098],
+          "f12c": [3130, 3134],
+          "f130": [3126, 3130],
+          "f140": [3118, 3122],
+          "f144": [3122, 3126]
+        },
+        "interval": [3070, 3170],
+        "object_slot": 58,
+        "sha256": "7bc0c308643225fb5e6b6b8f9dfd4d0668748f7dbc5cf2dc9fd85155c39873eb",
+        "state": 0,
+        "wire_state": 0
+      },
+      "manager": {
+        "counter": [57, 59],
+        "f260": 101,
+        "fa8": 19000,
+        "header_slot": 3,
+        "header_standalone_slot": 69,
+        "interval": [3062, 3174],
+        "native_base": 4,
+        "original_entry_count": 56,
+        "root_slots": [1, 2],
+        "sha256": "68a12eace31a252758266598f230aa648a4884726800855a23a41ed61cb73d13"
+      },
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "producer": {
+        "class": "moExtrusion_c",
+        "feature_id": 34,
+        "feature_id_span": [11288, 11292],
+        "link_sha256": "7648eb81c4e9fef7b51879c6fcd6fb4b8863eea0cb2a978c508711dc52c80041",
+        "link_span": [11441, 11443],
+        "object_slot": 234,
+        "output_id_span": [11453, 11457],
+        "resolved_counter": [110, 288],
+        "schema": 1
+      },
+      "streams": {
+        "cmgr": {
+          "bytes": 2159,
+          "sha256": "599e3fea664a9788e402297ed0997b680efbf72cfc8a714abe6a8a140ef2d541"
+        },
+        "config": {
+          "bytes": 25390,
+          "sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2"
+        },
+        "header": {
+          "bytes": 2315,
+          "sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659"
+        },
+        "resolved": {
+          "bytes": 14407,
+          "sha256": "33a190c0632c1cfb61a493671d5811c9ea3e9f81a4233adf801d28a8780af525"
+        }
+      }
+    }
+  },
+  "model_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_build": "34.5.2.0604",
+  "native_functions": {
+    "AtomSerialize01": {
+      "end_exclusive": "0x4bcf02e1",
+      "sha256": "e3cb61c2a22a231a8d9b05b36e6dd1ec52a4ecf2de76c4ac012d605c2a888974",
+      "start": "0x4bcefbb0"
+    },
+    "ManagerSerialize01": {
+      "end_exclusive": "0x4bcefbab",
+      "sha256": "760c62cb464604f94675e1806a61e63b65f9f2125f4dbe1a9890f7696007664b",
+      "start": "0x4bcef8d0"
+    }
+  },
+  "preparation_base": "66cbe26d65568e17cbb689e7d2720f00c1e68dc7",
+  "reference_commit": "9f0ccb5389c121e750ca3b73f8e5d248b34d2e15",
+  "reference_sha256": {
+    "re/solidworks/records/AtomManagerBodyEnumeration2026.json": "5ddd972529b4aa811e6c0fb0f40e21f7afe540f9aaba2585a96037fdccb7b14f",
+    "re/solidworks/records/ConfigRuntimeDescriptors2026.json": "5a6f8158c835cd6e4f105c46fb3e3f22646a7d6aeb1b89f47617da4c92baaaeb",
+    "re/solidworks/records/NamedBodyColdReuse2026.md": "12c7f7e89ab35afac7e196ca0d3f70ebb4c4d2c6f6ea0c1fe84f3b7495abd7fb",
+    "re/tooling/sw2026/serial/defs/ConfigPart.py": "861747fe96fde0ea8c98d3f17597177587d72e9ddfae3c185fa4d40c1caa87a9",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ConfigVirtuals.py": "2b20ff68cad9c5427a7b77705233a2c59364b2ec6b77c84581d0a5fd82fb63f6",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py": "fb679705fcb9ae37b7de314d9c12bd2433d444dce3e928fe7d8d3469116247c7",
+    "src/convert/adapters/solidworks/Archive/Bodies/NormalizeWord.py": "6016ac09734eb81ffa7513acc744f4eb5d170e5bd587121a92d248860d21167a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNormalizeMut.py": "e013f02d182a4b4af407a3ad0aa0c1b2335baf1a97f2d8de7a286d784fde3eae",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "154f9b3bb35bd37a9a731ea8ef55befb5f4342b7c544d96599f6fbea0487ed48",
+    "src/convert/adapters/solidworks/Archive/Resolved/ReadResolvedMut.py": "5adef9bc054b0ae8d1b7f1778cc61be2ef2d88f9659065845fbde969b513aaf3"
+  },
+  "stream_names": {
+    "cmgr": "Contents/CMgr",
+    "config": "Contents/Config-0",
+    "header": "Contents/Config-0-ModelHeader",
+    "resolved": "Contents/Config-0-ResolvedFeatures"
+  }
+}

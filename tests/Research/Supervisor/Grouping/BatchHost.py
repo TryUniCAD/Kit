@@ -46,7 +46,8 @@ def WriteBatchReg(RootPath: FilePath) -> None:
         {
             "argv": [
                 System.executable,
-                str(FilePath(__file__).with_name("BatchRunner.py")),
+                "-m",
+                "tests.Research.Supervisor.Grouping.BatchRunner",
                 "{session}",
             ],
             "initial_peak_memory_mib": 32,

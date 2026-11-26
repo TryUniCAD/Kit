@@ -23,3 +23,10 @@ Both Git subprocess paths, including streaming corpus reads, discard inherited `
 Metadata inspection established the 130-file contract digest `ca44feca3f2ca32cd852f32e4afde2e5a2b334a8c83a150e813d8256f6c106b6` against the preserved original tree. New process coverage exercises intact binding, changed/missing/extra inputs, mode changes, replacement refs, grafts, a bad contract, absent lineage, an external native alias, streaming blob replacement and hostile Git environment variables. These cases are authored for hosted execution; no local tests or application runs were performed. Static verification is recorded with the published candidate.
 
 This preserves custody, not native qualification. Ten receipts and 74 paired native files still establish zero qualified pairs. The separate missing original Fusion source, licensed same-installation restart chain, supplemental admission and two-week pilot remain open. See the [step register](../../../Reference/Research/AutomationSteps.md), [clean-history gotcha](../../../Gotchas/Git/CleanHistoryNeedsOriginalLineage.md) and [Git identity gotcha](../../../Gotchas/Git/GitReplacementsCanAlterLineage.md).
+
+If the upstream Git server refuses a batch of individual blob IDs, acquisition
+requests the same files from GitHub at their sealed commit and path. It checks
+each downloaded Git blob ID before storing it and verifies the complete roster
+afterward. A missing file, oversized response, or mismatched hash fails acquisition.
+The [hosted shard](https://github.com/TryUniCAD/Kit/actions/runs/44741548782/job/136306861581)
+records the original fetch failure.

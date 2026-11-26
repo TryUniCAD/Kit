@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -139,9 +139,10 @@ def HasScopePlan(ledger, batch):
 
 
 # offline scheduling creates ordinary controller dependencies for the local worker
-def ProvisionScope(store, revision):
+def ProvisionScope(store, revision, Dependencies=()):
     CheckRevision(revision)
     report, plan_binding, sources, batch = ScopeSchedule(revision)
+    batch["jobs"][0]["depends_on"] = sorted(set(batch["jobs"][0]["depends_on"]) | set(Dependencies))
     with (
         Ledger(store) as ledger,
         TemporaryDirectory(prefix="kit-scope-provision-") as scratch,
