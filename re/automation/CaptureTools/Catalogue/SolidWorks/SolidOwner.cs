@@ -114,6 +114,18 @@ public static class SolidOwner
         RunInApartment(process,executable,repository,output,configuration,phase,false);
     }
 
+    public static void CheckReady(Process process, string executable)
+    {
+        ISldWorks application=null;
+        try {
+            application=AttachOwned(process,executable,120);
+            if(application.GetDocumentCount()!=0)
+                throw new InvalidOperationException("Startup requires an empty owned application");
+        } finally {
+            if(application!=null) Marshal.FinalReleaseComObject(application);
+        }
+    }
+
     public static void RunBatch(Process process, string executable, string repository,
         string output, string configuration, string phase)
     {

@@ -14,7 +14,9 @@ param(
     [Parameter(Mandatory)] [string]$ExecutablePath,
     [Parameter(Mandatory)] [ValidateSet('first', 'second')] [string]$Phase,
     [switch]$CompileOnly,
-    [switch]$Batch
+    [switch]$Batch,
+    [string]$QueueDirectory,
+    [string]$SourceRevision
 )
 
 $ErrorActionPreference = 'Stop'
@@ -46,7 +48,11 @@ $ProgramSources = @(Get-ChildItem -LiteralPath (Join-Path $PSScriptRoot 'Program
 Add-Type -Path (@((Join-Path $PSScriptRoot '../../SolidWorksAuthoring/SolidWorksCapture.cs'),
     (Join-Path $PSScriptRoot 'ConfiguredCapture.cs'),
     (Join-Path $PSScriptRoot 'SolidOwner.cs')) + $ProgramSources) -ReferencedAssemblies @($Interop.FullName, 'System.Core.dll', $WebExtensions)
-if ($Batch) { [SolidWorksCapture]::CheckBatch($CaseFile, $Destination) }
+if ($QueueDirectory) {
+    if ($SourceRevision -cnotmatch '^[0-9a-f]{40}$' -or
+        (Resolve-Path -LiteralPath $QueueDirectory).Path -cne $Destination) { throw 'Invalid routine queue identity.' }
+}
+elseif ($Batch) { [SolidWorksCapture]::CheckBatch($CaseFile, $Destination) }
 else { [SolidWorksCapture]::CheckConfigured($CaseFile) }
 . (Join-Path $PSScriptRoot 'WaitOwnedExit.ps1')
 if ($CompileOnly) {
@@ -59,6 +65,7 @@ $Native = $null
 $ExitObserved = $false
 $ForcedCleanup = $false
 $Failure = $null
+. (Join-Path $PSScriptRoot 'StartOwnedSolid.ps1')
 $FrameHandle = 0
 try {
     try { $Acquired = $Mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $Acquired = $true }
@@ -66,21 +73,27 @@ try {
     if (Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue) {
         throw 'Preserve the existing SOLIDWORKS session and use an idle native host.'
     }
-    $Native = Start-Process -FilePath $Executable.FullName -WorkingDirectory $Executable.DirectoryName -WindowStyle Hidden -PassThru
+    $Native = Start-OwnedSolid -Executable $Executable -Destination $Destination -Phase $Phase
     $Created = $Native.StartTime.ToUniversalTime().ToFileTimeUtc()
     if (@(Get-Process -Name SLDWORKS -ErrorAction SilentlyContinue).Count -ne 1 -or
         $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Created) {
         throw 'The application identity changed before authoring.'
     }
-    if ($Batch) {
-        [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase)
+    if ($QueueDirectory) {
+        # the routine owner requests its own exit and publishes no per-phase native receipt
+        [SolidWorksCapture]::ServeRoutineOwned($Native, $Executable.FullName, $Repository, $Destination, $SourceRevision)
     }
-    else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
-    $Receipt = Get-Content -LiteralPath (Join-Path $Destination ($Phase + '-native.json')) -Raw | ConvertFrom-Json
-    if ($Receipt.pid -ne $Native.Id -or $Receipt.normal_exit_requested -ne $true) {
-        throw 'The native exit request receipt does not identify the owned application.'
+    else {
+        if ($Batch) {
+            [SolidOwner]::RunBatch($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase)
+        }
+        else { [SolidOwner]::RunOwned($Native, $Executable.FullName, $Repository, $Destination, $CaseFile, $Phase) }
+        $Receipt = Get-Content -LiteralPath (Join-Path $Destination ($Phase + '-native.json')) -Raw | ConvertFrom-Json
+        if ($Receipt.pid -ne $Native.Id -or $Receipt.normal_exit_requested -ne $true) {
+            throw 'The native exit request receipt does not identify the owned application.'
+        }
+        $FrameHandle = [long]$Receipt.frame_handle
     }
-    $FrameHandle = [long]$Receipt.frame_handle
 } catch { $Failure = $_ } finally {
     if ($null -ne $Native) {
         $NativeExit = Wait-OwnedExit -Process $Native -Created $Created -AllowClose ($null -eq $Failure) -FrameHandle $FrameHandle

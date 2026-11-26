@@ -9,7 +9,7 @@ Those jobs share Linux and Windows lane names with current candidates.
 Its synthetic branch was deleted and its SHA was absent from the active queue.
 Six additional obsolete workflow-quality runs remained pending.
 
-Enumerate merge-group workflows and allow only the two known heavy workflow families through the existing cancellation checks.
+Enumerate merge-group workflows and allow only the known queue workflow families (see also [abandoned aggregation runs](AbandonedAggregationRuns.md)) through the existing cancellation checks.
 Require a missing ref and independent current queue evidence before cancelling.
 Preserve active candidates, manual audits, forks, unknown workflows, and uncertain evidence.
 See [the cleanup change](../../../Changes/Ci/Scheduling/AbandonedWorkflowLanes.md).

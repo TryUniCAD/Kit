@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     concurrency:
-      group: Kit-linux-7
+      group: ${{ github.event_name == 'pull_request' && 'Kit-pull-steering' || 'Kit-linux-7' }}
       cancel-in-progress: false
       queue: max
     steps:

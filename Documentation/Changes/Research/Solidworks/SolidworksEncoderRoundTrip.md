@@ -48,6 +48,8 @@ Both separately authored native controls refused reconstruction at the complete 
 Their [admission record](../../../../re/solidworks/measurements/2026/EncoderVendorSourceAdmission.json) retains the exact source observations.
 Each decoded control had twenty-six feature rows, one solid, a driving D1 and two retained native payloads.
 This milestone does not qualify a vendor-authored source round trip.
+The [vendor-source investigation](../../../../re/solidworks/records/VendorBlindBossAdmission2026.md)
+records the subsequently measured reader dependencies and source-preservation requirements.
 
 ## Usage and publication boundary
 
