@@ -11,41 +11,26 @@ from pathlib import Path
 import subprocess
 import sys
 
+from tests.Research.Inference.Scope.HandoffQueue import CheckHandoffQ
+from tests.Research.Inference.Scope.InvokeAuto import InvokeAuto
 from tests.Research.SupervisorClient import InitStore, KRepoRoot, WriteConfig
 
 # exact catalogue identities keep the test independent of planner branch deployment
-CutFeature = "family:extrude:cut-extrude"
-
-
-# process boundaries cover the actual controller and feature command entry points
-def InvokeAutomation(Script, *Arguments, Expected=0):
-    Result = subprocess.run(
-        [
-            sys.executable,
-            "-B",
-            str(KRepoRoot / "re/automation" / Script),
-            *map(str, Arguments),
-        ],
-        cwd=KRepoRoot,
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=150,
-    )
-    assert Result.returncode == Expected, Result.stderr
-    return Result.stdout if Expected == 0 else Result.stderr
+KCutFeature = "family:extrude:cut-extrude"
 
 
 # the configured fusion worker stays idle while the real inference runner remains available
-def MakeHostConfig(Directory, Store, Revision, Resource):
-    Kind = "capture.fusion"
+def MakeHostConfig(
+    Directory: Path, Store: Path, Revision: str, Resource: str
+) -> tuple[Path, str]:
+    KindName = "capture.fusion"
     Worker = KRepoRoot / "re/automation/ApplicationWorkers/FusionApplicationWorker.py"
     SchemaPath = Directory / "InferenceSchema.json"
-    SchemaPath.write_text(
-        InvokeAutomation("InferenceRunner.py", "--schema"), encoding="utf-8"
+    _ = SchemaPath.write_text(
+        InvokeAuto("InferenceRunner.py", "--schema"), encoding="utf-8"
     )
     Installation = Directory / "Installation.json"
-    Installation.write_text(
+    _ = Installation.write_text(
         json.dumps(
             {
                 "version": 1,
@@ -59,7 +44,7 @@ def MakeHostConfig(Directory, Store, Revision, Resource):
         encoding="utf-8",
     )
     Registry = Directory / "Registry.json"
-    Registry.write_text(
+    _ = Registry.write_text(
         json.dumps(
             {
                 "runners": {
@@ -73,7 +58,7 @@ def MakeHostConfig(Directory, Store, Revision, Resource):
                             "{session}",
                         ],
                     },
-                    Kind: {
+                    KindName: {
                         "pool": "fusion",
                         "result_schema": str(SchemaPath),
                         "argv": [
@@ -98,20 +83,20 @@ def MakeHostConfig(Directory, Store, Revision, Resource):
     )
     Settings = json.loads(Config.read_text(encoding="utf-8"))
     Settings["resources"] = {Resource: 1}
-    Config.write_text(json.dumps(Settings), encoding="utf-8")
-    return Config, Kind
+    _ = Config.write_text(json.dumps(Settings), encoding="utf-8")
+    return Config, KindName
 
 
 # one feature submission retains its parked receipt and only attaches its configured experiment
-def CheckFeatureEvidenceHandoff(TmpPath: Path):
+def CheckHandoff(TmpPath: Path) -> None:
     Revision = subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=KRepoRoot, text=True
     ).strip()
     Store = TmpPath / "Store"
-    InitStore(Store, 2)
+    _ = InitStore(Store, 2)
     Route = "InferenceGrid/FeatureDispatch.py"
-    Arguments = ("--store", Store, "--feature", CutFeature)
-    assert "invalid choice" in InvokeAutomation(
+    Arguments = ("--store", Store, "--feature", KCutFeature)
+    assert "invalid choice" in InvokeAuto(
         Route,
         "--store",
         Store,
@@ -121,16 +106,24 @@ def CheckFeatureEvidenceHandoff(TmpPath: Path):
         Expected=2,
     )
     Resource = "application:fusion:feature-fixture"
-    Config, Kind = MakeHostConfig(TmpPath, Store, Revision, Resource)
-    Advance = ("advance", "--config", Config, "--kind", Kind, "--resource", Resource)
-    First = json.loads(InvokeAutomation(Route, *Arguments, "submit"))
-    assert First["feature"] == CutFeature
+    Config, KindName = MakeHostConfig(TmpPath, Store, Revision, Resource)
+    Advance = (
+        "advance",
+        "--config",
+        Config,
+        "--kind",
+        KindName,
+        "--resource",
+        Resource,
+    )
+    First = json.loads(InvokeAuto(Route, *Arguments, "submit"))
+    assert First["feature"] == KCutFeature
     assert len(First["jobs"]) == 3
     assert (
-        json.loads(InvokeAutomation(Route, *Arguments, *Advance))["status"]
+        json.loads(InvokeAuto(Route, *Arguments, *Advance))["status"]
         == "awaiting_assessment"
     )
-    InvokeAutomation(
+    _ = InvokeAuto(
         "Supervisor.py",
         "--config",
         Config,
@@ -140,35 +133,19 @@ def CheckFeatureEvidenceHandoff(TmpPath: Path):
         "--max-seconds",
         "30",
     )
-    Parked = json.loads(InvokeAutomation(Route, *Arguments, "status"))
+    Parked = json.loads(InvokeAuto(Route, *Arguments, "status"))
     assert Parked["status"] == "experiment_needed"
     Origin = Parked["assessment"]["receipt"]
-    Bad = (*Advance[:-1], "application:fusion:unknown")
-    assert "capacity-one Fusion" in InvokeAutomation(
-        Route, *Arguments, *Bad, Expected=1
+    BadAdvance = (*Advance[:-1], "application:fusion:unknown")
+    assert "capacity-one Fusion" in InvokeAuto(
+        Route, *Arguments, *BadAdvance, Expected=1
     )
-    assert json.loads(InvokeAutomation(Route, *Arguments, "status")) == Parked
+    assert json.loads(InvokeAuto(Route, *Arguments, "status")) == Parked
 
-    Attached = json.loads(InvokeAutomation(Route, *Arguments, *Advance))
+    Attached = json.loads(InvokeAuto(Route, *Arguments, *Advance))
     assert Attached["status"] == "experiment_attached"
     assert Attached["assessment"]["id"] == First["assessment_job"]
     assert Attached["assessment"]["state"] == "waiting_evidence"
     assert set(Attached["phase_jobs"]) == {"a", "b"}
-    assert json.loads(InvokeAutomation(Route, *Arguments, *Advance)) == Attached
-    Repeated = json.loads(InvokeAutomation(Route, *Arguments, "submit"))
-    assert len(Repeated["jobs"]) == 3
-    assert not any(
-        Job["attempts"] for Job in Repeated["jobs"] if Job["kind"] == "inference.rescan"
-    )
-    Controller = ("--store", Store)
-    Queue = json.loads(InvokeAutomation("Controller.py", *Controller, "status"))["jobs"]
-    assert len(Queue) == 5
-    assert {Job["id"] for Job in Queue if Job["kind"] == Kind} == set(
-        Attached["phase_jobs"].values()
-    )
-    assert (
-        json.loads(InvokeAutomation("Controller.py", *Controller, "artifact", Origin))[
-            "sha256"
-        ]
-        == Origin
-    )
+    assert json.loads(InvokeAuto(Route, *Arguments, *Advance)) == Attached
+    CheckHandoffQ(Store, KindName, Route, Arguments, Attached["phase_jobs"], Origin)

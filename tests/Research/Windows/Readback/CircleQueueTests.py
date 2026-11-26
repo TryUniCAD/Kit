@@ -66,6 +66,11 @@ def CheckRoundQueue(TmpPath: FilePath, FaultName: str) -> None:
         "readback.receipt",
         "dispatch",
     }
+    VerifyProgress(TmpPath)
+
+
+# the worker journal verifies that every native close and visibility event kept its operand
+def VerifyProgress(TmpPath: FilePath) -> None:
     Receipt = DecodeJson((TmpPath / "Session/work/readback/receipt.json").read_bytes())
     assert Receipt["observed_files"] == Receipt["circle_bindings_verified"] == 5
     Dispatch = DecodeJson((TmpPath / "Session/work/dispatch.json").read_bytes())
@@ -75,10 +80,12 @@ def CheckRoundQueue(TmpPath: FilePath, FaultName: str) -> None:
         (TmpPath / "Session/work/readback/measurements.json").read_bytes()
     )
     Journal = Measurement["run"]["native_progress"]["journal_utf8"].splitlines()
-    Events = [DecodeJson(Item) for Item in Journal]
+    Events = [DecodeJson(ItemValue) for ItemValue in Journal]
     assert Events[0]["stage"] == "final_control_hidden"
     Completed = {
-        Item["stage"]: Item for Item in Events if Item["status"] == "completed"
+        ItemValue["stage"]: ItemValue
+        for ItemValue in Events
+        if ItemValue["status"] == "completed"
     }
     assert Completed["close_visibility"]["detail"] == {"visible": False}
     assert Completed["close_state"]["detail"] == {
@@ -86,7 +93,11 @@ def CheckRoundQueue(TmpPath: FilePath, FaultName: str) -> None:
         "read_only": True,
         "document_count": 1,
     }
-    assert [Item["detail"] for Item in Events if Item["stage"] == "quit_document"] == [
+    assert [
+        ItemValue["detail"]
+        for ItemValue in Events
+        if ItemValue["stage"] == "quit_document"
+    ] == [
         {"operand": "control.SLDPRT"},
         {"operand": "control.SLDPRT"},
     ]

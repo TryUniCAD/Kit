@@ -1,16 +1,14 @@
-from collections.abc import Callable
 from dataclasses import replace as ReplaceValue
 from pathlib import Path as FilePath
-from subprocess import CompletedProcess
 
 from interchange.document.Models.DocumentModel import CadDocument
 from tests.Research.Archives.BossIntent.ChangeBossRules import ChangeRules
+from tests.Research.Archives.BossIntent.RunBossIntent import RunIntentStep
 from tests.Research.Archives.BossIntent.ShiftBossOwner import ShiftOwnerSpan
 
 
 # the logical proof must reject wrong edges reversed operands and false source custody without creating output
 def VerifyRefusals(
-    RunIntent: Callable[..., CompletedProcess[str]],
     TmpPath: FilePath,
     SourceBytes: bytes,
     OutputPath: FilePath,
@@ -33,7 +31,7 @@ def VerifyRefusals(
     )
     for CaseDoc, Message in Cases:
         _ = Changed.write_text(CaseDoc.to_json(), encoding="utf-8")
-        Result = RunIntent(
+        Result = RunIntentStep(
             TmpPath, "prepare", "--input", str(Changed), "--output", str(Refused)
         )
         assert Result.returncode == 1 and Message in Result.stderr
@@ -42,7 +40,7 @@ def VerifyRefusals(
     assert Retained.read_bytes() == SourceBytes
     for Existing in (Retained, OutputPath):
         Before = Existing.read_bytes()
-        Result = RunIntent(
+        Result = RunIntentStep(
             TmpPath, "prepare", "--input", str(Retained), "--output", str(Existing)
         )
         assert Result.returncode == 1 and "P03 output already exists" in Result.stderr

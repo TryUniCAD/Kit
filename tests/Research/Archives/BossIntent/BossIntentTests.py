@@ -27,4 +27,4 @@ def CheckIntentFlow(TmpPath: FilePath) -> None:
     assert Replayed.returncode == 0, Replayed.stdout + Replayed.stderr
     assert ReadJson(Replayed.stdout) == Evidence["logical"]
     assert not Source.exists() and Output.read_bytes() == Prepared
-    VerifyRefusals(RunIntentStep, TmpPath, SourceBytes, Output)
+    VerifyRefusals(TmpPath, SourceBytes, Output)
