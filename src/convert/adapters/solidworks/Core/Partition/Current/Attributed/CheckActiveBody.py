@@ -43,6 +43,11 @@ def CheckActiveBody(
             raise ValueError("attributed active graph has an alternate attachment")
     TreeValue = ReadBodyTree(Nodes)
     BodyValue = Nodes[TreeValue.BodyIndex]
+    SolidShell = BodyValue.Integer("shell")
+    for ShellId in Kinds[13]:
+        FaceField = "front_face" if ShellId == SolidShell else "face"
+        if Nodes[ShellId].Integer(FaceField):
+            raise ValueError("attributed active shell has an alternate face attachment")
     if BodyValue.Integer("state") != 1 or BodyValue.Integer("nom_geom_state") != 1:
         raise ValueError("attributed active body has an unsupported geometry state")
     for KindValue, NameValue, Owned in (

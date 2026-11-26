@@ -14,7 +14,16 @@ def check_faults(native, active):
     layout = record_slots(payload)
     header = ParaHeaderData(payload)
     assert header is not None
+    nodes = {row[3].IndexValue: row[3] for row in layout[2]}
+    body, = (node for node in nodes.values() if node.KindValue == 12)
+    solid = nodes[body.Integer("shell")]
+    void, = (node for node in nodes.values() if node.KindValue == 13 and node.IndexValue != solid.IndexValue)
+    face = solid.Integer("face")
+    assert face and nodes[face].KindValue == 14
+    assert solid.Integer("front_face") == 0 and void.Integer("face") == 0
     candidates = {
+        "solid_complementary_front_face": rewrite(payload, layout, lambda n: n.IndexValue == solid.IndexValue, lambda n: {"front_face": face}),
+        "void_complementary_face": rewrite(payload, layout, lambda n: n.IndexValue == void.IndexValue, lambda n: {"face": face}),
         "truncated_active": payload[:header.body_offset + 8],
         "trailing_active": payload + b"\x00",
         "unsupported_schema": payload.replace(b"SCH_3701250_37102_13006", b"SCH_3701250_37102_13007", 1),
@@ -24,6 +33,8 @@ def check_faults(native, active):
         "attribute_owner_flags": rewrite(payload, layout, lambda n: n.KindValue == 80 and any(n.FieldsValue["legal_owners"]), lambda n: {"legal_owners": tuple(0 for _ in n.FieldsValue["legal_owners"])}),
         "nonfinite_attribute_value": raw_scalar(payload, layout, 83, "f", float("nan")),
         "zero_plane_normal": rewrite(payload, layout, lambda n: n.KindValue == 50, lambda n: {"normal": (0.0, 0.0, 0.0)}),
+        "opposite_face_sense": rewrite(payload, layout, lambda n: n.KindValue == 14, lambda n: {"sense": "+" if n.FieldsValue["sense"] == "-" else "-"}),
+        "negative_plane_carrier": rewrite(payload, layout, lambda n: n.KindValue == 50 and n.FieldsValue["sense"] == "+", lambda n: {"sense": "-"}),
         "empty_trim_interval": rewrite(payload, layout, lambda n: n.KindValue == 133, lambda n: {"parm_2": n.FieldsValue["parm_1"]}),
         "wrong_shared_geometry": rewrite(payload, layout, lambda n: n.KindValue == 141, lambda n: {"shared_geometry": 1}),
         "missing_vertex_halfedge": rewrite(payload, layout, lambda n: n.KindValue == 18, lambda n: {"halfedge": 0}),

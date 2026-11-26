@@ -4,7 +4,9 @@ The strict SLDPRT reader can recover the boundary geometry of a bounded
 current-format active part with attributed vertices. Normal decoding and
 the existing fin-shadow repair keep their original precedence. The new
 path requires a complete typed graph and supplies a solid only when the
-saved topology and source annotations pass its checks.
+saved topology and source annotations pass its checks. It refuses alternate
+shell-face attachments and verifies that the face orientation agrees with
+the directed fin ring on its positive-sense plane carrier.
 
 Open the part through `convert.open_document` or `kit decode`. The
 supported profile contains one closed planar solid with line edges.
@@ -24,6 +26,8 @@ the public SDK and CLI using the intact original source.
 [Component fixture provenance](../../../../../re/solidworks/Fixtures/PartitionAttributes/Manifest.json)
 · [Complete active owner research](https://github.com/TryUniCAD/Kit/pull/345)
 · [Prior native measurements](https://github.com/TryUniCAD/Kit/pull/338)
+· [Alternate shell attachments](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/Topology/DerivedShellsCanHideAlternateFaceAttachments.md)
+· [Directed ring and face sense](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/Topology/FaceSenseMustAgreeWithDirectedRing.md)
 
 The installed SDK and CLI agreed on one closed 9,600 mm³ solid with
 six faces, twelve edges, eight vertices and the measured centroid
@@ -34,9 +38,10 @@ previous reader's results. The actual private source bytes remained
 unchanged. No native session ran for this decoder verification.
 
 Both regression modules passed through the repository's existing planner,
-tracked shard and completeness report in 20.22 seconds. The older module
-keeps its six-case matrix. The new installed-component test covers
-seventeen refusal cases and the complete measured attributed geometry.
+tracked shard and completeness report. The older module keeps its six-case
+matrix. The new installed-component test covers the measured attributed
+geometry and 21 refusal cases, including contradictory shell, face and plane
+records.
 Independent screening verified the checked-in member and both expanded
 frames. The original source archive stays private.
 
