@@ -29,6 +29,8 @@ Eight independent fresh replays passed in 120.365 seconds. They reproduced exact
 
 A package with one unused appearance survived strict readback and failed material preparation with the ownership diagnostic. A package with typed resources survived the lower codec and failed at the earlier strict public JSON boundary.
 
+All five tracked compatibility cases passed in 80.65 seconds after the mapping guard. A body-owned [Design texture mapping without graphics](../../../Gotchas/Conversion/Fusion/Materials/FusionDesignTextureWithoutOgs.md) survived strict read-only JSON. Material preparation refused it without changing the source or creating an output. Independent checks reproduced the same refusal for an unlinked mapping and verified that an unmapped source still prepares to byte-identical JSON.
+
 ## Limits
 
 The scope covers independently authored material semantics. The saved source controls carry a legacy appearance alias and a separate modern physical appearance aspect. They also retain texture-mapping layers. Those dependencies require explicit modeling before saved source preparation can admit them. A controlled typed change to legacy glossiness did not affect the modern finish or public material, confirming that the legacy values require their own representation. See the [saved material ownership gotcha](../../../Gotchas/Conversion/Fusion/Materials/FusionSavedMaterialOwners.md).
