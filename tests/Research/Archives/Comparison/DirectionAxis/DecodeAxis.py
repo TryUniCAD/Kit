@@ -5,7 +5,7 @@ from sys import executable as PythonExe
 from interchange.document.Models.DocumentModel import CadDocument
 from tests.Research.Archives.Comparison.SemanticComparisonTests import KRepoRoot
 
-# a fresh public api read supplies the actual generated native ownership and span
+# the public reader must retain actual native ownership and paths despite legacy text output settings
 KDecodeAxis = """
 import sys
 from pathlib import Path
@@ -21,6 +21,7 @@ KDocument = OpenDocument(
     include_tessellation=False,
     strict=True,
 )
+sys.stdout.reconfigure(encoding="cp1252")
 sys.stdout.buffer.write(KDocument.to_json().encode("utf-8"))
 """
 
