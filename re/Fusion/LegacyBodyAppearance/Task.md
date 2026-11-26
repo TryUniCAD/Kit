@@ -5,7 +5,7 @@
 | Task | `A05c-FusionLegacyAppearanceDescriptor20261126` |
 | Owner | Fusion encoder swarm worker 3 |
 | Status | Property-stream process verification passed. Complete descriptor and package emission remain blocked. |
-| Delivery | Separate normal dependent PR, `codex/fusion-legacy-appearance-descriptor`, based on [PR #341](https://github.com/TryUniCAD/Kit/pull/341) at `679e0d61d507365c77a11950a67da38b840ca550`. PR pending. |
+| Delivery | [PR #344](https://github.com/TryUniCAD/Kit/pull/344), `codex/fusion-legacy-appearance-descriptor`, based on [PR #341](https://github.com/TryUniCAD/Kit/pull/341) at `679e0d61d507365c77a11950a67da38b840ca550`. |
 | Dependencies | A05c source qualification, strict `FusionReader` and `FusionCensus`, the established material value codec, and the distinct-owner model from [PR #337](https://github.com/TryUniCAD/Kit/pull/337). |
 | Owned paths | `re/Fusion/LegacyBodyAppearance/`, dedicated `tests/Convert/Api/Fusion/LegacyAppearance/` cases and the dedicated research change and gotcha pages. |
 | Property-stream exit | Drive the two actual SDK logical streams from independently authored, named typed values in fresh processes. Verify all 48 ordered values and the exact binary64 and absence representations. Compare independently to real decoded native field vectors, exercise malformed requests and the connected control, and retain all source admission guards. |
