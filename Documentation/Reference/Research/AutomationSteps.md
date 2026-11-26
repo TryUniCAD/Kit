@@ -399,6 +399,16 @@ Three pinned strict inputs had 11% to 15% lower median receipt times.
 Native read medians were mixed.
 The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.md) records the implementation and evidence.
 
+### A05c-FusionSavedCuboid20261125: vendor-resaved cuboid reading and writing
+
+The Codex Fusion encoder worker owns this active task on `codex/fusion-saved-cuboid-roundtrip`.
+[PR #299](https://github.com/TryUniCAD/Kit/pull/299) delivers the read-only reader and is checking.
+The saved-graph writer and independent native acceptance remain open.
+Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+The scope is the supported vendor-resaved constrained cuboid family.
+The exit requires exact saved-state reading and deterministic native generation from JSON alone.
+Independent source controls and held-out native open, edit, rebuild, save, and reopen evidence remain required.
+
 ## A06 comparison implementation and qualification
 
 ### A06g-BulkDecodedComparison: standalone bulk command
@@ -842,6 +852,16 @@ At reader revision `654f00108c3e151c28b5e3e84eb48bd2ff7f9f2a`, the three-part SO
 The eight-part Fusion median moved from 16.93 s to 17.01 s with fifteen fewer blob processes.
 The measured neutral documents matched exactly in both comparisons.
 See the [change entry](../../Changes/Research/Offline/PinnedReaderBatches.md).
+
+### A08d-FileScopeAttribution: stream provenance for strict Fusion inputs
+
+The Codex shared encoder worker owns this checking task on `codex/deterministic-encoder-admission`.
+Delivery is [PR #298](https://github.com/TryUniCAD/Kit/pull/298), based on the [encoder round-trip branch in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+Dependencies are the A08d file-driven CLI, source-bound Fusion decode layers, and the container member inventory.
+The exit requires a real CLI run with strict features, source-bound partial spans, and both saved reports.
+The existing partial-only P04 run must preserve its recipe selection and incomplete coverage result.
+Both installed CLI cases passed on Windows at `d3b2cb982c` in 84.79 seconds. Hosted verification and review remain pending.
+See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) for the range and qualification limits.
 
 ## A08h-Placement20261123: decimal native reader evidence
 

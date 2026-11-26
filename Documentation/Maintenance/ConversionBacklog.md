@@ -606,6 +606,18 @@ Check that register again before running or claiming anything.
 The next independent available task is B01, followed by B10/B11 work that can use already qualified examples.
 No new research implementation, application run, user evaluation or conversion qualification is claimed by this planning change.
 
+## Encoder follow-up research
+
+The Fusion worker owns [A05c-FusionSavedCuboid20261125](../Reference/Research/AutomationSteps.md#a05c-fusionsavedcuboid20261125-vendor-resaved-cuboid-reading-and-writing).
+[PR #299](https://github.com/TryUniCAD/Kit/pull/299) is checking the read-only reader for the scoped vendor-resaved constrained cuboid family.
+Saved-graph writing and independent held-out native verification remain open.
+The SOLIDWORKS worker owns [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
+The task covers vendor-authored blind bosses and requires complete source semantics, archive-free JSON, and independently measured native output.
+The shared encoder worker owns [A08d-FileScopeAttribution](../Reference/Research/AutomationSteps.md#a08d-filescopeattribution-stream-provenance-for-strict-fusion-inputs).
+Delivery is [PR #298](https://github.com/TryUniCAD/Kit/pull/298).
+The task corrects physical stream coverage reporting for strict Fusion reads and keeps the existing native qualification requirements.
+These follow-ups depend on the [bounded round-trip work in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
+
 ## Native sketch ownership and blind boss evidence
 
 The shared encoder worker owns [A06d-NativeSketchOwnership](../Reference/Research/AutomationSteps.md#a06d-nativesketchownership-saved-solidworks-sketch-ownership-in-comparison).

@@ -263,7 +263,7 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Install CLI and compatibility dependencies
-        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+        run: uv sync --frozen --no-default-groups --extra dev --group codec-promotion --python 3.14
 
       - name: Hydrate sealed research inputs for candidate CLI cases
         run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
@@ -281,6 +281,7 @@ jobs:
             tests/CliResearch/EncodedReaderTests.py \
             tests/CliResearch/LegacyReaderTests.py \
             tests/CliResearch/FusionReaderTests.py \
+            tests/CliResearch/ScopeLayerTests.py \
             tests/CliResearch/ReaderRejectTests.py \
             tests/CliResearch/RimFillets \
             tests/CliResearch/NativeVerification \
