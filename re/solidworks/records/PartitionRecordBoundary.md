@@ -112,5 +112,5 @@ version limits, additional vertex/surface forms, and unchanged public behavior
 outside its scope. This report does not prescribe production layering or
 authorize a patch. Native and full-source acceptance remain open.
 
-[Change entry](../../../Documentation/Changes/Research/Readers/SolidworksPartitionRecordBoundaryEvidence.md)
+[Change entry](../../../Documentation/Changes/Research/Readers/Partition/SolidworksPartitionRecordBoundaryEvidence.md)
 and [specific gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/VertexScanCanMisreadFinPayload.md)
