@@ -8,13 +8,13 @@ from tests.Research.Archives.SolidWorksFreshBossTests import (
     KPortWires,
 )
 
-# reuse the proven authored fixture composition while changing only the actual request consumer
+# the replay audit must precede project imports and every constructor context stage
 KRequestProgram = (
     KRequestSetup
+    + KRequestAudit
     + KPortImports
     + KPortGraph
     + KPortWires
     + KPortContext
-    + KRequestAudit
     + KRequestReplay
 )
