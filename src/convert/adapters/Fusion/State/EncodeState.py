@@ -1,24 +1,24 @@
 from base64 import b64encode as EncodeBase
-from collections.abc import Hashable, Mapping
+from collections.abc import Mapping
 from dataclasses import fields as DataFields
 from dataclasses import is_dataclass as IsDataClass
 from enum import Enum as EnumBase
-from functools import lru_cache as CacheValues
 from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.adapters.Fusion.State.StateTypes import KStateTypes
+from convert.adapters.Fusion.State.OmitStateFields import KStateOmit
 
 # fixed supported classes need constant time membership checks during recursive encoding
 KEncodeTypes = frozenset(KStateTypes)
 
 
-# registered classes reuse their declared field order throughout the same process
-@CacheValues(maxsize=len(KEncodeTypes))
-def GetStateFields(ValueType: type[object]) -> tuple[str, ...]:
-    if not IsDataClass(ValueType):
-        raise TypeError("Fusion semantic-state records must be dataclasses")
-    return tuple(Field.name for Field in DataFields(ValueType))
+# registered dataclasses share one immutable field order across recursive encoding
+KRecordFields: dict[type[object], tuple[str, ...]] = {
+    RowType: tuple(Field.name for Field in DataFields(RowType))
+    for RowType in KStateTypes
+    if IsDataClass(RowType)
+}
 
 
 # the state operation needs a consistent construction rule so public document claims remain grounded in native records
@@ -39,7 +39,9 @@ def EncodeState(Value: object, Depth: int = 0) -> object:
                 "record": ClassName,
                 "fields": {
                     FieldName: EncodeState(getattr(Value, FieldName), Depth + 1)
-                    for FieldName in GetStateFields(CastValue(Hashable, ValueType))
+                    for FieldName in KRecordFields[ValueType]
+                    if FieldName not in KStateOmit.get(ValueType, {})
+                    or getattr(Value, FieldName) != KStateOmit[ValueType][FieldName]
                 },
             }
     if isinstance(Value, bytes) and len(Value) <= 2000000:

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -101,8 +101,8 @@ def BuildRectangleBatch(Revision, Sources, Corroboration, Receipts):
 
 
 # the standard controller publishes the assessment and archive dependencies
-def SubmitRectangle(Store, Revision):
-    return ProvisionAssessment(Store, Revision, REVISION, RectangleSchedule)
+def SubmitRectangle(Store, Revision, Dependencies=()):
+    return ProvisionAssessment(Store, Revision, REVISION, RectangleSchedule, Dependencies)
 
 
 # equivalent catalogue routes read the same paired receipt records

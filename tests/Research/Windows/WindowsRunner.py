@@ -1,7 +1,7 @@
 import json as JsonCodec
 import os as OsLayer
 import sys as System
-from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 from tests.Research.Windows.RunChild import RunChild
 from tests.Research.Windows.StartChild import StartChild
@@ -12,7 +12,7 @@ def RunWindows() -> None:
     if System.argv[1] == "child":
         RunChild()
         return
-    SessionPath = FilePath(System.argv[1])
+    SessionPath = SessionRoot(System.argv[1])
     SessionInfo = JsonCodec.loads(
         (SessionPath / "job.json").read_text(encoding="utf-8")
     )
@@ -27,7 +27,7 @@ def RunWindows() -> None:
         _ = System.stdout.buffer.flush()
         _ = System.stderr.buffer.flush()
     else:
-        StartChild(Options)
+        StartChild(SessionPath, Options)
     ResultInfo: dict[str, object] = {
         "outcome": "completed",
         "reason": "Windows process fixture finished",

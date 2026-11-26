@@ -1,0 +1,20 @@
+# part specific constructor clears must not be confused with assembly fields at the same offsets
+KPartZeroes = (
+    "f15f0",
+    "f1614",
+    "f1618",
+    "f161c",
+    "f1014",
+    "f14f8",
+    "f1428",
+    "f14d8",
+    "f152c",
+    "f1400",
+    "f1698",
+    "f169c",
+    "has_f16b8",
+    "f1638",
+    "f18d4",
+    "f1900",
+    "f1be0",
+)

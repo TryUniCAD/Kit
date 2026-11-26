@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "application": "fusion",
+  "cases": [
+    {
+      "case": "control-before",
+      "parameters_mm": {
+        "width": 17.3,
+        "height": 11.7,
+        "depth": 5.1
+      },
+      "body_count": 1,
+      "volume_cm3": 1.0322909999999998,
+      "area_cm2": 7.0062,
+      "centroid_cm": [
+        0.8649999999999999,
+        0.585,
+        0.255
+      ],
+      "timeline_count": 2,
+      "sha256": "7f85899c49317a10e1886b0c81a50957c24409151c9739e20ef8eed0c4d97b84"
+    },
+    {
+      "case": "variation",
+      "parameters_mm": {
+        "width": 19.7,
+        "height": 11.7,
+        "depth": 5.1
+      },
+      "body_count": 1,
+      "volume_cm3": 1.1754989999999998,
+      "area_cm2": 7.8126,
+      "centroid_cm": [
+        0.985,
+        0.585,
+        0.255
+      ],
+      "timeline_count": 2,
+      "sha256": "cd93d2db951f07e92ab8d85f398583a80daa4ce0c0a09315a51ec581ca6b4f55"
+    },
+    {
+      "case": "control-after",
+      "parameters_mm": {
+        "width": 17.3,
+        "height": 11.7,
+        "depth": 5.1
+      },
+      "body_count": 1,
+      "volume_cm3": 1.0322909999999998,
+      "area_cm2": 7.0062,
+      "centroid_cm": [
+        0.8649999999999999,
+        0.585,
+        0.255
+      ],
+      "timeline_count": 2,
+      "sha256": "110859dfac47348ece585a5df97f18ccf3f039c4a547c054230838c95eb443a7"
+    }
+  ],
+  "acceptance": "authoring_only; neutral semantic comparison pending",
+  "hidden_window_probe": {
+    "visible_owned_windows": 0,
+    "geometry_controls_retained": true
+  }
+}

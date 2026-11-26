@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Graph.ReadExtentMode import ReadExtentMode
 from convert.adapters.Fusion.Native.Graph.GraphValues import NumberValue, TextValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
@@ -57,8 +58,28 @@ def ProjectFeatures(
         sketch_id=Context.Sketch.Identity,
         parameter_ids=RectParamIds(Rectangle),
     )
+    SideMode = ReadExtentMode(Context.Extrude)
+    Against = (
+        Graph.Resolve(Context.Extrude.Fields["rAgainstDistance"])
+        if SideMode == "two_sided"
+        else None
+    )
+    SecondTaper = (
+        Graph.Resolve(Context.Extrude.Fields["side2TaperAngle"])
+        if SideMode != "one_sided"
+        else None
+    )
+    AgainstParam = Graph.Resolve(Against.Fields["parameter"]) if Against else None
+    SecondParam = (
+        Graph.Resolve(SecondTaper.Fields["parameter"]) if SecondTaper else None
+    )
     Definition = DistanceExtrude(
-        Along.Identity, Direction, TaperParameterId=Taper.Identity
+        Along.Identity,
+        Direction,
+        SideMode=SideMode,
+        AgainstParameterId=AgainstParam.Identity if AgainstParam else None,
+        TaperParameterId=Taper.Identity,
+        SecondTaperId=SecondParam.Identity if SecondParam else None,
     )
     Extrude = FeatureStep(
         Context.Extrude.Identity,
@@ -67,7 +88,13 @@ def ProjectFeatures(
         1,
         (Sketch.id,),
         Context.Sketch.Identity,
-        (Along.Identity, Taper.Identity),
+        tuple(
+            dict.fromkeys(
+                (Along.Identity, Taper.Identity)
+                + ((AgainstParam.Identity,) if AgainstParam else ())
+                + ((SecondParam.Identity,) if SecondParam else ())
+            )
+        ),
         BooleanOp.KCreate,
         Definition,
     )

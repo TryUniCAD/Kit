@@ -1,0 +1,288 @@
+{
+  "advanced_rectangle_reviewed_head_contextual_diagnostic": "SOLIDWORKS body moCusPropMgr_c field f20 at 103: SOLIDWORKS body moCusPropMgr_c field f20/o at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c/moFilePropContainer_c field f20/o/f08/f08 at 103: part property manager has unsupported owner placement",
+  "binary_only_advanced_rectangle_diagnostic": "SOLIDWORKS body moCusPropMgr_c field f20 at 103: SOLIDWORKS body moCusPropMgr_c field f20/o at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c field f20/o/f08 at 103: SOLIDWORKS body moCusPropMgr_c/moCusPropContainer_c/moFilePropContainer_c field f20/o/f08/f08 at 103: part property manager has unsupported owner placement",
+  "historical_case_model_and_value_observations_reproduced": true,
+  "historical_receipt_sha256": "a312cc3a697081a0b9583b16d77d0ac98876d73b8c38ac30278aeb68ce26c615",
+  "native_processes_started": 0,
+  "processes": {
+    "CheckBinaryPartText.py": {
+      "report": {
+        "advanced": {
+          "body": [
+            "sldprt:body:1",
+            1,
+            1,
+            1
+          ],
+          "configuration": [
+            "Default",
+            true,
+            0
+          ],
+          "diagnostics": [
+            [
+              "solidworks.part_text_properties_unavailable",
+              "info",
+              "part properties require an empty compatible native manager"
+            ]
+          ],
+          "feature_count": 26,
+          "geometry_equal": true,
+          "manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_xml": [],
+          "refusal": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+          "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+          "status": {
+            "diagnostic": "part properties require an empty compatible native manager",
+            "profile": "compatible_literal_text",
+            "status": "unsupported"
+          },
+          "text_scopes": [
+            false,
+            false,
+            false
+          ]
+        },
+        "empty": {
+          "body": [
+            "sldprt:body:1",
+            1,
+            1,
+            1
+          ],
+          "configuration": [
+            "modeled default",
+            true,
+            0
+          ],
+          "diagnostics": [],
+          "feature_count": 27,
+          "geometry_equal": true,
+          "manager_sha256": "becd5b67dff32e75102e20443e9e3a3f3def6896ebf05ae7dc188bcaae57ff58",
+          "output_bytes": 193996,
+          "property_xml": [],
+          "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+          "status": null,
+          "text_scopes": [
+            false,
+            false,
+            false
+          ]
+        },
+        "malformed": {
+          "body": [
+            "sldprt:body:1",
+            1,
+            1,
+            1
+          ],
+          "configuration": [
+            "Default",
+            true,
+            0
+          ],
+          "diagnostics": [
+            [
+              "solidworks.part_text_properties_unavailable",
+              "info",
+              "SOLIDWORKS body moCusPropMgr_c field f20 at 56: SOLIDWORKS body moCusPropMgr_c field f20/o at 56: part property manager has unsupported owner placement"
+            ]
+          ],
+          "feature_count": 39,
+          "geometry_equal": true,
+          "manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "property_xml": [
+            "docProps/Config-0-Properties.xml",
+            "docProps/core.xml",
+            "docProps/custom.xml"
+          ],
+          "refusal": "SOLIDWORKS part text properties are unavailable for writing (SOLIDWORKS body moCusPropMgr_c field f20 at 56: SOLIDWORKS body moCusPropMgr_c field f20/o at 56: part property manager has unsupported owner placement)",
+          "source_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408",
+          "status": {
+            "diagnostic": "SOLIDWORKS body moCusPropMgr_c field f20 at 56: SOLIDWORKS body moCusPropMgr_c field f20/o at 56: part property manager has unsupported owner placement",
+            "profile": "compatible_literal_text",
+            "status": "unsupported"
+          },
+          "text_scopes": [
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "stdout_sha256": "acb8ddc3ee86cdf612f891879a168496c214305550012011ac203663d9d5add8"
+    },
+    "CheckLegacyPartText.py": {
+      "report": {
+        "authored_title": {
+          "body": [
+            "sldprt:body:1",
+            1,
+            1,
+            1
+          ],
+          "configuration": [
+            "Default",
+            true,
+            0
+          ],
+          "diagnostics": [
+            [
+              "solidworks.part_text_properties_unavailable",
+              "info",
+              "legacy SOLIDWORKS part contains authored summary text"
+            ]
+          ],
+          "feature_count": 39,
+          "status": {
+            "diagnostic": "legacy SOLIDWORKS part contains authored summary text",
+            "profile": "compatible_literal_text",
+            "status": "unsupported"
+          },
+          "text_scopes": [
+            false,
+            false,
+            false
+          ]
+        },
+        "original": {
+          "body": [
+            "sldprt:body:1",
+            1,
+            1,
+            1
+          ],
+          "configuration": [
+            "Default",
+            true,
+            0
+          ],
+          "diagnostics": [],
+          "feature_count": 39,
+          "status": null,
+          "text_scopes": [
+            false,
+            false,
+            false
+          ]
+        },
+        "output_bytes": 1044785,
+        "refusal": "SOLIDWORKS part text properties are unavailable for writing (legacy SOLIDWORKS part contains authored summary text)",
+        "source_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408"
+      },
+      "stdout_sha256": "f237e823a2a8971976be30b6f59d2dda0a5d39e9f7d12d0138a2d82935954ed3"
+    },
+    "CheckWritePartText.py": {
+      "report": {
+        "body": [
+          "sldprt:body:1",
+          1,
+          1,
+          1
+        ],
+        "configuration": [
+          "Default",
+          true,
+          0
+        ],
+        "diagnostics": [
+          [
+            "solidworks.part_text_properties_unavailable",
+            "info",
+            "part properties require an empty compatible native manager"
+          ]
+        ],
+        "feature_count": 26,
+        "implicit_path_unchanged": true,
+        "refusals": {
+          "compatibility": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+          "nonstrict": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+          "public_write": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+          "registry": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+          "strict": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)"
+        },
+        "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+        "status": {
+          "diagnostic": "part properties require an empty compatible native manager",
+          "profile": "compatible_literal_text",
+          "status": "unsupported"
+        },
+        "text_scopes": [
+          false,
+          false,
+          false
+        ]
+      },
+      "stdout_sha256": "9919c080d64bfc02c6dd0890de73b3954a6be85b9dae87972b9203503852a361"
+    }
+  },
+  "production_changes": [
+    "src/convert/Formats/CheckSourceText.py",
+    "src/convert/adapters/registry/RegistryWriteApi.py",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py",
+    "src/convert/adapters/solidworks/Core/Properties/WithPartProps.py",
+    "src/convert/engine/EngineConvert.py",
+    "src/convert/engine/__init__.py"
+  ],
+  "proof_and_queue_sha256": {
+    "re/tooling/sw2026/VerifyLiteralPartText.py": "01ed8df7c7538f87d8b6c39efb76c7223dc200c51b8cf3c7fdf8cb61a8692578",
+    "re/tooling/sw2026/part_text/CheckBinaryPartText.py": "13fcfdf8ea35952de601b80294f60c4ad3bc3dabe704dca19466a8c1510f88fd",
+    "re/tooling/sw2026/part_text/CheckLegacyPartText.py": "debf2c20ebbaf04ee23caa333fa5ccd14e4f006fd0b2f0cf73ea80c8f18c910b",
+    "re/tooling/sw2026/part_text/CheckWritePartText.py": "bf9d9cf9acb76f690bd867322bb08839e82193e0724d1188dde0042724b25ae7",
+    "re/tooling/sw2026/part_text/PartTextProbe.py": "cbab0ca55bb8b90ab2e92f620a3b42dc6f15db1d4e26b6d771e240ff67dee92b",
+    "tests/Convert/Solidworks/Properties/BinaryTextTests.py": "2b8cd8202dfcf64a0b3133bfea9a6f436996ec585dadec8ac60cdd142f5dcac6",
+    "tests/Convert/Solidworks/Properties/LegacyTextTests.py": "251e54b82d89160e36df0c13fcc02d7e49b5a856e90e58c06e2e21b3a5570741",
+    "tests/Convert/Solidworks/Properties/LiteralTextTests.py": "d2679078c07288c29517dc44a0db3de19dc3aa78d1f7fac927e267331e717245",
+    "tests/Convert/Solidworks/Properties/ReadLiteralPart.py": "9b669b1dbd6e6f8c731fe4ec21c0f887b91d389354fb5d2d5dc1d8cfd7aeefea",
+    "tests/Convert/Solidworks/Properties/RunPartText.py": "cb1d9dc18d35760c953e14bd5b56f9c8da955fcf6b2d71e8338f8e2eb22ed41f",
+    "tests/Convert/Solidworks/Properties/WriteTextTests.py": "7d33308f77d7fe84f8c48c60c412bceafa6a11ce7d1dd890da7cd92603c5ba8a"
+  },
+  "qualified_direct_write": {
+    "false": {
+      "bytes": 201279,
+      "output_format": "interchange.json",
+      "transfer_count": 11
+    },
+    "true": {
+      "bytes": 201279,
+      "output_format": "interchange.json",
+      "transfer_count": 11
+    }
+  },
+  "reviewed_head": "57ad014680b71273557b3635125ee004bedec29d",
+  "schema": "kit.sw2026.literal-part-text-write-scope.v1",
+  "six_case_stdout_sha256": "d5f852cc90680be708b6a885c45a16a485740e5fdee9584eed071d9dac18b3e3",
+  "six_verified_disclosed_processes": 6,
+  "solidworks_writer_registered": false,
+  "source_manifest_sha256": "ff83f63cc17766266f256d2c3cfac002325d3faf102fa20a3133e09d8fa4e3da",
+  "source_sha256": {
+    "re/tooling/sw2026/VerifyLiteralPartText.py": "01ed8df7c7538f87d8b6c39efb76c7223dc200c51b8cf3c7fdf8cb61a8692578",
+    "src/convert/Formats/CheckSourceText.py": "77f1b73ef9ba7e864e53ad5425e871d1de9b4695b99d2d81f9ffb23253142169",
+    "src/convert/adapters/registry/RegistryWriteApi.py": "0a57f2d99a3625ff78f91286d2715afcf25fad2382c6c4a2c216e5ee17cdec80",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/CheckPropText.py": "695db8441f56e9e99be4ddb3e310b6c629b48dde4a9bbefd6cbb593dd778be28",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/PropertyNames.py": "0b44b13d0a7458fca3399a4936f58320e486dc68dbc7457a8f6ecbe1398cb9bb",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/ReadPropRows.py": "2f6dfac36acf76964965cc1b44c5aad3300f9f5110f9cc13ced4aa76babe59fb",
+    "src/convert/adapters/solidworks/Archive/Properties/ReadPropManager.py": "7ed4ce8ab5f4522f66745c81b0349fcfa0dffd482a734eddba1e925bc8e280d6",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "361b53c61bed90ec5b00203a6894f4a7b80757b234c7c67118833a320ff3b744",
+    "src/convert/adapters/solidworks/Core/Properties/ApplyPartText.py": "d8d365c857e5a9e590bae865b0440cd844531288e4e50fa89a6f1c0c2b3239b4",
+    "src/convert/adapters/solidworks/Core/Properties/CheckPropBag.py": "231468b51311a8099ecd4c254ce2dd7680301c97061ae3aff1ca22f902dc966c",
+    "src/convert/adapters/solidworks/Core/Properties/PartTextData.py": "8c917560dba06c51a503d405b84bc3cd41e55ff8f5fae0c817addba87a491614",
+    "src/convert/adapters/solidworks/Core/Properties/ReadConfigProps.py": "f03bdc0cde1b599b074ab51f0c6fc7b747fbfa194ec83cb5716d85b08a45d94b",
+    "src/convert/adapters/solidworks/Core/Properties/ReadCoreProps.py": "21d1526e4862c19a2c01f7abd97d7fef3550e31841ea6ea9b0df0cdca7bfd2ca",
+    "src/convert/adapters/solidworks/Core/Properties/ReadCustomProps.py": "eafc05c3dcb6a95bcc8c5199197affa21e9bfd652abdc086f631494dba3a91b8",
+    "src/convert/adapters/solidworks/Core/Properties/ReadLiteralProp.py": "dc12ef60ae09e600c521e2bc12d5af772c4b762679600d32a729b234eae90701",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py": "ed03550b13182037f8367963d4a7dc996b5eda55b163e6c1a18b2495c993b48d",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropId.py": "0575f7a567a8b0906f470bc34d3535583230c70ed91320d487bb9e6c368fcfab",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropNames.py": "1e46bcceffd022030ff7c457db19dee50344150b706c2eab8adb8fe0f55a4b70",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropOwners.py": "9d13f26349ef75915df335456f1cf9bc04d1f55e4673bd9f23a1b0b4062fc981",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropRoot.py": "cdd26cca6d676cbe5bfc913af0635b008222d7da89487bc9b92e93bcd4efacf8",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropSection.py": "2d1e71944c5f4d68925f8ac8c881fb82c9d5967f0e095031774225958a71b20a",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropVariant.py": "dc1aab39da846842f34e7748d6e1b8e0998dd008eab5218a6e65af0718077704",
+    "src/convert/adapters/solidworks/Core/Properties/ReadReserved.py": "442a41769862c1de28f62719406aaeb77a8f790ab896b2e83bd2b354437e2da0",
+    "src/convert/adapters/solidworks/Core/Properties/WithPartProps.py": "86a2a583d5781d392d50ccdcfcd95cff0ff592c882c6c6943e2e5372603d8955",
+    "src/convert/engine/EngineConvert.py": "2d74636c09d59f1c0e5aa4d3a76bcb0565b48fa4d4a15922f9f268fb27d0d8a0",
+    "src/convert/engine/__init__.py": "70f4ea6e48a8264a7089472ab4de3b6e4839f59610aaca3db6997b60af2e45e8"
+  },
+  "unrelated_structural_json_written": true,
+  "write_and_binary_processes": 6
+}

@@ -4,7 +4,7 @@ from zipfile import ZipFile
 
 import pytest as Pytest
 
-from convert import ApplicationUsabilityError
+from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
 from tests.Convert.FusionRead import OpenResearch as OpenDocument
 from convert import write_document as WriteDocument
 from interchange.document.Models.DocumentModel import CadDocument
@@ -119,10 +119,12 @@ def CheckThinGuard() -> None:
 def CheckExtWrite(TmpPath: FilePath, Folder: str, Capture: str, Reason: bytes) -> None:
     Document = OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", StrictMode=False)
     Target = TmpPath / "extrude.FCStd"
-    with Pytest.raises(ApplicationUsabilityError):
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features"
+    ):
         _ = WriteDocument(Document, Target, allow_carrier=False)
     assert not Target.exists()
-    Result = WriteDocument(Document, Target)
+    Result = CodecRebuild(Document, Target)
     assert not Result.IsNearLossless
     assert Capability.KParamHistory in Result.CarrierCaps
     with ZipFile(Target) as Archive:

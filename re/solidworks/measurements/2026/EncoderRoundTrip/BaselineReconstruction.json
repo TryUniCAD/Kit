@@ -1,0 +1,175 @@
+{
+  "written_at": 1767225600,
+  "receipt": {
+    "schema": "kit.sw2026.sdk-standalone-default-part-evidence.v1",
+    "oracle": {
+      "build": "34.4.1.1011",
+      "product": "SOLIDWORKS 2026 SP04.1",
+      "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f"
+    },
+    "passed": true,
+    "controls_healthy": true,
+    "runtime_input_file_reads": 0,
+    "native_result_sha256": "0f9424b8c5820ac287467c4dd8eb814a97aaa685b723e01934f0409535c33ee1",
+    "packet_sha256": "f7366686701cae757986b6c88428c9bf1f99544666a1fb9e4c56f4e323fe84eb",
+    "generation_report_sha256": "830f09800cca40f127e61e177f09a8b76dbb51ec3a91646f33842a71903226e5",
+    "distinct_native_processes": 5,
+    "numeric_checks": 154,
+    "builds": [
+      {
+        "role": "BaselineReconstruction",
+        "candidate_sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+        "bytes": 9338,
+        "build_a_sha256": "830f09800cca40f127e61e177f09a8b76dbb51ec3a91646f33842a71903226e5",
+        "build_b_sha256": "830f09800cca40f127e61e177f09a8b76dbb51ec3a91646f33842a71903226e5"
+      }
+    ],
+    "cases": [
+      {
+        "role": "BaselineReconstruction",
+        "generated_sha256": "32df941b3ded7b94cbd6ee4f2935331c5147569387b5b3870b9d8ac289b08999",
+        "passed": true,
+        "archive_locator_absent": true,
+        "document_preference_and_unassigned_body_density_match": true
+      }
+    ],
+    "phases": [
+      {
+        "role": "ControlBefore",
+        "passed": true,
+        "record_sha256": "4fb88771c4c148def515a20ced426e53596af15859b9a708e2a6a830be6e38a4",
+        "states": [],
+        "numeric_checks": 18,
+        "save_status": null,
+        "derivative_sha256": null
+      },
+      {
+        "role": "EditControl",
+        "passed": true,
+        "record_sha256": "59bab9098a8c2d997b8d109531649a2253705458e87e936fc4908316d407301b",
+        "states": [],
+        "numeric_checks": 18,
+        "save_status": null,
+        "derivative_sha256": null
+      },
+      {
+        "role": "BaselineReconstructionGenerated",
+        "passed": true,
+        "record_sha256": "a7884e054c51fc2daf136e7cb307fa7b3c3dcf09ed4a7ba07d7a3b1f18053d48",
+        "states": [
+          {
+            "role": "Initial",
+            "rows": 19,
+            "warnings": 0,
+            "bodies": 1,
+            "depth_m": 0.014310000000000002,
+            "volume_m3": 7.584300000000001e-06,
+            "area_m2": 0.002407678910782005,
+            "centre_of_mass_m": [
+              0.003812578616352201,
+              0.004832704402515723,
+              0.007155
+            ],
+            "document_density_kg_m3": 1000.0,
+            "effective_model_density_kg_m3": 1000.0,
+            "mass_at_unit_density_kg": 7.584300000000001e-06
+          },
+          {
+            "role": "Rebuilt",
+            "rows": 19,
+            "warnings": 0,
+            "bodies": 1,
+            "depth_m": 0.014310000000000002,
+            "volume_m3": 7.584300000000001e-06,
+            "area_m2": 0.002407678910782005,
+            "centre_of_mass_m": [
+              0.003812578616352201,
+              0.004832704402515723,
+              0.007155
+            ],
+            "document_density_kg_m3": 1000.0,
+            "effective_model_density_kg_m3": 1000.0,
+            "mass_at_unit_density_kg": 7.584300000000001e-06
+          },
+          {
+            "role": "Edited",
+            "rows": 19,
+            "warnings": 0,
+            "bodies": 1,
+            "depth_m": 0.01987,
+            "volume_m3": 1.05311e-05,
+            "area_m2": 0.002931305377864321,
+            "centre_of_mass_m": [
+              0.0038125786163522007,
+              0.004832704402515723,
+              0.009935
+            ],
+            "document_density_kg_m3": 1000.0,
+            "effective_model_density_kg_m3": 1000.0,
+            "mass_at_unit_density_kg": 1.05311e-05
+          }
+        ],
+        "numeric_checks": 60,
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "derivative_sha256": "8d6e26316ad089f786ab40c8687358004b7550fe545c52b6a1bf97964033a1a2"
+      },
+      {
+        "role": "BaselineReconstructionReopen",
+        "passed": true,
+        "record_sha256": "f667afcc07cbd02cb8bcbe76fafcfaecaa3ce60bef4e8e5d0e0774bbbad8d2b8",
+        "states": [
+          {
+            "role": "Initial",
+            "rows": 19,
+            "warnings": 0,
+            "bodies": 1,
+            "depth_m": 0.01987,
+            "volume_m3": 1.05311e-05,
+            "area_m2": 0.002931305377864321,
+            "centre_of_mass_m": [
+              0.0038125786163522007,
+              0.004832704402515723,
+              0.009935
+            ],
+            "document_density_kg_m3": 1000.0,
+            "effective_model_density_kg_m3": 1000.0,
+            "mass_at_unit_density_kg": 1.05311e-05
+          },
+          {
+            "role": "Rebuilt",
+            "rows": 19,
+            "warnings": 0,
+            "bodies": 1,
+            "depth_m": 0.01987,
+            "volume_m3": 1.0531100000000002e-05,
+            "area_m2": 0.002931305377864321,
+            "centre_of_mass_m": [
+              0.0038125786163522,
+              0.004832704402515723,
+              0.009935
+            ],
+            "document_density_kg_m3": 1000.0,
+            "effective_model_density_kg_m3": 1000.0,
+            "mass_at_unit_density_kg": 1.0531100000000002e-05
+          }
+        ],
+        "numeric_checks": 40,
+        "save_status": null,
+        "derivative_sha256": null
+      },
+      {
+        "role": "ControlAfter",
+        "passed": true,
+        "record_sha256": "a7c9a197f57e2c9946965b323db31a51c7012137a19b7fc15601b181c00403a2",
+        "states": [],
+        "numeric_checks": 18,
+        "save_status": null,
+        "derivative_sha256": null
+      }
+    ]
+  }
+}

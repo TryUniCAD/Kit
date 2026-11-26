@@ -25,6 +25,7 @@ from convert.Formats.Fusion.Sketches.CenterDeps.ProjectCutCent import ProjectCut
 from convert.Formats.Fusion.Sketches.FaceSupport.FaceProjection import ProjectFaces
 from convert.Formats.Fusion.Sketches.DimParamRoles import PromoteDimDrive
 from convert.Formats.Fusion.Sketches.SketchRules import AttachRules
+from convert.Formats.Fusion.Sketches.SketchQualification import QualifySketches
 from convert.Formats.Fusion.Sketches.SketchProjection import ProjectSketches
 from convert.Formats.Fusion.SourceBytes import LoadFusionBytes
 from convert.Formats.Fusion.Topology.BodyProjection import ProjectBodyList
@@ -235,6 +236,7 @@ def FinishFusionDoc(
     Document = ProjectRectCtrl(Document, BulkData, Spans, History)
     Document = ProjectCutBody(Document, BulkData, Spans, LoadBlob)
     Document = ProjectScale(Document, BulkData, Spans, History, LoadBlob)
+    Document = QualifySketches(Document, BulkData, Spans)
     Document.AssertValid()
     return Document
 

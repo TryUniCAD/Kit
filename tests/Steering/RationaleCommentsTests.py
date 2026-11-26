@@ -279,12 +279,12 @@ def CheckTextRules(TmpPath: FilePath, SourceText: str, RuleCode: str) -> None:
 # only repository root exclusions may bypass enforcement so nested owned packages cannot hide missing rationale
 def CheckRootScope(TmpPath: FilePath) -> None:
     FixtureInfo = RepoFixture(TmpPath)
-    for Folder in ("re", "examples", "modules", "Parashell"):
+    for Folder in ("re", "examples", "modules"):
         FixtureInfo.WriteFile(f"{Folder}/External.py", KBadSource)
         FixtureInfo.WriteFile(f"src/{Folder}/Owned.py", KBadSource)
     _ = FixtureInfo.CommitAll("root and nested scope")
     ResultInfo = RunModule(TmpPath)
     assert ResultInfo.returncode == 1, ResultInfo.stdout + ResultInfo.stderr
-    for Folder in ("re", "examples", "modules", "Parashell"):
+    for Folder in ("re", "examples", "modules"):
         assert f"src/{Folder}/Owned.py:" in ResultInfo.stdout
         assert f"{Folder}/External.py:" not in ResultInfo.stdout

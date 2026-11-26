@@ -67,7 +67,7 @@ def TestNativeExt(
     Transfers = {Value.capability: Value.mode for Value in Result.transfers}
     assert Result.application_usable and Result.vendor_loadable
     assert Transfers[Capability.BREP] is TransferMode.NATIVE
-    assert Transfers[Capability.PARAMETRIC_HISTORY] is TransferMode.MIXED
+    assert Transfers[Capability.PARAMETRIC_HISTORY] is TransferMode.NATIVE
     assert Transfers[Capability.EXPRESSIONS] is TransferMode.NATIVE
     with ZipFile(Output) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
@@ -111,7 +111,7 @@ def TestFormulaExt(TmpPath: FilePath) -> None:
     Output = TmpPath / "formula.FCStd"
     Result = WriteDocument(Document, Output)
     Transfers = {Value.capability: Value.mode for Value in Result.transfers}
-    assert Transfers[Capability.PARAMETRIC_HISTORY] is TransferMode.MIXED
+    assert Transfers[Capability.PARAMETRIC_HISTORY] is TransferMode.NATIVE
     assert Transfers[Capability.EXPRESSIONS] is TransferMode.NATIVE
     with ZipFile(Output) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))

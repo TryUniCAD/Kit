@@ -8,4 +8,4 @@ The normal SOLIDWORKS reader opened all eleven receipt-pinned P04 discovery arch
 
 At PR head `5605c58f` and tested merge `c4f34448`, the hosted archive step passed its P04 through-all Parasolid re-export. It read back both caps and verified an 800 mm² exterior ring and an 80 mm² hole on each. The writer verifies each face's ordered loops and each loop's role using the exact record IDs assigned during emission. The decoded global loop collection can follow a different order when new face record IDs are allocated. The witness covers the Parasolid B-rep exchange. Licensed editable acceptance remains open. [Hosted archive checks](https://github.com/TryUniCAD/Kit/actions/runs/43794606581/job/133060521405)
 
-See [the saved loop-order gotcha](../../../../Gotchas/Conversion/SolidWorks/ParasolidLoopOrder.md).
+See [the saved loop-order gotcha](../../../../Gotchas/Conversion/Solidworks/ParasolidLoopOrder.md).

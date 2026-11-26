@@ -25,6 +25,7 @@ def CheckPlacement(
     Dimension: NativeNode | None = None,
     Rectangle: RectSketchProof | None = None,
     YzDatum: bool = False,
+    Scoped: bool = False,
 ) -> None:
     Instance = Graph.OneClass("ComponentInstance")
     if Graph.Resolve(Instance.Fields["rTargetComponent"]) != Context.Component:
@@ -70,7 +71,7 @@ def CheckPlacement(
     )
     if Graph.Resolve(Context.Sketch.Fields["rDcNode"]) != Context.SketchFeature:
         raise ValueError("Native sketch feature link is not reciprocal")
-    CheckMatrix(Graph, Context, YzDatum)
+    CheckMatrix(Graph, Context, YzDatum, Scoped)
 
 
 # the constrained rectangle may carry only the rules and bindings already proved against its geometry
@@ -96,7 +97,10 @@ def CheckSketchRefs(
 
 # the native sketch matrix and its unique plane recipe must agree with the xy frame
 def CheckMatrix(
-    Graph: NativeGraph, Context: KSketchContexts, YzDatum: bool = False
+    Graph: NativeGraph,
+    Context: KSketchContexts,
+    YzDatum: bool = False,
+    Scoped: bool = False,
 ) -> None:
     Matrix = ResolveField(
         Graph, Context.SketchFeature, "rSketchPlaneMatrix", "DRMatrix"
@@ -125,7 +129,8 @@ def CheckMatrix(
     )
     EmptyFields(Matrix, ("rEdgeReferences", "rPlaneReferences", "values"))
     DataRefs = LinkedNodes(Graph, Matrix, "dataRefs")
-    SameNodes(DataRefs, Graph.ByClass("EntityDataRef"))
+    if not Scoped:
+        SameNodes(DataRefs, Graph.ByClass("EntityDataRef"))
     if len(DataRefs) != 1:
         raise ValueError("Native sketch requires one plane reference")
     Recipe = ResolveField(Graph, DataRefs[0], "rRecipe", "EntityRecipe")

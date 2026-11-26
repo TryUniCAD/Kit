@@ -1,0 +1,16 @@
+{
+  "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+  "collector_revision": "e04bf545290a253193c72d210719d1c0eebb4c5464b0a550daf59fd511c58bd1",
+  "pins": {
+    "NativeAcceptance/Records.py": "3d2f815f8c4c4f89a15ae2e83ea56ce10291fe0a5879f05793186d7573ce3e0e",
+    "NativeAcceptance/WindowsSnapshot.py": "5870cc2d67eb87b76f5a03f43cd81f4b70ad740f85c37dfcf7af71ec5b23f7e9",
+    "NativeAcceptance/ProcessState.py": "722caedefdf5185a64d8a28b95c3646f7bb72c01f062ce2f793d873e7c7eaf15",
+    "NativeAcceptance/FusionMeasure.py": "ee0931a6c023025b568ca8f0b89880a5a8413d8514ad48caea3576fb2149995e",
+    "NativeAcceptance/FusionBrep.py": "0ea4c6a4b57a3e097124ee4e2dc456351809e3baeb097dbd7391630e7e0489dd",
+    "NativeAcceptance/FusionSemantics.py": "ce721d1683163493f9594d36acf64642e449bb8f444e4df26d842c76c34e75ae",
+    "NativeAcceptance/SolidWorksMeasure.py": "cb0c6569d8e421ef6cc202144dd461f8acf889dcdf345d0ca568d3e163056a26",
+    "NativeAcceptance/SolidWorksBrep.py": "c06a7499da525b268eb85ec8ddafe901f5bfc63553b0de62c978149ad2478a65",
+    "NativeAcceptance/SolidWorksSemantics.py": "8e8e5b24c5793c7b084111d6d1fda8f5822092e2ef7bbe896169b4cff85e5801",
+    "ApplicationWorkers/SolidWorksAvailability.py": "1e58d7a78d3dbde8c34d1598688f831dd9eee288a4612b5c774434f8f3249507"
+  }
+}

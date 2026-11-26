@@ -23,6 +23,7 @@ def ReadParameters(
     AllowTaper: bool = False,
     Rectangle: RectSketchProof | None = None,
     Reverse: bool = False,
+    PlainReverse: bool = False,
 ) -> tuple[Parameter, ...]:
     Table = ResolveField(Graph, Context.Component, "rParameterTable", "ParameterTable")
     Nodes = LinkedNodes(Graph, Table, "children")
@@ -34,17 +35,35 @@ def ReadParameters(
         raise ValueError("Native parameter names must be nonempty and unique")
     Along = CheckBinding(Graph, Context.Along, Context)
     Taper = CheckBinding(Graph, Context.Taper, Context)
+    ExtentBindings: tuple[NativeNode, ...] = (Context.Along, Context.Taper)
+    if Context.Extrude.Fields["rAgainstDistance"] is not None:
+        ExtentBindings += (
+            ResolveField(
+                Graph, Context.Extrude, "rAgainstDistance", "DcDoubleParameter"
+            ),
+            ResolveField(
+                Graph, Context.Extrude, "side2TaperAngle", "DcDoubleParameter"
+            ),
+        )
+        Against = CheckBinding(Graph, ExtentBindings[2], Context)
+        SecondTaper = CheckBinding(Graph, ExtentBindings[3], Context)
+        if (
+            Against.Fields["unit"] != "mm"
+            or NumberValue(Against.Fields["value"]) <= 0
+            or SecondTaper.Fields["unit"] != "deg"
+            or NumberValue(SecondTaper.Fields["value"]) != 0
+        ):
+            raise ValueError("Unsupported native second side distance or taper")
     SketchBindings = Rectangle.Bindings if Rectangle else ()
     SameNodes(
-        (*SketchBindings, Context.Along, Context.Taper),
+        (*SketchBindings, *ExtentBindings),
         Graph.ByClass("DcDoubleParameter"),
     )
     ParameterIds = tuple(
-        IntegerValue(NodeValue.Fields["rparamId"])
-        for NodeValue in (Context.Along, Context.Taper)
+        IntegerValue(NodeValue.Fields["rparamId"]) for NodeValue in ExtentBindings
     )
     if (
-        len(set(ParameterIds)) != 2
+        len(set(ParameterIds)) != len(ExtentBindings)
         or min(ParameterIds) <= 0
         or max(ParameterIds) > IntegerValue(Context.Fragment.Fields["nextParamId"])
     ):
@@ -61,7 +80,10 @@ def ReadParameters(
         raise ValueError(
             "Native extrusion parameter units, distance or taper are unsupported"
         )
-    Owners = {Along.Identity: Context.Extrude, Taper.Identity: Context.Extrude}
+    Owners = {
+        CheckBinding(Graph, Binding, Context).Identity: Context.Extrude
+        for Binding in ExtentBindings
+    }
     if Rectangle is not None:
         for NodeValue in Rectangle.Parameters:
             Owners[NodeValue.Identity] = Context.SketchFeature
@@ -70,7 +92,8 @@ def ReadParameters(
             NodeValue,
             Catalog,
             Owners.get(NodeValue.Identity),
-            Reverse and NodeValue == Along,
+            Reverse and NodeValue == Along and not PlainReverse,
+            PlainReverse and NodeValue == Along,
         )
         for NodeValue in Nodes
     )
@@ -102,7 +125,10 @@ def ProjectParam(
     Catalog: dict[str, NativeNode],
     Owner: NativeNode | None,
     Reverse: bool = False,
+    Literal: bool = False,
 ) -> Parameter:
+    if Literal and TextValue(NodeValue.Fields["expression"]) in Catalog:
+        raise ValueError("Native unconstrained reverse distance requires a literal")
     IsOwned = Owner is not None
     RequireFields(
         NodeValue,

@@ -1,0 +1,307 @@
+{
+  "build_proof_sha256": "eef82e43b21af2dcbd26c6af5fd23c39169cee0d4036f332a9fa0c17642df258",
+  "cases": [
+    {
+      "classic_bytes": 8094,
+      "classic_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "role": "Skew",
+      "streams": {
+        "Contents/CMgr": {
+          "classic": [
+            310,
+            "a55c4ab7ca7d9a26d305a77ff9274bb786f0741f70246db7941733191c9c786d"
+          ],
+          "clear": [
+            1145,
+            "2d50cd50cc7520444ad1d818930677c363ab7308863da47816d65a13567730bd"
+          ],
+          "zlib_ng": [
+            345,
+            "71a1db31e027390f6c3431284314450933e7cdeed01fb35da74a9454444c696b"
+          ]
+        },
+        "Contents/CMgrHdr2": {
+          "classic": [
+            96,
+            "a11c0292cdfec6643871b2c9abffe18806219c5a243f691fd971f07e15708cb2"
+          ],
+          "clear": [
+            169,
+            "f0e87e094fb3f04ca1d901fb4fddb21a7dbf50a9432e3f1ca9326438b39f25f8"
+          ],
+          "zlib_ng": [
+            105,
+            "4c94c4290cd8402f43983e524aeaebe73acc37c2f4bd811cdc6a0fffca782eaf"
+          ]
+        },
+        "Contents/Config-0": {
+          "classic": [
+            3007,
+            "715fd062da5f32b834eed39f8cbbfba572ebd3454572cab33144a358cf577a0a"
+          ],
+          "clear": [
+            22266,
+            "67ed420c7f3687ead74df8374ba75bc9f88025ee0a0737182148258f3e8ae8b4"
+          ],
+          "zlib_ng": [
+            3562,
+            "d36e1dabecaa1a2c5448baa79b22986a1c2bddddf7a1b8617e281ea6b7581553"
+          ]
+        },
+        "Contents/Config-0-ModelHeader": {
+          "classic": [
+            315,
+            "b9487ce93267160d7b0167497b64cb6455140cf33cae1d382c836ecd260a3642"
+          ],
+          "clear": [
+            655,
+            "29a8688bef96a91d019c9fd6558d4cf1c6f5c8a935d3bfa75bf302a092382fc8"
+          ],
+          "zlib_ng": [
+            381,
+            "3046e227460bfbd863aac939fe535a18fbe7d7a2cb6bee2a5a396dbfead9529b"
+          ]
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "classic": [
+            1973,
+            "b558f3f1fcf6649105f1b868a6379f0b510cace1a8e46eabe27ca22366dd6b86"
+          ],
+          "clear": [
+            13613,
+            "8e6f6d0cfb36458c87fbaf9cec6f63f5e5d0f4fee0a2e332a1c2d6f2fed9238c"
+          ],
+          "zlib_ng": [
+            2323,
+            "222bed8242db8f49118c5f96d068f109a87eb5b3df6010312b7ed45a325d54b9"
+          ]
+        },
+        "Contents/Definition": {
+          "classic": [
+            184,
+            "e4afa78757878d9b8467d60289df6881674bb9b2bcec1463697e0e8cddf98989"
+          ],
+          "clear": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "zlib_ng": [
+            196,
+            "b8cf40f93063e33dd2913606c3a832b4ae3e5741271232d03cebdac6ad4e0a54"
+          ]
+        },
+        "Header2": {
+          "classic": [
+            316,
+            "3ee98c61ce642d298d1f1d59faf6c70d4291c81bd99498dfcadc2c3aa3521f2e"
+          ],
+          "clear": [
+            655,
+            "e2b3d83b8c5117cd719311b6840b62c53340e44e140c6c7693541473e7ef2b06"
+          ],
+          "zlib_ng": [
+            378,
+            "13dc6d9376868252883306375b1135c4695ee1cc2329973927001c58788a7b46"
+          ]
+        },
+        "_MO_VERSION_19000/Biography": {
+          "classic": [
+            23,
+            "867ee1d88eafdd5c08ba439429ac4c1a0e9179006e3a67e3b2cb432f673b479e"
+          ],
+          "clear": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "zlib_ng": [
+            25,
+            "f9faf62e782f56c9cf6a03b4ec202b7b3a948adc0ef2b02dab3be3741a696dec"
+          ]
+        },
+        "_MO_VERSION_19000/History": {
+          "classic": [
+            142,
+            "e3d6518b1ff18b6e747b304003516a9c00fcd2eacf957676e00f5f06eccd7c8f"
+          ],
+          "clear": [
+            187,
+            "3128ed047232c860fa6050b25d761ba1c42bce42acf3278417ae3d6669bb4bbe"
+          ],
+          "zlib_ng": [
+            158,
+            "35905dd5b8ad796ae54e8570fe4159609f0313ffef41401e847a91e6a94e4992"
+          ]
+        },
+        "swXmlContents/KeyWords": {
+          "classic": [
+            518,
+            "0db0ebd8be15a25ee9a8f79b8ddf73bb586d6f0b950d332b31dbb441cb02ce1d"
+          ],
+          "clear": [
+            1428,
+            "a51f4b84c45cabb7716222b4fa01609ef23512797d2376aa47a77105a9befbbf"
+          ],
+          "zlib_ng": [
+            606,
+            "732bbcd05b9b0df88ed1ff4ffb760b813b24247de2d93e36dfc4b51ae0bccfa3"
+          ]
+        }
+      },
+      "zlib_ng_bytes": 9289,
+      "zlib_ng_sha256": "67c0a671254fe916f9c0d97a45bd786e32e54f7eb527c78bfe4356079a47d36a"
+    },
+    {
+      "classic_bytes": 8180,
+      "classic_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "role": "Step",
+      "streams": {
+        "Contents/CMgr": {
+          "classic": [
+            310,
+            "a55c4ab7ca7d9a26d305a77ff9274bb786f0741f70246db7941733191c9c786d"
+          ],
+          "clear": [
+            1145,
+            "2d50cd50cc7520444ad1d818930677c363ab7308863da47816d65a13567730bd"
+          ],
+          "zlib_ng": [
+            345,
+            "71a1db31e027390f6c3431284314450933e7cdeed01fb35da74a9454444c696b"
+          ]
+        },
+        "Contents/CMgrHdr2": {
+          "classic": [
+            96,
+            "a11c0292cdfec6643871b2c9abffe18806219c5a243f691fd971f07e15708cb2"
+          ],
+          "clear": [
+            169,
+            "f0e87e094fb3f04ca1d901fb4fddb21a7dbf50a9432e3f1ca9326438b39f25f8"
+          ],
+          "zlib_ng": [
+            105,
+            "4c94c4290cd8402f43983e524aeaebe73acc37c2f4bd811cdc6a0fffca782eaf"
+          ]
+        },
+        "Contents/Config-0": {
+          "classic": [
+            3001,
+            "db6ed7744996684fa689efd57f9930353a04621020470051f57b3a3cb72523ff"
+          ],
+          "clear": [
+            22262,
+            "c194c08a97e4676ed892daffe3f6ad002b71f2c2cb9cc1985dd227e1f783ed0d"
+          ],
+          "zlib_ng": [
+            3570,
+            "63bc0dd3c206185e7986879386393d98fab7a7532b22d10e0900fcaa140799f1"
+          ]
+        },
+        "Contents/Config-0-ModelHeader": {
+          "classic": [
+            316,
+            "a6462939d6748bfe047fd5d6ee451686b523c8618c6098d58f52d5105857f204"
+          ],
+          "clear": [
+            643,
+            "e47aaa854a4bc33a2952d646ca2a42f3ea5f573271c20764e9a474a84f38d189"
+          ],
+          "zlib_ng": [
+            381,
+            "3a1ed67ac9866516decc448cb5e988dee4a55def6ecf2a533880fb13e6284112"
+          ]
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "classic": [
+            2052,
+            "194f822891d424197e254f4182d2a5f7bcc9658b289fbd0470b3df107d5ecc73"
+          ],
+          "clear": [
+            14375,
+            "87924c2d06b6df1c53c33d9d749949565ab7868a3601cd74791f1038f3fba11d"
+          ],
+          "zlib_ng": [
+            2415,
+            "4d9dd9a9f241ff8d26b26cd4712e60f13319ea1936cc660800f98d6619d48322"
+          ]
+        },
+        "Contents/Definition": {
+          "classic": [
+            184,
+            "e4afa78757878d9b8467d60289df6881674bb9b2bcec1463697e0e8cddf98989"
+          ],
+          "clear": [
+            459,
+            "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          ],
+          "zlib_ng": [
+            196,
+            "b8cf40f93063e33dd2913606c3a832b4ae3e5741271232d03cebdac6ad4e0a54"
+          ]
+        },
+        "Header2": {
+          "classic": [
+            317,
+            "7a50248790766f13c72e6e2b4944146b9c00e71272378e613b7c3a3e6dfd27f8"
+          ],
+          "clear": [
+            643,
+            "8367d3000b8c4d3e3e73c9a3426d33ad7c2880192c78add7c7b06c4afe98aea0"
+          ],
+          "zlib_ng": [
+            379,
+            "32fbade5de2c2e8e032e33ff0da8add9302d00d8997792c94e9fc27538eed4c9"
+          ]
+        },
+        "_MO_VERSION_19000/Biography": {
+          "classic": [
+            23,
+            "867ee1d88eafdd5c08ba439429ac4c1a0e9179006e3a67e3b2cb432f673b479e"
+          ],
+          "clear": [
+            23,
+            "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          ],
+          "zlib_ng": [
+            25,
+            "f9faf62e782f56c9cf6a03b4ec202b7b3a948adc0ef2b02dab3be3741a696dec"
+          ]
+        },
+        "_MO_VERSION_19000/History": {
+          "classic": [
+            142,
+            "e3d6518b1ff18b6e747b304003516a9c00fcd2eacf957676e00f5f06eccd7c8f"
+          ],
+          "clear": [
+            187,
+            "3128ed047232c860fa6050b25d761ba1c42bce42acf3278417ae3d6669bb4bbe"
+          ],
+          "zlib_ng": [
+            158,
+            "35905dd5b8ad796ae54e8570fe4159609f0313ffef41401e847a91e6a94e4992"
+          ]
+        },
+        "swXmlContents/KeyWords": {
+          "classic": [
+            529,
+            "17e13e22adb4efd43ea7cf77f8c786884f11c58f8d67fa343093b92734c3bdc7"
+          ],
+          "clear": [
+            1431,
+            "d2197399c12142a6075ab7dc79dd593e2e0e80cb8c39172e7a2092b62025d0f9"
+          ],
+          "zlib_ng": [
+            611,
+            "3d7587635bd546be07cb3fee706339835272db60ded89065eb16d48b8fbb152f"
+          ]
+        }
+      },
+      "zlib_ng_bytes": 9395,
+      "zlib_ng_sha256": "735b53c173fdcc039ad93873f02c23498edee2df909c83660f9b5c6c8041b282"
+    }
+  ],
+  "packet_sha256": "44f9eeb4e44fe25e85472f29bf3f72ae0b1ba6f59e69fe0712d530110fbb2f48",
+  "runtime_package_sha256": "90905e64a840557d8c1bc4f5b74db3d7ee85e3ffb217611cac1c7813acea4159",
+  "schema": "kit.sw2026.plain-part-compression-parity.v1",
+  "source_package_sha256": "b8b3776686d0925ab922a1df244d842d970645ba1b7fbcbb9ae21c735e6bd216"
+}

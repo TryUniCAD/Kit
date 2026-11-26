@@ -1,7 +1,7 @@
 import json as JsonCodec
 from pathlib import Path as FilePath
 
-from tests.Research.Windows.WaitForExit import WaitForExit
+from tests.Research.Windows.Calibration.WaitForCalExit import WaitForCalExit
 
 
 # each sweep step must independently tie physical observations and process cleanup to the immutable workload
@@ -41,5 +41,5 @@ def VerifyCalTrial(TrialPath: FilePath, InputHash: str) -> None:
         Measurement = Entry["measurement"]
         assert Measurement["worker_peak_working_set_bytes"] > 0
         assert Measurement["input_sha256"] == InputHash
-    WaitForExit(Launcher["pid"])
-    WaitForExit(Interpreter["pid"])
+    WaitForCalExit(Launcher["pid"], Launcher["process_start"])
+    WaitForCalExit(Interpreter["pid"], Interpreter["process_start"])

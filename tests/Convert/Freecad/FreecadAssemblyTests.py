@@ -27,6 +27,7 @@ from tests.Interchange.Assembly.AssemblyTests import (
     assembly_document as InterchangeAsmDoc,
 )
 from tests.Interchange.Document.DocumentTests import document as DocValue
+from tests.Interchange.Fixtures.AssemblyFixture import BuildPiston
 
 # this binding keeps xml element annotations aligned with the imported parser
 ET = XmlTree
@@ -131,7 +132,7 @@ def NestedAsmDoc() -> CadDoc:
         mate_groups=(),
     )
     Nested = Replace(
-        DocValue(),
+        BuildPiston(),
         source=CadSource("test.assembly", "nested", "2" * 64),
         assembly=NestedAsm,
     )

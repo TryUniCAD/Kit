@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -45,7 +45,7 @@ if (@($exe, $interop, $constants).Where({ $_.VersionInfo.FileVersion -cne $build
     throw 'The installation and interops must match the licensed witness build.'
 }
 $web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
-$collectors = @('P04Readback.cs', 'P02Readback.cs', 'ReadbackProgress.cs', 'BossWitnessReadback.cs') | ForEach-Object {
+$collectors = @('P04Readback.cs', 'P02Readback.cs', 'BossWitnessReadback.cs') | ForEach-Object {
     Join-Path $PSScriptRoot $_
 }
 Add-Type -Path $constants.FullName

@@ -302,11 +302,10 @@ def VerifyRecovery(
 # preparation binds the actual recipe or scope program without opening the application
 def PreparePair(OutputPath: FilePath, ScopeRun: bool) -> dict[str, str]:
     Arguments = ["--output", str(OutputPath)]
-    RootPath = "re/automation/PairedCaptures"
     if ScopeRun:
-        ScriptPath = f"{RootPath}/ScopeControl/FusionScopeControl.py"
+        ScriptPath = "re/automation/CaptureTools/ScopeControl/FusionScopeControl.py"
     else:
-        ScriptPath = f"{RootPath}/FusionFreshProcess.py"
+        ScriptPath = "re/automation/PairedCaptures/FusionFreshProcess.py"
         Arguments.extend(("--recipe", "P01", "--recipe", "P04", "--read-existing"))
     return CastValue(
         dict[str, str], JsonCodec.loads(RunFusionTool(ScriptPath, Arguments))

@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "file_sha256": "051437f311217cc7eac0eb49a5a84b2d8acdc2507dbfc0c542e60393fc7d7cda",
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_reads": 0,
+      "slot": "H3_scalene",
+      "source_immutable": true,
+      "streams": {
+        "Biography": {
+          "bytes": 1565,
+          "date_record_counts": [],
+          "exact_reemission": true,
+          "map_counter": 3,
+          "mapped_nodes": 1,
+          "root_records": 2,
+          "sha256": "7cf1f492877727bc43cf3233f19799fcefe01c46b5a655cd5230a00b32d891d3"
+        },
+        "History": {
+          "bytes": 101,
+          "date_record_counts": [
+            1
+          ],
+          "exact_reemission": true,
+          "map_counter": 5,
+          "mapped_nodes": 2,
+          "root_records": 1,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        }
+      }
+    },
+    {
+      "file_sha256": "62602b7f17fc75ec6e51ae13c8a6bb7fd162c6a8b669da37eea99e2935535604",
+      "native_processes_started": 0,
+      "passed": true,
+      "runtime_input_reads": 0,
+      "slot": "H7_irregular",
+      "source_immutable": true,
+      "streams": {
+        "Biography": {
+          "bytes": 1569,
+          "date_record_counts": [],
+          "exact_reemission": true,
+          "map_counter": 3,
+          "mapped_nodes": 1,
+          "root_records": 2,
+          "sha256": "373eecb2eb014d40da85f5b67b56371723a5f211bae6fe6bb1fcc8ef68897cd5"
+        },
+        "History": {
+          "bytes": 101,
+          "date_record_counts": [
+            1
+          ],
+          "exact_reemission": true,
+          "map_counter": 5,
+          "mapped_nodes": 2,
+          "root_records": 1,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        }
+      }
+    }
+  ],
+  "fresh_codec_processes": 2,
+  "generated_native_document_qualification": false,
+  "guard_calibration_sha256": "189c2089c02a712ce54708c30286b2f4a71294b7ba0c14b58c790c0304329a9c",
+  "new_native_processes": 0,
+  "outputs_containing_source_payloads": 0,
+  "packet_sha256": "9d38d8187eabd9d7592fd2a2497d4ba0b35bf4a24cd619860d966de5e1454e5c",
+  "passed": true,
+  "previous_native_source_replay": "ce44060b5eca37ed1c95e56a8e4718790d8a44c8eb5d5ddc62890942c6855467",
+  "qualified_standalone_originals": 2,
+  "schema": "kit.sw2026.standalone-history-heldout-result.v1",
+  "source_revision": "d7db8942ed7544ab7cf7488d32a734e1293c3795",
+  "src_tree": "ccdcec327b9dda93afb42716978eb1f17b53c4aa"
+}

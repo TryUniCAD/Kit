@@ -5,6 +5,7 @@ from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.registry.RegistryState import RegistryHost
 from convert.adapters.base.WritePolicy import GetFormatKey
+from convert.adapters.base.WritePolicy import GetFormatKeys
 
 
 # reader catalog ownership isolates ordering and lookup from registration state transitions
@@ -22,7 +23,11 @@ class ReaderCatalog(RegistryHost):
     def GetReader(self, FormatId: str) -> CadReaderAdapter:
         FormatKey = GetFormatKey(FormatId)
         BindingData = self.BindingMap.get(self.AliasMap.get(FormatKey, FormatKey))
-        if BindingData is None or BindingData.reader is None:
+        if (
+            BindingData is None
+            or BindingData.reader is None
+            or FormatKey not in GetFormatKeys(BindingData.reader.info)
+        ):
             raise NotFoundError(f"no reader registered for {FormatId}")
         return BindingData.reader
 
@@ -42,7 +47,11 @@ class WriterCatalog(RegistryHost):
     def GetWriter(self, FormatId: str) -> CadWriterAdapter:
         FormatKey = GetFormatKey(FormatId)
         BindingData = self.BindingMap.get(self.AliasMap.get(FormatKey, FormatKey))
-        if BindingData is None or BindingData.writer is None:
+        if (
+            BindingData is None
+            or BindingData.writer is None
+            or FormatKey not in GetFormatKeys(BindingData.writer.info)
+        ):
             raise NotFoundError(f"no writer registered for {FormatId}")
         return BindingData.writer
 

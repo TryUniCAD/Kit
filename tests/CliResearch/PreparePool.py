@@ -37,7 +37,12 @@ def PreparePool(WorkPath: FilePath) -> FilePath:
                 "runners": {
                     "fixture.decode": {
                         "pool": "decode",
-                        "argv": [KPythonPath, str(RunnerPath), "{session}"],
+                        "argv": [
+                            KPythonPath,
+                            "-m",
+                            "tests.Research.SessionRunner",
+                            "{session}",
+                        ],
                         "result_schema": str(SchemaPath),
                     }
                 }

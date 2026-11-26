@@ -1,12 +1,12 @@
 import json as JsonCodec
 import sys as System
 import time as TimeClock
-from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 
 # the estimator needs a measurable memory sample from a successful real child process
 def RunLearning() -> None:
-    SessionPath = FilePath(System.argv[1])
+    SessionPath = SessionRoot(System.argv[1])
     JobText = (SessionPath / "job.json").read_text(encoding="utf-8")
     Content = bytearray(2 * 1048576)
     for Offset in range(0, len(Content), 4096):

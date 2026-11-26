@@ -5,6 +5,7 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     SameNodes,
 )
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
+from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 from convert.adapters.Fusion.Native.Policy.CheckMeshAbsent import CheckMeshAbsent
 
@@ -36,15 +37,20 @@ KEmptyClasses = (
 
 
 # invalid containers input must fail here so public document claims remain grounded in native records
-def CheckContainers(Graph: NativeGraph, Context: KSketchContexts) -> None:
+def CheckContainers(
+    Graph: NativeGraph,
+    Context: KSketchContexts,
+    SketchNodes: tuple[NativeNode, ...] | None = None,
+) -> None:
     for ClassName in KEmptyClasses:
         for NodeValue in Graph.ByClass(ClassName):
             if "children" in NodeValue.Fields:
                 EmptyFields(NodeValue, ("children",))
     CheckMeshAbsent(Graph, Context.Component)
     Sketches = ResolveField(Graph, Context.Component, "rSketches", "Sketches")
-    SameNodes((Context.Sketch,), LinkedNodes(Graph, Sketches, "children"))
-    SameNodes((Context.Sketch,), Graph.ByClass("MSketch"))
+    Expected = SketchNodes if SketchNodes is not None else (Context.Sketch,)
+    SameNodes(Expected, LinkedNodes(Graph, Sketches, "children"))
+    SameNodes(Expected, Graph.ByClass("MSketch"))
     Features = ResolveField(Graph, Context.Component, "m_rFeatures", "Features")
     EmptyFields(Features, ("children",))
     if Features.Fields["m_curFeatureId"] != 1:
