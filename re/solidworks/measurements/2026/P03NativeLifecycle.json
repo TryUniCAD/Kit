@@ -1,0 +1,420 @@
+{
+  "schema": "kit.research.solidworks.p03-native-lifecycle.v1",
+  "task": "A12b/P03 source-order native lifecycle",
+  "owner": "retained SOLIDWORKS oracle",
+  "research_parent": {
+    "pr": 330,
+    "revision": "fcd350104978e44122807e1e815d687dce6db0fe"
+  },
+  "construction": {
+    "process_revision": "6666c84e819b6de6d5affabff86057c75fbfa2bf",
+    "candidate_sha256": "29b581feaf693b2a5e38e2f8bac70d2f3ab2b7f3f4f56be104e64701e0c0a62a",
+    "saved_derivative_sha256": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+    "same_family_controls": true,
+    "held_out": false
+  },
+  "native": {
+    "application": "SOLIDWORKS 2026 SP04.1",
+    "build": "34.4.1.1011",
+    "application_revision": "34.4.1",
+    "application_sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+    "sealed_plan_sha256": "e12bebc66afcda9a02ea4772650e7640a6b306b5cec1f3dd9312f3e2d7d1e9ef",
+    "runner_sha256": "2e6abf32c51b0e05c4dd310f8386786a6dcdd525396eecd168f5703e95bfe22f",
+    "role_observer_sha256": "713c243b930dfdedd0dc7971c18e71b6e5bb0c2dce339f6ff2dd1689067b7e8f",
+    "brep_observer_sha256": "5642caa72a9878209aa87a3fffa2d1aad28b9a5076ada18f369f6f76dc06d9d8",
+    "specific_interface_helper_sha256": "779b2e831434812885f0d47c0536df18686e7628aabde89680d16315c32f080e",
+    "earlier_failed_cohort_sha256": "8a1e3ddb39422f27dde4b2d2fc95707e47da170d9b4dc2d12016a20287615c39",
+    "stock_brep_diagnostic_sha256": "77e4b72172663dbf36147fb9ec296515cc5da8d7a41be31230d28639e75b40c7",
+    "stock_identity_diagnostic_sha256": "9cacbc3d7874ded67f5339edebe651d9d57ca2f5a27926f326882e788b7714d6",
+    "terminal_sha256": "3e75234f975c9dd3175225dcc38774192ac3ab43637da46ec2f1e4aae6f34a7e",
+    "helper_map_sha256": "fb1713853d32a289c40ebd47bf3dcd43577c7f0150ab8be71cddb53f3cf79349",
+    "normal_owned_processes": 7,
+    "lifetime_total_seconds": 86.853,
+    "supervisor_seconds": 95.524,
+    "qualified_snapshots": 15,
+    "stages": [
+      {
+        "role": "StockBefore",
+        "opened_input_sha256": "21624e4c194c8c7efd93df680fde35819e605fd9d26a710384accea24b62f5a5",
+        "native_seconds": 12.402,
+        "process_exit_code": 0,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "qualified_snapshots": [
+          "initial",
+          "rebuilt"
+        ],
+        "request_sha256": "75d4c1638382b73d18a66ebe2724676ba33e93f26cdac657a13d97f6f5c2099e",
+        "record_sha256": "98883398bb563bb4d1d7e70f3efe755ebd014cec150c373f8b61e3aefab223f1"
+      },
+      {
+        "role": "Source",
+        "opened_input_sha256": "db1390476325f5817e6f80fb4067a3c6df5cc063315604c133ccbeaafdeac357",
+        "native_seconds": 12.177,
+        "process_exit_code": 0,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "qualified_snapshots": [
+          "initial",
+          "rebuilt"
+        ],
+        "request_sha256": "1463ec0ec580ed19f1d5e70f02a1f2a77a2943bab85c7a3244128ba59b389325",
+        "record_sha256": "fc18f2562ed53db8c5dad4caa055c40cc45fd9d6d070dc8335c2cdd84ed67f66"
+      },
+      {
+        "role": "EditedSourceReference",
+        "opened_input_sha256": "fbb7e64901270cb4e7e9e6906590d94cba12d0d94c13fbe3c25426513ae1df43",
+        "native_seconds": 13.134,
+        "process_exit_code": 0,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "qualified_snapshots": [
+          "initial",
+          "rebuilt"
+        ],
+        "request_sha256": "aefa6e1208ff679acb398b50e67e2bdd726897706b7659e54d10dfd6506b7878",
+        "record_sha256": "8f6eefcee70b956110280d099b48c6ee20ec869cc4b89d88a09775c0fa505ea4"
+      },
+      {
+        "role": "Candidate",
+        "opened_input_sha256": "29b581feaf693b2a5e38e2f8bac70d2f3ab2b7f3f4f56be104e64701e0c0a62a",
+        "native_seconds": 12.458,
+        "process_exit_code": 0,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "qualified_snapshots": [
+          "initial",
+          "rebuilt"
+        ],
+        "request_sha256": "02c3b0ebccb8cb7f061db36a9cbd6bc314fce421df567606904b5cb141e63ecb",
+        "record_sha256": "b248b49dbab7dd2b00188950ce14257b1a7d329635fb0c386d2885f8b1e233e8"
+      },
+      {
+        "role": "CandidateEdit",
+        "opened_input_sha256": "29b581feaf693b2a5e38e2f8bac70d2f3ab2b7f3f4f56be104e64701e0c0a62a",
+        "native_seconds": 13.064,
+        "process_exit_code": 0,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "qualified_snapshots": [
+          "initial",
+          "rebuilt",
+          "edited"
+        ],
+        "request_sha256": "cac71b5ee2dcd46fbcb9bd793ec2fade8a5926b4730ebd5cff8fc7eeb6fb1f84",
+        "record_sha256": "179c19229f62717299e46b099896d7205279482401bca57b64644b017efe4fb8"
+      },
+      {
+        "role": "CandidateReopen",
+        "opened_input_sha256": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+        "native_seconds": 11.583,
+        "process_exit_code": 0,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "qualified_snapshots": [
+          "initial",
+          "rebuilt"
+        ],
+        "request_sha256": "afd1efae8efc426b1f98d936f87182d03f113fb183f8173aa1caffbf2ec002fd",
+        "record_sha256": "800b853bde09fd171487262ab0d1f49e73a621c500435895c281908bdc0153d0"
+      },
+      {
+        "role": "StockAfter",
+        "opened_input_sha256": "21624e4c194c8c7efd93df680fde35819e605fd9d26a710384accea24b62f5a5",
+        "native_seconds": 12.035,
+        "process_exit_code": 0,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "qualified_snapshots": [
+          "initial",
+          "rebuilt"
+        ],
+        "request_sha256": "b5dceb78e8a2121d992d9745616e86cb341def4a0978c5cb8b0326e5a4f2ef06",
+        "record_sha256": "0b99ccd23ceb89e9562124ff47803ca2149040cfa123bb178dc6447605520506"
+      }
+    ],
+    "remaining_solidworks_sessions": 0,
+    "source_candidate_and_writable_copy_unchanged": true,
+    "untouched_profile_support_units_and_equations": {
+      "profile": true,
+      "support": true,
+      "document_units": true,
+      "document_unit_preferences": true,
+      "equations": true
+    },
+    "protected_locators_absent": true,
+    "planned_controls_healthy": true,
+    "depth_edit": {
+      "name": "SetSystemValue3",
+      "input_word": "0x1.89374bc6a7efap-7",
+      "scope": 1,
+      "status": 0
+    },
+    "save": {
+      "saved": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    "candidate_before_edit": {
+      "topology_solids_faces_edges_vertices": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "volume_mm3": 8000.0,
+      "area_mm2": 2800.0,
+      "centroid_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "vertex_bounds_mm": [
+        0.0,
+        0.0,
+        0.0,
+        40.0,
+        20.0,
+        10.0
+      ],
+      "depth_definition_si_word": "0x1.47ae147ae147bp-7",
+      "depth_parameter_si_word": "0x1.47ae147ae147bp-7"
+    },
+    "saved_and_freshly_reopened": {
+      "topology_solids_faces_edges_vertices": [
+        1,
+        6,
+        12,
+        8
+      ],
+      "volume_mm3": 9600.0,
+      "area_mm2": 3040.0,
+      "centroid_mm": [
+        20.0,
+        10.0,
+        6.0
+      ],
+      "vertex_bounds_mm": [
+        0.0,
+        0.0,
+        0.0,
+        40.0,
+        20.0,
+        12.0
+      ],
+      "depth_definition_si_word": "0x1.89374bc6a7efap-7",
+      "depth_parameter_si_word": "0x1.89374bc6a7efap-7"
+    },
+    "geometry_relative_tolerance": 1e-08,
+    "geometry_absolute_si_tolerance": 1e-12,
+    "direct_owner_evidence": {
+      "same_interface_support_front_refetch_and_right": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "mixed_feature_support_front_result": 0,
+      "is_base2": true,
+      "legacy_and_current_type_name": "Extrusion",
+      "faces_owning_feature_and_final_body": 6,
+      "owned_face_bijection_to_final_faces": true,
+      "is_boss_feature_raw": false,
+      "merge_raw": false,
+      "persistent_compare_available": false,
+      "legacy_gate_qualified": false
+    },
+    "comparison_differences_by_raw_group": {
+      "bracketing_controls": [],
+      "unedited_source_reference": [
+        "driver_rows",
+        "display_dimension_iterations",
+        "profile",
+        "boss",
+        "tree",
+        "nested_tree",
+        "presentation"
+      ],
+      "edited_source_reference": [
+        "driver_rows",
+        "display_dimension_iterations",
+        "profile",
+        "boss",
+        "tree",
+        "nested_tree",
+        "presentation"
+      ],
+      "saved_edit_fresh_reopen": [
+        "driver_rows",
+        "display_dimension_iterations",
+        "profile"
+      ]
+    },
+    "public_writer_qualified": false,
+    "whole_source_equivalence": false
+  },
+  "saved_derivative_offline_read": {
+    "sdk_pr": 121,
+    "sdk_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+    "fresh_python_processes": 1,
+    "python": "3.14.6",
+    "script_sha256": "2144e1d735832d3e9c2ce6639032056ab5c67f2be152a629eecd271cd6cdae7f",
+    "receipt_sha256": "3a71c7506c5744c9fb7da38f6d5397049934b769ad488eda35b28cca8ab7b3a2",
+    "input_sha256_before": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+    "input_sha256_after": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+    "bytes": 44816,
+    "native_processes_launched": 0,
+    "archive_stream_count": 37,
+    "public_reads": {
+      "default_strict": {
+        "options": {
+          "source_format": "solidworks.sldprt",
+          "strict": true
+        },
+        "effective_include_brep": true,
+        "effective_include_tessellation": true,
+        "status": "returned",
+        "document_sha256": "46d6dede3afa3decdc7a72387de22e9e1041d00835c2a4d8cc12e67fb653b29d",
+        "geometry": {
+          "has_brep": false,
+          "body_count": 1,
+          "brep_counts": null,
+          "mesh_count": 0,
+          "payloads": [
+            {
+              "kind": "partition",
+              "schema": "SCH_3701250_37102_13006",
+              "source_stream": "Contents/Config-0-GhostPartition",
+              "bytes": 1177,
+              "sha256": "4e7dc4d95fadf8747500c4de0bf571782870fbad109b3636c45c6f0bb531e007"
+            },
+            {
+              "kind": "partition",
+              "schema": "SCH_3701250_37102_13006",
+              "source_stream": "Contents/Config-0-Partition",
+              "bytes": 7110,
+              "sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56"
+            },
+            {
+              "kind": "deltas",
+              "schema": "SCH_3701250_37102_13006",
+              "source_stream": "Contents/Config-0-Partition",
+              "bytes": 1152,
+              "sha256": "bdc04392b3c324282348e70d315b2fb467e902c16e7eb5e83a9c889d58e94d0d"
+            }
+          ]
+        },
+        "diagnostics": [],
+        "validation": []
+      },
+      "model_only_strict": {
+        "options": {
+          "source_format": "solidworks.sldprt",
+          "strict": true,
+          "include_brep": false,
+          "include_tessellation": false
+        },
+        "effective_include_brep": false,
+        "effective_include_tessellation": false,
+        "status": "returned",
+        "document_sha256": "2f11d7c376b29710d908183c4fe37243f08ed5eca472b388069d24a40a1fb8ae",
+        "geometry": {
+          "has_brep": false,
+          "body_count": 1,
+          "brep_counts": null,
+          "mesh_count": 0,
+          "payloads": []
+        },
+        "diagnostics": [],
+        "validation": []
+      }
+    },
+    "shared_public_projection": {
+      "feature_count": 26,
+      "sketch_count": 1,
+      "boss_name": "BlindBoss",
+      "boss_id": "sldprt:feature:71",
+      "feature_kind": "extrusion",
+      "feature_definition": "ExtrusionFeature",
+      "operation": "join",
+      "profile_id": "sldprt:sketch:57",
+      "input_feature_ids": [
+        "sldprt:feature:57"
+      ],
+      "output_body_ids": [],
+      "end_condition": "blind",
+      "direction_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "depth_parameter_id": "sldprt:parameter:71:depth_mm",
+      "depth_parameter_owner": "sldprt:feature:71",
+      "depth_parameter_role": "driving",
+      "depth_mm": 12.0,
+      "depth_si_word": "0x1.89374bc6a7efap-7",
+      "depth_provenance": [
+        {
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "offset": 14026,
+          "length": 8,
+          "record_kind": "dimension-scalar"
+        }
+      ],
+      "design_body_label": "Body 1",
+      "design_body_final_feature_id": "sldprt:feature:71",
+      "design_body_native_object_id": null,
+      "design_body_summary_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          40.0,
+          20.0,
+          12.0
+        ]
+      ]
+    },
+    "sketch_relations": {
+      "raw_saved_order": [
+        "horizontal",
+        "vertical",
+        "horizontal",
+        "vertical",
+        "height_mm",
+        "width_mm",
+        "coincident"
+      ],
+      "saved": 7,
+      "inferred": 4
+    },
+    "separate_full_typed_route": {
+      "status": "refused",
+      "type": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported",
+      "message": "unsupported SOLIDWORKS body class moSimpleSurfIdRep_c schema 1",
+      "route": "convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink.ReadNativeLink(archive, 0)"
+    },
+    "native_driver_comparator": {
+      "name": "depth_mm",
+      "owner_feature": "BlindBoss",
+      "owner_identity": 1,
+      "driven_state": 2,
+      "system_m_word": "0x1.89374bc6a7efap-7",
+      "definition_depth_m_word": "0x1.89374bc6a7efap-7"
+    },
+    "pinned_sdk_source_hashes": {
+      "src/convert/api/__init__.py": "bdb39b6c21aac0a643632ffacbb56ff78d351303b336d837bc305acc6d877da2",
+      "src/convert/adapters/solidworks/Container/Container.py": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81",
+      "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "2c876f38a19ae28ddda06e8bc76dc83fbe272055b6158cc1b36089382d5b70e5"
+    }
+  }
+}
