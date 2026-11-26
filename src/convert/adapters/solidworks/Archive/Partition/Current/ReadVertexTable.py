@@ -7,6 +7,9 @@ from convert.Geometry.Parasolid import (
     ScanPartRecords,
 )
 from convert.adapters.solidworks.Archive.Partition.CheckXmtGraph import CheckXmtGraph
+from convert.adapters.solidworks.Archive.Partition.Current.CheckUsedRows import (
+    CheckUsedRows,
+)
 from convert.adapters.solidworks.Archive.Partition.Current.ReadVertexRows import (
     ReadVertexRows,
 )
@@ -26,7 +29,7 @@ def ReadVertexTable(DataValue: bytes) -> RecordTables | None:
     Tables = ScanPartRecords(BodyData, TerminalFinVertices=True)
     if Tables is None or not Tables.terminal_fin_vertices or not Tables.bridges:
         return None
-    Vertices, FinSpans = ReadVertexRows(BodyData, Nodes, Tables.points)
+    Vertices, FinSpans, Spans = ReadVertexRows(BodyData, Nodes, Tables.points)
     if Vertices.keys() != Tables.vertex_uses.keys():
         return None
     FoundShadow = False
@@ -39,4 +42,8 @@ def ReadVertexTable(DataValue: bytes) -> RecordTables | None:
             ):
                 return None
             FoundShadow = True
-    return ReplaceValue(Tables, vertex_uses=Vertices) if FoundShadow else None
+    if not FoundShadow:
+        return None
+    Recovered = ReplaceValue(Tables, vertex_uses=Vertices)
+    CheckUsedRows(BodyData, Recovered, Nodes, Spans)
+    return Recovered
