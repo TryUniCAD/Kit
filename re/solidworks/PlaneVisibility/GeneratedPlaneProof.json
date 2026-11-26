@@ -100,5 +100,27 @@
     "unknown raw display_bits field",
     "duplicate visibility field"
   ],
-  "inverse_native_source_custody_sha256": "ff47757552efa482f2f3023c607ab912c161ffc9b904289be5d912b171e7fa59"
+  "inverse_native_source_custody_sha256": "ff47757552efa482f2f3023c607ab912c161ffc9b904289be5d912b171e7fa59",
+  "native_generated_preflight": {
+    "terminal_sha256": "c12c2b44642581aa7430a9435eb2cd0ded0e60a6da257fc630f5503ec98ab82c",
+    "closed_control_lifetimes": 2,
+    "controls_healthy": true,
+    "generated_candidate_lifetimes": 0,
+    "free_c_drive_bytes": [
+      100474880,
+      81879040,
+      55001088
+    ],
+    "remaining_solidworks_processes": 0,
+    "stop_reason": "system-volume floor before launching a candidate"
+  },
+  "private_recovery": {
+    "filename": "PrivatePlaneEvidence01.tar.gz",
+    "archive_sha256": "9bdcf578361acb632d166e6be9f63b2b16e0050b13cfe6c5abbc12b0c4381799",
+    "private_manifest_sha256": "2201652c2b98dbe11cab92a5c970c22d6efa60339129840021ebbd9b4a5e2ae2",
+    "archive_bytes": 657831,
+    "verified_members": 75,
+    "source_request_bindings": 12,
+    "originals_preserved": true
+  }
 }
