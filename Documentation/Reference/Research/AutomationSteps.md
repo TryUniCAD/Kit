@@ -768,3 +768,13 @@ The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact 
 The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
 Native integration gaps, complete sketch and feature semantics, and editable target conversion remain open under B02–B05.
 Existing SOLIDWORKS PR #121 and revolution PR #244 retain their separate delivery ownership.
+
+#### A08h-RimFillet20261125: circular rim fillet read/write packs
+
+Codex owns this checking task on `feat/native-conversion-campaign-20261125`, based on main `66d4f5b856833833bbf67fe62a61c3450d8dc76f`.
+Delivery: [PR #301](https://github.com/TryUniCAD/Kit/pull/301).
+Dependencies are the native API, source-free constructor, controller and typed codecs.
+The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native checks, 12 exact generated-payload cycles, five native-source cycles and seven snapshot-width refusals.
+All strict neutral and public conversion refusals remain explicit.
+The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
+The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.

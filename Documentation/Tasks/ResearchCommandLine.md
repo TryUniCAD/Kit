@@ -502,3 +502,8 @@ Another installation can shadow the executable installed with Python 3.14.
 Resolve `kit` before resuming a durable native campaign and inspect its entry-point interpreter.
 Use the verified installation's absolute path if necessary.
 The [shadowed launcher gotcha](../Gotchas/Research/Supervisor/Runtime/ShadowedKitLauncher.md) records the observed supervisor failure and safe repair.
+
+## Circular rim fillet qualification pack
+
+The [rim-fillet pack](../../re/Fusion/RimFilletPack/README.md) separates source-free writer acceptance, typed reconstruction and public conversion refusals.
+Replay uses existing codecs without a CAD runtime. Native measurements remain revision-bound research evidence.
