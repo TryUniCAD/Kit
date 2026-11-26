@@ -63,6 +63,39 @@ its signed outward rings, retain older and unsupported profile behavior, and
 pass an independently authored case sealed before implementation. Native
 acceptance and complete source preservation have separate exit criteria.
 
+#### B04-SW2026-P03-ATTRIBUTED-ACTIVE-BREP
+
+The SOLIDWORKS reader lane owns this planned production child on
+`codex/sw-p03-attributed-active-brep`. The external claim and separate
+delivery PR are pending. It starts from [PR #340](https://github.com/TryUniCAD/Kit/pull/340)
+at `a5ffad5483db0f99a6162e1934786da41cbc2063`. It uses the
+[trim research](https://github.com/TryUniCAD/Kit/pull/343), the
+[complete owner evidence](https://github.com/TryUniCAD/Kit/blob/3e679f036f48cce3b56950bad5a6cb6df637270d/re/solidworks/records/SavedActiveOwnerBoundary.md)
+and the [prior native measurements](https://github.com/TryUniCAD/Kit/pull/338).
+The child does not merge either research branch or change the reader
+ownership of [PR #121](https://github.com/TryUniCAD/Kit/pull/121),
+[PR #254](https://github.com/TryUniCAD/Kit/pull/254) or
+[PR #255](https://github.com/TryUniCAD/Kit/pull/255).
+
+After the normal and fin-shadow decoders both return no model, the new
+path may qualify a current active partition with one supported planar
+solid. It requires the complete typed active graph, reciprocal saved
+owners, finite vertex incidence, valid oriented boundaries and proved
+carrier links. It keeps all saved attributes and full original payloads
+and binds the source face annotations that the existing projection
+supports. The unchanged generic scanner, imported local and pocket
+readers, rollback records, raw extraction, and model-only behavior stay
+outside this child.
+
+Exit requires fresh installed SDK and CLI process evidence that the
+exact saved derivative restores its B-rep with all eight vertices and
+native-measured geometry, because its typed attributed rows are retained.
+The existing six-case matrix must stay correct. Unsupported or
+inconsistent graph, carrier and annotation cases must still refuse.
+The test records the exported payload hashes and exact admitted source.
+The merge queue, production writer and whole-source conversion remain
+separate. No new CAD run is required for this decoder evidence.
+
 ### PR 158 implementation follow-up
 
 #### A08b-SharedQueue: shared research requests and advice budgets
