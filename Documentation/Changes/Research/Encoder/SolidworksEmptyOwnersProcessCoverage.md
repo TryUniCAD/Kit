@@ -28,3 +28,20 @@ platform's compression backend.
 This is offline process coverage. It does not establish native acceptance,
 ordinary source admission or full-source preservation. See the
 [usage and recorded verification](../../../../re/solidworks/records/EmptyOwnersPartComposition.md#maintained-process-coverage).
+
+## Actual verification
+
+The affected maintained case passed on CPython 3.14.6 for Windows in 60.42
+seconds at implementation commit `21aa8e06cc871a2310e6ebb43f47ddcedc6225ab`.
+The executed composer SHA-256 was
+`d53b991761ec6acecc1b7e575a3da6b76646804f6d9b0f8a12b3496289ee39a1`.
+The smoke command SHA-256 was
+`3bd3aba651ea727c8fe4df894fafe0c2ab130546bc005b0cb0a9e996e58a98ea`.
+Its `Smoke.json` SHA-256 was
+`7da54a225176d43295650179a1436efe18cb9a66b6b928676dd21ce3508e54a2`.
+
+The fresh positive emitted the existing `e5b83d46…` archive. The unsupported
+integer request exited 1 without output. The original full-proof reports
+remain bound to the earlier `dbe67e0b…` composer; they were not rewritten as
+evidence for this import repair. Python steering and changed-source rationale
+checks passed for both maintained test files. No CAD process was launched.

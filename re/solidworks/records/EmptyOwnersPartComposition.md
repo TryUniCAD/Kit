@@ -45,4 +45,17 @@ remain unchanged. The smoke binds compressed bytes to the emitted receipt so
 the normal platform compression backend may differ. This complements the
 recorded full proof rather than repeating its complete control matrix.
 
+For an independent invocation with the same exact dependency checkouts:
+
+```powershell
+python -I -B re/solidworks/RendererBoundary/CheckEmptyOwnersCli.py --dependency-root $reader121 --property-root $propertyRoot --output $unusedSmoke
+```
+
+The affected maintained case passed locally in 60.42 seconds with CPython
+3.14.6 for Windows. Its fresh archive matched `e5b83d46…`; its integer request
+exited 1 without output. The command records the executed composer hash in
+`Smoke.json`. The original full control evidence retains its earlier composer
+identity. The maintained run also exposed and repaired a
+[property import search-path collision](../../../Documentation/Gotchas/Research/Writers/SolidworksPropertyImportChangesCallerSearchPath.md).
+
 [Process coverage change](../../../Documentation/Changes/Research/Encoder/SolidworksEmptyOwnersProcessCoverage.md)
