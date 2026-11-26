@@ -70,6 +70,16 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### B10-RunDefaults
+
+Codex owns the profile-independent catalogue shortcut on `codex/desktop-run-defaults`.
+It depends on the installed CLI bridge and the explicitly selected trusted research checkout.
+The [change entry](../Changes/Commands/SavedRunDefaults.md) defines configuration and limits.
+Its exit requires actual installed-command checks without a shell profile, current-head CI and configured review.
+[PR #290](https://github.com/TryUniCAD/Kit/pull/290) records the revision and verification evidence.
+This child task does not claim the broader B10 usability exit or CAD conversion acceptance.
+Native batch execution remains separately owned by [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+
 ### A08h-OwnedExit: SOLIDWORKS catalogue shutdown repair
 
 Task `A08h-OwnedExit` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ownedexit-catalogue-capture-shutdown).
@@ -85,6 +95,11 @@ attempt after the empty-session exit request. The final worker and batch
 retry recovered the same case on a third fresh attempt after two timeouts.
 The written-recipe geometry repair has separate delivery in
 [PR #291](https://github.com/TryUniCAD/Kit/pull/291).
+
+Task `A08h-CaseIsolation` consolidates the shutdown and thin-wall repair and
+adds per-case catalogue rejection handling. Its exit requires real process
+evidence that healthy sibling decoders can run when a bad bundle is withheld.
+[Owning register](../Reference/Research/AutomationSteps.md#a08h-caseisolation)
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
@@ -598,6 +613,13 @@ The shared encoder worker owns [A13a-FusionPreparedInputs](../Reference/Research
 [PR #303](https://github.com/TryUniCAD/Kit/pull/303) records Fusion saved-cuboid writer research with observed same-source replay.
 [PR #304](https://github.com/TryUniCAD/Kit/pull/304) records SOLIDWORKS native evidence for a separate, source-free candidate with one Top annotation view.
 Both format tasks still require complete source admission and independent native acceptance for their wider scopes.
+
+## Native sketch ownership and blind boss evidence
+
+The shared encoder worker owns [A06d-NativeSketchOwnership](../Reference/Research/AutomationSteps.md#a06d-nativesketchownership-saved-solidworks-sketch-ownership-in-comparison).
+[PR #302](https://github.com/TryUniCAD/Kit/pull/302) adds reader-reported native sketch ownership to comparison reports. Independent semantic qualification remains required.
+[PR #300](https://github.com/TryUniCAD/Kit/pull/300) is the research evidence delivery for [A12b](../Reference/Research/AutomationSteps.md#a12b-vendor-authored-blind-boss-admission).
+Whole-source admission, writing, and measured native acceptance remain open.
 
 ## Shared research queue coordination
 

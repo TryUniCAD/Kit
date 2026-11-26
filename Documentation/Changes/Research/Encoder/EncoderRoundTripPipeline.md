@@ -34,6 +34,7 @@ Use an installed Python 3.14 CLI and an absolute, trusted research checkout.
 The selected checkout must contain both the SDK and the format adapter.
 Choose a source file within the adapter's declared bounded scope and an unused output directory.
 The depth below is a requested edit in millimetres.
+For SOLIDWORKS, the request sets the absolute depth in millimetres even when both linked lengths use another unit. [SOLIDWORKS absolute depth units](SolidworksAbsoluteDepthUnits.md).
 
 ```sh
 kit research --root /absolute/KitResearch encoder-round-trip run \

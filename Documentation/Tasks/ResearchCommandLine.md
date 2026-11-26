@@ -200,6 +200,12 @@ Run `kit run --root . auto --input /path/to/unknown --directory /tmp/KitUnknownR
 
 ## Run a CAD catalogue with optional advice
 
+For a repeated catalogue setup, configure [saved run defaults](../Changes/Commands/SavedRunDefaults.md).
+Then use `kit run solidworks` or `kit run fusion` for the configured format.
+The installed executable reads the private defaults directly.
+Each new catalogue run gets a unique output directory.
+Explicit options override defaults; explicit `--root` bypasses the preset.
+
 Use a clean checkout with the catalogue runner and install Kit from that revision with
 `uv tool install --python 3.14 .`. Obtain [Fusion Catalog.sqlite](https://github.com/TryUniCAD/Kit/pull/163)
 or [SOLIDWORKS FeaturePlan.json](https://github.com/TryUniCAD/Kit/pull/164).
@@ -280,6 +286,10 @@ across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
 recipes share native batches of at most three cases, with separate decoder jobs.
 Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
+After both owned native phases finish, a case-level verification failure
+records a `native_rejection` in the catalogue result. Verified sibling cases
+can continue through their own decoder jobs.
+[Batch rejection handling](../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
 The [thin-wall side check](../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
