@@ -403,7 +403,8 @@ def dispatch(session, config, operation=OPERATION):
                "claim": "unqualified_dispatch", "native_qualified": False}
     if os.name != "nt" or config["application"] != "solidworks":
         return {"outcome": "waiting_application", "reason": "SOLIDWORKS readback requires Windows", "records": records}
-    deadline = min(job["stop_at"] - 1, time.time() + 300)
+    # recording the timeout takes several fsynced writes that must finish before the supervisor breaks the session at stop_at
+    deadline = min(job["stop_at"] - 3, time.time() + 300)
     require(deadline > time.time(), "application session has no remaining dispatch budget")
     verify_sources(config)
     client = None
