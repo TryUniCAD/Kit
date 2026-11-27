@@ -1,0 +1,731 @@
+{
+  "archive_codec_revision": "31254df08b173d8cd218cf6b0b81b9703ae23fea",
+  "cases": {
+    "OpenShell.SLDPRT": {
+      "archive": {
+        "archive_replays": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "map_counter": 60,
+            "root_class": "uiPartDoc_c",
+            "root_fields": 78,
+            "sha256": "be80e77608e2866f4572a835226e4fc2d3feba8882d356457a174e7780282b9d"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "d139362157acd668f7b87c16f076eb0f3147b982e22e3b6d0146e6461526ee49"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "789f92a8689f992743b6ff4c538c14eea86d4bdd87491ec470f7010d51c84d14"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 1455,
+            "map_counter": 3,
+            "root_class": "moBiography_c",
+            "sha256": "ebc8c3643ea83cd1f6cfba34f46f0b4591ee2b7466561c7191dde5f2e3746e1a"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 101,
+            "map_counter": 5,
+            "root_class": "moVersionHistory_c",
+            "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+          }
+        },
+        "bookkeeping": {
+          "body": 111,
+          "creation_time": 1795360543,
+          "update": 137
+        },
+        "cache_inventory": {
+          "Contents/Config-0-LWDATA": {
+            "bytes": 1437,
+            "sha256": "ae329df40a158acdb2da0c3eaa31e7f4f5b3d0fab7ac9c8cd5c83f18217f8d04"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 7013,
+            "sha256": "0ad9b696e6e87a497180380159aa0f5a3575993168fbdb2c41bad563277ebbf5"
+          },
+          "Contents/DisplayLists": {
+            "bytes": 17966,
+            "sha256": "676110d73bdfa3fbfa4371f17cf2a6711dda3ad698cc7ddd0328c4f933921b7d"
+          }
+        },
+        "delete_only_refusal": "current kernel framing differs",
+        "owners": {
+          "atom_id": 101,
+          "controller_marks": [
+            3,
+            12,
+            15
+          ],
+          "controller_slots": [
+            103,
+            256,
+            275
+          ],
+          "creator_id": 32,
+          "creator_name": "ShellStockBoss",
+          "creator_time": 1795360551,
+          "kernel_body_tag": 1855,
+          "modifier_id": 34,
+          "modifier_name": "OpenShell",
+          "selected_carriers": [
+            [
+              "moEndFaceSurfIdRep_c",
+              1,
+              0
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              4,
+              null
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              1,
+              null
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              2,
+              null
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              3,
+              null
+            ]
+          ],
+          "selected_ref_slot": 280,
+          "selected_ref_tag": 1857,
+          "stock_bounds_metres": [
+            [
+              -0.0265,
+              -0.0205,
+              0.0
+            ],
+            [
+              0.0265,
+              0.0205,
+              0.028
+            ]
+          ],
+          "unknown_end_words": {
+            "f150": 276322832,
+            "f154": 277173280
+          }
+        },
+        "post_import_data_accesses": 0
+      },
+      "rollback": {
+        "active_attributes": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1855,
+          "ENT_TIME_STAMP_2001": 111,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34,
+          "label": "OpenShell",
+          "label_attribute": 278,
+          "label_value": 289
+        },
+        "body_slot": 2,
+        "cap": {
+          "active_rim_loop_count": 2,
+          "actual_stock_carriers": [
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                3,
+                null
+              ],
+              "slot": 179
+            },
+            {
+              "role": [
+                "moEndFaceSurfIdRep_c",
+                0,
+                0
+              ],
+              "slot": 171
+            },
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                2,
+                null
+              ],
+              "slot": 168
+            },
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                4,
+                null
+              ],
+              "slot": 43
+            },
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                1,
+                null
+              ],
+              "slot": 190
+            },
+            {
+              "role": [
+                "moEndFaceSurfIdRep_c",
+                1,
+                0
+              ],
+              "slot": 300
+            }
+          ],
+          "restored_cap_attribute_slot": 303,
+          "restored_cap_loop_slot": 62,
+          "restored_cap_ordinal": 1,
+          "restored_cap_slot": 300,
+          "same_key_active_attribute_slot": 220,
+          "same_key_active_rim_slot": 41,
+          "stock_body_slot": 2,
+          "stock_faces_edges_vertices": [
+            6,
+            12,
+            8
+          ]
+        },
+        "current_mark_slot": 297,
+        "exact_uncompressed_replays": {
+          "deltas": "c2c702c72e7cc1fdd8765cf34fe8b9841c2b86689e8b75ee17b6159408337d3b",
+          "partition": "37c1c327942c2117025686f8c37a480392693643b84d2822b4a3e12b5879cc22"
+        },
+        "partition_root_slot": 296,
+        "physical_mark_order": [
+          15,
+          1,
+          3,
+          12
+        ],
+        "post_import_data_accesses": 0,
+        "reframed_transport": {
+          "same_uncompressed_payloads": true,
+          "source_bytes_equal": true
+        },
+        "restored_attributes": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1855,
+          "ENT_TIME_STAMP_2001": 109,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "label": "ShellStockBoss",
+          "label_attribute": 278,
+          "label_value": 299
+        },
+        "schema": "SCH_3701250_37102_13006",
+        "source_transport": {
+          "bytes": 7013,
+          "sha256": "0ad9b696e6e87a497180380159aa0f5a3575993168fbdb2c41bad563277ebbf5",
+          "wrapper_offsets": [
+            0,
+            4835
+          ]
+        },
+        "stages": [
+          {
+            "delta_key": 3,
+            "mark": 15,
+            "mark_slot": 297,
+            "next_slot": 0,
+            "node_count": 292,
+            "previous_slot": 298,
+            "stage": "shell",
+            "typed_transaction": {
+              "copied": 38,
+              "copy_capacity": 41,
+              "header_counts": [
+                149,
+                15,
+                11
+              ],
+              "payload_span": [
+                144,
+                3262
+              ],
+              "qualifier_slots": {
+                "0": 21,
+                "1": 79
+              },
+              "removed": 135,
+              "restored": 12
+            },
+            "world": {
+              "alive": 1,
+              "attrib_def": 3,
+              "body": 2,
+              "current_id": 15,
+              "highest_id": 15
+            }
+          },
+          {
+            "delta_key": 1,
+            "mark": 12,
+            "mark_slot": 298,
+            "next_slot": 297,
+            "node_count": 169,
+            "previous_slot": 312,
+            "stage": "stock",
+            "typed_transaction": {
+              "copied": 1,
+              "copy_capacity": 1,
+              "header_counts": [
+                158,
+                0,
+                0
+              ],
+              "payload_span": [
+                3437,
+                4081
+              ],
+              "qualifier_slots": {
+                "0": 0,
+                "1": 1
+              },
+              "removed": 142,
+              "restored": 0
+            },
+            "world": {
+              "alive": 1,
+              "attrib_def": 0,
+              "body": 2,
+              "current_id": 0,
+              "highest_id": 0
+            }
+          },
+          {
+            "delta_key": 2,
+            "mark": 3,
+            "mark_slot": 312,
+            "next_slot": 298,
+            "node_count": 27,
+            "previous_slot": 311,
+            "stage": "activation",
+            "typed_transaction": {
+              "copied": 1,
+              "copy_capacity": 1,
+              "header_counts": [
+                0,
+                0,
+                0
+              ],
+              "payload_span": [
+                3328,
+                3404
+              ],
+              "qualifier_slots": {
+                "0": 0,
+                "1": 1
+              },
+              "removed": 0,
+              "restored": 0
+            },
+            "world": {
+              "alive": 1,
+              "attrib_def": 0,
+              "body": 0,
+              "current_id": 0,
+              "highest_id": 0
+            }
+          },
+          {
+            "delta_key": 0,
+            "mark": 1,
+            "mark_slot": 311,
+            "next_slot": 312,
+            "node_count": 27,
+            "previous_slot": 0,
+            "stage": "initial",
+            "typed_transaction": null,
+            "world": {
+              "alive": 0,
+              "attrib_def": 0,
+              "body": 0,
+              "current_id": 0,
+              "highest_id": 0
+            }
+          }
+        ]
+      },
+      "source_sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd"
+    },
+    "OpenShellEdited.SLDPRT": {
+      "archive": {
+        "archive_replays": {
+          "Contents/CnfgObjs": {
+            "bytes": 12,
+            "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06"
+          },
+          "Contents/Definition": {
+            "bytes": 3816,
+            "map_counter": 60,
+            "root_class": "uiPartDoc_c",
+            "root_fields": 78,
+            "sha256": "be80e77608e2866f4572a835226e4fc2d3feba8882d356457a174e7780282b9d"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "68c4938f132f95f0fcdcd746e9d1c7f488a743cef5e7aa8f8479e19c54847a3c"
+          },
+          "_DL_VERSION_19000/DLUpdateStamp": {
+            "bytes": 6,
+            "sha256": "37f76ab9a476f8407c16daf7c74e969ae6bd0f1ee37729cf1fd9186817c90343"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 1467,
+            "map_counter": 3,
+            "root_class": "moBiography_c",
+            "sha256": "adf3174892ab0672c115933076116eabe3f3a5df661750ff9631f6726192416f"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 101,
+            "map_counter": 5,
+            "root_class": "moVersionHistory_c",
+            "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+          }
+        },
+        "bookkeeping": {
+          "body": 115,
+          "creation_time": 1795360543,
+          "update": 152
+        },
+        "cache_inventory": {
+          "Contents/Config-0-LWDATA": {
+            "bytes": 1437,
+            "sha256": "3ddc18b96a2ea7e73388222c062bd27a46b97db08d356de1f6d2ee364a887e6e"
+          },
+          "Contents/Config-0-Partition": {
+            "bytes": 7007,
+            "sha256": "a7cf672f6f5e5927854059f58f80db0dc242aaec873d34bc7bd473a142409c4d"
+          },
+          "Contents/DisplayLists": {
+            "bytes": 17966,
+            "sha256": "7718a3b8f3899a2d5a6e23abb66db4047e9315144631c5e46421cfdcd9ec1fc6"
+          }
+        },
+        "delete_only_refusal": "current kernel framing differs",
+        "owners": {
+          "atom_id": 101,
+          "controller_marks": [
+            3,
+            17,
+            20
+          ],
+          "controller_slots": [
+            103,
+            256,
+            275
+          ],
+          "creator_id": 32,
+          "creator_name": "ShellStockBoss",
+          "creator_time": 1795360551,
+          "kernel_body_tag": 2579,
+          "modifier_id": 34,
+          "modifier_name": "OpenShell",
+          "selected_carriers": [
+            [
+              "moEndFaceSurfIdRep_c",
+              1,
+              0
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              4,
+              null
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              1,
+              null
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              2,
+              null
+            ],
+            [
+              "moFromSktEntSurfIdRep_c",
+              3,
+              null
+            ]
+          ],
+          "selected_ref_slot": 280,
+          "selected_ref_tag": 2581,
+          "stock_bounds_metres": [
+            [
+              -0.0265,
+              -0.0205,
+              0.0
+            ],
+            [
+              0.0265,
+              0.0205,
+              0.028
+            ]
+          ],
+          "unknown_end_words": {
+            "f150": 276322832,
+            "f154": 277173280
+          }
+        },
+        "post_import_data_accesses": 0
+      },
+      "rollback": {
+        "active_attributes": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 2579,
+          "ENT_TIME_STAMP_2001": 115,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 34,
+          "label": "OpenShell",
+          "label_attribute": 278,
+          "label_value": 288
+        },
+        "body_slot": 2,
+        "cap": {
+          "active_rim_loop_count": 2,
+          "actual_stock_carriers": [
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                3,
+                null
+              ],
+              "slot": 178
+            },
+            {
+              "role": [
+                "moEndFaceSurfIdRep_c",
+                0,
+                0
+              ],
+              "slot": 173
+            },
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                2,
+                null
+              ],
+              "slot": 168
+            },
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                4,
+                null
+              ],
+              "slot": 43
+            },
+            {
+              "role": [
+                "moFromSktEntSurfIdRep_c",
+                1,
+                null
+              ],
+              "slot": 186
+            },
+            {
+              "role": [
+                "moEndFaceSurfIdRep_c",
+                1,
+                0
+              ],
+              "slot": 300
+            }
+          ],
+          "restored_cap_attribute_slot": 303,
+          "restored_cap_loop_slot": 64,
+          "restored_cap_ordinal": 1,
+          "restored_cap_slot": 300,
+          "same_key_active_attribute_slot": 220,
+          "same_key_active_rim_slot": 41,
+          "stock_body_slot": 2,
+          "stock_faces_edges_vertices": [
+            6,
+            12,
+            8
+          ]
+        },
+        "current_mark_slot": 297,
+        "exact_uncompressed_replays": {
+          "deltas": "b4c8a041f839d871897fd0ff695e833d26c0489aca54952f99c6ee3cd5373279",
+          "partition": "ed851b373fe1a83178020591e05bd7fad7c3420641d42d6ea9f0e17e8d2b20f1"
+        },
+        "partition_root_slot": 296,
+        "physical_mark_order": [
+          20,
+          1,
+          3,
+          17
+        ],
+        "post_import_data_accesses": 0,
+        "reframed_transport": {
+          "same_uncompressed_payloads": true,
+          "source_bytes_equal": true
+        },
+        "restored_attributes": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 2579,
+          "ENT_TIME_STAMP_2001": 113,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 32,
+          "label": "ShellStockBoss",
+          "label_attribute": 278,
+          "label_value": 299
+        },
+        "schema": "SCH_3701250_37102_13006",
+        "source_transport": {
+          "bytes": 7007,
+          "sha256": "a7cf672f6f5e5927854059f58f80db0dc242aaec873d34bc7bd473a142409c4d",
+          "wrapper_offsets": [
+            0,
+            4831
+          ]
+        },
+        "stages": [
+          {
+            "delta_key": 3,
+            "mark": 20,
+            "mark_slot": 297,
+            "next_slot": 0,
+            "node_count": 292,
+            "previous_slot": 298,
+            "stage": "shell",
+            "typed_transaction": {
+              "copied": 38,
+              "copy_capacity": 41,
+              "header_counts": [
+                149,
+                15,
+                11
+              ],
+              "payload_span": [
+                144,
+                3262
+              ],
+              "qualifier_slots": {
+                "0": 21,
+                "1": 79
+              },
+              "removed": 135,
+              "restored": 12
+            },
+            "world": {
+              "alive": 1,
+              "attrib_def": 3,
+              "body": 2,
+              "current_id": 20,
+              "highest_id": 20
+            }
+          },
+          {
+            "delta_key": 1,
+            "mark": 17,
+            "mark_slot": 298,
+            "next_slot": 297,
+            "node_count": 169,
+            "previous_slot": 312,
+            "stage": "stock",
+            "typed_transaction": {
+              "copied": 1,
+              "copy_capacity": 1,
+              "header_counts": [
+                158,
+                0,
+                0
+              ],
+              "payload_span": [
+                3437,
+                4081
+              ],
+              "qualifier_slots": {
+                "0": 0,
+                "1": 1
+              },
+              "removed": 142,
+              "restored": 0
+            },
+            "world": {
+              "alive": 1,
+              "attrib_def": 0,
+              "body": 2,
+              "current_id": 0,
+              "highest_id": 0
+            }
+          },
+          {
+            "delta_key": 2,
+            "mark": 3,
+            "mark_slot": 312,
+            "next_slot": 298,
+            "node_count": 27,
+            "previous_slot": 311,
+            "stage": "activation",
+            "typed_transaction": {
+              "copied": 1,
+              "copy_capacity": 1,
+              "header_counts": [
+                0,
+                0,
+                0
+              ],
+              "payload_span": [
+                3328,
+                3404
+              ],
+              "qualifier_slots": {
+                "0": 0,
+                "1": 1
+              },
+              "removed": 0,
+              "restored": 0
+            },
+            "world": {
+              "alive": 1,
+              "attrib_def": 0,
+              "body": 0,
+              "current_id": 0,
+              "highest_id": 0
+            }
+          },
+          {
+            "delta_key": 0,
+            "mark": 1,
+            "mark_slot": 311,
+            "next_slot": 312,
+            "node_count": 27,
+            "previous_slot": 0,
+            "stage": "initial",
+            "typed_transaction": null,
+            "world": {
+              "alive": 0,
+              "attrib_def": 0,
+              "body": 0,
+              "current_id": 0,
+              "highest_id": 0
+            }
+          }
+        ]
+      },
+      "source_sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810"
+    }
+  },
+  "fresh_guarded_workers": 4,
+  "heldout_credit": 0,
+  "kernel_codec_revision": "0167c3e33a045b82fb9ac17a5aa10560b2070ba8",
+  "native_build": "34.5.2.0604",
+  "native_publications": 0,
+  "private_sources_read": 0,
+  "schema": "kit-sw2026-saved-shell-rollback-v1",
+  "source_lock_sha256": "d469a4d75549f1c95948047264c118adadb3b843b3376218140baa61c752987b"
+}
