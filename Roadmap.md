@@ -33,6 +33,11 @@ Registration, same-format reconstruction and retained native bytes do not establ
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md) define the writer's supported geometry and measurement gate.
 
+[PR #397](https://github.com/TryUniCAD/Kit/pull/397) adds bounded reversed cold-part reading and generative candidate preparation.
+Its exact native publication gate remains enforced; new reversed native acceptance is unavailable while the CAD API is down.
+Fusion independent-side geometry comparisons remain separate from complete strict projection and writer acceptance.
+These pending changes do not close M2 or establish full decoded-feature conversion support.
+
 ## Destination
 
 A fully functional release covers all nine CAD families above through one documented public SDK and CLI.

@@ -1005,17 +1005,29 @@ Dependencies are the existing A04/A05/A11/A12/A13/A14 contracts, recorded native
 The claim and coordination are recorded on PRs #94, #121 and #299; existing PRs #244/#297/#299/#303/#396 retain their delivery scopes.
 Planning PR #392 remains separate and unmerged; retain the existing claim until stable register linking is available.
 
-| Child                              | Decided scope                                                                                      | Owner                   | Status | Exit                                                                                                                                                |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A11-GeneratedOffsetSpan20261127    | Source-free XY circular two-sided signed-offset generation and SDK/CLI admission                   | Codex root              | active | Complete generated field rules, native held-out edits/restoration/rebuild/save/fresh reopen, strict public reads/writes and shared-suite acceptance |
-| A11-CircularStatePromotion20261127 | Complete typed-state preservation and candidate qualification for existing circular extent readers | Codex Fusion worker     | active | Exact generated candidates pass native lifecycle and source preservation; neutral-distance generation remains distinct                              |
-| A12-ReverseBlindBoss20261127       | Generative reverse blind line-loop boss direction and coupled reader/body proof                    | Codex SOLIDWORKS worker | active | Native source-admitted direction/body grammar and held-out editable generated candidates pass public SDK/CLI and native acceptance                  |
+| Child                              | Decided scope                                                                                            | Owner                   | Status | Exit                                                                                                                                                              |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A11-GeneratedOffsetSpan20261127    | Source-free XY circular two-sided signed-offset generation and SDK/CLI admission                         | Codex root              | active | Complete generated field rules, native held-out edits/restoration/rebuild/save/fresh reopen, strict public reads/writes and shared-suite acceptance               |
+| A11-CircularStatePromotion20261127 | Complete typed-state preservation and candidate qualification for existing circular extent readers       | Codex Fusion worker     | active | Exact generated candidates pass native lifecycle and source preservation; neutral-distance generation remains distinct                                            |
+| A12-ReverseBlindBoss20261127       | Generative reverse blind line-loop boss direction and coupled reader/body proof                          | Codex SOLIDWORKS worker | active | Native source-admitted direction/body grammar and held-out editable generated candidates pass public SDK/CLI and native acceptance                                |
+| A11-DualDraftGeometry20261127      | Generic two-sided circular draft BRep and complete mass comparison against committed native observations | Codex Fusion worker     | active | Independent side geometry, complete mass tensor and archive counterexamples pass; strict projection retains separate identity, snapshot, material and scene gates |
 
 The [change entry](../../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links both complete family inventories and revision-bound prototype evidence.
 Thirteen source-free Fusion span candidates pass typed equality and 117 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
 SOLIDWORKS reverse candidates and genuine saved controls retain their explicit typed-grammar, geometry and native-acceptance gaps.
-No production support flag or public qualification guard was broadened by this delivery.
+The subsequent offline phase adds bounded reversed cold-part reading and carries neutral reversal through the existing generative preparation pipeline.
+Fifty-nine combined SOLIDWORKS archive/process integration cases pass, including forward compatibility and atomic refusal of missing or mismatched measurements.
+Six neutral candidates regenerate the committed hashes after cold SDK reading and JSON restoration.
+The [reader entry](../../Changes/Solidworks/Inspection/Parts/SolidworksReverseColdBoss.md) and [preparation entry](../../Changes/Solidworks/Construction/SolidworksReverseBossPreparation.md) state the exact boundary.
+The Fusion child adds a generic independent-side BRep builder and compares actual committed journals with recorded API observations.
+Its 80 archive integration cases include 748 complete mass-cache comparisons and eleven serialized mass counterexamples.
+Persistent tags/progenitors, full snapshots and material/scene/graphics admission remain unfinished; the geometry builder is not wired into strict reading.
+No production acceptance flag, exact native measurement gate or Fusion strict projection guard was broadened.
 The native API status request timed out before any job submission; native candidate validation is waiting for transport recovery while offline implementation continues.
 Exit for the full task requires every evidenced decoded family to have complete semantic reading and donor-free generative writing through the shared SDK/CLI, with independent target acceptance and current-head CI/review.
 
 Pinned background CLI replay at source `4a29c48fc` and SDK `7ce58d396` accepts sixteen Fusion reconstructions, retains thirteen generated-span refusals and thirteen explicit fallback outcomes, and accepts three SOLIDWORKS forward candidates while refusing three reversed candidates. [Documents, receipts and outcomes](../../../re/DecodedReadWrite20261127/README.md#committed-file-cli-replay) remain retained.
+Those replay outcomes describe the earlier checkpoint; the bounded reversed reader phase retains them and requires a separately pinned current-source replay.
+The subsequent [clean pinned replay](../../../re/DecodedReadWrite20261127/README.md#bounded-reversed-reader-replay) at `08df1da93` reads all six SOLIDWORKS candidates with models and native calls disabled.
+Each new receipt retains forty unresolved items; full conversion and native qualification remain unfinished.
+The original failed supervisor setup and its separately submitted successful host-execution job remain distinct evidence.

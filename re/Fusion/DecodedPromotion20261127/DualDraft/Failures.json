@@ -1,0 +1,25 @@
+{
+  "attempts": [
+    {
+      "stage": "first native archive integration",
+      "passed_before_failure": 43,
+      "failure": "frame source carries a typed identity body transform rejected by the existing unplaced BodyFaces helper",
+      "repair": "validate every identity transform field then create a comparison view with the placement omitted",
+      "production_guards_changed": false
+    },
+    {
+      "stage": "scoped steering",
+      "violations": 5,
+      "failure": "short Axis and Sine names and oversized native comparison declaration",
+      "repair": "use compliant names and extract independently reusable native ring comparison"
+    },
+    {
+      "stage": "locked mypy",
+      "errors": 7,
+      "failure": "defensive runtime type check flagged as redundant and reused loop names inferred incompatible types",
+      "repair": "match the existing object cast convention and use distinct typed corner loop names"
+    }
+  ],
+  "native_attempts": 0,
+  "models": false
+}

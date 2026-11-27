@@ -37,3 +37,11 @@ PYTHONPATH=src /absolute/pinned/python3 re/Fusion/DecodedPromotion20261127/Check
 ```
 
 Native open-before-rebuild, independent driver edits/restoration, save/reopen and fresh-process control measurements of these exact candidates remain the next parent-owned gate. A candidate accepted after a native edit does not prove that Kit can emit a coherently edited neutral graph. Broad feature promotion and source-free edited-output support remain unfinished.
+
+## Independent-side geometry prerequisite
+
+The later `A11-DualDraftGeometry20261127` child implements generic independently drafted circular sides and their complete world-origin mass tensor. It uses dimensions and placement, not saved payloads or fitted lookup tables. The two frustum sides retain their individual roles, profile joint and correctly oriented caps, including concave meridians.
+
+`DualDraft/Findings.md` and `DualDraft/ProjectionPlan.md` distinguish the completed geometry from remaining strict source projection. The proof covers 101 actual recorded API observations with 1,313 comparisons, plus 68 committed native journals. All 748 saved mass-cache comparisons pass under the existing cache-only tolerance. Eleven serialized single-component corruptions refuse, and 80 archive integration cases pass. `Documents.tar.gz` losslessly retains 202 geometry documents, bound by `DocumentArchive.json` member hashes. Initial and repeated receipts remain separate.
+
+Reproduce with `ProveDualSides.py CHECKOUT UNUSED_OUTPUT` and `ProveDualMass.py CHECKOUT UNUSED_OUTPUT`, using the recorded Python runtime and the checkout's `src` and tests on `PYTHONPATH`. No new native call or model execution occurs. Complete persistent tags/progenitors, saved snapshots, material/scene/graphics preservation and strict public projection remain unproved. A successful geometry comparison does not admit a source archive or qualify native writing.

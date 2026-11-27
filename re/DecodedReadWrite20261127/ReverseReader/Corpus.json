@@ -1,0 +1,60 @@
+{
+  "manifest_version": 1,
+  "source_revision": "08df1da93f202a88170c774ea2060baca85cc16b",
+  "assets": [
+    {
+      "path": "re/solidworks/DecodedPromotion20261127/Evidence/discoveryTriangleForward.SLDPRT",
+      "git_blob": "fda43123e000f9b9745856dff0c81ec16dfab721",
+      "sha256": "64681c0990f65daf7b828a529e8f5faf1c13731be6bc5fbd20e2e606fb021b10",
+      "size_bytes": 8133,
+      "prefix_hex": "ec6e23860000000464d8004514000600",
+      "kind": "native",
+      "format": "sldprt"
+    },
+    {
+      "path": "re/solidworks/DecodedPromotion20261127/Evidence/discoveryTriangleReverse.SLDPRT",
+      "git_blob": "7eb7eb17b296f6d86d9833c02787c73731a9cc65",
+      "sha256": "1dfc4ba8ee778fa931000f226065c55adf564dfd0eeeed005ab77eea44eb45b6",
+      "size_bytes": 8109,
+      "prefix_hex": "ec6e23860000000464d8004514000600",
+      "kind": "native",
+      "format": "sldprt"
+    },
+    {
+      "path": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutQuadForward.SLDPRT",
+      "git_blob": "95eb8e9fcf2f8927a9b0e51509c30b458accb8ce",
+      "sha256": "322692bd32ef271c1e74e49650cc92ead8f3c994ae9dece443e21095c2b8f151",
+      "size_bytes": 8141,
+      "prefix_hex": "ec6e23860000000464d8004514000600",
+      "kind": "native",
+      "format": "sldprt"
+    },
+    {
+      "path": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutQuadReverse.SLDPRT",
+      "git_blob": "8e480f6aba67ee7a6f32b52822f4ff8b1875b5fe",
+      "sha256": "c79169da7ae31244ce930653c6047bbe17f76e7864f2a959d0ef228236ea8bca",
+      "size_bytes": 8122,
+      "prefix_hex": "ec6e23860000000464d8004514000600",
+      "kind": "native",
+      "format": "sldprt"
+    },
+    {
+      "path": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutStepForward.SLDPRT",
+      "git_blob": "0146cbee2d75ff9511fba45879300a0448b1462f",
+      "sha256": "911f9a94fdd51e9746a363e7e1591d00c0d404073408ff5645366b13f7641837",
+      "size_bytes": 8176,
+      "prefix_hex": "ec6e23860000000464d8004514000600",
+      "kind": "native",
+      "format": "sldprt"
+    },
+    {
+      "path": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutStepReverse.SLDPRT",
+      "git_blob": "1105ba9cc31f09fd70d7b2ec464c4d5d839ea5e9",
+      "sha256": "f08a0e7149e7e2b2de523305027139e22cd599acd69e6ee7f9c447ba36b02eed",
+      "size_bytes": 8152,
+      "prefix_hex": "ec6e23860000000464d8004514000600",
+      "kind": "native",
+      "format": "sldprt"
+    }
+  ]
+}

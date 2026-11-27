@@ -5,7 +5,6 @@ import math
 import sys
 
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
-from convert.Formats.Fusion.BrepCodec.Models.HistoryModel import HistoryModel
 from convert.adapters.Fusion.Native.Graph.BuildGraph import BuildGraph
 from convert.adapters.Fusion.Native.Graph.SelectExtrusion import SelectExtrusion
 from convert.adapters.Fusion.Native.Graph.ReadExtentMode import ReadExtentMode

@@ -20,3 +20,11 @@ Source checkpoint `4a29c48fc8eccb5a1b093e45d0251882ebe790f2` supplies 29 Fusion 
 Fusion strict reading accepts sixteen reconstruction candidates and refuses thirteen newly generated span candidates, with zero reader errors. Explicit fallback preserves sixteen strict and thirteen partial outcomes. SOLIDWORKS accepts three forward candidates and preserves three reverse refusals. Refusals remain unfinished support requirements; successful process/controller completion does not qualify them.
 
 `Evidence/Replay.json` binds the source manifests, exact exit codes, outcome counts and all retained document/receipt/log hashes. `Readers.tar.gz` contains those exact artifacts; private controller receipt identities remain outside the checkout with their raw receipt digests recorded. The controller/supervisor and reader schemas remain unchanged.
+
+## Bounded reversed-reader replay
+
+The subsequent clean pinned SDK and corpus checkpoint is `08df1da93f202a88170c774ea2060baca85cc16b`. The same installed deterministic research CLI and existing controller/supervisor read all six committed SOLIDWORKS candidates in fresh processes, with models and native calls disabled. All six pass model reconstruction; the earlier three reverse refusals remain retained above. The six new receipts each retain forty unresolved items, including native-only records, retained-byte semantics and unavailable independent source/native acceptance. No qualification marker or conversion guard was removed.
+
+`ReverseReader/Replay.json` records every asset binding, count, unresolved reason, worker receipt digest and archive member hash. `ReverseReader/Readers.tar.gz` retains all eighteen exact reader documents, receipts and logs. `RetainReverseReplay.py` verifies the clean checkout, committed Git blobs, SHA-256 hashes, corpus revision and lossless archival before recording success.
+
+The first one-attempt job failed before worker release because the macOS sandbox hid process identity. Its controller result remains failed and is hash-bound in the replay. A separate job succeeded after approved host execution with every process gate unchanged. The [runtime gotcha](../../Documentation/Gotchas/Research/Supervisor/Runtime/MacosSandboxProcessIdentity.md) records this distinction. Native edit/restore/rebuild/save/fresh-process acceptance remains unavailable while the CAD API is down.
