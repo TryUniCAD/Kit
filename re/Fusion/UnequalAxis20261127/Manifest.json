@@ -1,4 +1,8 @@
 {
+  ".gitignore": {
+    "sha256": "1c605f86869115e767892dcec1b6d4cf375a5646cb9511950f2d97fdc5d7a108",
+    "size": 33
+  },
   "Capture.json": {
     "sha256": "f297661a8a932679374c6629954b38ffa7fdcba3e4752da95f278039ce73cc6c",
     "size": 164107
