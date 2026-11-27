@@ -9,6 +9,10 @@ from the `Reviewers` array in the sole source of truth,
 
 Follow the [documentation and gotcha rules](AGENTS.md#documentation-and-gotchas).
 
+Follow [planning and scope claims](AGENTS.md#planning-and-scope-claims) before choosing
+work or launching agents. Keep the project, owning registers, catalogue links and
+generated planning views current with scope, ownership, schedule and evidence changes.
+
 Agents MUST read and abide by the
 [CAD success criteria](Documentation/Reference/Operations/CadSuccessCriteria.md) before any CAD
 parsing, writing, conversion, verification, or reverse-engineering work, and before claiming that any
@@ -17,3 +21,5 @@ parametric, vendor loadable, application usable, measured acceptance, honest att
 implementation, generalization, and traceable knowledge. Agents tasked with reverse engineering MUST
 first read the [reverse-engineering instruction book](re/Playbook/README.md) in full and follow it.
 See [CAD success criteria and reverse engineering](AGENTS.md#cad-success-criteria-and-reverse-engineering).
+
+Follow [the agent planning workflow](Documentation/Planning/AgentWorkflow.md) for schedule selection, claims, evidence updates and handoff.
