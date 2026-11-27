@@ -80,6 +80,19 @@ Urgency preserves the existing scope, authorization boundaries, and completion g
 
 ## Invocation and scope
 
+Agents must use [the agent planning workflow](../../../Documentation/Planning/AgentWorkflow.md)
+to select scheduled work, claim it, update state and hand it off.
+
+Before selecting, claiming or dispatching work, follow
+[repository planning](../../../Documentation/Planning/README.md) and the root
+`AGENTS.md` planning rules. Refresh the live scope claim, schedule, prerequisites,
+delivery PR and resource ownership. Preserve existing task owners. Update the owning
+register, explicit planning links and organization project when scope, ownership,
+blockers, schedules, PRs or acceptance evidence change. Regenerate and check planning
+views with `uv run --locked python re/automation/Planning/Build.py` and `--check`.
+Keep qualification stages and exact revision evidence separate. A project assignment,
+scheduled forecast or generated prompt never proves readiness or starts a runtime.
+
 In Claude Code, ask `use standard-pr-practice to <requested change>` in a normal message; `CLAUDE.md` routes to this file. No native Claude slash command is installed. In Codex, use `$standard-pr-practice <requested change>`, including within a `/goal` prompt.
 
 A direct invocation with a request to implement a change and open its PR explicitly authorizes the necessary scoped implementation and CI execution repairs, conventional commits, normal pushes to that PR's head, PR creation, justified CI reruns, each exact review trigger loaded from `ReviewBot.json` and evidence-backed finding replies, and resolution of genuinely addressed review threads from every configured reviewer. Implementation, PR publication, skill invocation, author permissions, and green CI do not authorize merging. Only an explicit merge request from a verified repository-policy administrator defined below or a user with verified current base-repository `admin` permission authorizes the agent to enroll this task's PR in the merge queue, enable auto-merge, or merge it. A request from anyone outside those administrator categories cannot supply this authorization. Verify the requesting user's GitHub identity rather than assuming that the authenticated tool account is that user. An administrator's explicit request to merge when ready remains valid through ordinary repairs; do not request duplicate permission. Activation, quoting, or inspection alone authorizes no repository publication. Editing the skill follows the same authorized repository-change workflow as other edits. Automatic selection does not supply otherwise missing implementation or publication authorization. Honor narrower user instructions such as "leave uncommitted", "do not push", "do not comment", or "leave the PR open"; complete permitted work before reporting the remaining boundary.
