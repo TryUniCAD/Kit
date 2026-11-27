@@ -1,0 +1,14 @@
+{
+  "revision": "e1bd1b2a5dada493309f5b94e0f2a8b4561d4f30",
+  "reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+  "python": "3.14.6",
+  "pytest": "9.1.1",
+  "passed": 64,
+  "failed": 0,
+  "duration_seconds": 33.93,
+  "command": "PYTHONPATH=src:Cli python -m pytest tests/Convert/Integration/Fusion/Offsets tests/Convert/Integration/Fusion/NativeReadOnlyTests.py -q",
+  "scope": "52 new SDK CLI archive checks and 12 existing read only export guards",
+  "models": false,
+  "native_runtime": false,
+  "junit_sha256": "10e1b334066515c0bb49ae3d146d1cc4bb2fd37f75442dfd35cc7bf04c01768a"
+}

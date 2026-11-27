@@ -51,6 +51,9 @@ SDK and CLI integration coverage uses fifteen measured baseline/edit/holdout con
 Real encoded corruption cases cover start type, missing or aliased references, owners, reciprocal links, allocator IDs, units, role names, value copies, nonfinite values, taper, snapshot planes and labels.
 Additional process checks preserve the CLI's no-output-on-refusal behavior and existing destination bytes during refused writes.
 These cases join the existing shared test suite and merge-queue planner; no separate runner or unit tests were added.
+The large-PR local integration run at `e1bd1b2a5dada493309f5b94e0f2a8b4561d4f30` passes all 64 cases: 52 new SDK/CLI/archive checks and twelve existing read-only export guards.
+Its JUnit report and initial fixture repairs are retained in the qualification package.
+See the [offset-label witness gotcha](../../../Gotchas/Conversion/Fusion/Testing/OffsetStartLabelWitnesses.md) and [nonfinite-fixture gotcha](../../../Gotchas/Conversion/Fusion/Testing/NonfiniteEntityFixtures.md).
 Current-head hosted checks and configured approval remain required.
 
 XZ/YZ and other placed frames, tapered offset starts, one-sided offset starts, modifying operations, general profiles, constraints and editable target acceptance remain outside this scope.

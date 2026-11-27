@@ -917,7 +917,9 @@ The [package](../../../re/Fusion/OffsetAdmission20261127/README.md) pins both na
 The first candidate `23be702fd32d3092d98974c725bcc9d3b95fe0ee` admits 109 XY files, preserves 30 placement refusals and passes 1,447 native geometry/role/receipt comparisons.
 Final binding decomposition `7ce58d3962f89c5c184e1fd993126e4927f9d73d` repeats 109 strict reads, 30 refusals and 1,447 passing comparisons; all sixteen prior-corpus documents retain their baseline hashes.
 All graphs retain read-only status; no writer, target acceptance or broader frame/operation/taper support is added.
-Exit requires revision-bound SDK/CLI and held-out/malformed archive coverage, unchanged old cases, complete field ownership and current-head CI/review.
+The local integration run at `e1bd1b2a5dada493309f5b94e0f2a8b4561d4f30` passes all 64 SDK/CLI/archive/export cases; independent production and provenance audits are complete, including refusal-control provenance repair.
+Current-head hosted CI and configured approval remain required; the configured review service reports exhausted credits.
+Exit requires current-head CI/review and preserves broader source and target acceptance gaps.
 The [change entry](../../Changes/Fusion/Readers/FusionOffsetStartReader.md) records usage and limits.
 Planning PR #392 remains separate and unmerged; retain the existing child claim until stable scope links and views can be regenerated.
 

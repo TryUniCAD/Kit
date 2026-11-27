@@ -66,3 +66,7 @@ The first local integration run at production head `792fdecaa` passed 49 of 52 c
 Its retained JUnit report records three fixture assumptions: CLI conversion refuses at qualification before the writer, entity emission itself refuses infinity, and offset caps need not coincide with the sketch sheet.
 The repaired cases use the actual qualification message, a unique finite sentinel replaced in one validated bulk stream, and a reciprocal label move without coincident-station selection.
 Independent read-only production and provenance audits found no production defect; the latter identified the refusal-control provenance correction above.
+
+The final integration run at `e1bd1b2a5dada493309f5b94e0f2a8b4561d4f30` passes all 64 cases in 33.93 seconds: the 52 new SDK/CLI/archive cases plus twelve existing read-only export guards.
+Python is 3.14.6 and pytest is the locked 9.1.1; the exact command and compressed JUnit report are retained in `Evidence/Integration.json` and `Evidence/FinalIntegration.xml.gz`.
+Production source still matches the replayed `7ce58d396` reader revision.

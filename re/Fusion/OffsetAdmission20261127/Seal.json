@@ -4,8 +4,8 @@
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 41,
-      "sha256": "c7083decb9a81374c958762959fdc878dd6fbd680326bc87b9e06b92ce7b2393"
+      "bytes": 60,
+      "sha256": "da5cf4363d718f2c1ed1bdcccdeac54fe650997752df70325697b86227aecc47"
     },
     {
       "path": "Controls/TwoSidedDraft.f3d",
@@ -113,6 +113,11 @@
       "sha256": "f3a11266538d5e4d5b0bfb36fa0c11a1b14bbd9fe896e1e198aff60fa82af6c7"
     },
     {
+      "path": "Evidence/FinalIntegration.xml.gz",
+      "bytes": 846,
+      "sha256": "a9f67bf5a961604ad7eac70711a664a6d52195a727d1098dbdb81b72724e3b1d"
+    },
+    {
       "path": "Evidence/FinalJobs.json",
       "bytes": 2605,
       "sha256": "9d01e2a69a686cdf30a45ec22e64fe33f13c38e2c4d4fd7b14d23a3ba1a92220"
@@ -128,9 +133,14 @@
       "sha256": "cad7c753ebf5b48f46ea2a938fb95de355b0e18ab8560ae4f1d9650b0b29b661"
     },
     {
-      "path": "Evidence/InitialIntegration.xml",
-      "bytes": 17081,
-      "sha256": "5b499c0c3c52a820f802d75de386cae384b7ee1dd8595bacc790b66696299491"
+      "path": "Evidence/InitialIntegration.xml.gz",
+      "bytes": 3271,
+      "sha256": "f08b08125ab540950b694fab31489fea963b6345c03f292722ad850d2452e2c8"
+    },
+    {
+      "path": "Evidence/Integration.json",
+      "bytes": 596,
+      "sha256": "72b95b1f4d0a66afe9bb21f85112a25531c3edc72a9bf147bbee6602a102487f"
     },
     {
       "path": "Evidence/PreliminaryAdmission.json",
@@ -158,9 +168,9 @@
       "sha256": "386f4ce244473a31985852232ce7fc455450a74a469f893811cdbc4f2c52f016"
     },
     {
-      "path": "Evidence/RepairIntegration.xml",
-      "bytes": 637,
-      "sha256": "6d1692952118bcad8b1b7fc772ba9db042567ff248aabed8d32f25124fef6be8"
+      "path": "Evidence/RepairIntegration.xml.gz",
+      "bytes": 312,
+      "sha256": "3884e108e5ce9b914b4fc502662ed26bd14c3c605776f83d625d173b1d69fe76"
     },
     {
       "path": "Evidence/Supervisor.log",
@@ -179,8 +189,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6198,
-      "sha256": "260df2a6981da5c018b33da4aef3d10f1033ae80130a5cf2f5df972ddf50eb9b"
+      "bytes": 6641,
+      "sha256": "69aba8940c28f8dd5e4d08d0f045e79712533ecbf72514628855089bb5ad1e5e"
     },
     {
       "path": "Replay.py",
