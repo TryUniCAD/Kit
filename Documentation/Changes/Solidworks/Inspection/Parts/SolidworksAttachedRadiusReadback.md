@@ -26,3 +26,8 @@ Standalone SOLIDWORKS qualification and native writing for this
 profile remain pending.
 
 [Measurement and scope](../../../../../re/solidworks/records/AttachedRadiusChild2026.md)
+
+Strict reads reject invalid typed ownership in the recognized attached radius
+lane. Raw B-rep extraction keeps strict payload framing without requiring
+typed driver agreement. The linked-radius process check covers a broken atom
+owner in both strict read modes.

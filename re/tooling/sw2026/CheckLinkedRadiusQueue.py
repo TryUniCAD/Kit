@@ -41,7 +41,7 @@ def new_radius():
                                     if row.id == radial.id else row for row in source.parameters))
 
 
-def incomplete_attachment(source):
+def incomplete_attachment(source, *, broken_atom=False):
     epoch = 1790000000
     plan = ProjectCircle(source)
     recipe = MakePartRecipe(plan, epoch)
@@ -55,7 +55,7 @@ def incomplete_attachment(source):
     InitConceptMut(atom, part.PlanValue.FeatureName)
     feature_id = boss.FieldsValue["f08"]
     tag = atom_id + 1
-    atom.FieldsValue.update(f18=None, f140=atom_id, f144=0, f130=feature_id, f12c=feature_id,
+    atom.FieldsValue.update(f18=None, f140=atom_id, f144=0, f130=feature_id, f12c=feature_id + int(broken_atom),
                             f158=0, body_kind=0, f170=0, f18c=1, f198=-1, f180=tag, f188=1, f1b0=tag, f19c=6)
     rows = [{"o": atom}]
     manager.update(f260=atom_id, n6c=len(rows), fa8=19000, atoms=rows)
@@ -95,7 +95,15 @@ def check():
         doc = open_document(BytesIO(payload), strict=False, **options)
         require(any("saved circle typed owners unavailable: " + outcomes[label] == row.message
                     for row in doc.diagnostics), "permissive compatibility lost the typed refusal")
-    return {"strict_refusals": outcomes, "permissive_compatibility": True}
+    bad_atom = incomplete_attachment(source, broken_atom=True)
+    for include in (True, False):
+        try:
+            open_document(BytesIO(bad_atom), source_format="solidworks.sldprt", strict=True, include_brep=include)
+        except SldprtFormatError as error:
+            require("saved circle atom does not link" in str(error), str(error))
+        else:
+            raise ValueError("strict reader silently downgraded a broken attached atom")
+    return {"strict_refusals": outcomes, "permissive_compatibility": True, "bad_atom_refused": True}
 
 
 if __name__ == "__main__":

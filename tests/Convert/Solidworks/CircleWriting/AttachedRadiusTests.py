@@ -19,6 +19,7 @@ def TestLinkedRad() -> None:
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     ReportValue = CastValue(dict[str, object], LoadJson(Outcome.stdout))
     assert ReportValue["permissive_compatibility"] is True
+    assert ReportValue["bad_atom_refused"] is True
     assert ReportValue["strict_refusals"] == {
         "design": "active kernel transmit profile is unqualified",
         "geometry": "active kernel transmit profile is unqualified",

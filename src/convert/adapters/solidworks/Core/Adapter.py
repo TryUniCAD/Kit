@@ -186,8 +186,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import 
     CircleSketch,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
-from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
-from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
+    TypedProvenance,
+)
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
+    WithTypedNative,
+)
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -376,7 +380,11 @@ def ReadNativePart(
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
     Model = (
-        NativePartModel(Archive, Settings.configuration, Strict=Settings.strict)
+        NativePartModel(
+            Archive,
+            Settings.configuration,
+            Strict=Settings.strict and not Settings.extract_raw_brep,
+        )
         if ModelValue is None
         else ModelValue
     )
@@ -388,7 +396,9 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep, CircleValue = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep, CircleValue = PartBrepData(
+        Archive, Model, Settings
+    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -570,7 +580,8 @@ def PartBrepData(
         else None
     )
     ColdBrep = (
-        CircleValue.BrepValue if CircleValue is not None
+        CircleValue.BrepValue
+        if CircleValue is not None
         else ColdPrism(Model, KPartBodyId) if UseGeometry else None
     )
     Payloads, Diagnostics = BrepPayloads(
@@ -2349,7 +2360,9 @@ def NativePartModel(
     Model = WithTypedNative(Model, Archive, Strict=Strict)
     if Model.SavedCircleName is not None:
         return Model
-    return RefineLegacy(Model, Archive, ConfigStream, SelectedStream, ConfigData, Resolved)
+    return RefineLegacy(
+        Model, Archive, ConfigStream, SelectedStream, ConfigData, Resolved
+    )
 
 
 # unmatched histories keep their established compatibility and partial scope diagnostics
@@ -2443,8 +2456,10 @@ def Parameters(
                     ),
                     owner_id=FeatureId(Feature.object_id),
                     provenance=TypedProvenance(
-                        Dimension.TypedOwner or {}, f"{Feature.object_id}:{Dimension.name}"
-                    ) or (
+                        Dimension.TypedOwner or {},
+                        f"{Feature.object_id}:{Dimension.name}",
+                    )
+                    or (
                         ProvenanceA(
                             f"{Feature.object_id}:{Dimension.name}",
                             Dimension.native_offset,

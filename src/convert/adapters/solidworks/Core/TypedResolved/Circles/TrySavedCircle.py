@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.AttachCircError import (
     AttachCircError,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.IsRadiusSketch import (
+    IsRadiusSketch,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Circles.BindSavedCircle import (
     BindSavedCircle,
 )
@@ -42,10 +45,11 @@ def TrySavedCircle(
             return Model
     except (KeyError, TypeError, ValueError, OverflowError):
         return Model
+    Attached = IsRadiusSketch(ShapeValue)
     try:
         return BindSavedCircle(Model, LinkValue, Features, Profile, Archive)
     except (KeyError, TypeError, ValueError, OverflowError) as ErrorInfo:
-        if Strict and isinstance(ErrorInfo, AttachCircError):
+        if Strict and (Attached or isinstance(ErrorInfo, AttachCircError)):
             raise SldprtFormatError(str(ErrorInfo)) from ErrorInfo
         return ReplaceValue(
             Model,

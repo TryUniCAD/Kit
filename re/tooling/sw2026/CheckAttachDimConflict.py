@@ -1,6 +1,9 @@
 from math import hypot
 
 from convert import open_document
+from convert.adapters.base.ReadOptions import ReadOptions
+from convert.api.ApiContext import KConvertEngine
+from convert.adapters.solidworks.Container.Parasolid import decode_partition_stream
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive, SldprtFormatError
@@ -85,5 +88,12 @@ def check_dimension_conflicts(archive, model):
                 raise ValueError(f"strict {by_name} accepted conflicting {kind}")
             if expected not in failures[by_name]:
                 raise ValueError(f"{kind} stopped before independent physical proof: {failures[by_name]}")
+        raw = KConvertEngine.read(
+            payload, format_id="solidworks.sldprt",
+            options=ReadOptions(include_brep=True, strict=True, extract_raw_brep=True),
+        )
+        expected_payloads = decode_partition_stream(archive.require(KPartitionStream), KPartitionStream)
+        if tuple(item.data for item in raw.brep_payloads) != tuple(item.data for item in expected_payloads):
+            raise ValueError(f"raw extraction did not preserve active and rollback bytes for {kind}")
         results[kind] = {"typed_driver_metres_hex": words, "strict": failures}
     return results
