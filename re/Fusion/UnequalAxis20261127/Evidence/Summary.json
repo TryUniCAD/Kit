@@ -1,8 +1,9 @@
 {
   "task": "A08h-FusionUnequalAxis20261127",
-  "source_revision": "fb4afa1aaad538c402ca67f27a0a565d7e32f1e2",
+  "source_revision": "233985bac73d454f6df22e44dd3cad06bb92f7da",
   "reader_revision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
   "capture_script_sha256": "33007f4c0806180c364d1d4ac43d47a874cc8eccc0fb49ffaf3600f27f4b1934",
+  "raw_capture_report_sha256": "f297661a8a932679374c6629954b38ffa7fdcba3e4752da95f278039ce73cc6c",
   "source_job": "ce9d27182f07b063c541f3d0847fce89",
   "source_process": {
     "application": "fusion",
@@ -56,6 +57,5 @@
     "independently driven axis and profile edits",
     "general profiles, contexts and operations",
     "portable semantics and editable cross-format conversion"
-  ],
-  "raw_capture_report_sha256": "f297661a8a932679374c6629954b38ffa7fdcba3e4752da95f278039ce73cc6c"
+  ]
 }

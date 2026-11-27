@@ -16,11 +16,11 @@
     "size": 3654
   },
   "Evidence/ControllerOutcomes.json": {
-    "sha256": "ad287abc269800691c3c63c8fa4887bdc85728cacfa8c198c12612fcf8679962",
-    "size": 13415
+    "sha256": "24ef2a682360ffe030bca38d2ec66981849262e0b6d0f568cf4e38c8470749b5",
+    "size": 15499
   },
   "Evidence/Corpus.json": {
-    "sha256": "7a9640df424f24140e487c3e334ec4e1b50715edd6b3898ab171ca951bd79a90",
+    "sha256": "9c5bd06f9793d2fb579e7150bf7056c39f4a556e2b4039e671ded53eac8e3570",
     "size": 16771
   },
   "Evidence/Counterexamples.json": {
@@ -28,8 +28,8 @@
     "size": 1165
   },
   "Evidence/FailedAttempts.json": {
-    "sha256": "bfda3977e12c71d5c5448cae87f852e1ae3c26d3fdcb8caeecf828bf606773d8",
-    "size": 18154
+    "sha256": "3fab94cfbac7c209b451332edbfc0d1221b1e642e405df362356805eba0dbb59",
+    "size": 18779
   },
   "Evidence/Framing.json": {
     "sha256": "baa2f054c1eb688559bb16b63de67c9b92d970969dc20986a2934a5f9ce39f67",
@@ -47,12 +47,16 @@
     "sha256": "7a7ff9538c15f1737aae207216de5552874c037ce635c668b43497c0e443a008",
     "size": 231
   },
+  "Evidence/PublicationCommitMap.json": {
+    "sha256": "d5ff2a1c0c2a8dfd1ea7e45e6335cda81f2009e13423a5ea496814e4ac6e2b3f",
+    "size": 362
+  },
   "Evidence/ReaderArtifacts.tar.gz": {
-    "sha256": "d48da20f8f6c7eadaeb061dc8beb21af01ba144b9ed6a724f5ee456344ec5096",
-    "size": 4012378
+    "sha256": "60bfab6cdb96b8b2ed863f649ab5e9c7d240f6637236cd4c7a4885ab0f30920b",
+    "size": 4014174
   },
   "Evidence/Summary.json": {
-    "sha256": "5cbab1e01ad8afca8640977faeff5a999f025925cb67106c2889417db64fcb67",
+    "sha256": "8e11e5b6320f97f4120c7d552d4729bc32f9e487e45e07ab4f82b74968ee2de1",
     "size": 1624
   },
   "Evidence/Unresolved.json": {
@@ -248,12 +252,12 @@
     "size": 59477
   },
   "Package.py": {
-    "sha256": "0ef34957c5e1fd25e59dc87046b4de5453d7d401c5de2a4363f95eb11be3a102",
-    "size": 8376
+    "sha256": "a98fa6a5fd151f9708dbe52a18afcd3e67148b807d7fcbc8214faf876cb799aa",
+    "size": 8577
   },
   "README.md": {
-    "sha256": "05dfd1ae14262cc7658a00ddd6396e6804f0b141747259ac3bfe938d3f471af6",
-    "size": 8168
+    "sha256": "26cb4459a2c66a14bc1ba22a51a8d65ce257a657f477d69ace3e45a15dbe33e0",
+    "size": 8650
   },
   "Verify.py": {
     "sha256": "5e38eb4eff53bcd92dc3af36cabe6528a6bf77a712fee2c944c9f0fa01753c7d",

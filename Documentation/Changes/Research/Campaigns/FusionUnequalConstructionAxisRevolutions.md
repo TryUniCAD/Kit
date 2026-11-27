@@ -27,7 +27,7 @@ They are research tooling, not standalone production commands.
 
 The native capture on Fusion `2706.1.17` saved 46 archives across eleven cases and two controls.
 All 57 baseline, angle-edit and restoration observations matched independently calculated volume and centroid values.
-The immutable source checkpoint is `fb4afa1aaad538c402ca67f27a0a565d7e32f1e2`.
+The immutable source checkpoint is `233985bac73d454f6df22e44dd3cad06bb92f7da`.
 The offline SDK and research helpers are pinned to main `331ef8ce95f7e46814c5086110be9a23478ca8a8`.
 Eleven distinct fresh processes passed 132 lifecycle comparisons with healthy controls.
 The executable SHA-256 is `2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc`.

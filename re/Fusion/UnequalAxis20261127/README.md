@@ -4,7 +4,7 @@ Research source evidence only. Complete reconstruction and conversion acceptance
 
 Task: `A08h-FusionUnequalAxis20261127`, owned by Codex on `feat/fusion-unequal-revolve-20261127`.
 Fresh base: `331ef8ce95f7e46814c5086110be9a23478ca8a8`.
-Native-input commit: `fb4afa1aaad538c402ca67f27a0a565d7e32f1e2`.
+Native-input commit: `233985bac73d454f6df22e44dd3cad06bb92f7da`.
 The [automation register](../../../Documentation/Reference/Research/AutomationSteps.md#a08h-fusionunequalaxis20261127) owns status.
 The [change entry](../../../Documentation/Changes/Research/Campaigns/FusionUnequalConstructionAxisRevolutions.md) describes publication limits.
 
@@ -22,6 +22,10 @@ They are campaign-specific parameter holdouts, not the reserved programme P05 as
 Its pre-dispatch SHA-256 was `33007f4c0806180c364d1d4ac43d47a874cc8eccc0fb49ffaf3600f27f4b1934`.
 No reader rule was fitted or changed after observing these files.
 The separate SDK/research checkout stayed detached at the frozen base above.
+GitHub initially refused publication because the task commits used a private email.
+Only those unpublished task-owned commits were recreated with the verified public noreply identity and identical trees.
+`Evidence/PublicationCommitMap.json` preserves the old/new identities. The original objects and reader runs remain retained privately.
+Strict and partial decoding were repeated against the publishable source commit, preserving exact blob hashes and new revision-bound receipts.
 Holdout observations were measured alongside discovery, but their bytes did not contribute to a new decoder rule; none is proposed.
 
 ## Native evidence

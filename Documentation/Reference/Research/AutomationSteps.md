@@ -957,7 +957,7 @@ Dependencies are A03, A05a, A08h, the existing catalogue and native API workers,
 The child claim and progress are recorded on PR #94; delivery uses its own scoped PR as explicitly requested.
 Planning is absent from this task's fetched main; retain this child for later linking to its stable register.
 
-The source checkpoint `fb4afa1aaad538c402ca67f27a0a565d7e32f1e2` contains 46 native archives and 57 matching API observations.
+The source checkpoint `233985bac73d454f6df22e44dd3cad06bb92f7da` contains 46 native archives and 57 matching API observations.
 Independent angle, axis-origin, axis-direction, radial-offset and axial-offset contrasts include reversal, swapped angles and two combined holdouts.
 The [change entry](../../Changes/Research/Campaigns/FusionUnequalConstructionAxisRevolutions.md) records the evidence boundary.
 Eleven fresh native processes passed 132 lifecycle comparisons, including the two holdouts, with healthy controls.

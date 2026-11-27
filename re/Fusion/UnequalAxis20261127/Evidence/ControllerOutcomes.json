@@ -25,6 +25,28 @@
     },
     {
       "attempts": 1,
+      "fingerprint": "b4675c746f261a21129522ac19cc327194253e9015b597cfd54f8891657f7e36",
+      "generation": 1,
+      "id": "decode-partial-manifest2-privacy3",
+      "kind": "offline.fusion",
+      "reason": "session setup failed: OSError: process identity unavailable before runner release",
+      "receipt": "56ee8702be71c04ee8ccd016efa2bd4f48fe35efbbed311b370b6cf9e1d806f7",
+      "result": "fdb084cb00915bbf1301b4375bac186f767ddac2860bf3f27a74b74f4eff3bac",
+      "state": "failed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "f8654de39febf7bbb109001ac0118018be9881fe26cc348682b5ba7db3085884",
+      "generation": 1,
+      "id": "decode-partial-manifest2-privacy4",
+      "kind": "offline.fusion",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "30611499c445911fbc05ab3c5bf18390f2aa275b9e1f3d9b8a0a7a810b30456c",
+      "result": "d662b98b504b77b84977896e8db5fa040914195e7dd9c153b9bd367e119f99f4",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
       "fingerprint": "4c81b83083f3471371d3f316852add27bd2de7428a2960eaa1c567fecea496a3",
       "generation": 1,
       "id": "decode-strict",
@@ -43,6 +65,28 @@
       "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
       "receipt": "ae5973799fcd76c958a8d4e9548b0dbd00f06b05e63f59bd1cbecd6c40bfb4af",
       "result": "4436d31429bb193703b2ed3398e1a7b407483ecd666b15b6a8c515ccaa30c423",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "e9de0c75a743d81b51c460c00823782d7961e1b609b5d3c70e62b1335abe0dec",
+      "generation": 1,
+      "id": "decode-strict-manifest2-privacy3",
+      "kind": "offline.fusion",
+      "reason": "session setup failed: OSError: process identity unavailable before runner release",
+      "receipt": "4ce75400a125d537f7ab2610319a8d0b4505d8c2340824183bfade02edf267c0",
+      "result": "fdb084cb00915bbf1301b4375bac186f767ddac2860bf3f27a74b74f4eff3bac",
+      "state": "failed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "78180e212e9146565abab39581b3321d48c8c86083a416cf106d7321574cc4b0",
+      "generation": 1,
+      "id": "decode-strict-manifest2-privacy4",
+      "kind": "offline.fusion",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "b9d13555221b850a0f00f13abff361353974a1b7522f12711ccefeef2bc7cddc",
+      "result": "c48c9b10031a6a3807a17bcb8181e5b0b4680b4dbc83e2810f4117820131944d",
       "state": "completed"
     },
     {
@@ -288,5 +332,5 @@
       "state": "completed"
     }
   ],
-  "source_sha256": "ae5325f5c6c2854fc145620e68bdfe64561a05006e325d53bdff95d7ff3df127"
+  "source_sha256": "68630b24ffe93fcec2f3506625aaa404e4167892e8b2b0d0200d156d3fa91ffd"
 }

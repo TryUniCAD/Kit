@@ -67,6 +67,24 @@
     }
   ],
   "raw_retained_at": "private campaign runtime directory",
+  "supervisor_setup_failures": [
+    {
+      "at": 1795796616.741698,
+      "error": "session setup failed: OSError: process identity unavailable before runner release",
+      "event": "setup_failed",
+      "job": "decode-strict-manifest2-privacy3",
+      "pool": "offline",
+      "session": "18ebf381ca8c59a8-5cd4341d"
+    },
+    {
+      "at": 1795796617.76971,
+      "error": "session setup failed: OSError: process identity unavailable before runner release",
+      "event": "setup_failed",
+      "job": "decode-partial-manifest2-privacy3",
+      "pool": "offline",
+      "session": "18ebf38225c1ab70-e9f7827b"
+    }
+  ],
   "invocation_failures": [
     "isolated uv cache access refused",
     "isolated CLI build dependency DNS refused before approved network install",
