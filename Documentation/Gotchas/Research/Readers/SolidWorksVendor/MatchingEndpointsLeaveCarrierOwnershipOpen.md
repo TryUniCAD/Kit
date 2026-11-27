@@ -11,4 +11,4 @@ Compare geometry and ownership independently. Match ordered endpoints to
 the basis first, then use the actual typed edge references and a complete
 graph to decide whether an edge consumes the trim. Keep the next
 unsupported record in the evidence when the walk stops.
-[Saved P03 trim evidence](../../../Changes/Research/Solidworks/SolidworksSavedTrimmedCurveResearch.md)
+[Saved P03 trim evidence](../../../../Changes/Research/Solidworks/SolidworksSavedTrimmedCurveResearch.md)
