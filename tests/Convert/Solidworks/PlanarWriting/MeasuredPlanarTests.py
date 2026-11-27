@@ -106,7 +106,32 @@ def VerifyDeferred(TargetValue: FilePath) -> None:
     )
     assert Deferred.assembly is not None and not Deferred.assembly.documents
     assert len(Deferred.assembly.instances) == 2
-    assert not Deferred.assembly.mates
+    Reopened = CadDocument.from_json(Deferred.to_json(indent=None))
+    GraphValue = Reopened.assembly
+    assert GraphValue is not None
+    assert tuple(str(Value.kind) for Value in GraphValue.mates) == (
+        "coincident",
+        "distance",
+    )
+    ResolvedGraph = OpenDocument(TargetValue, strict=True).assembly
+    assert ResolvedGraph is not None
+    assert len(GraphValue.mate_entities) == 4
+    assert tuple(
+        (Value.id, Value.instance_path, Value.source_entity_id)
+        for Value in GraphValue.mate_entities
+    ) == tuple(
+        (Value.id, Value.instance_path, Value.source_entity_id)
+        for Value in ResolvedGraph.mate_entities
+    )
+    assert {Value.id for Value in GraphValue.mate_entities} == {
+        Identity for RuleValue in GraphValue.mates for Identity in RuleValue.entity_ids
+    }
+    (GroupValue,) = GraphValue.mate_groups
+    assert GroupValue.mate_ids == tuple(Value.id for Value in GraphValue.mates)
+    assert (GroupValue,) == ResolvedGraph.mate_groups
+    (DriverId,) = GraphValue.mates[1].parameter_ids
+    assert Reopened.parameter(DriverId).value == GraphValue.mates[1].value
+    assert Reopened.parameter(DriverId).value.value == 42.0
     assert Deferred.metadata["solidworks.typed_mates_semantics"] == {
         "status": "deferred",
         "full_selected_mate_graph": False,

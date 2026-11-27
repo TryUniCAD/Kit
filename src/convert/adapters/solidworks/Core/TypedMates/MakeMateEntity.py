@@ -19,6 +19,8 @@ def MakeMateEntity(
     OrderValue: int,
     ProvenanceValue: Provenance,
     LegacyMap: Mapping[str, MateEntity],
+    *,
+    Deferred: bool = False,
 ) -> MateEntity:
     EntityId = f"{RuleValue.id}:entity:{OrderValue}"
     LegacyValue = LegacyMap.get(EntityId)
@@ -38,7 +40,7 @@ def MakeMateEntity(
                 "native_child_configuration_id": Endpoint.ChildConfigId,
                 "native_child_update_stamp": Endpoint.ChildUpdateStamp,
                 "native_datum_feature_id": Endpoint.DatumFeatureId,
-                "native_datum_name": Endpoint.DatumName,
+                **({} if Deferred else {"native_datum_name": Endpoint.DatumName}),
                 "stored_origin_m": Endpoint.OriginValue,
                 "stored_normal": Endpoint.NormalValue,
             }

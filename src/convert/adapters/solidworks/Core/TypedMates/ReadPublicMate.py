@@ -22,19 +22,24 @@ def ReadPublicMate(
     EnvValue: PublicMateEnv,
     LegacyRule: MateConstraint,
     LegacyEntities: Mapping[str, MateEntity],
+    *,
+    Deferred: bool = False,
 ) -> tuple[tuple[MateEntity, ...], MateConstraint]:
     CheckMateMode(NodeValue)
-    PlanValue = ReadPlanarMate(Context, NodeValue, 19000)
+    PlanValue = ReadPlanarMate(Context, NodeValue, 19000, Deferred=Deferred)
     if PlanValue.NameValue != LegacyRule.name or PlanValue.KindValue != str(
         LegacyRule.kind
     ):
         raise ValueError("typed mate and legacy inventory differ in name or class")
-    for Endpoint in PlanValue.Endpoints:
-        CheckMateDatum(Endpoint, EnvValue)
-        CheckMatePoint(Endpoint, Context)
+    if not Deferred:
+        for Endpoint in PlanValue.Endpoints:
+            CheckMateDatum(Endpoint, EnvValue)
+            CheckMatePoint(Endpoint, Context)
     ProvenanceValue = MateProvenance(NodeValue)
     Entities = tuple(
-        MakeMateEntity(Value, LegacyRule, Index, ProvenanceValue, LegacyEntities)
+        MakeMateEntity(
+            Value, LegacyRule, Index, ProvenanceValue, LegacyEntities, Deferred=Deferred
+        )
         for Index, Value in enumerate(PlanValue.Endpoints)
     )
     return Entities, MakeMateRule(
