@@ -5,13 +5,16 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 
+# measured pattern receipts retain their exact oracle even when other part builds qualify
+KOraclePart = {
+    "build": "34.5.2.0604",
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+}
+
 # exact executable identities bind standalone part measurements to independently verified native builds
 KPartOracleBuilds = (
-    {
-        "build": "34.5.2.0604",
-        "product": "SOLIDWORKS 2026 SP05.2",
-        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
-    },
+    KOraclePart,
     {
         "build": "34.4.1.1011",
         "product": "SOLIDWORKS 2026 SP04.1",
