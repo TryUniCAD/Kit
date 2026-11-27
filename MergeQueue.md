@@ -101,7 +101,10 @@ ancestor candidate before reusing module outcomes.
 
 On merge groups, `Merge queue acceptance` requires every direct heavy job to
 succeed. `CI Agg` also requires the queue-only workflows and completed acceptance.
-Acceptance does not wait on the aggregate. Both contexts remain required by the
+Acceptance does not wait on the aggregate or the redundant complete-suite compatibility job.
+That job remains required by aggregation and runs in parallel after the same completeness report.
+See [parallel queue gates](Documentation/Changes/Ci/Scheduling/ParallelQueueGates.md).
+Both contexts remain required by the
 live ruleset. The aggregate's 80-minute wait remains within its 90-minute limit.
 
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
