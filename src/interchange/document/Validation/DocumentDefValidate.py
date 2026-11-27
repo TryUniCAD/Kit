@@ -48,6 +48,18 @@ def GetScopeErrors(
     return GetExtrudeErrs(StepValue, Definition.Extrusion)
 
 
+# thin walls and ordinary angular drivers require distinct typed validation
+def GetRevErrors(
+    StepValue: FeatureStep,
+    Definition: ThinRevolve | AngularRevolve,
+    Selections: TypeMap[str, Selection],
+    Params: TypeMap[str, Parameter],
+) -> tuple[str, ...]:
+    if isinstance(Definition, ThinRevolve):
+        return GetThinRevErrs(StepValue, Definition, Selections, Params)
+    return GetAngleRevErrs(StepValue, Definition, Selections, Params)
+
+
 # supported editable definitions require checks beyond generic dependency validation
 def GetDefErrors(
     StepValue: FeatureStep,
@@ -67,10 +79,8 @@ def GetDefErrors(
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]
         )
-    if isinstance(Definition, ThinRevolve):
-        return GetThinRevErrs(StepValue, Definition, Selections, Params)
-    if isinstance(Definition, AngularRevolve):
-        return GetAngleRevErrs(StepValue, Definition, Selections, Params)
+    if isinstance(Definition, (ThinRevolve, AngularRevolve)):
+        return GetRevErrors(StepValue, Definition, Selections, Params)
     if isinstance(Definition, (DistanceExtrude, DistanceCut)):
         return GetDistanceErrs(
             StepValue,
