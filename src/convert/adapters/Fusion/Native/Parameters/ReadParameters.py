@@ -3,13 +3,14 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     RequireFields,
     ResolveField,
     SameNodes,
-    SameNumbers,
 )
 from convert.adapters.Fusion.Native.Graph.GraphValues import NumberValue, TextValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Parameters.ParamExpression import ParamExpression
+from convert.adapters.Fusion.Native.Parameters.CheckBinding import CheckBinding
+from convert.adapters.Fusion.Native.Parameters.ReadExtentBind import ReadExtentBind
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
 from interchange.Enums.EnumValues import ValueKind
@@ -35,32 +36,7 @@ def ReadParameters(
         raise ValueError("Native parameter names must be nonempty and unique")
     Along = CheckBinding(Graph, Context.Along, Context)
     Taper = CheckBinding(Graph, Context.Taper, Context)
-    ExtentBindings: tuple[NativeNode, ...] = (Context.Along, Context.Taper)
-    if Context.Extrude.Fields["rAgainstDistance"] is not None:
-        ExtentBindings += (
-            ResolveField(
-                Graph, Context.Extrude, "rAgainstDistance", "DcDoubleParameter"
-            ),
-            ResolveField(
-                Graph, Context.Extrude, "side2TaperAngle", "DcDoubleParameter"
-            ),
-        )
-        Against = CheckBinding(Graph, ExtentBindings[2], Context)
-        SecondTaper = CheckBinding(Graph, ExtentBindings[3], Context)
-        if (
-            Against.Fields["unit"] != "mm"
-            or NumberValue(Against.Fields["value"]) <= 0
-            or SecondTaper.Fields["unit"] != "deg"
-            or NumberValue(SecondTaper.Fields["value"]) != 0
-        ):
-            raise ValueError("Unsupported native second side distance or taper")
-    if Context.Extrude.Fields["profileOffset"] is not None:
-        OffsetBinding = ResolveField(
-            Graph, Context.Extrude, "profileOffset", "DcDoubleParameter"
-        )
-        OffsetParam = CheckBinding(Graph, OffsetBinding, Context)
-        RequireFields(OffsetParam, {"name": "ProfileOffset", "unit": "mm"})
-        ExtentBindings += (OffsetBinding,)
+    ExtentBindings = ReadExtentBind(Graph, Context)
     SketchBindings = Rectangle.Bindings if Rectangle else ()
     SameNodes(
         (*SketchBindings, *ExtentBindings),
@@ -104,26 +80,6 @@ def ReadParameters(
         )
         for NodeValue in Nodes
     )
-
-
-# invalid binding input must fail here so public document claims remain grounded in native records
-def CheckBinding(
-    Graph: NativeGraph, Binding: NativeNode, Context: ExtrudeContext
-) -> NativeNode:
-    RequireFields(Binding, {"isActive": True, "isEdited": False, "isEliminated": False})
-    if (
-        Graph.Resolve(Binding.Fields["rrOwnerFeature"]) != Context.Extrude
-        or Graph.Resolve(Binding.Fields["rParentFeature"]) != Context.Extrude
-    ):
-        raise ValueError("Native extrusion parameter owner is inconsistent")
-    Parameter = ResolveField(Graph, Binding, "parameter", "Parameter")
-    if Graph.Resolve(Parameter.Fields["dcParameter"]) != Binding:
-        raise ValueError("Native parameter binding is not reciprocal")
-    SameNumbers(
-        (NumberValue(Parameter.Fields["value"]),),
-        (NumberValue(Binding.Fields["value"]),),
-    )
-    return Parameter
 
 
 # project parameter needs an explicit validity boundary so public document claims remain grounded in native records
