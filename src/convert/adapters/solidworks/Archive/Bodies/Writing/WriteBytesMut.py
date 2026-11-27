@@ -2,13 +2,17 @@ from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 
+from convert.adapters.solidworks.Archive.Bodies.Fields.FixedByteField import (
+    KFixedByteSize,
+)
+
 
 # modeled fixed byte fields require exact native width and cannot absorb unknown stream content
 def WriteBytesMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     Value = ReadScopeValue(FrameValue.ScopeValue, RuleValue.NameValue)
     if (
         type(Value) is not bytes
-        or RuleValue.MaskValue != 16
+        or RuleValue.MaskValue != KFixedByteSize
         or len(Value) != RuleValue.MaskValue
     ):
         raise ValueError(

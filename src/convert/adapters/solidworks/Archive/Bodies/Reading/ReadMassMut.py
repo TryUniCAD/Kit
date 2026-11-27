@@ -8,6 +8,10 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadCacheNumMut import (
 )
 from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadScalarMut
 
+from convert.adapters.solidworks.Archive.Bodies.Fields.CacheCountField import (
+    KMassSelectorSlots,
+)
+
 
 # direct mass cache slots share the parent cursor and own a selector only after two slots
 def ReadMassMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
@@ -22,6 +26,6 @@ def ReadMassMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
             "moMassPropCache_c.Serialize",
         )
         ItemsValue.append(Fields)
-    TailValue = ReadScalarMut(Cursor, "i32") if CountValue > 1 else 0
+    TailValue = ReadScalarMut(Cursor, "i32") if CountValue == KMassSelectorSlots else 0
     FrameValue.ScopeValue.FieldsValue[RuleValue.NameValue] = ItemsValue
     FrameValue.ScopeValue.FieldsValue[RuleValue.OtherName] = TailValue
