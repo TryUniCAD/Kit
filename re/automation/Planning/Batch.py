@@ -5,7 +5,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from Lease import project_lock
-from Project import graphql, rest
+from Project import graphql
+from BatchFields import load_fields, publish_fields
 from Prompt import task_prompt
 
 
@@ -52,11 +53,11 @@ def missing_values(item, remote, status_options):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Resume one locked project import with batches of at most five draft creations")
+    parser = argparse.ArgumentParser(description="Resume one locked project import with batches of at most twenty draft creations")
     parser.add_argument("--token-file", type=Path, required=True)
     parser.add_argument("--state", type=Path, required=True)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[3])
-    parser.add_argument("--batch-size", type=int, choices=range(1, 6), default=5)
+    parser.add_argument("--batch-size", type=int, choices=range(1, 21), default=20)
     args = parser.parse_args()
     root = args.root.resolve()
     path = args.state.resolve()
@@ -72,9 +73,8 @@ def main():
     state = {"Project": project["id"], "Items": {}, "NeedsRescan": True}
     save_state(path, state)
     scan(token, project["id"], state, path)
-    fields = rest(token, "/orgs/TryUniCAD/projectsV2/1/fields")
-    numeric_fields = {field["name"]: field["id"] for field in fields}
-    status_options = {option["name"]["raw"]: option["id"] for field in fields if field["name"] == "Status" for option in field["options"]}
+    fields = load_fields(token, project)
+    status_options = {option["name"]: option["id"] for option in fields["Status"]["options"]}
     remaining = [item for item in items.values() if item["Id"] not in state["Items"] or missing_values(item, state["Items"][item["Id"]], status_options)]
     remaining.sort(key=lambda item: item["Status"].lower() not in {"active", "checking", "open", "complete"})
     print("Remote scopes", len(state["Items"]), "remaining", len(remaining), flush=True)
@@ -105,32 +105,40 @@ def main():
             except (ValueError, KeyError, TypeError, subprocess.TimeoutExpired):
                 scan(token, project["id"], state, path)
                 raise ValueError("Draft creation outcome was uncertain; remote identities rescanned and saved. Restart to resume without recreating existing scopes") from None
-        futures = {}
+        changes = [(item["Id"], missing_values(item, state["Items"][item["Id"]], status_options)) for item in batch]
+        changes = [(scope, values) for scope, values in changes if values]
         state["NeedsRescan"] = True
         save_state(path, state)
+        error = False
         with ThreadPoolExecutor(max_workers=4) as workers:
-            for item in batch:
-                remote = state["Items"][item["Id"]]
-                values = missing_values(item, remote, status_options)
-                if values:
-                    future = workers.submit(rest, token, "/orgs/TryUniCAD/projectsV2/1/items/" + str(remote["NumericId"]), {"fields": [{"id": numeric_fields[name], "value": value} for name, value in values.items()]})
-                    futures[future] = (item["Id"], values)
-            error = False
-            for future in as_completed(futures):
-                scope, values = futures[future]
-                try:
-                    future.result()
-                    state["Items"][scope]["Fields"].update(values)
-                    if "Status" in values:
-                        state["Items"][scope]["Status"] = next(name for name, option in status_options.items() if option == values["Status"])
+            futures = {}
+            for start in range(0, len(changes), 5):
+                chunk = changes[start:start + 5]
+                future = workers.submit(publish_fields, token, project, fields, [(state["Items"][scope]["Id"], values) for scope, values in chunk])
+                futures[future] = chunk
+            try:
+                for future in as_completed(futures):
+                    if future.cancelled():
+                        continue
+                    try:
+                        future.result()
+                    except Exception:
+                        error = True
+                        for pending in futures:
+                            pending.cancel()
+                        continue
+                    for scope, values in futures[future]:
+                        state["Items"][scope]["Fields"].update(values)
+                        if "Status" in values:
+                            state["Items"][scope]["Status"] = next(name for name, option in status_options.items() if option == values["Status"])
                     save_state(path, state)
-                except (ValueError, subprocess.TimeoutExpired):
-                    error = True
+            except KeyboardInterrupt:
+                for pending in futures:
+                    pending.cancel()
+                raise
         if error:
-            state["NeedsRescan"] = True
-            save_state(path, state)
             scan(token, project["id"], state, path)
-            raise ValueError("Field publication was uncertain; remote state rescanned and saved. Restart to resume")
+            raise ValueError("Field publication was uncertain; running writes settled and remote state rescanned. Restart to resume") from None
         state["NeedsRescan"] = False
         save_state(path, state)
         print("Published batch", min(offset + len(batch), len(remaining)), "/", len(remaining), flush=True)

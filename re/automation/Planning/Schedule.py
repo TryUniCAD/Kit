@@ -87,7 +87,7 @@ def build_schedule(tasks, scopes, rows, snapshot, links, claims, sdk_tasks):
             raise ValueError("Unknown or cyclic scheduling dependencies")
         item = eligible
         pending.remove(item)
-        if (item["Kind"] in {"Open PR", "Merged PR", "Closed PR"} or item["Status"].lower() in {"complete", "cancelled", "superseded"} or not item.get("ScheduleEligible", True)) and item["Id"] not in overrides:
+        if (not links["SchedulePolicy"].get("ForecastEnabled", False) or item["Kind"] in {"Open PR", "Merged PR", "Closed PR"} or item["Status"].lower() in {"complete", "cancelled", "superseded"} or not item.get("ScheduleEligible", True)) and item["Id"] not in overrides:
             item.update(Start=None, Finish=None, ScheduleKind="Observed or inventory-only scope; no dates asserted")
             ends[item["Id"]] = origin
             continue

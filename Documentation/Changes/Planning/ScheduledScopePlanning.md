@@ -2,7 +2,7 @@
 
 ## Behavior
 
-Kit now has a repository planning index, forecast schedule, React scope board and
+Kit now has a repository planning index, optional explicit schedule, React scope board and
 organization GitHub Project. The views join B01–B14, research register rows, all
 curated SOLIDWORKS subfeatures, saved Fusion API types and native decoding domains and a dated open-PR
 inventory. Product and UI/UX proposals are explicit backlog entries.
@@ -34,9 +34,8 @@ unchanged on subsequent population runs so manual ownership and date edits survi
 
 ## Limits
 
-Five-working-day forecasts are investigation timeboxes under proposed planning
-capacity. They are not feature delivery estimates, actual staffing or native-host
-reservations. API declarations and typed ownership do not qualify semantics.
+Automatic forecasts are disabled. Only explicitly supplied windows receive dates;
+backlog order does not imply duration, staffing or delivery commitments. API declarations and typed ownership do not qualify semantics.
 Unmapped scopes require a live claim search. Detailed catalogues for every other
 format and a committed product UI specification remain missing obligations.
 Historical register states are retained as observations and must be refreshed before

@@ -386,6 +386,30 @@
           "Revision": ""
         }
       }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.RevolveFeature",
+      "TaskId": "PR393",
+      "Boundary": "Unequal two-sided explicit construction-axis capture campaign; strict admission and complete reconstruction remain unresolved",
+      "Stages": {
+        "capture": {
+          "Status": "checking",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/393",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR394",
+      "Boundary": "Independent two-sided circular extrusion drafts; 66 drafted strict states remain rejected and complete reconstruction remains open",
+      "Stages": {
+        "capture": {
+          "Status": "checking",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/394",
+          "Revision": ""
+        }
+      }
     }
   ],
   "Policy": "Historical task states and bounded active contributions are distinct from full feature qualification"

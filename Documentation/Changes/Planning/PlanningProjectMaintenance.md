@@ -28,6 +28,11 @@ The latter initializes native Done/In Progress states from owning records and
 retains newer completed or active project states. Existing field values survive
 reconstruction of the local progress file.
 
+`Batch.py --token-file PATH --state /tmp/KitPlanningImport.json` imports missing
+records with bounded batches under the same project lease. `ClearForecasts.py
+--token-file PATH --apply` removes only dates matching this task's earlier generated
+forecasts; it preserves manual date edits and records exact removals.
+
 `Audit.py --token-file PATH` reads current project coverage and status mismatches
 into `Documentation/Planning/ProjectSnapshot.json` without changing remote items.
 `Duplicates.py --token-file PATH` prepares an equivalence report; `--apply` merges

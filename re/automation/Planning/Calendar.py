@@ -5,16 +5,16 @@ from datetime import date
 def calendar_svg(items):
     rows = [item for item in items if item["Kind"] == "Milestone"]
     dates = [date.fromisoformat(item[key]) for item in rows for key in ("Start", "Finish") if item[key]]
-    start, finish = min(dates), max(dates)
+    start, finish = (min(dates), max(dates)) if dates else (date(2000, 1, 1), date(2000, 1, 1))
     span = max(1, (finish - start).days + 1)
     height = 100 + len(rows) * 34
     result = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 {height}" role="img" aria-labelledby="title desc">',
               '<title id="title">Kit scheduled investigation windows</title>',
-              '<desc id="desc">Calendar Gantt of proposed investigation timeboxes, not feature completion dates. Current open deliveries and detailed scopes are available in the scheduling board.</desc>',
+              '<desc id="desc">Calendar Gantt of explicitly supplied windows; undated work has no duration assumption. Current open deliveries and detailed scopes are available in the scheduling board.</desc>',
               f'<rect width="1200" height="{height}" fill="#faf9f6"/><g font-family="sans-serif" font-size="12" fill="#262522">',
               '<text x="16" y="26" font-size="18">Scheduled investigation windows</text>',
-              '<text x="16" y="48">Proposed capacity and timeboxes · source prerequisites still bind · no native-host reservation or delivery commitment</text>']
-    for index in range(7):
+              '<text x="16" y="48">Only explicit windows are dated · source prerequisites still bind · no assumed duration or delivery commitment</text>']
+    for index in range(7 if dates else 0):
         offset = span * index / 6
         x = 610 + index * 90
         from datetime import timedelta

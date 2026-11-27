@@ -33,10 +33,10 @@ open a scoped PR and address its configured reviews; do not merge without explic
 function Board() {
   const [query, setQuery] = useState('');
   const [area, setArea] = useState('All');
-  const [kind, setKind] = useState('Milestone');
+  const [kind, setKind] = useState('All');
   const [owner, setOwner] = useState('All');
   const [status, setStatus] = useState('All');
-  const [mode, setMode] = useState('Schedule');
+  const [mode, setMode] = useState('Current work');
   const [page, setPage] = useState(0);
   const [selected, setSelected] = useState(null);
   const [draft, setDraft] = useState(data.Links);
@@ -82,7 +82,7 @@ function Board() {
   return <main>
     <header><h1>Kit planning</h1><button onClick={exportPlan}>Export schedule changes</button></header>
     <p><a href="https://github.com/orgs/TryUniCAD/projects/1">Open shared GitHub project</a></p>
-    <p className="context">{data.Items.length} tracked entries · observed {data.ObservedOn} · forecast investigation windows, not completion promises</p>
+    <p className="context">{data.Items.length} tracked entries · observed {data.ObservedOn} · scope, status and ownership · dates only where explicitly scheduled</p>
     <nav aria-label="Planning views">{['Schedule', 'Current work', 'Scope inventory', 'SDK'].map(value => <button key={value} aria-pressed={mode === value} onClick={() => { setMode(value); setKind(value === 'Current work' || value === 'Scope inventory' || value === 'SDK' ? 'All' : 'Milestone'); setPage(0); }}>{value}</button>)}</nav>
     <div className="filters">
       <label>Search scopes<input type="search" maxLength={200} value={query} onChange={event => { setQuery(event.target.value); setPage(0); }} placeholder="Feature, task or owner" /></label>
@@ -100,7 +100,7 @@ function Board() {
         const width = item.Start ? Math.max(0.5, (stamp(item.Finish) - stamp(item.Start) + day) / (end - start) * 100) : 0;
         return <button className="row task" key={item.Id} onClick={() => setSelected(item.Id)} aria-label={`Open ${item.Name}`}>
           <div className="task-name"><strong>{item.Name}</strong><span>{item.Id} · {item.Status} · {item.Owner}</span></div>
-          <div className="track">{!item.Start ? <span className="unscheduled">Observed; dates not asserted</span> : left > 100 ? <span className="unscheduled">{item.Start} — use Fit filtered work</span> : <span title={`${item.Start} → ${item.Finish}: ${item.ScheduleKind}`} className={`bar ${item.Status.toLowerCase()}`} style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}>{width > 9 ? item.Start : ''}</span>}</div>
+          <div className="track">{!item.Start ? <span className="unscheduled">Unscheduled</span> : left > 100 ? <span className="unscheduled">{item.Start} — use Fit filtered work</span> : <span title={`${item.Start} → ${item.Finish}: ${item.ScheduleKind}`} className={`bar ${item.Status.toLowerCase()}`} style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}>{width > 9 ? item.Start : ''}</span>}</div>
         </button>;
       })}
       {!visible.length && <p>No matching scopes — change the filters</p>}

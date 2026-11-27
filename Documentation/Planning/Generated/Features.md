@@ -1874,7 +1874,7 @@ Inventory declarations are research obligations, not qualified support. No autom
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtendFeatures | ExtendFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtentDefinition | ExtentDefinition | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtentDirections | ExtentDirections | Unmapped — check current claims |
-| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeature | ExtrudeFeature | PR299, PR303, PR339 |
+| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeature | ExtrudeFeature | PR299, PR303, PR339, PR394 |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeatureInput | ExtrudeFeatureInput | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeatures | ExtrudeFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FaceGroup | FaceGroup | Unmapped — check current claims |
@@ -2253,7 +2253,7 @@ Inventory declarations are research obligations, not qualified support. No autom
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ReverseNormalFeature | ReverseNormalFeature | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ReverseNormalFeatures | ReverseNormalFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.RevoluteJointMotion | RevoluteJointMotion | Unmapped — check current claims |
-| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.RevolveFeature | RevolveFeature | Unmapped — check current claims |
+| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.RevolveFeature | RevolveFeature | PR393 |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.RevolveFeatureInput | RevolveFeatureInput | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.RevolveFeatures | RevolveFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.RibFeature | RibFeature | Unmapped — check current claims |

@@ -18,10 +18,9 @@ Read [the agent workflow](AgentWorkflow.md) for the required start, update and h
 - [Calendar windows](Generated/Calendar.md): explicitly supplied engineering windows only
 - [Source manifest](Generated/Manifest.json): exact source hashes and inventory counts
 
-The scheduling board uses calendar dates. Its initial five-working-day windows are
-proposed investigation timeboxes, not feature completion promises. Planning capacity
-is an explicit assumption in `SchedulePolicy`; it does not appoint people or reserve
-a CAD host. The dependency diagram separately shows prerequisite tiers. Recorded
+The scheduling board uses calendar dates. Only explicitly supplied windows are dated. Automatic
+forecasts are disabled; the backlog does not imply investigation duration, delivery
+commitments, staffing or a CAD host reservation. The dependency diagram separately shows prerequisite tiers. Recorded
 status appears in text as well as color.
 Source dependency cells, external blockers and native host reservations remain binding.
 Parent edges do not enumerate every child dependency. A parent marked complete does
@@ -105,9 +104,8 @@ Add a scope link using this structure; substitute real IDs and evidence:
 }
 ```
 
-The scheduler supplies tentative investigation windows for known backlog scopes.
-Override a window only with an explicit estimate basis; do not turn forecasts into
-accepted commitments. Shared changes belong in the GitHub Project; repo schedule
+Supply a window only with an explicit scheduling basis. Unscheduled backlog remains
+visible without an invented investigation duration or delivery date. Shared changes belong in the GitHub Project; repo schedule
 edits are exported as a draft `Links.json` and require review and regeneration.
 `Schedules` entries contain `TaskId`, ISO `Start`, ISO `Finish` and a nonempty `Basis`.
 They are estimates, not acceptance dates. Label research windows as investigations and retain unknown completion dates. Inspect the dependency chart and task
@@ -115,9 +113,11 @@ exit conditions when estimating dependent work.
 
 ## Decoding campaign handoff
 
-`FusionRevolveContrast` is a proposed separate campaign, not an active claim:
-unequal two-sided solid revolutions about an explicit construction axis. The recipient
-must refresh ownership and inspect existing revolve controls before selecting genuinely
+`FusionRevolveContrast` now links the bounded campaign in [PR #393](https://github.com/TryUniCAD/Kit/pull/393),
+owned by jdharcourt. [PR #394](https://github.com/TryUniCAD/Kit/pull/394) separately
+records independent two-sided circular drafts. Both remain checking at their recorded
+scope; native capture does not close strict admission, reconstruction or conversion.
+A follow-up recipient must refresh ownership and existing controls before selecting
 missing angle, axis and profile contrasts. It must use the existing research automation,
 API oracles and deterministic CLI, retain failures and receipts, reserve holdouts and
 prove rules against independent native measurements. Shared decoder changes require

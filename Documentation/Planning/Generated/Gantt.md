@@ -1,6 +1,6 @@
 # Scheduled investigation windows
 
-Proposed calendar timeboxes, not feature delivery promises. See [the interactive scheduling board](Board.html) for every recorded scope and current delivery.
+Only explicitly supplied windows are dated; undated work has no assumed duration or delivery date. See [the interactive scheduling board](Board.html) for every recorded scope and current delivery.
 
 ![Calendar Gantt](Gantt.svg)
 
