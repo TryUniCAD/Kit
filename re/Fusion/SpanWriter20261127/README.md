@@ -14,7 +14,7 @@ The generator derives the solid interval `[offset-second, offset+first]`, height
 
 `RunLadder.py` exercises 13 parameter combinations, varying radius, first distance, second distance and negative/zero/near-zero/positive placement independently, with two additional combined parameter probes. They are not independent native holdouts. All thirteen generated files pass complete typed parse/emit/parse equality. The construction audit permits only package grammar and interpreter code reads; four repository schema resources and one Python codec import were observed and hashed, with no CAD-source reads. Original runtime paths are private; published resource paths identify the checkout or interpreter module.
 
-`CheckGenerated.py` runs the independently pinned #396 reader at `7ce58d3962f89c5c184e1fd993126e4927f9d73d`. It checks all five actual bound parameter values and owners, mode/start/operation, volume/area/centroid, and the existing independent full analytic mass-cache validator. The ladder passes 104 recorded comparisons and every additional ownership/cache assertion. An initial three-case probe passes 24 comparisons.
+`CheckGenerated.py` runs the independently pinned #396 reader at `7ce58d3962f89c5c184e1fd993126e4927f9d73d`. It checks all five actual bound parameter values and owners, mode/start/operation, volume/area/centroid, and the existing independent full analytic mass-cache validator. The initial ladder passes 104 recorded comparisons and every additional ownership/cache assertion, but the independent attribution audit below refutes its sketch-link hypothesis. An initial three-case probe passes 24 comparisons.
 
 The public strict reader still refuses every generated candidate with `Native Fusion state is outside the qualified authored feature profile`. No public write/read guard, qualification metadata or application attestation was changed. Native acceptance flags remain false because no candidate was measured in the target application.
 
@@ -27,7 +27,7 @@ PYTHONPATH=/absolute/main91a/src python re/Fusion/SpanWriter20261127/RunLadder.p
 PYTHONPATH=/absolute/reader7ce/src python re/Fusion/SpanWriter20261127/CheckGenerated.py /absolute/unused/output
 ```
 
-The generator does not invoke CAD software or models. Its immutable source digest is bound in the ladder report. `Initial/` and `Ladder/` retain the exact independently generated candidates and reports. `Evidence/FailedAttempts.json` retains comparison, packaging and connectivity failures.
+The generator does not invoke CAD software or models. Its immutable source digest is bound in the ladder report. `Initial/` and `Ladder/` retain the original failed-attribution candidates and their passing value/cache instruments; `Corrected/` retains the repaired candidate generation and stricter proof. `Evidence/FailedAttempts.json` retains comparison, packaging and connectivity failures.
 
 ## Remaining work
 
@@ -36,3 +36,11 @@ The tailnet CAD API timed out before any native job submission. A local Tailscal
 Once the existing tailnet transport is reachable, the root-owned exclusive worker must bracket each exact candidate with healthy controls, inspect initial/rebuilt feature and solid state, independently edit first/second/offset drivers and circle geometry, restore, save and reopen each derivative in a fresh process. Retain exact executable build/hash, candidate hashes and all observations. Prove held-out combinations and inconsistent-binding/topology counterexamples before production promotion.
 
 Generated neutral edits, lossless arbitrary source admission, non-XY/translated profiles, drafting, revolves and other feature families remain required under the parent inventory. This research does not establish conversion acceptance or complete the user's request.
+
+## Refuted sketch-link hypothesis and corrected geometry proof
+
+Independent audit found that all thirteen original cylinders inherit two sketch links on the translated bottom rim. The baseline rim is at -22 mm while the actual sketch is at zero. Existing measured source checks require links to refer to the physical sketch plane. The original value/cache comparisons did not prove this attribution.
+
+`SpanHistory.py` now removes the inapplicable sketch attributes from the independently computed record graph and remaps every reference and record count. It does not patch or load vendor bytes. The prototype refuses an end coincident with the sketch until that separate source-link case is qualified. Existing feature/progenitor tags stay distinct from sketch coincidence.
+
+All thirteen corrected candidates pass complete typed cycles and 117 recorded comparisons through the pinned reader. The stricter proof builds the actual live journal, validates complete geometry coverage, unique body identity, all three closed faces, cap stations/orientations, rim incidence and side radius, plus the prior five-role and full mass-cache checks. The exact expected public qualification refusal is required. Remaining native lifecycle and complete generated-feature coupling are not established by these offline passes.

@@ -6,18 +6,93 @@
   "files": [
     {
       "path": "CheckGenerated.py",
-      "sha256": "cecea2e8e5f66d844ab659406f742809ebfa1514b26130b84a075f6ba2df2cec",
-      "bytes": 3478
+      "sha256": "13761cd1ba1b8af54bf6efbd18288def7dd9b9093bc8cfe6957b3a7f9bf4a457",
+      "bytes": 4368
+    },
+    {
+      "path": "Corrected/Comparison.json",
+      "sha256": "950279ace35dca8d2100c057adebe24afefb8fc2ada3979efa003e631b3237b0",
+      "bytes": 16959
+    },
+    {
+      "path": "Corrected/Results.json",
+      "sha256": "f5630bcf0c93d6a74418ace79464659c1cb5af97a605868815d75f07c33718da",
+      "bytes": 6060
+    },
+    {
+      "path": "Corrected/axis0-19.7.f3d",
+      "sha256": "bd8ab9e473dda3ee531e4f18d9a2cf84b97f01f8525de0c486af76f174fcfad1",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis0-7.1.f3d",
+      "sha256": "6f26aa33d237a2d241e972adb368d43c953d506ba9403b0627085772a04e6d5d",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis1-3.7.f3d",
+      "sha256": "e66d7aedc74571aa48538a130fb8f776cb090f3b4d991943e3cc870ec620ccc2",
+      "bytes": 85420
+    },
+    {
+      "path": "Corrected/axis1-61.3.f3d",
+      "sha256": "530f40c4ec29f4d307e9c7458cfc364e5fd8f966c63192091b6752925cd00625",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis2-5.9.f3d",
+      "sha256": "76a00df828f135aca4aa8334c68bf42d693690028a149b3eb68d14e9890e6034",
+      "bytes": 85420
+    },
+    {
+      "path": "Corrected/axis2-53.1.f3d",
+      "sha256": "341d8c9c81db6f831f9e17faa88642e87ed504299215b4ffff4f56b7e9c44944",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis3--41.9.f3d",
+      "sha256": "28d516613503c7b033847e6afc4ce71985538e61a46c4fba27b479b3f2738edb",
+      "bytes": 85426
+    },
+    {
+      "path": "Corrected/axis3-0.0.f3d",
+      "sha256": "ace7277189736fe7b0557af6d751c2aa2305646b6ecb7ce1f00e0ad99a4a8ac8",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis3-1e-06.f3d",
+      "sha256": "fceae9f75141235046148b85c036299742c9842a3490f1dd082486c442c42fae",
+      "bytes": 85426
+    },
+    {
+      "path": "Corrected/axis3-83.7.f3d",
+      "sha256": "4120b4ef4287dca7f5e9ee93cc5761b3e863a688d64e458a6071e30827ac64c0",
+      "bytes": 85424
+    },
+    {
+      "path": "Corrected/baseline.f3d",
+      "sha256": "7d3ed33b0c0adf373126d8caa67a12eb992c6ea31a673ffef02947bf9344363a",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/holdout_a.f3d",
+      "sha256": "0292804e5896a799ccadb42b0cf1cc5987819a2160fac2a3bfa67afdf9bdf4cf",
+      "bytes": 85426
+    },
+    {
+      "path": "Corrected/holdout_b.f3d",
+      "sha256": "4af494805df42217f6afbd10a5b61dd47cf78fa2e366cf0e40f5d61dbf78b0bb",
+      "bytes": 85424
     },
     {
       "path": "Evidence/FailedAttempts.json",
-      "sha256": "0e81e3ac0787424c4e524e10ff49c7ea5cc09147562a2aed78acc4f553c5f13a",
-      "bytes": 1021
+      "sha256": "5720744659d95a5100725031fe8c7833455419f091f50d764ddba4443898f572",
+      "bytes": 2157
     },
     {
       "path": "Generate.py",
-      "sha256": "e42791858648b5e1f1ef7412ee065c5b894cb7513976b25c0dbb5584e57fbe82",
-      "bytes": 7274
+      "sha256": "b08114e235d45ce1170b30926332bfae4b0db5ee0a50b819c4917985936d1482",
+      "bytes": 7253
     },
     {
       "path": "Initial/Comparison.json",
@@ -121,8 +196,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "f07f0c26fb662578ec5a1b1f8d27f70a9c536d809ac679480b9eea4be7432de9",
-      "bytes": 5044
+      "sha256": "42013e1677ec41f23dd2628162d68235d638b499af8542924c205e41ce8310eb",
+      "bytes": 6547
     },
     {
       "path": "RunLadder.py",
@@ -130,9 +205,19 @@
       "bytes": 2261
     },
     {
+      "path": "SpanHistory.py",
+      "sha256": "ecc622efe2e28612be95b9255effe3e5acca540b7263a792a28dfbe9e4ec63fd",
+      "bytes": 1566
+    },
+    {
       "path": "__pycache__/Generate.cpython-314.pyc",
-      "sha256": "118fac0269c0316d5a80718b385e067f7d01f419d040e0b96a488d33f1b24c5d",
-      "bytes": 13143
+      "sha256": "ef867fcd09cd3e3a7abf38be2e2812daec4512aad7db04ddbcffe2c0aa99bc3a",
+      "bytes": 13117
+    },
+    {
+      "path": "__pycache__/SpanHistory.cpython-314.pyc",
+      "sha256": "87f932995ca8fa0b9dda941f69e7f0428c4bfc02a532ef08c357c0e7fc8d0a8c",
+      "bytes": 4222
     }
   ]
 }

@@ -8,7 +8,7 @@ The [SOLIDWORKS inventory](../../../../re/solidworks/DecodedPromotion20261127/In
 Existing implementation ownership remains separate, including the saved cuboid, measured principal revolve and encoder work.
 
 The [Fusion offset-span prototype](../../../../re/Fusion/SpanWriter20261127/README.md) generates new two-sided circular extrusion archives with independent signed start placement and side controls.
-Thirteen parameter probes pass complete typed equality and 104 recorded value/cache comparisons through the pinned reader, with separate reciprocal ownership and full mass-tensor assertions.
+Thirteen parameter probes pass complete typed equality and 117 recorded value/cache comparisons through the pinned reader, with separate reciprocal ownership and full mass-tensor assertions.
 The public strict reader continues refusing the unqualified generated feature envelope.
 No native writer acceptance is claimed.
 
@@ -20,6 +20,7 @@ The [SOLIDWORKS prototype](../../../../re/solidworks/DecodedPromotion20261127/RE
 It preserves strict reverse refusals, records the missing coupled reader and geometry fields, and verifies the measured direction rule against genuine native sources.
 It does not restore recorded field programs or qualify a new native writer family.
 
+The [translated sketch-link gotcha](../../../Gotchas/Conversion/Fusion/Geometry/TranslatedSpanSketchLinks.md) records a refuted initial attribution rule and the corrected symbolic graph.
 All source/runtime observations, failures and pending acceptance requirements remain recorded.
 Models stay disabled, production code remains independent of vendor applications, and no proprietary software is distributed.
 The tailnet CAD API was unreachable before native dispatch, so exact candidate edit/restore/rebuild/save/fresh-process acceptance remains pending.

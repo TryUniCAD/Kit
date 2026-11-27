@@ -5,6 +5,7 @@ import math
 import sys
 
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
+from convert.Formats.Fusion.BrepCodec.Models.HistoryModel import HistoryModel
 from convert.adapters.Fusion.Native.Graph.BuildGraph import BuildGraph
 from convert.adapters.Fusion.Native.Graph.SelectExtrusion import SelectExtrusion
 from convert.adapters.Fusion.Native.Graph.ReadExtentMode import ReadExtentMode
@@ -20,6 +21,16 @@ for case in records['cases'] if isinstance(records,dict) else records:
     path=root/(case['case']+'.f3d');raw=path.read_bytes()
     assert hashlib.sha256(raw).hexdigest()==case['sha256']
     model=ReadDocument(raw);graph=BuildGraph(model);context=SelectExtrusion(graph)
+    from convert.Formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
+    from convert.adapters.Fusion.Native.Circular.Spans.ReadSpanState import ReadSpanState
+    from convert.adapters.Fusion.Native.Circular.Spans.ReadSpanBody import ReadSpanBody
+    from convert.adapters.Fusion.Native.Circular.Spans.CheckSpanSolid import CheckSpanSolid
+    assert len(model.Bodies)==1 and isinstance(model.Bodies[0].History,JournalModel)
+    expected=FrustumBody(radius,radius,first+second,(0.,0.,offset-second))
+    live=ReadSpanState(context,model.Bodies[0].History,expected)
+    body,tag=ReadSpanBody(live)
+    CheckSpanSolid(live,body,expected)
+    checks.append(dict(case=case['case'],field='solved_geometry',passed=True))
     params=ReadParameters(graph,context)
     byrole={p.attributes['native_name']:p for p in params if p.owner_id==context.Extrude.Identity}
     assert len(params)==6 and len(byrole)==5
@@ -42,7 +53,8 @@ for case in records['cases'] if isinstance(records,dict) else records:
         from convert import open_document
         open_document(path)
         boundary=False;reason='unexpected strict read'
-    except ValueError as error:boundary=True;reason=str(error)
+    except ValueError as error:
+        reason=str(error);boundary=reason=='Native Fusion state is outside the qualified authored feature profile'
     checks.append(dict(case=case['case'],field='strict_boundary',passed=boundary,reason=reason))
 report=dict(reader_revision='7ce58d3962f89c5c184e1fd993126e4927f9d73d',models=False,native_acceptance='not_run_transport_unavailable',passed=sum(row['passed'] for row in checks),failed=sum(not row['passed'] for row in checks),checks=checks)
 (root/'Comparison.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:v for k,v in report.items() if k!='checks'}));assert report['failed']==0

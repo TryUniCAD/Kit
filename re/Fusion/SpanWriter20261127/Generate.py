@@ -19,7 +19,7 @@ from convert.Formats.Fusion.DocumentCodec.Materials.BuildMatPart import BuildMat
 from convert.Formats.Fusion.DocumentCodec.PackDocument import PackDocument
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from convert.Formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
-from convert.Formats.Fusion.BrepCodec.EmitHistory import EmitHistory
+from SpanHistory import emit_span_history
 from convert.Formats.Fusion.BrepCodec.Models.BodyIdentity import BodyIdentity
 from convert.Formats.Fusion.BrepCodec.Models.FeatureTag import FeatureTag
 from convert.Formats.Fusion.BrepCodec.Models.HistoryState import HistoryState
@@ -73,7 +73,7 @@ def generate(radius, first, second, offset):
     tags=TopologyTags(FeatureTag(policy.SideFaceLabel,operations),FeatureTag(policy.TopFaceLabel,operations),FeatureTag(policy.BottomFaceLabel,operations),FeatureTag(policy.TopEdgeLabel,operations),FeatureTag('-'+str(sketch),operations),SketchLink(sketch,0,0,1,1))
     identity=BodyIdentity(policy.BodyKey,operations[0],policy.BodyProgenitorTag,0)
     history=HistoryState(policy.HistoryCurrentId,policy.HistoryInitialId,policy.HistoryCurrentStateId,policy.HistoryNextEntityTag,policy.HistoryBoardStatus,policy.HistoryMaxStateId)
-    body=EmitHistory(CylinderBody(radius,height,(0.,0.,lower)),identity,tags,history,GeometryStamp('Kit','Research generated two sided span','2026-11-27'))
+    body=emit_span_history(CylinderBody(radius,height,(0.,0.,lower)),identity,tags,history,GeometryStamp('Kit','Research generated two sided span','2026-11-27'))
     part=replace(BuildBodyPart(spec,design)[0],Payload=body)
     return PackDocument(design,spec.Title,(part,*BuildMatPart(design)))
 

@@ -1012,7 +1012,7 @@ Planning PR #392 remains separate and unmerged; retain the existing claim until 
 | A12-ReverseBlindBoss20261127       | Generative reverse blind line-loop boss direction and coupled reader/body proof                    | Codex SOLIDWORKS worker | active | Native source-admitted direction/body grammar and held-out editable generated candidates pass public SDK/CLI and native acceptance                  |
 
 The [change entry](../../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links both complete family inventories and revision-bound prototype evidence.
-Thirteen source-free Fusion span candidates pass typed equality and 104 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
+Thirteen source-free Fusion span candidates pass typed equality and 117 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
 SOLIDWORKS reverse candidates and genuine saved controls retain their explicit typed-grammar, geometry and native-acceptance gaps.
 No production support flag or public qualification guard was broadened by this delivery.
 The native API status request timed out before any job submission; native candidate validation is waiting for transport recovery while offline implementation continues.
