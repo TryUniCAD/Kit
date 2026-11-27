@@ -73,7 +73,7 @@ def main():
                 by_name[name] = graphql(token, 'mutation($project:ID!,$name:String!,$kind:ProjectV2CustomFieldType!){createProjectV2Field(input:{projectId:$project,name:$name,dataType:$kind}){projectV2Field{... on ProjectV2Field{id}}}}', {"project": state["id"], "name": name, "kind": kind})["createProjectV2Field"]["projectV2Field"]["id"]
         state["Fields"][name] = by_name[name]
         state_path.write_text(json.dumps(state, indent=2) + "\n")
-    for name, layout, filter_text in [("Scope board", "BOARD_LAYOUT", ""), ("Scheduled roadmap", "ROADMAP_LAYOUT", ""), ("Current work", "TABLE_LAYOUT", 'status:"In Progress"'), ("All scopes", "TABLE_LAYOUT", ""), ("Unassigned scopes", "TABLE_LAYOUT", 'agent:Unassigned')]:
+    for name, layout, filter_text in [("Scope board", "BOARD_LAYOUT", ""), ("Scheduled roadmap", "ROADMAP_LAYOUT", ""), ("Current work", "TABLE_LAYOUT", 'status:"In Progress"'), ("All scopes", "TABLE_LAYOUT", ""), ("Unassigned scopes", "TABLE_LAYOUT", 'no:assignee status:Todo')]:
         if name not in state["Views"]:
             view = graphql(token, 'mutation($project:ID!,$name:String!,$layout:ProjectV2ViewLayout!){createProjectV2View(input:{projectId:$project,name:$name,layout:$layout}){projectV2View{id name}}}', {"project": state["id"], "name": name, "layout": layout})["createProjectV2View"]["projectV2View"]
             state["Views"][name] = view["id"]

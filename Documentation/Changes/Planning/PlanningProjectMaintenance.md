@@ -6,6 +6,8 @@ The planning tools support native project status initialization, readback audits
 single-writer import leases, equivalent-duplicate reconciliation and native assignee
 updates that preserve existing assignment history. Historical Codex tasks use the
 verified feature/task introduction author or exact delivery PR author.
+The unassigned-backlog view filters native assignees and Todo status; Agent text
+is a runtime/contact field and does not determine native assignment.
 Agents must set In Progress before work and Done only after their bounded exit
 evidence, as required by [the agent workflow](../../Planning/AgentWorkflow.md).
 
