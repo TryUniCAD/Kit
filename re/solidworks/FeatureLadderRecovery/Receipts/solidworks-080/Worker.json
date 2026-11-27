@@ -1,0 +1,79 @@
+{
+  "case": {
+    "application": "solidworks",
+    "axis": "width",
+    "id": "solidworks-080-restart",
+    "original_case_id": "solidworks-080",
+    "parameters_mm": {
+      "depth": 10,
+      "height": 20,
+      "width": 23
+    },
+    "plane": "right",
+    "reverse": false,
+    "script_sha256": "a10157905967abb80ad0b83efd95a72962e5e69931ebcab3f12af616fdaa7021"
+  },
+  "execution": {
+    "definition_sha256": "f4e3607f646e833faf57cd71f19867b2b1c7ad65edc4577ef2e570a278d9f5e8",
+    "fingerprint": "573254c22eec213c0e2a2686a85c833ae464fa083dc8ddef6a46e93d46ce432d",
+    "rule_version": "controlled-extrusion-ladders@1",
+    "tool_version": "7a0a987ec2f1ab4099c839621a8e51d18bcfa872",
+    "input_sha256": {}
+  },
+  "started": 1795384499.669467,
+  "native_status": "completed",
+  "decodes": [
+    {
+      "source": "control-before.SLDPRT",
+      "source_sha256": "2c8b2ac6e9ccd4f843f80b47a6ab5fb4077cab9aab01631c0b854b3be45303b2",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/Native/control-before.SLDPRT",
+        "-o",
+        "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/control-before-neutral.json"
+      ],
+      "exit_code": 0,
+      "outcome": "strict_decoded",
+      "full_semantics_verified": false,
+      "partial": false,
+      "body_count": 1
+    },
+    {
+      "source": "control-after.SLDPRT",
+      "source_sha256": "15314077c939299b4aeaf8dcc9144abec313e6783b533996110ec0696cee568c",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/Native/control-after.SLDPRT",
+        "-o",
+        "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/control-after-neutral.json"
+      ],
+      "exit_code": 0,
+      "outcome": "strict_decoded",
+      "full_semantics_verified": false,
+      "partial": false,
+      "body_count": 1
+    },
+    {
+      "source": "variation.SLDPRT",
+      "source_sha256": "0dbb277ba2291ea14a837c58ffaf8fa6c652da318d7f5aa4a7341eb8ef079433",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/Native/variation.SLDPRT",
+        "-o",
+        "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/variation-neutral.json"
+      ],
+      "exit_code": 0,
+      "outcome": "strict_decoded",
+      "full_semantics_verified": false,
+      "partial": false,
+      "body_count": 1
+    }
+  ],
+  "native_job": "a59a203c88535bbe964074e648a75a21",
+  "finished": 1795384519.627168,
+  "duration_seconds": 19.957700967788696,
+  "artifact_directory": "$RECOVERY/SolidWorksRemaining/solidworks-080-restart"
+}

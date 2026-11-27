@@ -1,7 +1,10 @@
 # Free-plan runner limits
 
 A workflow might appear able to select a larger GitHub-hosted runner with more CPUs.
-The TryUniCAD organization uses the GitHub Free plan.
+The TryUniCAD organization used the GitHub Free plan at the original observation.
+On 24 November 2026, the organization API reported Team, with sixty standard hosted jobs.
+The [separate test lanes](../../Changes/Ci/Scheduling/SeparateTestLanes.md) use that current allowance.
+The Free-plan limits below are historical, not the current scheduling budget.
 The `GET /orgs/TryUniCAD/actions/hosted-runners` request returns HTTP 404.
 The message is `GitHub hosted runners are not supported for this organization`.
 A job with a larger-runner label waits for a runner that does not exist.

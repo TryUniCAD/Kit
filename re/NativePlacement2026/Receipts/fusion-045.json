@@ -1,0 +1,84 @@
+{
+  "job": "fusion-045",
+  "revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "case": {
+    "application": "fusion",
+    "axis": "height",
+    "id": "fusion-045",
+    "parameters_mm": {
+      "depth": 10,
+      "height": 23.7,
+      "width": 40
+    },
+    "plane": "right",
+    "reverse": true,
+    "script_sha256": "f395ad36d1c33910a9b290d38d5c24c65f395599784493a3eb7aec12e8f8d9a5",
+    "split": "discovery"
+  },
+  "model_advice": false,
+  "native_status": "completed",
+  "started_at": 1795440509.3385332,
+  "finished_at": 1795440544.139052,
+  "elapsed_seconds": 34.80051875114441,
+  "native_requested_volume_comparisons": [
+    {
+      "case": "control-before",
+      "requested_volume_mm3": 8000,
+      "native_volume_mm3": 8000.0,
+      "matches": true,
+      "source_sha256": "f712cfb2bbcb9a3d887f87513f85174f03c70cf334fdd99d69f5361f586a6adc"
+    },
+    {
+      "case": "variation",
+      "requested_volume_mm3": 9480.0,
+      "native_volume_mm3": 9480.0,
+      "matches": true,
+      "source_sha256": "64899d14a0ad1e6e1b4ee39ada2ab002170ef795b3c7bb695e5b356f291b2a1c"
+    },
+    {
+      "case": "control-after",
+      "requested_volume_mm3": 8000,
+      "native_volume_mm3": 8000.0,
+      "matches": true,
+      "source_sha256": "f1dc80a45cf8e11f7857abeccf8d2bd1a7dd9c0f9bf310e5c9d0962affd78b7f"
+    }
+  ],
+  "semantic_acceptance": false,
+  "vendor_conversion_acceptance": false,
+  "original_receipt_sha256": "b66587ef1cc58433c1f9d232115712e90a6a1f30d6898a30ac7c4b82faf5c0a3",
+  "command_records": [
+    {
+      "argv": [
+        "<local-user>/.local/share/uv/tools/unicad-kit/bin/kit",
+        "decode",
+        "<campaign>/fusion-045/Native/control-after.f3d",
+        "-o",
+        "<campaign>/fusion-045/control-after-neutral.json"
+      ],
+      "exit_code": 1,
+      "log": "control-after-strict.log"
+    },
+    {
+      "argv": [
+        "<local-user>/.local/share/uv/tools/unicad-kit/bin/kit",
+        "decode",
+        "<campaign>/fusion-045/Native/control-before.f3d",
+        "-o",
+        "<campaign>/fusion-045/control-before-neutral.json"
+      ],
+      "exit_code": 1,
+      "log": "control-before-strict.log"
+    },
+    {
+      "argv": [
+        "<local-user>/.local/share/uv/tools/unicad-kit/bin/kit",
+        "decode",
+        "<campaign>/fusion-045/Native/variation.f3d",
+        "-o",
+        "<campaign>/fusion-045/variation-neutral.json"
+      ],
+      "exit_code": 1,
+      "log": "variation-strict.log"
+    }
+  ]
+}

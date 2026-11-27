@@ -1,0 +1,250 @@
+{
+  "schema": "kit.sw2026.vendor-boss-presentation-contrast-index.v1",
+  "scope": "Read-only presentation contrast of an independently authored boss against a prior native-saved Kit edit of the same geometry.",
+  "oracle": {
+    "build": "34.4.1.1011",
+    "sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+    "distinct_owned_processes": 4,
+    "exit_observation": "windows_process_exit_handle"
+  },
+  "outside_tracked_tree": [
+    "Retained source archives",
+    "Run plan",
+    "Per-process requests, reports and logs",
+    "Full terminal result"
+  ],
+  "plan_sha256": "f0337f50f8887cb687047a9ec02ac54606cdfa61683358d6a411234f2bbeaabd",
+  "result_sha256": "88cb60978eaa747a34eba892195e917ea2262d55268675d25c3795bf4803f594",
+  "methods": {
+    "ObserveVendorBossPresentation.py": "c6b849e67cf76ceccae0de7ca3889f16fa6ea2b42a73019a269d6132c78b44f9",
+    "ObserveVendorBossCorpus.py": "695f1fda489a95b49ec195101a0fea36e4e3aff93164f55e54bcddff7a9eae45",
+    "offline_configuration_reader_revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0"
+  },
+  "lifetimes": {
+    "ControlBefore": {
+      "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "request_sha256": "166311094bd06036ff415197b174210e0b0c6d110e5de7d25e2937c33304211a",
+      "record_sha256": "b36d4b3869b8d80426208dd1e0d63934ea24e1453d5fa10f04bc5629f4149cc7",
+      "pid": 2920,
+      "start_filetime": 134401220338878535,
+      "exit_filetime": 134401220493623339,
+      "exit_code": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuilt": true,
+      "source_unchanged": true
+    },
+    "VendorReference": {
+      "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+      "request_sha256": "eb59acf382531911cac025d281bb61ab8fe4f52858aeda529028b60f6cf8e914",
+      "record_sha256": "bc4f870182342d77f3051f2ffdcb78bf2e2c98a07b1f5a740c538c9a5a3603ed",
+      "pid": 21664,
+      "start_filetime": 134401220497052165,
+      "exit_filetime": 134401220640196385,
+      "exit_code": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuilt": true,
+      "source_unchanged": true
+    },
+    "SavedKitEdit": {
+      "source_sha256": "8d6e26316ad089f786ab40c8687358004b7550fe545c52b6a1bf97964033a1a2",
+      "request_sha256": "7ee3c3cc5b45e38925306ffef89f7cf384760e947c64d832686ff7e5be0a4e7a",
+      "record_sha256": "e93105ea32cdfeddec130afa4fa051e7676d72bc55b4bb2158101ce971a4df68",
+      "pid": 23300,
+      "start_filetime": 134401220643552675,
+      "exit_filetime": 134401220762753008,
+      "exit_code": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuilt": true,
+      "source_unchanged": true
+    },
+    "ControlAfter": {
+      "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "request_sha256": "582a3ea19ceb5178f5ab453e6211cf27ae92db4c188a31796f3ab835f89e1209",
+      "record_sha256": "5768151980551aad8130704a45bf0944fb9a3ea9dc6ad44b796fdf488c828b7b",
+      "pid": 21908,
+      "start_filetime": 134401220766196110,
+      "exit_filetime": 134401220908144004,
+      "exit_code": 0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "read_only": true,
+      "rebuilt": true,
+      "source_unchanged": true
+    }
+  },
+  "same_geometry": {
+    "bodies": 1,
+    "depth_m": 0.01987,
+    "dimension_driving": true,
+    "sketch_relations": 0,
+    "volume_m3": 1.05311e-05,
+    "area_m2": 0.002931305377864321,
+    "faces": 6,
+    "edges": 12,
+    "vertices": 8,
+    "matched_measurements_centre_of_mass_m": [
+      0.0038125786163522007,
+      0.004832704402515723,
+      0.009934999999999998
+    ],
+    "centre_of_mass_max_difference_m": 1.734723475976807e-18,
+    "sketch_line_segments": 4
+  },
+  "presentation": {
+    "stable_on_read_only_rebuild_in_all_phases": true,
+    "controls_agree": true,
+    "annotation_views": {
+      "ControlBefore": {
+        "count": 2,
+        "assigned_count": 1,
+        "annotation_items": 0,
+        "assigned_shown": [
+          false
+        ]
+      },
+      "VendorReference": {
+        "count": 2,
+        "assigned_count": 1,
+        "annotation_items": 0,
+        "assigned_shown": [
+          false
+        ]
+      },
+      "SavedKitEdit": {
+        "count": 1,
+        "assigned_count": 0,
+        "annotation_items": 0,
+        "assigned_shown": []
+      }
+    },
+    "configuration_annotation_objects": {
+      "ControlBefore": {
+        "decoded_config0_sha256": "53219df31eba0cd8420ae48c113c007aaaf4b3460261252968423206696c899d",
+        "annotation_slots": [
+          {
+            "slot": 101,
+            "name": "*Top",
+            "view_tag": 200,
+            "rotation": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -1.0,
+              -0.0
+            ]
+          }
+        ],
+        "matches_assigned_native_rotation": true
+      },
+      "VendorReference": {
+        "decoded_config0_sha256": "adcbb62f1fca1d12713c2423867a0ec4b82a0567d82361bab593ae1ae642df6b",
+        "annotation_slots": [
+          {
+            "slot": 101,
+            "name": "*Top",
+            "view_tag": 200,
+            "rotation": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -1.0,
+              -0.0
+            ]
+          }
+        ],
+        "matches_assigned_native_rotation": true
+      },
+      "SavedKitEdit": {
+        "decoded_config0_sha256": "fce5245b0af5cd04ebdbb4ec8a5f735a53f56f2333d43f1df6c85663032f6a0a",
+        "annotation_slots": [],
+        "matches_assigned_native_rotation": false
+      }
+    },
+    "lights": {
+      "exact_match_across_all_phases": true,
+      "names": [
+        "Ambient-1",
+        "Directional-1",
+        "Directional-1",
+        "Directional-1"
+      ],
+      "property_slots_per_light": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "canonical_observation_sha256": "f2ae9b12de07d3aa316b83bd1ae60f2a6fa4254eb0446acd4f668c150d84315e"
+    },
+    "configuration_and_display": {
+      "VendorReference": {
+        "configuration": "Default",
+        "display_states": [
+          "<Default>_Display State 1"
+        ],
+        "linked_display_state": false,
+        "construct_planes_visible": true,
+        "visible_solids": 1,
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Top Plane": 1,
+          "Right Plane": 1,
+          "Origin": 2,
+          "Sketch1": 1
+        }
+      },
+      "SavedKitEdit": {
+        "configuration": "modeled default",
+        "display_states": [
+          "<modeled default>_Display State 1"
+        ],
+        "linked_display_state": false,
+        "construct_planes_visible": false,
+        "visible_solids": 1,
+        "feature_visibility": {
+          "Front Plane": 1,
+          "Top Plane": 1,
+          "Right Plane": 1,
+          "Origin": 2,
+          "Sketch1": 1
+        }
+      }
+    },
+    "material_and_appearance": {
+      "exact_match_across_all_phases": true,
+      "assigned_name": "",
+      "material_database": "",
+      "model_property_values": [
+        0.8941176470588235,
+        0.8941176470588235,
+        0.8941176470588235,
+        1.0,
+        1.0,
+        0.5,
+        0.3125,
+        0.0,
+        0.0
+      ],
+      "render_appearances": []
+    }
+  },
+  "limits": [
+    "The reserved source was excluded.",
+    "The observed Kit file was an existing vendor-resaved derivative.",
+    "The archive and native observation show a specific presentation loss in one bounded comparison. There was no writer run or new writer acceptance."
+  ]
+}

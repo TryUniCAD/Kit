@@ -17,10 +17,10 @@ def command_output(argv):
     return result.stdout
 
 
-def host_resources():
+def host_resources(windows_cpu=None):
     if sys.platform == "win32":
         from WindowsResources import host_resources as windows_resources
-        return {**windows_resources(), **adaptive_metrics()}
+        return {**windows_resources(windows_cpu), **adaptive_metrics()}
     cpus = os.cpu_count()
     if cpus is None or cpus < 1:
         raise OSError("logical CPU count unavailable")

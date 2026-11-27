@@ -1,0 +1,28 @@
+{
+  "installed_sdk": "<operator-home>/.local/share/uv/tools/unicad-kit/lib/python3.14/site-packages/convert",
+  "checked_files": 979,
+  "different_files": [
+    "src/convert/adapters/solidworks/Core/CircularSketch.py",
+    "src/convert/adapters/solidworks/Core/CircularProjection.py",
+    "src/convert/adapters/solidworks/Sketch/CircularDisplay.py",
+    "src/convert/adapters/solidworks/Sketch/CircularRecords.py",
+    "src/convert/adapters/solidworks/Sketch/CircularMembers.py",
+    "src/convert/adapters/solidworks/Resolved/TwoPad/PadHistory.py",
+    "src/convert/adapters/solidworks/Resolved/TwoPad/PadProfile.py",
+    "src/convert/adapters/solidworks/Resolved/Circular/Profile.py",
+    "src/convert/adapters/solidworks/Resolved/Circular/Records.py",
+    "src/convert/adapters/solidworks/Resolved/Circular/Boss.py",
+    "src/convert/adapters/solidworks/Resolved/Circular/CircleOnlyTail.py",
+    "src/convert/adapters/solidworks/Resolved/Circular/CircleOnly.py",
+    "src/convert/adapters/solidworks/Resolved/Circular/ReadCircleOnly.py",
+    "src/convert/adapters/solidworks/Resolved/Circular/Part.py",
+    "src/convert/adapters/solidworks/Core/TwoPad/PadBind.py",
+    "src/convert/adapters/solidworks/Core/TwoPad/PadDocument.py",
+    "src/convert/adapters/solidworks/Core/Partition/CircularPartition.py",
+    "src/convert/adapters/solidworks/Core/CircleOnly/BuildSketch.py",
+    "src/convert/adapters/solidworks/Core/CircleOnly/Candidate.py",
+    "src/convert/adapters/solidworks/Core/CircleOnly/Projection.py"
+  ],
+  "note": "current main includes attribution changes; do not infer an installed source revision from the controller tool_version alone",
+  "ast_differences": []
+}
