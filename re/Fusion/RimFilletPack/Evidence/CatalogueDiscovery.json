@@ -1,0 +1,240 @@
+{
+  "mapped_scopes": {
+    "p01-corner-rectangle": "api:adsk.fusion.SketchLines.addTwoPointRectangle",
+    "p03-blind-boss.fusion": "api:adsk.fusion.ExtrudeFeature",
+    "p03-blind-boss.solidworks": "family:extrude:boss-base-extrude",
+    "p04-through-all-body-selection": "family:extrude:cut-extrude"
+  },
+  "scope_order": [
+    "p01-corner-rectangle",
+    "p03-blind-boss.fusion",
+    "p03-blind-boss.solidworks",
+    "p04-through-all-body-selection"
+  ],
+  "selected_scope_is_catalogue_executable": false,
+  "entries": {
+    "fusion": {
+      "api:adsk.fusion.FilletFeature": {
+        "catalogue": {
+          "feature": "api:adsk.fusion.FilletFeature",
+          "api_kind": "api_type",
+          "name": "FilletFeature",
+          "status": "blocked",
+          "route": null,
+          "blockers": [
+            "pinned_native_evidence_required"
+          ],
+          "qualification": {
+            "authoring": "unverified",
+            "decoding": "unverified",
+            "writing": "unverified",
+            "verification": "unverified"
+          },
+          "recipe_spec": "fillet-constant",
+          "plan_id": "6842f93b477dbec4fc0212a21737e32828714cf5c2aef917e784c7131ff94c10"
+        },
+        "reviewed_specification": {
+          "id": "fillet-constant",
+          "name": "Constant-radius edge fillet",
+          "entries": {
+            "solidworks": [
+              "family:fillet:constant-radius-fillet"
+            ],
+            "fusion": [
+              "api:adsk.fusion.FilletFeature"
+            ]
+          },
+          "seed": "block",
+          "build": [
+            "Fillet the vertical edge at (40, 20) with radius_mm = 2."
+          ],
+          "parameters": {
+            "radius_mm": 2
+          },
+          "expect": {
+            "bodies": 1,
+            "volume_mm3": "8000 - (4 - pi)*10",
+            "effect": "removes",
+            "check": "Record body count, volume, centre of mass and the feature tree.",
+            "volume_value_mm3": 7991.415926535898
+          },
+          "variations": [
+            "Tangent chain off.",
+            "Curvature-continuous profile."
+          ],
+          "edit": {
+            "parameter": "radius_mm",
+            "value": 3,
+            "volume_mm3": "8000 - (9 - 2.25*pi)*10",
+            "volume_value_mm3": 7980.6858347057705
+          },
+          "kind": "written"
+        }
+      },
+      "api:adsk.fusion.ExtrudeFeature": {
+        "catalogue": {
+          "feature": "api:adsk.fusion.ExtrudeFeature",
+          "api_kind": "api_type",
+          "name": "ExtrudeFeature",
+          "status": "mapped",
+          "route": {
+            "scope": "p03-blind-boss.fusion",
+            "recipe": "P03",
+            "assessment_kind": "inference.fields",
+            "evidence_experiment": null
+          },
+          "blockers": [],
+          "qualification": {
+            "authoring": "unverified",
+            "decoding": "unverified",
+            "writing": "unverified",
+            "verification": "unverified"
+          },
+          "recipe_spec": "pair-blind-boss",
+          "plan_id": "df8be213d1acf2d1137c50e66a1569256c7b5e1fa0dd2dc67bfacdd72fcc4a75"
+        },
+        "reviewed_specification": {
+          "id": "pair-blind-boss",
+          "name": "Blind rectangular boss (P03)",
+          "entries": {
+            "solidworks": [
+              "family:extrude:boss-base-extrude"
+            ],
+            "fusion": [
+              "api:adsk.fusion.ExtrudeFeature"
+            ]
+          },
+          "pair_recipe": "P03",
+          "kind": "paired"
+        }
+      }
+    },
+    "solidworks": {
+      "family:fillet:constant-radius-fillet": {
+        "catalogue": {
+          "feature": "family:fillet:constant-radius-fillet",
+          "family": "family:fillet",
+          "wave": "alpha",
+          "dependencies": [
+            "family:extrude",
+            "family:selection"
+          ],
+          "option_axes": [
+            "continuity",
+            "corner treatment",
+            "overflow",
+            "radius profile",
+            "selection",
+            "tangent propagation",
+            "trim"
+          ],
+          "status": "blocked",
+          "route": null,
+          "blockers": [
+            "pinned_native_evidence_required"
+          ],
+          "recipe_spec": "fillet-constant",
+          "plan_id": "1f6fc0d9462013f952b84eb77c7dbf974b6a4011840366b2fb17b014498aa62e"
+        },
+        "reviewed_specification": {
+          "id": "fillet-constant",
+          "name": "Constant-radius edge fillet",
+          "entries": {
+            "solidworks": [
+              "family:fillet:constant-radius-fillet"
+            ],
+            "fusion": [
+              "api:adsk.fusion.FilletFeature"
+            ]
+          },
+          "seed": "block",
+          "build": [
+            "Fillet the vertical edge at (40, 20) with radius_mm = 2."
+          ],
+          "parameters": {
+            "radius_mm": 2
+          },
+          "expect": {
+            "bodies": 1,
+            "volume_mm3": "8000 - (4 - pi)*10",
+            "effect": "removes",
+            "check": "Record body count, volume, centre of mass and the feature tree.",
+            "volume_value_mm3": 7991.415926535898
+          },
+          "variations": [
+            "Tangent chain off.",
+            "Curvature-continuous profile."
+          ],
+          "edit": {
+            "parameter": "radius_mm",
+            "value": 3,
+            "volume_mm3": "8000 - (9 - 2.25*pi)*10",
+            "volume_value_mm3": 7980.6858347057705
+          },
+          "kind": "written"
+        }
+      },
+      "family:extrude:boss-base-extrude": {
+        "catalogue": {
+          "feature": "family:extrude:boss-base-extrude",
+          "family": "family:extrude",
+          "wave": "alpha",
+          "dependencies": [
+            "family:sketch",
+            "family:sketchdimensions",
+            "family:state"
+          ],
+          "option_axes": [
+            "body scope",
+            "depth",
+            "draft",
+            "end condition both sides",
+            "end offset",
+            "merge",
+            "start offset",
+            "start reference",
+            "start reverse",
+            "thin wall"
+          ],
+          "status": "mapped",
+          "route": {
+            "scope": "p03-blind-boss.solidworks",
+            "recipe": "P03",
+            "assessment_kind": "inference.fields",
+            "evidence_experiment": null
+          },
+          "blockers": [],
+          "recipe_spec": "pair-blind-boss",
+          "plan_id": "10af3430d1314250b7518e7eec7b52dce5fa9e25c45f071a48698b6f147c6fba"
+        },
+        "reviewed_specification": {
+          "id": "pair-blind-boss",
+          "name": "Blind rectangular boss (P03)",
+          "entries": {
+            "solidworks": [
+              "family:extrude:boss-base-extrude"
+            ],
+            "fusion": [
+              "api:adsk.fusion.ExtrudeFeature"
+            ]
+          },
+          "pair_recipe": "P03",
+          "kind": "paired"
+        }
+      }
+    }
+  },
+  "prior_evidence": [
+    "re/Fusion/Reconstruction/CircularSpans/Findings.md",
+    "tests/Convert/Formats/FusionCodec/Documents/PartFeatures/RoundTests.py",
+    "re/Fusion/LocalOracle/ReaderCoverage/Preparation.json",
+    "re/Fusion/LocalOracle/ReaderCoverage/NativeAcceptance.json"
+  ],
+  "prior_evidence_hashes": {
+    "re/Fusion/Reconstruction/CircularSpans/Findings.md": "fb0ca558ace0908ebaadfba5feac7b2cc8f4d236930d73833c4f197d41fa96c3",
+    "tests/Convert/Formats/FusionCodec/Documents/PartFeatures/RoundTests.py": "e78744fd09b0d5a9fc1d1ccb6083fc0b2b67fb54be19fca495053c866bdb836e",
+    "re/Fusion/LocalOracle/ReaderCoverage/Preparation.json": "bd80f77e02a096146857ddce9250895d8ffe42035b7098914291b2320100c381",
+    "re/Fusion/LocalOracle/ReaderCoverage/NativeAcceptance.json": "503fdfc703b07842c25e0295b201ceb9754da6cd5338dfee68e840a4c09bcc43"
+  },
+  "native_boundary": "existing private script oracle supports fillet API authorship and native checks; catalogue provides no fillet authoring worker for either application"
+}

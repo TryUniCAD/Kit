@@ -7,21 +7,25 @@ from convert.adapters.solidworks.Core.Writing.Measured.MatchMeasCase import (
     MatchMeasCase,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.MeasPhaseMap import MeasPhaseMap
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
 from convert.adapters.solidworks.Core.Writing.Measured.SnapshotReport import (
     SnapshotReport,
 )
 from interchange.Core.Common import FreezeMapping
 
-# the two reported compression modes have separately measured complete native lifecycles
+# each authenticated standalone part report has its own measured complete native lifecycle
 KPartReportShas = frozenset(
     (
         "273b95745b147c6acaf4e51130bd521687651ad65d2edcb29f79ab50a9c3b7bc",
         "318379b6bad0f2e2f48b5900a378d9dfb19f19f171cc1f8c555dd2361438500e",
+        "60f8c85cae4a2cb7be59dbf83f638a60c4ce581c6e248ec203bb39224c1bb17e",
+        "c506e72216ca7cce1e710eb05908145690e8906be2b75f3b100497a2cf897ad0",
+        "cd5b26c3d8d7056a56070ec5c650ce57cadb4f02f4f9057f4fef3a2107b31952",
+        "0eacc68c12f221ad3aec445accf1cc0e0667c6c3eac9d7f0d554d338808c4b2f",
     )
 )
 
@@ -40,7 +44,7 @@ def MatchPartMeas(Receipt: dict[str, object], Payload: bytes) -> TypeMap[str, ob
             KPartMeasureOpt: FreezeMapping(
                 {
                     "generated_sha256": Digest,
-                    "oracle_build": KOraclePart["build"],
+                    "oracle_build": ReadMeasMap(Proof.get("oracle"))["build"],
                     "native_result_sha256": ReadMeasSha(
                         Proof.get("native_result_sha256")
                     ),

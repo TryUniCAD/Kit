@@ -20,7 +20,10 @@ def SubmitSolid(Directory, PlanValue, Resource):
     for Identity, Selection in PlanValue["samples"].items():
         if Selection["application"] != "solidworks":
             continue
-        if Selection["case"]["recipe"] in KRecipeBuilders:
+        if (
+            PlanValue.get("solidworks_batch_version") == 1
+            or Selection["case"]["recipe"] in KRecipeBuilders
+        ):
             continue
         CaseValue = {
             NameValue: Value

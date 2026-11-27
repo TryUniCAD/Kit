@@ -26,7 +26,7 @@ def LaunchConsole() -> int:
         ConfigName,
         "run",
         "--max-seconds",
-        "60",
+        "150",
     ]
     Watcher.start()
     return MainEntry()

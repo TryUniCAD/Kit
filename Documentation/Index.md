@@ -62,6 +62,7 @@ Use the result procedure before making a product acceptance claim.
 - [Translation verification](Reference/Operations/Testing.md)
 - [CAD success criteria](Reference/Operations/CadSuccessCriteria.md)
 - [Research method](Reference/Research/Methodology.md)
+- [Fusion and SOLIDWORKS source graphs](Reference/Research/DecoderGraph.md)
 - [Reverse engineering instruction book](../re/Playbook/README.md)
 - [Fusion donor data ban](Reference/Research/FusionDonorBan.md)
 - [Neutral-first automation plan](Reference/Research/AutomationPlan.md)

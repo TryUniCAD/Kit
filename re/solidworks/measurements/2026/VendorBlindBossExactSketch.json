@@ -1,0 +1,160 @@
+{
+  "cases": {
+    "Author04Baseline": {
+      "candidate_bytes": 9336,
+      "candidate_sha256": "4dd7782630c48f05cb64d11fc20c385313ca18db3893396842157597337d713b",
+      "coordinate_words_m": [
+        [
+          "-0x1.a9fbe76c8b439p-7",
+          "-0x1.89374bc6a7efap-9"
+        ],
+        [
+          "0x1.0624dd2f1a9fcp-7",
+          "-0x1.26e978d4fdf3bp-7"
+        ],
+        [
+          "0x1.374bc6a7ef9dbp-6",
+          "0x1.89374bc6a7efap-8"
+        ],
+        [
+          "0x1.0624dd2f1a9fcp-8",
+          "0x1.78d4fdf3b645ap-6"
+        ]
+      ],
+      "d1_m_word": "0x1.d4e8fb00bcbe6p-7",
+      "external_access_attempts": 0,
+      "geometry_rings": 6,
+      "native_launches": 0,
+      "native_unit_table_codes": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "no_exact_mm_inverse": [
+        [
+          0,
+          "x",
+          "-0x1.a9fbe76c8b439p-7"
+        ],
+        [
+          1,
+          "y",
+          "-0x1.26e978d4fdf3bp-7"
+        ]
+      ],
+      "request_sha256": "ac516f8149102a138aa21a2d5e934a42908294c18810c0567b7933eecc48b174",
+      "scope": "offline SI coordinate feasibility",
+      "topology": [
+        6,
+        12,
+        8
+      ],
+      "volume_mm3": 7584.299999999999
+    },
+    "AuthoredAsymmetric": {
+      "candidate_bytes": 9377,
+      "candidate_sha256": "1a791a65eae9249dd9553e1af0490bae7b8e8368f28574617041efca8005f6b3",
+      "coordinate_words_m": [
+        [
+          "0x0.0p+0",
+          "-0x1.89374bc6a7efap-9"
+        ],
+        [
+          "0x1.374bc6a7ef9dbp-6",
+          "-0x1.26e978d4fdf3bp-7"
+        ],
+        [
+          "0x1.ba5e353f7ced9p-6",
+          "0x1.0624dd2f1a9fcp-7"
+        ],
+        [
+          "0x1.6872b020c49bap-7",
+          "0x1.fbe76c8b43958p-6"
+        ],
+        [
+          "-0x1.a9fbe76c8b439p-6",
+          "0x1.26e978d4fdf3bp-6"
+        ]
+      ],
+      "d1_m_word": "0x1.625204af92296p-7",
+      "external_access_attempts": 0,
+      "geometry_rings": 7,
+      "native_launches": 0,
+      "native_unit_table_codes": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "no_exact_mm_inverse": [
+        [
+          1,
+          "y",
+          "-0x1.26e978d4fdf3bp-7"
+        ],
+        [
+          4,
+          "x",
+          "-0x1.a9fbe76c8b439p-6"
+        ],
+        [
+          4,
+          "y",
+          "0x1.26e978d4fdf3bp-6"
+        ]
+      ],
+      "request_sha256": "b8e92cbf899083b4de0b4a5679b1e4c706f99d3276c0db99b1e1ebae9af33d6e",
+      "scope": "offline SI coordinate feasibility",
+      "topology": [
+        7,
+        15,
+        10
+      ],
+      "volume_mm3": 12343.039499999999
+    }
+  },
+  "generator_base": "225bd69aded9a103de46b7e17759573ccde45601",
+  "generator_sha256": "8455c052d58c5927265dedbf93c9dc9a8fe3831bdacc9d521a61621da13ad5ca",
+  "locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+  "refusals": {
+    "EndpointSignedZero": {
+      "exit": 1,
+      "output_absent": true,
+      "reason": "shared endpoint binary64 words disagree",
+      "request_sha256": "febfc902fa6d48d9efc3e3225e0d98b7161fd74425cb51346a59d1b0d62c9291"
+    },
+    "WrongDisplayUnits": {
+      "exit": 1,
+      "output_absent": true,
+      "reason": "explicit mm display intent is required",
+      "request_sha256": "588f7c622fba1d56f34f4dabb8870eb236325e90e666486185eab6ca37448b4d"
+    }
+  },
+  "runtime": {
+    "machine": "AMD64",
+    "python": "3.14.6",
+    "system": "Windows",
+    "zlib": "1.3.1.zlib-ng"
+  },
+  "schema": "kit.sw2026.exact-sketch-replay.v1",
+  "scope": "offline exact SI coordinate generation and directed geometry readback",
+  "source_producer": {
+    "author_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+    "dependency": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+    "directed_body_comparisons": 11,
+    "exact_api_endpoint_xy_words": 16,
+    "request_sha256": "ac516f8149102a138aa21a2d5e934a42908294c18810c0567b7933eecc48b174",
+    "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+    "zero_api_endpoint_z_values": 8
+  },
+  "write_epoch": 1785626030
+}

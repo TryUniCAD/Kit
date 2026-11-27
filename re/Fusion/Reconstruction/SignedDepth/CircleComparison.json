@@ -1,0 +1,98 @@
+[
+  {
+    "case": "CircleReverse",
+    "version": "baseline",
+    "command": [
+      "/Users/jdharc/.local/share/uv/tools/unicad-kit/bin/python3",
+      "-m",
+      "KitCli",
+      "decode",
+      "<task-checkout>/re/Fusion/Reconstruction/SignedDepth/CircleReverse.f3d",
+      "--output",
+      "<external-followup>/CircleReverse/BaselineQualified.json"
+    ],
+    "exit_code": 1,
+    "source_sha256": "5bba661bd1668a558e19d6ef181dcdf62b18417905896e6a32a87b3dbf72b84f"
+  },
+  {
+    "case": "CircleReverse",
+    "version": "installed",
+    "command": [
+      "/Users/jdharc/.local/bin/kit",
+      "decode",
+      "<task-checkout>/re/Fusion/Reconstruction/SignedDepth/CircleReverse.f3d",
+      "--output",
+      "<external-followup>/CircleReverse/InstalledQualified.json"
+    ],
+    "exit_code": 0,
+    "source_sha256": "5bba661bd1668a558e19d6ef181dcdf62b18417905896e6a32a87b3dbf72b84f",
+    "checks": {
+      "strict": true,
+      "volume": true,
+      "area": true,
+      "bounds": true,
+      "expression": true,
+      "depth": true,
+      "owner": true
+    }
+  },
+  {
+    "case": "CircleReverse",
+    "operation": "convert",
+    "command": [
+      "/Users/jdharc/.local/bin/kit",
+      "convert",
+      "<task-checkout>/re/Fusion/Reconstruction/SignedDepth/CircleReverse.f3d",
+      "<external-followup>/CircleReverse/Qualified.FCStd"
+    ],
+    "exit_code": 1
+  },
+  {
+    "case": "CircleReverseHoldout",
+    "version": "baseline",
+    "command": [
+      "/Users/jdharc/.local/share/uv/tools/unicad-kit/bin/python3",
+      "-m",
+      "KitCli",
+      "decode",
+      "<task-checkout>/re/Fusion/Reconstruction/SignedDepth/CircleReverseHoldout.f3d",
+      "--output",
+      "<external-followup>/CircleReverseHoldout/BaselineQualified.json"
+    ],
+    "exit_code": 1,
+    "source_sha256": "28f55713da94d39144a50213f266a1e10276ea487b823dbc823ff7d7175c35de"
+  },
+  {
+    "case": "CircleReverseHoldout",
+    "version": "installed",
+    "command": [
+      "/Users/jdharc/.local/bin/kit",
+      "decode",
+      "<task-checkout>/re/Fusion/Reconstruction/SignedDepth/CircleReverseHoldout.f3d",
+      "--output",
+      "<external-followup>/CircleReverseHoldout/InstalledQualified.json"
+    ],
+    "exit_code": 0,
+    "source_sha256": "28f55713da94d39144a50213f266a1e10276ea487b823dbc823ff7d7175c35de",
+    "checks": {
+      "strict": true,
+      "volume": true,
+      "area": true,
+      "bounds": true,
+      "expression": true,
+      "depth": true,
+      "owner": true
+    }
+  },
+  {
+    "case": "CircleReverseHoldout",
+    "operation": "convert",
+    "command": [
+      "/Users/jdharc/.local/bin/kit",
+      "convert",
+      "<task-checkout>/re/Fusion/Reconstruction/SignedDepth/CircleReverseHoldout.f3d",
+      "<external-followup>/CircleReverseHoldout/Qualified.FCStd"
+    ],
+    "exit_code": 1
+  }
+]

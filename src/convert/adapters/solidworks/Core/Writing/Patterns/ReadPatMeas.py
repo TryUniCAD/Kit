@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Core.Writing.Patterns.PatNativePins import (
     KPatResultByPacket,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 
 
 # verification reads only caller supplied evidence and the complete digests of the disclosed native batch

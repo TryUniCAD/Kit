@@ -6,35 +6,24 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from pytest import mark as TestMark, raises as RaisesError
+from pytest import mark as TestMark
+from pytest import raises as RaisesError
 
 from convert.api.ApiOpen import OpenDocument
+from convert.adapters.solidworks.Container.Archive import ArchiveError
 from convert.adapters.solidworks.Container.Format import KPartFormatId
-from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from tests.Convert.Solidworks.Core.CircleOnly.AlterCircle import AlterCircle
 from tests.Convert.Solidworks.Core.CircleOnly.Samples import KRepoRoot
 
 
 # contradictions must retain an explicit unresolved result instead of promoting guessed circular semantics
-@TestMark.parametrize("ModeValue", ("diameter", "support", "flags", "footer"))
+@TestMark.parametrize("ModeValue", ("diameter", "flags", "footer"))
 def CheckRefusal(ModeValue: str) -> None:
-    SourceBytes = AlterCircle(ModeValue)
-    if ModeValue == "support":
-        with RaisesError(
-            SldprtFormat, match="principal plane reference frame disagrees"
-        ):
-            _ = OpenDocument(
-                SourceBytes,
-                SourceFormat=KPartFormatId,
-                IncludeBrep=False,
-                IncludeTess=False,
-            )
     Document = OpenDocument(
-        SourceBytes,
+        AlterCircle(ModeValue),
         SourceFormat=KPartFormatId,
         IncludeBrep=False,
         IncludeTess=False,
-        StrictMode=ModeValue != "support",
     )
     assert any(
         Entry.code == "sldprt.circular_sketch_unresolved"
@@ -42,13 +31,19 @@ def CheckRefusal(ModeValue: str) -> None:
     )
     (SketchValue,) = Document.sketches
     assert len(SketchValue.constraints) == 1
-    if ModeValue == "support":
-        assert SketchValue.attributes["support_plane_source"] == "unresolved"
-        assert SketchValue.attributes["unframed_support_plane_native_id"] == 3
-        assert SketchValue.provenance is not None
-        assert all(
-            SpanValue.record_kind != "sketch-support-reference"
-            for SpanValue in SketchValue.provenance.spans
+
+
+# contradictory principal support must fail before either public read mode can return a guessed sketch
+@TestMark.parametrize("IncludeBrep", (False, True))
+def CheckBadSupport(IncludeBrep: bool) -> None:
+    with RaisesError(
+        ArchiveError, match="invalid owned SOLIDWORKS principal sketch reference"
+    ):
+        _ = OpenDocument(
+            AlterCircle("support"),
+            SourceFormat=KPartFormatId,
+            IncludeBrep=IncludeBrep,
+            IncludeTess=False,
         )
 
 

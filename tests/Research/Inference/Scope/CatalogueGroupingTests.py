@@ -26,7 +26,7 @@ def CheckGrouping(TmpPath: FilePath) -> None:
         "--reserved-memory-mib",
         "0",
         "--workers",
-        "4",
+        "1",
         "--max-seconds",
         "45",
         Expected=2,
@@ -42,14 +42,17 @@ def CheckGrouping(TmpPath: FilePath) -> None:
         for Event in Events
         if Event.get("event") == "started" and Event["group_size"] > 1
     ]
-    assert GroupSizes and max(GroupSizes) <= 4
+    Runners = DecodeJson((RunPath / "Registry.json").read_bytes())["runners"]
+    MemberLimit = Runners["inference.rescan"]["group_max_members"]
+    assert MemberLimit == 8
+    assert GroupSizes == [MemberLimit]
     Report = DecodeJson((RunPath / "CatalogueResult.json").read_bytes())
     Scope = Report["scopes"]["p03-blind-boss.solidworks"]
     assert Scope["status"] == "completed"
     ArchiveJobs = [
         JobRow for JobRow in Scope["jobs"] if JobRow["kind"] == "inference.rescan"
     ]
-    assert len(ArchiveJobs) >= 4
+    assert len(ArchiveJobs) == MemberLimit
     assert all(JobRow["receipt"] and JobRow["attempts"] == 1 for JobRow in ArchiveJobs)
     assert len({JobRow["receipt"] for JobRow in ArchiveJobs}) == len(ArchiveJobs)
     Verification = Report["native_verification"]["solidworks"]

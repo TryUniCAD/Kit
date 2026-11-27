@@ -1019,12 +1019,17 @@ class Supervisor:
                     )
                     continue
                 self.running[name] = session
+                launch_monotonic_ns = time.monotonic_ns()
                 self.budget.adaptive.started(pool)
                 self.counts["started"] += 1
                 self.report(
                     "started",
                     session,
-                    {"pid": session.pid, "group_size": len(group) if group else 1},
+                    {
+                        "pid": session.pid,
+                        "group_size": len(group) if group else 1,
+                        "launch_monotonic_ns": launch_monotonic_ns,
+                    },
                 )
             else:
                 self.capacity.block(pool, "pool_full")
