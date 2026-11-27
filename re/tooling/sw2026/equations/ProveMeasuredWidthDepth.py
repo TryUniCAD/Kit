@@ -347,12 +347,14 @@ def worker(root, request, directory, portable=False):
             require(exact_archive and len(raw) == 9157, "constructed bytes differ from measured native file")
         readback = check_read(raw)
         history_refusals = check_bad_graph(raw)
-        width_contrast = varied_recipe(doc, width_mm=20.01, rename=False)
+        width_probe = 20.01
+        width_contrast = varied_recipe(doc, width_mm=width_probe, rename=False)
         rounded = PrepareNative(width_contrast, BytesIO(), epoch, WriteOptions(values={"final_destination": path}))
-        design = check_read(rounded.BytesValue, width_mm=20.01)
+        design = check_read(rounded.BytesValue, width_mm=width_probe)
         reread = PrepareNative(design, BytesIO(), epoch, WriteOptions(values={"final_destination": path}))
         require(reread.BytesValue == rounded.BytesValue, "adjacent inverse conversion changed the strict readback bytes")
-        require((20.01 * .001) * 1000 != 20.01 == (20.01 * .001) / .001,
+        width_metres = width_probe * .001
+        require(width_metres * 1000 != width_probe == width_metres / .001,
                 "independent width contrast does not distinguish the inverse conversion")
         variant = varied_recipe(doc)
         variant_part = PrepareNative(variant, BytesIO(), epoch, WriteOptions(values={"final_destination": path}))
