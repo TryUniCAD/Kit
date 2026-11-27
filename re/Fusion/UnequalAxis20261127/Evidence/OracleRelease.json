@@ -1,0 +1,11 @@
+{
+  "capture_job": "ce9d27182f07b063c541f3d0847fce89",
+  "completed_verification_jobs": 11,
+  "final_status": {
+    "busy": false,
+    "running": false,
+    "recovery_required": false,
+    "available": true
+  },
+  "models": false
+}

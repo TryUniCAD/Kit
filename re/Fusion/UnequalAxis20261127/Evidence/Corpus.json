@@ -1,0 +1,420 @@
+{
+  "manifest_version": 1,
+  "source_revision": "233985bac73d454f6df22e44dd3cad06bb92f7da",
+  "assets": [
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/axial.f3d",
+      "git_blob": "31f648a9d39740b5167ead3df55cdc09c7957ecd",
+      "sha256": "20aa075944645035d556dae305a5f0b015c8df1addd63a71839ada5904acd734",
+      "size_bytes": 57882,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000072807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/axial_edit_first.f3d",
+      "git_blob": "096d8dee055e2a4cb931db992448a26ad5f93275",
+      "sha256": "aaf712d6870cb4d2c556dac0ebb23444e97b8b32fde766c34d26634fa206590a",
+      "size_bytes": 60312,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000072807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/axial_edit_second.f3d",
+      "git_blob": "eabecf64a4c7098d7d8dd2ca79111c2b96166088",
+      "sha256": "0a678338c7d60eca568fa1ebf4bbbf7f6314c1d814362e3eceffb75715ded277",
+      "size_bytes": 59795,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000072807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/axial_restored.f3d",
+      "git_blob": "42813ee5eede1239c56dcd63d1529de72a072380",
+      "sha256": "f0ab2b241a188fd01b6356c3aff7fc471b8d982ef370b522a773f688c3ff89d7",
+      "size_bytes": 59313,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000072807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/baseline.f3d",
+      "git_blob": "d2b642bf5e46d4036b76528a126595ee2d0b01c8",
+      "sha256": "0bb3d6b63b3c4bb7df0a80364a65cada7d15e260aada77aee469d1f6b02f7cc9",
+      "size_bytes": 57954,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006d807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/baseline_edit_first.f3d",
+      "git_blob": "c9af0ee338c0f34777a1c9f4f917d9432558ad37",
+      "sha256": "d4cdcee48f0f9b6edebcf50f0254f7281235669509f5f37a19b4ce2e90885452",
+      "size_bytes": 60304,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006d807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/baseline_edit_second.f3d",
+      "git_blob": "4318cbc44ac5f1cc1d533107d1f9a8ab0cf681a1",
+      "sha256": "b25ff187c555ba02adbb8a0000e48c311789b98331bba2d522c65dbe1ef8e8de",
+      "size_bytes": 59736,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006d807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/baseline_restored.f3d",
+      "git_blob": "8b1ba4db22a5e596009726e91b83513ebf731ab8",
+      "sha256": "d9f0979e3665bf0011da2729ec5b955eb35ad82a51fc4cacf6e712d7640f2cb9",
+      "size_bytes": 59499,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006d807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/control_after.f3d",
+      "git_blob": "54e592630582ca1bb53bc3cf6a03750b8055881e",
+      "sha256": "3a24376bd402bb5a914040deb9edd7a1cd4fc8f4cff1e0410c1772d0794f4681",
+      "size_bytes": 58361,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000074807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/control_before.f3d",
+      "git_blob": "ee5d5da250c7f3fa218f6d51ec69756f1113adb7",
+      "sha256": "7da18cadf793c184bbab114689f4a70d078c4d13451a3854b2272f888a74955e",
+      "size_bytes": 58103,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006c807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/direction.f3d",
+      "git_blob": "33c1f0c1559a75924343e81e5acf62e2047f446b",
+      "sha256": "c5f8bbd0a8d479cdcf33a0e244f49d203a05e20e797bd9337ba86e974d8bca61",
+      "size_bytes": 70876,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000070807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/direction_edit_first.f3d",
+      "git_blob": "3f59de1aec30a6a19cbd63c027c718f80ed5d314",
+      "sha256": "d165ec813c42b7987b5cc84c04d4afd0d3c15169cb12bc98de1c1c3a6a7644e8",
+      "size_bytes": 74639,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000070807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/direction_edit_second.f3d",
+      "git_blob": "109df5510adbf9bdf6c47ae936ebccc1c68234af",
+      "sha256": "4fb05aca2e52943446a41c9e30f3137dd245d6e4da2c9f422de049bfdf1fe6d2",
+      "size_bytes": 72267,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000070807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/direction_restored.f3d",
+      "git_blob": "de750a8a871f7042a9cdfd4a0faf20d34f7fdf59",
+      "sha256": "17400e7cc156c37ab0321a92de5ed80fd8d5de110aa1dde09ff94a4dd36d954c",
+      "size_bytes": 72603,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000070807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/first.f3d",
+      "git_blob": "7380fbd76040d6674922caddd82a2a4bf60b47f0",
+      "sha256": "7248fcae238b0fc27a3d997f84b8d285a88170906b0e98f40cf1932f57ce276d",
+      "size_bytes": 60201,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006d807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/first_edit_first.f3d",
+      "git_blob": "b4abd17d761a2ab2b8d3cc4e2e29dbc3a730ee2e",
+      "sha256": "90f015b11a5c5a62caa245834a5037ff0c5b0d78dc564815a2b3c808df0c60a6",
+      "size_bytes": 62317,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006d807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/first_edit_second.f3d",
+      "git_blob": "3ec44d94b778bce4471af4bdbf45e5c353953c12",
+      "sha256": "1c2ea1fcecd28f42f1e249b7f50acc9f468d3ce5ff0be382b787edc691d37fb1",
+      "size_bytes": 62165,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006d807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/first_restored.f3d",
+      "git_blob": "4d1f2a95b4d0d8e5cfe5ccf1c23e6e62d29feb95",
+      "sha256": "9520049c464b5550acb2ff19e9359e35d4b63fa73b764065f636d06968dbe176",
+      "size_bytes": 61777,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006e807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_a.f3d",
+      "git_blob": "fae7f0a3c38a969aed34b740452e5c1d98a7a687",
+      "sha256": "803ef2deaf9aa92f74c9a91463826cd8c5475afcd4290ddfe8ba83a5702bbaf8",
+      "size_bytes": 107352,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000072807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_a_edit_first.f3d",
+      "git_blob": "a77898575c22da780c754eedbdb315b2f1dcccc9",
+      "sha256": "7bcc626bc9617bde46d7203ce9ef2af06bdac417ffddf4579e7f606546c7e859",
+      "size_bytes": 109811,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000072807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_a_edit_second.f3d",
+      "git_blob": "905734e0fb2613e395d6be438c6fe272b24e0af6",
+      "sha256": "aba48707e88e6c18227dbce2ba1091dfb92aabff576b95c634a391cc9188eef8",
+      "size_bytes": 115274,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000072807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_a_restored.f3d",
+      "git_blob": "dc3b14f0088e30a6c4ae83809c5b7e0c9cb8038c",
+      "sha256": "ca0d7827dadaa82d02f93f1a06ecdac62b7e6c2bf3e80db609409a15fcb98ad4",
+      "size_bytes": 109203,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000073807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_b.f3d",
+      "git_blob": "b91572a57ef75c2e00e5114f63e2831b0fb9bd26",
+      "sha256": "ed74c9ac258f9430bfe26eb14d68ae8e1ce80dc006f0b6e5742b0ff56e9ef04d",
+      "size_bytes": 166145,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000073807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_b_edit_first.f3d",
+      "git_blob": "1e4f01893414c76ffe90c15a3ad41719df4f4be5",
+      "sha256": "73944ea3b74a3604e31b3ecd874ebe2d233a3600a9caac2e74c123ceb08ee0c7",
+      "size_bytes": 172379,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000073807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_b_edit_second.f3d",
+      "git_blob": "8e79a27075431b6c530a9bf398179dd6fa5e816b",
+      "sha256": "159f3a4d560263f90591674797ac703d326e47c4b98f503416124153bd115058",
+      "size_bytes": 170113,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000073807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/holdout_b_restored.f3d",
+      "git_blob": "e3ccb39068fd200f6b19ade48c0342d575668a51",
+      "sha256": "57d0592466bd8ae8aaf9161a193586389fce000a06c83770f3ac4ae520e2d1c5",
+      "size_bytes": 167934,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000073807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/origin.f3d",
+      "git_blob": "3586cc38e04cb812c1c0e6b3c342b21df2a95157",
+      "sha256": "95e7362388f82b8aae6c645325863f60c9755f0fac2b6dbf5d787d8b726895b2",
+      "size_bytes": 58051,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/origin_edit_first.f3d",
+      "git_blob": "a72011e87ce210f3c2ddc693d07f15592257604e",
+      "sha256": "5ed15a6ab4623292f370dec98f29fe2ad138bf6d73fbcbfe79eb33fc899e0e7e",
+      "size_bytes": 60362,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/origin_edit_second.f3d",
+      "git_blob": "c4ed649c52c80246c2f224d9547ab676b54c8fa3",
+      "sha256": "2204f0b75bdf0f1586e8da70c0a7eba2b26c97a74a683289abee46e100e148e4",
+      "size_bytes": 59740,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/origin_restored.f3d",
+      "git_blob": "111177b6edc076a04935c518f8ab9a633ed74b5e",
+      "sha256": "b93d89c037608723816f551402d292378a533b16b7f6037ba4e277b937efcc18",
+      "size_bytes": 59526,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/radial.f3d",
+      "git_blob": "7c3aafa16a8b936a3aa35cd21f409144812eab05",
+      "sha256": "d2bf22d22df73e2c1940eb0991e9810edb3ff62cc6df2b1e8586258818377e5a",
+      "size_bytes": 60288,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000071807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/radial_edit_first.f3d",
+      "git_blob": "d948add6678f417bc25cbd17332d7dcc7c401e6b",
+      "sha256": "905395ff4d373fca7e7006017ee80c546c04738351d5629dee191e72cd393309",
+      "size_bytes": 62678,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000071807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/radial_edit_second.f3d",
+      "git_blob": "c075556e180e2e139e678df47f49a69423a92eae",
+      "sha256": "9883afbfc0f264cedfd4d8bd5dcd4c7f4c346fb2024285e7957ecac1a7d2528d",
+      "size_bytes": 61997,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000071807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/radial_restored.f3d",
+      "git_blob": "43d2e10c680ec7edab3b0933c1c1a9b56bf6faf6",
+      "sha256": "c22ce2a5e92f179694ebf700c50a6e26c25db1bf0a8ca8dd957664cbe914c8ee",
+      "size_bytes": 61937,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000071807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/reversed.f3d",
+      "git_blob": "c0b3a1aafaf38ddbea0af421b1b0bc346819adaa",
+      "sha256": "345797af2e84db3da72c23fe5132669ae596b7758cf2e44e18e7e147f494b032",
+      "size_bytes": 59285,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000070807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/reversed_edit_first.f3d",
+      "git_blob": "350fc29e68251a746b69db180721d6b0455180c8",
+      "sha256": "ba4b0d5ec43ab813ab897649f747db9aa9a10a5cbe285f27d375a91fe39fe0d4",
+      "size_bytes": 61563,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000070807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/reversed_edit_second.f3d",
+      "git_blob": "e699e550beed3a1f5f28fba857630e69aa5071fa",
+      "sha256": "e3de1907bd79893ebcecea008b5cb19c6b84600c510c12e339b10a78b535b244",
+      "size_bytes": 61116,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000071807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/reversed_restored.f3d",
+      "git_blob": "e5dbbbbdb4303d3aa922e7ef713e3b7f5f893f11",
+      "sha256": "8f64e56d930084b5f6e7aebd03e10eb27a643fef31e455713f9e534a9ef671f3",
+      "size_bytes": 60620,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a000000000071807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/second.f3d",
+      "git_blob": "b42e5b41c8d0547611bcb7bdfee5b40b36017bd0",
+      "sha256": "ddbe761ab49380ae79de479cdeed1ba0acab9637637bc63da8edb530ec6ab2e5",
+      "size_bytes": 58454,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006e807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/second_edit_first.f3d",
+      "git_blob": "8c428b7c472d1efd0c83cd53409a9fcd624487ac",
+      "sha256": "6af922f88e13aa3657c867bd323c14c36826db6e097e577a804d67990a1bdced",
+      "size_bytes": 60506,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006e807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/second_edit_second.f3d",
+      "git_blob": "accaa3157fc19877a643cff9dd6af8233009e549",
+      "sha256": "b137c82f65801d7fedd657b4b1262a24d396f1fa909b92b3d781080259009a6a",
+      "size_bytes": 59773,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006e807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/second_restored.f3d",
+      "git_blob": "8a725fde61309e1d88c43d61439525b0ba92e801",
+      "sha256": "9ac3295e8587bbdd15edce94f9805c34073e6d185cd92ab6c2cdae52cdfba1a0",
+      "size_bytes": 59977,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006e807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/swapped.f3d",
+      "git_blob": "183007ad0b15639056e9e06b0e75188ef1a494fc",
+      "sha256": "c5653fa661f56cba4b74b56457cccfdf5e0f4fb397a9319573f60f3a833e04ea",
+      "size_bytes": 57660,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/swapped_edit_first.f3d",
+      "git_blob": "6bde68a39afbe1d1e65d0b9a9f72dacc4ae0907b",
+      "sha256": "cbf7a0e2f36fa7621f9fbc1d0a1f50e309b4bf02b06707459adc7acddb305f2c",
+      "size_bytes": 59549,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/swapped_edit_second.f3d",
+      "git_blob": "d6a9a40e08497694d4d2f5440444e786b9c8e0ca",
+      "sha256": "c02670a1a5481692792700b668f5e674091116a78f7677d17d30f1091fd829ff",
+      "size_bytes": 60639,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    },
+    {
+      "path": "re/Fusion/UnequalAxis20261127/Native/swapped_restored.f3d",
+      "git_blob": "1e55b66fcba7f04e50afa61592f569b5bb4990f3",
+      "sha256": "688ef3ec4a099faac3177c016dda09f61c1c4600d1c7778457bcc26dbbe078e7",
+      "size_bytes": 59477,
+      "kind": "native",
+      "format": "f3d",
+      "prefix_hex": "504b03040a00000000006f807b5d0000"
+    }
+  ]
+}
