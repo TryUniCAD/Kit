@@ -27,6 +27,8 @@ All 42 encoded corruption cases refuse, and sixteen earlier control documents re
 Pyright 1.1.414, Mypy 2.4.1, Black and steering checks pass for the composed source set.
 The [verification receipt](../../../../re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Verification.json)
 binds the exact source hashes, retained documents, failures and remaining acceptance limits.
+The separate clean pinned CLI replay at `2d40034ae` records the same 56 strict reads and twelve refusals.
+Its exit `3` and unresolved native acceptance findings remain explicit in the retained research receipts.
 [Material corruption emission](../../../Gotchas/Conversion/Fusion/Testing/MaterialCorruptionEmission.md)
 and [holdout placement](../../../Gotchas/Conversion/Fusion/Testing/DraftHoldoutFrames.md) explain retained fixture failures.
 Non-XY, offset-start, modifying Boolean, other profile and broader history support remain separate work.

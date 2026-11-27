@@ -1020,8 +1020,15 @@ Public writing, native acceptance and non-XY placement remain separate unfinishe
 Its composed public proof reads 54 drafted XY states plus two controls, retains twelve XZ refusals and rejects 42 serialized corruptions.
 All 371 combined integration cases pass, and sixteen pre-existing control documents retain their exact hashes against the previous pinned SDK.
 The [source-bound receipt](../../../re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Verification.json) retains static checks, independent review and failed fixture attempts.
+The completed [pinned CLI replay](../../../re/DecodedReadWrite20261127/README.md#independent-draft-reader-replay) at `2d40034ae` records 56 strict reads and twelve refusals, exit `3`, with all 114 artifacts retained.
+Accepted receipts keep their native acceptance finding and unqualified status; no conversion acceptance is inferred.
 
 The [change entry](../../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links both complete family inventories and revision-bound prototype evidence.
+`A11-DualDraftFrame20261127` is the next decided offline child, owned by Codex root with the existing two workers.
+It investigates the twelve stored XZ circular draft sources, deriving frame rules from `frame` and reserving `holdout_a` for verification.
+Dependencies are the completed bounded XY reader, source API transforms and complete live/snapshot correspondence.
+Exit requires actual frame/axis ownership, world-space geometry and mass, strict SDK/CLI reads, preserved XY controls and encoded frame counterexamples.
+No shared decoder change is authorized until the frame rule and ownership are recorded; native writing and acceptance remain separate.
 Thirteen source-free Fusion span candidates pass typed equality and 117 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
 SOLIDWORKS reverse candidates and genuine saved controls retain their explicit typed-grammar, geometry and native-acceptance gaps.
 The subsequent offline phase adds bounded reversed cold-part reading and carries neutral reversal through the existing generative preparation pipeline.

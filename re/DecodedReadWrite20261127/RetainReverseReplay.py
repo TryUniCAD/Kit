@@ -16,14 +16,18 @@ record = json.loads((job / 'Receipt.json').read_text())
 revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=pinned, text=True).strip()
 assert revision == record['identity']['tool_version']
 assert all(row['exit_code'] == 0 for row in record['runs']) and len(record['runs']) == 6
-assert not subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=pinned,text=True)
+git_status = subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=pinned,text=True)
+if git_status:
+    raise ValueError('pinned SDK checkout has tracked changes')
 manifest = json.loads((runtime / 'SolidworksCorpus.json').read_text())
 assert manifest['source_revision'] == revision
 for row in manifest['assets']:
     data = subprocess.check_output(['git', 'show', revision + ':' + row['path']], cwd=pinned)
     assert len(data) == row['size_bytes']
     assert hashlib.sha256(data).hexdigest() == row['sha256']
-    assert subprocess.check_output(['git','rev-parse',revision+':'+row['path']],cwd=pinned,text=True).strip() == row['git_blob']
+    git_blob = subprocess.check_output(['git','rev-parse',revision+':'+row['path']],cwd=pinned,text=True).strip()
+    if git_blob != row['git_blob']:
+        raise ValueError('pinned corpus Git blob disagrees with its manifest')
 paths = sorted([*job.glob('Decode*/document.json'), *job.glob('Decode*/receipt.json'), *job.glob('Reader*.log')])
 assert len(paths) == 18
 members = []

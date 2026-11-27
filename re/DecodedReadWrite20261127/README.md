@@ -28,3 +28,11 @@ The subsequent clean pinned SDK and corpus checkpoint is `08df1da93f202a88170c77
 `ReverseReader/Replay.json` records every asset binding, count, unresolved reason, worker receipt digest and archive member hash. `ReverseReader/Readers.tar.gz` retains all eighteen exact reader documents, receipts and logs. `RetainReverseReplay.py` verifies the clean checkout, committed Git blobs, SHA-256 hashes, corpus revision and lossless archival before recording success.
 
 The first one-attempt job failed before worker release because the macOS sandbox hid process identity. Its controller result remains failed and is hash-bound in the replay. A separate job succeeded after approved host execution with every process gate unchanged. The [runtime gotcha](../../Documentation/Gotchas/Research/Supervisor/Runtime/MacosSandboxProcessIdentity.md) records this distinction. Native edit/restore/rebuild/save/fresh-process acceptance remains unavailable while the CAD API is down.
+
+The later retention repair moves its two Git subprocess checks out of assertions. Three fresh processes under Python `-O` verify clean retention, tracked-change refusal and wrong-blob refusal. `RetentionRepair.json` binds the repaired script; historical replay receipts retain the original script hash from revision `9c5ff325b`. No source archive, SDK code or prior receipt was changed.
+
+## Independent draft reader replay
+
+Clean pinned SDK and corpus `2d40034aeb57a8b9e25be5439850b54f518c5e16` process all 68 committed native draft sources through the existing supervisor and deterministic research CLI. Results are 56 strict reads, twelve placement refusals, zero partial reads and zero reader errors. Exit `3` publishes those rejected outcomes; it is not complete decoding of the cohort.
+
+`DualDraftReader/Replay.json` binds all inputs, the exact SDK and all 114 retained documents, receipts, summary and log artifacts. `Readers.tar.gz` preserves their bytes and member hashes. Each accepted source keeps its unresolved independent source/native acceptance finding. `portable_complete` remains false, semantic qualification remains unverified and native acceptance remains unestablished. `RetainDualReplay.py RUNTIME PINNED_SDK UNUSED_OUTPUT` verifies clean Git state, committed input blobs and every retained byte before recording the results.
