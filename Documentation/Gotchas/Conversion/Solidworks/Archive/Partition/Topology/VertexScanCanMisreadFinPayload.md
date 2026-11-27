@@ -23,5 +23,5 @@ construct a separate transient vertex table. Do not patch one numerical offset
 or silently modify the public scanner. The next qualified integration belongs
 to the existing #121/B08 reader owners.
 
-[Reproducible diagnostic and limits](../../../../../../re/solidworks/records/PartitionRecordBoundary.md)
+[Reproducible diagnostic and limits](../../../../../../../re/solidworks/records/PartitionRecordBoundary.md)
 are separate from [fin orientation](CurrentParasolidFinsStoreTerminalVertices.md).

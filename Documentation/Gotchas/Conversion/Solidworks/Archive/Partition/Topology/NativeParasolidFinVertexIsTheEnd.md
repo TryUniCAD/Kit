@@ -12,4 +12,4 @@ schema to select forward traversal. When checking a current-format cache
 against native winding, follow `HALFEDGE.forward` and compare both ends
 using the mate and vertex fields. Signed volume then agrees with the
 native shell orientation.
-[Typed wire and SDK comparison](../../../../../../re/solidworks/records/PopulatedPrismPartition2026.md#topology-and-ownership)
+[Typed wire and SDK comparison](../../../../../../../re/solidworks/records/PopulatedPrismPartition2026.md#topology-and-ownership)
