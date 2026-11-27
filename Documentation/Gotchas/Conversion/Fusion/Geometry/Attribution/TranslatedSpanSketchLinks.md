@@ -10,5 +10,5 @@ For the researched case with neither end on the sketch plane, remove the inappli
 Keep coincident-end cases refused until their source-link placement is independently qualified.
 Do not change shared production defaults or qualify native output from cached mass properties alone.
 
-The [research package](../../../../../re/Fusion/SpanWriter20261127/README.md) retains original failed hypotheses and corrected candidates.
+The [research package](../../../../../../re/Fusion/SpanWriter20261127/README.md) retains original failed hypotheses and corrected candidates.
 Its corrected proof validates actual live-journal geometry and exact refusal diagnostics; target application acceptance remains pending.

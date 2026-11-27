@@ -20,7 +20,7 @@ The [SOLIDWORKS prototype](../../../../re/solidworks/DecodedPromotion20261127/RE
 It preserves strict reverse refusals, records the missing coupled reader and geometry fields, and verifies the measured direction rule against genuine native sources.
 It does not restore recorded field programs or qualify a new native writer family.
 
-The [translated sketch-link gotcha](../../../Gotchas/Conversion/Fusion/Geometry/TranslatedSpanSketchLinks.md) records a refuted initial attribution rule and the corrected symbolic graph.
+The [translated sketch-link gotcha](../../../Gotchas/Conversion/Fusion/Geometry/Attribution/TranslatedSpanSketchLinks.md) records a refuted initial attribution rule and the corrected symbolic graph.
 All source/runtime observations, failures and pending acceptance requirements remain recorded.
 Models stay disabled, production code remains independent of vendor applications, and no proprietary software is distributed.
 The tailnet CAD API was unreachable before native dispatch, so exact candidate edit/restore/rebuild/save/fresh-process acceptance remains pending.

@@ -1000,7 +1000,7 @@ This child does not close B02–B05 or infer unsupported grammar from absent pub
 ## A16-DecodedReadWrite20261127
 
 Codex owns the user-requested full decoded SOLIDWORKS/Fusion SDK and CLI read/write programme on `feat/decoded-cad-read-write-20261127`, from fresh main `91a73de348894a5791a51b977cd6fe0fe677a617`.
-Status is active; full implementation and native acceptance remain unfinished.
+Status is active; delivery is [PR #397](https://github.com/TryUniCAD/Kit/pull/397). Full implementation and native acceptance remain unfinished.
 Dependencies are the existing A04/A05/A11/A12/A13/A14 contracts, recorded native sources, proven grammar, shared research controller and licensed exclusive oracles.
 The claim and coordination are recorded on PRs #94, #121 and #299; existing PRs #244/#297/#299/#303/#396 retain their delivery scopes.
 Planning PR #392 remains separate and unmerged; retain the existing claim until stable register linking is available.
@@ -1017,3 +1017,5 @@ SOLIDWORKS reverse candidates and genuine saved controls retain their explicit t
 No production support flag or public qualification guard was broadened by this delivery.
 The native API status request timed out before any job submission; native candidate validation is waiting for transport recovery while offline implementation continues.
 Exit for the full task requires every evidenced decoded family to have complete semantic reading and donor-free generative writing through the shared SDK/CLI, with independent target acceptance and current-head CI/review.
+
+Pinned background CLI replay at source `4a29c48fc` and SDK `7ce58d396` accepts sixteen Fusion reconstructions, retains thirteen generated-span refusals and thirteen explicit fallback outcomes, and accepts three SOLIDWORKS forward candidates while refusing three reversed candidates. [Documents, receipts and outcomes](../../../re/DecodedReadWrite20261127/README.md#committed-file-cli-replay) remain retained.
