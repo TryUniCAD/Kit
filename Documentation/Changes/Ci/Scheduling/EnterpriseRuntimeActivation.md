@@ -11,10 +11,10 @@ Candidate timing and acceptance require separate administrator-authorized queue 
 ## Behavior
 
 Version 5 of the trusted resource marker enables Linux runtime planning independently of live queue batching settings.
-It selects 1,200 estimated test seconds per shard and a 1,000-test count cap.
+It selects 600 estimated test seconds per shard and a 1,000-test count cap.
 The workflow retains its 256-shard runtime ceiling and four pytest workers per Linux shard.
 Missing duration history retains count-based sizing.
-Older resource markers retain their existing live-settings activation conditions.
+Older resource markers retain their existing live-settings activation conditions and 1,200-second runtime target.
 Malformed markers and marker API failures still reject selection.
 
 Native platform shard counts retain their existing queue-setting and audit checks.
@@ -28,6 +28,12 @@ The live queue requires two entries with a ten-minute batching wait.
 That condition selected runtime target zero, even with the trusted Enterprise marker.
 The seven Linux shards on the successful [PR #375 candidate](https://github.com/TryUniCAD/Kit/actions/runs/46005349452) therefore used count-based sizing.
 Its final aggregate finished 17 minutes 38 seconds after the queue event.
+The seven shards held approximately 8,065 estimated test seconds in total.
+A 1,200-second target alone would still request seven shards.
+The 600-second Enterprise target requests approximately fourteen before accepted-ancestor reuse changes the workload.
+Four workers per shard make the nominal execution budget 150 seconds, excluding setup and indivisible slow cases.
+Actual pytest steps took 256–423 seconds before this change.
+Additional runners can reduce execution time, but provider scheduling and final report delays remain separate costs.
 
 The owner-preserved ruleset remains unchanged: 25 candidate builds, minimum two entries, ten-minute batching wait and 60-minute timeout.
 See [the activation gotcha](../../../Gotchas/Ci/Scheduling/EnterpriseRuntimeBatching.md).

@@ -148,8 +148,8 @@ The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedT
 The plan [reuses verified results](Documentation/Changes/QueueTestReuse.md) of test modules whose recorded files and folders did not change since an accepted ancestor candidate.
 Every other collected test runs in a shard.
 Each shard holds at most 1,200 tests, which is 300 tests for each CPU of its 4-CPU runner.
-Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with a 256-shard runtime budget.
-The trusted Enterprise marker enables this Linux runtime target and a 1,000-test cap independently of live queue batching settings.
+Measured Linux durations can request additional shards with a 256-shard runtime budget.
+The trusted Enterprise marker enables a 600-test-second runtime target and a 1,000-test cap independently of live queue batching settings.
 Earlier markers retain their live-settings guard; native platform expansion keeps its separate settings and audit checks.
 See [Enterprise runtime activation](Documentation/Changes/Ci/Scheduling/EnterpriseRuntimeActivation.md).
 The count cap takes precedence if it requires more shards.
