@@ -723,7 +723,7 @@ Codex owns the bounded signed-offset circular reader extension on `feat/fusion-o
 The [owning child](../Reference/Research/AutomationSteps.md#a05c-fusionoffsetreader20261127) records scope, dependencies, evidence and exit conditions.
 It promotes qualified XY source inspection through the existing SDK and CLI, with five distinct owned parameters and the existing full native body proofs.
 Read-only publication and conversion guards remain enforced; B02–B05 target acceptance and broader frame/feature support remain unfinished.
-Delivery is a separate normal PR; the [change entry](../Changes/Fusion/Readers/FusionOffsetStartReader.md) supplies usage and limitations.
+Delivery is [PR #396](https://github.com/TryUniCAD/Kit/pull/396); the [change entry](../Changes/Fusion/Readers/FusionOffsetStartReader.md) supplies usage and limitations.
 
 ## A08h-FusionTwoSidedDraft20261127 research evidence
 
