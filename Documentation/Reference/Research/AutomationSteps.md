@@ -2,24 +2,26 @@
 
 ## Status and ownership
 
-Task `A08c-SolidWorksOpenRetry` is active, owned by Codex on `codex/solidworks-open-retry`.
+Task `A08c-SolidWorksOpenRetry`, owned by Codex on `codex/solidworks-open-retry`, is complete for startup recovery; forced part-open failure not induced (open).
 Scope: three bounded startup and part-open attempts, retained failure evidence and separate native stage measurements.
-It depends on continuous capture in [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
-Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), alongside its continuous capture dependency.
+It depends on continuous capture delivered by [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), merged as `ba0c2ef00e59043f91a51171409c0e91ecf2f8cf` on 2026-11-26.
 Exit: native compilation, bounded launch rejection, recovered native startup, measured stages and current-revision CI and review.
 See [retry and timing behavior](../../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md).
 At `d36d7d4806`, the injected first startup exit recovered on attempt two, two P03 batches shared the new process, and same-file independent-process measurements matched.
-Current-head CI and review remain open; a forced part-open failure was not induced.
+The merged delivery head passed current-revision CI (maintainer approval by jdharcourt; configured bot approval absent); a forced part-open failure was not induced.
 
-Task `A08c-ContinuousSolidWorks` is active, owned by Codex on `codex/solidworks-capture-batching`.
+Task `A08c-ContinuousSolidWorks`, owned by Codex on `codex/solidworks-capture-batching`, is complete.
 It depends on the shared batch preparation, existing measured readback and the serial native resource.
 Scope: persistent capture, document close/reopen verification, independent decoder dispatch and retained owner generations.
-Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), merged as `ba0c2ef00e59043f91a51171409c0e91ecf2f8cf` on 2026-11-26.
 Exit: consecutive same-process native batches, same-file fresh-process comparison, decoder overlap, recovery checks and current-revision CI and review.
 See [continuous SOLIDWORKS capture](../../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md).
 The `5c3ae3810c` native comparison matched P01/P03/P04 same-file measurements across routine and fresh processes.
 The `18d72e23ee` controller run completed four jobs, overlapped decoding with capture and preserved receipts across resume.
-Current-head readiness, broader feature qualification and merge-group acceptance remain open.
+Broader feature qualification remains open.
+
+PR #288's merge and the steps it delivered are reconciled in the [register correction entry](../../Changes/Research/Automation/AutomationRegisterMergeReconciliation.md).
 
 PR #158 is based on main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b`. Its follow-on phase commits carry the remaining non-DLL work from the original PR #94 checkpoint `fb723e0a920b4d03ad2d5635882860b800a9b61c`. The entries below record the original programme and its revision-bound evidence. The licensed restart, native qualification, supplemental Fusion handoff, pending CI batch authority and two-week pilot retain their open exit criteria.
 
@@ -217,13 +219,13 @@ decoder qualification remains incomplete. The focused process checks passed 103 
 See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for the nine bindings, parameter grid, retained attempts, and execution limits.
 
-Task `A08h-PairedBatch` is owned by Codex on `codex/solidworks-capture-batching`.
+Task `A08h-PairedBatch`, owned by Codex on `codex/solidworks-capture-batching`, is complete.
 It extends the existing three-case native batches to P01–P05, preserving independent reopen verification and per-case decoder artifacts.
 Dependencies are A08h/A08i, owned native lifetimes, and controller artifact admission.
-Native verification passed on source `231ffae38c7a9ca83705c6705e7d382d05c1e208`. Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288).
+Native verification passed on source `231ffae38c7a9ca83705c6705e7d382d05c1e208`. Delivery is [PR #288](https://github.com/TryUniCAD/Kit/pull/288), merged as `ba0c2ef00e59043f91a51171409c0e91ecf2f8cf` on 2026-11-26.
 The measured P01/P03/P04 batch reused two application processes for 25 saved files and automatically completed three overlapping decoder jobs.
 Both native processes exited normally. Decoder semantic findings remain explicit.
-Current-head publication checks and configured review are tracked in the delivery PR.
+The merged delivery head passed current-revision CI (maintainer approval by jdharcourt; configured bot approval absent).
 Exit requires measured native batching, automatic decoder receipts, and current-revision CI and configured review.
 Saved plans retain their original submissions. Full decoding and conversion qualification remain separate requirements.
 See [paired-case batching](../../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md).
