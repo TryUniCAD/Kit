@@ -206,7 +206,22 @@ def worker(request):
         link = ReadNativeLink(archive, 0)
         replay = linked_streams(archive, link)
         model = NativePartModel(archive, None)
-        doc = open_document(data, source_format="solidworks.sldprt", strict=True, include_tessellation=False)
+        calls = []
+
+        def count_cylinder(frame, event, arg):
+            if event == "call" and (
+                frame.f_code.co_name in {"CheckSavedRound", "DecodeBrep"}
+                and "/solidworks/" in frame.f_code.co_filename.replace("\\", "/")
+            ):
+                calls.append(frame.f_code.co_name)
+
+        sys.setprofile(count_cylinder)
+        try:
+            doc = open_document(data, source_format="solidworks.sldprt", strict=True, include_tessellation=False)
+        finally:
+            sys.setprofile(None)
+        require(calls.count("CheckSavedRound") == 1, f"full read repeated cylinder proof: {calls}")
+        require(calls.count("DecodeBrep") == 1, f"full read repeated solid decoding: {calls}")
         lite = open_document(data, source_format="solidworks.sldprt", strict=True,
                              include_brep=False, include_tessellation=False)
         observed = native_comparison(doc, lite, link, model, request["native"], request["prediction"])

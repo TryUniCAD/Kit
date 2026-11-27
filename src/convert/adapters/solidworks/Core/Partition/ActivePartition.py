@@ -27,6 +27,8 @@ def ReadActivePart(
     ConfigId: int | None,
     BodyId: str | None,
     RawStreams: Iterable[str],
+    *,
+    VerifiedBody: tuple[str, BrepModel] | None = None,
 ) -> ActivePartition | None:
     if ConfigId is None:
         return None
@@ -41,7 +43,11 @@ def ReadActivePart(
     if len(Partitions) != 1:
         return ActivePartition(None, None)
     (Source,) = Partitions
-    ModelValue = DecodeBrep(Source.data) if Source.data is not None else None
+    ModelValue = (
+        VerifiedBody[1]
+        if VerifiedBody is not None and Source.sha256 == VerifiedBody[0]
+        else DecodeBrep(Source.data) if Source.data is not None else None
+    )
     if (
         BodyId is not None
         and ModelValue is not None

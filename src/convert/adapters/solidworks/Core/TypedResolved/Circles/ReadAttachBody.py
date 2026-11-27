@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.AttachedCylinder import (
+    AttachedCylinder,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHistMarks
 from convert.adapters.solidworks.Core.Native import NativeModel
@@ -38,7 +41,7 @@ def ReadAttachBody(
     ModelValue: NativeModel,
     *,
     SavedBody: bool,
-) -> str:
+) -> tuple[str, AttachedCylinder]:
     BodyTag = ReadAttachAtom(LinkValue, BossValue, BodyId, SavedBody=SavedBody)
     Active, History, Nodes = ReadAttachPart(Partition)
     CheckBodyMarks(LinkValue, BossValue, ReadHistMarks(History, Nodes))
@@ -51,5 +54,4 @@ def ReadAttachBody(
         NativeNodeId(BossValue),
         LinkValue.ConfigValue.HeaderValue.FieldsValue.get("f44"),
     )
-    CheckAttachGeom(Active, ModelValue)
-    return ReadAttachName(Attrs)
+    return ReadAttachName(Attrs), CheckAttachGeom(Active, ModelValue)

@@ -88,7 +88,7 @@ def BindSavedCircle(
     }
 
     BoundModel = ApplyCircle(ModelValue, Bound, Owner, InactiveDepth=DepthValue)
-    BodyName = (
+    BodyName, Cylinder = (
         ReadLinkedName(
             LinkValue,
             Owner,
@@ -100,6 +100,11 @@ def BindSavedCircle(
             SavedBody,
         )
         if AttachedBody
-        else None
+        else (None, None)
     )
-    return ReplaceValue(BoundModel, SavedCircleAtom=BodyId, SavedCircleName=BodyName)
+    return ReplaceValue(
+        BoundModel,
+        SavedCircleAtom=BodyId,
+        SavedCircleName=BodyName,
+        AttachedCylinderValue=Cylinder,
+    )

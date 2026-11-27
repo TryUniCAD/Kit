@@ -31,3 +31,7 @@ Strict reads reject invalid typed ownership in the recognized attached radius
 lane. Raw B-rep extraction keeps strict payload framing without requiring
 typed driver agreement. The linked-radius process check covers a broken atom
 owner in both strict read modes.
+
+Full geometry reads reuse the decoded cylinder and its driver comparison only
+when the selected partition digest matches. The full read still validates the
+raw shell owner. The disclosed-input worker checks for repeated decoding.

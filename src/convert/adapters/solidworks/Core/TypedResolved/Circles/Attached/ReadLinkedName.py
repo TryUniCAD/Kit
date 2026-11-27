@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.AttachedCylinder import (
+    AttachedCylinder,
+)
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Native import NativeModel
@@ -27,7 +30,7 @@ def ReadLinkedName(
     Archive: SldprtArchive,
     ModelValue: NativeModel,
     SavedBody: bool,
-) -> str:
+) -> tuple[str, AttachedCylinder]:
     try:
         if SavedBody:
             CheckBodyCache(

@@ -32,7 +32,12 @@ def SavedCircleGeom(
     if AtomValue is None or CircleValue is None:
         raise ValueError("saved circle geometry lacks its live sketch and boss proof")
     CheckCircShell(ModelValue, Payloads, AtomValue)
-    Result = CheckSavedRound(ModelValue, NativeValue)
+    Attached = NativeValue.AttachedCylinderValue
+    Result = (
+        Attached.ShapeValue
+        if Attached is not None and ModelValue is Attached.BodyValue
+        else CheckSavedRound(ModelValue, NativeValue)
+    )
     StartX, StartY = CircleValue.CenterValue
     Radius = CircleValue.RadiusValue
     Lower, Upper = (Value * 1000 for Value in Result["cap_offsets_m"])

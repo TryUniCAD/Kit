@@ -79,6 +79,9 @@ from convert.adapters.solidworks.Resolved.Core import (
 )
 
 if TYPE_CHECKING:
+    from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.AttachedCylinder import (
+        AttachedCylinder,
+    )
     from convert.adapters.solidworks.Core.Cut.CutSource import CutSource
     from convert.adapters.solidworks.Resolved.RectanglePart import RectanglePart
 
@@ -1197,6 +1200,7 @@ class NativeModel:
     cut_source: CutSource | None = None
     SavedCircleAtom: int | None = None
     SavedCircleName: str | None = None
+    AttachedCylinderValue: AttachedCylinder | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
