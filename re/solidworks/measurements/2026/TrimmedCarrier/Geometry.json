@@ -1,0 +1,44 @@
+{
+  "schema": "kit.research.p03-trimmed-carrier-geometry.v1",
+  "wire_receipt_sha256": "47c7fe58641ad818b8e81a00e38f021471fc037a4f1faf01aae037049da0a527",
+  "native_reopen_record_sha256": "800b853bde09fd171487262ab0d1f49e73a621c500435895c281908bdc0153d0",
+  "kind133_index": 6,
+  "basis_kind": 30,
+  "basis_index": 50,
+  "basis_origin_m": [
+    0.04,
+    0.0,
+    0.0
+  ],
+  "basis_direction": [
+    0.0,
+    1.0,
+    0.0
+  ],
+  "sense": "+",
+  "basis_sense": "+",
+  "parameter_range_m": [
+    0.0,
+    0.02
+  ],
+  "endpoints_mm": [
+    [
+      40.0,
+      0.0,
+      0.0
+    ],
+    [
+      40.0,
+      20.0,
+      0.0
+    ]
+  ],
+  "basis_direction_norm_squared": 1.0,
+  "max_evaluated_endpoint_error_m": 0.0,
+  "exact_ordered_native_matches": 1,
+  "reversed_native_matches": 0,
+  "independently_measured_edges": 12,
+  "typed_edge_ownership_proven": false,
+  "native_launches": 0,
+  "public_decoder_calls": 0
+}

@@ -1,0 +1,212 @@
+{
+  "finding": {
+    "active_header_bytes": 96,
+    "active_sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56",
+    "archive_sha256": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+    "edges_involving_missing_vertex": [
+      {
+        "carrier_attribute": 10,
+        "edge_attribute": 13,
+        "edge_scanner_offset": 2206,
+        "endpoints": [
+          91,
+          69
+        ],
+        "fins": [
+          {
+            "attribute": 55,
+            "mate": 105,
+            "scanner_offset": 4598,
+            "stored_vertex": 69
+          },
+          {
+            "attribute": 105,
+            "mate": 55,
+            "scanner_offset": 4407,
+            "stored_vertex": 91
+          }
+        ]
+      },
+      {
+        "carrier_attribute": 52,
+        "edge_attribute": 58,
+        "edge_scanner_offset": 3068,
+        "endpoints": [
+          68,
+          73
+        ],
+        "fins": [
+          {
+            "attribute": 86,
+            "mate": 95,
+            "scanner_offset": 3045,
+            "stored_vertex": 73
+          },
+          {
+            "attribute": 95,
+            "mate": 86,
+            "scanner_offset": 2983,
+            "stored_vertex": 68
+          }
+        ]
+      },
+      {
+        "carrier_attribute": 51,
+        "edge_attribute": 85,
+        "edge_scanner_offset": 3790,
+        "endpoints": [
+          73,
+          78
+        ],
+        "fins": [
+          {
+            "attribute": 81,
+            "mate": 82,
+            "scanner_offset": 2632,
+            "stored_vertex": 78
+          },
+          {
+            "attribute": 82,
+            "mate": 81,
+            "scanner_offset": 4299,
+            "stored_vertex": 73
+          }
+        ]
+      },
+      {
+        "carrier_attribute": 120,
+        "edge_attribute": 90,
+        "edge_scanner_offset": 3901,
+        "endpoints": [
+          78,
+          56
+        ],
+        "fins": [
+          {
+            "attribute": 87,
+            "mate": 88,
+            "scanner_offset": 2683,
+            "stored_vertex": 56
+          },
+          {
+            "attribute": 88,
+            "mate": 87,
+            "scanner_offset": 4260,
+            "stored_vertex": 78
+          }
+        ]
+      },
+      {
+        "carrier_attribute": 126,
+        "edge_attribute": 107,
+        "edge_scanner_offset": 4099,
+        "endpoints": [
+          60,
+          78
+        ],
+        "fins": [
+          {
+            "attribute": 83,
+            "mate": 84,
+            "scanner_offset": 4198,
+            "stored_vertex": 78
+          },
+          {
+            "attribute": 84,
+            "mate": 83,
+            "scanner_offset": 3139,
+            "stored_vertex": 60
+          }
+        ]
+      },
+      {
+        "carrier_attribute": 119,
+        "edge_attribute": 111,
+        "edge_scanner_offset": 3593,
+        "endpoints": [
+          69,
+          73
+        ],
+        "fins": [
+          {
+            "attribute": 72,
+            "mate": 79,
+            "scanner_offset": 4345,
+            "stored_vertex": 69
+          },
+          {
+            "attribute": 79,
+            "mate": 72,
+            "scanner_offset": 3022,
+            "stored_vertex": 73
+          }
+        ]
+      },
+      {
+        "carrier_attribute": 115,
+        "edge_attribute": 114,
+        "edge_scanner_offset": 3494,
+        "endpoints": [
+          56,
+          69
+        ],
+        "fins": [
+          {
+            "attribute": 121,
+            "mate": 131,
+            "scanner_offset": 4368,
+            "stored_vertex": 69
+          },
+          {
+            "attribute": 131,
+            "mate": 121,
+            "scanner_offset": 4322,
+            "stored_vertex": 56
+          }
+        ]
+      }
+    ],
+    "frames": [
+      {
+        "kind": "partition",
+        "sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56",
+        "size": 7110
+      },
+      {
+        "kind": "deltas",
+        "sha256": "bdc04392b3c324282348e70d315b2fb467e902c16e7eb5e83a9c889d58e94d0d",
+        "size": 1152
+      }
+    ],
+    "missing_vertex_use": [
+      69,
+      73,
+      78
+    ],
+    "old_model_available": false,
+    "old_reason": "invalid partition topology (missing vertex use)",
+    "partition_member_sha256": "d638c0c902a737e950ac0c9230f69fec746c54c111a6f52febf7c79472517729",
+    "scanned_vertex_attributes": [
+      14,
+      56,
+      60,
+      68,
+      91
+    ],
+    "used_vertex_attributes": [
+      14,
+      60,
+      68,
+      91,
+      56,
+      69,
+      73,
+      78
+    ]
+  },
+  "method_sha256": "0f9e2931c1a5373dbb812acb2c6f40ab4e656792802de6c241e63c85ef6061bb",
+  "native_launches": 0,
+  "public_reads": 0,
+  "schema": "kit.research.p03-legacy-vertex-boundary.v1",
+  "sdk_source_tree": "3739be2f567a3285dd3dc725be9d0d07865a7b18"
+}
