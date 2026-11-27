@@ -12,9 +12,16 @@ All four failures (16.8, 17.1, 17.8 and 19.4 s) and the only two passes above 9 
 The 345 later cases had p50 1.8 s, p99 5.5 s and max 8.4 s, even though each one starts a new PowerShell process and compiles again.
 The cold start is in the runner (compiler image, framework assemblies and new-binary scanning), not in each PowerShell process.
 
-## Workaround
+## Original workaround
 
 `WarmProgress` runs the same `ProgressFixture.ps1` compile with `-CompileOnly` once per pytest process, before the first readback listener starts.
 It has a 120-second fail-closed bound.
 The per-case limit, which PR #356 raised from 15 to 60 seconds, now covers only warm compiles. Its assertions are unchanged.
 If a warm case times out again, diagnose the process boundary instead of widening the limit.
+
+## Current behavior
+
+The original warm-up later exceeded 120 seconds under hosted-runner load.
+The [assembly-cache follow-up](ReadbackAssemblyWarmup.md) removes repeated compilation and records the remaining attribution limit.
+Later fixture processes now load the source-keyed DLL instead of recompiling.
+The 60-second per-case limit and all assertions remain unchanged.
