@@ -23,7 +23,7 @@ def ReadOwnedMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
         FrameValue.ContextValue, FrameValue.NodeValue, RuleValue
     )
     if RuleValue.TypeValue in FrameValue.ContextValue.SchemasValue:
-        GetOwnedClass(FrameValue.ContextValue, RuleValue)
+        ClassValue = GetOwnedClass(FrameValue.ContextValue, RuleValue)
     NodeValue = ArchiveNode.RequireNode(Factory(ClassValue))
     CheckOwnedNode(NodeValue, ClassValue, ReaderValue.MapValue)
     if (
