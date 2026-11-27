@@ -2790,7 +2790,7 @@ def SketchPlaneRef(
         else OwnerCache[0]
     )
     if OwnerValue is None:
-        return ReadPlaneHandle(DataValue, Start, EndValue, Planes) if Planes else None
+        return None
     for Record in Classes:
         if Record.name != SketchChainClass or not Start <= Record.offset < EndValue:
             continue
@@ -2814,7 +2814,7 @@ def SketchPlaneRef(
         )
         if Scanned is not None:
             return Scanned
-    return ReadPlaneHandle(DataValue, Start, EndValue, Planes) if Planes else None
+    return None
 
 
 # the handle is authoritative when its axis and frame agree with the owned plane
