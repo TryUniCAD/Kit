@@ -112,7 +112,7 @@
 <text x="16" y="1158" fill="#66615b" font-size="10">blocked · jdharcourt</text>
 <rect x="1100.0" y="1133" width="62.0" height="22" rx="2" fill="#8b554e"><title>A16: Each scoped feature/version/route has independent native acceptance; FreeCAD and CATIA use the same contract</title></rect>
 <text x="16" y="1180">PlanningViews · Repository planning register and dependency Gantt</text>
-<text x="16" y="1194" fill="#66615b" font-size="10">active · Codex planning agent</text>
+<text x="16" y="1194" fill="#66615b" font-size="10">checking · Codex planning agent</text>
 <rect x="610.0" y="1169" width="62.0" height="22" rx="2" fill="#9b773f"><title>PlanningViews: Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR</title></rect>
 <text x="16" y="1216">FusionRevolveContrast · Unequal two-sided construction-axis revolve contrasts</text>
 <text x="16" y="1230" fill="#66615b" font-size="10">checking · jdharcourt</text>

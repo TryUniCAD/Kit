@@ -215,3 +215,12 @@ the verified feature/task introduction author or exact PR author and evidence.
 existing assignments; omitted `--apply` writes an audit only. Unavailable users,
 missing imports and ambiguous records remain explicit gaps. A bot PR author cannot
 be assigned as a user; retain its contact and record the missing responsible account.
+
+## Completed import evidence
+
+The original 4,922-record import passed native readback. The
+[completion record](../Changes/Planning/PlanningImportCompletion.md) preserves its
+source hash, recovery evidence and limitations. The current
+[project snapshot](ProjectSnapshot.json) records later reconciliation against the
+repository inventory, including newly merged campaign claims. These are dated
+observations; refresh live ownership and delivery state before claiming work.

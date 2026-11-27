@@ -1,0 +1,140 @@
+{
+  "Runtime": {
+    "PlanningViews": {
+      "Before": {
+        "null": null,
+        "Title": "PlanningViews \u00b7 Repository planning register and dependency Gantt",
+        "Status": "47fc9ee4",
+        "Scope ID": "PlanningViews",
+        "Agent": "Codex planning agent",
+        "Area": "Project",
+        "Scope type": "Milestone",
+        "Recorded status": "active",
+        "Schedule basis": "Proposed investigation timebox",
+        "Source": "Documentation/Planning/README.md",
+        "Dispatch": "Copy prompt from item body; runtime launch not configured"
+      },
+      "Requested": {
+        "Agent": "Local Codex: feat/project-todo-review-20261127",
+        "Runner": "a0683254"
+      },
+      "PreservedOverride": false,
+      "After": {
+        "null": null,
+        "Title": "PlanningViews \u00b7 Repository planning register and dependency Gantt",
+        "Status": "47fc9ee4",
+        "Scope ID": "PlanningViews",
+        "Agent": "Local Codex: feat/project-todo-review-20261127",
+        "Area": "Project",
+        "Scope type": "Milestone",
+        "Recorded status": "active",
+        "Schedule basis": "Proposed investigation timebox",
+        "Source": "Documentation/Planning/README.md",
+        "Dispatch": "Copy prompt from item body; runtime launch not configured",
+        "Runner": "a0683254"
+      }
+    },
+    "UiPlanning": {
+      "Before": {
+        "null": null,
+        "Title": "UiPlanning \u00b7 Planning board schedule editing and scope discovery",
+        "Status": "47fc9ee4",
+        "Scope ID": "UiPlanning",
+        "Agent": "Unassigned",
+        "Area": "UI/UX",
+        "Scope type": "Milestone",
+        "Recorded status": "proposed",
+        "Schedule basis": "Proposed investigation timebox",
+        "Source": "Documentation/Planning/README.md",
+        "Dispatch": "Copy prompt from item body; runtime launch not configured"
+      },
+      "Requested": {},
+      "PreservedOverride": true,
+      "After": {
+        "null": null,
+        "Title": "UiPlanning \u00b7 Planning board schedule editing and scope discovery",
+        "Status": "47fc9ee4",
+        "Scope ID": "UiPlanning",
+        "Agent": "Unassigned",
+        "Area": "UI/UX",
+        "Scope type": "Milestone",
+        "Recorded status": "proposed",
+        "Schedule basis": "Proposed investigation timebox",
+        "Source": "Documentation/Planning/README.md",
+        "Dispatch": "Copy prompt from item body; runtime launch not configured"
+      }
+    },
+    "PR392": {
+      "Before": {
+        "null": null,
+        "Title": "PR392 \u00b7 feat(planning): add scheduled scope board and organization project",
+        "Status": "47fc9ee4",
+        "Scope ID": "PR392",
+        "Agent": "jdharcourt",
+        "Area": "Delivery",
+        "Scope type": "Open PR",
+        "Recorded status": "open",
+        "Schedule basis": "Observed or inventory-only scope; no dates asserted",
+        "Source": "https://github.com/TryUniCAD/Kit/pull/392",
+        "Dispatch": "Copy prompt from item body; runtime launch not configured"
+      },
+      "Requested": {
+        "Agent": "Local Codex: feat/project-todo-review-20261127",
+        "Runner": "a0683254"
+      },
+      "PreservedOverride": false,
+      "After": {
+        "null": null,
+        "Title": "PR392 \u00b7 feat(planning): add scheduled scope board and organization project",
+        "Status": "47fc9ee4",
+        "Scope ID": "PR392",
+        "Agent": "Local Codex: feat/project-todo-review-20261127",
+        "Area": "Delivery",
+        "Scope type": "Open PR",
+        "Recorded status": "open",
+        "Schedule basis": "Observed or inventory-only scope; no dates asserted",
+        "Source": "https://github.com/TryUniCAD/Kit/pull/392",
+        "Dispatch": "Copy prompt from item body; runtime launch not configured",
+        "Runner": "a0683254"
+      }
+    }
+  },
+  "Views": {
+    "node": {
+      "views": {
+        "nodes": [
+          {
+            "id": "PVTV_lADOFJcHKs4BtfoKzgMwf_E",
+            "name": "View 1",
+            "filter": null
+          },
+          {
+            "id": "PVTV_lADOFJcHKs4BtfoKzgMwf_k",
+            "name": "Scheduled roadmap",
+            "filter": null
+          },
+          {
+            "id": "PVTV_lADOFJcHKs4BtfoKzgMwf_w",
+            "name": "Current work",
+            "filter": "status:\"In Progress\""
+          },
+          {
+            "id": "PVTV_lADOFJcHKs4BtfoKzgMwf_0",
+            "name": "All scopes",
+            "filter": null
+          },
+          {
+            "id": "PVTV_lADOFJcHKs4BtfoKzgMwf_8",
+            "name": "Unassigned scopes",
+            "filter": "no:assignee status:Todo"
+          },
+          {
+            "id": "PVTV_lADOFJcHKs4BtfoKzgMwoLI",
+            "name": "Scope board",
+            "filter": null
+          }
+        ]
+      }
+    }
+  }
+}

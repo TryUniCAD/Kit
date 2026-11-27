@@ -285,14 +285,14 @@
     {
       "Id": "PlanningViews",
       "Name": "Repository planning register and dependency Gantt",
-      "Status": "active",
+      "Status": "checking",
       "Owner": "Codex planning agent",
       "Dependencies": [],
       "Source": "Documentation/Planning/README.md",
       "Exit": "Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR",
       "Branch": "feat/project-todo-review-20261127",
       "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/392",
-      "Blocker": "Bulk project writes repeatedly return HTTP502, connection timeouts and malformed responses across GraphQL and REST. Readback and durable identities retained; missing records and forecast cleanup remain unfinished. Configured reviewer skips actual review because its trial expired and credits are unavailable."
+      "Blocker": "External project import and readback completed; final receipts are being published separately after PR392 merged. Delivery review and acceptance evidence remain distinct from import completion."
     },
     {
       "Id": "FusionRevolveContrast",

@@ -1,0 +1,146 @@
+{
+  "Before": {
+    "node": {
+      "fieldValues": {
+        "nodes": [
+          {},
+          {
+            "text": "UiPlanning \u00b7 Planning board schedule editing and scope discovery",
+            "field": {
+              "name": "Title"
+            }
+          },
+          {
+            "name": "In Progress",
+            "field": {
+              "name": "Status"
+            }
+          },
+          {
+            "text": "UiPlanning",
+            "field": {
+              "name": "Scope ID"
+            }
+          },
+          {
+            "text": "Unassigned",
+            "field": {
+              "name": "Agent"
+            }
+          },
+          {
+            "text": "UI/UX",
+            "field": {
+              "name": "Area"
+            }
+          },
+          {
+            "text": "Milestone",
+            "field": {
+              "name": "Scope type"
+            }
+          },
+          {
+            "text": "proposed",
+            "field": {
+              "name": "Recorded status"
+            }
+          },
+          {
+            "text": "Proposed investigation timebox",
+            "field": {
+              "name": "Schedule basis"
+            }
+          },
+          {
+            "text": "Documentation/Planning/README.md",
+            "field": {
+              "name": "Source"
+            }
+          },
+          {
+            "text": "Copy prompt from item body; runtime launch not configured",
+            "field": {
+              "name": "Dispatch"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "After": {
+    "node": {
+      "fieldValues": {
+        "nodes": [
+          {},
+          {
+            "text": "UiPlanning \u00b7 Planning board schedule editing and scope discovery",
+            "field": {
+              "name": "Title"
+            }
+          },
+          {
+            "name": "In Progress",
+            "field": {
+              "name": "Status"
+            }
+          },
+          {
+            "text": "UiPlanning",
+            "field": {
+              "name": "Scope ID"
+            }
+          },
+          {
+            "text": "Local Codex: feat/project-todo-review-20261127",
+            "field": {
+              "name": "Agent"
+            }
+          },
+          {
+            "text": "UI/UX",
+            "field": {
+              "name": "Area"
+            }
+          },
+          {
+            "text": "Milestone",
+            "field": {
+              "name": "Scope type"
+            }
+          },
+          {
+            "text": "proposed",
+            "field": {
+              "name": "Recorded status"
+            }
+          },
+          {
+            "text": "Proposed investigation timebox",
+            "field": {
+              "name": "Schedule basis"
+            }
+          },
+          {
+            "text": "Documentation/Planning/README.md",
+            "field": {
+              "name": "Source"
+            }
+          },
+          {
+            "text": "Copy prompt from item body; runtime launch not configured",
+            "field": {
+              "name": "Dispatch"
+            }
+          },
+          {
+            "name": "Local Codex",
+            "field": {
+              "name": "Runner"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
