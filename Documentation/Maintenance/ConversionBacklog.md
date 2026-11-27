@@ -49,7 +49,7 @@ Availability is a dated observation, not a permanent reservation.
 
 | ID  | Deliverable                                            | Status    | Owner and delivery                                    | Depends on                                   | Exit condition                                                                                                                                        |
 | --- | ------------------------------------------------------ | --------- | ----------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| B01 | Supported version, feature and route matrix            | Available | Unassigned; separate scoped PR                        | Current source and PR inventory              | Every intended family has explicit file types, vendor versions, feature scope and directional routes, with evidence or named gaps.                    |
+| B01 | Supported version, feature and route matrix            | Active    | Codex B01 matrix worker; scoped delivery below        | Current source and PR inventory              | Every intended family has explicit file types, vendor versions, feature scope and directional routes, with evidence or named gaps.                    |
 | B02 | Independent paired semantic qualification              | Blocked   | PR #94 register: A02d, A04c, A05c                     | Licensed native readback and source evidence | Initial paired sketches, bosses and cuts have independent inventories, resolved bindings and measured controls.                                       |
 | B03 | Graph comparison and proven format rules               | Blocked   | PR #94 register: A06, A07, A09                        | B02                                          | Ambiguities, field rules and counterexamples are traceable. Qualified comparisons and held-out codecs pass remote gates.                              |
 | B04 | Portable neutral-to-native writers                     | Blocked   | PR #94 register: A11, A12; coordinate PR #121         | B03 and independently understood grammar     | Both writers derive every byte and required relationship from portable semantics, without donor blocks or a CAD runtime.                              |
@@ -716,3 +716,33 @@ Production decoding and conversion qualification remain open.
 The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-circular-rim-fillet-readwrite-packs) records dependencies and delivery.
 The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
 The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.
+
+## B01-SupportMatrix: consolidate existing support evidence
+
+Codex owns `feat/project-next-steps-20261127`, based on main `1619f00bf532caad262d1557bd69281179e5c497`.
+Scope: the [project-wide support matrix](../Reference/Operations/SupportMatrix.md), reusing existing catalogues and acceptance records.
+Dependencies: current public contracts, production source, automation ownership and PR #368's separately owned SOLIDWORKS census.
+Delivery: [PR #375](https://github.com/TryUniCAD/Kit/pull/375).
+The scoped snapshot is published for checking; unresolved version/type choices remain follow-up work.
+Exit: every roadmap family and directional route has an explicit status, source evidence or named gap, plus current-head CI and configured approval.
+Unresolved vendor-version promises remain open; B12 acceptance and native conversion work are not completed by this register.
+See the [change entry](../Changes/Planning/SupportMatrix.md).
+
+## B10-FormatDiscovery: focused CLI format lookup
+
+Codex CLI worker owns `feat/b10-cli-usability-20261127`.
+Scope: `kit formats [FORMAT]` lookup by primary identifier or alias, visible text aliases and unknown-format recovery.
+Dependencies: existing registry discovery and its unchanged JSON list schema.
+Delivery: [PR #376](https://github.com/TryUniCAD/Kit/pull/376).
+Exit: real-process discovery/refusal coverage, current-head CI and configured approval.
+Representative-user workflow evaluation and the broader B10 exit remain open.
+
+## B11-FirstUseGuides: installation and recovery guidance
+
+Codex documentation worker owns `feat/b11-documentation-usability-20261127`.
+Scope: installation, first use, format selection and result recovery guidance.
+Dependencies: current public metadata/API and the B10 CLI contract.
+Delivery: [PR #377](https://github.com/TryUniCAD/Kit/pull/377).
+See the [first-use change entry](https://github.com/TryUniCAD/Kit/blob/8c2a2affc/Documentation/Changes/Guides/FirstUseWorkflow.md) on that delivery branch.
+Exit: source-backed corrections, link/render evidence where available, current-head CI and configured approval.
+Representative-user evaluation and the broader B11 exit remain open.
