@@ -1,0 +1,170 @@
+[
+  {
+    "case": "fusion-000",
+    "final_attempt": "fusion-000",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-001",
+    "final_attempt": "fusion-001",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-002",
+    "final_attempt": "fusion-002",
+    "status": "controls_passed",
+    "split": "parameter_holdout",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-003",
+    "final_attempt": "fusion-003",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-004",
+    "final_attempt": "fusion-004",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-005",
+    "final_attempt": "fusion-005",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-006",
+    "final_attempt": "fusion-006",
+    "status": "controls_passed",
+    "split": "parameter_holdout",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-007",
+    "final_attempt": "fusion-007",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "fusion-008",
+    "final_attempt": "fusion-008",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.RevolveFeature"
+  },
+  {
+    "case": "solidworks-000",
+    "final_attempt": "solidworks-000",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-001",
+    "final_attempt": "solidworks-001",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-002",
+    "final_attempt": "solidworks-002",
+    "status": "failed",
+    "split": "parameter_holdout",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-003",
+    "final_attempt": "solidworks-003",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-004",
+    "final_attempt": "solidworks-004",
+    "status": "failed",
+    "split": "discovery",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-005",
+    "final_attempt": "solidworks-005",
+    "status": "not_dispatched_fenced",
+    "split": "discovery",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-006",
+    "final_attempt": "solidworks-006",
+    "status": "not_dispatched_fenced",
+    "split": "parameter_holdout",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-007",
+    "final_attempt": "solidworks-007",
+    "status": "not_dispatched_fenced",
+    "split": "discovery",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "solidworks-008",
+    "final_attempt": "solidworks-008",
+    "status": "not_dispatched_fenced",
+    "split": "discovery",
+    "feature": "family:revolve:boss-base-revolve"
+  },
+  {
+    "case": "fusion-cut-000",
+    "final_attempt": "fusion-repair-000",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.ExtrudeFeature"
+  },
+  {
+    "case": "fusion-cut-001",
+    "final_attempt": "fusion-repair-001",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.ExtrudeFeature"
+  },
+  {
+    "case": "fusion-cut-002",
+    "final_attempt": "fusion-repair-002",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.ExtrudeFeature"
+  },
+  {
+    "case": "fusion-cut-003",
+    "final_attempt": "fusion-repair-003",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.ExtrudeFeature"
+  },
+  {
+    "case": "fusion-cut-004",
+    "final_attempt": "fusion-repair-004",
+    "status": "controls_passed",
+    "split": "discovery",
+    "feature": "api:adsk.fusion.ExtrudeFeature"
+  },
+  {
+    "case": "fusion-cut-005",
+    "final_attempt": "fusion-repair-005b",
+    "status": "controls_passed",
+    "split": "parameter_holdout",
+    "feature": "api:adsk.fusion.ExtrudeFeature"
+  }
+]

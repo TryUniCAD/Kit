@@ -1,0 +1,30 @@
+{
+  "application": "solidworks",
+  "status": "completed",
+  "owned_process_exited": true,
+  "documents_after": 0,
+  "artifacts": [
+    {
+      "name": "control-after.SLDPRT",
+      "size": 45250,
+      "sha256": "b83f81a13baf06600b85260d3316a336fd39d200b5b91a0d1b11643dc8007d10"
+    },
+    {
+      "name": "control-before.SLDPRT",
+      "size": 44662,
+      "sha256": "6e4e3c552e8dadb72c7d3828f73c26c693ac22bfc7bcf1baffc3ac5b5195b9dc"
+    },
+    {
+      "name": "GroundTruth.json",
+      "size": 1339,
+      "sha256": "6ac4799649cef6aa0d66b26f6ee131b5ab90a439cab20bb7ddc54281cb970f9f"
+    },
+    {
+      "name": "variation.SLDPRT",
+      "size": 43541,
+      "sha256": "a11b4b51b2391eaa679031b4e43eb4e889822b022d79c567b62679e1e64104d3"
+    }
+  ],
+  "original_receipt_sha256": "77bae0fb6521602c6dd580a980d8c780368c4a7e8b83711c57669c9e83490dbe",
+  "publication": "only native outcome and file digests; private job identities and nonces excluded"
+}

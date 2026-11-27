@@ -47,7 +47,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
           enable-cache: true
@@ -77,10 +77,30 @@ jobs:
           FileNotice = Regex.compile(
               rb"(?m)^(?P<block><!--\r?\n)?(?P<prefix>(?:\# |// |\$\$ |))"
               rb"SPDX-License-Identifier: MIT\r?\n(?P=prefix)"
-              rb"SPDX-FileCopyrightText: Copyright \(c\) 2026 (?:Parashell, )?"
+              rb"SPDX-FileCopyrightText: Copyright \(c\) 2026 (?:[A-Za-z]+, )?"
               rb"Odin Glynn-Martin(?:, Stephen Harcourt)?\r?\n"
               rb"(?(block)-->\r?\n)(?:\r?\n)?"
           )
+
+          # reviewed branding digests prevent manifest changes from authorizing unrelated edits
+          ReadableHashes = {
+              ".agents/skills/code-formatting/SKILL.md": "cb61d1f9d7eff8248a24be893ed0936a709238fe8b9d89aa7af441f76b210dc3",
+              ".agents/skills/git-never-touch-main/SKILL.md": "e940dbdb0e80448431bef0d8f035bdc999d91ad84d7d2299069b3b5c25ca73ee",
+              ".agents/skills/hostcontrol-contract/SKILL.md": "9e367d647e12c67edfc0324f47f2fe4222d89bfd3aa849261d68a69ffd7acd06",
+              ".agents/skills/linear-issue-tracking/SKILL.md": "15ae4235dd1eb2ec4e24f1d0bc98c4ee6f3955b8bb8c53685e84985bc8b290a7",
+              ".agents/skills/page-title-separator/SKILL.md": "401749cbadfc9593aa7cffdd199a80eaea58a4675da1b8d925b603d27f42412a",
+              ".agents/skills/pixi-lockfiles/SKILL.md": "fcbf833eaed6e7caf7737f6050d07dcd64a72f16d9e48afc925d264f8c12accf",
+              ".agents/skills/python-package-manager/SKILL.md": "fec0a92c5060395568fc9572730d37044d90cfc2b81c0cf6dc588a61e0fd5519",
+              ".agents/skills/workos-token-verification/SKILL.md": "b401dda820faa0ec551c6dedb73a5c8bfc4cd779a9eec9dc625beb224c96664f",
+              ".kiro/steering/CodeFormatting.md": "8a9dabdee29b401b1fd4023b6c1f739e1b88c9bda180af341f376e8d8b0e8a94",
+              ".kiro/steering/GitNeverTouchMain.md": "f91613402886f95b6b55144d884d294ed889c7c86efe64ff0f2c17fc2f7af62e",
+              ".kiro/steering/HostcontrolContract.md": "67b21df59d9346dcd7aa11928d1c677a99a8d6541f08f7772efd87e8a0142525",
+              ".kiro/steering/LinearIssueTracking.md": "84b47481c0623dd0a33aa1374cb52b1dc2ba7948e747f1ab3759ec51ccf70da8",
+              ".kiro/steering/PageTitleSeparator.md": "093587c7400bffba2ebbb0bf298ed5461de5d7d6c97288036a608f3d04ed2f87",
+              ".kiro/steering/PixiLockfiles.md": "68c51bdf90e98caa105b0823f779fa2aafe0ef45e768533a93c471c696748918",
+              ".kiro/steering/PythonPackageManager.md": "a0e02b5a23731558740a07014fc6f57d2fb683b48cb82e73d2cf598892a49bc4",
+              ".kiro/steering/WorkosTokenVerification.md": "5034005417c0910a0582e6d6d099a177ca363a2934b8166647cdc7fbd602eb4b",
+          }
           Manifest = Json.loads((PackageRoot / "references/Standards/Manifest.json").read_text())
           if Manifest["source_commit"] != SourceCommit:
               raise SystemExit("The original standards source commit must remain pinned")
@@ -98,6 +118,8 @@ jobs:
                   raise SystemExit("Unexpected object in the original standards tree")
               Expected[SourcePath.decode()] = (Mode, Blob)
           Entries = Manifest["entries"]
+          if {Entry["source"] for Entry in Entries if Entry.get("readable_edits")} != set(ReadableHashes):
+              raise SystemExit("Readable edits must match the reviewed branding inventory")
           SourceNames = [Entry["source"] for Entry in Entries]
           DocumentNames = [Entry["document"] for Entry in Entries if Entry["document"] is not None]
           if len(SourceNames) != len(set(SourceNames)) or set(SourceNames) != set(Expected):
@@ -126,6 +148,16 @@ jobs:
                   )
               if SourceName == ".agents/README.md":
                   ExpectedText = Regex.sub(rb"(?m)^\| `\.kiro/steering/SpdxHeader\.md`[^\n]*\n", b"", ExpectedText)
+              for Edit in reversed(Entry.get("readable_edits", [])):
+                  if not 0 <= Edit["start"] <= Edit["end"] <= len(ExpectedText):
+                      raise SystemExit(f"Invalid readable edit: {SourceName}")
+                  ExpectedText = (
+                      ExpectedText[:Edit["start"]]
+                      + Edit["replacement"].encode("utf-8")
+                      + ExpectedText[Edit["end"]:]
+                  )
+              if Entry.get("readable_edits") and Hashlib.sha256(ExpectedText).hexdigest() != ReadableHashes[SourceName]:
+                  raise SystemExit(f"Readable edits exceed the reviewed branding scope: {SourceName}")
               if Entry["encoding"] == "raw":
                   Preserved = Document == ExpectedText
               elif Entry["encoding"] in {"markdown-wrapper", "notice-wrapper"}:

@@ -1,0 +1,51 @@
+{
+  "case": "solidworks-059",
+  "decodes": [
+    {
+      "case": "solidworks-059",
+      "source": "$RECOVERY/SolidWorksCanaryFiles/control-before.SLDPRT",
+      "sha256": "6ac50d21f5333d3bce325945c17ebad749f655f12ecc0e475fe5aca36b2373d9",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksCanaryFiles/control-before.SLDPRT",
+        "-o",
+        "$RECOVERY/CanaryStrictDecodes/solidworks-059-control-before.json"
+      ],
+      "exit_code": 0,
+      "decoded_document": "$RECOVERY/CanaryStrictDecodes/solidworks-059-control-before.json",
+      "full_semantics_verified": false
+    },
+    {
+      "case": "solidworks-059",
+      "source": "$RECOVERY/SolidWorksCanaryFiles/variation.SLDPRT",
+      "sha256": "c061b7bff9dc15f72bc2165042b8d2b78ac77e2d1de9c535e2c9ad53d093438c",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksCanaryFiles/variation.SLDPRT",
+        "-o",
+        "$RECOVERY/CanaryStrictDecodes/solidworks-059-variation.json"
+      ],
+      "exit_code": 0,
+      "decoded_document": "$RECOVERY/CanaryStrictDecodes/solidworks-059-variation.json",
+      "full_semantics_verified": false
+    },
+    {
+      "case": "solidworks-059",
+      "source": "$RECOVERY/SolidWorksCanaryFiles/control-after.SLDPRT",
+      "sha256": "116ac2434ed621564da43165480a9a39ac8189b6d20c3511cacae60f78e42ba6",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksCanaryFiles/control-after.SLDPRT",
+        "-o",
+        "$RECOVERY/CanaryStrictDecodes/solidworks-059-control-after.json"
+      ],
+      "exit_code": 0,
+      "decoded_document": "$RECOVERY/CanaryStrictDecodes/solidworks-059-control-after.json",
+      "full_semantics_verified": false
+    }
+  ],
+  "command_publication": "operator paths sanitized; original commands retained in private receipt"
+}

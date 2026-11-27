@@ -1,3 +1,4 @@
+import sys
 import time
 
 from AdaptiveCapacity import AdaptiveCapacity
@@ -11,6 +12,11 @@ class ResourceBudget:
         self.reserved_memory = config["reserved_memory_mib"] * 1048576
         self.registry = registry
         self.adaptive = AdaptiveCapacity(config["adaptive_limits"])
+        self.windows_cpu = None
+        if sys.platform == "win32" and config["adaptive_limits"]:
+            from WindowsCpuLoad import WindowsCpuLoad
+
+            self.windows_cpu = WindowsCpuLoad()
         self.history = MemoryHistory(config["state"] / "memory-history.json")
         self.recorded_sessions = {}
         self.group_histories = {size: MemoryHistory(config["state"] / f"group-memory-history-{size:02d}.json") for size in range(2, 21)}
@@ -55,7 +61,7 @@ class ResourceBudget:
         now = time.monotonic()
         self.groups = group_memory({session.pid for session in running.values()})
         if now >= self.next_host:
-            self.host = host_resources()
+            self.host = host_resources(self.windows_cpu)
             self.host_groups = dict(self.groups)
             self.measured_at = time.time()
             self.host_sample_monotonic = time.monotonic()

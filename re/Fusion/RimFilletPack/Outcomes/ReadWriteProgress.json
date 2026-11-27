@@ -1,0 +1,145 @@
+{
+  "pid": 95668,
+  "started": 1795646278.076641,
+  "updated": 1795648690.843967,
+  "state": "settled",
+  "events": [
+    {
+      "case": "discovery-01",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/discovery-01"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "discovery-02",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/discovery-02"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "discovery-03",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/discovery-03"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "discovery-04",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/discovery-04"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "discovery-05",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/discovery-05"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "discovery-06",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/discovery-06"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "holdout-01",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/holdout-01"
+      ],
+      "exit_code": 0,
+      "native": "blocked"
+    },
+    {
+      "case": "holdout-02",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/holdout-02"
+      ],
+      "exit_code": 0,
+      "native": "blocked"
+    },
+    {
+      "case": "holdout-03",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/holdout-03"
+      ],
+      "exit_code": 0,
+      "native": "blocked"
+    },
+    {
+      "case": "holdout-04",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/holdout-04/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/holdout-04"
+      ],
+      "exit_code": 0,
+      "native": "blocked"
+    },
+    {
+      "case": "holdout-05",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/holdout-05/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/holdout-05"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "holdout-06",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Native/holdout-06/author/Restored.f3d",
+        "<campaign-output>/ReadWrite/holdout-06"
+      ],
+      "exit_code": 0,
+      "native": "blocked"
+    }
+  ]
+}

@@ -77,7 +77,13 @@ def ProjectPrism(
     CheckScopes(Graph, Context, Model.Asset.AssetId)
     FrameValue = ReadDatumFrame(Graph, Context) if YzDatum else KTransformIdentity
     Shape = ReadRectangle(Graph, Context, Rectangle)
-    Parameters = ReadParameters(Graph, Context, Rectangle=Rectangle, Reverse=Reverse)
+    Parameters = ReadParameters(
+        Graph,
+        Context,
+        Rectangle=Rectangle,
+        Reverse=Reverse,
+        PlainReverse=Reverse and Rectangle is None,
+    )
     CheckRegion(Graph, Context, Shape.LineNodes, Model.Asset.AssetId)
     CheckPrismBody(Graph, Context, Model, Shape, FrameValue, Reverse, YzDatum)
     Material = ReadMaterial(Graph, Context, Model)
@@ -90,9 +96,9 @@ def ProjectPrism(
     Metadata: dict[str, object] = {
         "fusion.native_state": {"version": 2, "model": EncodeState(Model)}
     }
-    if Rectangle is not None:
+    if Rectangle is not None or Reverse or YzDatum:
         Metadata["fusion.read_only"] = True
-        if Rectangle.DisplayUnit is UnitSystem.KInch:
+        if Rectangle is not None and Rectangle.DisplayUnit is UnitSystem.KInch:
             Metadata["source_display_units"] = Rectangle.DisplayUnit.value
     Document = CadDocument(
         Source,
