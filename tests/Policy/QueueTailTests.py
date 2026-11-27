@@ -23,10 +23,12 @@ def CheckTailGate(TmpPath: FilePath, CheckName: str, Verdict: str) -> None:
     NeedsMatch = SearchText(r"needs:\s*\[([^]]+)\]", GateText)
     ScriptMatch = SearchText(r"        run: \|\n([\s\S]+)", GateText)
     assert NeedsMatch is not None and ScriptMatch is not None
-    Needs = tuple(Name.strip() for Name in NeedsMatch[1].split(",") if Name.strip())
+    Needs = tuple(
+        InputName.strip() for InputName in NeedsMatch[1].split(",") if InputName.strip()
+    )
     assert "verify-end-to-end" not in Needs
     assert {"test-plan", "test-shard", "test-report"}.issubset(Needs)
-    Outcomes = {Name: {"result": "success"} for Name in Needs}
+    Outcomes = {InputName: {"result": "success"} for InputName in Needs}
     Outcomes[CheckName]["result"] = Verdict
     ScriptPath = TmpPath / "Gate.sh"
     _ = ScriptPath.write_text(DedentText(ScriptMatch[1]), encoding="utf-8")
