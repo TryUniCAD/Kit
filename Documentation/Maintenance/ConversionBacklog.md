@@ -1021,6 +1021,14 @@ Check that register again before running or claiming anything.
 The next independent available task is B01, followed by B10/B11 work that can use already qualified examples.
 No new research implementation, application run, user evaluation or conversion qualification is claimed by this planning change.
 
+## Prepared encoder input replay
+
+The shared encoder worker owns [A13a-FusionPreparedInputs](../Reference/Research/AutomationSteps.md#a13a-fusionpreparedinputs-per-role-fusion-writer-input-replay).
+[PR #305](https://github.com/TryUniCAD/Kit/pull/305) adds per-role Fusion writer JSON to the existing research pipeline within the constrained constructor scope.
+[PR #303](https://github.com/TryUniCAD/Kit/pull/303) records Fusion saved-cuboid writer research with observed same-source replay.
+[PR #304](https://github.com/TryUniCAD/Kit/pull/304) records SOLIDWORKS native evidence for a separate, source-free candidate with one Top annotation view.
+Both format tasks still require complete source admission and independent native acceptance for their wider scopes.
+
 ## Encoder follow-up research
 
 The Fusion worker owns [A05c-FusionSavedCuboid20261125](../Reference/Research/AutomationSteps.md#a05c-fusionsavedcuboid20261125-vendor-resaved-cuboid-reading-and-writing).
