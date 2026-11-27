@@ -6,7 +6,7 @@ from pytest import mark as MarkTests, raises as RaisesError
 
 from convert import open_document as OpenDocument, write_document as WriteDocument
 from convert.adapters.registry.RegistryErrors import AdapterNotFoundError
-from tests.Convert.Integration.Fusion.MakeBadLabel import MakeBadLabel
+from tests.Convert.Integration.Fusion.Offsets.MakeOffsetLabel import MakeOffsetLabel
 from tests.Convert.Integration.Fusion.MakeOffsetPlane import MakeOffsetPlane
 from tests.Convert.Integration.Fusion.Offsets.ChangeOffset import ChangeOffset
 
@@ -65,7 +65,7 @@ def CheckStartSolid(TmpPath: FilePath, CaseName: str) -> None:
     )
     Target = TmpPath / "Changed.f3d"
     if CaseName == "labels":
-        MakeBadLabel(Source, Target)
+        MakeOffsetLabel(Source, Target)
     else:
         MakeOffsetPlane(Source, Target)
     with RaisesError(ValueError):

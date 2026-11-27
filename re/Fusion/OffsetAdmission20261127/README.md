@@ -10,7 +10,8 @@ The first implementation is `23be702fd32d3092d98974c725bcc9d3b95fe0ee`; the fina
 Native source groups are `1647204042fca11349eb62a4e495387204648c8b` and `c3a229ecfb1195447b9a532cc66dc975f77418b6` from [PR #395](https://github.com/TryUniCAD/Kit/pull/395).
 That campaign measured 193 capture observations and 405 lifecycle/control/process comparisons across 27 fresh processes on Fusion `2706.1.17`.
 Its source files, reports, holds and ownership remain separate.
-This package copies only eighteen digest-checked native regression controls and their relevant API observations, with source revisions in Manifest.json.
+This package copies seventeen digest-checked offset campaign controls and their relevant API observations, plus one tapered refusal control from PR #394 at `c2f00415b3f48dea33b349dcc43048509db3568d`.
+Manifest.json records each control's source revision, including explicit source paths for the three refusal controls.
 These are test inputs under `re/`, never production package data or writer templates.
 
 The existing typed `DcExtrudeFeature.profileLocaltionType` code 1 identifies an explicit OffsetStart, including zero.
@@ -58,3 +59,10 @@ These are archive, SDK and executable integration checks in the existing queue s
 
 No new native capture was needed for the reader promotion; the source campaign's leased API evidence is reused.
 Portable source fidelity outside this bounded family, independently driven sketch dimensions, broad frame support and target application acceptance remain unfinished.
+
+## Integration fixture repairs
+
+The first local integration run at production head `792fdecaa` passed 49 of 52 cases.
+Its retained JUnit report records three fixture assumptions: CLI conversion refuses at qualification before the writer, entity emission itself refuses infinity, and offset caps need not coincide with the sketch sheet.
+The repaired cases use the actual qualification message, a unique finite sentinel replaced in one validated bulk stream, and a reciprocal label move without coincident-station selection.
+Independent read-only production and provenance audits found no production defect; the latter identified the refusal-control provenance correction above.

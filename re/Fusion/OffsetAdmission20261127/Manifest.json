@@ -2080,17 +2080,23 @@
     {
       "file": "Controls/frame.f3d",
       "sha256": "192e2924d1a1a307413427f141cf6173c653824dbf37116a85e145e02ae74630",
-      "reason": "placement"
+      "reason": "placement",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "source_path": "re/Fusion/OffsetStart20261127/Native/frame.f3d"
     },
     {
       "file": "Controls/wide_frame_yz.f3d",
       "sha256": "41b97f96047d07c7ea9b833cffed52f86f8aa4eb3b155043e3cbb721ff7bf23b",
-      "reason": "placement"
+      "reason": "placement",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "source_path": "re/Fusion/OffsetStart20261127/Expansion/Native/wide_frame_yz.f3d"
     },
     {
       "file": "Controls/TwoSidedDraft.f3d",
       "sha256": "266af08c723ec7dbc67e97c3cddae7fff701c9342faf73da12edacce85ef89ea",
-      "reason": "taper"
+      "reason": "taper",
+      "source_revision": "c2f00415b3f48dea33b349dcc43048509db3568d",
+      "source_path": "re/Fusion/TwoSidedDraft20261127/Native/baseline.f3d"
     }
   ],
   "final_reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d"

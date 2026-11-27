@@ -7,6 +7,7 @@ from convert.adapters.Fusion.Native.Graph.SelectExtrusion import SelectExtrusion
 from convert.Formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from tests.Convert.Api.Fusion.Native.ChangeNative import ChangeField
+from tests.Convert.Integration.Fusion.Offsets.MakeNonfinite import MakeNonfinite
 
 
 # encoded counterexamples must challenge ownership and saved geometry through real archive reads
@@ -32,9 +33,12 @@ def ChangeOffset(Source: FilePath, Target: FilePath, CaseName: str) -> None:
         "units": (Parameter, "unit", "deg"),
         "native_name": (Parameter, "name", "AlongDistance"),
         "value_copy": (Binding, "value", 1.1),
-        "nonfinite": (Binding, "value", float("inf")),
+        "nonfinite": (Binding, "value", 1.23456789e123),
         "taper": (Context.Taper, "value", 0.1),
     }
     NodeValue, FieldName, FieldValue = Cases[CaseName]
     Changed = ChangeField(Model, NodeValue.ObjectId, FieldName, FieldValue)
-    _ = Target.write_bytes(EmitParsed(Changed))
+    Payload = EmitParsed(Changed)
+    _ = Target.write_bytes(
+        MakeNonfinite(Payload) if CaseName == "nonfinite" else Payload
+    )

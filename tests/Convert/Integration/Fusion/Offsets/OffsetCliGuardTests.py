@@ -53,7 +53,16 @@ def CheckExportCli(TmpPath: FilePath) -> None:
         (str(RootPath / "src"), str(RootPath / "Cli"))
     )
     Result = ProcessLayer.run(
-        [System.executable, "-m", "KitCli", "convert", str(Source), str(Target)],
+        [
+            System.executable,
+            "-m",
+            "KitCli",
+            "convert",
+            str(Source),
+            str(Target),
+            "--to",
+            "interchange.json",
+        ],
         cwd=RootPath,
         env=Environment,
         capture_output=True,
@@ -63,7 +72,8 @@ def CheckExportCli(TmpPath: FilePath) -> None:
     )
     assert Result.returncode != 0
     assert (
-        "read-only Fusion histories cannot be exported" in Result.stdout + Result.stderr
+        "UnqualifiedGeometry records are not conversion-ready"
+        in Result.stdout + Result.stderr
     )
     assert "Traceback" not in Result.stdout + Result.stderr
     assert not Target.exists()
