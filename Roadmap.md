@@ -11,7 +11,8 @@ Read the linked PR and its current head before claiming a task.
 
 ## Current position
 
-This snapshot describes main `14570404846c8aa1f90b02e68d6f70a419719ca7`, inspected on 2026-11-23.
+This snapshot describes main `1619f00bf532caad262d1557bd69281179e5c497`, inspected on 2026-11-27.
+The [support matrix](Documentation/Reference/Operations/SupportMatrix.md) records file types, version gaps and directional evidence.
 Open PR work is listed separately in the backlog.
 The previous 22/100 estimate is retired because it counted historical capabilities that no longer describe the production adapter.
 No replacement percentage is claimed without a complete acceptance matrix.
@@ -22,8 +23,8 @@ No replacement percentage is claimed without a complete acceptance matrix.
 | Fusion                  | Public reader and writer for qualified parameter, circle, rectangle, cylinder, cuboid and frustum graphs.                                 | General portable feature graphs, broader schemas, configurations and qualified cross-format routes. |
 | FreeCAD                 | Archive reader and writer with geometry, feature and assembly paths.                                                                      | Per-version semantic coverage and measured acceptance for each claimed conversion direction.        |
 | CATIA V5                | Part/product adapter with bounded native interpretation and preservation paths.                                                           | Complete geometry, parametric history and independently measured native conversion.                 |
-| NX                      | No production adapter on this main revision. PR #115 adds native research and adapter work.                                               | Qualified semantic reads and independent editable writing.                                          |
-| Creo                    | No production adapter on this main revision. PR #117 adds PSB research and adapter work.                                                  | Qualified semantic reads and independent editable writing.                                          |
+| NX                      | No production adapter on this main revision. Historical PR #115 is closed without merge.                                                  | Qualified semantic reads and independent editable writing.                                          |
+| Creo                    | No production adapter on this main revision. Historical PR #117 is closed without merge.                                                  | Qualified semantic reads and independent editable writing.                                          |
 | Rhino                   | No production adapter on this main revision.                                                                                              | Format/version contract, reader, writer and target acceptance.                                      |
 | AutoCAD                 | No standalone production adapter on this main revision. Fusion drawing codecs are a separate bounded path.                                | Format/version contract, neutral drawing model and qualified standalone routes.                     |
 | Kit JSON and shared SDK | Neutral model, serialization, discovery, conversion API, CLI and packaging exist.                                                         | Complete route evidence, operational hardening, user evaluation and release qualification.          |
@@ -79,8 +80,8 @@ Check those observations against the pinned source captures before accepting the
 Use the accepted evidence to qualify the sketches, bosses and cuts in A04c and A05c before comparing graphs in A06.
 Keep P05 reserved for independent validation.
 
-The next independent task outside that programme is **B01: publish the supported version and route matrix**.
-It can proceed while native evidence is unavailable.
+The independent **B01 support-matrix audit** is active on `feat/project-next-steps-20261127`.
+Its [matrix](Documentation/Reference/Operations/SupportMatrix.md) preserves missing native and version evidence explicitly.
 It must reuse current adapter facts and PR ownership rather than create a second research plan.
 
 ## Maintenance
