@@ -13,7 +13,12 @@ def CheckWindow() -> None:
         Harness = MakeLearnHost(RootPath)
         Harness.SubmitJobs(
             [
-                FixtureJob(f"window:{Index}", "fixture.decode", max_attempts=1)
+                FixtureJob(
+                    f"window:{Index}",
+                    "fixture.decode",
+                    max_attempts=1,
+                    lease_seconds=30,
+                )
                 for Index in range(55)
             ]
         )
