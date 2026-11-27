@@ -22,7 +22,7 @@ def TestRevEndModes(
     Against: tuple[float, ...],
     VolumeValue: float,
 ) -> None:
-    Measured = RunRevEnd("ProveMeasuredRevolveEnds.py", CaseValue, "--queue")
+    Measured = RunRevEnd("ProveMeasuredRevolveEnds.py", CaseValue)
     Angles = [ToRadians(Value) for Value in (98.25, *Against)]
     Drivers = CastValue(dict[str, float], Measured["drivers_radians"])
     assert list(Drivers) == ["D1", "D2"][: len(Angles)]
@@ -40,7 +40,7 @@ def TestRevEndModes(
     AssertRevRoutes(Measured)
 
 
-# alternate physical deflate bytes retain the read scope and require their own native authority
+# the queue must demonstrate publication using the complete archive admitted by native evidence
 def AssertRevRoutes(ReportValue: dict[str, object]) -> None:
     Expected = {
         "authored registry",
@@ -51,16 +51,8 @@ def AssertRevRoutes(ReportValue: dict[str, object]) -> None:
         "strict design JSON registry",
         "strict design JSON direct",
     }
-    Exact = ReportValue["sha256"] == ReportValue["measured_sha256"]
-    assert ReportValue["exact_native_hash"] is Exact
-    if Exact:
-        assert set(CastValue(list[str], ReportValue["publication_routes"])) == Expected
-        assert ReportValue["unmeasured_route_refusals"] == []
-        assert ReportValue["strict_json_republications"] == 4
-    else:
-        assert ReportValue["publication_routes"] == []
-        assert (
-            set(CastValue(list[str], ReportValue["unmeasured_route_refusals"]))
-            == Expected
-        )
-        assert ReportValue["strict_json_republications"] == 0
+    assert ReportValue["sha256"] == ReportValue["measured_sha256"]
+    assert ReportValue["exact_native_hash"] is True
+    assert set(CastValue(list[str], ReportValue["publication_routes"])) == Expected
+    assert ReportValue["unmeasured_route_refusals"] == []
+    assert ReportValue["strict_json_republications"] == 4

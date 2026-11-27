@@ -68,13 +68,12 @@ The complete suite discovers two focused process tests for Mid Plane,
 Two Directions and reversed Two Directions. The measured process checks
 all ten logical stream hashes, the strict full and design-only views,
 the actual D1 and D2 roles, the directed axis, the sweep interval and
-one resolved body. It exercises seven native publication routes when
-the generated container matches the measured complete SHA-256. A
-different complete digest must refuse all seven routes with the
-destinations unchanged. An explicit DEFLATE-level contrast reproduced
-all ten logical streams in each profile while changing each full
-digest and refusing all 21 publication attempts. The production
-compressor and measurement predicate retain their existing behavior.
+one resolved body. The measured queue process requires the complete SHA-256
+to match and checks every publication route. A standalone alternate-compressor
+contrast can call the proof worker with `--queue` to verify atomic refusal when
+the archive differs despite matching logical streams. That contrast does not
+count as measured queue publication. The production compressor and measurement
+predicate retain their existing behavior.
 
 The independent process authors three new neutral documents in code
 without reading any fixture. These use different rectangular dimensions,
