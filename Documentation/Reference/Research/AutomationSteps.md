@@ -948,3 +948,25 @@ The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native
 All strict neutral and public conversion refusals remain explicit.
 The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
 The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.
+
+## A08h-FusionTwoSidedDraft20261127
+
+Codex owns this bounded campaign on `feat/fusion-two-sided-draft-20261127`, based on fresh main `18b41b98c96fd123a11d1ae0d1cda29b9d9746ed`.
+It depends on A03, A05a, A08h, the existing catalogue and native script workers, and the licensed THY-PC Fusion resource.
+The child claim and progress are recorded on PR #94. A separate normal delivery PR follows, as explicitly requested.
+The [package](../../../re/Fusion/TwoSidedDraft20261127/README.md) retains unequal two-side circular extrusions with independent signed draft angles.
+Discovery varies each distance and draft, radius, placement and frame, with swapped-side counterexamples and two parameter holdouts.
+
+Source commit `c2f00415b3f48dea33b349dcc43048509db3568d` contains 68 native archives and 101 matching API observations on Fusion `2706.1.17`.
+The existing native helper matches all 1,224 side-distance, taper-role, operation, profile and ownership comparisons.
+Strict reads accept two untapered controls and reject 66 drafted states; explicit partial replay preserves all 68 outcomes and receipts.
+The research helper's ASM4 body-identity reconstruction limit remains separate from known width-aware production parsing.
+The original script-size refusals remain retained. Revised template generations use one intact known control measured before and after each fresh process.
+
+Eleven distinct fresh processes passed all 198 lifecycle, process and control comparisons.
+The oracle was released idle with no recovery marker.
+Status is checking for publication; current-head CI and configured review remain required.
+Exit requires sealed committed inputs, complete source/lifecycle observations, retained strict refusals and counterexamples, current-head CI and configured review.
+No model, shared decoder, catalogue-builder or worker change is claimed. B02–B05 and editable target conversion remain unfinished.
+The [change entry](../../Changes/Research/Campaigns/FusionIndependentTwoSidedDrafts.md) records the evidence boundary.
+Planning remains unmerged on PR #392; retain this established child claim for stable scope linkage after that integration.

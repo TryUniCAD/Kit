@@ -746,3 +746,11 @@ Delivery: [PR #377](https://github.com/TryUniCAD/Kit/pull/377).
 See the [first-use change entry](https://github.com/TryUniCAD/Kit/blob/8c2a2affc/Documentation/Changes/Guides/FirstUseWorkflow.md) on that delivery branch.
 Exit: source-backed corrections, link/render evidence where available, current-head CI and configured approval.
 Representative-user evaluation and the broader B11 exit remain open.
+
+## A08h-FusionTwoSidedDraft20261127 research evidence
+
+Codex owns independently drafted two-sided circular Fusion extrusion evidence on `feat/fusion-two-sided-draft-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusiontwosideddraft20261127) records dependencies, native-resource ownership and exit requirements.
+The [package](../../re/Fusion/TwoSidedDraft20261127/README.md) preserves native sources, signed parameter roles, strict refusals and separate fresh-process witnesses.
+Delivery uses its own PR. B02–B05 and the supported production boundary remain unchanged.
+The existing child claim is retained while the Planning register remains a separate unmerged delivery.
