@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -83,7 +83,10 @@ def CheckProgramOps(CaseValue, Observed):
             Numbers["angle2_rad"] = radians(Operation["angle2_deg"])
     if Operation["thin"] is not None:
         Thin = Operation["thin"]
-        Expected["thin_type"] = 2 if Thin["side"] == "midplane" else 0
+        ThinType = int(Operation["kind"] == "extrude" and not FrameFlip)
+        if Thin["side"] == "midplane":
+            ThinType = 2
+        Expected["thin_type"] = ThinType
         Numbers["thickness1_m"] = Thin["thickness_mm"] / 1000
     if any(Reading[Name] != Value for Name, Value in Expected.items()) or any(
         not isclose(Reading[Name], Value, rel_tol=1e-9, abs_tol=1e-9)

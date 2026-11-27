@@ -28,3 +28,17 @@ def CheckLegacyRoot(TmpPath: FilePath) -> None:
         assert Receipt["portable_complete"] is False
         assert Receipt["native_acceptance"] == "not_established"
         assert not (Target / "NativeVerification.json").exists()
+        Batch = TmpPath / "LegacyBatch"
+        Rejected = ResearchCli(
+            TmpPath,
+            "solidworks",
+            "--batch",
+            "--asset",
+            KSwAsset,
+            "--output",
+            str(Batch),
+            Checkout=Legacy,
+        )
+        assert Rejected.returncode == 2, Rejected.stderr
+        assert "unrecognized arguments: --batch" in Rejected.stderr
+        assert not Batch.exists()

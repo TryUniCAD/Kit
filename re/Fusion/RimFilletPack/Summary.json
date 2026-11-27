@@ -1,0 +1,43 @@
+{
+  "checkpoint_at": 1795649993.013956,
+  "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+  "baseline_elapsed_seconds": 2554.2547051906586,
+  "artifact_path": "<campaign-output>",
+  "models_enabled": false,
+  "recovery_state": "settled",
+  "candidate_repair": "qualified width-preserving typed snapshot emission",
+  "native_conversion_qualified": false,
+  "semantic_gaps": [
+    "public neutral projection does not support this fillet history",
+    "Fusion catalogue fillet experiment and both catalogue fillet authoring bindings are missing",
+    "SOLIDWORKS transport health only; no fillet builder or conversion qualification",
+    "full typed archive equality does not qualify neutral fillet projection or cross-format conversion"
+  ],
+  "scope": "constant radius top circular rim fillets on one plain XY circular blind extrusion",
+  "checkpoint_counts": {
+    "logical_parameter_cases": 12,
+    "discovery_cases": 6,
+    "parameter_holdouts": 6,
+    "initial_native_checks_passed": 48,
+    "initial_native_checks_failed": 0,
+    "typed_native_cli_decodes_passed": 24,
+    "strict_neutral_inputs_refused": 24,
+    "public_conversion_attempts_refused": 48,
+    "generated_typed_cycles_passed": 12,
+    "generated_exact_native_payload_bindings": 12,
+    "native_saved_source_cycles_passed": 5,
+    "native_saved_source_cycles_refused": 7,
+    "native_reconstructions_recovered": 5
+  },
+  "qualification_revision": "d4b580b5a65229d0f345609592a2b87b0262be9b",
+  "updated_at": 1795650863.643368,
+  "qualification_counts": {
+    "typed_cycles_passed": 22,
+    "native_payloads_verified": 22,
+    "new_native_checks": 12,
+    "exact_prior_native_receipts_reused": 10,
+    "fresh_parameter_cases": 4,
+    "independent_depth_edits_passed": 6,
+    "malformed_header_guards_passed": 6
+  }
+}

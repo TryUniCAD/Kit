@@ -1,0 +1,10 @@
+{
+  "original_workspace": "wks_53588ae66489b853",
+  "restored_workspace": "wks_c82e15d9470c410f",
+  "root": "<research-checkout>",
+  "branch": "feat/native-conversion-campaign-20261125",
+  "raw_artifacts_preserved": true,
+  "interrupted_step": "holdout-05 TypedCycle subprocess could not enter removed checkout",
+  "native_requests_replayed": false,
+  "remaining_worker_pid": 59731
+}

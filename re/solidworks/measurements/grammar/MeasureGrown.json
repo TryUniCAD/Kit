@@ -1,6 +1,6 @@
 [
   {
-    "path": "c:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "c:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 15.832633400001214,
     "opened": true,
@@ -140,7 +140,7 @@
     "attempts": 1
   },
   {
-    "path": "c:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\re\\parts\\G3_three_boss.SLDPRT",
+    "path": "c:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\re\\parts\\G3_three_boss.SLDPRT",
     "returncode": 0,
     "seconds": 34.4100727999903,
     "opened": true,
@@ -280,7 +280,7 @@
     "attempts": 1
   },
   {
-    "path": "c:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\re\\parts\\G4_four_boss.SLDPRT",
+    "path": "c:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\re\\parts\\G4_four_boss.SLDPRT",
     "returncode": 0,
     "seconds": 30.347327700001188,
     "opened": false,
@@ -291,7 +291,7 @@
     "attempts": 1
   },
   {
-    "path": "c:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\re\\parts\\G5_five_boss.SLDPRT",
+    "path": "c:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\re\\parts\\G5_five_boss.SLDPRT",
     "returncode": 0,
     "seconds": 35.38500379999459,
     "opened": false,
@@ -302,7 +302,7 @@
     "attempts": 1
   },
   {
-    "path": "c:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\PADPLANE_rev_d5.SLDPRT",
+    "path": "c:\\Users\\odin\\Documents\\UniCAD\\Kit\\.rescratch\\corpus2\\parts\\PADPLANE_rev_d5.SLDPRT",
     "returncode": 0,
     "seconds": 19.77677389999735,
     "opened": true,

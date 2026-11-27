@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -62,7 +62,7 @@ def CheckSignedTags(
     Operation, Sides = CheckOwnTags(
         Graph, Context, Model, Shape, History, BodyValue.Journal, BodyTag
     )
-    Curves = SelectedCurves(Shape)
+    Curves = SelectedCurves(Shape, Native=True)
     if set(Sides.values()) != set(Curves):
         raise ValueError("Native reverse prism side tags omit selected curves")
     Extent = NumberValue(Context.Along.Fields["value"])
@@ -102,15 +102,24 @@ def ReadFeatureTags(Table: LiveTable) -> dict[int, FeatureTag]:
 
 
 # distinct original curve tags must identify each side of the closed native selection
-def SelectedCurves(Shape: RectGeometry) -> KCurveMap:
-    Curves = {
-        CurveTag(NodeValue): frozenset(
-            (
-                (LineValue.start.x / 10, LineValue.start.y / 10),
-                (LineValue.end.x / 10, LineValue.end.y / 10),
-            )
+def SelectedCurves(Shape: RectGeometry, Native: bool = False) -> KCurveMap:
+    Points = (
+        Shape.NativePoints
+        if Native
+        else tuple(
+            (Point.x / 10, Point.y / 10, 0.0)
+            for LineValue in Shape.Lines
+            for Point in (LineValue.start, LineValue.end)
         )
-        for NodeValue, LineValue in zip(Shape.LineNodes, Shape.Lines, strict=True)
+    )
+    Curves = {
+        CurveTag(NodeValue): frozenset((Start[:2], Finish[:2]))
+        for NodeValue, Start, Finish in zip(
+            Shape.LineNodes,
+            Points[::2],
+            Points[1::2],
+            strict=True,
+        )
     }
     if len(Curves) != 4:
         raise ValueError("Native reverse prism requires four tagged Design curves")

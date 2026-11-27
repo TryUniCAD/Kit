@@ -1,0 +1,507 @@
+{
+  "cases": {
+    "BaselineEditedControl": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        3.812578616352198,
+        4.832704402515722,
+        9.934999999999999
+      ],
+      "changed_public_brep_collections": [
+        "bodies"
+      ],
+      "changed_public_kernel_body_fields": [
+        "provenance",
+        "attributes"
+      ],
+      "depth_mm": 19.869999999999997,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        6,
+        12,
+        8
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 1924,
+          "f1b0": 1924
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_DENSITY",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "a4aa7ab2a2e13178aa0a8febf0ac532a4fc79b9e55fedbd407e398329209d06c",
+      "profile_lines": 4,
+      "public_equals_partition": false,
+      "public_without_design_id_equals_partition": false,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+      "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+      "surface_area_expected_mm2": 2931.3053778643207,
+      "volume_mm3": 10531.1
+    },
+    "BaselineSource": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        3.8125786163522015,
+        4.8327044025157235,
+        7.1549999999999985
+      ],
+      "changed_public_brep_collections": [
+        "bodies"
+      ],
+      "changed_public_kernel_body_fields": [
+        "provenance",
+        "attributes"
+      ],
+      "depth_mm": 14.309999999999999,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        6,
+        12,
+        8
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 934,
+          "f1b0": 934
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_DENSITY",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "7198c051f6aa6f5b0d3f8ee77ee634671c23e2e3e8127ae03bcc7b9d2c53414f",
+      "profile_lines": 4,
+      "public_equals_partition": false,
+      "public_without_design_id_equals_partition": false,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+      "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "surface_area_expected_mm2": 2407.678910782004,
+      "volume_mm3": 7584.299999999999
+    },
+    "CustomText": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        5.247869154572676,
+        3.682331260078321,
+        6.685499999999999
+      ],
+      "changed_public_brep_collections": [],
+      "changed_public_kernel_body_fields": [],
+      "depth_mm": 13.370999999999999,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        7,
+        15,
+        10
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 1064,
+          "f1b0": 1064
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_DENSITY",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "c1a1156a8158b2bead49793802e36dc3f839307badd429660de32793f47d322c",
+      "profile_lines": 5,
+      "public_equals_partition": true,
+      "public_without_design_id_equals_partition": true,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda",
+      "source_sha256": "fc27be9236f286777726cc2dcc2b38049295b2d52d4375c583ebf3823e49f5f2",
+      "surface_area_expected_mm2": 2825.1818141933727,
+      "volume_mm3": 9673.9185
+    },
+    "DepthContrast": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        5.24786915457268,
+        3.6823312600783247,
+        10.731499999999999
+      ],
+      "changed_public_brep_collections": [],
+      "changed_public_kernel_body_fields": [],
+      "depth_mm": 21.462999999999997,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        7,
+        15,
+        10
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 3474,
+          "f1b0": 3474
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "e27c09aea2ed96ca7cdc38dd20fc25e4f8f4c42e121098f93d6496acb80d77d8",
+      "profile_lines": 5,
+      "public_equals_partition": true,
+      "public_without_design_id_equals_partition": true,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda",
+      "source_sha256": "49b9afe5366d6af21dd848f7bcb68cb81d01a6f7f2b2a1dc404778c66db3467e",
+      "surface_area_expected_mm2": 3659.2441311818384,
+      "volume_mm3": 15528.480499999998
+    },
+    "HeldOutEditedControl": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        2.318484042553191,
+        2.0166223404255312,
+        6.095
+      ],
+      "changed_public_brep_collections": [],
+      "changed_public_kernel_body_fields": [],
+      "depth_mm": 12.19,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        9,
+        21,
+        14
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 4864,
+          "f1b0": 4864
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_DENSITY",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "57d2a797874ff65b6cf58c6c204a98a6622f4bc36fe75fee47b445d9bf6f7f19",
+      "profile_lines": 7,
+      "public_equals_partition": true,
+      "public_without_design_id_equals_partition": true,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+      "source_sha256": "605effedfbcff4826e5e8b3f8f9c9650e8ed93199e88a46007e7bde132306edb",
+      "surface_area_expected_mm2": 2867.991397825635,
+      "volume_mm3": 9166.880000000001
+    },
+    "HeldOutSource": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        2.318484042553191,
+        2.016622340425533,
+        4.865
+      ],
+      "changed_public_brep_collections": [],
+      "changed_public_kernel_body_fields": [],
+      "depth_mm": 9.73,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        9,
+        21,
+        14
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 3304,
+          "f1b0": 3304
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_DENSITY",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "05e8788d472e541427622d84533da6cb6f730d47ff8591164be0ef8f040d3c9d",
+      "profile_lines": 7,
+      "public_equals_partition": true,
+      "public_without_design_id_equals_partition": true,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+      "source_sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+      "surface_area_expected_mm2": 2592.7314438755893,
+      "volume_mm3": 7316.96
+    },
+    "NoOpAfter": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        5.247869154572676,
+        3.682331260078321,
+        6.685499999999999
+      ],
+      "changed_public_brep_collections": [],
+      "changed_public_kernel_body_fields": [],
+      "depth_mm": 13.370999999999999,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        7,
+        15,
+        10
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 1064,
+          "f1b0": 1064
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_DENSITY",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "20e070ce4a33a2a657506022ee001ed5f9b1aa2222344ba0df8752ab227625f5",
+      "profile_lines": 5,
+      "public_equals_partition": true,
+      "public_without_design_id_equals_partition": true,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda",
+      "source_sha256": "ed5193322a7166ed8d0cdca9e0fe3abe46233e11c7368f0b42fdabaed60c3269",
+      "surface_area_expected_mm2": 2825.1818141933727,
+      "volume_mm3": 9673.9185
+    },
+    "NoOpBefore": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        5.247869154572676,
+        3.682331260078321,
+        6.685499999999999
+      ],
+      "changed_public_brep_collections": [],
+      "changed_public_kernel_body_fields": [],
+      "depth_mm": 13.370999999999999,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        7,
+        15,
+        10
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 1064,
+          "f1b0": 1064
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "fdfcdf90f9b0eaeec6a25eb682d1e16d388ba899ed0ccfd64622f841c98d9eb2",
+      "profile_lines": 5,
+      "public_equals_partition": true,
+      "public_without_design_id_equals_partition": true,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda",
+      "source_sha256": "c979ed48249f02a254578bc31ab04365fca5bc61264325af7673406f0b12f246",
+      "surface_area_expected_mm2": 2825.1818141933727,
+      "volume_mm3": 9673.9185
+    },
+    "ProfileContrast": {
+      "api_comparisons_passed": 11,
+      "centroid_mm": [
+        5.089242323834771,
+        3.0949856417053248,
+        6.685500000000001
+      ],
+      "changed_public_brep_collections": [],
+      "changed_public_kernel_body_fields": [],
+      "depth_mm": 13.370999999999999,
+      "directed_boundary_match": true,
+      "faces_edges_vertices": [
+        7,
+        15,
+        10
+      ],
+      "owner": {
+        "atom_identity_fields": {
+          "f12c": 32,
+          "f130": 32,
+          "f140": 101,
+          "f180": 2288,
+          "f1b0": 2288
+        },
+        "atom_slot": 58,
+        "attributes": [
+          "ATOM_ID_2001",
+          "BODY_IN_LIGHTWEIGHT_PERM",
+          "BODY_MATCH",
+          "BODY_RECIPE_2001",
+          "ENT_TIME_STAMP_2001",
+          "LAST_BODY_MODIFYING_FEATURE_ID",
+          "SDL/TYSA_COLOUR_2",
+          "SDL/TYSA_TRANSLUCENCY_2",
+          "SWIMPLICITBODYNAME_ID_U"
+        ],
+        "body_slot": 2,
+        "explicit_label": null,
+        "feature_id": 32,
+        "label": "Boss-Extrude1"
+      },
+      "partition_sha256": "f502315cedb3fd52e509705efc7167d9d211508538951e0995751221420b3943",
+      "profile_lines": 5,
+      "public_equals_partition": true,
+      "public_without_design_id_equals_partition": true,
+      "rollback_mark_ids": [
+        7,
+        3
+      ],
+      "source_record_sha256": "234e1ebc4d7827a1ac075e7bcd25897b11043ad963da2f254e36bf0147c93eda",
+      "source_sha256": "acedc181f6da5b8d4a0a17521d957b89250e71a1be865533958bd2f5f298195c",
+      "surface_area_expected_mm2": 2915.8838269036414,
+      "volume_mm3": 10088.419499999998
+    }
+  },
+  "dependency": "c0a401a607759fb0c2589647c2a22af65ebb7ce1"
+}

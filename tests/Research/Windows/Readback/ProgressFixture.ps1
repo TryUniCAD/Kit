@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath)
+param([string]$Source, [string]$OwnerPath, [string]$JournalPath, [string]$MarkerPath, [switch]$CompileOnly)
 $ErrorActionPreference = 'Stop'
 $Web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 $Program = @'
@@ -41,4 +41,5 @@ public static class ProgressFixture
 }
 '@
 Add-Type -TypeDefinition ((Get-Content -LiteralPath $Source -Raw) + "`n" + $Program) -ReferencedAssemblies @('System.Core.dll', $Web)
+if ($CompileOnly) { exit 0 }
 [ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)

@@ -1,0 +1,30 @@
+{
+  "revision": "78a1367e81b5748702289c2b2e733f24576df46e",
+  "src_tree": "0f526c2c9179513040c1e16c78cb415afc9dd32f",
+  "archive_sha256": "7cd7a7b843cca99a17a943b67679787a2b3697d90b464b4d7f25d653a34e2779",
+  "archive_command": [
+    "git",
+    "archive",
+    "--format=tar",
+    "78a1367e81b5748702289c2b2e733f24576df46e",
+    "src"
+  ],
+  "verified_reader_sources": {
+    "src/convert/adapters/solidworks/Core/Native.py": {
+      "git_blob": "1ddbd07403bbc311b6213dfacc69025606c6cf82",
+      "sha256": "63f0a4d6f73b9c65ac6961674b4fdf34af2a5ed063c999dbd800f02507552e47"
+    },
+    "src/convert/adapters/solidworks/Core/Records/ReadLocalOwner.py": {
+      "git_blob": "edabc4f584f1db1efdc61713d22358fddcf8d9f1",
+      "sha256": "6178d13b69e03ae0f71181f2131b7b3b45cc11666158d061fba638accf6fc838"
+    },
+    "src/convert/adapters/solidworks/Core/Records/ReadPlaneOwner.py": {
+      "git_blob": "445f6063def94fcb57b6e6eb732ea54fb7b4bad7",
+      "sha256": "60996a8cb13149c823d5619a9d5d220184a3a89e15cfe1301c789a49a19ee943"
+    },
+    "src/convert/adapters/solidworks/Core/Records/ReadPlanePose.py": {
+      "git_blob": "0f184670ef9754250c889fdbe82b8010fff9d584",
+      "sha256": "d50280c557d676af69918634f9cd78ddd89153359b253b0e68afd46580319a35"
+    }
+  }
+}

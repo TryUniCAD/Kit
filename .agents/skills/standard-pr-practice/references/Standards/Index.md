@@ -9,7 +9,9 @@ provenance. Read each rule set relevant to the task, using the routing table in
 `../../SKILL.md`.
 
 The readable files retain the original content except for the retired file
-notice policy. The pinned Git commit preserves the original files, paths,
+notice policy and explicit branding edits recorded in `Manifest.json`.
+CI applies those byte edits after verifying each original source hash.
+The pinned Git commit preserves the original files, paths,
 modes, and bytes.
 [Manifest.json](Manifest.json) records the original Git blob, SHA-256, size, and
 current location for every file, pinned to source commit
