@@ -58,19 +58,28 @@ def compare_model(direct, same, design_only, job):
 
 
 def check_sketches(section, path, job):
+    from math import cos, hypot, isclose, sin
+
     native, _ = job["prior"]["saved_sketches"]
     section_entity, = section.entities
     path_entity, = path.entities
     seam = section_entity.attributes["periodic_seam"]
     demand(type(section_entity.geometry) is CircleGeometry and type(path_entity.geometry) is ArcGeometry
-           and tuple(seam["point_mm"]) == tuple(value * 1000.0 for value in native["seam_local_m"])
+           and tuple(seam["saved_point_mm"]) == tuple(value * 1000.0 for value in native["seam_local_m"])
            and (seam["center_index"], seam["start_end_index"], tuple(seam["point_marks"]))
            == (native["center_index"], native["same_start_end_index"], tuple(native["permanent_marks"]))
+           and seam["diameter_parameter_id"] == section.constraints[1].parameter_id
+           and isclose(seam["angle_rad"], native["seam_angle_rad"], abs_tol=1e-15)
            and tuple(item.kind for item in section.constraints) == ("fixed", "diameter")
            and tuple(item.kind for item in path.constraints) == ("fixed", "vertical", "horizontal", "radius"),
            "portable section seam or Standard sketch relations differ from the observed source")
-    return {"periodic_seam_mm": tuple(seam["point_mm"]), "point_marks": tuple(seam["point_marks"]),
-            "local_seam_angle_rad": native["seam_angle_rad"], "center_index": seam["center_index"],
+    edited_radius = section_entity.geometry.Radius * 2.0
+    angle = seam["angle_rad"]
+    derived = (edited_radius * cos(angle), edited_radius * sin(angle))
+    demand(isclose(hypot(*derived), edited_radius) and derived != tuple(seam["saved_point_mm"]),
+           "portable seam does not follow an edited circle radius")
+    return {"periodic_seam_mm": tuple(seam["saved_point_mm"]), "point_marks": tuple(seam["point_marks"]),
+            "local_seam_angle_rad": angle, "center_index": seam["center_index"],
             "start_end_index": seam["start_end_index"]}
 
 

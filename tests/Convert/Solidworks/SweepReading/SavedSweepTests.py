@@ -32,18 +32,19 @@ def VerifySwSaved(RoleName: str) -> dict[str, object]:
     assert [RimValue["verified_quarter_points"] for RimValue in RimValues] == [4, 4]
     Topology = CastValue(dict[str, object], Report["current_geometry"])
     assert Topology["native_counts"] == [1, 1, 3, 2, 0]
-    CheckSwReview(Report)
+    VerifySwReview(Report)
     return Report
 
 
 # both read modes must check the physical owners while optional xml stays on its explicit refusal path
-def CheckSwReview(Report: dict[str, object]) -> None:
+def VerifySwReview(Report: dict[str, object]) -> None:
     Boundaries = CastValue(dict[str, dict[str, object]], Report["review_boundaries"])
     Counts = CastValue(dict[str, dict[str, int]], Boundaries["geometry_call_counts"])
     assert Counts["full"]["ReadSwBrep"] == 1
     assert Counts["design"]["ReadSwBrep"] == Counts["design"]["DecodeBrep"] == 0
     assert Counts["design"]["ReadSwFrames"] == Counts["design"]["CheckSwTorus"] == 1
     assert Counts["design"]["CheckSwTrims"] == 1
+    assert Boundaries["cyclic_shell_refused"] == ["full", "design"]
     assert len(Boundaries["malformed_optional_xml"]) == 3
     assert Report["permissive_legacy_layout_reads"] == 3
     assert Boundaries["saved_grammar_scope"]["isolated_new_classes"] == 4

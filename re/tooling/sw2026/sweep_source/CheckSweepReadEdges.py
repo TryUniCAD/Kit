@@ -139,9 +139,53 @@ def saved_scope(raw):
             "saved_resolved_map": saved.ResolvedValue.MapValue.CounterValue}
 
 
+def cyclic_shell(raw):
+    from dataclasses import replace
+    from struct import pack
+
+    from convert.Geometry.Parasolid import DecodePartData, EncodePartData, ParaHeaderData
+    from convert.adapters.solidworks.Archive.Partition.ImportHistory.WriteXmtEndMut import WriteXmtEndMut
+    from convert.adapters.solidworks.Archive.Partition.KernelShapes import KKernelShapes
+    from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut import WriteXmtNodeMut
+    from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import ReadActiveNodes
+    from convert.adapters.solidworks.Container.Format import KPartitionStream
+
+    archive = SldprtArchive.from_bytes(raw)
+    stream = archive.require(KPartitionStream)
+    active, _ = DecodePartData(stream, KPartitionStream)
+    header = ParaHeaderData(active.data)
+    nodes = ReadActiveNodes(active.data)
+    body, = (node for node in nodes.values() if node.KindValue == 12)
+    shell = nodes[body.Integer("shell")]
+    changed = replace(shell, FieldsValue={**shell.FieldsValue, "next": shell.IndexValue})
+    prefix = bytearray(active.data[:header.body_offset])
+    partition = bytearray(pack(">HI", 239, 0))
+    seen = set()
+    for node in nodes.values():
+        WriteXmtNodeMut(partition, changed if node is shell else node, KKernelShapes[node.KindValue], seen)
+    WriteXmtEndMut(partition)
+    payload = bytes(prefix + partition)
+    demand(ReadActiveNodes(payload)[shell.IndexValue] == changed,
+           "cyclic shell fixture did not preserve its typed self-link")
+    corrupt = BuildSldprt({**archive.streams, KPartitionStream:
+                           EncodePartData(payload) + stream[active.stored_size:]}, FormatVersion=4)
+    refused = []
+    for mode, full in (("full", True), ("design", False)):
+        try:
+            read(corrupt, full)
+        except SldprtFormatError as error:
+            demand(error.__cause__ is not None and "solid shell has a sibling link" in str(error.__cause__),
+                   f"{mode} did not reject the malformed link at the shared shell check: {error!r}")
+        else:
+            raise ValueError(f"{mode} accepted the cyclic shell")
+        refused.append(mode)
+    return refused
+
+
 def review_boundaries(raw, access):
     return {
         "geometry_call_counts": {"full": read_calls(raw, True), "design": read_calls(raw, False)},
+        "cyclic_shell_refused": cyclic_shell(raw),
         "malformed_optional_xml": malformed_properties(raw, access),
         "saved_grammar_scope": saved_scope(raw),
     }

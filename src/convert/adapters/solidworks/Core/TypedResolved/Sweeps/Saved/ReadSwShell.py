@@ -41,6 +41,9 @@ def ReadSwShell(
     CheckXmtGraph(NodesValue)
     WorldValue = RequireXmt(NodesValue, 1, 101)
     BodyValue = RequireXmt(NodesValue, WorldValue.Integer("body"), 12)
+    ShellValue = RequireXmt(NodesValue, BodyValue.Integer("shell"), 13)
+    if ShellValue.Integer("next"):
+        raise ValueError("SOLIDWORKS saved sweep solid shell has a sibling link")
     FaceIds = ReadBodyFaces(NodesValue, BodyValue, 3)
     if (
         XmtKindIds(NodesValue, 12) != {BodyValue.IndexValue}

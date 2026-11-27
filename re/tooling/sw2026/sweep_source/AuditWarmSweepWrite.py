@@ -82,7 +82,7 @@ def inspect(raw, source, case, receipt):
         "source_body_rgb": body.attributes["native_rgb"],
         "source_body_translucency": body.attributes["native_translucency"],
         "source_body_atom": body.attributes["native_atom_id"],
-        "section_seam_rad": atan2(seam["point_mm"][1], seam["point_mm"][0]),
+        "section_seam_rad": atan2(seam["saved_point_mm"][1], seam["saved_point_mm"][0]),
         "cold_section_seam_retained": "periodic_seam" in cold.sketches[0].entities[0].attributes,
         "native_part_publication_refusals": refusals,
     }
