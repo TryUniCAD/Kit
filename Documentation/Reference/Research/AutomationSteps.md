@@ -964,6 +964,10 @@ The [change entry](../../Changes/Research/Campaigns/FusionUnequalConstructionAxi
 Eleven fresh native processes passed 132 lifecycle comparisons, including the two holdouts, with healthy controls.
 The oracle was released idle with no recovery marker.
 Status is checking for publication; pinned reader outcomes and failed attempts are retained in the package.
+Independent numerical and provenance audits found no actionable findings in the published evidence.
+Configured approval remains unavailable: the native review service reports an expired trial and no remaining credits.
+Its green skipped-review status does not supply approval. Current-head PR CI and merge-group acceptance remain separate.
+The initial path-policy failure was repaired by placing the new transport gotcha in the existing runtime topic folder.
 Strict refusals, partial receipts, eight point-provider prefix refusals and the separate research helper's ASM4 limitation remain explicit.
 No shared decoder, worker or production support boundary changes.
 
