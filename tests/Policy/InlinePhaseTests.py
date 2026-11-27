@@ -40,7 +40,8 @@ def CheckInlineFlow(FlowName: str, CaseMode: str) -> None:
             r"(?m)^      - name:", Block.split("      - *ReadPhase", 1)[1]
         )[1:]
         assert all(
-            "if:" in Step and "steps.phase.outputs.phase" in Step for Step in Steps
+            "if:" in CheckStep and "steps.phase.outputs.phase" in CheckStep
+            for CheckStep in Steps
         )
         if not any(
             f"    name: {CheckName}\n" in Block
