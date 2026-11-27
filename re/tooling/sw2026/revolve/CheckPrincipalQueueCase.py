@@ -30,6 +30,30 @@ FIXTURE = ROOT / "re/solidworks/v2026/corpus/revolve/MeasuredPrincipal01"
 FORMAT = "solidworks.sldprt"
 
 
+def reject_sparse_slots(candidate):
+    link = ReadNativeLink(SldprtArchive.from_bytes(candidate), 0)
+    owner, = ReadRevOwners(link)
+    fields = owner.SketchValue.FieldsValue
+    points = list(fields["points"])
+    # Exchange a contour slot with an axis endpoint, repairing every line reference.
+    # No owner, relation, or coordinate changes; the contour indices are now sparse.
+    contour_index = owner.ProfileGraph.LoopValue.PointsValue[-1].IndexValue
+    axis_index = owner.ProfileGraph.AxisValue.EndValue
+    points[axis_index], points[contour_index] = points[contour_index], points[axis_index]
+    fields["points"] = points
+    swap = {contour_index: axis_index, axis_index: contour_index}
+    for row in fields["lines"]:
+        for endpoint in ("fc8_s", "fcc_s"):
+            index = row["line"][endpoint]
+            row["line"][endpoint] = swap.get(index, index)
+    try:
+        ReadRevOwners(link)
+    except ValueError as error:
+        assert str(error) == "cache-free revolve does not support sparse contour or axis slots"
+    else:
+        raise AssertionError("sparse contour slots were accepted")
+
+
 def verify(case, scratch):
     request = loads((FIXTURE / (case + ".json")).read_bytes())
     job = (FIXTURE / "InspectJob.json").read_bytes()
@@ -63,6 +87,7 @@ def verify(case, scratch):
                   for line in loop.LinesValue)
     moved = replace(owner, ProfileGraph=replace(profile, LoopValue=replace(loop, PointsValue=points, LinesValue=lines)))
     assert audit.run(lambda: BuildRevBody(owner, "body")) == audit.run(lambda: BuildRevBody(moved, "body"))
+    reject_sparse_slots(candidate)
     legacy = audit.run(lambda: open_document(front, source_format=FORMAT, strict=True, include_brep=False))
     assert legacy.brep is None and len(legacy.sketches) == 1 and len(legacy.feature_timeline) == 19
     history = audit.run(lambda: open_document(candidate, source_format=FORMAT, strict=True, include_brep=False))

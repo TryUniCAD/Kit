@@ -73,7 +73,7 @@ def ReadRevProfile(
         or tuple(Value.IndexValue for Value in LinesValue) != (0, 1, 2, 3)
     ):
         raise ValueError(
-            "cache-free revolve requires its continuous contour and axis owners"
+            "cache-free revolve does not support sparse contour or axis slots"
         )
     ContourPoints = tuple(PointsValue.values())
     LoopValue = LineLoop(
