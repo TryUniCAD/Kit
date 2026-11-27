@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1460" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1766" role="img" aria-labelledby="title desc">
 <title id="title">Kit scope and status</title>
 <desc id="desc">Calendar Gantt of explicitly supplied windows; undated work has no duration assumption. Current open deliveries and detailed scopes are available in the scheduling board.</desc>
-<rect width="1200" height="1460" fill="#faf9f6"/><g font-family="sans-serif" font-size="12" fill="#262522">
+<rect width="1200" height="1766" fill="#faf9f6"/><g font-family="sans-serif" font-size="12" fill="#262522">
 <text x="16" y="26" font-size="18">Repository scope and status</text>
 <text x="16" y="48">Only explicit windows are dated · source prerequisites still bind · no assumed duration or delivery commitment</text>
 <text x="16" y="104">B01 · Supported version, feature and route matrix</text>
@@ -84,4 +84,22 @@
 <text x="610" y="1396" fill="#615c54">checking · no date asserted</text>
 <text x="16" y="1430">AgentDispatch · Direct local and Hoplite agent dispatch</text>
 <text x="610" y="1430" fill="#615c54">proposed · no date asserted</text>
+<text x="16" y="1464">A16-DecodedReadWrite20261127 · Decoded SOLIDWORKS and Fusion SDK/CLI read write</text>
+<text x="610" y="1464" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1498">A11-GeneratedOffsetSpan20261127 · Source free circular offset span generation</text>
+<text x="610" y="1498" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1532">A11-CircularStatePromotion20261127 · Circular typed state preservation and cand</text>
+<text x="610" y="1532" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1566">A12-ReverseBlindBoss20261127 · Reversed cold blind boss reading and guarded pre</text>
+<text x="610" y="1566" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1600">A11-DualDraftGeometry20261127 · Independent circular draft geometry and complet</text>
+<text x="610" y="1600" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1634">A11-DualDraftRead20261127 · Bounded independent XY circular draft SDK/CLI reads</text>
+<text x="610" y="1634" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1668">A11-DualDraftFrame20261127 · Source selected principal XZ circular draft readin</text>
+<text x="610" y="1668" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1702">A12-ColdCliParity20261127 · Exact measured SOLIDWORKS cold read SDK/CLI parity</text>
+<text x="610" y="1702" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1736">A11-RimFilletRead20261127 · Bounded constant top circular rim fillet reading</text>
+<text x="610" y="1736" fill="#615c54">active · no date asserted</text>
 </g></svg>

@@ -1,0 +1,88 @@
+{
+  "conversion_claim": false,
+  "files": {
+    ".gitignore": {
+      "bytes": 18,
+      "sha256": "40936d89551bf769e29a5a7ca1c4f69462d4229d555578243189b6138d70f743"
+    },
+    "Audit.json": {
+      "bytes": 34568,
+      "sha256": "52a8177459ef015bd01713bc0e5e4d5cd7e68866fbdc6c538dc98c91da51366d"
+    },
+    "AuditComparison.py": {
+      "bytes": 4156,
+      "sha256": "936edecb27423b9a75312a960543d42089f07d542dbc6a7190af51b7ecaff187"
+    },
+    "CompareDraftsFinal.py": {
+      "bytes": 8473,
+      "sha256": "eea550ba70a9872811c9e2369617704313d419d8eb743e1634d4243bed89b9d9"
+    },
+    "Comparison.json": {
+      "bytes": 59642,
+      "sha256": "fed33f562c76efc64c68fa8af9eb277b36b54274dcbfd88ad955c17e59699a02"
+    },
+    "DocumentArchive.json": {
+      "bytes": 122924,
+      "sha256": "2cb4d12e1ffd87b0fcac19567649193ce4d8837d43f91ddf411f424aff1b1391"
+    },
+    "Documents.tar.gz": {
+      "bytes": 175558,
+      "sha256": "91183406417b2900209faa6b42e87c18cbabfd2c80b7268c6af750e05c61076a"
+    },
+    "Failures.json": {
+      "bytes": 1291,
+      "sha256": "a0f9e8e3b306972761feaf3c25b3ba69e4a500843333ef3b51e8dc135ac64743"
+    },
+    "Final/Comparison.json": {
+      "bytes": 50256,
+      "sha256": "ba3b84bc8af36fca59c364ef98b69884a23c40d046cc39ab6bde44151a47afd5"
+    },
+    "Final/Inputs.json": {
+      "bytes": 25172,
+      "sha256": "44388ff720e0e69eb89c0a1ca4ec9de40919d2695fa791f28fb454e5acb9dd2f"
+    },
+    "HistoricalSources/FeatureCounter.py": {
+      "bytes": 8465,
+      "sha256": "8114066c8cc02819cd88d15e59fd83a5536672996fc188abccf2b182b2d42830"
+    },
+    "HistoricalSources/InvalidFormat.py": {
+      "bytes": 8466,
+      "sha256": "2388c90a2dbb323cff182556e2de9063c32d8b7b7e5a341bbe3a1a2e10d2e8bd"
+    },
+    "HistoricalSources/NonePath.py": {
+      "bytes": 8443,
+      "sha256": "817039230106f74f4498db75747056d4f96eaa1f4480d698a30efed9deefad82"
+    },
+    "Inputs.json": {
+      "bytes": 25172,
+      "sha256": "44388ff720e0e69eb89c0a1ca4ec9de40919d2695fa791f28fb454e5acb9dd2f"
+    },
+    "PackEvidence.py": {
+      "bytes": 1850,
+      "sha256": "8b8d69650780c3f5763eb164a5b0ddc02870a137c3d89b5b4dfca726a4826585"
+    },
+    "README.md": {
+      "bytes": 4173,
+      "sha256": "284c4d364e119543f709360247aa887eda2386374801f79131f9b253427c7ec5"
+    },
+    "Run/Comparison.json": {
+      "bytes": 50255,
+      "sha256": "67db143e35fea41665118a3ef9fc0f575ddfcf597f4660891f34ca79b8345f31"
+    },
+    "Run/Inputs.json": {
+      "bytes": 25172,
+      "sha256": "44388ff720e0e69eb89c0a1ca4ec9de40919d2695fa791f28fb454e5acb9dd2f"
+    },
+    "Verified/Comparison.json": {
+      "bytes": 59642,
+      "sha256": "fed33f562c76efc64c68fa8af9eb277b36b54274dcbfd88ad955c17e59699a02"
+    },
+    "Verified/Inputs.json": {
+      "bytes": 25172,
+      "sha256": "44388ff720e0e69eb89c0a1ca4ec9de40919d2695fa791f28fb454e5acb9dd2f"
+    }
+  },
+  "models": false,
+  "native_calls": 0,
+  "scope": "68 existing draft sources across f34820a9 and bcabfa06"
+}

@@ -1,0 +1,30 @@
+{
+  "ObservedOn": "2026-11-27",
+  "Project": "https://github.com/orgs/TryUniCAD/projects/1",
+  "Status": "pending remote synchronization",
+  "Reason": "The available repository credential lacks read:project; no accessible private project credential path was found in relevant script/config metadata",
+  "ScopeIds": [
+    "A16-DecodedReadWrite20261127",
+    "A11-GeneratedOffsetSpan20261127",
+    "A11-CircularStatePromotion20261127",
+    "A12-ReverseBlindBoss20261127",
+    "A11-DualDraftGeometry20261127",
+    "A11-DualDraftRead20261127",
+    "A11-DualDraftFrame20261127",
+    "A12-ColdCliParity20261127",
+    "A11-RimFilletRead20261127"
+  ],
+  "PreservedExistingRemoteClaims": true,
+  "RemoteMutations": 0,
+  "RequiredReadback": "Read live claims and assignments before setting these nine bounded tasks In Progress with exact Agent and Runner; preserve unrelated owners and assignees",
+  "NoScheduleOrOracleClaim": true,
+  "RemoteMutationScope": "organization project only",
+  "DeliveryOwnership": {
+    "PR": "https://github.com/TryUniCAD/Kit/pull/397",
+    "Assignees": ["jdharcourt"],
+    "AccountVerified": "authenticated gh api user and exact PR author",
+    "ReadbackVerified": true,
+    "ExistingAssigneesPreserved": true,
+    "Method": "GitHub connector denied assignment with403; authenticated gh pr edit succeeded and gh pr view readback verified"
+  }
+}

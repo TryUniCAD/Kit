@@ -1,0 +1,1535 @@
+{
+  "comparisons": [
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "266af08c723ec7dbc67e97c3cddae7fff701c9342faf73da12edacce85ef89ea"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "845ec04bc9a575807b4a5dc65af7f76bd86652d9629cb409762ee8d574c63fee"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "8c7cfc079f393a853907038aa39908dd41ae8ad52ad2b0bf660f5bc46574aaa8"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "7f1aebc85754f9cfcc20e887d2fcd9f381019af0c529935bbdbf183be639592c"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "e23fc7a737ed8237a4e5f1aa0fe58d28625cb6e22c0363422da7f8678d169d3c"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "cd5a69c54be406e3498768c25ed3029c2d3723a1a4d28532fd343fccdbac78a2"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/control_after.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "4c5d13be6cce51821c63407a086206cf6b411b82742a4abe2654bfa532137397"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/control_before.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "356062f447418b49479a99a2b1b1493057b450bc3695c80bf38896f49fb1a0e6"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "fadf438974577a26f486bc73bf96de8125e06fee625cf11e96d76f875f948328"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "4fe6aee4dee9c97766f10f5ba1c778b4f01472c6f9709e961613e8518abd6d12"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "f00adf6a8ddf46794ca4e5fdfc38fc589e1123b5956683f59deb389ce24b45b1"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "8cccd20c63a3c69bbffb929cee4dc6220643dcb65a69174f65d9084786552c03"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "114ee93fa88ee3aa48b9075ff470eff43ee19fbb0af07e0057838cfca5320831"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "0634fb64bb7a2b4be9610367949d94b95c43bf018bf6893dec527a7c4124fe90"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "a8f63633821d778c5e8b818220492e9fdfbb0012ef84e308655b8a2ad729d1cf"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "32adfd6b0ffc758b0298950c4fc5cd1fe49d29f27686d632ee758900115f300e"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "f84baf998356eac387d2e4c22432885c4aafabb7a700a0c93f805fd42034b9fd"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "7719af50d1d28a7c3c8591684eb3906338c04725535036f82de80220a2c8ea7f"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "ea7bcba6de5767aecf18964e95f874a9c183d0e39a68751324db213bbc8caca6"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "bfce5b25790bda812c03e70049fda1ef17c0fcdb980ca2378146482332e9472e"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "985e3dfcd78b03ae015516babda3c3ea36859fb8d5fa9e3c6271dd089c0dff12"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "a552b0d4d752b98be503969400a7b95815391f5a92cf19bf47711f53e2870163"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "4a0d58f5217d4088d0ef1452d1cdb56395dfa349a6899fa48c10e167bd25bcd0"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "c859b5bafaa0db73850fac002504dd2b033d20decf12e3528bb7aa54110d18c4"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "f5c432616f7884277b9c72e42e5c357e6e134340fa0b737d6b941cea174c1b63"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "af7f343d7e9cc2fae1a92f6f19bdd80911a25a1fc21f8ae548e8f65aca57784b"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "770505f9683fc285e6ccd8fbbc321c24dc3810b54f6a074a9dea249b5eb8871f"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "fdeb76d346da9c5fc171106dd727802a98f9572f9057438c0e2d8b3cf52fd6a8"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "daca180af5a5ae874bf19084894a73e835b6a78760d9a3adacf70471b0abda65"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "0dca70e11c2e4d4db2965991818866b591312076f7b807ff0d7210ae9025d3bb"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "a25e0c4064bd27085911597e8f532cd5953eccea0cbbd3f99836977014d3058c"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "5523335a3ac6e3a04758251c00bc053be8979cdc3548737b24b60e6bb8dc87ca"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "47f9e7efd56b2710f74f252ad1a8ff53b6d623e31c818a22eb93ae34e04e09c2"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "bd6515a9f80776ffd1d7a6223651e1b6ad9723242e8320d9c7db483a7f9d49f5"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "e3bdf6916128e4c73265a8562fa192d3e69b06b685cb48a50e97d9e07fcb0bd9"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "4ea5780f17b168763a470482e6d9f38773bb109c457e80b996490055294c60cb"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "2474eb7de2666e044e2f1c34f84aae8d6cb800e18304436a529bca0cd7cf505e"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "1e54a7442f938c2ec4cd05cc5d9d77899b74e638369bf2a23d9ef8b681747ae0"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "31d535e3b270ad0c4b86bcbe8cdfea6854f2acca5b2364597db7cabc85b0741b"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "ccf307916134c2465d60cc9ee2475e26605f9c7bbb4636a7029c14d2e7846fec"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "3eeb4ff65e7d3d19bdc52f6a9554b392a2f29d7e8729016cc12c4bd8e6318dc1"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "de2e00cdc88e9488bba7aa9874bef8fa773a4521427ff92b6e5940e47c03a7cc"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "404d8a3bcd8340485a3e942ac6b328403e633c92c8c9b681b2de656f99977da5"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "b122487b3e2f6d945b12cce5acbf19835940b194c397894c8fc6f01898361108"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "ff7799b0997efcf7426b8c85a9297dd78353634fde4454f62850c4374fa8b87e"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "05ca73b8d2cdfad08b217d2d67f7efeae1308f2964b76cc808b8d9286c56a23c"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "e8fb2276add1ebaad0c2c575a98434dd4e6d63edb30bb8a96a7684b4a4c3bb14"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "0725057e8e4773036997dd84376ccce7e22901f51f471d8179d6a12f75573031"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "36b34f28a6bf086d6bfe1228158e06089ad8b461ddeea1f59786412cd08ef4e4"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "a080186a4eefa66316042804c2332514769cc2313160c02ab04d78d767f737e3"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "5edd3b9e2fc2bf62761571e651687b6ce7631f5b36eb5911b1e32adee5dc8513"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "3cda7411bac4a8db361464d5654630e708000c9b5090666b42a0efbfe7b2a220"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "518abc77411e510062dc43e2dd060e1e13b1bb49f4aedb247dbb89d9a15d10c1"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "7af3af07f6cbdc514e6cded43645fd420a7925175928453abdab904951362566"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "a439b67fae8e632afd715b7f5e08c9f8056a84e5c616d8e65f8abf4a81e20de1"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "9a375267a74824dc3b150d279b1916a349344268a4addc5a4eb6c4d79e64c5a9"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "aa0c34996b9a75563f33772ae6d9a4684d11c7776cb5a0852a5bc4a7c18ffbe7"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "04376faab2efc317c437ca53688325ae061df7cfd41bc232f5561c28853f7c51"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "0133b5e69a799ad198da9ec96a7802db7cf8aab51a1b5accc2149b7a77d1109f"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "7d1a6372384c1b3fcf48f434b0ace13882dc7703d9c4cdcb09e3f3e0927412b1"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "28989c9c555bcbf25913940e19074afecea026646ab9f2ca8d551661496d31b3"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "8fe4c0bb443ff62781e60d5062855425f51bb4976cb09f69b11d8ca937331946"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "362c5a031eae114fea8b5aebc0fd8b7059a068c86af37d08d0d79e8df1a9c5b4"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "ee949ca93910881c500d5a1e3867785845c8e685a74c93d53982d2838014f2a6"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_first.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "8693dc9263f5d52157884e036585b4d1443bfe293cd23b189aa7b0c04f83f7ee"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_second.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "2a3e68b8c7b9640b04e53b7bfb993361893578c66caf64c2ac2f3b102eccdf26"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_restored.f3d",
+      "both_strict_accepted": false,
+      "document_bytes_equal": false,
+      "new_document_sha256": null,
+      "new_source_path": null,
+      "new_status": "error",
+      "old_document_sha256": null,
+      "old_source_path": null,
+      "old_status": "error",
+      "source_sha256": "6ddc45827c32823fed2f5d218b2208d091b24f0d2519f1e14e567abcfca74cb3"
+    }
+  ],
+  "conversion_claim": false,
+  "models": false,
+  "native_acceptance": false,
+  "native_calls": 0,
+  "processes": [
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/baseline_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/control_after.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/control_after.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/control_before.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/control_before.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/first_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/frame_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/placement_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/radius_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/second_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_first.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_second.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_first.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_restored.f3d",
+      "returncode": 3,
+      "role": "old"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_second.f3d",
+      "returncode": 3,
+      "role": "new"
+    },
+    {
+      "asset": "re/Fusion/TwoSidedDraft20261127/Native/swapped_restored.f3d",
+      "returncode": 3,
+      "role": "new"
+    }
+  ],
+  "python_executable_sha256": "0826ccaa8dd19bd84a5f0ffdbe84558f036e3b7d8ce7725704a7393995392129",
+  "python_version": "3.14.6 (main, Jul 23 2026, 14:51:00) [Clang 22.1.3 ]",
+  "script_sha256": "2388c90a2dbb323cff182556e2de9063c32d8b7b7e5a341bbe3a1a2e10d2e8bd",
+  "summary": {
+    "changed_documents": 0,
+    "fresh_processes": 136,
+    "identical_documents": 0,
+    "refused_or_errors": 68,
+    "seconds": 89.4850088750245,
+    "sources": 68,
+    "strict_reads": 0,
+    "unique_process_ids": 136
+  },
+  "versions": {
+    "new": {
+      "revision": "bcabfa069ab3dd0547e031341ec547aefe255b68",
+      "src_tree": "86031dfa3411fc1c9e0636de4122d17193f572cc",
+      "tracked_clean_after": true,
+      "tracked_clean_before": true,
+      "untracked_files_preserved": true
+    },
+    "old": {
+      "revision": "f34820a9d87ac34ca01bd2c5f59cbf6af37f93df",
+      "src_tree": "24eebaa68419527468c9fa93d65a91024a8bf173",
+      "tracked_clean_after": true,
+      "tracked_clean_before": true,
+      "untracked_files_preserved": true
+    }
+  }
+}

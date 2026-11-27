@@ -50,3 +50,11 @@ All 68 receipts retain the unresolved independent source inventory/native accept
 Before the new public projector, clean committed SDK/corpus `f34820a9d87ac34ca01bd2c5f59cbf6af37f93df` processes all 22 rim sources through the existing controller/supervisor. Strict mode publishes 22 refusals, zero errors and exit `3`; explicit fallback publishes 22 partial documents, zero strict reads and exit `0`. Controller completion does not qualify either cohort.
 
 `RimFilletBaseline/Replay.json` retains all input blobs, worker receipt digests, outcome counts and 48 exact document/receipt/summary/log artifacts. All 154 partial unresolved findings and unqualified markers remain intact. Legacy partial body/history/assembly diagnostics do not prove absent native wire grammar; the new source-specific reader must independently prove its complete semantic boundary. `RetainRimBaseline.py RUNTIME PINNED_SDK UNUSED_OUTPUT` validates committed bytes and lossless retention. No API, model or oracle lease participates.
+
+## Circular rim reader and compatibility replay
+
+Clean committed SDK/corpus `bcabfa069ab3dd0547e031341ec547aefe255b68` processes all 22 rim sources and all 68 preceding draft/control sources through the same existing controller/supervisor and installed deterministic research CLI. The fresh process publishes 90 strict reads, zero refusals, partial outcomes or reader errors, and exit `0`. Models and native calls remain disabled.
+
+`RimFilletReader/Replay.json` binds committed asset blobs, complete input SHA-256 hashes, clean SDK revision, worker receipt, all 182 retained document/receipt/summary/log members and the archive digest. `Readers.tar.gz` retains the exact reader bytes; `WorkerReceipt.json` and `Supervisor.log` retain process evidence. `RetainRimReplay.py RUNTIME PINNED_SDK UNUSED_OUTPUT` verifies those bindings and every read-only/unqualified marker before publication. The earlier 22 strict refusals and 22 partial outcomes remain retained in the baseline package.
+
+All 90 receipts retain their independent source/native acceptance finding. `portable_complete` remains false, semantic qualification remains unverified and native acceptance remains unestablished. The replay demonstrates strict inspection of the committed cohort, not native writer or editable conversion acceptance.

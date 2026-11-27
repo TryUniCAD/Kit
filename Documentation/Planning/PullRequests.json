@@ -1,18 +1,52 @@
 {
   "ObservedOn": "2026-11-27",
   "Repository": "TryUniCAD/Kit",
-  "Purpose": "Dated collision inventory only; authors are contacts, not inferred feature owners; checks and approvals require fresh revision-bound evidence",
+  "Purpose": "Live open-PR collision inventory plus refreshed retained historical deliveries; author means contact, not whole-feature ownership; checks and approvals require separate revision-bound evidence",
   "PullRequests": [
+    {
+      "number": 397,
+      "title": "feat(cad): qualify Fusion draft reads and measured SOLIDWORKS CLI parity",
+      "url": "https://github.com/TryUniCAD/Kit/pull/397",
+      "author": "jdharcourt",
+      "headBranch": "feat/decoded-cad-read-write-20261127",
+      "headRevision": "f34820a9d87ac34ca01bd2c5f59cbf6af37f93df",
+      "headRepositoryId": "R_kgDOTqO1fw",
+      "baseBranch": "main",
+      "baseRevision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+      "state": "open",
+      "isDraft": false,
+      "updatedAt": "2026-11-27T22:47:13Z",
+      "assignees": []
+    },
+    {
+      "number": 396,
+      "title": "feat(fusion): read owned offset-start circular extrusions through sdk and cli",
+      "url": "https://github.com/TryUniCAD/Kit/pull/396",
+      "author": "jdharcourt",
+      "headBranch": "feat/fusion-offset-sdk-reader-20261127",
+      "headRevision": "27cf985620fe79b3d1b6642e77029935b57ce1b6",
+      "headRepositoryId": "R_kgDOTqO1fw",
+      "baseBranch": "main",
+      "baseRevision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+      "state": "open",
+      "isDraft": false,
+      "updatedAt": "2026-11-27T22:46:50Z",
+      "assignees": []
+    },
     {
       "number": 395,
       "title": "feat(research): decode signed offset starts on unequal two-sided extrusions",
       "url": "https://github.com/TryUniCAD/Kit/pull/395",
       "author": "jdharcourt",
       "headBranch": "feat/fusion-offset-start-20261127",
+      "headRevision": "26db5212b15e30bbed41f3c8964bed9490280d41",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "91a73de348894a5791a51b977cd6fe0fe677a617",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:48:26Z"
+      "updatedAt": "2026-11-27T22:46:37Z",
+      "assignees": ["jdharcourt"]
     },
     {
       "number": 394,
@@ -20,7 +54,9 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/394",
       "author": "jdharcourt",
       "headBranch": "feat/fusion-two-sided-draft-20261127",
+      "headRevision": "31ac0bdd0b5c0c3a823e3a7bfff859e7d75a28f6",
       "baseBranch": "main",
+      "baseRevision": "cdee122fd647511c635758ea14fe9c9bbc964796",
       "state": "merged",
       "isDraft": false,
       "updatedAt": "2026-11-27T17:31:12Z"
@@ -31,7 +67,9 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/393",
       "author": "jdharcourt",
       "headBranch": "feat/fusion-unequal-revolve-20261127",
+      "headRevision": "03b8a1a9a4189e25e746bfe95f129db7a1de00bd",
       "baseBranch": "main",
+      "baseRevision": "18b41b98c96fd123a11d1ae0d1cda29b9d9746ed",
       "state": "merged",
       "isDraft": false,
       "updatedAt": "2026-11-27T17:31:12Z"
@@ -42,18 +80,22 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/392",
       "author": "jdharcourt",
       "headBranch": "feat/project-todo-review-20261127",
+      "headRevision": "605a5c7c9265a8f8925ce3442d2ac3a887e01d91",
       "baseBranch": "main",
-      "state": "open",
+      "baseRevision": "18b41b98c96fd123a11d1ae0d1cda29b9d9746ed",
+      "state": "merged",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:44:23Z"
+      "updatedAt": "2026-11-27T22:56:08Z"
     },
     {
       "number": 391,
       "title": "fix(tests): cache Windows fixture assembly across processes",
       "url": "https://github.com/TryUniCAD/Kit/pull/391",
-      "author": "app/usehoplite",
+      "author": "usehoplite",
       "headBranch": "codex/windows-fixture-cache",
+      "headRevision": "a89dbe6a8cca389b80ca19979957bdfad76d524a",
       "baseBranch": "main",
+      "baseRevision": "223306c074340e718c2852d9b965c00a47369192",
       "state": "merged",
       "isDraft": false,
       "updatedAt": "2026-11-27T16:43:56Z"
@@ -64,10 +106,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/385",
       "author": "app/usehoplite",
       "headBranch": "hoplite/sybaris-29ba7c65",
+      "headRevision": "502400a495c58e7ad3a5c0fb7a5c23bf26da2ca1",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "91a73de348894a5791a51b977cd6fe0fe677a617",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T14:12:34Z"
+      "updatedAt": "2026-11-27T18:27:54Z",
+      "assignees": []
     },
     {
       "number": 384,
@@ -75,10 +121,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/384",
       "author": "app/usehoplite",
       "headBranch": "codex/sw-header-bounds",
+      "headRevision": "1c189c4bcb0b06166e3773941d1f82d81cbd6f7f",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T13:43:31Z"
+      "updatedAt": "2026-11-27T13:43:31Z",
+      "assignees": []
     },
     {
       "number": 383,
@@ -86,10 +136,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/383",
       "author": "app/usehoplite",
       "headBranch": "hoplite/tegea-f1d4ae13--later-phases",
+      "headRevision": "6c77c8065381dae493460a1d843ec4c304589198",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T13:44:32Z"
+      "updatedAt": "2026-11-27T13:44:32Z",
+      "assignees": []
     },
     {
       "number": 382,
@@ -97,10 +151,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/382",
       "author": "app/usehoplite",
       "headBranch": "codex/offline-research-metrics",
+      "headRevision": "c3306ea4a5c99b805faa5cf9d20ba413f28eacc2",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T13:39:03Z"
+      "updatedAt": "2026-11-27T13:39:03Z",
+      "assignees": []
     },
     {
       "number": 381,
@@ -108,10 +166,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/381",
       "author": "app/usehoplite",
       "headBranch": "codex/capture-resilience",
+      "headRevision": "d7a7304c84b015e3c20e2ea336edfe508e2e713b",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:53:05Z"
+      "updatedAt": "2026-11-27T12:53:05Z",
+      "assignees": []
     },
     {
       "number": 380,
@@ -119,10 +181,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/380",
       "author": "app/usehoplite",
       "headBranch": "offline-sketch-dimension-records",
+      "headRevision": "2cec5726f6197463c0fa84199cbc82b53f24dcd2",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:52:20Z"
+      "updatedAt": "2026-11-27T12:52:20Z",
+      "assignees": []
     },
     {
       "number": 379,
@@ -130,10 +196,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/379",
       "author": "app/usehoplite",
       "headBranch": "hoplite/solidworks-brep-carriers",
+      "headRevision": "1fa27078af3bdbc5261e29693a3a31d22433b00b",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:50:04Z"
+      "updatedAt": "2026-11-27T12:50:04Z",
+      "assignees": []
     },
     {
       "number": 378,
@@ -141,10 +211,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/378",
       "author": "app/usehoplite",
       "headBranch": "offline/feature-definitions",
+      "headRevision": "74e3c4900bfe5195ff62828adcaa01c329af2217",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:44:52Z"
+      "updatedAt": "2026-11-27T12:44:52Z",
+      "assignees": []
     },
     {
       "number": 377,
@@ -152,7 +226,9 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/377",
       "author": "jdharcourt",
       "headBranch": "feat/b11-documentation-usability-20261127",
+      "headRevision": "8c2a2affc8d1e0526eab6d058fcfc529769c4b5f",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "merged",
       "isDraft": false,
       "updatedAt": "2026-11-27T17:31:32Z"
@@ -163,7 +239,9 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/376",
       "author": "jdharcourt",
       "headBranch": "feat/b10-cli-usability-20261127",
+      "headRevision": "f10c9d60b9e7f4fbab32857bf0db256bef57c848",
       "baseBranch": "main",
+      "baseRevision": "18b41b98c96fd123a11d1ae0d1cda29b9d9746ed",
       "state": "merged",
       "isDraft": false,
       "updatedAt": "2026-11-27T17:31:34Z"
@@ -174,10 +252,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/374",
       "author": "app/usehoplite",
       "headBranch": "codex/sketch-stream-inventory",
+      "headRevision": "021e569809e700ff4928f65f6e1ceb5c45b5965c",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:14:56Z"
+      "updatedAt": "2026-11-27T12:14:56Z",
+      "assignees": []
     },
     {
       "number": 373,
@@ -185,10 +267,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/373",
       "author": "app/usehoplite",
       "headBranch": "codex/sketch-circle-relation-fields",
+      "headRevision": "0644b65c2c79170682d98d2f3b8722dadad84b5f",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:22:05Z"
+      "updatedAt": "2026-11-27T12:22:05Z",
+      "assignees": []
     },
     {
       "number": 372,
@@ -196,10 +282,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/372",
       "author": "app/usehoplite",
       "headBranch": "codex/nov25-unresolved-decodes",
+      "headRevision": "6564656af724a48928ff12c6aa32381881ffe810",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:03:18Z"
+      "updatedAt": "2026-11-27T12:03:18Z",
+      "assignees": []
     },
     {
       "number": 371,
@@ -207,10 +297,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/371",
       "author": "app/usehoplite",
       "headBranch": "codex/v2026-control-admission",
+      "headRevision": "b49b3816d8d04db2c24c7fdd1c59f65b9224acc7",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T12:02:54Z"
+      "updatedAt": "2026-11-27T12:02:54Z",
+      "assignees": []
     },
     {
       "number": 370,
@@ -218,10 +312,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/370",
       "author": "app/usehoplite",
       "headBranch": "codex/nov25-capture-failures",
+      "headRevision": "73dd648118e662b16835a9ea6d67273ec2b7f796",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T11:46:37Z"
+      "updatedAt": "2026-11-27T11:46:37Z",
+      "assignees": []
     },
     {
       "number": 369,
@@ -229,10 +327,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/369",
       "author": "app/usehoplite",
       "headBranch": "codex/sketch-dimension-fields",
+      "headRevision": "72ff3aa752a1812c2a5b480b4b48b8260bf19676",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T11:50:37Z"
+      "updatedAt": "2026-11-27T11:50:37Z",
+      "assignees": []
     },
     {
       "number": 368,
@@ -240,10 +342,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/368",
       "author": "app/usehoplite",
       "headBranch": "codex/solidworks-family-version-coverage",
+      "headRevision": "f52ab1f00c2106bfb0e85ed0f3f2a1c0e9b5e9d2",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T11:55:46Z"
+      "updatedAt": "2026-11-27T11:55:46Z",
+      "assignees": []
     },
     {
       "number": 367,
@@ -251,10 +357,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/367",
       "author": "app/usehoplite",
       "headBranch": "codex/automation-register-pr288-status",
+      "headRevision": "dabd3c5ed5a41db16b875d5f29dafe85e21fcae8",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T11:50:13Z"
+      "updatedAt": "2026-11-27T11:50:13Z",
+      "assignees": []
     },
     {
       "number": 366,
@@ -262,10 +372,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/366",
       "author": "app/usehoplite",
       "headBranch": "hoplite/olynthos-8e5509c7",
+      "headRevision": "461272beaf3416f187821b817477395e1063cc01",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T11:58:40Z"
+      "updatedAt": "2026-11-27T11:58:40Z",
+      "assignees": []
     },
     {
       "number": 365,
@@ -273,10 +387,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/365",
       "author": "app/dependabot",
       "headBranch": "dependabot/uv/ruff-0.17.6",
+      "headRevision": "02e296ac220e8b6024e2fd992f5a702cd5972d7e",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T08:35:15Z"
+      "updatedAt": "2026-11-27T08:35:15Z",
+      "assignees": []
     },
     {
       "number": 364,
@@ -284,10 +402,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/364",
       "author": "app/usehoplite",
       "headBranch": "codex/supervisor-window-sampling",
+      "headRevision": "bb5a9329a4e2a5d711a470e20c649a7686344075",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T00:26:23Z"
+      "updatedAt": "2026-11-27T00:26:23Z",
+      "assignees": []
     },
     {
       "number": 348,
@@ -295,10 +417,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/348",
       "author": "Stephen316",
       "headBranch": "codex/sw-p03-attributed-active-brep",
+      "headRevision": "66188764241fdfa7ce17d54764b866ac16ec150f",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/sw-active-partition-vertex-read",
+      "baseRevision": "e97ece6bf26ca1163fcc24b40333b5ddcb316c4b",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:20Z"
+      "updatedAt": "2026-11-27T17:31:20Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 345,
@@ -306,10 +432,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/345",
       "author": "Stephen316",
       "headBranch": "codex/sw-p03-active-owner-boundary",
+      "headRevision": "c1a14e3f2cc9c751adb44fb21e28d4dc468ca0e0",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/sw-p03-trimmed-carrier-boundary",
+      "baseRevision": "d57ebb378c7f7e0e55617ca68a0b79a0622458b6",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:20Z"
+      "updatedAt": "2026-11-27T17:31:20Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 344,
@@ -317,10 +447,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/344",
       "author": "Stephen316",
       "headBranch": "codex/fusion-legacy-appearance-descriptor",
+      "headRevision": "b83d253b1876d027655e79384058ebd5b9a0dda5",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-design-texture-placement",
+      "baseRevision": "679e0d61d507365c77a11950a67da38b840ca550",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:25Z"
+      "updatedAt": "2026-11-27T17:31:25Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 343,
@@ -328,10 +462,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/343",
       "author": "Stephen316",
       "headBranch": "codex/sw-p03-trimmed-carrier-boundary",
+      "headRevision": "d57ebb378c7f7e0e55617ca68a0b79a0622458b6",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/sw-active-partition-vertex-read",
+      "baseRevision": "e97ece6bf26ca1163fcc24b40333b5ddcb316c4b",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:20Z"
+      "updatedAt": "2026-11-27T17:31:20Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 342,
@@ -339,10 +477,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/342",
       "author": "Stephen316",
       "headBranch": "codex/p03-fusion-native-plan",
+      "headRevision": "c179b5034c38fd2d28baefb98c182826697c6c4c",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/p03-fusion-boss-request",
+      "baseRevision": "ec5e6c7df3273387b0bdd5ced56247a994d6f932",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:22Z"
+      "updatedAt": "2026-11-27T17:31:22Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 341,
@@ -350,10 +492,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/341",
       "author": "Stephen316",
       "headBranch": "codex/fusion-design-texture-placement",
+      "headRevision": "679e0d61d507365c77a11950a67da38b840ca550",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-distinct-material-appearances",
+      "baseRevision": "bb22f5b434fbb056a7bd0960d5286eefe8c88568",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:25Z"
+      "updatedAt": "2026-11-27T17:31:25Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 340,
@@ -361,10 +507,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/340",
       "author": "Stephen316",
       "headBranch": "codex/sw-active-partition-vertex-read",
+      "headRevision": "e97ece6bf26ca1163fcc24b40333b5ddcb316c4b",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-2026-native",
+      "baseRevision": "6cf4d8a9ec216fdb82a873f5fffd3f2aa48d586b",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:21Z"
+      "updatedAt": "2026-11-27T17:31:21Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 339,
@@ -372,10 +522,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/339",
       "author": "Stephen316",
       "headBranch": "codex/p03-fusion-boss-request",
+      "headRevision": "ec5e6c7df3273387b0bdd5ced56247a994d6f932",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/p03-public-admission-matrix",
+      "baseRevision": "fe88dd7b7ad4a16d4a1f00a7f4645920bea0107e",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:22Z"
+      "updatedAt": "2026-11-27T17:31:22Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 338,
@@ -383,10 +537,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/338",
       "author": "Stephen316",
       "headBranch": "codex/sw-p03-native-lifecycle-evidence",
+      "headRevision": "046e15ac403e81b153c9d8c0ce5b0ffe9df5dfa1",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/sw-p03-dimension-keyword-order",
+      "baseRevision": "c5665fc5edd894cf80cea207be76dfc29a77c659",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:23Z"
+      "updatedAt": "2026-11-27T17:31:23Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 337,
@@ -394,10 +552,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/337",
       "author": "Stephen316",
       "headBranch": "codex/fusion-distinct-material-appearances",
+      "headRevision": "bb22f5b434fbb056a7bd0960d5286eefe8c88568",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-material-properties",
+      "baseRevision": "efd2887f4d43482685cbaf71ff1f29eb6aae69d1",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:26Z"
+      "updatedAt": "2026-11-27T17:31:26Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 336,
@@ -405,10 +567,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/336",
       "author": "Stephen316",
       "headBranch": "codex/fusion-material-folder-json",
+      "headRevision": "93ae0c59d43d6c89bd3a7a5be5bd56704a5b9de8",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-config-envelope",
+      "baseRevision": "a0c6e9f22082c7e0937f02af4464a1c06df9ed65",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:26Z"
+      "updatedAt": "2026-11-27T17:31:26Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 335,
@@ -416,10 +582,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/335",
       "author": "Stephen316",
       "headBranch": "codex/p03-public-admission-matrix",
+      "headRevision": "fe88dd7b7ad4a16d4a1f00a7f4645920bea0107e",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/p03-direction-owner-evidence",
+      "baseRevision": "139c2005bb971e2ee47e6a52e78dcb9faa234f17",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:22Z"
+      "updatedAt": "2026-11-27T17:31:22Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 333,
@@ -427,10 +597,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/333",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-material-properties",
+      "headRevision": "efd2887f4d43482685cbaf71ff1f29eb6aae69d1",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-config-envelope",
+      "baseRevision": "a0c6e9f22082c7e0937f02af4464a1c06df9ed65",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:26Z"
+      "updatedAt": "2026-11-27T17:31:26Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 331,
@@ -438,10 +612,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/331",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-config-envelope",
+      "headRevision": "a0c6e9f22082c7e0937f02af4464a1c06df9ed65",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-named-cameras",
+      "baseRevision": "ca499b4b822cfe398778f6cce22605a8f5743c06",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:27Z"
+      "updatedAt": "2026-11-27T17:31:27Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 330,
@@ -449,10 +627,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/330",
       "author": "Stephen316",
       "headBranch": "codex/sw-p03-dimension-keyword-order",
+      "headRevision": "c5665fc5edd894cf80cea207be76dfc29a77c659",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/p03-constrained-boss-candidate",
+      "baseRevision": "91069da35b02ccbd0c7cc7a543c9a6fd016adb52",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:23Z"
+      "updatedAt": "2026-11-27T17:31:23Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 329,
@@ -460,10 +642,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/329",
       "author": "Stephen316",
       "headBranch": "codex/p03-direction-owner-evidence",
+      "headRevision": "139c2005bb971e2ee47e6a52e78dcb9faa234f17",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/p03-independent-sdk-readback",
+      "baseRevision": "33d7e5e10eca892d7c3e8830c4c1a0983f375f83",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:24Z"
+      "updatedAt": "2026-11-27T17:31:24Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 328,
@@ -471,10 +657,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/328",
       "author": "Stephen316",
       "headBranch": "codex/p03-independent-sdk-readback",
+      "headRevision": "33d7e5e10eca892d7c3e8830c4c1a0983f375f83",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/p03-constrained-boss-candidate",
+      "baseRevision": "91069da35b02ccbd0c7cc7a543c9a6fd016adb52",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:23Z"
+      "updatedAt": "2026-11-27T17:31:23Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 327,
@@ -482,10 +672,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/327",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-named-cameras",
+      "headRevision": "ca499b4b822cfe398778f6cce22605a8f5743c06",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-parameter-bindings",
+      "baseRevision": "188faca347ae039a71095cd998be141ef01d9378",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:27Z"
+      "updatedAt": "2026-11-27T17:31:27Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 326,
@@ -493,10 +687,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/326",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-parameter-bindings",
+      "headRevision": "188faca347ae039a71095cd998be141ef01d9378",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-generated-snapshot",
+      "baseRevision": "9566030dad95fc7c30a377c0a0f5ee18428f95d9",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:28Z"
+      "updatedAt": "2026-11-27T17:31:28Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 325,
@@ -504,10 +702,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/325",
       "author": "Stephen316",
       "headBranch": "codex/p03-constrained-boss-candidate",
+      "headRevision": "91069da35b02ccbd0c7cc7a543c9a6fd016adb52",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/p03-constrained-boss-intent",
+      "baseRevision": "21888e435c9f6a1b2a1c1e2fcfbf3468b8e9cf3e",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:24Z"
+      "updatedAt": "2026-11-27T17:31:24Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 318,
@@ -515,10 +717,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/318",
       "author": "Stephen316",
       "headBranch": "codex/fusion-generated-snapshot",
+      "headRevision": "9566030dad95fc7c30a377c0a0f5ee18428f95d9",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-cuboid-snapshot-ownership",
+      "baseRevision": "35e3c8100385bbb53d9635a76fce99bec78936ed",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:28Z"
+      "updatedAt": "2026-11-27T17:31:28Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 314,
@@ -526,10 +732,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/314",
       "author": "Stephen316",
       "headBranch": "codex/p03-constrained-boss-intent",
+      "headRevision": "21888e435c9f6a1b2a1c1e2fcfbf3468b8e9cf3e",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:25Z"
+      "updatedAt": "2026-11-27T17:31:25Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 313,
@@ -537,10 +747,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/313",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-cuboid-snapshot-ownership",
+      "headRevision": "35e3c8100385bbb53d9635a76fce99bec78936ed",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-cuboid-generation",
+      "baseRevision": "75b2e77cff893b39db6ffc5d8128f1f1ed925e9a",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:28Z"
+      "updatedAt": "2026-11-27T17:31:28Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 307,
@@ -548,10 +762,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/307",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-cuboid-generation",
+      "headRevision": "75b2e77cff893b39db6ffc5d8128f1f1ed925e9a",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-cuboid-writer",
+      "baseRevision": "f77ab6a0f49af7771ce1509edec5053454985cad",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:28Z"
+      "updatedAt": "2026-11-27T17:31:28Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 303,
@@ -559,10 +777,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/303",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-cuboid-writer",
+      "headRevision": "f77ab6a0f49af7771ce1509edec5053454985cad",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/fusion-saved-cuboid-roundtrip",
+      "baseRevision": "43b2a10c4bd3f02832b98404878be8c738ec1625",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:29Z"
+      "updatedAt": "2026-11-27T17:31:29Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 299,
@@ -570,10 +792,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/299",
       "author": "Stephen316",
       "headBranch": "codex/fusion-saved-cuboid-roundtrip",
+      "headRevision": "3c9e21f6171bd65f64e701d307a9f423df401fd3",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:18Z"
+      "updatedAt": "2026-11-27T19:49:50Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 296,
@@ -581,10 +807,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/296",
       "author": "Stephen316",
       "headBranch": "docs/solidworks-reader-writer-plan",
+      "headRevision": "973e25f9f7ae78ebc34cda5c61a1de6ee8385c8a",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:29Z"
+      "updatedAt": "2026-11-27T17:31:29Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 262,
@@ -592,10 +822,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/262",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-cold-open-shell-read",
+      "headRevision": "89c882da4769c686023b71d128ae37ab8cf89ee7",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-open-shell-typed-read",
+      "baseRevision": "15749182cdb3142fcab0fbe9719bea21d4a44ee7",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:29Z"
+      "updatedAt": "2026-11-27T17:31:29Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 261,
@@ -603,10 +837,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/261",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-rotated-mates",
+      "headRevision": "b4f273578fd83e66b0c7d95703ced106dbd17eac",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-measured-planar-mates",
+      "baseRevision": "f45f428e27536fff961facd6143e6645fb45e91e",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:17Z"
+      "updatedAt": "2026-11-27T17:31:17Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 260,
@@ -614,10 +852,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/260",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-sdk-assigned-material",
+      "headRevision": "92867e73232c291cefed42ee6c03832db3b9937a",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:29Z"
+      "updatedAt": "2026-11-27T17:31:29Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 259,
@@ -625,10 +867,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/259",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-concave-import",
+      "headRevision": "e6a83ad0204253dfb977fad503f9659a8aa77829",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-measured-local-import",
+      "baseRevision": "3581b9a58d9150ad02d226e6d305bb9d3163d7cc",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:19Z"
+      "updatedAt": "2026-11-27T17:31:19Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 258,
@@ -636,10 +882,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/258",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-width-depth",
+      "headRevision": "8ca1b7a0fe44b0bc028bc093de8cb90fb89a7d90",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:18Z"
+      "updatedAt": "2026-11-27T17:31:18Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 257,
@@ -647,10 +897,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/257",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-open-shell-rollback",
+      "headRevision": "9810079614b14edd7ed61101b2505bad9dc94b09",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-open-shell-typed-read",
+      "baseRevision": "31254df08b173d8cd218cf6b0b81b9703ae23fea",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:31Z"
+      "updatedAt": "2026-11-27T17:31:31Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 256,
@@ -658,10 +912,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/256",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-attached-radius-child",
+      "headRevision": "6cd3f2cab279f64e632618d2b6068ee4406d7c4a",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-circle-measured-main",
+      "baseRevision": "8d98c4e347c5ee1cfdbeae52a09eb243517540b7",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:15Z"
+      "updatedAt": "2026-11-27T17:31:15Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 255,
@@ -669,10 +927,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/255",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-open-shell-typed-read",
+      "headRevision": "2a0510659fc18386cec6daffd09e288c7034f44c",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-measured-distance-chamfer",
+      "baseRevision": "48da1cc86a14490a10253ffe2782d7cf2415d895",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:18Z"
+      "updatedAt": "2026-11-27T17:31:18Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 254,
@@ -680,10 +942,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/254",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-local-import",
+      "headRevision": "cefe5ce977e26a770455b35d1ef18b72cc6c107b",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:15Z"
+      "updatedAt": "2026-11-27T17:31:15Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 252,
@@ -691,10 +957,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/252",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-open-shell-construction",
+      "headRevision": "80d2751243650487d8b800c46bf9e669c8138ced",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-measured-distance-chamfer",
+      "baseRevision": "48da1cc86a14490a10253ffe2782d7cf2415d895",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:17Z"
+      "updatedAt": "2026-11-27T17:31:17Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 250,
@@ -702,10 +972,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/250",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-shell-source-evidence",
+      "headRevision": "e0f4201c2ffe6e2c6c2c753a18c6e12d31f68f1e",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "e5294382aad0c04ba26554dfe381fd03daec110a",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:31Z"
+      "updatedAt": "2026-11-27T17:31:31Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 249,
@@ -713,10 +987,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/249",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-two-stock-circle",
+      "headRevision": "50f009017fd686010393e774384869fe40d5c450",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-circle-measured-main",
+      "baseRevision": "8d98c4e347c5ee1cfdbeae52a09eb243517540b7",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:15Z"
+      "updatedAt": "2026-11-27T17:31:15Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 248,
@@ -724,10 +1002,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/248",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-revolve-ends",
+      "headRevision": "cf9182d82c8abe374725dd66f60d0c5bdd61a38e",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-measured-principal-revolve",
+      "baseRevision": "fe199c82dbdfd50a9655a2868d94dbc783919e15",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:16Z"
+      "updatedAt": "2026-11-27T17:31:16Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 247,
@@ -735,10 +1017,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/247",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-thin-revolve",
+      "headRevision": "9a12f555b2d32aad84456a5ba9afcb97ce3ad6bb",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-measured-principal-revolve",
+      "baseRevision": "fe199c82dbdfd50a9655a2868d94dbc783919e15",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:12Z"
+      "updatedAt": "2026-11-27T17:31:12Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 246,
@@ -746,10 +1032,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/246",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-fcstd-box",
+      "headRevision": "7f95fd201171fcfa9a8d9e530cf62b0c1ba14369",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:19Z"
+      "updatedAt": "2026-11-27T17:31:19Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 245,
@@ -757,10 +1047,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/245",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-saved-sweep-read",
+      "headRevision": "b2b20332177902fdd52f7dce82e40fb53e239d88",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-sweep-main-delivery",
+      "baseRevision": "85f1fe90bf1be75f0e6b0bc7339bdef8ec72429f",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:13Z"
+      "updatedAt": "2026-11-27T17:31:13Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 244,
@@ -768,10 +1062,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/244",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-principal-revolve",
+      "headRevision": "873e54b02059a5a6b590261ad38d3eb38f13ae69",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:16Z"
+      "updatedAt": "2026-11-27T17:31:16Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 243,
@@ -779,10 +1077,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/243",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-linear-pattern",
+      "headRevision": "885921675984748ade5b7aa53aac21e5df3a0299",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:13Z"
+      "updatedAt": "2026-11-27T17:31:13Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 242,
@@ -790,10 +1092,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/242",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-planar-mates",
+      "headRevision": "e2f86fd7225dc3a6872da2b4c259aed1476de33a",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "codex/solidworks-nested-assembly-delivery",
+      "baseRevision": "7c8d6759274ee6174acdeeac069c1a2539d8cd14",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:12Z"
+      "updatedAt": "2026-11-27T17:31:12Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 240,
@@ -801,10 +1107,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/240",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-measured-distance-chamfer",
+      "headRevision": "4f2a18f1f4268fd2cc5dadf0777172d37ea7484d",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:30Z"
+      "updatedAt": "2026-11-27T17:31:30Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 239,
@@ -812,10 +1122,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/239",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-circle-measured-main",
+      "headRevision": "8d98c4e347c5ee1cfdbeae52a09eb243517540b7",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "e5294382aad0c04ba26554dfe381fd03daec110a",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:32Z"
+      "updatedAt": "2026-11-27T17:31:32Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 238,
@@ -823,10 +1137,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/238",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-sweep-main-delivery",
+      "headRevision": "5fa1cc79caf3d4fb2d05248bff3b8c5ebe47911f",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:31Z"
+      "updatedAt": "2026-11-27T17:31:31Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 237,
@@ -834,10 +1152,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/237",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-ellipse-delivery",
+      "headRevision": "99213dfd00378610401d47d6fb88e761430915f6",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:14Z"
+      "updatedAt": "2026-11-27T17:31:14Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 236,
@@ -845,10 +1167,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/236",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-nested-assembly-delivery",
+      "headRevision": "7c8d6759274ee6174acdeeac069c1a2539d8cd14",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:14Z"
+      "updatedAt": "2026-11-27T17:31:14Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 232,
@@ -856,10 +1182,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/232",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-part-visual-member",
+      "headRevision": "d0b25e7147a35d38a9269511a96e08d602bb599c",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "d5a72e06a1402d7b9f64c1a4c35f84844f42416b",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:19Z"
+      "updatedAt": "2026-11-27T17:31:19Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 225,
@@ -867,10 +1197,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/225",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-config-sheet-metal",
+      "headRevision": "f96619d35c16de454788c5229f40a54580db7330",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:15Z"
+      "updatedAt": "2026-11-27T17:31:15Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 200,
@@ -878,10 +1212,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/200",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-config-direct-owner",
+      "headRevision": "2512755540a65f835db2f6077892afec9566fb7e",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "b48f5b98a135883905558f85b3d29efa2e3c4187",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:18Z"
+      "updatedAt": "2026-11-27T17:31:18Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 169,
@@ -889,10 +1227,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/169",
       "author": "Stephen316",
       "headBranch": "codex/read-scoreboard",
+      "headRevision": "571fd114b58395a848d47e5256b62182f0826fec",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "bd16f35d5a8e5c9440c62f8c4809265ec60dd130",
       "state": "open",
       "isDraft": true,
-      "updatedAt": "2026-11-27T17:31:32Z"
+      "updatedAt": "2026-11-27T17:31:32Z",
+      "assignees": ["Stephen316"]
     },
     {
       "number": 121,
@@ -900,10 +1242,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/121",
       "author": "odinglyn0",
       "headBranch": "codex/solidworks-2026-native",
+      "headRevision": "6cf4d8a9ec216fdb82a873f5fffd3f2aa48d586b",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "1619f00bf532caad262d1557bd69281179e5c497",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:21Z"
+      "updatedAt": "2026-11-27T19:49:46Z",
+      "assignees": ["odinglyn0"]
     },
     {
       "number": 120,
@@ -911,11 +1257,14 @@
       "url": "https://github.com/TryUniCAD/Kit/pull/120",
       "author": "Stephen316",
       "headBranch": "codex/verified-solidworks-decodes",
+      "headRevision": "2ed31a763c93c1fc05dc67a53dc030c491856d87",
+      "headRepositoryId": "R_kgDOTqO1fw",
       "baseBranch": "main",
+      "baseRevision": "21d2abc9fda02e3a217c44c06b9e2e2deb0b8e5c",
       "state": "open",
       "isDraft": false,
-      "updatedAt": "2026-11-27T17:31:32Z"
+      "updatedAt": "2026-11-27T17:31:32Z",
+      "assignees": ["Stephen316"]
     }
-  ],
-  "ObservedAt": "2026-11-27T17:49:31.007602+00:00"
+  ]
 }

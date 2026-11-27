@@ -54,8 +54,9 @@
     "A14b"
   ],
   "OpenDeliveryPRs": [
+    397,
+    396,
     395,
-    392,
     385,
     384,
     383,
@@ -406,6 +407,149 @@
         "capture": {
           "Status": "checking",
           "Evidence": "https://github.com/TryUniCAD/Kit/pull/394",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "A12-ReverseBlindBoss20261127",
+      "Boundary": "Bounded reversed cold line loop blind boss reader and generative preparation; broader grammar and measured reverse output publication remain unfinished",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "A12-ColdCliParity20261127",
+      "Boundary": "Exact existing measured cold part SDK/CLI route parity; no new feature family or native acceptance",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-GeneratedOffsetSpan20261127",
+      "Boundary": "Only source free XY circular unequal two sided signed offset prototypes; native generated edit and reopen qualification remains unfinished",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-CircularStatePromotion20261127",
+      "Boundary": "Only recorded circular typed state preservation and reconstruction candidates; neutral generation remains separate",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-DualDraftGeometry20261127",
+      "Boundary": "Only independently drafted circular side analytic geometry and full measured mass proof; this link is not whole extrusion support",
+      "Stages": {
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-DualDraftRead20261127",
+      "Boundary": "Only recorded independent XY circular NewBody two sided drafts with full source gates; inspection only",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-DualDraftFrame20261127",
+      "Boundary": "Only source selected principal XZ extension of the bounded circular draft reader; arbitrary frames and offsets remain separate",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.FilletFeature",
+      "TaskId": "A11-RimFilletRead20261127",
+      "Boundary": "Only one constant top circular rim on canonical XY blind extrusion across 22 measured sources; source remains read only",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ConstantRadiusFilletEdgeSet",
+      "TaskId": "A11-RimFilletRead20261127",
+      "Boundary": "Only recorded constant radius unit tangency and rolling ball chain mode with actual selected predecessor rim; other modes unverified",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
           "Revision": ""
         }
       }

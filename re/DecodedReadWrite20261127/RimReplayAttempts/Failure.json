@@ -1,0 +1,16 @@
+{
+  "stage": "retention before archive creation",
+  "error": "unexpected strict replay outcomes",
+  "cause": "new cohort expected count was updated to90 for assets anddecoded but retained strict68 from old retainer",
+  "reader_outcome": {
+    "assets": 90,
+    "decoded": 90,
+    "strict": 90,
+    "rejected": 0,
+    "partial": 0,
+    "reader_error": 0
+  },
+  "repair": "require strict90 with no reader or evidence changes",
+  "initial_script_sha256": "5d336c20d721dd66649e04e1f3805f508c3f425a84918e965aeec051b6243b91",
+  "subsequent_retention": "Additional worker manifest, source-list, log and execution guards pass against the same runtime; all182 archive members and raw receipts are byte-identical. First accepted retainer/report retained separately."
+}
