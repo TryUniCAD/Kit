@@ -157,9 +157,6 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
 from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalImport import (
-    ReadLocalImport,
-)
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
@@ -199,12 +196,12 @@ from convert.adapters.solidworks.Core.Cut.CutDocument import ProjectCutDoc
 from convert.adapters.solidworks.Core.Cut.CutEqProjection import ReadCutArchive
 from convert.adapters.solidworks.Core.Partition.PartBody import PartBody
 from convert.adapters.solidworks.Core.Partition.PartFeatureId import FeatureId
-from convert.adapters.solidworks.Core.Partition.PartSourceMetadata import (
-    PartSourceMetadata,
+from convert.adapters.solidworks.Core.Partition.PartSourceMeta import (
+    PartSourceMeta,
 )
 from convert.adapters.solidworks.Core.Partition.PartBodyIdentity import KPartBodyId
-from convert.adapters.solidworks.Core.Partition.SelectPartGeometry import (
-    SelectPartGeometry,
+from convert.adapters.solidworks.Core.Partition.SelectPartBrep import (
+    SelectPartBrep,
 )
 from convert.adapters.solidworks.Core.Partition.SolidBody import SolidBody
 from convert.adapters.solidworks.Core.OrdinaryRead import (
@@ -264,9 +261,6 @@ KSourceKeys = frozenset(
 
 # this binding exists because shared behavior needs one stable value
 KResolvedConfigStream = RegexLib.compile("^Contents/Config-(\\d+)-ResolvedFeatures$")
-
-# native part geometry and the design body need the same public identifier
-
 
 # this binding exists because shared behavior needs one stable value
 KWrapperMetaKeys = KSourceKeys | frozenset(
@@ -403,7 +397,7 @@ def ReadPartDoc(
     PatternValue: ColdPatPart | None,
 ) -> CadDoc:
     DesignValue = ReadPartDesign(Instance, Archive, DataValue, Label, Settings, Model)
-    DocValue, ColdBrep = AttachPartGeometry(
+    DocValue, ColdBrep = AttachPartBrep(
         DesignValue, Archive, Model, Settings, PatternValue
     )
     DocValue = FinishPartDoc(
@@ -454,13 +448,13 @@ def ReadPartDesign(
         feature_timeline=TimeValues,
         bodies=(),
         capabilities=Instance.info.capabilities,
-        metadata=PartSourceMetadata(Archive, Model, KFormatId, UnresolvedTargets),
+        metadata=PartSourceMeta(Archive, Model, KFormatId, UnresolvedTargets),
         units=UnitSystem.MILLIMETER,
     )
 
 
 # body attachment shares the design timeline without altering its identifiers
-def AttachPartGeometry(
+def AttachPartBrep(
     Document: CadDoc,
     Archive: SldprtArchive,
     Model: NativeModel,
@@ -473,7 +467,7 @@ def AttachPartGeometry(
         Settings,
         PatternValue.GeometryValue.BrepValue if PatternValue is not None else None,
     )
-    BrepValue, LocalOwner, LocalDiag, ActivePart = SelectPartGeometry(
+    BrepValue, LocalOwner, LocalDiag, ActivePart = SelectPartBrep(
         Archive,
         Model,
         Settings,
@@ -3656,41 +3650,6 @@ def Timeline(
     return tuple(Result)
 
 
-# this definition exists because focused behavior needs one stable owner
-def SolidBody(Features: tuple[NativeFeature, ...]) -> NativeFeature | None:
-    return next(
-        (
-            Feature
-            for Feature in Features
-            if Feature.kind.casefold().strip() in SolidBodyFeatureTypes
-        ),
-        None,
-    )
-
-
-# this definition exists because focused behavior needs one stable owner
-def FinalBodyId(
-    Timeline: tuple[FeatureStep, ...], OperationFeatureIds: frozenset[str]
-) -> str:
-    Choice = next(
-        (
-            Feature
-            for Feature in reversed(Timeline)
-            if Feature.id in OperationFeatureIds
-            or (
-                isinstance(Feature.kind, FeatureKind)
-                and Feature.kind != FeatureKind.REFERENCE
-                and (Feature.kind != FeatureKind.SURFACE)
-                and (Feature.kind != FeatureKind.NATIVE)
-            )
-        ),
-        None,
-    )
-    if Choice is not None:
-        return Choice.id
-    return Timeline[-1].id if Timeline else ""
-
-
 # typed history and projected bounds need the same qualified boss direction
 def IsBossReversed(Operation: NativeOperation) -> bool:
     return (
@@ -4022,39 +3981,6 @@ def BrepPayloadA(Index: int, Native: ParasolidPayload) -> BrepPayload:
         role=PayloadRole.BREP,
         file_extension=".x_b",
     )
-
-
-# this definition exists because focused behavior needs one stable owner
-def TypedBrep(
-    Payloads: Sequence[BrepPayload],
-    *,
-    Strict: bool,
-    LocalOwner: NativeFeature | None = None,
-    GroupData: bytes | None = None,
-) -> tuple[BrepModel | None, NativeFeature | None, DiagValue | None]:
-    Groups: dict[str, list[BrepPayload]] = {}
-    for Index, Payload in enumerate(Payloads):
-        Groups.setdefault(Payload.source_stream or f"payload:{Index}", []).append(
-            Payload
-        )
-    Models: list[BrepModel] = []
-    HasAmbiguous = False
-    for Group in Groups.values():
-        Decoded = tuple(
-            (
-                Model
-                for Payload in Group
-                if Payload.data is not None
-                and (Model := DecodeBrepModel(Payload.data)) is not None
-            )
-        )
-        if len(Decoded) == 1:
-            Models.append(Decoded[0])
-        elif len(Decoded) > 1:
-            HasAmbiguous = True
-    if Models or HasAmbiguous or LocalOwner is None or GroupData is None:
-        return (Models[0] if len(Models) == 1 else None), None, None
-    return ReadLocalImport(Payloads, GroupData, LocalOwner, Strict=Strict)
 
 
 # this definition exists because focused behavior needs one stable owner

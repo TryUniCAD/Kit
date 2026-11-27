@@ -16,7 +16,7 @@ from interchange import Diagnostic as DiagValue
 
 
 # active partition ownership takes precedence over inferred local geometry
-def SelectPartGeometry(
+def SelectPartBrep(
     Archive: SldprtArchive,
     Model: NativeModel,
     Settings: ReadOptions,

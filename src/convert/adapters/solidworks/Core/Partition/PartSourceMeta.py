@@ -8,7 +8,7 @@ from interchange import frozen_mapping as FrozenMapping
 
 
 # these source facts describe the archive independently of the selected geometry
-def PartSourceMetadata(
+def PartSourceMeta(
     Archive: SldprtArchive,
     Model: NativeModel,
     FormatId: str,
