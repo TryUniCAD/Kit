@@ -1,14 +1,5 @@
 from dataclasses import replace as ReplaceValue
 
-from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import (
-    DimensionGraph,
-)
-from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import (
-    KeywordDim,
-)
-from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import (
-    KeywordFeature,
-)
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeMgrHeader import (
     MakeMgrHeader,
 )
@@ -34,29 +25,11 @@ from convert.adapters.solidworks.Archive.Construction.Shells.OpenShellPlan impor
     OpenShellPlan,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
-from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
-    FieldInt,
-    ReadNodeName,
-)
 from convert.adapters.solidworks.Container.Container import BuildSldprt
 from interchange.document.Models.DocumentModel import CadDocument
-
-
-# shell keywords refer to the same live driver and persistent shell feature as the resolved graph
-def MakeShellKey(Feature: ArchiveNode, Driver: DimensionGraph) -> KeywordFeature:
-    Parameter = Driver.ParameterValue
-    Thickness = RequireScalar(Parameter.FieldsValue["f58"])
-    return KeywordFeature(
-        FieldInt(Feature.FieldsValue, "f08"),
-        ReadNodeName(Feature),
-        "Shell",
-        "Feature",
-        (KeywordDim(ReadNodeName(Parameter), Thickness * 1000, None),),
-        (),
-        None,
-        None,
-    )
+from convert.adapters.solidworks.Archive.Construction.Shells.MakeShellKey import (
+    MakeShellKey,
+)
 
 
 # a complete shell archive uses the ordinary part stream writers with the additional related feature

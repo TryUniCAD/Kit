@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from BuildOpenShellPlan import document, require
 from CheckGeneratedShellOwners import verify_generated_shell_owners
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
@@ -49,6 +50,20 @@ def verify_part(part, case):
     )
     require(config_data == archive.require(link.ConfigName) and resolved_data == archive.require(link.StreamName),
             "the generated shell lost an exact typed config or resolved archive round trip")
+    for combined in (
+        lambda: ReadNativeLink(archive, 0, ReadChamfers=True, ReadShells=True),
+        lambda: WriteResolMut(
+            link.ResolvedValue.RootsValue, link.ResolvedValue.ExtraFields, 19000,
+            config.MapValue, link.ResolvedValue.ContextValue,
+            WriteShell=True, WriteChamfers=True,
+        ),
+    ):
+        try:
+            combined()
+        except BodyUnsupported as error:
+            require("combined shell and chamfer archives" in str(error), str(error))
+        else:
+            raise ValueError("unqualified combined shell and chamfer archive was admitted")
     owners = verify_generated_shell_owners(archive, link, case)
     return {"hash": digest(part.BytesValue), "bytes": len(part.BytesValue),
             "stream_hashes": {name: {"bytes": len(raw), "sha256": digest(raw)}

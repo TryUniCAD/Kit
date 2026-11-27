@@ -35,6 +35,8 @@ def ReadResolvedMut(
     ReadChamfers: bool = False,
     ReadShells: bool = False,
 ) -> ResolvedGraph:
+    if ReadChamfers and ReadShells:
+        raise BodyUnsupported("combined shell and chamfer archives are unqualified")
     ContextValue = MakeResolvedCtx(
         VersionValue,
         SeedValue,

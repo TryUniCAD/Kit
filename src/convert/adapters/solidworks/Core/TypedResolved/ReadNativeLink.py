@@ -12,7 +12,11 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 # public semantic reads must enter through the same proven configuration and resolved alias chain
 def ReadNativeLink(
-    Archive: SldprtArchive, ConfigId: int | None, *, ReadChamfers: bool = False, ReadShells: bool = False
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    *,
+    ReadChamfers: bool = False,
+    ReadShells: bool = False
 ) -> NativeLink:
     VersionValue = ContainerMo(Archive.streams)
     if (
@@ -30,7 +34,9 @@ def ReadNativeLink(
         Archive.require(ConfigName + "-ModelHeader"), VersionValue
     )
     ConfigValue = ReadConfigMut(Archive.require(ConfigName), VersionValue, HeaderValue)
-    ManagerValue = ReadCmgrMut(Archive.require("Contents/CMgr"), VersionValue, ReadLinked=ReadShells)
+    ManagerValue = ReadCmgrMut(
+        Archive.require("Contents/CMgr"), VersionValue, ReadLinked=ReadShells
+    )
     ResolvedValue = ReadResolvedMut(
         Archive.require(StreamName),
         VersionValue,
@@ -39,4 +45,10 @@ def ReadNativeLink(
         ReadChamfers=ReadChamfers,
         ReadShells=ReadShells,
     )
-    return NativeLink(ConfigValue, ResolvedValue, ConfigName, StreamName, ManagerValue if ReadShells else None)
+    return NativeLink(
+        ConfigValue,
+        ResolvedValue,
+        ConfigName,
+        StreamName,
+        ManagerValue if ReadShells else None,
+    )

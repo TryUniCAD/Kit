@@ -20,3 +20,8 @@ and follows the [reverse-engineering playbook](../../../../re/Playbook/README.md
 This archive prerequisite carries no generated-output or held-out qualification.
 The fixture observer and its native phase lock are independently pinned in
 [OpenShellSourceLock2026](https://github.com/TryUniCAD/Kit/blob/84d925a36c79c2b3124aba3ac06830c95297bca1/re/solidworks/records/OpenShellSourceLock2026.md).
+
+The resolved archive reader and writer reject requests that select both the
+shell and chamfer layouts. The archive construction path supports one terminal
+feature; a mixed-feature grammar is not qualified. The offline shell archive
+build passed after this change.

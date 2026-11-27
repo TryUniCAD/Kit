@@ -1,6 +1,8 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Shells.SaveTreeFields import (
     KSaveTreeFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Shells.SaveTreeVirts import (
     KSaveTreeVirts,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Shells.ShellFields import (

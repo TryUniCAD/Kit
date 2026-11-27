@@ -1,6 +1,7 @@
 from collections.abc import Mapping, MutableMapping
 
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
 from convert.adapters.solidworks.Archive.Bodies.NormalizeCount import NormalizeCount
@@ -31,6 +32,8 @@ def WriteResolMut(
     WriteChamfers: bool = False,
     WriteShell: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
+    if WriteChamfers and WriteShell:
+        raise BodyUnsupported("combined shell and chamfer archives are unqualified")
     ContextValue = MakeResolvedCtx(
         VersionValue,
         SeedValue,
