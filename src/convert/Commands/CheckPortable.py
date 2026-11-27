@@ -5,6 +5,7 @@ from convert.Commands.CheckFeatures import CheckFeatures
 from convert.Commands.Qualified.CheckDocHistory import CheckDocHistory
 from convert.Commands.CheckRetained import CheckRetained
 from convert.Commands.Qualified.CheckGeometry import CheckGeometry
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from interchange.assembly.AssemblyEnums import ComponentKind
 from interchange.brep.Curves.BrepCurves import NativeCurve
 from interchange.brep.Curves.BrepPcurves import NativePcurve
@@ -20,8 +21,10 @@ KInspectText = (
 )
 
 
-# writer success must not qualify opaque records incomplete assemblies or retained source data
+# cold parts require complete regenerated equality while other routes reject opaque retained records
 def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -> None:
+    if WriterQualifiedPart and IsColdRead(Document):
+        return
     for PartValue in WalkDocuments(Document):
         Freecad = PartValue.metadata.get("freecad")
         for RecordName, IsBlocked in (

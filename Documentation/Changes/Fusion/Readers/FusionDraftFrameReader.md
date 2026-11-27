@@ -17,3 +17,8 @@ Ordinary CLI cases cover discovery, held-out and restored XZ sources, with atomi
 The [revision-bound public receipt](../../../../re/Fusion/DecodedPromotion20261127/DualFramePublic/Verification.json) retains source hashes and failed attempts.
 
 The recorded discovery and holdout proofs are in [DualFrameLive](../../../../re/Fusion/DecodedPromotion20261127/DualFrameLive/README.md). Six discovery and six sealed holdout archives match the recorded API frame and pass complete live geometry and ownership checks. Fourteen encoded archive counterexamples exercise matrix, datum, update, scope, occurrence and BODY-transform refusal. The original 84-case live suite retains its identity-default boundary. Parent public SDK/CLI evidence separately records composed reader acceptance; these component proofs do not establish conversion, writing, fresh native acceptance or arbitrary frames.
+
+The separate [committed-file CLI replay](../../../../re/DecodedReadWrite20261127/README.md#principal-frame-draft-reader-replay) pins both SDK and corpus to `6087ed24cb75ad8fb10626b556192c0351d989d7`.
+All 68 files read strictly with zero refusals, partial results or reader errors; exit is `0`.
+All 138 documents, receipts, summary and log artifacts remain hash-bound and losslessly retained.
+Every receipt preserves its independent native acceptance finding and unqualified status.

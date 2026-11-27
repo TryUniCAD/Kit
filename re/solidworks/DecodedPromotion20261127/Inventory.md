@@ -59,3 +59,118 @@ No new runtime dependency, proprietary binary, donor payload, provider output or
 ## Subsequent bounded reader delivery
 
 The user subsequently authorized offline production work and the parent coordinated `A12-ReverseBlindBoss20261127`. The two-module reader implementation now permits the loader-proven exact integer reverse direction and computes the ordered negative prism interval after all existing typed ownership and canonical datum checks. The original generation-19000 source grammar gap remains refused. See `README.md`, `Evidence/ReaderReceipt.json` and `Documentation/Changes/Solidworks/Inspection/Parts/SolidworksReverseColdBoss.md` for the revision-bound test boundary. The initial inventory and failed strict reverse reads above describe the pre-change checkpoint, not the current bounded cold-reader result. This does not close full source conversion or native generated-candidate acceptance
+
+## Current offline audit after 6087ed24c
+
+This is an additive checkpoint after the parent's accepted `6087ed24c` state. The original inventory above remains historical. This audit changed only this inventory, used no native CAD API or model provider, and did not change branches, production code, receipts or owning registers. Parent retains manifest and publication ownership.
+
+### Reader and preparation status now implemented
+
+The bounded forward/reversed cold blind-boss reader and neutral reverse preparation are implemented; the original proposed reversal slice is no longer unassigned work. `Core/TypedResolved/ReadExtrude.py` accepts only integer direction zero/one with the original owner, blind-end and start-type guards. `Geometry/ColdPrism.py` derives `[0, depth]` or `[-depth, 0]` with positive depth. `BlindPlan.IsReversed` now carries the validated neutral Boolean into `FinishBlindMut` and the existing typed `MakeBlindEnd.f8c` construction. Start type stays zero. Contradictory direction vectors, offsets, symmetric/second extents and non-Boolean direction inputs remain refused.
+
+Evidence is retained separately:
+
+| Evidence                            | Actual boundary                                                                                                                    | SHA-256 at this audit                                              |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `Evidence/ReaderReceipt.json`       | 26 initial reader/integration/regression cases; historical source binding                                                          | `b49328cc691f32108bcf798e5b64db7b9fc0a18e2337bedfc7d5ce1e4e61123f` |
+| `Evidence/ReaderRepairReceipt.json` | Additive four-call-result repair; 23 archive/process cases and pinned Pyright pass                                                 | `9a36a80fd93d690fb9729178b5410a1eb9abfef21bd974e03318340af2c63fa6` |
+| `Preparation/Receipt.json`          | 59 combined preparation/reader cases; six cold JSON-restored byte-identical rebuilds; exact forward receipts refuse reversed bytes | `e05b63734949508aa14f4c1dc5d915932fbd984c4b7dfa0ef32b90547ed8549e` |
+
+The writer's `.supports()` now recognizes reversible preparation semantics. It does not establish publication acceptance. `Core/Writing/EmitNativeMut.py` still loads the trusted receipt, regenerates the candidate, and matches its entire digest before opening or writing the caller destination. The two recorded forward models retain measured public output. There is no matching native acceptance receipt for the new reversed candidates. Missing evidence is exact reversed-candidate native load/rebuild, independent driving edits and restoration, save/fresh-process reopen, healthy controls and independent native holdouts. The unresolved saved cap-field provenance and ordinary vendor-source graph admission remain grammar/evidence work, not merely an API outage.
+
+### Actionable SDK/CLI parity gap found
+
+**Confirmed offline delegation gap: the CLI refuses an already accepted measured cold-part route.** Public `convert()` successfully reads and rewrites both exact measured forward archives through the registered writer, preserving their complete hashes. `kit convert` receives the same archive and authentic receipt but stops in the generic `NativeFeature` branch of `Commands/CheckPortable.py`, before the writer's stronger cold-read comparison and measurement gate run.
+
+| Measured model | Source and successful public SDK output SHA-256                    | Ordinary CLI outcome                                                                                                                    |
+| -------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Skew           | `3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2` | Exit 1, `NativeFeature records are not conversion-ready; use kit decode or kit research for inspection`; existing destination preserved |
+| Step           | `ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47` | Same exit and diagnostic; existing destination preserved                                                                                |
+
+Exact runtime report: `/private/tmp/KitColdCliDelegationAudit.json`, SHA-256 `3cdab8e439d3f97cdf4c5efc16d2f28834b4864945f698280cacf23f6daf838d`. Parent will retain the report and bind its publication location; this child was authorized to edit only the inventory. This is a new delegation experiment using existing measured archives, not a new native acceptance run. An initial audit command had a Python raw-string quoting error before executing; it was corrected to construct the Windows locator with `PureWindowsPath`.
+
+The causal paths and observed pre-repair hashes are:
+
+| Path                                                                         | Pre-repair SHA-256                                                 |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `src/convert/Commands/ConvertFile.py`                                        | `ad8dde397f9b304bfd60d63428d019f51efc739b5ec5c67953aba16ae8d13aa7` |
+| `src/convert/Commands/CheckPortable.py`                                      | `e63485c9ddd93d9ed8404471f2214c0e5b12e4a4ac97d249ef919a6ca3e71cdc` |
+| `src/convert/adapters/registry/RegistryWriteApi.py`                          | `1ba98e305a19b41b52a1ebe9785765b664d2dae431f6406ebe9b53d13c4accb0` |
+| `src/convert/adapters/solidworks/Core/Preparation/Readback/CheckColdRead.py` | `4f60f47ad3df37f656a61a854f777d4ddb4195d8112bd983d386f8f921a7f947` |
+| `src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py`              | `7114e5960fb5ea696fe985fe9c460f9815df0f96aa01fde930fcb8e1b61429ca` |
+
+`Commands/ConvertFile.py` selects a writer and passes `WriterQualifiedPart=True` for the part format. `CheckPortable` uses that flag to skip some generic feature/geometry checks, but its `NativeFeature` rejection is unconditional. In contrast, the registry already treats the exact `SldprtWriter` plus `IsColdRead` as a special route; `PrepareNative.CheckColdRead` must then reproduce the complete source-bound document, and the exact output receipt still must match. This route must not be generalized to arbitrary native features or other writers. The parent has now claimed `A12-ColdCliParity20261127` to align the CLI with this existing backend contract, outside the separately owned #121/#244/#297 grammar programmes. It is no longer an unassigned task.
+
+The exact experiment used `PYTHONPATH=src:Cli /private/tmp/KitOffsetTools20261127/unicad-kit/bin/python3` and the following process recipe for each of `Skew` and `Step`:
+
+```python
+from io import BytesIO
+from json import dumps
+from pathlib import Path, PureWindowsPath
+from subprocess import run
+from sys import executable
+from tempfile import TemporaryDirectory
+from hashlib import sha256
+from convert import convert
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import KPartMeasureOpt
+from tests.Convert.Solidworks.PlainWriting.MeasurePlainDoc import MeasurePlainDoc
+
+with TemporaryDirectory() as folder:
+    base = Path(folder)
+    for role in ("Skew", "Step"):
+        model, envelope, expected = MeasurePlainDoc(role)
+        name = str(model.metadata["name"]) + ".SLDPRT"
+        locator = str(PureWindowsPath("C:/KitSdkCandidates") / name)
+        data = PrepareNative(model, BytesIO(), envelope["written_at"], WriteOptions(values={"final_destination": locator})).BytesValue
+        assert sha256(data).hexdigest() == expected
+        source_dir, sdk_dir, cli_dir = (base / (role + suffix) for suffix in ("Input", "Sdk", "Cli"))
+        for directory in (source_dir, sdk_dir, cli_dir):
+            directory.mkdir()
+        source = source_dir / name
+        source.write_bytes(data)
+        target = sdk_dir / name
+        convert(source, target, destination_format="solidworks.sldprt", allow_carrier=False, write_values={KPartMeasureOpt: envelope})
+        assert sha256(target.read_bytes()).hexdigest() == expected
+        target = cli_dir / name
+        target.write_bytes(b"preserved")
+        receipt = base / (role + "Receipt.json")
+        receipt.write_text(dumps(envelope))
+        result = run([executable, "-m", "KitCli", "convert", str(source), str(target), "--json", "--overwrite", "--native-measurement", str(receipt)], capture_output=True, text=True)
+        print(role, result.returncode, result.stderr, target.read_bytes() == b"preserved")
+```
+
+### Other family promotion findings
+
+No other inspected SOLIDWORKS family has both a complete independently decoded neutral/native rule and an unowned offline promotion slice comparable to the delegation gap above. This does not infer unsupported grammar from missing public projection. The specific remaining work is:
+
+| Family                                     | Missing grammar or evidence preventing another immediate promotion                                                                                                                                                                                                                                      | Existing scope                                                           |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Circular boss/sketch writing               | Generative circle constraint/dimension/profile owners, complete header/configuration presentation, analytic cylinder body and held-out native generated-file acceptance; removed recorded circle programs cannot supply bytes                                                                           | #121 generative grammar                                                  |
+| Revolutions/grooves                        | Fully qualified selected axis/centerline ownership, angle and termination variants, complete profile/support/body history and independently generated/native-verified output beyond the separate measured principal route                                                                               | #244 principal revolution; #121 broader generation                       |
+| Linear/circular patterns                   | `Native.py` still assigns the latest operation as dependency; this is not proof of actual seed membership. Complete selected direction/axis references, second directions, skipped/suppressed occurrences and feature/body modes remain unqualified. Count/spacing/angle scalars alone are insufficient | #121 broader grammar; no narrower independent complete slice established |
+| Hole/fillet/chamfer/shell                  | Coarse neutral dimensions exist, but complete selected persistent topology owners, all subtype/mode/termination states and regenerated topology are not independently qualified as a complete feature family                                                                                            | #121 broader generation                                                  |
+| Cut/two-pad/multibody histories            | Target/support persistent-face identities, ordered body/atom joins, scope and operation variants, full composed archive graph and native generated history acceptance remain separate requirements                                                                                                      | #121; #297 encoder                                                       |
+| Dome/move/combine/scale/surface extrusions | Current typed scalar projections do not close all selected body/face ownership, origins/frames, Boolean variants or surface/topology/history semantics; no complete generative native writer is qualified                                                                                               | #121 broader grammar                                                     |
+| Assemblies/configuration/annotations       | Existing primitive and scoped readers remain distinct from complete generated child bundles, references, mate solver semantics, source-owned auxiliary/history/presentation preservation and measured editable acceptance. Merged top-annotation reading does not imply part/assembly writing           | #121; #297; completed #304 read slice                                    |
+
+### Qualifier and advertised-route audit
+
+No qualifier bypass was found in the inspected SDK writer delegation. Registered writes retain material, research-status, unit, equation, support and read-only checks. The cold part exception is restricted to the exact writer type and remains followed by complete regenerated readback equality and the exact measured archive gate. Assembly extensions are absent from `Core/Writing/PartWriteInfo.py`. `.supports()` means that the bounded model can be prepared, not that a receipt exists or the vendor accepted that output.
+
+`kit decode` delegates to the same strict reader through the public command runtime and is intentionally an inspection route. A successful neutral document, native class classification, scalar parameter extraction or retained opaque history is not advertised conversion acceptance. Generic native history remains refused for other writer routes. The concrete missing accepted route is the measured cold-part CLI delegation above; there is no reason to broaden unrelated feature or export guards to repair it
+
+### Cold CLI repair and independent adversarial verification
+
+Parent-owned `A12-ColdCliParity20261127` repairs the delegation gap above. The CLI recognizes only the actual `SldprtWriter` type and delegates only a root document satisfying `IsColdRead`; the SDK still regenerates the complete candidate, requires exact document equality, and enforces its exact native measurement receipt. This exception does not change shared retained-data checks or other writers.
+
+Independent serialized public-process coverage resides in `tests/Convert/Solidworks/PlainWriting/ColdCliGuards/`. The final run passes all 14 cases in 27.01 seconds with the pinned Python 3.14.6 environment. Both measured Skew and Step controls exercise six adversarial inputs each: forged cold marker, altered source binding, additional native feature, opaque metadata, assembly context and embedded-document context. Two further SDK/CLI cases prove the native document remains refused by another writer. Every CLI case preserves the existing output and input/receipt bytes and leaves no temporary publication artifacts. The forged marker reaches sketch qualification and refuses; altered binding, feature and metadata reach exact regenerated-readback comparison and refuse; assembly contexts fail adapter admission. Black 26.10.1, locked Mypy 2.4.1 and steering pass all six new files.
+
+Run this verification from the checkout with:
+
+```sh
+PYTHONPATH=src:Cli /private/tmp/KitOffsetTools20261127/unicad-kit/bin/python3 -m pytest tests/Convert/Solidworks/PlainWriting/ColdCliGuards -q --tb=short
+```
+
+The subprocess fixtures explicitly set absolute checkout `src` and `Cli` paths. The initial relative environment inherited from a temporary working directory loaded an installed checkout instead; strengthened causal assertions exposed this verification error. The subsequent six failures were diagnostic expectations (`ValueError` for forged sketch support and `AdapterNotFoundError` for assembly contexts), corrected without changing admission or preservation assertions. Parent retains the initial combined failure report. This offline delegation verification establishes no new native generated-file acceptance, feature family, or conversion qualification.

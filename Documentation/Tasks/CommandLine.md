@@ -80,6 +80,7 @@ kit convert model.f3d model.json --from fusion.f3d --to interchange.json --json
 The SOLIDWORKS entry includes bounded `.SLDPRT` writing. `.SLDASM` remains read-only.
 For eligible part output, supply the matching offline measurement with `--native-measurement RECEIPT`.
 See the [measured part publication requirements](../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md).
+The [measured cold-read part route](../Changes/Commands/Parts/SolidworksColdReadParity.md) also accepts eligible `.SLDPRT` sources through complete independent regeneration, source-document equality and exact output receipt matching. Its source-native records remain subject to that writer qualification; other routes retain the generic portable guards below.
 Format registration does not establish complete feature coverage.
 
 Expected result: the output file and a conversion report, or a nonzero exit with an error.

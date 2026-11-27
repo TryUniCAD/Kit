@@ -1,0 +1,99 @@
+{
+  "base_revision": "6087ed24cb75ad8fb10626b556192c0351d989d7",
+  "models": false,
+  "native_calls": 0,
+  "new_native_acceptance": false,
+  "cases": [
+    {
+      "role": "Skew",
+      "source_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "sdk_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "cli_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "cli_exit": 0,
+      "existing_measurement_only": true
+    },
+    {
+      "role": "Step",
+      "source_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "sdk_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "cli_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "cli_exit": 0,
+      "existing_measurement_only": true
+    }
+  ],
+  "python": "3.14.6 (main, Jul 23 2026, 14:51:00) [Clang 22.1.3 ]",
+  "source_hashes": {
+    "src/convert/Commands/CheckPortable.py": "3bdaa5274bf67614bd512b27ccd6a432dcebeda8081b9ae2c6b6f230f91652b4",
+    "src/convert/Commands/ConvertFile.py": "ad8dde397f9b304bfd60d63428d019f51efc739b5ec5c67953aba16ae8d13aa7",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/CheckColdRead.py": "4f60f47ad3df37f656a61a854f777d4ddb4195d8112bd983d386f8f921a7f947",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MatchPartMeas.py": "3db048375d6adde3d584a615b3d089e50525adc253fef6f256add7768ce5149a",
+    "tests/Convert/Solidworks/PlainWriting/MakeColdSource.py": "8c40a6ed58099e5177918059a2e20435102032c2c80d7194e4fe331e5ead5959",
+    "re/solidworks/DecodedPromotion20261127/ProveColdCli.py": "d4bf68dea938fecea779320d0256e3486738d2e21e50f3848f37f1f5ef0cc55e"
+  },
+  "artifacts": {
+    "Skew/Cli.log": {
+      "sha256": "18cd94b60177ba3297fc715e74c4ef12e32b7a5702ee5f66e63e9ea65f62f397",
+      "bytes": 1457
+    },
+    "Skew/CliReport.json": {
+      "sha256": "18cd94b60177ba3297fc715e74c4ef12e32b7a5702ee5f66e63e9ea65f62f397",
+      "bytes": 1457
+    },
+    "Skew/CliResult.SLDPRT": {
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    "Skew/Measurement.json": {
+      "sha256": "480eb6ab9e3b2d288da97a08cec5fc874596a3850d7aff7f10afae5bfb6119e9",
+      "bytes": 14444
+    },
+    "Skew/Sdk/sdk factory skew.SLDPRT": {
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    "Skew/SdkReport.json": {
+      "sha256": "d1684caf9feb1118cca08e49b2616a5d28372fb36882ddf2258ab13522f805a2",
+      "bytes": 1376
+    },
+    "Skew/Source.SLDPRT": {
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    "Skew/sdk factory skew.SLDPRT": {
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    "Step/Cli.log": {
+      "sha256": "5d44afc955a4f2dfbafe48776244e6f1bbe3b9829ced91ff6f24f4f12c1d4272",
+      "bytes": 1465
+    },
+    "Step/CliReport.json": {
+      "sha256": "5d44afc955a4f2dfbafe48776244e6f1bbe3b9829ced91ff6f24f4f12c1d4272",
+      "bytes": 1465
+    },
+    "Step/CliResult.SLDPRT": {
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    },
+    "Step/Measurement.json": {
+      "sha256": "480eb6ab9e3b2d288da97a08cec5fc874596a3850d7aff7f10afae5bfb6119e9",
+      "bytes": 14444
+    },
+    "Step/Sdk/sdk \u8a2d\u8a08 stepped.SLDPRT": {
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    },
+    "Step/SdkReport.json": {
+      "sha256": "acfc607e5cf6483449e742b9565c0688cf82dcc9c1bcb30f9f7a3b891ec2e170",
+      "bytes": 1384
+    },
+    "Step/Source.SLDPRT": {
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    },
+    "Step/sdk \u8a2d\u8a08 stepped.SLDPRT": {
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    }
+  }
+}

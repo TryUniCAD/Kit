@@ -1024,7 +1024,7 @@ The completed [pinned CLI replay](../../../re/DecodedReadWrite20261127/README.md
 Accepted receipts keep their native acceptance finding and unqualified status; no conversion acceptance is inferred.
 
 The [change entry](../../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links both complete family inventories and revision-bound prototype evidence.
-`A11-DualDraftFrame20261127` is the next decided offline child, owned by Codex root with the existing two workers.
+`A11-DualDraftFrame20261127` is a decided active offline child, owned by Codex root with the existing two workers.
 It investigates the twelve stored XZ circular draft sources, deriving frame rules from `frame` and reserving `holdout_a` for verification.
 Dependencies are the completed bounded XY reader, source API transforms and complete live/snapshot correspondence.
 Exit requires actual frame/axis ownership, world-space geometry and mass, strict SDK/CLI reads, preserved XY controls and encoded frame counterexamples.
@@ -1033,6 +1033,8 @@ The recorded source-selected rule now passes six discovery and six reserved XZ s
 The composed public reader admits all 68 source files, including the twelve earlier placement refusals, with world geometry and mixed-space snapshots preserved.
 The original 56 XY document hashes remain identical against pinned SDK `2d40034ae` after canonical identity compatibility was restored.
 The [frame source receipt](../../../re/Fusion/DecodedPromotion20261127/DualFramePublic/Verification.json) retains encoded counterexamples, historical source versions and exact verification.
+All 442 composed integration cases pass. The separate [clean pinned CLI replay](../../../re/DecodedReadWrite20261127/README.md#principal-frame-draft-reader-replay) at `6087ed24c` reads all 68 committed sources strictly, with zero refusals/partial/error outcomes, exit `0`, and 138 exact artifacts retained.
+All receipts retain their independent acceptance finding and unqualified status; writing and conversion remain unfinished.
 Thirteen source-free Fusion span candidates pass typed equality and 117 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
 SOLIDWORKS reverse candidates and genuine saved controls retain their explicit typed-grammar, geometry and native-acceptance gaps.
 The subsequent offline phase adds bounded reversed cold-part reading and carries neutral reversal through the existing generative preparation pipeline.
@@ -1041,8 +1043,8 @@ Six neutral candidates regenerate the committed hashes after cold SDK reading an
 The [reader entry](../../Changes/Solidworks/Inspection/Parts/SolidworksReverseColdBoss.md) and [preparation entry](../../Changes/Solidworks/Construction/SolidworksReverseBossPreparation.md) state the exact boundary.
 The Fusion child adds a generic independent-side BRep builder and compares actual committed journals with recorded API observations.
 Its 80 archive integration cases include 748 complete mass-cache comparisons and eleven serialized mass counterexamples.
-Persistent tags/progenitors, full snapshots and material/scene/graphics admission remain unfinished; the geometry builder is not wired into strict reading.
-No production acceptance flag, exact native measurement gate or Fusion strict projection guard was broadened.
+At that geometry-only checkpoint, persistent tags/progenitors, full snapshots and material/scene/graphics admission remained unfinished; the later bounded XY and principal-XZ reader phases above implement their recorded strict source boundary.
+Production acceptance flags and exact native measurement gates remain unchanged.
 The native API status request timed out before any job submission; native candidate validation is waiting for transport recovery while offline implementation continues.
 Exit for the full task requires every evidenced decoded family to have complete semantic reading and donor-free generative writing through the shared SDK/CLI, with independent target acceptance and current-head CI/review.
 
@@ -1051,3 +1053,12 @@ Those replay outcomes describe the earlier checkpoint; the bounded reversed read
 The subsequent [clean pinned replay](../../../re/DecodedReadWrite20261127/README.md#bounded-reversed-reader-replay) at `08df1da93` reads all six SOLIDWORKS candidates with models and native calls disabled.
 Each new receipt retains forty unresolved items; full conversion and native qualification remain unfinished.
 The original failed supervisor setup and its separately submitted successful host-execution job remain distinct evidence.
+
+### A12-ColdCliParity20261127
+
+Codex root owns this decided active A16 child on PR #397. Scope is ordinary CLI parity with the existing exact measured SOLIDWORKS cold-read regeneration route; dependencies are `IsColdRead`, complete `CheckColdRead` equality and unchanged native measurement publication. Existing broader writer owners retain their scopes. The inventory audit reproduces two SDK successes and two CLI refusals at `NativeFeature` for the same measured Skew/Step inputs. Exit requires archive/process SDK/CLI parity, exact output hashes, altered-source and stale/missing receipt refusals, preservation of destinations and current-head checks. No new native acceptance is inferred.
+The final archive/process run passes all 79 cases; the [exact parity proof](../../../re/solidworks/DecodedPromotion20261127/ColdCliParity/README.md) retains both SDK/CLI outputs, existing native reports, failures and source-bound verification.
+
+### A11-RimFilletRead20261127
+
+Codex root owns this decided active A16 offline child on PR #397, with the existing Fusion evidence worker. Scope is complete neutral recovery for the 22 measured constant-radius top circular-rim fillet sources retained by merged PR #301. Dependencies are its typed/native evidence, owned radius and selected physical rim, complete live/snapshot geometry, mass, materials, scene and source-history preservation. PR #301 delivered snapshot transport and retained neutral projection as unfinished; no active overlapping owner was found on that merged delivery. Initial work records missing semantic joins before any shared reader change. Exit requires frozen rules on discovery inputs, sealed independent verification and serialized counterexamples, public SDK/CLI source reads and complete control preservation. Writer generation and new native lifecycle acceptance remain separate requirements. Models and CAD API calls remain disabled; no oracle lease is acquired.

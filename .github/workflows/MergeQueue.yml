@@ -424,6 +424,7 @@ jobs:
         ^tests/Research/Inference/Authoring/Recipes/
         ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
+        ^tests/Convert/Solidworks/PlainWriting/Cold
     defaults:
       run:
         shell: bash

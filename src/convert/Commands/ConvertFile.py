@@ -1,7 +1,7 @@
 from convert.api.ApiContext import GetRegistry
 from convert.api.ApiOpen import OpenDocument
 from convert.api.ApiWrite import WriteDocument
-from convert.adapters.solidworks.Container.Format import KPartFormatId
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.NativeMeasVals import NativeMeasVals
@@ -41,7 +41,7 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         StrictMode=True,
     )
     Writer = Registry.GetWriter(DestFormat)
-    IsPartWriter = Writer.info.FormatId == KPartFormatId
+    IsPartWriter = type(Writer) is SldprtWriter
     CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
     Result = WriteDocument(
         Document,

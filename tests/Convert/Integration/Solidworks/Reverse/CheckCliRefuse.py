@@ -3,7 +3,7 @@ import subprocess as ProcessLayer
 import sys as System
 
 
-# incomplete source semantics must refuse conversion before replacing an existing destination
+# unmeasured reversed parts must reach the native publication gate without replacing prior output
 def CheckCliRefuse(
     Source: FilePath, Target: FilePath, RootPath: FilePath, Environment: dict[str, str]
 ) -> None:
@@ -27,7 +27,7 @@ def CheckCliRefuse(
     )
     assert Refusal.returncode != 0
     assert (
-        "NativeFeature records are not conversion-ready"
+        "publication requires an offline native measurement receipt"
         in Refusal.stdout + Refusal.stderr
     )
     assert Target.read_bytes() == b"preserved"

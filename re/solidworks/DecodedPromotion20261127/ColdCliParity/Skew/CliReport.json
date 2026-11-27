@@ -1,0 +1,64 @@
+{
+  "source_format": "solidworks.sldprt",
+  "destination_format": "solidworks.sldprt",
+  "path": "/private/tmp/KitColdCliProof20261127/Skew/sdk factory skew.SLDPRT",
+  "bytes_written": 8094,
+  "application_usable": true,
+  "vendor_loadable": true,
+  "dropped": [],
+  "requirements": [],
+  "transfers": [
+    {
+      "capability": "body_structure",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "brep",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "configurations",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "editable_sketches",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "parameters",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "parametric_history",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "provenance",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "roundtrip_metadata",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "selections",
+      "mode": "native",
+      "carrier_reason": null
+    },
+    {
+      "capability": "support_planes",
+      "mode": "native",
+      "carrier_reason": null
+    }
+  ],
+  "diagnostics": [],
+  "acceptance": "Exact output matches the caller supplied offline SOLIDWORKS native measurement"
+}

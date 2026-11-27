@@ -36,3 +36,11 @@ The later retention repair moves its two Git subprocess checks out of assertions
 Clean pinned SDK and corpus `2d40034aeb57a8b9e25be5439850b54f518c5e16` process all 68 committed native draft sources through the existing supervisor and deterministic research CLI. Results are 56 strict reads, twelve placement refusals, zero partial reads and zero reader errors. Exit `3` publishes those rejected outcomes; it is not complete decoding of the cohort.
 
 `DualDraftReader/Replay.json` binds all inputs, the exact SDK and all 114 retained documents, receipts, summary and log artifacts. `Readers.tar.gz` preserves their bytes and member hashes. Each accepted source keeps its unresolved independent source/native acceptance finding. `portable_complete` remains false, semantic qualification remains unverified and native acceptance remains unestablished. `RetainDualReplay.py RUNTIME PINNED_SDK UNUSED_OUTPUT` verifies clean Git state, committed input blobs and every retained byte before recording the results.
+
+## Principal-frame draft reader replay
+
+The later clean pinned SDK and corpus `6087ed24cb75ad8fb10626b556192c0351d989d7` reads all 68 committed sources, including the twelve previously refused XZ states. The existing supervisor completes one offline job in a separate process, with 68 strict reads, zero rejected/partial/error outcomes and exit `0`. No model, CAD process or network oracle participates.
+
+`WorldDraftReader/Replay.json` binds the exact committed input blobs, SDK revision, worker receipt digest, outcome counts and all 138 retained document/receipt/summary/log member hashes. `Readers.tar.gz` preserves their exact bytes. `RetainWorldReplay.py RUNTIME PINNED_SDK UNUSED_OUTPUT` verifies the clean tracked checkout, revision agreement, committed input hashes, every unqualified/read-only marker and all retained member hashes. The previous XY-only replay and twelve refusals remain unchanged as historical evidence.
+
+All 68 receipts retain the unresolved independent source inventory/native acceptance finding. `portable_complete` remains false, semantic qualification stays unverified and native acceptance stays unestablished. Exit `0` proves the recorded strict inspection outcomes; it does not qualify editable conversion or writing.

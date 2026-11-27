@@ -1,0 +1,22 @@
+[
+  {
+    "role": "Skew",
+    "source_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+    "sdk": "accepted",
+    "sdk_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+    "sdk_result_type": "ConversionResult",
+    "cli_exit": 1,
+    "cli_error": "{\"error\": \"ValueError\", \"message\": \"NativeFeature records are not conversion-ready; use kit decode or kit research for inspection\"}",
+    "cli_target_preserved": true
+  },
+  {
+    "role": "Step",
+    "source_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+    "sdk": "accepted",
+    "sdk_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+    "sdk_result_type": "ConversionResult",
+    "cli_exit": 1,
+    "cli_error": "{\"error\": \"ValueError\", \"message\": \"NativeFeature records are not conversion-ready; use kit decode or kit research for inspection\"}",
+    "cli_target_preserved": true
+  }
+]

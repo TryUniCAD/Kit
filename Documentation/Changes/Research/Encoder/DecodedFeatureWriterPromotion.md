@@ -30,6 +30,7 @@ Full identity, snapshot, material and scene qualification remains required befor
 The subsequent [independent draft reader](../../Fusion/Readers/FusionIndependentDraftReader.md)
 implements that bounded source projection with separate live and snapshot proofs.
 Its output remains read-only, with native writer and conversion gates enforced.
+The subsequent [principal-frame reader](../../Fusion/Readers/FusionDraftFrameReader.md) admits the twelve qualified XZ sources. All 68 committed sources read strictly through pinned SDK/CLI `6087ed24c`, with all 138 replay artifacts retained and qualification gaps unchanged.
 
 The [translated sketch-link gotcha](../../../Gotchas/Conversion/Fusion/Geometry/Attribution/TranslatedSpanSketchLinks.md) records a refuted initial attribution rule and the corrected symbolic graph.
 All source/runtime observations, failures and pending acceptance requirements remain recorded.

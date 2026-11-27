@@ -4,6 +4,141 @@
   "native_acceptance": false,
   "members": [
     {
+      "path": "ColdCliParity/.gitignore",
+      "sha256": "52a7cfee61067ff43768435d01f527926197c034ac22870d45eb74fac69745f0",
+      "bytes": 38
+    },
+    {
+      "path": "ColdCliParity/Attempts/FirstCombined.xml.gz",
+      "sha256": "2ef7e96291ba76fe7e9ef8d24ddca7232be57cf1bbafa458fa809543daa8ff57",
+      "bytes": 1363
+    },
+    {
+      "path": "ColdCliParity/Attempts/FirstGuardTests.py",
+      "sha256": "92df1d63631d7f02148352d4451896233b2208dadb02fc26f87b5f4cfca7db0c",
+      "bytes": 2756
+    },
+    {
+      "path": "ColdCliParity/Attempts/Index.json",
+      "sha256": "8f60cf426cffbcecea7e5cf7ca9ac97803bd9d1538efc82c5652e74ab51fe8ff",
+      "bytes": 809
+    },
+    {
+      "path": "ColdCliParity/Attempts.json",
+      "sha256": "4443034f5956df30bd03d0a6c68804f490eec0c0a37d1941bde8ed0480d34f45",
+      "bytes": 1082
+    },
+    {
+      "path": "ColdCliParity/BeforeRepair.json",
+      "sha256": "3cdab8e439d3f97cdf4c5efc16d2f28834b4864945f698280cacf23f6daf838d",
+      "bytes": 967
+    },
+    {
+      "path": "ColdCliParity/FinalIntegration.xml",
+      "sha256": "2b15809005706e6a2991d3d408252b65fd7f560282bd5cb3ed72578e0e85d675",
+      "bytes": 10761
+    },
+    {
+      "path": "ColdCliParity/Integration.xml",
+      "sha256": "021798e7c5af4c6ee3c2df495ca3cec2ea8cd601941bf526c87fa2e6112f7528",
+      "bytes": 1853
+    },
+    {
+      "path": "ColdCliParity/Proof.json",
+      "sha256": "e57f64ebcb7f3dfe630485f80f8febaf13c1514d406a9717b8c1fc580b58f577",
+      "bytes": 4072
+    },
+    {
+      "path": "ColdCliParity/README.md",
+      "sha256": "e038e894920820f123073ab413b3013f03d96b9c5d55b7adfa17d507727f820d",
+      "bytes": 2774
+    },
+    {
+      "path": "ColdCliParity/Skew/Cli.log",
+      "sha256": "18cd94b60177ba3297fc715e74c4ef12e32b7a5702ee5f66e63e9ea65f62f397",
+      "bytes": 1457
+    },
+    {
+      "path": "ColdCliParity/Skew/CliReport.json",
+      "sha256": "18cd94b60177ba3297fc715e74c4ef12e32b7a5702ee5f66e63e9ea65f62f397",
+      "bytes": 1457
+    },
+    {
+      "path": "ColdCliParity/Skew/CliResult.SLDPRT",
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    {
+      "path": "ColdCliParity/Skew/Measurement.json",
+      "sha256": "480eb6ab9e3b2d288da97a08cec5fc874596a3850d7aff7f10afae5bfb6119e9",
+      "bytes": 14444
+    },
+    {
+      "path": "ColdCliParity/Skew/Sdk/sdk factory skew.SLDPRT",
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    {
+      "path": "ColdCliParity/Skew/SdkReport.json",
+      "sha256": "d1684caf9feb1118cca08e49b2616a5d28372fb36882ddf2258ab13522f805a2",
+      "bytes": 1376
+    },
+    {
+      "path": "ColdCliParity/Skew/Source.SLDPRT",
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    {
+      "path": "ColdCliParity/Skew/sdk factory skew.SLDPRT",
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "bytes": 8094
+    },
+    {
+      "path": "ColdCliParity/Step/Cli.log",
+      "sha256": "5d44afc955a4f2dfbafe48776244e6f1bbe3b9829ced91ff6f24f4f12c1d4272",
+      "bytes": 1465
+    },
+    {
+      "path": "ColdCliParity/Step/CliReport.json",
+      "sha256": "5d44afc955a4f2dfbafe48776244e6f1bbe3b9829ced91ff6f24f4f12c1d4272",
+      "bytes": 1465
+    },
+    {
+      "path": "ColdCliParity/Step/CliResult.SLDPRT",
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    },
+    {
+      "path": "ColdCliParity/Step/Measurement.json",
+      "sha256": "480eb6ab9e3b2d288da97a08cec5fc874596a3850d7aff7f10afae5bfb6119e9",
+      "bytes": 14444
+    },
+    {
+      "path": "ColdCliParity/Step/Sdk/sdk \u8a2d\u8a08 stepped.SLDPRT",
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    },
+    {
+      "path": "ColdCliParity/Step/SdkReport.json",
+      "sha256": "acfc607e5cf6483449e742b9565c0688cf82dcc9c1bcb30f9f7a3b891ec2e170",
+      "bytes": 1384
+    },
+    {
+      "path": "ColdCliParity/Step/Source.SLDPRT",
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    },
+    {
+      "path": "ColdCliParity/Step/sdk \u8a2d\u8a08 stepped.SLDPRT",
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "bytes": 8180
+    },
+    {
+      "path": "ColdCliParity/Verification.json",
+      "sha256": "2f3f0e60a65ad36af93c359bce50c7e69474b27f66f6fed677b5966fd0e8f2af",
+      "bytes": 2714
+    },
+    {
       "path": "Evidence/Attempts.json",
       "sha256": "a6beb35c8b6b09853e82271b6c8c9bf5dad95dea29afa135a8c443513ccc1839",
       "bytes": 1267
@@ -105,8 +240,8 @@
     },
     {
       "path": "Inventory.md",
-      "sha256": "0da08746474e379e0e88fa89bccbf47386c604e939f956fe6086914655564027",
-      "bytes": 29792
+      "sha256": "b2e9ba4c703c1ddf3acbe4741e0d9bca40d421048a333038d8b8a898004090b2",
+      "bytes": 46247
     },
     {
       "path": "Preparation/.gitignore",
@@ -122,6 +257,11 @@
       "path": "Preparation/Receipt.json",
       "sha256": "e05b63734949508aa14f4c1dc5d915932fbd984c4b7dfa0ef32b90547ed8549e",
       "bytes": 10199
+    },
+    {
+      "path": "ProveColdCli.py",
+      "sha256": "d4bf68dea938fecea779320d0256e3486738d2e21e50f3848f37f1f5ef0cc55e",
+      "bytes": 3518
     },
     {
       "path": "ProvePreparation.py",

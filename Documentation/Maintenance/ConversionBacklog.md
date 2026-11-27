@@ -769,11 +769,14 @@ Planning-register linkage follows stable availability of that separate work.
 ## A16-DecodedReadWrite20261127
 
 Codex owns the user-requested full decoded SOLIDWORKS/Fusion SDK and CLI read/write implementation on `feat/decoded-cad-read-write-20261127`.
-Delivery is [PR #397](https://github.com/TryUniCAD/Kit/pull/397). The [owning register](../Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127) records six decided active child scopes, dependencies and explicit exit conditions.
+Delivery is [PR #397](https://github.com/TryUniCAD/Kit/pull/397). The [owning register](../Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127) records eight decided active child scopes, dependencies and explicit exit conditions.
 The [change entry](../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links the per-family inventories, new generative prototypes, retained refusals and remaining acceptance gaps.
 Existing separate PR ownership is preserved; this work does not establish broad native writer or conversion acceptance.
 Native verification is waiting for the tailnet CAD API, which timed out before any job dispatch.
 Offline production work adds reversed cold-part SDK/CLI reading and generative candidate preparation with the exact native publication gate retained.
 The Fusion independent-side geometry child remains separate from complete strict source projection and native writer acceptance.
 Its subsequent reader child adds strict read-only source projection through the SDK and CLI after complete live and saved-state checks.
+The principal XZ extension reads all 68 committed draft sources through pinned SDK/CLI `6087ed24c`, with qualification gaps retained.
+The measured cold-part CLI parity child reaches the existing SDK writer contract without changing its complete regenerated-document comparison or exact native receipt gate.
+The decided rim-fillet reader child investigates complete selection/history semantics from the existing measured corpus; no fillet source projection is claimed yet.
 Full decoded-feature writing remains active implementation work, with native acceptance unavailable while the API is down.
