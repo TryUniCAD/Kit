@@ -1,0 +1,205 @@
+{
+  "active_sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56",
+  "attribute_type_chain": [
+    75,
+    76,
+    74
+  ],
+  "method_sha256": "a271d8ce97ad229c894a767706aa1ee6537f2864b60dddbe0a77c6b8966d994d",
+  "native_launches": 0,
+  "payload_fields_written": 0,
+  "public_decoder_calls": 0,
+  "schema": "kit.research.p03-vertex-attribute-owners.v1",
+  "source_sha256": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+  "unknown_records_skipped": 0,
+  "vertex_rows": [
+    {
+      "attributes": null,
+      "index": 13,
+      "legacy_admitted_saved_bytes": true,
+      "legacy_first_reference": 1,
+      "point_index": 56,
+      "point_m": [
+        0.0,
+        0.02,
+        0.012
+      ],
+      "scanner_attribute": 14,
+      "span": [
+        2239,
+        2268
+      ]
+    },
+    {
+      "attributes": null,
+      "index": 59,
+      "legacy_admitted_saved_bytes": true,
+      "legacy_first_reference": 1,
+      "point_index": 70,
+      "point_m": [
+        0.04,
+        0.02,
+        0.012
+      ],
+      "scanner_attribute": 60,
+      "span": [
+        2292,
+        2320
+      ]
+    },
+    {
+      "attributes": {
+        "definition_identifier": "VERTEX_AUTOMATION_2_2001",
+        "definition_index": 18,
+        "fields": {
+          "definition": 18,
+          "fields": [
+            0,
+            0
+          ],
+          "next": 0,
+          "next_of_type": 76,
+          "node_id": 236,
+          "owner": 68,
+          "previous": 0,
+          "previous_of_type": 0
+        },
+        "index": 75
+      },
+      "index": 68,
+      "legacy_admitted_saved_bytes": false,
+      "legacy_first_reference": 76,
+      "point_index": 66,
+      "point_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scanner_attribute": 69,
+      "span": [
+        2440,
+        2468
+      ]
+    },
+    {
+      "attributes": {
+        "definition_identifier": "VERTEX_AUTOMATION_2_2001",
+        "definition_index": 18,
+        "fields": {
+          "definition": 18,
+          "fields": [
+            0,
+            0
+          ],
+          "next": 0,
+          "next_of_type": 0,
+          "node_id": 234,
+          "owner": 72,
+          "previous": 0,
+          "previous_of_type": 76
+        },
+        "index": 74
+      },
+      "index": 72,
+      "legacy_admitted_saved_bytes": false,
+      "legacy_first_reference": 75,
+      "point_index": 73,
+      "point_m": [
+        0.04,
+        0.0,
+        0.0
+      ],
+      "scanner_attribute": 73,
+      "span": [
+        2508,
+        2536
+      ]
+    },
+    {
+      "attributes": {
+        "definition_identifier": "VERTEX_AUTOMATION_2_2001",
+        "definition_index": 18,
+        "fields": {
+          "definition": 18,
+          "fields": [
+            0,
+            0
+          ],
+          "next": 0,
+          "next_of_type": 74,
+          "node_id": 235,
+          "owner": 77,
+          "previous": 0,
+          "previous_of_type": 75
+        },
+        "index": 76
+      },
+      "index": 77,
+      "legacy_admitted_saved_bytes": false,
+      "legacy_first_reference": 77,
+      "point_index": 52,
+      "point_m": [
+        0.04,
+        0.02,
+        0.0
+      ],
+      "scanner_attribute": 78,
+      "span": [
+        2576,
+        2604
+      ]
+    },
+    {
+      "attributes": null,
+      "index": 55,
+      "legacy_admitted_saved_bytes": true,
+      "legacy_first_reference": 1,
+      "point_index": 10,
+      "point_m": [
+        0.0,
+        0.02,
+        0.0
+      ],
+      "scanner_attribute": 56,
+      "span": [
+        2655,
+        2683
+      ]
+    },
+    {
+      "attributes": null,
+      "index": 90,
+      "legacy_admitted_saved_bytes": true,
+      "legacy_first_reference": 1,
+      "point_index": 93,
+      "point_m": [
+        0.0,
+        0.0,
+        0.012
+      ],
+      "scanner_attribute": 91,
+      "span": [
+        2706,
+        2734
+      ]
+    },
+    {
+      "attributes": null,
+      "index": 67,
+      "legacy_admitted_saved_bytes": true,
+      "legacy_first_reference": 1,
+      "point_index": 69,
+      "point_m": [
+        0.04,
+        0.0,
+        0.012
+      ],
+      "scanner_attribute": 68,
+      "span": [
+        2757,
+        2785
+      ]
+    }
+  ],
+  "walk_sha256": "3519ddfafa1ef3cebb86f479719acb944ca36d5eb97438f384b6c1d29c75b967"
+}

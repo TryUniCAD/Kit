@@ -158,6 +158,43 @@ basis, and its endpoint agreement with the retained native measurement.
 The typed walk stops at kind 141 after 84 records. Full carrier ownership
 and the three missing vertex uses in the general reader remain open.
 
+#### B04-SW2026-P03-ACTIVE-OWNER-BOUNDARY
+
+The SOLIDWORKS reader lane owns this active research child on
+`codex/sw-p03-active-owner-boundary`. The
+[ownership claim](https://github.com/TryUniCAD/Kit/pull/340#issuecomment-7184604274)
+is recorded. [PR #345](https://github.com/TryUniCAD/Kit/pull/345) delivers this child.
+It starts from [PR #343](https://github.com/TryUniCAD/Kit/pull/343) at
+`0170e1a96b6972f48a5b2d0050b59eff792f25dd`. The two loader and wire
+evidence commands preserve the original trim findings.
+It retains the production
+and rollback ownership of [PR #340](https://github.com/TryUniCAD/Kit/pull/340),
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121) and
+[PR #255](https://github.com/TryUniCAD/Kit/pull/255). The measured native save
+and controls remain bound to [PR #338](https://github.com/TryUniCAD/Kit/pull/338).
+
+The exact saved derivative active payload is
+`af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56`.
+The typed research walk stops after 84 records at physical kind 141.
+This child qualifies its loader descriptor and pointer transfer, saved
+record extents and actual ownership. The offline walk must use the proved
+format layout, preserve record identities and stop at any further unknown.
+
+Exit requires the complete typed active graph or the exact subsequent
+boundary, and a comparison between the verified vertex records and the
+general reader's missing attributes 69, 73 and 78. Every newly claimed
+edge, point or carrier correspondence needs its actual reference and
+independent endpoints. If the remaining bytes prevent a join, record
+where the proof stops. The research does not change the production SDK
+or require a new native acquisition.
+
+The [active graph evidence](../../../re/solidworks/records/SavedActiveOwnerBoundary.md)
+reaches the exact terminator, resolves all declared pointers and retains
+the three saved attributed vertices. An independent native comparison
+matches all edge endpoints and outward face loops. The offline typed
+builder reproduces one closed solid. Public geometry recovery and source
+annotation binding remain separate.
+
 ### PR 158 implementation follow-up
 
 #### A08b-CatalogueThroughput: catalogue rescan groups and A03 overhead

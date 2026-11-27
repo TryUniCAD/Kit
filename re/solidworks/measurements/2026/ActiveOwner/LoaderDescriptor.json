@@ -1,0 +1,171 @@
+{
+  "active_schema": 37102,
+  "base_layout": {
+    "class_transmittable": true,
+    "display_name": "geometric owner of geometry",
+    "fields": [
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "owner",
+        "pointer_class": 1003,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "next",
+        "pointer_class": 141,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "previous",
+        "pointer_class": 141,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "shared_geometry",
+        "pointer_class": 1003,
+        "runtime_bytes": null,
+        "runtime_offset": null,
+        "transferred": true
+      }
+    ],
+    "name": "GEOMETRIC_OWNER",
+    "runtime_object_bytes": null
+  },
+  "base_registration": {
+    "end_exclusive": "0x18204fce6",
+    "sha256": "ac917cdfd69be66d807032e212dd8a1056211fac224f0f8938b965294f60a7fc",
+    "start": "0x18204fbfb"
+  },
+  "current_layout": {
+    "class_transmittable": true,
+    "display_name": "Geometric owner",
+    "fields": [
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "owner",
+        "pointer_class": 1003,
+        "runtime_bytes": 8,
+        "runtime_offset": 0,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "next",
+        "pointer_class": 141,
+        "runtime_bytes": 8,
+        "runtime_offset": 8,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "previous",
+        "pointer_class": 141,
+        "runtime_bytes": 8,
+        "runtime_offset": 16,
+        "transferred": true
+      },
+      {
+        "count": 0,
+        "encoding": "p",
+        "name": "shared_geometry",
+        "pointer_class": 1003,
+        "runtime_bytes": 8,
+        "runtime_offset": 24,
+        "transferred": true
+      }
+    ],
+    "name": "GEOMETRIC_OWNER",
+    "runtime_object_bytes": 32
+  },
+  "current_registration": {
+    "end_exclusive": "0x18143ae01",
+    "sha256": "a56d3e26cf7441b17be7e59ce1bffc6eab9cab0993b28f212d5e50d34d613f67",
+    "start": "0x18143ac80"
+  },
+  "embedding_base": 13006,
+  "equal_effective_wire_layout": true,
+  "equal_first_use_marker": 255,
+  "first_use_transfer": {
+    "comparison": {
+      "end_exclusive": "0x1819e92a0",
+      "sha256": "d823c7902bd5aa1be1556939fc4eadfc58504485fc42ec4c41078e69a6c8478f",
+      "start": "0x1819e8f20"
+    },
+    "field_transmit_or_variable_array": true,
+    "marker_site": "0x1819e91b1"
+  },
+  "kernel": {
+    "bytes": 72681488,
+    "name": "pskernel.dll",
+    "preferred_base": "0x180000000",
+    "reported_file_version": "37.01.250",
+    "sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969"
+  },
+  "kind": 141,
+  "kind_label": "GEOMETRIC_OWNER",
+  "kind_slot_base": {
+    "slot": "0x184543ce8",
+    "store": "0x18204fcdf",
+    "table": "0x184543880"
+  },
+  "kind_slot_current": {
+    "slot": "0x1845cd9e8",
+    "store": "0x18143adfa",
+    "table": "0x1845cd580"
+  },
+  "ordinary_field_receive": {
+    "descriptor_to_node_offset": {
+      "end_exclusive": "0x180a25cc6",
+      "sha256": "115c7ba89e3d08307691b5d1045c644ba41e74a95537f3ae6b869f2e42570f68",
+      "start": "0x180a25c44"
+    },
+    "pointer_scalar_arm": "0x180a1e8fd",
+    "shared_field_reader": "0x180a1e210"
+  },
+  "pointer_fixup": {
+    "class_predicate": "0x1804f8590",
+    "null_input_zeros_slot_at": "0x180a230e7",
+    "reference_id_from_runtime_slot_at": "0x180a22e31",
+    "resolved_pointer_to_same_slot_at": "0x180a22e5c",
+    "window": {
+      "end_exclusive": "0x180a230f0",
+      "sha256": "d13dcb6dd1dab1b599ba46925df36b63ebb311aa2b60fbef56b5cc2316f43b7a",
+      "start": "0x180a22d40"
+    },
+    "wrong_class_clears_slot_at": "0x180a22f29"
+  },
+  "schema": "kit.sw2026.p03.geometric-owner-static-loader.v1",
+  "scope": {
+    "actual_geometry_owner_identity_and_reciprocity": "independent wire graph proof required",
+    "bridge_identity_claim": false,
+    "native_execution": false,
+    "static_observation": true,
+    "strict_sdk_implementation": false
+  },
+  "tooling": {
+    "ghidra": "12.1.2",
+    "ghidra_probe_sha256": "6b8af0f3ae57c637fa1207b9a6f8dc378ce08dde67ea7c29c40f47d1eab08e92",
+    "jdk": "21.0.8",
+    "locator_sha256": "590b8cffe117eaf97e7de892d5a744b1edd37fb3063cdc44a9c9de39adacc91e",
+    "rea": "6.7.0",
+    "rea_evidence_id": "ev_fba311f362be6b0b05bd6ff56d72852f9abd3e69dbfdcb4a9d1290a0f7b3532e",
+    "receipt_method_sha256": "01b7e838f8a7435a00b31a387c942dcb3f27a682d9fe3997a2b6db1c593b5b76"
+  },
+  "typed_field_spec": "owner:p1003 next:p141 previous:p141 shared_geometry:p1003"
+}

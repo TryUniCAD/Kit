@@ -1,0 +1,37 @@
+{
+  "method_sha256": "1b4b93961ebd7cb6a82f21ac976c3115ab4de2ec6d57608c6e4a8d7767e29a48",
+  "native_launches": 0,
+  "native_record_sha256": "800b853bde09fd171487262ab0d1f49e73a621c500435895c281908bdc0153d0",
+  "public_decoder_calls": 0,
+  "result": {
+    "body_face_edge_vertex_loop_fin_counts": [
+      1,
+      6,
+      12,
+      8,
+      6,
+      24
+    ],
+    "centroid_mm": [
+      20.0,
+      10.0,
+      6.0
+    ],
+    "closed": true,
+    "exact_native_unordered_edges": 12,
+    "outward_ring_dots": [
+      9600.0,
+      9600.0,
+      9600.0,
+      9600.0,
+      9600.0,
+      9600.0
+    ],
+    "signed_volume_mm3": 9600.0,
+    "surface_area_mm2": 3040.0
+  },
+  "schema": "kit.research.p03-lower-typed-geometry.v1",
+  "sdk_schema_mutation": false,
+  "source_annotation_bindings": false,
+  "walk_sha256": "3519ddfafa1ef3cebb86f479719acb944ca36d5eb97438f384b6c1d29c75b967"
+}
