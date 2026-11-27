@@ -7,10 +7,12 @@
 # to you under it immediately and permanently.
 
 from os import environ
+from subprocess import TimeoutExpired
 from pathlib import Path
 
 from CaptureTools.Catalogue.SolidWorks.NativeSolidEnv import NativeSolidEnv
 from CaptureTools.Catalogue.SolidWorks.SolidPhaseFault import SolidPhaseFault
+from CaptureTools.Catalogue.SolidWorks.SolidRecovery import RPC_LOST, SHUTDOWN_TIMEOUT, SolidRecovery
 
 
 # a dedicated job bounds native descendants without touching other application sessions
@@ -53,11 +55,23 @@ def RunSolidPhase(CasePath, OutputPath, HostConfig, PhaseName, IsBatch=False):
             Command, SourceRoot, Environment, Output.fileno(), Errors.fileno()
         )
         try:
-            ExitCode = Process.wait(timeout=HostConfig.get("phase_seconds", 600))
+            try:
+                ExitCode = Process.wait(HostConfig.get("phase_seconds", 600))
+            except TimeoutExpired:
+                # A hung COM call can prevent PowerShell from reaching its shutdown handler.
+                Process.signal(9)
+                Process.wait(5)
+                Process.finish()
+                raise SolidRecovery(
+                    SHUTDOWN_TIMEOUT, f"SOLIDWORKS {PhaseName} phase deadline expired; terminated owned job"
+                ) from None
             Process.finish()
             if ExitCode:
                 Output.flush()
                 Errors.flush()
-                raise SolidPhaseFault(OutputPath, PhaseName, ExitCode)
+                Fault = SolidPhaseFault(OutputPath, PhaseName, ExitCode)
+                if ExitCode in (RPC_LOST, SHUTDOWN_TIMEOUT):
+                    raise SolidRecovery(ExitCode, Fault)
+                raise Fault
         finally:
             Process.close()

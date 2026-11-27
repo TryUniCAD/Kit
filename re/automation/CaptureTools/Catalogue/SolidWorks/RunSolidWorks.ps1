@@ -65,6 +65,7 @@ $Native = $null
 $ExitObserved = $false
 $ForcedCleanup = $false
 $Failure = $null
+$RpcLost = $false
 . (Join-Path $PSScriptRoot 'StartOwnedSolid.ps1')
 $FrameHandle = 0
 try {
@@ -94,13 +95,27 @@ try {
         }
         $FrameHandle = [long]$Receipt.frame_handle
     }
-} catch { $Failure = $_ } finally {
+} catch {
+    $Failure = $_
+    for ($Cause = $_.Exception; $null -ne $Cause; $Cause = $Cause.InnerException) {
+        # RPC server unavailable, call failed, call failed before execution, disconnected, server died with or without execution.
+        if ($Cause.HResult -in @(-2147023174, -2147023170, -2147023169, -2147417848, -2147418105, -2147418094)) {
+            $RpcLost = $true
+            break
+        }
+    }
+} finally {
     if ($null -ne $Native) {
         $NativeExit = Wait-OwnedExit -Process $Native -Created $Created -AllowClose ($null -eq $Failure) -FrameHandle $FrameHandle
         $ExitObserved = $NativeExit.Observed
         if (-not $ExitObserved -and $Native.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $Created) {
-            $Native.Kill()
-            $ForcedCleanup = $Native.WaitForExit(10000)
+            try {
+                $Native.Kill()
+                $ForcedCleanup = $Native.WaitForExit(10000)
+            } catch {
+                if (-not $Native.WaitForExit(0)) { throw }
+                $ExitObserved = $true
+            }
         }
         $ProcessId = $Native.Id
         $Native.Dispose()
@@ -117,5 +132,15 @@ try {
     if ($Acquired) { $Mutex.ReleaseMutex() }
     $Mutex.Dispose()
 }
+if ($RpcLost -and ($ExitObserved -or $ForcedCleanup) -and -not $QueueDirectory) {
+    [Console]::Error.WriteLine("SOLIDWORKS COM/RPC session lost: " + $Failure.Exception.ToString())
+    exit 71
+}
 if ($null -ne $Failure) { throw $Failure }
-if (-not $ExitObserved) { throw 'The owned SOLIDWORKS process did not exit normally.' }
+if (-not $ExitObserved) {
+    if ($ForcedCleanup -and -not $QueueDirectory) {
+        [Console]::Error.WriteLine('SOLIDWORKS shutdown grace expired; terminated owned application.')
+        exit 72
+    }
+    throw 'The owned SOLIDWORKS process did not exit normally.'
+}
