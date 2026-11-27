@@ -74,7 +74,7 @@ The public SDK reads the same corners and planes but derives inward
 loop order from the current-format controls. It reads the generic
 legacy prism with outward loops. The raw native winding is the
 reference for current-format writing.
-[Wire and SDK winding comparison](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/NativeParasolidFinVertexIsTheEnd.md)
+[Wire and SDK winding comparison](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/Topology/NativeParasolidFinVertexIsTheEnd.md)
 
 Across all six populated native controls and the generic geometry
 experiment, the twelve straight edges and six planes bound the same
