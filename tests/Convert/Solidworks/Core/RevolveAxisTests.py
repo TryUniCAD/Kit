@@ -1,6 +1,8 @@
+from json import loads as LoadJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as Interpreter
+from typing import cast as CastValue
 from interchange import RevolutionFeature
 from convert.adapters.solidworks.Core.Adapter import (
     NativePartModel,
@@ -62,3 +64,6 @@ def TestAxisOwner() -> None:
             timeout=30,
         )
         assert Result.returncode == 0, Result.stderr
+        ReportValue = CastValue(dict[str, object], LoadJson(Result.stdout))
+        assert ReportValue["exact_native_hash"] is True
+        assert ReportValue["publications"] == 4

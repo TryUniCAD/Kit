@@ -1,0 +1,35 @@
+{
+  "case008": {
+    "state": "native succeeded; local lease failed at desktop pause; artifacts retrieved from the original request",
+    "controller_status": {
+      "cycle_searches": 0,
+      "jobs": [
+        {
+          "attempts": 1,
+          "deadline": null,
+          "fingerprint": "8906ed6599280fa66e1837ab2056542e3a2baa89ba12852ccb3afc08efa455a7",
+          "generation": 1,
+          "id": "solidworks-008",
+          "kind": "native.solidworks",
+          "lease_until": null,
+          "reason": "attempt budget exhausted",
+          "receipt": "6830e40c24a1d913ea76707dea6a41e20196b4057500a982359a6b035cd215dd",
+          "result": null,
+          "state": "failed"
+        }
+      ],
+      "next_after": null,
+      "reconciled_jobs": 0
+    },
+    "no_native_resubmission": true
+  },
+  "case020": {
+    "native_status": "failed",
+    "error": "COM remote procedure call failed; cleanup also reported unavailable RPC server",
+    "saved_native_files": 2,
+    "missing_after_control": true,
+    "supported_recovery_status": "recovered",
+    "no_native_resubmission": true
+  },
+  "remaining_cases": "021-023 executed only after supported recovery; their controls and measurements are retained"
+}

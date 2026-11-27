@@ -7,18 +7,23 @@ using System.Text;
 using System.Web.Script.Serialization;
 using SolidWorks.Interop.sldworks;
 
-public sealed class SolidWorksCapture
+public sealed partial class SolidWorksCapture
 {
+    [ThreadStatic] internal static bool RoutineReadback;
     static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
     static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
-    readonly ISldWorks app = (ISldWorks)Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application"));
+    readonly ISldWorks app;
     readonly IMathUtility math;
     readonly string repo, output, template;
     readonly Dictionary<string, object>[] recipes;
     readonly string spec;
 
     SolidWorksCapture(string repo, string output)
+        : this((ISldWorks)Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application")), repo, output) { }
+
+    SolidWorksCapture(ISldWorks application, string repo, string output)
     {
+        this.app = application;
         this.repo = repo;
         this.output = output;
         math = (IMathUtility)app.GetMathUtility();
@@ -191,7 +196,7 @@ public sealed class SolidWorksCapture
             var sketch = BeginSketch(doc,basis,null);
             if (id == "P02")
             {
-                var circle = (ISketchSegment)doc.SketchManager.CreateCircleByRadius(0,0,0,.005);
+                var circle = (ISketchSegment)doc.SketchManager.CreateCircleByRadius(0,0,0,ConfiguredValue(id,"diameter_mm",.010)/2);
                 Check(circle != null,"Create origin circle");
                 if (sketch.RelationManager.GetRelationsCount(0) == 0)
                 {
@@ -202,21 +207,24 @@ public sealed class SolidWorksCapture
                 }
                 doc.ClearSelection2(true);
                 Select(circle);
-                SetName(doc.IAddDiameterDimension2(.014,.014,.014),"diameter_mm",.010);
+                SetName(doc.IAddDiameterDimension2(.014,.014,.014),"diameter_mm",ConfiguredValue(id,"diameter_mm",.010));
                 EndSketch(doc,sketch,"CircleSketch");
             }
             else if (id == "P05")
             {
-                var outline = Rectangle(doc,sketch,basis,.002,0,.006,.012,0);
-                var inner = Corner(sketch,basis,.002,0,0);
-                var outer = Corner(sketch,basis,.006,0,0);
+                double innerRadius=ConfiguredValue(id,"inner_radius_mm",.002);
+                double outerRadius=ConfiguredValue(id,"outer_radius_mm",.006);
+                double height=ConfiguredValue(id,"height_mm",.012);
+                var outline = Rectangle(doc,sketch,basis,innerRadius,0,outerRadius,height,0);
+                var inner = Corner(sketch,basis,innerRadius,0,0);
+                var outer = Corner(sketch,basis,outerRadius,0,0);
                 doc.ClearSelection2(true);
                 Origin(doc);
                 Select(inner,true);
                 doc.SketchAddConstraints("sgHORIZPOINTS");
-                OriginDimension(doc,sketch,inner,basis,0,"inner_radius_mm",.002);
-                OriginDimension(doc,sketch,outer,basis,0,"outer_radius_mm",.006);
-                EdgeDimension(doc,Edge(sketch,outline,basis,0,.002),"height_mm",.012);
+                OriginDimension(doc,sketch,inner,basis,0,"inner_radius_mm",innerRadius);
+                OriginDimension(doc,sketch,outer,basis,0,"outer_radius_mm",outerRadius);
+                EdgeDimension(doc,Edge(sketch,outline,basis,0,innerRadius),"height_mm",height);
                 var end = Transform(World(basis,0,.02,0),sketch.ModelToSketchTransform);
                 var manager = doc.SketchManager;
                 manager.AddToDB = true;
@@ -229,20 +237,24 @@ public sealed class SolidWorksCapture
                 doc.SketchAddConstraints("sgFIXED");
                 var profile = EndSketch(doc,sketch,"AnnulusProfile");
                 Check(profile.Select2(false,0),"Select axis-bound profile");
-                var feature = doc.FeatureManager.FeatureRevolve2(true,true,false,false,false,false,0,0,2*Math.PI,0,false,false,0,0,0,0,0,false,true,true);
+                double angle=ConfiguredValue(id,"angle_deg",2*Math.PI);
+                var feature = doc.FeatureManager.FeatureRevolve2(true,true,false,false,false,false,0,0,angle,0,false,false,0,0,0,0,0,false,true,true);
                 Check(feature != null,"Create full revolution");
                 feature.Name = "Revolution";
-                FeatureDimension(feature,"angle_deg",2*Math.PI);
+                FeatureDimension(feature,"angle_deg",angle);
             }
             else
             {
-                var edges = Rectangle(doc,sketch,basis,0,0,.04,.02,0);
-                EdgeDimension(doc,Edge(sketch,edges,basis,1,0),"width_mm",.04);
-                EdgeDimension(doc,Edge(sketch,edges,basis,0,0),"height_mm",.02);
+                double width=ConfiguredValue(id,"width_mm",.04);
+                double height=ConfiguredValue(id,"height_mm",.02);
+                double depth=ConfiguredValue(id,"depth_mm",.01);
+                var edges = Rectangle(doc,sketch,basis,0,0,width,height,0);
+                EdgeDimension(doc,Edge(sketch,edges,basis,1,0),"width_mm",width);
+                EdgeDimension(doc,Edge(sketch,edges,basis,0,0),"height_mm",height);
                 var profile = EndSketch(doc,sketch,"RectangleSketch");
                 if (id != "P01")
                 {
-                    Extrusion(doc,profile,"BlindBoss",reverse,.01,false,false);
+                    Extrusion(doc,profile,"BlindBoss",reverse,depth,false,false);
                     if (id == "P04")
                     {
                         Check(doc.ForceRebuild3(false),"Rebuild parent boss");
@@ -251,17 +263,23 @@ public sealed class SolidWorksCapture
                         var face = Array(body.GetFaces()).Cast<IFace2>().Single(f =>
                             ((double[])f.Normal).Zip(normal,(a,b)=>Math.Abs(a-b)).Sum() < 1e-8);
                         var cut = BeginSketch(doc,basis,(IEntity)face);
-                        var edgesCut = Rectangle(doc,cut,basis,.015,.006,.025,.014,.01);
-                        var corner = Corner(cut,basis,.015,.006,.01);
-                        EdgeDimension(doc,Edge(cut,edgesCut,basis,1,.006),"cut_width_mm",.010);
-                        EdgeDimension(doc,Edge(cut,edgesCut,basis,0,.015),"cut_height_mm",.008);
-                        var du = OriginDimension(doc,cut,corner,basis,0,"cut_left_mm",.015);
-                        var dv = OriginDimension(doc,cut,corner,basis,1,"cut_bottom_mm",.006);
+                        double cutWidth=ConfiguredValue(id,"cut_width_mm",.010);
+                        double cutHeight=ConfiguredValue(id,"cut_height_mm",.008);
+                        double cutLeft=configuredCase == null ? .015 : (width-cutWidth)/2;
+                        double cutBottom=configuredCase == null ? .006 : (height-cutHeight)/2;
+                        var edgesCut = Rectangle(doc,cut,basis,cutLeft,cutBottom,
+                            configuredCase == null ? .025 : cutLeft+cutWidth,
+                            configuredCase == null ? .014 : cutBottom+cutHeight,depth);
+                        var corner = Corner(cut,basis,cutLeft,cutBottom,depth);
+                        EdgeDimension(doc,Edge(cut,edgesCut,basis,1,cutBottom),"cut_width_mm",cutWidth);
+                        EdgeDimension(doc,Edge(cut,edgesCut,basis,0,cutLeft),"cut_height_mm",cutHeight);
+                        var du = OriginDimension(doc,cut,corner,basis,0,"cut_left_mm",cutLeft);
+                        var dv = OriginDimension(doc,cut,corner,basis,1,"cut_bottom_mm",cutBottom);
                         var cutProfile = EndSketch(doc,cut,"CutSketch");
                         var equations = doc.GetEquationMgr();
                         SetEquation(equations,du,"width_mm@RectangleSketch","cut_width_mm@CutSketch");
                         SetEquation(equations,dv,"height_mm@RectangleSketch","cut_height_mm@CutSketch");
-                        Extrusion(doc,cutProfile,through?"ThroughAllCut":"BlindCut",false,.004,true,through);
+                        Extrusion(doc,cutProfile,through?"ThroughAllCut":"BlindCut",false,ConfiguredValue(id,"cut_depth_mm",.004),true,through);
                     }
                 }
             }
@@ -277,18 +295,59 @@ public sealed class SolidWorksCapture
         Check(manager.Add2(-1,equation,true) >= 0,"Add " + equation);
     }
     static void Rebuild(IModelDoc2 doc) { Check(doc.ForceRebuild3(false),"Rebuild " + doc.GetTitle()); }
-    void Close(IModelDoc2 doc) { app.CloseDoc(doc.GetTitle()); }
+    void Close(IModelDoc2 doc) {
+        string path=doc.GetPathName();
+        app.CloseDoc(doc.GetTitle());
+        if(RoutineReadback) {
+            Check(app.GetDocumentCount()==0,"Routine document close retained an open document");
+            Check(String.IsNullOrEmpty(path) || app.GetOpenDocumentByName(path)==null,
+                "Routine document close retained the saved model in memory");
+        }
+    }
     IModelDoc2 Open(string path, out object status, bool readOnly = false)
     {
-        int errors=0, warnings=0;
-        var doc=app.OpenDoc6(path,1,readOnly ? 3 : 1,"",ref errors,ref warnings);
-        status=Row("errors",errors,"warnings",warnings);
-        if (doc == null || errors != 0 || (warnings != 0 && !(readOnly && warnings == 2)))
-        {
-            if (doc != null) Close(doc);
-            throw new InvalidOperationException("Open " + path + ": errors " + errors + ", warnings " + warnings);
+        string pin=Hash(path);
+        int initialDocuments=app.GetDocumentCount();
+        var elapsed=System.Diagnostics.Stopwatch.StartNew();
+        status=null;
+        for(int attempt=1;attempt<=3;attempt++) {
+            int errors=0,warnings=0;
+            IModelDoc2 doc=null;
+            var record=Row("attempt",attempt);
+            var clock=System.Diagnostics.Stopwatch.StartNew();
+            try {
+                doc=app.OpenDoc6(path,1,readOnly ? 3 : 1,"",ref errors,ref warnings);
+                Check(doc!=null && errors==0 && (warnings==0 || (readOnly && warnings==2)),
+                    "Open "+path+": errors "+errors+", warnings "+warnings);
+                Check(String.Equals(Path.GetFullPath(doc.GetPathName()),Path.GetFullPath(path),StringComparison.OrdinalIgnoreCase),
+                    "Open returned a different document "+path);
+                Check(Hash(path)==pin,"Open changed saved bytes "+path);
+                status=Row("errors",errors,"warnings",warnings);
+                record["opened"]=true;
+                return doc;
+            } catch(Exception failure) {
+                record["opened"]=false;
+                record["failure"]=failure.ToString();
+                if(doc!=null) {
+                    Check(String.Equals(Path.GetFullPath(doc.GetPathName()),Path.GetFullPath(path),StringComparison.OrdinalIgnoreCase),
+                        "Refuse cleanup of a different document "+path);
+                    Close(doc);
+                }
+                Check(Hash(path)==pin && app.GetDocumentCount()==initialDocuments,
+                    "Cannot safely retry open after document or saved bytes changed "+path);
+                if(attempt==3) throw;
+            } finally {
+                record["errors"]=errors;
+                record["warnings"]=warnings;
+                record["seconds"]=clock.Elapsed.TotalSeconds;
+                record["total_seconds"]=elapsed.Elapsed.TotalSeconds;
+                Directory.CreateDirectory(output);
+                File.AppendAllText(Path.Combine(output,"open-attempts.jsonl"),
+                    Json.Serialize(Row("file",Path.GetFullPath(path),"pid",app.GetProcessID(),"attempt",record))+"\n",Utf8);
+            }
+            System.Threading.Thread.Sleep(1000);
         }
-        return doc;
+        throw new InvalidOperationException("Open attempts exhausted "+path);
     }
     Dictionary<string,object> Save(IModelDoc2 doc, string path, bool copy)
     {
@@ -413,7 +472,7 @@ public sealed class SolidWorksCapture
     }
     Dictionary<string,object> Control(string label)
     {
-        if (label != "after" || app.GetDocumentCount() != 0)
+        if (app.GetDocumentCount() != 0)
             return ReadControl(label, false);
 
         // a stock part opened without a window avoids the final document close stall
@@ -438,7 +497,7 @@ public sealed class SolidWorksCapture
         }
         finally
         {
-            // the sole read-only final control can close without entering the save path
+            // the sole read-only stock control can close without entering the save path
             if (discard && doc.IsOpenedReadOnly() && app.GetDocumentCount() == 1
                 && string.Equals(doc.GetPathName(), path, StringComparison.OrdinalIgnoreCase))
             {
@@ -470,14 +529,17 @@ public sealed class SolidWorksCapture
         finally { Close(doc); }
     }
     static string Filename(string id, string suffix) { return id + "-solidworks-" + suffix + ".SLDPRT"; }
-    string Basis(string id) { return id=="P05"?"XZ":"XY"; }
+    string Basis(string id) { return configuredCase == null ? (id=="P05"?"XZ":"XY") : (string)configuredOptions["basis"]; }
     void First(Dictionary<string,object> recipe)
     {
         var id=(string)recipe["id"];
         var dir=Path.Combine(output,id);
         Directory.CreateDirectory(dir);
+        MarkStage("healthy_control_before");
         var observations=Row("healthy_control_before",Control("before"));
-        var doc=Build(id,Basis(id),false,false);
+        MarkStage("baseline_authoring");
+        var doc=Build(id,Basis(id),configuredCase != null && (int)configuredOptions["direction"] == -1,
+            configuredCase != null && (string)configuredOptions["termination"] == "through_all");
         try
         {
             observations["baseline"]=Measure(doc,"as built",true);
@@ -499,8 +561,9 @@ public sealed class SolidWorksCapture
         string basis=Basis(id);
         Func<string,string> path=suffix=>Path.Combine(dir,Filename(id,suffix));
         object status;
-        Check(Convert.ToInt32(first["authoring_process_id"])!=app.GetProcessID(),"Baseline repeat requires a fresh SOLIDWORKS process");
+        Check(RoutineReadback || Convert.ToInt32(first["authoring_process_id"])!=app.GetProcessID(),"Baseline repeat requires a fresh SOLIDWORKS process");
         Check(Hash(path("baseline-a"))==(string)saves[0]["sha256"],"Baseline A hash changed");
+        MarkStage("baseline_reopen");
         var doc=Open(path("baseline-a"),out status);
         try
         {
@@ -508,6 +571,7 @@ public sealed class SolidWorksCapture
             Rebuild(doc);
             observations["unchanged_rebuild"]=Measure(doc,"baseline A after rebuild",true);
             saves.Add(Save(doc,path("baseline-b"),true));
+            MarkStage("edit_generation");
             foreach(var edit in Array(recipe["independent_edits"]).Cast<Dictionary<string,object>>())
             {
                 string name=(string)edit["parameter"];
@@ -524,12 +588,14 @@ public sealed class SolidWorksCapture
             saves.Add(Save(doc,path("units-inch"),true));
         }
         finally { Close(doc); }
+        MarkStage("variant_generation");
         if (id != "P05") CaptureVariant(id,dir,"plane-yz","YZ",false,false,saves,variants);
         if (id == "P03") CaptureVariant(id,dir,"direction-negative",basis,true,false,saves,variants);
         if (id == "P04") CaptureVariant(id,dir,"termination-through-all",basis,false,true,saves,variants);
         observations["edits"]=edits;
         observations["variants"]=variants;
         var reopened=new Dictionary<string,object>();
+        MarkStage("saved_file_verification");
         foreach(var save in saves)
         {
             var file=(string)save["file"];
@@ -538,7 +604,9 @@ public sealed class SolidWorksCapture
             Check(Hash(saved)==(string)save["sha256"],"Saved bytes changed during reopen " + file);
         }
         observations["reopened_files"]=reopened;
+        MarkStage("healthy_control_after");
         observations["healthy_control_after"]=Control("after");
+        MarkStage("receipt_publication");
         var measurements=Path.Combine(dir,"measurements.json");
         var binary=System.Diagnostics.Process.GetProcessById(app.GetProcessID()).MainModule.FileVersionInfo.FileVersion;
         Write(measurements,Row("recipe_id",id,"application","SOLIDWORKS 2026","exact_application_build",app.RevisionNumber(),"executable_file_version",binary,

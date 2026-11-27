@@ -35,6 +35,9 @@ audit and the current boundary.
 
 ## Read in this order
 
+Use the [shared decoder graph guide](../../Documentation/Reference/Research/DecoderGraph.md)
+to trace SOLIDWORKS and Fusion source relationships with Graphify.
+
 1. **`CorpusCoverage.md`** — the current boundary, the removed writer's last recursive FCStd audit,
    and the unsupported feature-family counts.
 2. **`container/`** — how a file is framed, and the 1000-entry `file_id` -> signature-triplet table.

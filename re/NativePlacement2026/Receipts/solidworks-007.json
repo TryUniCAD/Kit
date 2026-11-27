@@ -1,0 +1,84 @@
+{
+  "job": "solidworks-007",
+  "revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "case": {
+    "application": "solidworks",
+    "axis": "width",
+    "id": "solidworks-007",
+    "parameters_mm": {
+      "depth": 10,
+      "height": 20,
+      "width": 73.1
+    },
+    "plane": "front",
+    "reverse": true,
+    "script_sha256": "4f1d9c0c295115b313c9d006b05c8ec3202465c945c9b580f9c6a1de746c3993",
+    "split": "held-out"
+  },
+  "model_advice": false,
+  "native_status": "completed",
+  "started_at": 1795439776.3599958,
+  "finished_at": 1795439833.322347,
+  "elapsed_seconds": 56.96235108375549,
+  "native_requested_volume_comparisons": [
+    {
+      "case": "control-before",
+      "requested_volume_mm3": 8000,
+      "native_volume_mm3": 8000.000000000001,
+      "matches": true,
+      "source_sha256": "109fa952a4a11fff41502b23af9a1a6a60fbfcf31d041523862a809e3f539489"
+    },
+    {
+      "case": "variation",
+      "requested_volume_mm3": 14620.0,
+      "native_volume_mm3": 14620.0,
+      "matches": true,
+      "source_sha256": "a5755ef803daeb1a5f305cca31f1282bfba14ac174efe8a86651fb7f2231d6be"
+    },
+    {
+      "case": "control-after",
+      "requested_volume_mm3": 8000,
+      "native_volume_mm3": 8000.000000000001,
+      "matches": true,
+      "source_sha256": "48e652bcc1c000fb44fb228143c5986f66ab6addffa012574ae9fd4ab1ee42b7"
+    }
+  ],
+  "semantic_acceptance": false,
+  "vendor_conversion_acceptance": false,
+  "original_receipt_sha256": "a4b86b186657680e04da13e932555f6b701147621717495d835626ef235e718a",
+  "command_records": [
+    {
+      "argv": [
+        "<local-user>/.local/share/uv/tools/unicad-kit/bin/kit",
+        "decode",
+        "<campaign>/solidworks-007/Native/control-after.SLDPRT",
+        "-o",
+        "<campaign>/solidworks-007/control-after-neutral.json"
+      ],
+      "exit_code": 0,
+      "log": "control-after-strict.log"
+    },
+    {
+      "argv": [
+        "<local-user>/.local/share/uv/tools/unicad-kit/bin/kit",
+        "decode",
+        "<campaign>/solidworks-007/Native/control-before.SLDPRT",
+        "-o",
+        "<campaign>/solidworks-007/control-before-neutral.json"
+      ],
+      "exit_code": 0,
+      "log": "control-before-strict.log"
+    },
+    {
+      "argv": [
+        "<local-user>/.local/share/uv/tools/unicad-kit/bin/kit",
+        "decode",
+        "<campaign>/solidworks-007/Native/variation.SLDPRT",
+        "-o",
+        "<campaign>/solidworks-007/variation-neutral.json"
+      ],
+      "exit_code": 0,
+      "log": "variation-strict.log"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "evidence_scope": "historical_receipt_replay_only",
+  "method_sha256": "942be4dcd035f8cc099375b0e5ca33037e506ef6f10ed52f64d186108d6ba486",
+  "native_launches": 0,
+  "passed": true,
+  "results": [
+    {
+      "accepted_streams": 2,
+      "bytes": 9289,
+      "refusals": [
+        "missing_receipt",
+        "changed_model",
+        "different_epoch",
+        "different_locator",
+        "bad_build",
+        "missing_reopen",
+        "failed_control"
+      ],
+      "role": "Skew",
+      "sha256": "67c0a671254fe916f9c0d97a45bd786e32e54f7eb527c78bfe4356079a47d36a"
+    },
+    {
+      "accepted_streams": 2,
+      "bytes": 9395,
+      "refusals": [
+        "missing_receipt",
+        "changed_model",
+        "different_epoch",
+        "different_locator",
+        "bad_build",
+        "missing_reopen",
+        "failed_control"
+      ],
+      "role": "Step",
+      "sha256": "735b53c173fdcc039ad93873f02c23498edee2df909c83660f9b5c6c8041b282"
+    }
+  ],
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.encoder-publication-boundary.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "a9cd9140f5996dffbc30460c5e6aaf822e624eb58a8514c2d43231b62c8267c3",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "7114e5960fb5ea696fe985fe9c460f9815df0f96aa01fde930fcb8e1b61429ca",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/CheckMeasSlot.py": "1df8078c235fda219bb80c55724dcb1b361defa3227650491330758329aa04b3",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MatchMeasCase.py": "bbe1dcc5a0d97bb1a993abe9499d17ea0558b504b85b29eab39832272b8f9fe2",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MatchPartMeas.py": "07fb79afe8af1f172465e8bd0b3f14f25474e238b170cdb171f66b21c98c8d7b",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MeasPhaseMap.py": "94e96834ce21f2133751e919ba798b4c7f37c12523d843563d55c74c37e6b2d1",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadPartMeas.py": "56cb7fba1b5a35ff95dc3f04db8300704d1778fb7fd69b0c2adfb905e90de583"
+  }
+}

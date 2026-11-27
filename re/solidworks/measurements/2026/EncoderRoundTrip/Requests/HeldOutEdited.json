@@ -1,0 +1,428 @@
+{
+  "$type": "CadDocument",
+  "assembly": null,
+  "bodies": {
+    "$tuple": [
+      {
+        "$type": "Body",
+        "attributes": {},
+        "final_feature_id": "sldprt:feature:19",
+        "id": "sldprt:body:1",
+        "material_id": null,
+        "name": "Boss-Extrude1",
+        "provenance": null,
+        "topology": {
+          "$type": "TopologySummary",
+          "bounding_box": null,
+          "edge_count": 0,
+          "face_count": 0,
+          "shell_count": 0,
+          "solid_count": 0,
+          "surface_area": null,
+          "valid": null,
+          "vertex_count": 0,
+          "volume": null
+        }
+      }
+    ]
+  },
+  "brep": null,
+  "brep_payloads": {
+    "$tuple": []
+  },
+  "capabilities": {
+    "$frozenset": []
+  },
+  "configurations": {
+    "$tuple": [
+      {
+        "$type": "Configuration",
+        "active": true,
+        "attributes": {},
+        "id": "sldprt:configuration:0",
+        "name": "modeled default",
+        "overrides": {
+          "$tuple": []
+        },
+        "parent_id": null,
+        "suppressed_feature_ids": {
+          "$tuple": []
+        }
+      }
+    ]
+  },
+  "diagnostics": {
+    "$tuple": []
+  },
+  "feature_timeline": {
+    "$tuple": [
+      {
+        "$type": "FeatureStep",
+        "attributes": {},
+        "configuration_states": {
+          "$tuple": []
+        },
+        "definition": {
+          "$type": "ExtrusionFeature",
+          "direction": null,
+          "draft_angle": null,
+          "end_condition": {
+            "$enum": "ExtrusionEndCondition",
+            "value": "blind"
+          },
+          "length": {
+            "$type": "ParameterValue",
+            "kind": {
+              "$enum": "ValueKind",
+              "value": "length"
+            },
+            "unit": "mm",
+            "value": 12.19
+          },
+          "offset": null,
+          "reversed": false,
+          "second_draft_angle": null,
+          "second_end_condition": null,
+          "second_length": null,
+          "second_offset": null,
+          "second_up_to_reference": "",
+          "symmetric": false,
+          "up_to_reference": ""
+        },
+        "id": "sldprt:feature:19",
+        "input_feature_ids": {
+          "$tuple": []
+        },
+        "kind": {
+          "$enum": "FeatureKind",
+          "value": "extrusion"
+        },
+        "name": "Boss-Extrude1",
+        "operation": {
+          "$enum": "BooleanOperation",
+          "value": "create"
+        },
+        "order": 0,
+        "output_body_ids": {
+          "$tuple": []
+        },
+        "parameter_ids": {
+          "$tuple": [
+            "sldprt:parameter:19:D1"
+          ]
+        },
+        "provenance": null,
+        "selection_ids": {
+          "$tuple": []
+        },
+        "sketch_id": "sldprt:sketch:18",
+        "suppressed": false
+      }
+    ]
+  },
+  "materials": {
+    "$tuple": []
+  },
+  "meshes": {
+    "$tuple": []
+  },
+  "metadata": {
+    "name": "edited"
+  },
+  "parameters": {
+    "$tuple": [
+      {
+        "$type": "Parameter",
+        "attributes": {},
+        "expression": null,
+        "id": "sldprt:parameter:19:D1",
+        "name": "D1",
+        "owner_id": "sldprt:feature:19",
+        "provenance": null,
+        "role": {
+          "$enum": "ParameterRole",
+          "value": "driving"
+        },
+        "value": {
+          "$type": "ParameterValue",
+          "kind": {
+            "$enum": "ValueKind",
+            "value": "length"
+          },
+          "unit": "mm",
+          "value": 12.19
+        }
+      }
+    ]
+  },
+  "schema_version": "1.0",
+  "selections": {
+    "$tuple": []
+  },
+  "sketches": {
+    "$tuple": [
+      {
+        "$type": "Sketch",
+        "attributes": {},
+        "closed_profile_entity_ids": {
+          "$tuple": [
+            {
+              "$tuple": [
+                "sldprt:sketch:18:line:1",
+                "sldprt:sketch:18:line:2",
+                "sldprt:sketch:18:line:3",
+                "sldprt:sketch:18:line:4",
+                "sldprt:sketch:18:line:5",
+                "sldprt:sketch:18:line:6",
+                "sldprt:sketch:18:line:7"
+              ]
+            }
+          ]
+        },
+        "constraints": {
+          "$tuple": []
+        },
+        "entities": {
+          "$tuple": [
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": -9.0,
+                  "y": -12.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": -16.0,
+                  "y": 4.0
+                }
+              },
+              "id": "sldprt:sketch:18:line:1",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            },
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": 12.0,
+                  "y": -10.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": -9.0,
+                  "y": -12.0
+                }
+              },
+              "id": "sldprt:sketch:18:line:2",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            },
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": 21.0,
+                  "y": 2.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": 12.0,
+                  "y": -10.0
+                }
+              },
+              "id": "sldprt:sketch:18:line:3",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            },
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": 17.0,
+                  "y": 15.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": 21.0,
+                  "y": 2.0
+                }
+              },
+              "id": "sldprt:sketch:18:line:4",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            },
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": 2.0,
+                  "y": 11.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": 17.0,
+                  "y": 15.0
+                }
+              },
+              "id": "sldprt:sketch:18:line:5",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            },
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": -4.0,
+                  "y": 19.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": 2.0,
+                  "y": 11.0
+                }
+              },
+              "id": "sldprt:sketch:18:line:6",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            },
+            {
+              "$type": "SketchEntity",
+              "attributes": {},
+              "construction": false,
+              "fixed": false,
+              "geometry": {
+                "$type": "LineGeometry",
+                "end": {
+                  "$type": "Vector2",
+                  "x": -16.0,
+                  "y": 4.0
+                },
+                "start": {
+                  "$type": "Vector2",
+                  "x": -4.0,
+                  "y": 19.0
+                }
+              },
+              "id": "sldprt:sketch:18:line:7",
+              "kind": {
+                "$enum": "GeometryKind",
+                "value": "line"
+              },
+              "provenance": null
+            }
+          ]
+        },
+        "id": "sldprt:sketch:18",
+        "name": "Sketch1",
+        "parameter_ids": {
+          "$tuple": []
+        },
+        "provenance": null,
+        "support_plane_id": "sldprt:plane:14",
+        "suppressed": false
+      }
+    ]
+  },
+  "source": {
+    "$type": "CadSource",
+    "application_version": "",
+    "attributes": {},
+    "container_version": "4",
+    "format_id": "solidworks.sldprt",
+    "path": "<memory>",
+    "sha256": "de12400541872b4e95feb4bd46c387a8a1b17c8bde481cc74605ef29d4d31918"
+  },
+  "support_planes": {
+    "$tuple": [
+      {
+        "$type": "SupportPlane",
+        "attributes": {},
+        "id": "sldprt:plane:14",
+        "name": "Front Plane",
+        "offset_parameter_id": null,
+        "provenance": null,
+        "support_selection_id": null,
+        "transform": {
+          "$type": "Transform",
+          "origin": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "$type": "Vector3",
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "y_axis": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "z_axis": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        }
+      }
+    ]
+  },
+  "units": {
+    "$enum": "UnitSystem",
+    "value": "mm"
+  }
+}
