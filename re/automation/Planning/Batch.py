@@ -72,94 +72,94 @@ def main():
         if set(args.only) - items.keys():
             raise ValueError("Unknown explicitly selected scope")
         items = {key: value for key, value in items.items() if key in args.only}
-    lease = project_lock(project["id"])
-    token = args.token_file.read_text().strip()
-    state = {"Project": project["id"], "Items": {}, "NeedsRescan": True}
-    save_state(path, state)
-    scan(token, project["id"], state, path)
-    fields = load_fields(token, project)
-    status_options = {option["name"]: option["id"] for option in fields["Status"]["options"]}
-    numeric_fields = {field["name"]: field["id"] for field in rest(token, "/orgs/TryUniCAD/projectsV2/1/fields")}
-    remaining = [item for item in items.values() if item["Id"] not in state["Items"] or missing_values(item, state["Items"][item["Id"]], status_options)]
-    remaining.sort(key=lambda item: item["Status"].lower() not in {"active", "checking", "open", "complete"})
-    print("Remote scopes", len(state["Items"]), "remaining", len(remaining), flush=True)
-    for offset in range(0, len(remaining), args.batch_size):
-        batch = remaining[offset:offset + args.batch_size]
-        missing = [item for item in batch if item["Id"] not in state["Items"]]
-        if missing:
+    with project_lock(project["id"]):
+        token = args.token_file.read_text().strip()
+        state = {"Project": project["id"], "Items": {}, "NeedsRescan": True}
+        save_state(path, state)
+        scan(token, project["id"], state, path)
+        fields = load_fields(token, project)
+        status_options = {option["name"]: option["id"] for option in fields["Status"]["options"]}
+        numeric_fields = {field["name"]: field["id"] for field in rest(token, "/orgs/TryUniCAD/projectsV2/1/fields")}
+        remaining = [item for item in items.values() if item["Id"] not in state["Items"] or missing_values(item, state["Items"][item["Id"]], status_options)]
+        remaining.sort(key=lambda item: item["Status"].lower() not in {"active", "checking", "open", "complete"})
+        print("Remote scopes", len(state["Items"]), "remaining", len(remaining), flush=True)
+        for offset in range(0, len(remaining), args.batch_size):
+            batch = remaining[offset:offset + args.batch_size]
+            missing = [item for item in batch if item["Id"] not in state["Items"]]
+            if missing:
+                state["NeedsRescan"] = True
+                save_state(path, state)
+                creation_errors = []
+                with ThreadPoolExecutor(max_workers=1) as creators:
+                    futures = {}
+                    for item in missing:
+                        body = "<!-- KitScope:" + item["Id"] + " -->\n\nRecorded owner/contact: " + item["Owner"] + "\n\nCopy this prompt to the chosen agent. Assignment does not launch a runtime.\n\n```text\n" + task_prompt(item) + "\n```"
+                        future = creators.submit(graphql, token, 'mutation($project:ID!,$title:String!,$body:String!){addProjectV2DraftIssue(input:{projectId:$project,title:$title,body:$body}){projectItem{id fullDatabaseId}}}', {"project": project["id"], "title": (item["Id"] + " · " + item["Name"])[:240], "body": body})
+                        futures[future] = item["Id"]
+                    try:
+                        for future in as_completed(futures):
+                            if future.cancelled():
+                                continue
+                            try:
+                                row = future.result()["addProjectV2DraftIssue"]["projectItem"]
+                                if not row.get("id") or not row.get("fullDatabaseId"):
+                                    raise ValueError("Draft creation returned an incomplete identity")
+                                state["Items"][futures[future]] = {"Id": row["id"], "NumericId": row["fullDatabaseId"], "Fields": {}, "Status": None}
+                                save_state(path, state)
+                            except Exception as problem:
+                                creation_errors.append(str(problem))
+                                for pending in futures:
+                                    pending.cancel()
+                    except KeyboardInterrupt:
+                        for pending in futures:
+                            pending.cancel()
+                        raise
+                if creation_errors:
+                    state["Errors"] = creation_errors
+                    save_state(path, state)
+                    scan(token, project["id"], state, path)
+                    raise ValueError("Draft creation stopped after readback: " + creation_errors[0]) from None
+                state["NeedsRescan"] = False
+                save_state(path, state)
+            changes = [(item["Id"], missing_values(item, state["Items"][item["Id"]], status_options)) for item in batch]
+            changes = [(scope, values) for scope, values in changes if values]
             state["NeedsRescan"] = True
             save_state(path, state)
-            creation_errors = []
-            with ThreadPoolExecutor(max_workers=1) as creators:
+            errors = []
+            with ThreadPoolExecutor(max_workers=1) as workers:
                 futures = {}
-                for item in missing:
-                    body = "<!-- KitScope:" + item["Id"] + " -->\n\nRecorded owner/contact: " + item["Owner"] + "\n\nCopy this prompt to the chosen agent. Assignment does not launch a runtime.\n\n```text\n" + task_prompt(item) + "\n```"
-                    future = creators.submit(graphql, token, 'mutation($project:ID!,$title:String!,$body:String!){addProjectV2DraftIssue(input:{projectId:$project,title:$title,body:$body}){projectItem{id fullDatabaseId}}}', {"project": project["id"], "title": (item["Id"] + " · " + item["Name"])[:240], "body": body})
-                    futures[future] = item["Id"]
+                for scope, values in changes:
+                    future = workers.submit(rest, token, "/orgs/TryUniCAD/projectsV2/1/items/" + str(state["Items"][scope]["NumericId"]), {"fields": [{"id": numeric_fields[name], "value": value} for name, value in values.items()]})
+                    futures[future] = [(scope, values)]
                 try:
                     for future in as_completed(futures):
                         if future.cancelled():
                             continue
                         try:
-                            row = future.result()["addProjectV2DraftIssue"]["projectItem"]
-                            if not row.get("id") or not row.get("fullDatabaseId"):
-                                raise ValueError("Draft creation returned an incomplete identity")
-                            state["Items"][futures[future]] = {"Id": row["id"], "NumericId": row["fullDatabaseId"], "Fields": {}, "Status": None}
-                            save_state(path, state)
+                            future.result()
                         except Exception as problem:
-                            creation_errors.append(str(problem))
+                            errors.append(str(problem))
                             for pending in futures:
                                 pending.cancel()
+                            continue
+                        for scope, values in futures[future]:
+                            state["Items"][scope]["Fields"].update(values)
+                            if "Status" in values:
+                                state["Items"][scope]["Status"] = next(name for name, option in status_options.items() if option == values["Status"])
+                        save_state(path, state)
                 except KeyboardInterrupt:
                     for pending in futures:
                         pending.cancel()
                     raise
-            if creation_errors:
-                state["Errors"] = creation_errors
+            if errors:
+                state["Errors"] = errors
                 save_state(path, state)
                 scan(token, project["id"], state, path)
-                raise ValueError("Draft creation stopped after readback: " + creation_errors[0]) from None
+                raise ValueError("Field publication stopped after readback: " + errors[0]) from None
             state["NeedsRescan"] = False
             save_state(path, state)
-        changes = [(item["Id"], missing_values(item, state["Items"][item["Id"]], status_options)) for item in batch]
-        changes = [(scope, values) for scope, values in changes if values]
-        state["NeedsRescan"] = True
-        save_state(path, state)
-        errors = []
-        with ThreadPoolExecutor(max_workers=1) as workers:
-            futures = {}
-            for scope, values in changes:
-                future = workers.submit(rest, token, "/orgs/TryUniCAD/projectsV2/1/items/" + str(state["Items"][scope]["NumericId"]), {"fields": [{"id": numeric_fields[name], "value": value} for name, value in values.items()]})
-                futures[future] = [(scope, values)]
-            try:
-                for future in as_completed(futures):
-                    if future.cancelled():
-                        continue
-                    try:
-                        future.result()
-                    except Exception as problem:
-                        errors.append(str(problem))
-                        for pending in futures:
-                            pending.cancel()
-                        continue
-                    for scope, values in futures[future]:
-                        state["Items"][scope]["Fields"].update(values)
-                        if "Status" in values:
-                            state["Items"][scope]["Status"] = next(name for name, option in status_options.items() if option == values["Status"])
-                    save_state(path, state)
-            except KeyboardInterrupt:
-                for pending in futures:
-                    pending.cancel()
-                raise
-        if errors:
-            state["Errors"] = errors
-            save_state(path, state)
-            scan(token, project["id"], state, path)
-            raise ValueError("Field publication stopped after readback: " + errors[0]) from None
-        state["NeedsRescan"] = False
-        save_state(path, state)
-        print("Published batch", min(offset + len(batch), len(remaining)), "/", len(remaining), flush=True)
-    print("All recorded scopes imported; run Audit.py and Assignments.py for fresh verification", flush=True)
+            print("Published batch", min(offset + len(batch), len(remaining)), "/", len(remaining), flush=True)
+        print("All recorded scopes imported; run Audit.py and Assignments.py for fresh verification", flush=True)
 
 
 if __name__ == "__main__":

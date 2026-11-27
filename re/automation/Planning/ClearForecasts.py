@@ -77,62 +77,62 @@ def main():
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[3]
     project = json.loads((root / "Documentation/Planning/Project.json").read_text())
-    lease = project_lock(project["id"])
-    token = args.token_file.read_text().strip()
-    old = {}
-    for revision in ACCEPTED_REVISIONS:
-        saved = subprocess.run(["git", "show", revision + ":Documentation/Planning/Generated/BoardData.json"], cwd=root, text=True, capture_output=True, check=True)
-        for item in json.loads(saved.stdout)["Items"]:
-            old.setdefault(item["Id"], []).append(item)
-    rows = []
-    cursor = None
-    while True:
-        page = graphql(token, 'query($project:ID!,$cursor:String){node(id:$project){... on ProjectV2{items(first:100,after:$cursor){nodes{' + FIELDS + '} pageInfo{hasNextPage endCursor}}}}}', {"project": project["id"], "cursor": cursor})["node"]["items"]
-        rows.extend(page["nodes"])
-        if not page["pageInfo"]["hasNextPage"]:
-            break
-        cursor = page["pageInfo"]["endCursor"]
-    candidates = [row for row in rows if owned_forecast(row, old)]
-    output = root / "Documentation/Planning/ForecastRemoval.json"
-    previous = json.loads(output.read_text()) if output.exists() else {}
-    if previous and (previous.get("SourceRevision") != REVISION or previous.get("Project") != project["url"]):
-        raise ValueError("Existing forecast-removal receipt belongs to another project or source revision")
-    report = {
-        "ObservedAt": datetime.now(timezone.utc).isoformat(),
-        "SourceRevision": REVISION,
-        "AcceptedSourceRevisions": ACCEPTED_REVISIONS,
-        "Project": project["url"],
-        "Applied": args.apply,
-        "Candidates": [{"ItemId": row["id"], "ScopeId": row["scope"]["text"]} for row in candidates],
-        "SkippedManual": [row["id"] for row in rows if not owned_forecast(row, old) and ((row.get("start") or {}).get("date") or (row.get("finish") or {}).get("date"))],
-        "ClearedIds": previous.get("ClearedIds", []),
-        "ClearedScopes": previous.get("ClearedScopes", []),
-        "PreviouslyClearedCount": len(previous.get("ClearedIds", [])),
-        "Partial": {},
-        "Errors": [],
-        "PriorErrors": previous.get("PriorErrors", []) + ([{"ObservedAt": previous.get("ObservedAt"), "Errors": previous["Errors"]}] if previous.get("Errors") else []),
-    }
-    output.write_text(json.dumps(report, indent=2) + "\n")
-    if args.apply:
-        with ThreadPoolExecutor(max_workers=1) as pool:
-            for offset in range(0, len(candidates), 10):
-                futures = [pool.submit(clear_batch, token, project, candidates[start:start + 5], old) for start in range(offset, min(offset + 10, len(candidates)), 5)]
-                for future in as_completed(futures):
-                    try:
-                        result = future.result()
-                    except (ValueError, subprocess.SubprocessError) as problem:
-                        report["Errors"].append(str(problem))
-                    else:
-                        report["ClearedIds"].extend(row["ItemId"] for row in result["Cleared"])
-                        report["ClearedScopes"].extend(row["ScopeId"] for row in result["Cleared"])
-                        report["SkippedManual"].extend(result["SkippedManual"])
-                        report["Partial"].update(result["Partial"])
-                        if result["Error"]:
-                            report["Errors"].append(result["Error"])
-                    output.write_text(json.dumps(report, indent=2) + "\n")
-                if report["Errors"] or report["Partial"]:
-                    break
-    print("Eligible", len(candidates), "cleared", len(report["ClearedIds"]), "manual schedules preserved", len(report["SkippedManual"]), "errors", len(report["Errors"]), "partial", len(report["Partial"]))
+    with project_lock(project["id"]):
+        token = args.token_file.read_text().strip()
+        old = {}
+        for revision in ACCEPTED_REVISIONS:
+            saved = subprocess.run(["git", "show", revision + ":Documentation/Planning/Generated/BoardData.json"], cwd=root, text=True, capture_output=True, check=True)
+            for item in json.loads(saved.stdout)["Items"]:
+                old.setdefault(item["Id"], []).append(item)
+        rows = []
+        cursor = None
+        while True:
+            page = graphql(token, 'query($project:ID!,$cursor:String){node(id:$project){... on ProjectV2{items(first:100,after:$cursor){nodes{' + FIELDS + '} pageInfo{hasNextPage endCursor}}}}}', {"project": project["id"], "cursor": cursor})["node"]["items"]
+            rows.extend(page["nodes"])
+            if not page["pageInfo"]["hasNextPage"]:
+                break
+            cursor = page["pageInfo"]["endCursor"]
+        candidates = [row for row in rows if owned_forecast(row, old)]
+        output = root / "Documentation/Planning/ForecastRemoval.json"
+        previous = json.loads(output.read_text()) if output.exists() else {}
+        if previous and (previous.get("SourceRevision") != REVISION or previous.get("Project") != project["url"]):
+            raise ValueError("Existing forecast-removal receipt belongs to another project or source revision")
+        report = {
+            "ObservedAt": datetime.now(timezone.utc).isoformat(),
+            "SourceRevision": REVISION,
+            "AcceptedSourceRevisions": ACCEPTED_REVISIONS,
+            "Project": project["url"],
+            "Applied": args.apply,
+            "Candidates": [{"ItemId": row["id"], "ScopeId": row["scope"]["text"]} for row in candidates],
+            "SkippedManual": [row["id"] for row in rows if not owned_forecast(row, old) and ((row.get("start") or {}).get("date") or (row.get("finish") or {}).get("date"))],
+            "ClearedIds": previous.get("ClearedIds", []),
+            "ClearedScopes": previous.get("ClearedScopes", []),
+            "PreviouslyClearedCount": len(previous.get("ClearedIds", [])),
+            "Partial": {},
+            "Errors": [],
+            "PriorErrors": previous.get("PriorErrors", []) + ([{"ObservedAt": previous.get("ObservedAt"), "Errors": previous["Errors"]}] if previous.get("Errors") else []),
+        }
+        output.write_text(json.dumps(report, indent=2) + "\n")
+        if args.apply:
+            with ThreadPoolExecutor(max_workers=1) as pool:
+                for offset in range(0, len(candidates), 10):
+                    futures = [pool.submit(clear_batch, token, project, candidates[start:start + 5], old) for start in range(offset, min(offset + 10, len(candidates)), 5)]
+                    for future in as_completed(futures):
+                        try:
+                            result = future.result()
+                        except (ValueError, subprocess.SubprocessError) as problem:
+                            report["Errors"].append(str(problem))
+                        else:
+                            report["ClearedIds"].extend(row["ItemId"] for row in result["Cleared"])
+                            report["ClearedScopes"].extend(row["ScopeId"] for row in result["Cleared"])
+                            report["SkippedManual"].extend(result["SkippedManual"])
+                            report["Partial"].update(result["Partial"])
+                            if result["Error"]:
+                                report["Errors"].append(result["Error"])
+                        output.write_text(json.dumps(report, indent=2) + "\n")
+                    if report["Errors"] or report["Partial"]:
+                        break
+        print("Eligible", len(candidates), "cleared", len(report["ClearedIds"]), "manual schedules preserved", len(report["SkippedManual"]), "errors", len(report["Errors"]), "partial", len(report["Partial"]))
 
 
 if __name__ == "__main__":

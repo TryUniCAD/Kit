@@ -74,3 +74,7 @@ The undated board shows recorded state and scope type in place of empty calendar
 tracks. A representative source-record preview passed desktop and 390-pixel
 rendering without console errors; the full local-file browser flow was not verified
 because browser automation disallows local file URLs.
+
+Project mutation commands retain their file leases through explicit context managers.
+The lock remains held for the complete operation and closes on exceptions; dropping
+the returned handle immediately would release ownership before work begins.
