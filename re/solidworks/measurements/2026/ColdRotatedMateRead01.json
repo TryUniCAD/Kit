@@ -1,0 +1,74 @@
+{
+  "baseline_warm_worker": 1,
+  "cold": {
+    "deferred_source_opens": {
+      "A22CombinedRotated.SLDASM": 1
+    },
+    "guarded_in_memory_data_reads": 0,
+    "modes": {
+      "design": {
+        "child_brep": false,
+        "mate_driver_id": "sldasm:mate:2:0:1:parameter:20",
+        "mate_driver_mm": 63.5,
+        "packaged_schema_opens": 1,
+        "source_opens": {
+          "A22CombinedRotated.SLDASM": 1,
+          "CohortChild.SLDPRT": 1
+        }
+      },
+      "full": {
+        "child_brep": true,
+        "mate_driver_id": "sldasm:mate:2:0:1:parameter:20",
+        "mate_driver_mm": 63.5,
+        "packaged_schema_opens": 1,
+        "source_opens": {
+          "A22CombinedRotated.SLDASM": 1,
+          "CohortChild.SLDPRT": 1
+        }
+      }
+    },
+    "packaged_schema_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+    "public_writer_qualified": false,
+    "scope": "cold_parallel_distance_coincident",
+    "writer_refusals": [
+      "ordinary_registry_scope",
+      "direct_writer_receipt"
+    ]
+  },
+  "guarded_current_workers": 2,
+  "malformed": [
+    "unknown_parallel_option",
+    "stray_mate_class",
+    "unqualified_cold_child_stream"
+  ],
+  "method_sha256": "9511b5cd9b999dbc87ea81a811c7cd51cb688526e3a858c1527dcf4346d054d9",
+  "native_processes_started": 0,
+  "native_receipt_sha256": "dd062a6526c9fb74aad7e8425fa9c8f585ca9929c27d2ed1836271392ed02aff",
+  "prior_reader": "77d8cef5df85299070379a73595b764cb7c77049",
+  "schema": "kit.sw2026.cold-rotated-strict-read.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedMates/CanReadMates.py": "35db792becf2edefae4ca206d5c7837934d4dfe42ed25eb39938a4add2755d58",
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckColdGroup.py": "56a68dc9ed771ec7b9e871be16ea6cd89e9c9ac2e12fe7a605e228b34c9f0c8e",
+    "src/convert/adapters/solidworks/Core/TypedMates/ColdMateLayout.py": "7538f7b133bc61c72c8578c823a53bf729fced10ffafba28b484e6331ac2ffb0",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateChild.py": "ae43687e19f0fa5c3580a671c1df374024efd28d7f727ce13a75ca70a4782a02",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateKids.py": "1213970f6670a40988c01f9046fb340ba1472d09d181bc72d9dae013f6a74658",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMates.py": "9aa458ef8386834bb65ad3df75ad69c74402b82a1ab3fb2505cb39dd6a1afa9a"
+  },
+  "warm": {
+    "original": {
+      "legacy_snapshot_sha256": {
+        "design": "7cdaf004ea0891107c6db1f23486a436b5c19336c381e482f813aff94b55532e",
+        "full": "32c30e4acbc73524699cc692a38a2c443f8ac642a7d8938bc2ccb9c1c91b78be"
+      },
+      "typed_first_refusal": "unsupported SOLIDWORKS body class moAssemblyTimings_c schema 1"
+    },
+    "saved_child_typed_first_refusal": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+    "saved_edit": {
+      "legacy_snapshot_sha256": {
+        "design": "95fca02fc59772b5c0cef8d65a6b5d947193f90879ebd5c1fd8e9a5267eecd30",
+        "full": "2d959a31b1f83f9127d928606235ff804b99e2174b80b4c2fceead644d59f269"
+      },
+      "typed_first_refusal": "unsupported SOLIDWORKS body class moAssemblyTimings_c schema 1"
+    }
+  }
+}

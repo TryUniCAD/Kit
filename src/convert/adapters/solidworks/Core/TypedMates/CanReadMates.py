@@ -1,4 +1,9 @@
 from convert.adapters.solidworks.Container.Archive import ContainerMo
+from convert.adapters.solidworks.Core.TypedMates.ColdMateLayout import (
+    HasColdStreams,
+    KColdMateClasses,
+    KColdParentStreams,
+)
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 
 
@@ -13,14 +18,20 @@ def HasPlanarMates(EnvValue: PublicMateEnv) -> bool:
     ):
         return False
     ConfigValue, ListValue = Native.configurations[0], Native.mate_lists[0]
+    Classes = tuple(Value.class_name for Value in ListValue.mates)
     return (
         ConfigValue.configuration_id == 0
         and ConfigValue.model_id == Native.root_definition_id
         and ListValue.owner_definition_id == Native.root_definition_id
         and ListValue.stream == "Contents/Config-0-MatesList"
         and ListValue.declared_count == len(ListValue.mates)
-        and tuple(Value.class_name for Value in ListValue.mates)
-        == ("moMateCoincident", "moMateDistanceDim_c")
+        and (
+            Classes == ("moMateCoincident", "moMateDistanceDim_c")
+            or (
+                Classes == KColdMateClasses
+                and HasColdStreams(EnvValue.ArchiveValue, KColdParentStreams)
+            )
+        )
     )
 
 

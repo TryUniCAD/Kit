@@ -6,7 +6,9 @@ from convert.adapters.solidworks.Core.TypedMates.ReadMateChild import ReadMateCh
 
 
 # basename lookup needs an exact unique child identity before the existing planar projection can use it
-def ReadMateKids(EnvValue: PublicMateEnv) -> dict[tuple[str, int], PlanarChild]:
+def ReadMateKids(
+    EnvValue: PublicMateEnv, *, ColdRequired: bool = False
+) -> dict[tuple[str, int], PlanarChild]:
     Result: dict[tuple[str, int], PlanarChild] = {}
     Owners: dict[tuple[str, int], tuple[str, str]] = {}
     for Definition in EnvValue.NativeValue.definitions:
@@ -27,6 +29,8 @@ def ReadMateKids(EnvValue: PublicMateEnv) -> dict[tuple[str, int], PlanarChild]:
             Payload = Document.metadata.get(EnvValue.SourceKey)
             if type(Payload) is not bytes:
                 raise ValueError("typed mate child is missing its loaded archive")
-            Result[KeyValue] = ReadMateChild(Payload, Document.source.sha256)
+            Result[KeyValue] = ReadMateChild(
+                Payload, Document.source.sha256, ColdRequired=ColdRequired
+            )
             Owners[KeyValue] = Identity
     return Result
