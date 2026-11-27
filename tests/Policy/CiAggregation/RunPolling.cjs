@@ -27,6 +27,7 @@ const Remaining = { pacing: 600, exhausted: 450 }[CaseName] ?? 1000;
 let Gates = 0;
 let Reads = 0;
 let Charged = 0;
+let SeedQuery;
 const Github = {
   graphql: async () => ({ repository: { mergeQueue: null } }),
   rest: {
@@ -49,12 +50,19 @@ const Github = {
   paginate: async (Method, Request, Mapper) => {
     if (Method !== "listWorkflowRunsForRepo") return Inputs.Checks;
     Reads += 1;
+    SeedQuery ??= Request;
     const Response = { data: Inputs.Runs, headers: { etag: "W/1" } };
     return Mapper ? Mapper(Response) : Response.data;
   },
   request: async (Route, Request) => {
     if (Route !== "GET /repos/{owner}/{repo}/actions/runs")
       throw new Error(`Unexpected request ${Route}`);
+    if (
+      Object.entries(SeedQuery).some(([Name, Value]) => Request[Name] !== Value)
+    )
+      throw new Error(
+        "Conditional poll must use the startup listing parameters",
+      );
     Gates += 1;
     process.stdout.write(`poll ${Math.round((Clock - Start) / 1000)} s\n`);
     if (Request.headers["if-none-match"] !== "W/1")
