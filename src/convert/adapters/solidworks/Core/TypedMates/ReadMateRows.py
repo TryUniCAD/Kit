@@ -15,13 +15,17 @@ def ReadMateRows(
     EnvValue: PublicMateEnv,
     LegacyRules: tuple[MateConstraint, ...],
     LegacyEntities: tuple[MateEntity, ...],
+    *,
+    Deferred: bool = False,
 ) -> tuple[tuple[MateEntity, ...], tuple[MateConstraint, ...], tuple[Parameter, ...]]:
     Existing = {Value.id: Value for Value in LegacyEntities}
     Entities: list[MateEntity] = []
     Rules: list[MateConstraint] = []
     Parameters: list[Parameter] = []
     for NodeValue, LegacyValue in zip(NodesValue, LegacyRules, strict=True):
-        Picks, RuleValue = ReadPublicMate(NodeValue, Context, EnvValue, LegacyValue, Existing)
+        Picks, RuleValue = ReadPublicMate(
+            NodeValue, Context, EnvValue, LegacyValue, Existing, Deferred=Deferred
+        )
         ParameterValue = ReadMateDriver(NodeValue, RuleValue)
         if ParameterValue is not None:
             RuleValue = ReplaceValue(RuleValue, parameter_ids=(ParameterValue.id,))

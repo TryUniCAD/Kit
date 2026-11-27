@@ -27,6 +27,8 @@ def ReadPublicMates(
     LegacyEntities: tuple[MateEntity, ...],
     LegacyRules: tuple[MateConstraint, ...],
     LegacyGroups: tuple[MateGroup, ...],
+    *,
+    Deferred: bool = False,
 ) -> tuple[
     tuple[MateEntity, ...],
     tuple[MateConstraint, ...],
@@ -45,6 +47,10 @@ def ReadPublicMates(
     ):
         raise ValueError("typed mate stream bytes or complete inventory differ")
     IsColdTriple = len(GraphValue.RootsValue) == len(KColdMateClasses)
+    CheckMateIds(GraphValue.RootsValue, LinkValue)
+    CheckMateWraps(GraphValue.RootsValue)
+    if LegacyGroups:
+        raise ValueError("ordinary planar mates have additional legacy group owners")
     Native = EnvValue.NativeValue
     Items = {Value.feature_id: Value for Value in Native.occurrences}
     if len(Items) != len(Native.occurrences):
@@ -53,18 +59,31 @@ def ReadPublicMates(
         LinkValue.ConfigValue.RootValue,
         Items,
         {Value.object_id: Value for Value in Native.definitions},
-        ReadMateKids(EnvValue, ColdRequired=IsColdTriple),
+        {} if Deferred else ReadMateKids(EnvValue, ColdRequired=IsColdTriple),
     )
-    CheckMateIds(GraphValue.RootsValue, LinkValue)
-    CheckMateWraps(GraphValue.RootsValue)
     Entities, Rules, Parameters = ReadMateRows(
-        GraphValue.RootsValue, Context, EnvValue, LegacyRules, LegacyEntities
+        GraphValue.RootsValue,
+        Context,
+        EnvValue,
+        LegacyRules,
+        LegacyEntities,
+        Deferred=Deferred,
     )
-    if LegacyGroups:
-        raise ValueError("ordinary planar mates have additional legacy group owners")
     GroupValue = ReadMateGroup(
         LinkValue, GraphValue, Rules, LegacyRules[0].owner_definition_id
     )
+    if Deferred:
+        return (
+            Entities,
+            Rules,
+            (GroupValue,),
+            Parameters,
+            {
+                "status": "deferred",
+                "full_selected_mate_graph": False,
+                "public_writer_qualified": False,
+            },
+        )
     FixedFlags = ReadFixedFlags(Context)
     if IsColdTriple:
         CheckColdGroup(GraphValue.RootsValue, Rules, Parameters, FixedFlags)

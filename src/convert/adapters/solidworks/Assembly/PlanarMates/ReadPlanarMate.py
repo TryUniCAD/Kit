@@ -25,7 +25,11 @@ KPlanarKinds = {
 
 # exact endpoint identity can be projected once linked archive parsing has supplied the graph
 def ReadPlanarMate(
-    Context: PlanarContext, MateNode: ArchiveNode, Version: int
+    Context: PlanarContext,
+    MateNode: ArchiveNode,
+    Version: int,
+    *,
+    Deferred: bool = False,
 ) -> PlanarMate:
     if Version != KPlanarVersion:
         raise ValueError("planar mate projection requires archive version 19000")
@@ -43,8 +47,8 @@ def ReadPlanarMate(
             "mate class alignment or endpoint count lies outside planar projection"
         )
     MateId = FieldInt(Fields, "f08")
-    First = ReadEndpoint(Context, Records[0].get("o"), MateId, 0)
-    Second = ReadEndpoint(Context, Records[1].get("o"), MateId, 1)
+    First = ReadEndpoint(Context, Records[0].get("o"), MateId, 0, Deferred=Deferred)
+    Second = ReadEndpoint(Context, Records[1].get("o"), MateId, 1, Deferred=Deferred)
     Distance = ReadDistance(MateNode) if KindValue == "distance" else None
     return PlanarMate(
         MateId,

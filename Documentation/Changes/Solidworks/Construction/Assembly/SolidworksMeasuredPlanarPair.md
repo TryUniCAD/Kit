@@ -11,3 +11,9 @@ same measured files, including through a relative file handle followed
 by a neutral JSON round trip. The measured writer requires exactly two
 component occurrences.
 [Assembly writer reference](../../../../Reference/Adapters/SolidworksAssemblyWriting.md#coincident-and-distance-mates)
+
+A strict read with component resolution disabled retains the assembly-owned mates,
+their occurrence and datum references, the mate group, and the distance driver.
+Neutral JSON preserves those records. The reader does not verify the referenced
+child datums without the component files, so the mate report remains deferred
+and the read does not qualify for native republication.
