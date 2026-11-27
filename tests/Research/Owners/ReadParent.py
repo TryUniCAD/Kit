@@ -1,8 +1,8 @@
 import ctypes as CTypes
+import ctypes.wintypes as WindowsTypes
 import subprocess as Subprocess
 import sys as System
 from collections.abc import Callable
-from ctypes import wintypes as WindowsTypes
 from typing import cast
 
 # ownership checks need the operating systems process snapshot flag
