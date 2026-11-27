@@ -47,8 +47,8 @@ def TestStockRoute(StockReport: dict[str, object]) -> None:
     assert len(CastValue(dict[str, str], RoundTrip["refusals"])) == 6
 
 
-# exact publication must be observed, not counted as passing on refusal-only runtimes
-def TestMeasuredStockPublication(StockReport: dict[str, object]) -> None:
+# exact publication needs separate evidence from alternate compressor refusal
+def TestExactStock(StockReport: dict[str, object]) -> None:
     if StockReport["publications"] == 0 and "zlib-ng" in str(StockReport["compressor"]):
         Pytest.skip("alternate compressor exercised refusal, not measured publication")
     assert StockReport["publications"] == 3
