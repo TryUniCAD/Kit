@@ -106,5 +106,5 @@ def BindSavedCircle(
         BoundModel,
         SavedCircleAtom=BodyId,
         SavedCircleName=BodyName,
-        AttachedCylinderValue=Cylinder,
+        AttachedRoundValue=Cylinder,
     )

@@ -408,7 +408,6 @@ def ReadNativePart(
         and not PayloadDiags
         else None
     )
-    Attached = Model.AttachedCylinderValue
     ActivePart = (
         ReadActivePart(
             Payloads,
@@ -416,7 +415,9 @@ def ReadNativePart(
             TypedBodyId(Model),
             (Record.name for Record in Archive.records),
             VerifiedBody=(
-                (Attached.DigestValue, Attached.BodyValue) if Attached else None
+                (Attached.DigestValue, Attached.BodyValue)
+                if (Attached := Model.AttachedRoundValue) is not None
+                else None
             ),
         )
         if Candidate is None

@@ -1,5 +1,5 @@
-from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.AttachedCylinder import (
-    AttachedCylinder,
+from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.AttachedRound import (
+    AttachedRound,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHistMarks
@@ -41,7 +41,7 @@ def ReadAttachBody(
     ModelValue: NativeModel,
     *,
     SavedBody: bool,
-) -> tuple[str, AttachedCylinder]:
+) -> tuple[str, AttachedRound]:
     BodyTag = ReadAttachAtom(LinkValue, BossValue, BodyId, SavedBody=SavedBody)
     Active, History, Nodes = ReadAttachPart(Partition)
     CheckBodyMarks(LinkValue, BossValue, ReadHistMarks(History, Nodes))

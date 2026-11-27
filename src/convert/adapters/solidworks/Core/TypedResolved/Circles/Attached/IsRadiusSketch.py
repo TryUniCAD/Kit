@@ -11,8 +11,8 @@ def IsRadiusSketch(SketchValue: ArchiveNode) -> bool:
     except (TypeError, ValueError):
         return False
     return any(
-        isinstance(Dimension := Row.get("d"), ArchiveNode)
+        isinstance(Dimension := RowValue.get("d"), ArchiveNode)
         and Dimension.ClassValue.NameValue == "sgCircleDim"
         and Dimension.FieldsValue.get("f80") == 3
-        for Row in Values
+        for RowValue in Values
     )

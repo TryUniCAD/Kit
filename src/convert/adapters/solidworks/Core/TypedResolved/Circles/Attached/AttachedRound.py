@@ -6,7 +6,7 @@ from interchange.brep.Topology.BrepModel import BrepModel
 
 # reuse the validated cylinder only for the same active partition
 @DataClass(frozen=True, slots=True)
-class AttachedCylinder:
+class AttachedRound:
     BodyValue: BrepModel
     ShapeValue: CylinderData
     DigestValue: str

@@ -32,7 +32,7 @@ def SavedCircleGeom(
     if AtomValue is None or CircleValue is None:
         raise ValueError("saved circle geometry lacks its live sketch and boss proof")
     CheckCircShell(ModelValue, Payloads, AtomValue)
-    Attached = NativeValue.AttachedCylinderValue
+    Attached = NativeValue.AttachedRoundValue
     Result = (
         Attached.ShapeValue
         if Attached is not None and ModelValue is Attached.BodyValue
