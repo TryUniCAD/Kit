@@ -27,6 +27,8 @@ class WindowsProcess:
         self.pid = None
         self.returncode = None
         self.peak_memory_bytes = 0
+        # job membership drops before a killed process has released its handles and signalled exit
+        self.exiting = {}
         self.job_name = f"Local\\KitResearch-{secrets.token_hex(24)}"
         info = None
         try:
@@ -90,15 +92,43 @@ class WindowsProcess:
             raise subprocess.TimeoutExpired("research runner", timeout)
         return self.poll()
 
+    def hold_members(self):
+        members = observed_members(self.job)
+        for pid in members or ():
+            if pid in self.exiting:
+                continue
+            try:
+                handle = win32api.OpenProcess(win32con.PROCESS_QUERY_LIMITED_INFORMATION | win32con.SYNCHRONIZE, False, pid)
+            except pywintypes.error as error:
+                if error.winerror == 87:
+                    continue
+                raise OSError(f"Windows job member hold failed: {error.winerror}") from error
+            if win32job.IsProcessInJob(handle, self.job):
+                self.exiting[pid] = handle
+            else:
+                handle.Close()
+
+    def release_members(self):
+        while self.exiting:
+            self.exiting.popitem()[1].Close()
+
     def finish(self):
         if self.poll() is None:
             return None
-        win32job.TerminateJobObject(self.job, 1)
         until = time.monotonic() + 5
-        while has_job_members(self.job):
+        while True:
+            self.hold_members()
+            win32job.TerminateJobObject(self.job, 1)
+            if not has_job_members(self.job):
+                break
             if time.monotonic() >= until:
                 raise OSError("Windows job descendants did not terminate")
             time.sleep(0.01)
+        for handle in self.exiting.values():
+            remaining = max(0, int((until - time.monotonic()) * 1000))
+            if win32event.WaitForSingleObject(handle, remaining) != win32event.WAIT_OBJECT_0:
+                raise OSError("Windows job descendants did not exit")
+        self.release_members()
         return {"exit_status": self.returncode, "signal": None, "peak_memory_bytes": self.peak_memory_bytes}
 
     def signal(self, number):
@@ -110,6 +140,7 @@ class WindowsProcess:
                 return True
             except OSError:
                 return False
+        self.hold_members()
         win32job.TerminateJobObject(self.job, 1)
         if self.thread is not None:
             KERNEL.CloseHandle(self.thread)
@@ -142,6 +173,7 @@ class WindowsProcess:
 
     def close(self):
         JOBS.pop(self.pid, None)
+        self.release_members()
         if self.thread is not None:
             KERNEL.CloseHandle(self.thread)
             self.thread = None

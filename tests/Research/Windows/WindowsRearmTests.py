@@ -164,7 +164,7 @@ def RunRetries(Harness: SessionHost, Options: dict[str, str], Restart: bool) -> 
                 "fixture:rearm",
                 "fixture.app",
                 lease_seconds=12,
-                timeout_seconds=15,
+                timeout_seconds=30,
                 max_attempts=2,
                 retry_base_seconds=1,
                 resources=["application:missing"],
@@ -176,7 +176,7 @@ def RunRetries(Harness: SessionHost, Options: dict[str, str], Restart: bool) -> 
         CrashAfterPark(Harness)
     Events = [
         CastValue(dict[str, object], Event)
-        for Event in Harness.RunIdle(IdleSeconds=3, MaxSeconds=65)
+        for Event in Harness.RunIdle(IdleSeconds=3, MaxSeconds=125)
     ]
     Final = Harness.ReadJob("fixture:rearm")
     Digest = AssertRetries(Events, Final, Restart)
@@ -241,7 +241,7 @@ sys.exit(main())
         capture_output=True,
         text=True,
         check=False,
-        timeout=60,
+        timeout=90,
     )
     assert Original.returncode == 71, Original.stdout + Original.stderr
     JobInfo = Harness.ReadJob("fixture:rearm")

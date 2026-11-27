@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from CaptureTools.Catalogue.Fusion.VerifyReport import CheckArtifacts, VerifyReport
 
 from ApplicationProtocol import (
+    STOP_MARGIN_SECONDS,
     ApplicationTimeout,
     QueueClient,
     WaitingApplication,
@@ -332,7 +333,7 @@ def dispatch(session, config):
             "reason": "this installation has no qualified Fusion fresh-phase counterpart on this platform",
             "records": records,
         }
-    deadline = min(job["stop_at"] - 1, time.time() + 300)
+    deadline = min(job["stop_at"] - STOP_MARGIN_SECONDS, time.time() + 300)
     require(
         deadline > time.time(), "application session has no remaining dispatch budget"
     )

@@ -1,0 +1,1589 @@
+[
+  {
+    "batch": "fusion-000",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-000",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-000",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "solidworks-048",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-048",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-048",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-001",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-001",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11400.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-001",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "solidworks-049",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-049",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 11400.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-049",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-002",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-002",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 5200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-002",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-003",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-003",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 14800.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-003",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "solidworks-050",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-050",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 5199.999999999999,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-050",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-004",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-004",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 3200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-004",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "solidworks-051",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-051",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 14799.999999999998,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-051",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-005",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-005",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 15200.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-005",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-006",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-006",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 6200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-006",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "solidworks-052",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-052",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 3200.0000000000005,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-052",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-007",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-007",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "fusion-007",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": true,
+    "neutral_area_match": true
+  },
+  {
+    "batch": "solidworks-053",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-053",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 15200.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-053",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-008",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-008",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-008",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-009",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-009",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11400.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-009",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "solidworks-054",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-054",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 6200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-054",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-010",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-010",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 5200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-010",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "solidworks-055",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-055",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 11600.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-055",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-011",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-011",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 14800.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-011",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-012",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-012",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 3200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-012",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "solidworks-056",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-056",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-056",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-057",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-057",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 11400.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-057",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-058",
+    "case": "control-before",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-058",
+    "case": "variation",
+    "application": "solidworks",
+    "native_volume_mm3": 5199.999999999999,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "solidworks-058",
+    "case": "control-after",
+    "application": "solidworks",
+    "native_volume_mm3": 8000.000000000001,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false,
+    "neutral_bodies": 1,
+    "neutral_volume_match": null,
+    "neutral_area_match": null
+  },
+  {
+    "batch": "fusion-013",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-013",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 15200.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-013",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-014",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-014",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 6200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-014",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-015",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-015",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-015",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-016",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-016",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-016",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-017",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-017",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11400.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-017",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-018",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-018",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 5200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-018",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-019",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-019",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 14800.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-019",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-020",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-020",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 3200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-020",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-021",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-021",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 15200.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-021",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-022",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-022",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 6200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-022",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-023",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-023",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-023",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-024",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-024",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-024",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-025",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-025",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11400.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-025",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-026",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-026",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 5200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-026",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-027",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-027",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 14800.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-027",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-028",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-028",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 3200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-028",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-029",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-029",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 15200.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-029",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-030",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-030",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 6200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-030",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-031",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-031",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-031",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-032",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-032",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-032",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-033",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-033",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11400.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-033",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-034",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-034",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 5200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-034",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-035",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-035",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 14800.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-035",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-036",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-036",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 3200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-036",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-037",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-037",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 15200.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-037",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-038",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-038",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 6200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-038",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-039",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-039",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-039",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-040",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-040",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 4600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-040",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-041",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-041",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11400.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-041",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-042",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-042",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 5200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-042",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-043",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-043",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 14800.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-043",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-044",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-044",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 3200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-044",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-045",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-045",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 15200.000000000002,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-045",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-046",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-046",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 6200.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-046",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-047",
+    "case": "control-before",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-047",
+    "case": "variation",
+    "application": "fusion",
+    "native_volume_mm3": 11600.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  },
+  {
+    "batch": "fusion-047",
+    "case": "control-after",
+    "application": "fusion",
+    "native_volume_mm3": 8000.0,
+    "native_matches_requested_volume": true,
+    "full_semantics_verified": false
+  }
+]

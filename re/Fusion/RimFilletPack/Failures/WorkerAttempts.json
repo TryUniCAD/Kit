@@ -1,0 +1,1014 @@
+[
+  {
+    "run": "Automatic/holdout-02-source",
+    "object_sha256": "0e66051995029403c6de251e064caa02612162989e198893a5864ccd34433f48",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 3,
+        "duration_seconds": 0.6027059555053711,
+        "ended_at": 1795648119.366026,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28639232,
+        "pid": 82579,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:08:38 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c733dfa0930-4f033784",
+        "signal": null,
+        "started_at": 1795648118.76332,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-02-source",
+    "object_sha256": "b4bd5b6f3e1d0b357244a29fbb1538c5b23bff2067272c23b95ef5bffc4897e5",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.6006557941436768,
+        "ended_at": 1795648116.1700249,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28622848,
+        "pid": 82436,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:08:35 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c727f450580-1cd1561f",
+        "signal": null,
+        "started_at": 1795648115.569369,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-02-source",
+    "object_sha256": "0654b071e3e5e872f4bd9cd07456d3fbe2a717d96c6e83552b012ac84f5cd5a7",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.588979959487915,
+        "ended_at": 1795648114.180834,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28639232,
+        "pid": 82379,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:08:33 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c720a0aa158-76522c63",
+        "signal": null,
+        "started_at": 1795648113.591854,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-05-source",
+    "object_sha256": "ae28aa5f8593acf0e86368a18f9b049891e8dbeb63c21e02f111f2be478ce19e",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 3,
+        "duration_seconds": 0.5950601100921631,
+        "ended_at": 1795648021.3333051,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28590080,
+        "pid": 76961,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:07:00 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c5c6b818cf0-f6ae90fe",
+        "signal": null,
+        "started_at": 1795648020.738245,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-05-source",
+    "object_sha256": "5cf62a4c400ae88fa9f721ec202428b314da2b0e6dfcede60af4a71a25f33586",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.591080904006958,
+        "ended_at": 1795648016.157697,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28655616,
+        "pid": 76710,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:06:55 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c5b37e24ca0-a7b0047e",
+        "signal": null,
+        "started_at": 1795648015.566616,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-05-source",
+    "object_sha256": "24f40bafa9bd1488ff306c7a6434b907404963aa468195169bc002572be002d4",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.594313383102417,
+        "ended_at": 1795648018.1350121,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28590080,
+        "pid": 76831,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:06:57 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c5bac629058-a723e7cd",
+        "signal": null,
+        "started_at": 1795648017.5406988,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-04-source",
+    "object_sha256": "1872047ba97f8b504796b59b9e1b59afc2b429abaa635cd33ef7119e4bddb682",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.5885648727416992,
+        "ended_at": 1795648181.458814,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28655616,
+        "pid": 85203,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:09:40 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c81b46acdd0-e2b0d1ec",
+        "signal": null,
+        "started_at": 1795648180.870249,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-04-source",
+    "object_sha256": "db35859ac6c1cf7a8a248737c1dd4b2e8507048bcfe075e12a5771e9a88de7f9",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.5958669185638428,
+        "ended_at": 1795648179.487344,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28426240,
+        "pid": 85008,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:09:38 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c813ecbdf60-ef17ea62",
+        "signal": null,
+        "started_at": 1795648178.891477,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-03-source",
+    "object_sha256": "a28389cb8fcdb98884a08e60953021635d35ec34a6783648579d51a155b6f948",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.5815179347991943,
+        "ended_at": 1795647953.200748,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28524544,
+        "pid": 74055,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:05:52 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c4c8f036000-b6309978",
+        "signal": null,
+        "started_at": 1795647952.61923,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-03-source",
+    "object_sha256": "73155074a57d1e44d8374a3408b4872a0b3150f8d67ea192142de8e62bea6706",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.6011369228363037,
+        "ended_at": 1795647951.254635,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28491776,
+        "pid": 73915,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:05:50 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c4c1a83cc10-5bf5ffc6",
+        "signal": null,
+        "started_at": 1795647950.6534982,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-03-source",
+    "object_sha256": "dca32ec7717b13ad5e209ecaa6b46ac2e060c045cb349bdeb61ec6a7d4b85287",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 3,
+        "duration_seconds": 0.576225996017456,
+        "ended_at": 1795647956.370044,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28426240,
+        "pid": 74198,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:05:55 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c4d4c3af728-6a4ea543",
+        "signal": null,
+        "started_at": 1795647955.793818,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-06-source",
+    "object_sha256": "2f2c1e9f6bbdc390cef1bbadf311d9238b5d68ecab704676b89434d42c2edfb1",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.5965390205383301,
+        "ended_at": 1795648050.597209,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28606464,
+        "pid": 78103,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:07:30 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c633b4c2e08-8550d3c0",
+        "signal": null,
+        "started_at": 1795648050.00067,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-06-source",
+    "object_sha256": "a1765ebbf90946affc7a0db932119c1c3ebbc39e8ab2b8e1932f34fc72b6af9d",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.5929310321807861,
+        "ended_at": 1795648048.60446,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28426240,
+        "pid": 78088,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:07:28 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c62c5d46ed8-9d7fd9c3",
+        "signal": null,
+        "started_at": 1795648048.011529,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-06-source",
+    "object_sha256": "25ecb87d22c2540d36d0faf730293d9ea33ca6ea396f144d7c759775a1b3e213",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 3,
+        "duration_seconds": 0.5927379131317139,
+        "ended_at": 1795648053.52234,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28672000,
+        "pid": 78239,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:07:32 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c63e98f85f0-47f2f883",
+        "signal": null,
+        "started_at": 1795648052.9296021,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-03-source",
+    "object_sha256": "bc1c7619abf20e0353da29292b1e781ad9c765a5f278d2a03f568df421384aad",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 3,
+        "duration_seconds": 0.5974202156066895,
+        "ended_at": 1795648151.9240232,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28573696,
+        "pid": 83872,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:09:11 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c7ad2eec178-677ab600",
+        "signal": null,
+        "started_at": 1795648151.326603,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-03-source",
+    "object_sha256": "312d3fe7d0a2e0c0006406f38e4cb2dd63500b241c28b89d8feabac12f501846",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.5804662704467773,
+        "ended_at": 1795648148.728825,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28622848,
+        "pid": 83721,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:09:08 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c7a1529c318-12da30c6",
+        "signal": null,
+        "started_at": 1795648148.1483588,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-03-source",
+    "object_sha256": "8dc31bc6a6445a72c9b9e1da605b0806ba9c52943615f3c2f91e821a2410d859",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.5926556587219238,
+        "ended_at": 1795648146.7551239,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28655616,
+        "pid": 83706,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:09:06 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c79a0292400-e382fcf4",
+        "signal": null,
+        "started_at": 1795648146.1624682,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-01-source",
+    "object_sha256": "bb7df89f0589c0a74c4ae027dde2adfd96dd95b50fceced134d67b2e7756f165",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 3,
+        "duration_seconds": 0.596660852432251,
+        "ended_at": 1795648087.1122959,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28590080,
+        "pid": 81279,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:08:06 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c6bbc15bba0-5ff2aa96",
+        "signal": null,
+        "started_at": 1795648086.515635,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-01-source",
+    "object_sha256": "8f6ad3b7ed1595e2fa576006fd3d22bfb30481f2b4603257a90cf335afe7ff96",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.6051571369171143,
+        "ended_at": 1795648081.982628,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28639232,
+        "pid": 81002,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:08:01 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c6a7f5c4428-c8001558",
+        "signal": null,
+        "started_at": 1795648081.377471,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/holdout-01-source",
+    "object_sha256": "843cbe8d13750a257b2e5a57baef47f27814454ec2380beafb3a2cf3a84ac956",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.5860371589660645,
+        "ended_at": 1795648083.933543,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28655616,
+        "pid": 81131,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:08:03 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c6aff4b49e0-8b8bdce1",
+        "signal": null,
+        "started_at": 1795648083.3475058,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-04-source",
+    "object_sha256": "4ce8d04b0d229e8c86576042dbcacbc405174f5a2a64fdd314e38330d5a25a89",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 3,
+        "duration_seconds": 0.5856888294219971,
+        "ended_at": 1795647988.8708858,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28622848,
+        "pid": 75501,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:06:28 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c54dd4ac480-e5b72bbd",
+        "signal": null,
+        "started_at": 1795647988.285197,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-04-source",
+    "object_sha256": "44f52d4e120dbd99c8114d70bd99491f64138da31e49bd8b793850587d35f66d",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 1,
+        "duration_seconds": 0.5988330841064453,
+        "ended_at": 1795647983.688359,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28327936,
+        "pid": 75355,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:06:23 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c53a82df098-ad8349dd",
+        "signal": null,
+        "started_at": 1795647983.089526,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  },
+  {
+    "run": "Automatic/discovery-04-source",
+    "object_sha256": "db74eb90e0a96bd00fc9254c03285163e64e481a189ec99e798c1d82d6943362",
+    "record": {
+      "error": null,
+      "receipt": {
+        "attempt": 2,
+        "duration_seconds": 0.5932748317718506,
+        "ended_at": 1795647985.664444,
+        "exit_status": 1,
+        "job_id": "inference:63fa55c928560798475e9963b19b14b80412032b61b8b5f02a2f390db3fb2d30",
+        "kind": "inference.fields",
+        "logs": {
+          "stderr": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 1211,
+            "seen_bytes": 1211
+          },
+          "stdout": {
+            "dropped_bytes": 0,
+            "limit_bytes": 1048576,
+            "retained_bytes": 0,
+            "seen_bytes": 0
+          }
+        },
+        "memory_limit_bytes": 805306368,
+        "orphan": false,
+        "peak_memory_bytes": 28508160,
+        "pid": 75370,
+        "pool": "inference",
+        "process_start": "ps:Wed Nov 25 23:06:25 2026",
+        "receipt_version": 1,
+        "sampled_group_peak_memory_bytes": 0,
+        "session": "18eb6c541ccf6850-26be6355",
+        "signal": null,
+        "started_at": 1795647985.0711691,
+        "stop_reason": null
+      },
+      "result": null,
+      "session_version": 1,
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 322, in <module>\n    main()\n    ~~~~^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 316, in main\n    run(arguments.session)\n    ~~~^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 157, in run\n    run_member(session, *read_session(session))\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 167, in run_member\n    records = evaluate(*read_plan(session, inputs, scope))\n  File \"<research-checkout>/re/automation/InferenceRunner.py\", line 79, in evaluate\n    from InferenceSearch import search_fields\n  File \"<research-checkout>/re/automation/InferenceSearch.py\", line 16, in <module>\n    import numpy\nModuleNotFoundError: No module named 'numpy'\n"
+    }
+  }
+]

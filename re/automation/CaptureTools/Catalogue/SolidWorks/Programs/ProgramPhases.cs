@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-// SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+// SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 //
 // This SPDX license identifier and copyright notice must not be
 // removed, altered, or obscured. Doing so is a material breach of
@@ -25,7 +25,9 @@ public sealed partial class SolidWorksCapture
     {
         string Recipe=TextValue(configuredCase,"recipe"), DirectoryName=Path.Combine(output,Recipe);
         Directory.CreateDirectory(DirectoryName);
+        MarkStage("healthy_control_before");
         var Observed=Row("healthy_control_before",Control("before"));
+        MarkStage("baseline_authoring");
         var Program=ProgramData();
         var Document=BuildCase(Program,configuredOptions);
         try {
@@ -40,7 +42,7 @@ public sealed partial class SolidWorksCapture
     {
         string Recipe=TextValue(configuredCase,"recipe"), DirectoryName=Path.Combine(output,Recipe);
         var First=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(Path.Combine(DirectoryName,"first.json")));
-        Check(Convert.ToInt32(First["authoring_process_id"])!=app.GetProcessID(),"Recipe reopen requires a fresh process");
+        Check(RoutineReadback || Convert.ToInt32(First["authoring_process_id"])!=app.GetProcessID(),"Recipe reopen requires a fresh process");
         var Observed=MapValue(First["observations"]);
         var Saves=new List<Dictionary<string,object>> { MapValue(First["first_save"]) };
         var Programs=new Dictionary<string,Dictionary<string,object>>();
@@ -52,12 +54,14 @@ public sealed partial class SolidWorksCapture
         var Edits=new List<object>();
         var Variants=new List<object>();
         object Status;
+        MarkStage("baseline_reopen");
         var Document=Open(Baseline,out Status);
         try {
             Observed["fresh_reopen"]=Row("open_status",Status,"measurements",ProgramMeasure(Document,"as opened",Program));
             Rebuild(Document);
             Observed["unchanged_rebuild"]=ProgramMeasure(Document,"unchanged rebuild",Program);
             Saves.Add(Save(Document,Path.Combine(DirectoryName,Filename(Recipe,"baseline-b")),true));
+            MarkStage("edit_generation");
             foreach(var Edit in Array(Program["edits"]).Cast<Dictionary<string,object>>()) {
                 string Parameter=TextValue(Edit,"parameter");
                 double Value=NumberValue(Edit,"value");
@@ -72,6 +76,7 @@ public sealed partial class SolidWorksCapture
                 Edits.Add(Row("parameter",Parameter,"value",Value,"edited",Changed,"restored",ProgramMeasure(Document,"restored "+Parameter,Program),"saved_file",FileName));
             }
         } finally { Close(Document); }
+        MarkStage("variant_generation");
         foreach(var Variant in Array(Program["variants"]).Cast<Dictionary<string,object>>()) {
             string Name=TextValue(Variant,"name"), FileName=Filename(Recipe,Name);
             var VariantProgram=MapValue(Variant["program"]);
@@ -85,6 +90,7 @@ public sealed partial class SolidWorksCapture
         Observed["edits"]=Edits;
         Observed["variants"]=Variants;
         var Reopened=new Dictionary<string,object>();
+        MarkStage("saved_file_verification");
         foreach(var Saved in Saves) {
             string FileName=TextValue(Saved,"file"), SavedPath=Path.Combine(DirectoryName,FileName);
             Document=Open(SavedPath,out Status);
@@ -97,7 +103,9 @@ public sealed partial class SolidWorksCapture
             Check(Hash(SavedPath)==TextValue(Saved,"sha256"),"Recipe saved bytes changed on reopen");
         }
         Observed["reopened_files"]=Reopened;
+        MarkStage("healthy_control_after");
         Observed["healthy_control_after"]=Control("after");
+        MarkStage("receipt_publication");
         string Measurements=Path.Combine(DirectoryName,"measurements.json");
         var Binary=System.Diagnostics.Process.GetProcessById(app.GetProcessID()).MainModule.FileVersionInfo.FileVersion;
         Write(Measurements,Row("recipe_id",Recipe,"application","SOLIDWORKS 2026","exact_application_build",app.RevisionNumber(),

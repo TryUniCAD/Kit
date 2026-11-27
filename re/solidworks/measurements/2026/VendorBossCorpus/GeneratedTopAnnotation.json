@@ -1,0 +1,465 @@
+{
+  "schema": "kit.sw2026.generated-top-annotation-native-index.v1",
+  "scope": "One source-free generated experimental blind boss with explicit Top-view intent, compared with vendor-authored controls and its exact plain generated variant.",
+  "passed_research_observation": true,
+  "controls_healthy": true,
+  "candidate_revision": "3300faeeb92a86e40776f817310a4083e891aca0",
+  "candidate_manifest_sha256": "4052c1486f752c3c06a9205858cc2929943ff41fccac4ebdb0c54eb4c939b72e",
+  "neutral_request_sha256": "d170becd392602a8ebbbb9c882dad887ea905304553aeaf9e0022f385e5b8411",
+  "plan_sha256": "4ae8c0274def879fd95a92a2fc144475df369a22d6e00a6579021a34f2a3ceaa",
+  "source_hashes": {
+    "Control": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+    "EditControl": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+    "PlainBaseline": "4ba958ae19a16f7a6690a84a12ae27d1987df1b0ef0de347d6e8fbc34b301d5c",
+    "Candidate": "3ab3578b5a67f9c131b8744ab1c39de3799de2c7cdcf254cc62c956dc75213ba"
+  },
+  "source_stream_differences_against_plain": [
+    "Contents/Config-0",
+    "Contents/Config-0-ResolvedFeatures"
+  ],
+  "oracle": {
+    "build": "34.4.1.1011",
+    "executable_sha256": "200ac2597814daaead89c1de698a45341850fa2fe0d8c094debb316009e7ea7f",
+    "native_helper_revision": "93e87aa51fa0bd470c97eb587f1565cf44ce45e0",
+    "total_distinct_processes": 8,
+    "distinct_processes_in_observation": 7,
+    "remaining_processes": 0,
+    "exit_observation": "windows_process_exit_handle"
+  },
+  "batches": {
+    "stopped_preflight": {
+      "passed": false,
+      "terminal_sha256": "349a156caab86fa61404d4c1bb570762e3ae44b236ed50dccf451cb07f6c992a",
+      "observer_sha256": "0989962b3768d6976368425857b21813bf146446fda68e268fbcd06f53600b50",
+      "wall_interval_s": 64.946,
+      "fault": "The plain baseline converted the requested millimetres to a metre bit pattern one ULP above the independently authored metre literal."
+    },
+    "continuation": {
+      "passed": true,
+      "terminal_sha256": "3a47aa56b9535209fd19606ddd433926acf0ad5c64b24db764e03cbc5f5bdcec",
+      "observer_sha256": "7bc52e232fb385c734dbe1502d2c38890138f82ba63f57764da53ec0ca4e4453",
+      "wall_interval_s": 56.039,
+      "preceding_control": "StoppedPreflight/ControlAfter",
+      "gap_from_preceding_control_exit_s": 204.405
+    }
+  },
+  "custody": {
+    "original_source_digests_stable": true,
+    "encoded_locator_remained_absent": true,
+    "both_batch_launch_inventories_idle": true,
+    "operator_recorded_no_intervening_launch": true,
+    "system_process_creation_audit_setting_available": false
+  },
+  "native_method_sha256": {
+    "ObserveGeneratedTopAnnotation.py": "7bc52e232fb385c734dbe1502d2c38890138f82ba63f57764da53ec0ca4e4453",
+    "ObserveVendorBossCorpus.py": "695f1fda489a95b49ec195101a0fea36e4e3aff93164f55e54bcddff7a9eae45",
+    "ObserveVendorBossPresentation.py": "c6b849e67cf76ceccae0de7ca3889f16fa6ea2b42a73019a269d6132c78b44f9",
+    "ObserveEncoderRoundTrip.py": "797d85e1e9af052c7d177e812c3b0de17a982c10013850f4a348ff069401d1b3"
+  },
+  "comparison": {
+    "driver_tolerance_max_ulp": 1,
+    "geometry_tolerance_relative": 1e-08,
+    "geometry_tolerance_absolute_si": 1e-12,
+    "requested_driver_mm": [
+      14.31,
+      19.87
+    ],
+    "generated_initial_m_binary64": "0x1.d4e8fb00bcbe7p-7",
+    "authored_initial_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+    "edit_operand_m_binary64": "0x1.458cd20afa2f0p-6",
+    "edit_writer_conversion_m_binary64": "0x1.458cd20afa2f1p-6",
+    "geometry": {
+      "ControlBefore": {
+        "bodies": 1,
+        "volume_m3": 7.584300000000001e-06,
+        "area_m2": 0.0024076789107820044,
+        "centre_of_mass_m": [
+          0.0038125786163522007,
+          0.004832704402515722,
+          0.007154999999999999
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8
+      },
+      "EditControl": {
+        "bodies": 1,
+        "volume_m3": 1.05311e-05,
+        "area_m2": 0.002931305377864321,
+        "centre_of_mass_m": [
+          0.0038125786163522007,
+          0.004832704402515723,
+          0.009935
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8
+      },
+      "PlainBaseline": {
+        "bodies": 1,
+        "volume_m3": 7.584300000000001e-06,
+        "area_m2": 0.002407678910782005,
+        "centre_of_mass_m": [
+          0.003812578616352201,
+          0.004832704402515723,
+          0.007155
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8
+      },
+      "CandidateReadOnly": {
+        "bodies": 1,
+        "volume_m3": 7.584300000000001e-06,
+        "area_m2": 0.002407678910782005,
+        "centre_of_mass_m": [
+          0.003812578616352201,
+          0.004832704402515723,
+          0.007155
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8
+      },
+      "CandidateEdit": {
+        "bodies": 1,
+        "volume_m3": 1.05311e-05,
+        "area_m2": 0.002931305377864321,
+        "centre_of_mass_m": [
+          0.0038125786163522007,
+          0.004832704402515723,
+          0.009935
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8
+      },
+      "CandidateReopen": {
+        "bodies": 1,
+        "volume_m3": 1.05311e-05,
+        "area_m2": 0.002931305377864321,
+        "centre_of_mass_m": [
+          0.0038125786163522007,
+          0.004832704402515723,
+          0.009935
+        ],
+        "faces": 6,
+        "edges": 12,
+        "vertices": 8
+      }
+    },
+    "hidden_top_rotation_binary64": [
+      "0x1.0000000000000p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x0.0p+0",
+      "0x1.0000000000000p+0",
+      "-0x0.0p+0",
+      "-0x1.0000000000000p+0",
+      "-0x0.0p+0"
+    ],
+    "fresh_reopen_retains_full_tree_and_api_annotation_state": true
+  },
+  "native_saved_archive": {
+    "sha256": "aee584b1d3c133d986f804ae8a5d38aa7b50067c593b46da03cc15a6e17c5719",
+    "bytes": 45105,
+    "clear_stream_count": 36,
+    "typed_annotation_view_count": 1,
+    "annotation_name": "*Top",
+    "annotation_id": 200,
+    "annotation_slot": 118
+  },
+  "lifetimes": {
+    "StoppedPreflight": {
+      "ControlBefore": {
+        "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "request_sha256": "7a85722235f579b589078c1d1a32e4ea4ea0ac930c6763beb0eff0e40bf94ba4",
+        "record_sha256": "8ef3cfa4e11a7078f2713ea3e8500e2b4ea9d1a61f8fcfff9d7502215c234003",
+        "pid": 18232,
+        "start_filetime": 134401237592782478,
+        "exit_filetime": 134401237742617824,
+        "lifetime_s": 14.984,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": true,
+        "source_unchanged": true,
+        "states": {
+          "initial": {
+            "read_only": true,
+            "depth_m": 0.01431,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "rebuilt": {
+            "read_only": true,
+            "depth_m": 0.01431,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          }
+        }
+      },
+      "EditControl": {
+        "source_sha256": "460feca54879f2f5095e749a08cbd1d28cfa4a8ae0e7dd4feba924c65b1c013a",
+        "request_sha256": "9a0a2f4c99907aacbea6bc0a89dba5d0eb929bda8e414ab78959986e07922f7c",
+        "record_sha256": "08ae03eab75419b4d88055b09bbcf492a8b9779b91d0b4d494e77c907ad99145",
+        "pid": 6000,
+        "start_filetime": 134401237746580609,
+        "exit_filetime": 134401237890318278,
+        "lifetime_s": 14.374,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": true,
+        "source_unchanged": true,
+        "states": {
+          "initial": {
+            "read_only": true,
+            "depth_m": 0.01987,
+            "depth_m_binary64": "0x1.458cd20afa2f0p-6",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "rebuilt": {
+            "read_only": true,
+            "depth_m": 0.01987,
+            "depth_m_binary64": "0x1.458cd20afa2f0p-6",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          }
+        }
+      },
+      "PlainBaseline": {
+        "source_sha256": "4ba958ae19a16f7a6690a84a12ae27d1987df1b0ef0de347d6e8fbc34b301d5c",
+        "request_sha256": "6eb96dcaafa6082d41706b84ebf330a87d3656a00f6ea4908666b08492889a5e",
+        "record_sha256": "806acd3b46fcb5362027ab0435ac69cea22fdbd720ebe9933e493e3feb672482",
+        "pid": 39932,
+        "start_filetime": 134401237894605750,
+        "exit_filetime": 134401238056741170,
+        "lifetime_s": 16.214,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": false,
+        "worker_error": "ValueError: exact driving value differs",
+        "states": {
+          "initial": {
+            "read_only": true,
+            "depth_m": 0.014310000000000002,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe7p-7",
+            "views": 1,
+            "assigned_views": 0,
+            "hidden_exact_top": false
+          },
+          "rebuilt": {
+            "read_only": true,
+            "depth_m": 0.014310000000000002,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe7p-7",
+            "views": 1,
+            "assigned_views": 0,
+            "hidden_exact_top": false
+          }
+        }
+      },
+      "ControlAfter": {
+        "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "request_sha256": "ed0e52223eda43576bc26759b2dff0fcb68d3cd3c334324cbb92debf0989adf5",
+        "record_sha256": "867742a961f80afd681ac8e3ede37b5f4cc77b28778cd2fd16cdd15c53d3af86",
+        "pid": 9020,
+        "start_filetime": 134401238061782039,
+        "exit_filetime": 134401238242244344,
+        "lifetime_s": 18.046,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": true,
+        "source_unchanged": true,
+        "states": {
+          "initial": {
+            "read_only": true,
+            "depth_m": 0.01431,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "rebuilt": {
+            "read_only": true,
+            "depth_m": 0.01431,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          }
+        }
+      }
+    },
+    "Continuation": {
+      "CandidateReadOnly": {
+        "source_sha256": "3ab3578b5a67f9c131b8744ab1c39de3799de2c7cdcf254cc62c956dc75213ba",
+        "request_sha256": "69e5f3435861ebfb9c38463c0e6c1bbfb7b8a80f13136a6504fc9e75e43702d3",
+        "record_sha256": "8745f9e61554cc6c96eaafeb434c6d396e05baeb6650adcf77b22b72af1b341f",
+        "pid": 37504,
+        "start_filetime": 134401240286291593,
+        "exit_filetime": 134401240420952930,
+        "lifetime_s": 13.466,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": true,
+        "source_unchanged": true,
+        "states": {
+          "initial": {
+            "read_only": true,
+            "depth_m": 0.014310000000000002,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe7p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "rebuilt": {
+            "read_only": true,
+            "depth_m": 0.014310000000000002,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe7p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          }
+        }
+      },
+      "CandidateEdit": {
+        "source_sha256": "3ab3578b5a67f9c131b8744ab1c39de3799de2c7cdcf254cc62c956dc75213ba",
+        "request_sha256": "aa1b924e9a00e257ba3af224d46bbf1f8b9bf81c6ab92a77167ffdc7436f651a",
+        "record_sha256": "67f0d11805119d51501b1eff513e3befc275911a6b30200bf95ba67ef227c27a",
+        "pid": 38128,
+        "start_filetime": 134401240426149234,
+        "exit_filetime": 134401240556496670,
+        "lifetime_s": 13.035,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": true,
+        "source_unchanged": true,
+        "states": {
+          "initial": {
+            "read_only": false,
+            "depth_m": 0.014310000000000002,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe7p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "rebuilt": {
+            "read_only": false,
+            "depth_m": 0.014310000000000002,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe7p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "edited": {
+            "read_only": false,
+            "depth_m": 0.01987,
+            "depth_m_binary64": "0x1.458cd20afa2f0p-6",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          }
+        },
+        "edit_rebuilt": true,
+        "save_status": {
+          "saved": true,
+          "errors": 0,
+          "warnings": 0
+        },
+        "edit_operand_binary64": "0x1.458cd20afa2f0p-6",
+        "saved_sha256": "aee584b1d3c133d986f804ae8a5d38aa7b50067c593b46da03cc15a6e17c5719"
+      },
+      "CandidateReopen": {
+        "source_sha256": "aee584b1d3c133d986f804ae8a5d38aa7b50067c593b46da03cc15a6e17c5719",
+        "request_sha256": "1534b89bb5f1f3a6dcacd0993fe5bb02351b7576ac2c5806a8bc638195063979",
+        "record_sha256": "ae36b81cbaa24973092f044a6f74ee039517b80133603d72facbb455de1f4c9a",
+        "pid": 39916,
+        "start_filetime": 134401240560075817,
+        "exit_filetime": 134401240704485063,
+        "lifetime_s": 14.441,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": true,
+        "source_unchanged": true,
+        "states": {
+          "initial": {
+            "read_only": true,
+            "depth_m": 0.01987,
+            "depth_m_binary64": "0x1.458cd20afa2f0p-6",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "rebuilt": {
+            "read_only": true,
+            "depth_m": 0.01987,
+            "depth_m_binary64": "0x1.458cd20afa2f0p-6",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          }
+        }
+      },
+      "ControlAfter": {
+        "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+        "request_sha256": "ed0e52223eda43576bc26759b2dff0fcb68d3cd3c334324cbb92debf0989adf5",
+        "record_sha256": "ed58ce6c76a513b20dca797210356e883694074d8ec45a15ea49c43c1ccb127e",
+        "pid": 22788,
+        "start_filetime": 134401240708008913,
+        "exit_filetime": 134401240846678853,
+        "lifetime_s": 13.867,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "exit_code": 0,
+        "rebuild_succeeded": true,
+        "worker_passed": true,
+        "source_unchanged": true,
+        "states": {
+          "initial": {
+            "read_only": true,
+            "depth_m": 0.01431,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          },
+          "rebuilt": {
+            "read_only": true,
+            "depth_m": 0.01431,
+            "depth_m_binary64": "0x1.d4e8fb00bcbe6p-7",
+            "views": 2,
+            "assigned_views": 1,
+            "hidden_exact_top": true
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "The reserved fixtures were excluded.",
+    "The stopped preflight is retained under its original result hash.",
+    "Full native records, local run plans, controls and saved derivative remain outside the tracked tree.",
+    "This scope covers the exact measured whole-file research candidate and its native depth edit. It establishes no general vendor-source admission or SDK publication."
+  ]
+}

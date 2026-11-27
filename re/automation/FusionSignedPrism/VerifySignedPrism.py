@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -112,6 +112,7 @@ def design_curves(graph, context, asset_id):
     }
     require(len(curves) == 4, "Expected four uniquely tagged selected profile sides")
     points = {point for endpoints in curves.values() for point in endpoints}
+    from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
     shape = RectGeometry(
         (),
         lines,
@@ -119,6 +120,7 @@ def design_curves(graph, context, asset_id):
         10 * max(point[0] for point in points),
         10 * max(point[1] for point in points),
         (0.0, 0.0, 0.0),
+        tuple(PointCoords(ResolveField(graph, node, field, "Point3D").Fields["point"]) for node in nodes for field in ("rStartPoint", "rEndPoint")),
     )
     table = ResolveField(graph, context.Extrude, "rProgenitorTable", "ProgenitorTable")
     sides, body = {}, []
@@ -482,9 +484,12 @@ def reverse_mutations(model, graph, context):
             "Native Fusion saved geometry or parameter values disagree",
         ),
         (
-            "unwrapped_literal",
-            mutation_archive(model, depth, "expression", "-10 mm"),
-            "Native reverse distance requires a wrapped millimeter literal",
+            "reverse_formula",
+            mutation_archive(model, depth, "expression", "-( 5 mm + 5 mm )"),
+            (
+                "Native reverse distance requires a wrapped millimeter literal",
+                "Native reverse distance requires a negative millimeter literal",
+            ),
         ),
         (
             "wrong_physical_depth",

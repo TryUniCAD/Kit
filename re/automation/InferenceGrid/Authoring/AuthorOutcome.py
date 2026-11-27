@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -16,7 +16,7 @@ from InferenceGrid.Authoring.NativeProofs import ReadNativeProof
 def AuthorOutcome(Directory, PlanValue, Submissions, Failures):
     Samples = {}
     with Ledger(Directory / "Store") as StateValue:
-        NativeVerified = ReadNativeProof(StateValue, PlanValue, Submissions)
+        NativeVerified, NativeRejected = ReadNativeProof(StateValue, PlanValue, Submissions)
         for Submission in Submissions:
             JobsValue = [
                 StateValue.status(JobId)["jobs"][0]
@@ -45,11 +45,14 @@ def AuthorOutcome(Directory, PlanValue, Submissions, Failures):
                     "unfinished",
                 )
             for Identity in Submission["samples"]:
+                Reason = NativeRejected.get(Identity)
                 Samples[Identity] = {
-                    "status": StatusValue,
+                    "status": "failed" if Reason is not None else StatusValue,
                     "native_verified": Identity in NativeVerified,
                     "jobs": JobsValue,
                 }
+                if Reason is not None:
+                    Samples[Identity]["native_rejection"] = Reason
     CountsValue = {}
     for Application, FeaturesValue in PlanValue["features"].items():
         CountsValue[Application] = {}

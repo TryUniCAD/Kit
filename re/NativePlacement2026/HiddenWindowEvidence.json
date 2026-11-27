@@ -1,0 +1,47 @@
+{
+  "state": {
+    "requested": "continue native decoding without disrupting the interactive desktop",
+    "status": "hidden canaries passed; both native resources resumed",
+    "changed_at": 1795440070.169512,
+    "scope_cases_preserved": true,
+    "offline_continues": true,
+    "never_hide_other_processes": true,
+    "resumed_at": 1795440120.371202,
+    "canaries": [
+      {
+        "application": "solidworks",
+        "report_sha256": "a606f95a0b8b960e025f3227183ea582888192aa450ea2b7a058cd6e67eca29a",
+        "files": 3,
+        "visible_owned_windows": 0,
+        "native_requested_volumes_match": true
+      },
+      {
+        "application": "fusion",
+        "report_sha256": "9f38eb56be8c2f3f49b3aab875ca1ae182b1a473a64649f33937c3557ab421b2",
+        "files": 3,
+        "visible_owned_windows": 0,
+        "native_requested_volumes_match": true
+      }
+    ]
+  },
+  "external_worker_patch": {
+    "status": "completed",
+    "patched": [
+      {
+        "file": "solidworks_session.py",
+        "before_sha256": "cbb723911b8a06d7827b053c9d70431efe1d82943b37df73810b37d1168b8311",
+        "after_sha256": "c1c473ca8e32eaeff305a72c7437fe3543b60ac1ffa9b6b3331bbf70950a9a25"
+      },
+      {
+        "file": "worker.py",
+        "before_sha256": "2533e29fa746e908cfba4deed19688825f4f07b1e9d538f8498d28d2c6088c46",
+        "after_sha256": "4d227e2b7471019455f998955603afbdd24533bc5c70a749dd87f9363fa84df2"
+      }
+    ],
+    "helper_sha256": "d3e65178731667b8dcf9d63d10f1bfbbeab7fec54b8501102bb5f7a64c1a6fa2",
+    "scope": "only future automation-owned process launches; no credential or existing interactive process changes",
+    "backup_retained_on_pc": true
+  },
+  "per_batch_external_worker_binding": "not independently attested; repo revision alone does not pin the external service or hidden-launch transition",
+  "canaries_not_in_planned_scope": 6
+}
