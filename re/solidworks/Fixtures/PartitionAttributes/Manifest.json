@@ -1,0 +1,102 @@
+{
+  "authorities": {
+    "complete_typed_walk_sha256": "4ffe386cfdcbdd38b0b9fcc5df39dac7584322eb0d67544bc1631fd9fd4bf337",
+    "native_reopen_record_sha256": "800b853bde09fd171487262ab0d1f49e73a621c500435895c281908bdc0153d0",
+    "native_topology_comparison_sha256": "570496dfc519227db04cb62f74daa8e2d02f8e4b894b4588e5dd08042da318e9",
+    "prior_archive_privacy_scan_sha256": "89a92111a10134a8d7de65ca8ff16e66b438bdc70732a69d88b9345900e82a87"
+  },
+  "decoded_frames": [
+    {
+      "clear_bytes": 7110,
+      "kind": "partition",
+      "sha256": "af3dd2ac0b09608ef1d48207b0cce8d0a395fdc4adabd97a53522e12c4c9cf56",
+      "stored_bytes": 3257,
+      "wrapper_offset": 0
+    },
+    {
+      "clear_bytes": 1152,
+      "kind": "deltas",
+      "sha256": "bdc04392b3c324282348e70d315b2fb467e902c16e7eb5e83a9c889d58e94d0d",
+      "stored_bytes": 698,
+      "wrapper_offset": 3257
+    }
+  ],
+  "expected_native_topology": {
+    "bodies": 1,
+    "edges": 12,
+    "faces": 6,
+    "vertices": 8
+  },
+  "geometry_decode_calls": 0,
+  "member": {
+    "bytes": 3955,
+    "file": "P03ActivePartition.bin",
+    "sha256": "d638c0c902a737e950ac0c9230f69fec746c54c111a6f52febf7c79472517729",
+    "source_stream": "Contents/Config-0-Partition"
+  },
+  "native_launches": 0,
+  "no_writer_input": true,
+  "privacy": {
+    "file_repacking_or_redaction_applied": false,
+    "known_private_root_positive_control_checks": {
+      "Contents/CMgr": {
+        "current_local_private_path_match": true,
+        "drive_absolute_path_like_match": true,
+        "framed_policy_flags_identity_home_or_email": false,
+        "unc_path_like_match": false
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "current_local_private_path_match": true,
+        "drive_absolute_path_like_match": true,
+        "framed_policy_flags_identity_home_or_email": false,
+        "unc_path_like_match": false
+      },
+      "swXmlContents/Features": {
+        "current_local_private_path_match": true,
+        "drive_absolute_path_like_match": true,
+        "framed_policy_flags_identity_home_or_email": false,
+        "unc_path_like_match": false
+      }
+    },
+    "known_private_root_positive_control_members": [
+      "Contents/CMgr",
+      "Contents/Config-0-ResolvedFeatures",
+      "swXmlContents/Features"
+    ],
+    "local_identity_markers_count": 2,
+    "other_original_archive_streams_included": false,
+    "selected_bytes_checks": {
+      "decoded_deltas": {
+        "current_local_private_path_match": false,
+        "drive_absolute_path_like_match": false,
+        "framed_policy_flags_identity_home_or_email": false,
+        "unc_path_like_match": false
+      },
+      "decoded_partition": {
+        "current_local_private_path_match": false,
+        "drive_absolute_path_like_match": false,
+        "framed_policy_flags_identity_home_or_email": false,
+        "unc_path_like_match": false
+      },
+      "stored_active_member": {
+        "current_local_private_path_match": false,
+        "drive_absolute_path_like_match": false,
+        "framed_policy_flags_identity_home_or_email": false,
+        "unc_path_like_match": false
+      }
+    },
+    "upstream_policy_commit": "9c077f433a6c886c175374bf98cd411f16f4974a",
+    "upstream_policy_git_blob": "93526d17df50a8e290ad0ec4e92b9f40877dafd0",
+    "upstream_policy_sha256": "18105df07ce8652c1455b0e7f7a5e9e575ae4bbf94beb0bbf0c5b76ef980285f"
+  },
+  "public_read_calls": 0,
+  "research_only": true,
+  "schema": "kit.research.solidworks.attributed-active-member-fixture.v1",
+  "scope": "byte-exact excerpt from retained native saved CAD; component transport and active-part reader coverage",
+  "sdk_source_tree": "3739be2f567a3285dd3dc725be9d0d07865a7b18",
+  "source_archive_included": false,
+  "source_archive_sha256": "dcea552fa4751563c124fb1dc571f3e0b36c0ce37ce39610b45f7717d8687115",
+  "source_archive_unchanged": true,
+  "source_model_edited_depth_m_binary64": "0x1.89374bc6a7efap-7",
+  "verified_transport_partition_and_delta": true
+}
