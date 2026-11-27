@@ -5,9 +5,8 @@
 Kit registers one SOLIDWORKS adapter with part and assembly identifiers.
 Its primary `format_id` is `solidworks.sldprt`.
 Its `aliases` field contains `solidworks.sldasm`.
-The adapter reads source records.
-It is not registered as a writer, so Kit cannot produce `.SLDPRT` or `.SLDASM` files.
-It does not invoke SOLIDWORKS during production conversion.
+The reader accepts part and assembly source records.
+The native writer accepts qualified part documents and runs without a SOLIDWORKS installation.
 
 | Identifier          | Suffix    |
 | ------------------- | --------- |
@@ -16,6 +15,7 @@ It does not invoke SOLIDWORKS during production conversion.
 
 `available_adapters()` returns one entry for this adapter.
 Read its `aliases` field to find the assembly identifier.
+The format listing reports writable extensions and aliases separately.
 See [format selection](../../Tasks/SelectFormat.md) for a discovery example.
 
 Registration is not evidence of complete feature-family support.
@@ -177,6 +177,17 @@ their own numeric suffixes and shared characters and widths. An active
 layer reference requires separate ownership evidence and is refused.
 [Configuration label scope](../../Changes/Solidworks/Archive/SolidworksConfigLabelFields.md)
 
+The bounded surface-finish helper preserves both embedded fonts and
+its separate annotation leader fields against the ordinary linked
+part archive. The same field layout serves the two weld-side copies.
+[Configuration finish helper](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigFinishHelpers.md)
+
+The internal ordinary part configuration codec reads both bounded
+version-19000 sections and retains the original ModelHeader aliases.
+It emits from the same typed graph and derives lengths and references.
+The bounded standalone record readers retain their own entry points.
+[Complete ordinary part configuration](../../Changes/Solidworks/Archive/Configuration/SolidworksOrdinaryConfigGraph.md)
+
 The configuration scene reader keeps the environment folder, its actual
 name and the observed ambient and directional light children. The
 runtime light reset retains its separate signed wire word. Populated
@@ -217,6 +228,21 @@ The standalone ordinary Config-0 sheet-metal master codec reads and
 emits its untagged body with the concrete feature virtuals. The
 current empty-master scope retains the linked part and map ownership.
 [Direct sheet-metal master scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigSheetMetalMaster.md)
+
+For the compatible version-19000 part profile, strict reads project
+literal native summary, document custom text and active configuration
+text. Configuration text uses the saved directory and the matching
+ModelHeader configuration name. All literal property scopes require the complete
+ordinary Config-0 body linked to its ModelHeader. Unsupported property
+variants leave the ordinary geometry and feature result available with
+a diagnostic.
+The registry refuses fresh native projections and direct writes when a
+part or owned assembly component has an explicit property refusal.
+An unfiltered interchange JSON copy preserves the inspection status
+and original provenance when both registered adapters are interchange
+JSON and the document meets the other portable-data requirements.
+A verified empty legacy scope adds no property-specific restriction.
+[Literal part properties](../../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
 
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
 reader uses forward fin links and terminal vertices. This preserves outward
@@ -262,8 +288,71 @@ from typed rows. Its bounded emission preserves native state normalization
 under the actual archive conditions.
 [Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
 
-Kit does not write SOLIDWORKS files.
-A conversion to a `.SLDPRT` or `.SLDASM` destination raises `AdapterNotFoundError` and creates no file.
+The internal version-19000 History and Biography codec uses an independent
+archive map for each stream. It preserves existing biography telemetry
+and supports fresh history with explicit creation and build provenance.
+Its writer reads the emitted bytes to report their object offsets.
+[Standalone history scope](../../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
+
+Kit writes native SOLIDWORKS 2026 SP05.2 parts from a neutral millimetre
+document with one active configuration, one closed Front-plane line loop,
+one forward blind boss, one driving depth parameter `D1` and one solid.
+Supply three through 64 ordinary unconstrained sketch lines, ordered around
+a simple contour with matching endpoints and noncollinear adjacent sides.
+
+Call `write_document` with a `.SLDPRT` path whose stem matches
+`document.metadata["name"]`. For a binary stream, pass
+`destination_format="solidworks.sldprt"` and supply an absolute part path in
+`values["final_destination"]`. Use an empty, writable, seekable binary
+stream at position zero. Kit checks the caller's complete output extent
+without reading stream contents. The archive derives its stream lengths,
+object maps, topology and editable records from the document.
+
+The registry rejects unsupported neutral content and assembly or drawing
+destinations before publishing a file. [Native part writer evidence](../../Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
+
+Public part output requires trusted offline native measurement for the exact
+regenerated bytes. Pass a plain dictionary in
+`values["solidworks_native_measurement"]`. Its `written_at` integer is the
+original measured construction epoch. Its `receipt` object is the parsed
+version-1 SOLIDWORKS 2026 standalone part evidence report from a qualified
+SP05.2 or SP04.1 executable. The
+[report example](../../../re/solidworks/measurements/2026/SdkDefaultPartNative01.json)
+records both disclosed candidates, their hash-linked native lifecycles and
+the two passing controls.
+
+Use `kit convert document.json Name.SLDPRT --native-measurement Measurement.json`
+with the same dictionary stored as a JSON file. The CLI expands a leading
+`~/` and reads this evidence before calling the writer. The SDK receives evidence in memory and regenerates
+the native file from the neutral document. It checks the complete archive
+digest and measured case before opening an output. Matching results set both
+`vendor_loadable` and `application_usable` to true.
+
+Authenticate and verify custody of the oracle report before supplying it.
+Kit checks its structure, exact oracle identity, measurements and archive
+digest binding. The report is unsigned. Its contents alone cannot establish
+who made the native observations. Keep the exact basename and encoded self
+locator used in the measured archive. Standalone non-Windows host paths keep
+the existing neutral Windows self-locator rule. A Windows output must
+reproduce the measured encoded locator.
+[Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+[SP04.1 qualification](../../Changes/Solidworks/Construction/SolidworksEncoderOracleBuild.md)
+
+A strict cold readback of a measured ordinary part can use the same SDK writer
+with its matching final locator and receipt. Kit verifies the regenerated
+model and complete output digest before exposing bytes. Native saves with
+extra state remain outside this path.
+
+The combined SDK adapter listing describes the reader for shared formats.
+Use `AdapterRegistry.writers()` after discovery for writer metadata.
+Use `kit formats --json` for the exact reader and writer aliases and extensions.
+
+The cold archive carries the editable feature graph. SOLIDWORKS rebuilds
+the solid from that graph. With `include_brep=False`, Kit returns the
+linked sketch, support and driving depth through its ordinary reader.
+For three through 64 noncollinear prism sides, the default reader also
+derives the exact planar solid from the typed loop, datum and depth.
+Raw Parasolid extraction requires a saved Parasolid payload.
 
 The earlier writer did not generate its streams from format rules.
 Each supported family re-emitted a recorded payload, which is a typed recording of one saved stream.
@@ -271,9 +360,8 @@ Every generated file also took its `Config-0` stream from one recorded configura
 The [recorded payload removal](../../Changes/Solidworks/SolidworksRecordedPayloadRemoval.md) deleted that writer.
 CI now rejects any recorded field program in `src`.
 
-A future writer must derive each emitted structure from known format rules.
-The container, archive, configuration manager, definition, and resolved-feature codecs remain as its starting point.
-Do not present a carrier or a mode label as a completed translation.
+The current part writer derives its streams from format rules using the
+typed container, configuration, definition and resolved-feature codecs.
 
 ## Geometry cache boundary
 

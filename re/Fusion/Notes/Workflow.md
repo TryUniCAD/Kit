@@ -130,18 +130,8 @@ changing the reader. For overall read time, reading and indexing the design stre
 
 ## Navigate SDK source with Graphify
 
-From the repository root, use the local Graphify CLI to build a graph of the
-SDK decoder. The output lives under the repository's ignored `tmp/` directory.
-
-```sh
-graphify extract src/convert/Formats/Fusion --code-only --force --no-cluster --out tmp/FusionGraph/Extract
-graphify query 'where are construction plane control bindings validated' \
-  --seed ReadPlaneControls --budget 700 --graph tmp/FusionGraph/Extract/graphify-out/graph.json
-```
-
-Rebuild after SDK source changes. Returned source paths are relative to
-`src/convert/Formats/Fusion`. Start with the feature index
-for status and tests. Query the graph when a reader crosses several modules.
-Check the returned source and focused tests before recording a finding. The
-graph covers SDK source relationships. The notes link to study captures,
-validators and reports.
+Use the [shared decoder graph guide](../../../Documentation/Reference/Research/DecoderGraph.md)
+to extract both Fusion and SOLIDWORKS source, build an interactive overview, query
+entry points, and inspect relationship integrity. Outputs stay under ignored `tmp/`.
+Start with the feature index for supported scope and focused checks. Verify graph
+results against source and saved evidence before recording a decoding finding.

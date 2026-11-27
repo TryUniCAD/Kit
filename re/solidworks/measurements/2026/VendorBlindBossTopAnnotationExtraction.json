@@ -1,0 +1,175 @@
+{
+  "positive": {
+    "generated_annotated": {
+      "annotation_axes_binary64": [
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0"
+      ],
+      "annotation_sha256": "05c71d49d606d5a846f3ba04e8748dcde02a283137a4ca3d6ed78f036b0a3636",
+      "config_stream_sha256": "1f68e960008d422d7e9d59f5c489a50dfe07a99d8c2d88ff6ee52ec69da8e104",
+      "native_configuration_name": "modeled default",
+      "native_owner": "moPart_c.fa48",
+      "object_slot": 87,
+      "object_span": [
+        22091,
+        22369
+      ],
+      "schema": "kit.sw2026.top-annotation-source-evidence.v1",
+      "separate_display_state": {
+        "f1288": [],
+        "feb4": 199,
+        "fec0": [],
+        "n1290": 0,
+        "nec8": 0
+      },
+      "source_sha256": "3ab3578b5a67f9c131b8744ab1c39de3799de2c7cdcf254cc62c956dc75213ba"
+    },
+    "vendor_original": {
+      "annotation_axes_binary64": [
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0"
+      ],
+      "annotation_sha256": "05c71d49d606d5a846f3ba04e8748dcde02a283137a4ca3d6ed78f036b0a3636",
+      "config_stream_sha256": "53219df31eba0cd8420ae48c113c007aaaf4b3460261252968423206696c899d",
+      "native_configuration_name": "Default",
+      "native_owner": "moPart_c.fa48",
+      "object_slot": 101,
+      "object_span": [
+        24504,
+        24782
+      ],
+      "schema": "kit.sw2026.top-annotation-source-evidence.v1",
+      "separate_display_state": {
+        "f1288": [],
+        "feb4": 199,
+        "fec0": [
+          199
+        ],
+        "n1290": 0,
+        "nec8": 1
+      },
+      "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d"
+    },
+    "vendor_warmed": {
+      "annotation_axes_binary64": [
+        "0x1.0000000000000p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x0.0p+0",
+        "0x1.0000000000000p+0",
+        "-0x0.0p+0",
+        "-0x1.0000000000000p+0",
+        "-0x0.0p+0"
+      ],
+      "annotation_sha256": "05c71d49d606d5a846f3ba04e8748dcde02a283137a4ca3d6ed78f036b0a3636",
+      "config_stream_sha256": "7cbed65014652b21b08748eb6c46ee130f3eacaa711475ac036a28c12dedc567",
+      "native_configuration_name": "Default",
+      "native_owner": "moPart_c.fa48",
+      "object_slot": 101,
+      "object_span": [
+        24504,
+        24782
+      ],
+      "schema": "kit.sw2026.top-annotation-source-evidence.v1",
+      "separate_display_state": {
+        "f1288": [],
+        "feb4": 199,
+        "fec0": [
+          199
+        ],
+        "n1290": 0,
+        "nec8": 1
+      },
+      "source_sha256": "3d4df6ddbd1e6e6aaef1fbda8920b2bb0d9904bbbf9a139b1382e54505ee96cc"
+    }
+  },
+  "python_version": "3.14.6",
+  "refusals": {
+    "alternate_config_lane": {
+      "detail": "Top annotation requires only the physical Config-0 lane without a Kit carrier",
+      "sha256": "2f3a74391971776c2bfbbdc80782d447aec1ef361ea7ad0dba3965960947a1cd",
+      "stage": "source process"
+    },
+    "borrowed_alias": {
+      "detail": "Top annotation owner and view must have exclusive typed references",
+      "sha256": "86f0397cdd4996e176924ad64b83ed8236d8eda1eafd4c4cf040a062d2e1f947",
+      "stage": "source process"
+    },
+    "custom_name": {
+      "detail": "Top annotation requires the sole default Top view and its display high-water ID",
+      "sha256": "19bfe988726374ff06f24349d14d247962ce8f0e8c34891f264c0b20153f6ce5",
+      "stage": "source process"
+    },
+    "generated_plain_absent": {
+      "detail": "Top annotation requires one direct saved view",
+      "sha256": "4ba958ae19a16f7a6690a84a12ae27d1987df1b0ef0de347d6e8fbc34b301d5c",
+      "stage": "source process"
+    },
+    "implicit_keyword_configuration_id": {
+      "detail": "Top annotation requires matching explicit active configuration identity",
+      "sha256": "b6e77ae157a3143464223e9dbd67eb824a096a4e898fa9486741c3d5bdc51f4b",
+      "stage": "source process"
+    },
+    "multiple_views": {
+      "detail": "Top annotation requires one direct saved view",
+      "sha256": "2ed312c1908f00649b4bcf258680bc0448bed59c316a123017ef2e574f6e4197",
+      "stage": "source process"
+    },
+    "neutral_configuration_id_mismatch": {
+      "detail": "Top annotation requires matching explicit active configuration identity",
+      "stage": "source API"
+    },
+    "nondefault_translation": {
+      "detail": "Top annotation uses an unsupported pose, reference or subtype field",
+      "sha256": "2e07a694915ae9a182d2875fb6325481cb499f4b34831b7e43f405ad86e07ed6",
+      "stage": "source process"
+    },
+    "populated_reference": {
+      "detail": "Top annotation uses an unsupported pose, reference or subtype field",
+      "sha256": "8c0a5d0a0cb98577d20dac1323372913c57a3645727d864596a3fab4db554f86",
+      "stage": "source process"
+    },
+    "source_sha_mismatch": {
+      "detail": "Top annotation source identity does not match the exact archive",
+      "stage": "source API"
+    }
+  },
+  "schema": "kit.sw2026.top-annotation-source-replay.v1",
+  "source_inputs": {
+    "generated_pair": "VerifyTopAnnotationCandidate",
+    "vendor_original": "Author04/BaselineSource",
+    "vendor_warmed": "A12bDiscovery02/NoOpAfter"
+  },
+  "verification_command": [
+    "python",
+    "re/solidworks/WriterResearch/VerifyTopAnnotationExtraction.py",
+    "--vendor-original",
+    "<disclosed original>",
+    "--vendor-warmed",
+    "<disclosed warmed save>",
+    "--annotated",
+    "<generated annotated>",
+    "--plain",
+    "<generated plain>",
+    "--request",
+    "<persisted candidate request>",
+    "--scratch",
+    "<fresh directory>"
+  ],
+  "verifier_stdout_sha256": "61ae67d1688406a2212333c6e1719d174856788a84fa65bdf915ab7148422a69"
+}

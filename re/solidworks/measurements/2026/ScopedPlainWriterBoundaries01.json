@@ -1,0 +1,149 @@
+{
+  "cases": {
+    "ColdSix": {
+      "raw_result_sha256": "01b820150437a0115cbdaa6feb21a1f91b7834b43a3bc30891481c77d736dfcc",
+      "result": {
+        "bytes": 8131,
+        "default_geometry": {
+          "body_feature_linked": true,
+          "topology": [
+            1,
+            1,
+            8,
+            18,
+            12
+          ],
+          "volume_mm3": 10452.75
+        },
+        "explicit_windows_locator": true,
+        "file_stream_equal": true,
+        "logical_stream_lengths": {
+          "Contents/CMgr": 1145,
+          "Contents/Config-0": 22254,
+          "Contents/Config-0-ModelHeader": 619,
+          "Contents/Config-0-ResolvedFeatures": 14375,
+          "Contents/Definition": 459,
+          "swXmlContents/KeyWords": 1422
+        },
+        "native_capabilities": [
+          "body_structure",
+          "configurations",
+          "editable_sketches",
+          "parameters",
+          "parametric_history",
+          "support_planes"
+        ],
+        "path_readback": {
+          "driving_dimension": [
+            "D1",
+            "mm",
+            19.25,
+            true
+          ],
+          "line_count": 6,
+          "linked_root_rows": 19,
+          "tree_rows": 19
+        },
+        "physical_destinations_intact": true,
+        "raw_extraction_refusal": "SLDPRT contains no readable Parasolid payload",
+        "refusals": {
+          "caller_stream_unnamed": "unnamed native streams require an explicit final destination",
+          "disconnected_loop": "no writer supports the destination",
+          "overwrite_guard": "QueuePlain.SLDPRT",
+          "unknown_model_data": "does not support the destination",
+          "unmodeled_configuration": "requested write configuration is unavailable",
+          "unsupported_extension": "no writer supports the destination"
+        },
+        "sdk_runtime_research_imports": 0,
+        "sha256": "f72162955263f854e887c7c849a31211de916dd31db219492906930bf4a392bf",
+        "stream_readback": {
+          "driving_dimension": [
+            "D1",
+            "mm",
+            19.25,
+            true
+          ],
+          "line_count": 6,
+          "linked_root_rows": 19,
+          "tree_rows": 19
+        },
+        "target_file_opens": 1,
+        "writer_input_file_reads": 0
+      }
+    },
+    "ColdThree": {
+      "raw_result_sha256": "6552169e891726f9f081285ff0a61004869c05f8b5574a970fdddc2a176198a5",
+      "result": {
+        "bytes": 8045,
+        "default_geometry": {
+          "body_feature_linked": true,
+          "topology": [
+            1,
+            1,
+            5,
+            9,
+            6
+          ],
+          "volume_mm3": 6567.25
+        },
+        "explicit_windows_locator": true,
+        "file_stream_equal": true,
+        "logical_stream_lengths": {
+          "Contents/CMgr": 1145,
+          "Contents/Config-0": 22254,
+          "Contents/Config-0-ModelHeader": 619,
+          "Contents/Config-0-ResolvedFeatures": 13613,
+          "Contents/Definition": 459,
+          "swXmlContents/KeyWords": 1423
+        },
+        "native_capabilities": [
+          "body_structure",
+          "configurations",
+          "editable_sketches",
+          "parameters",
+          "parametric_history",
+          "support_planes"
+        ],
+        "path_readback": {
+          "driving_dimension": [
+            "D1",
+            "mm",
+            13.625,
+            true
+          ],
+          "line_count": 3,
+          "linked_root_rows": 19,
+          "tree_rows": 19
+        },
+        "physical_destinations_intact": true,
+        "raw_extraction_refusal": "SLDPRT contains no readable Parasolid payload",
+        "refusals": {
+          "caller_stream_unnamed": "unnamed native streams require an explicit final destination",
+          "disconnected_loop": "no writer supports the destination",
+          "overwrite_guard": "QueuePlain.SLDPRT",
+          "unknown_model_data": "does not support the destination",
+          "unmodeled_configuration": "requested write configuration is unavailable",
+          "unsupported_extension": "no writer supports the destination"
+        },
+        "sdk_runtime_research_imports": 0,
+        "sha256": "5ae18ff41da1a4b6a9403e7d0addee595eeefec62f6f43ab318a495ac8eba73d",
+        "stream_readback": {
+          "driving_dimension": [
+            "D1",
+            "mm",
+            13.625,
+            true
+          ],
+          "line_count": 3,
+          "linked_root_rows": 19,
+          "tree_rows": 19
+        },
+        "target_file_opens": 1,
+        "writer_input_file_reads": 0
+      }
+    }
+  },
+  "native_launches": 0,
+  "schema": "kit.sw2026.scoped-plain-writer-boundaries.v1",
+  "worker_sha256": "40e4577fb34b050bc9bc245d8cb1d30efa32af0cd1952eda0b3d72c8eefe25d3"
+}

@@ -1,0 +1,61 @@
+{
+  "status": "completed",
+  "application": "fusion",
+  "cases": [
+    {
+      "case": "control-before",
+      "parameters_mm": {
+        "width": 40,
+        "height": 20,
+        "depth": 10
+      },
+      "body_count": 1,
+      "volume_cm3": 8.0,
+      "area_cm2": 28.0,
+      "centroid_cm": [
+        2.0,
+        0.5,
+        -1.0
+      ],
+      "timeline_count": 2,
+      "sha256": "3b80e36446e7d31919e9a49a6b13a57325e725acafd8cbfd1e5f80e7e200522b"
+    },
+    {
+      "case": "variation",
+      "parameters_mm": {
+        "width": 40,
+        "height": 20,
+        "depth": 19
+      },
+      "body_count": 1,
+      "volume_cm3": 15.200000000000001,
+      "area_cm2": 38.8,
+      "centroid_cm": [
+        2.0,
+        0.9500000000000001,
+        -1.0
+      ],
+      "timeline_count": 2,
+      "sha256": "5670a6cbe1fb7967f3dac5c09fccdb437ae6681ce734a02d32d2f5c074ca4aa4"
+    },
+    {
+      "case": "control-after",
+      "parameters_mm": {
+        "width": 40,
+        "height": 20,
+        "depth": 10
+      },
+      "body_count": 1,
+      "volume_cm3": 8.0,
+      "area_cm2": 28.0,
+      "centroid_cm": [
+        2.0,
+        0.5,
+        -1.0
+      ],
+      "timeline_count": 2,
+      "sha256": "371bbd19abdd32ddd10be06ea2f781238ba8f506616e753a00c3e60a22bd78d5"
+    }
+  ],
+  "acceptance": "authoring_only; neutral semantic comparison pending"
+}

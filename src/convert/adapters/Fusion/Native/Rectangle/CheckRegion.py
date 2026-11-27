@@ -17,13 +17,16 @@ def CheckRegion(
     Context: ExtrudeContext,
     CurveNodes: tuple[NativeNode, ...],
     AssetId: str,
+    Scoped: bool = False,
 ) -> None:
     Profiles = LinkedNodes(Graph, Context.Extrude, "profileDataRefs")
-    SameNodes(Profiles, Graph.ByClass("ModelDataRef"))
+    if not Scoped:
+        SameNodes(Profiles, Graph.ByClass("ModelDataRef"))
     if len(Profiles) != 1:
         raise ValueError("Native extrusion requires one profile reference")
     Regions = LinkedNodes(Graph, Profiles[0], "dataRefs")
-    SameNodes(Regions, Graph.ByClass("SketchRegionRef"))
+    if not Scoped:
+        SameNodes(Regions, Graph.ByClass("SketchRegionRef"))
     if len(Regions) != 1:
         raise ValueError("Native extrusion requires one sketch region")
     Region = Regions[0]

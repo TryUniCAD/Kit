@@ -36,4 +36,5 @@ def MakeMasterCtx(
         KMasterLayouts,
         KMasterVirtuals,
         {KMasterClass.NameValue: (KMasterClass.SchemaValue,)},
+        PartRootValue=PartValue,
     )

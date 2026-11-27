@@ -8,7 +8,7 @@ from convert.Formats.Fusion.BrepCodec.Journal.Planar.StableRef import StableRef
 
 # the boundary operation needs a distinct decoding boundary so topology changes retain their native revision relationships
 def ReadBoundary(
-    Table: LiveTable, FirstRef: int, LoopRef: int
+    Table: LiveTable, FirstRef: int, LoopRef: int, AllowOpen: bool = False
 ) -> tuple[BoundaryUse, ...]:
     Current = StableRef(Table, FirstRef)
     FirstRef = Current
@@ -32,7 +32,11 @@ def ReadBoundary(
                 StableRef(Table, Coedge.EdgeRef),
                 StableRef(Table, Starts),
                 StableRef(Table, EndVert),
-                StableRef(Table, Coedge.Partner),
+                (
+                    -1
+                    if AllowOpen and Coedge.Partner == -1
+                    else StableRef(Table, Coedge.Partner)
+                ),
             )
         )
         Current = StableRef(Table, Coedge.NextCoedge)

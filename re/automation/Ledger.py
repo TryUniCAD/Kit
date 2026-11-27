@@ -16,6 +16,8 @@ from OutputManifest import InvalidOutput, output_manifest
 from PriorityBacklog import fill_backlog
 from PriorityClaims import record_turn, runnable_jobs
 from Records import StaleLease, bounded, canonical, digest, label, read_record, reason_text, specification
+from SharedQueue.State import guard_spec, initialize as shared_initialize, installed as shared_installed
+from SharedQueue.Lifecycle import reconcile_cancelled, reconcile_members
 
 
 def named_inputs(spec):
@@ -193,6 +195,7 @@ class Ledger:
         return {"pool": name, "kinds": kinds}
 
     def store_spec(self, spec):
+        guard_spec(self, spec)
         encoded = canonical(spec)
         previous = self.db.execute("SELECT definition_hash,length(CAST(definition AS BLOB)) AS size FROM jobs WHERE id=?", (spec["id"],)).fetchone()
         if previous is not None and previous[0] == digest(spec):
@@ -218,12 +221,18 @@ class Ledger:
             return spec["id"], added
         return None
 
-    def submit_many(self, values):
+    def submit_many(self, values, *, reconcile_shared=True):
         if not isinstance(values, list) or not 1 <= len(values) <= 10000:
             raise ValueError("batch must contain 1–10000 job records")
         specs = [specification(value) for value in values]
         if len({spec["id"] for spec in specs}) != len(specs):
             raise ValueError("batch contains duplicate job identifiers")
+        shared_roots = set()
+        if reconcile_shared and shared_installed(self):
+            shared_initialize(self)
+            for spec in specs:
+                shared_roots.update(spec["depends_on"])
+                shared_roots.update(row[0] for row in self.db.execute("SELECT dependency FROM dependencies WHERE job_id=?", (spec["id"],)))
         checks = [check for spec in specs if (check := self.store_spec(spec)) is not None]
         count = self.db.execute("SELECT value FROM settings WHERE key='job_count'").fetchone()[0]
         size = self.db.execute("SELECT value FROM settings WHERE key='definition_bytes'").fetchone()[0]
@@ -231,7 +240,11 @@ class Ledger:
             raise ValueError("store job metadata limit exceeded")
         for job_id, parents in checks:
             self.check_edges(job_id, parents)
-        self.refresh()
+        if reconcile_shared:
+            if shared_installed(self):
+                reconcile_members(self, shared_roots)
+            else:
+                self.refresh()
         return {"submitted": len(specs)}
 
     def submit(self, value):
@@ -363,6 +376,8 @@ class Ledger:
             )
             self.event(name, "invalidated", {"fingerprint": fingerprint})
             row = self.db.execute("SELECT * FROM jobs WHERE id=?", (name,)).fetchone()
+        if reconcile_cancelled(self, row):
+            return
         if row["state"] == "running" and min(row["lease_until"], row["deadline"]) <= time.time():
             self.expire(row, spec)
             row = self.db.execute("SELECT * FROM jobs WHERE id=?", (name,)).fetchone()

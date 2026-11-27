@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -24,6 +24,7 @@ from InferenceGrid.CatalogueWorkerConfig import BuildWorkerCfg
 from InferenceGrid.FeatureRoutes import FeatureRecipes
 from InferenceGrid.Provision import CheckRevision
 from Ledger import Ledger
+from NativeAcceptance.CatalogueBatch import VerifyCatalogue
 from Pilot.PilotConfig import PilotConfig
 from Pilot.PilotFiles import WriteRecord
 from Records import bounded, read_record
@@ -34,8 +35,8 @@ from Supervisor import read_config
 KMaxBatchWorkers = 64
 
 
-# short groups reuse the sdk while leaving enough work for other workers
-KCatalogueGroupSize = 4
+# eight rescans amortize SDK startup while bounding time to member settlement
+KCatalogueGroupSize = 8
 
 
 # independent routes keep running when another route lacks local prerequisites
@@ -140,6 +141,10 @@ def RunCatalogueBatch(
 
 # the controller retains successful receipts across stops and restarts
 def ResumeCatalogue(Directory, SourceRoot, Format, MaxSeconds, NativeReady):
+    if (Directory / "AuthoringRun.json").is_file():
+        from InferenceGrid.Authoring.RunAuthorBatch import ResumeAuthor
+
+        return ResumeAuthor(Directory, SourceRoot, Format, MaxSeconds, NativeReady)
     with HoldCatalogue(Directory):
         Plan, Run = ReadRun(Directory, SourceRoot, Format)
         Submissions, Results = ReadSubmissions(Directory, Plan)
@@ -232,6 +237,17 @@ def FinishCatalogue(
         "status"
     ] == "coverage_incomplete":
         Outcome["status"] = "paused"
+    if not (Directory / "CataloguePause.json").exists() and not any(
+        Job["state"] == "running"
+        for Result in Results.values()
+        for Job in Result.get("jobs", [])
+    ):
+        Reports = VerifyCatalogue(SourceRoot, Directory, Results)
+        Outcome["native_verification"] = Reports
+        if Outcome["status"] == "completed" and (
+            not Reports or any(not Report["live_batch_verified"] for Report in Reports.values())
+        ):
+            Outcome["status"] = "coverage_incomplete"
     write_private(Directory / "CatalogueResult.json", Outcome)
     return Outcome
 
@@ -239,13 +255,20 @@ def FinishCatalogue(
 # per scope submission receipts remain inspectable even before the batch finishes
 def SubmitCatalogue(Directory, Plan, Store, Revision):
     Submissions, Results = {}, {}
-    for Index, (Scope, Identity) in enumerate(Plan["scopes"].items(), 1):
+    Dependencies = []
+    Blocked = None
+    for Index, Scope in enumerate(Plan["scope_order"], 1):
+        Identity = Plan["scopes"][Scope]
         try:
-            Receipt = FeatureRecipes[Identity].Submit(Store, Revision)
+            if Blocked is not None:
+                raise ValueError(f"preceding scope could not be submitted: {Blocked}")
+            Receipt = FeatureRecipes[Identity].Submit(Store, Revision, Dependencies=Dependencies)
             if Receipt["scope"] != Scope:
                 raise ValueError("submitted scope differs from the selected recipe")
             Submissions[Scope] = Receipt
+            Dependencies = [Job["id"] for Job in Receipt["jobs"]]
         except ScopeErrors as Error:
+            Blocked = Scope
             Results[Scope] = {
                 "status": "failed",
                 "stage": "submission",
@@ -312,42 +335,57 @@ def RunSupervisor(
     Reserve=None,
     Handoffs=None,
     Resume=False,
+    CheckRunning=None,
 ):
     AdviceArgs = Advice.arguments() if Advice else []
     MemoryArgs = [] if Reserve is None else ["--reserved-memory-mib", str(Reserve)]
     HandoffArgs = [] if Handoffs is None else ["--catalogue-handoffs", str(Handoffs)]
     AdviceSeconds = 90 * Advice.calls if Advice else 0
     PauseArgs = ["--catalogue-pause-file", str(Directory / "CataloguePause.json")]
+    if Stage == "Authoring":
+        PauseArgs.append("--catalogue-authoring")
     try:
         LogPath = Directory / f"{Stage}Supervisor.log"
         with LogPath.open("ab" if Resume else "xb") as Log:
             with ObserveCatalogue(Directory, LogPath, Log.tell()):
-                Process = subprocess.run(
-                    [
-                        sys.executable,
-                        "-B",
-                        str(SourceRoot / "re/automation/Supervisor.py"),
-                        "--config",
-                        str(Config),
-                        "run",
-                        "--idle-seconds",
-                        "8",
-                        "--max-seconds",
-                        str(MaxSeconds),
-                        *AdviceArgs,
-                        *MemoryArgs,
-                        *HandoffArgs,
-                        *PauseArgs,
-                    ],
-                    cwd=SourceRoot,
-                    stdout=Log,
-                    stderr=subprocess.STDOUT,
-                    timeout=MaxSeconds + AdviceSeconds + 90,
-                    check=False,
-                )
+                Command = [
+                    sys.executable,
+                    "-B",
+                    str(SourceRoot / "re/automation/Supervisor.py"),
+                    "--config",
+                    str(Config),
+                    "run",
+                    "--idle-seconds",
+                    "8",
+                    "--max-seconds",
+                    str(MaxSeconds),
+                    *AdviceArgs,
+                    *MemoryArgs,
+                    *HandoffArgs,
+                    *PauseArgs,
+                ]
+                if CheckRunning is not None:
+                    from InferenceGrid.Authoring.WatchSupervisor import WatchSupervisor
+
+                    Process = WatchSupervisor(
+                        Command,
+                        SourceRoot,
+                        Log,
+                        MaxSeconds + AdviceSeconds + 90,
+                        CheckRunning,
+                    )
+                else:
+                    Process = subprocess.run(
+                        Command,
+                        cwd=SourceRoot,
+                        stdout=Log,
+                        stderr=subprocess.STDOUT,
+                        timeout=MaxSeconds + AdviceSeconds + 90,
+                        check=False,
+                    )
         if Process.returncode:
             return {"stage": Stage, "exit_code": Process.returncode}
-    except (OSError, subprocess.TimeoutExpired) as Error:
+    except (OSError, RuntimeError, subprocess.TimeoutExpired) as Error:
         return {"stage": Stage, "reason": str(Error)[:2048]}
     return None
 

@@ -1,10 +1,12 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.PartScopeOwner import PartScopeOwner
 from convert.adapters.solidworks.Archive.Bodies.ReadRuleValue import ReadRuleValue
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Bodies.Writing.EncodeBodyText import (
     EncodeBodyText,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNodeMut import WriteNodeMut
+from convert.adapters.solidworks.Archive.Maps.ObjectIndex import ObjectIndex
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
 
@@ -13,6 +15,15 @@ def WriteValueMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     Value = ReadRuleValue(FrameValue.ScopeValue, RuleValue)
     WriterValue = FrameValue.WriterValue
     if RuleValue.KindValue == "Node":
+        if RuleValue.ModeValue == "FrameOwner":
+            OwnerValue = PartScopeOwner(WriterValue.ContextValue, FrameValue.NodeValue)
+            if (
+                Value is not OwnerValue
+                or ObjectIndex(WriterValue.MapValue, OwnerValue) is None
+            ):
+                raise ValueError(
+                    "SOLIDWORKS component owner differs from its enclosing part"
+                )
         WriteNodeMut(WriterValue, Value)
     elif RuleValue.KindValue == "Text":
         WriterValue.OutputValue.extend(EncodeBodyText(Value))

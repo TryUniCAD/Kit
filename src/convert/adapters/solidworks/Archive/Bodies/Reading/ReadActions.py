@@ -33,6 +33,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadOwnedMut import Read
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
     ReadPresentMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPackedMut import (
+    ReadPackedMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadRepeatMut import (
     ReadRepeatMut,
 )
@@ -60,6 +63,7 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Array": ReadArrayMut,
             "Context": ReadContextMut,
             "Present": ReadPresentMut,
+            "Packed": ReadPackedMut,
             "Length": ReadLengthMut,
             "Repeat": ReadRepeatMut,
             "Branch": ReadBranchMut,

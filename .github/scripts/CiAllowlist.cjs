@@ -8,7 +8,15 @@ const QueueJobs = [
   "Test suite / Plan",
   "Test suite / Report",
   "Test suite / Platform (windows-2025)",
+  "Test suite / Platform (windows-2025) / shard-1",
+  "Test suite / Platform (windows-2025) / shard-2",
+  "Test suite / Platform (windows-2025) / shard-3",
+  "Test suite / Platform (windows-2025) / shard-4",
   "Test suite / Platform (macos-26)",
+  "Test suite / Platform (macos-26) / shard-1",
+  "Test suite / Platform (macos-26) / shard-2",
+  "Test suite / Platform (macos-26) / shard-3",
+  "Test suite / Platform (macos-26) / shard-4",
   "Linux kernel OOM witness",
   "Analyze actions",
   "Analyze python",
@@ -57,30 +65,55 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
   const Required = IsPull ? Phases.PullRequest : Phases.MergeQueue;
   const Deferred = IsPull ? Phases.MergeQueue : Phases.PullRequest;
   const Workflows = new Map(
-    Object.entries(PreflightNames).map(([File, Name]) => [
-      WorkflowRoot + File,
-      {
-        event: Event,
-        required: Required[File],
-        optional: Deferred[File],
-        skip: Deferred[File],
-        preflight: Name,
-      },
-    ]),
+    Object.entries(PreflightNames).map(([File, Name]) => {
+      const OtherPhaseOnly = Deferred[File].filter(
+        (Job) => !Required[File].includes(Job),
+      );
+      if (IsPull && File === "WorkflowQuality.yml")
+        OtherPhaseOnly.push(
+          "Research CLI Windows compatibility / ${{ matrix.group }}",
+          "Native file compatibility / ${{ matrix.group }}",
+        );
+      return [
+        WorkflowRoot + File,
+        {
+          event: Event,
+          required: Required[File],
+          optional: OtherPhaseOnly,
+          skip: OtherPhaseOnly,
+          preflight: Name,
+        },
+      ];
+    }),
   );
   if (!IsPull) {
     Workflows.set(QueuePath, {
       event: Event,
       required: [QueueGate, ...QueueJobs],
       matching: [ShardJobs],
+      optional: [
+        "CAD feature decoding session",
+        "Test suite / Platform (windows-2025) / shard-5",
+        "Test suite / Platform (macos-26) / shard-5",
+      ],
+      skip: [
+        "CAD feature decoding session",
+        "Test suite / Platform (windows-2025) / shard-5",
+        "Test suite / Platform (macos-26) / shard-5",
+      ],
     });
     return Workflows;
   }
 
   const QueueDeferred = [
     ...QueueJobs,
+    "Test suite / Platform (windows-2025) / shard-5",
+    "Test suite / Platform (macos-26) / shard-5",
+    "CAD feature decoding session",
     "Analyze ${{ matrix.language }}",
     "Test suite / Shard (${{ matrix.shard }})",
+    "Test suite / Platform (windows-2025) / ${{ matrix.group }}",
+    "Test suite / Platform (macos-26) / ${{ matrix.group }}",
   ];
   Workflows.set(QueuePath, {
     event: Event,

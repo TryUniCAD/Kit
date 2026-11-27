@@ -33,6 +33,7 @@ def CheckWinRestart() -> None:
                 FixtureJob(
                     "windows:restart",
                     "fixture.decode",
+                    lease_seconds=30,
                     max_attempts=1,
                     options={"mode": "hold", "pid_file": str(RecordPath)},
                 )

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -66,7 +66,7 @@ def ReadRun(Directory, SourceRoot, Format):
 # accepted submissions are reused directly rather than submitted a second time
 def ReadSubmissions(Directory, Plan):
     Submissions, Results = {}, {}
-    for Index, Scope in enumerate(Plan["scopes"], 1):
+    for Index, Scope in enumerate(Plan.get("scope_order", Plan["scopes"]), 1):
         Entry = read_record(Directory / f"Submission{Index}.json")
         if Entry["scope"] != Scope or (Entry["receipt"] is None) == (
             Entry["failure"] is None
@@ -93,6 +93,12 @@ def ReadRunOptions(Run, MaxSeconds):
 
 # pause is a durable request to stop claiming new work without interrupting active workers
 def PauseCatalogue(Directory, SourceRoot, Format):
+    if (Directory / "AuthoringRun.json").is_file():
+        from InferenceGrid.Authoring.RunAuthorBatch import ReadAuthorRun
+
+        ReadAuthorRun(Directory, SourceRoot, Format)
+        write_private(Directory / "CataloguePause.json", {"paused": True})
+        return {"status": "pausing", "directory": str(Directory)}
     _, Run = ReadRun(Directory, SourceRoot, Format)
     if Run["stage"] is not None:
         write_private(Directory / "CataloguePause.json", {"paused": True})

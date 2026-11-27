@@ -1,5 +1,9 @@
 # Merge queue operations
 
+[Enterprise hosted concurrency](Documentation/Changes/Ci/Scheduling/EnterpriseLaneSets.md) removes shared job lanes and matrix throttles. GitHub schedules PRs and candidates against the organization allowance of 500 total hosted jobs, including at most 50 macOS jobs. Linux runtime planning may request up to 256 shards. Workflow-level isolation, audit admission and obsolete-run cleanup remain enabled.
+
+The desired manifest uses build concurrency 100, merge maximum 100, minimum one, no minimum-entry wait and a 90-minute response timeout. GitHub queues jobs above capacity; full speculative admission does not guarantee shorter candidate latency. The trusted resource marker supports rollout from previous resource versions. Aggregation pacing budgets for 100 candidate pollers.
+
 Kit uses GitHub's native merge queue for `main`. The desired settings live in
 [`.github/MergeQueue.json`](.github/MergeQueue.json). Repository settings are
 outside Git history: merging this configuration PR does not activate them.
@@ -14,21 +18,24 @@ checked-in desired ruleset and live rules separately.
 
 The [post-merge rationale audit](Documentation/Changes/Ci/PostMergeQueueAudit.md)
 runs the complete queue job set on the immutable PR #127 merge revision and any explicitly recorded repair revision.
-Only pushes to `codex/rationale-merged-audit` trigger that audit phase.
+The historical push trigger uses `codex/rationale-merged-audit`.
+For a new audit, dispatch `MergeQueue.yml` with the full source commit SHA in `audit_sha`.
 Its source checkouts use `AuditSha`, and every test module runs without result reuse.
 Repair audits select the triggering push's full commit SHA so the harness is included in their input.
+Manual audits select the explicit source SHA and verify it before collection; their workflow harness can live on a separate branch.
 This audit evidence is separate from native merge-queue acceptance.
+See [manual source audits](Documentation/Changes/Ci/Testing/ManualSourceAudit.md).
 
-Jobs have one execution phase. Jobs that complete in less than 45 seconds run
+Pyright, Mypy and Python steering run on both PRs and queue candidates. Other jobs that complete in less than 45 seconds run
 on PRs. Jobs that take 45 seconds or longer run on merge-group candidates.
 Measured duration includes runner setup, checkout, execution, and finalization.
 The [phase allocation](.github/CiPhases.json) records every split workflow job.
 See the [timing record](Documentation/Changes/Ci/SinglePhaseValidation.md).
 
-PR validation includes Ruff, Black, explicit imports, path policies, rationale
+PR validation includes Ruff, Black, Pyright, Mypy, Python steering, explicit imports, path policies, rationale
 comments, skill preservation, workflow pins, Zizmor, actionlint, release artifact
 validation, and metadata labeling. Queue validation includes Pyright, Mypy,
-Python steering, CI process policy, research CLI compatibility, the full suite,
+Python steering, CI process policy, Windows research CLI compatibility, the full suite,
 CodeQL, and the other security and SBOM scans. Fusion and CLI compatibility
 execute through the complete suite.
 
@@ -47,6 +54,11 @@ It verifies each check's GitHub Actions identity, workflow, event, and job name.
 It also checks every registered workflow outcome. Unexpected failures,
 cancellations, timeouts, and skipped required jobs fail the aggregate.
 Jobs assigned to the other phase are explicitly deferred.
+
+The Gitleaks job classifies one reviewed standards SHA-256 as public data only at its exact workflow path.
+Real scanner probes require detection for that value in another file and for an unknown value at the allowed path.
+The complete history scan and upstream detector rules remain enabled.
+See [attribution queue repairs](Documentation/Changes/Ci/AttributionQueueRepair.md).
 
 The [breaking change label check](Documentation/Changes/BreakingChangeLabelChecks.md)
 separates PR event types into different concurrency groups and reads current metadata.
@@ -95,7 +107,7 @@ live ruleset. The aggregate's 80-minute wait remains within its 90-minute limit.
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary.
 The expensive jobs run on `merge_group.checks_requested` and the existing
-explicit audit branch. PR success establishes eligibility for queue enrollment.
+explicit audit branch or a manual source audit. PR success establishes eligibility for queue enrollment.
 
 The `Scorecard` job uses the checksum-pinned OpenSSF Scorecard CLI instead of
 `ossf/scorecard-action`, which rejects `merge_group` events. It runs the complete
@@ -112,7 +124,23 @@ as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or sec
 thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
-Queue-only type, steering, and research CLI jobs also gate the aggregate.
+Queue-only type, steering, and Windows research CLI jobs also gate the aggregate.
+The serial Linux `Research CLI compatibility` job is
+[retired](Documentation/Changes/Ci/ResearchCliRetirement.md); its `tests/CliResearch` cases run in the complete suite's shards.
+The Windows research CLI compatibility job partitions its existing collected roster
+across four Windows runners. Its stable report requires every shard and verifies
+that each collected case has exactly one outcome. Shard artifacts include the
+run attempt, roster, selected node IDs, report log, and slowest case durations.
+The Windows and macOS platform rosters each run across four runners from the same shared plan.
+The [obsolete-run cleanup](Documentation/Changes/Ci/ObsoleteQueueCleanup.md) releases runners only after confirming that a native candidate has no branch and is absent from the active queue.
+Each stable report checks complete combined outcomes and an actual native pass on its target platform.
+Platform cases stay serial within each runner to preserve process isolation.
+See [Windows platform sharding](Documentation/Changes/Ci/Testing/WindowsPlatformShards.md).
+See [platform sharding and queue timings](Documentation/Changes/Ci/Testing/WindowsResearchCliShards.md).
+Each Windows CLI shard retains two pytest workers with file-level scheduling and case-name output.
+See [Windows CLI scheduling](Documentation/Changes/Ci/WindowsCliScheduling.md).
+The capture-history downloader retries temporary upstream fixture errors before failing setup.
+See [sealed fixture downloads](Documentation/Gotchas/Ci/Windows/SealedFixtureHttpFailures.md) for the limit and diagnostics.
 PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).
@@ -120,6 +148,10 @@ The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedT
 The plan [reuses verified results](Documentation/Changes/QueueTestReuse.md) of test modules whose recorded files and folders did not change since an accepted ancestor candidate.
 Every other collected test runs in a shard.
 Each shard holds at most 1,200 tests, which is 300 tests for each CPU of its 4-CPU runner.
+Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with a 256-shard runtime budget.
+The count cap takes precedence if it requires more shards.
+Platform shards use platform-specific duration histories from the shared plan instead of count-based modulo selection.
+See [runtime scheduling](Documentation/Changes/Ci/QueueRuntimeScheduling.md).
 Each `Test suite / Shard (n)` job runs only its planned node IDs.
 The shard runs them [in parallel on every CPU](Documentation/Changes/ParallelTestShards.md) with pytest-xdist.
 The plan orders each shard so that a fast test follows each slow test.
@@ -148,7 +180,7 @@ Completed-result process checks remain; pending-process liveness and evidence pu
 See the [removal scope and evidence](Documentation/Changes/Ci/FlakyPendingGateRemoval.md).
 
 The checked-in desired queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
-at most two candidates concurrently, and merges one entry at a time. Its
+up to four candidates at a time, and merges one entry at a time. Its
 90-minute response timeout allows the existing 60-minute analyses plus runner
 scheduling. Each candidate has its own concurrency group; a later PR update
 cannot cancel a different queue candidate. Heavy workflows do not repeat on
@@ -156,6 +188,10 @@ the subsequent `main` push. The observed live `Protect` settings differ: five
 concurrent builds, up to five merged entries, a five-minute minimum wait, a
 60-minute response timeout, and an existing organization-admin bypass. These
 were preserved; only the required status contexts were changed for this repair.
+The 22 November 2026 investigation observed newer live settings: 25 concurrent builds,
+a two-entry merge minimum, a ten-minute minimum-entry wait, and a ten-entry merge maximum.
+These differ from the desired manifest and require separate administrator activation.
+The 26 November 2026 read-back still showed 25 builds with a 60-minute response timeout. An administrator must set max entries to build 4, minimum entries to merge 1, minimum-entries wait 0 and response timeout 90 minutes for the four lane sets and native shard expansion to take effect.
 
 ## Activate after this PR merges
 
@@ -220,3 +256,10 @@ Do not describe this configuration as active until the settings are read back.
 - [GitHub merge queue and coupled PR/merge-group checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)
 - [Repository rulesets API](https://docs.github.com/en/rest/repos/rules)
 - [Trusted pull-request metadata workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target)
+
+The catalogue fixture roster and trusted native shell checks are described in
+[the fixture merge CI change](Documentation/Changes/Ci/Testing/FixtureMergeCi.md).
+
+The [abandoned workflow cleanup](Documentation/Changes/Ci/Scheduling/AbandonedWorkflowLanes.md) releases both known heavy workflow families.
+Deleted candidate branches can leave `WorkflowQuality.yml` jobs waiting on shared lanes after their native queue run stops.
+The same active-head, missing-ref, repository, event, and PR-entry checks protect current work.

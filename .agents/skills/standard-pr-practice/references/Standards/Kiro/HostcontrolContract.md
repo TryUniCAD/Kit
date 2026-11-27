@@ -42,7 +42,7 @@ After any HostControl service/field change, run the exact suite CI runs, from `h
 uv run python -m unittest discover -s tests -v
 ```
 
-(Use `uv` per the Python package manager rule — HostControl is outside `Parashell/` and `modules/`.) The change is complete only when this reports zero failures, including both `test_hostcontrol.py` and `test_hostcontrol_consumers.py`. Treat a failure here the same as a failing formatter check: keep working until it is clean. Do not "fix" a failure by weakening or deleting the contract assertions — update the real contract in all coupled locations.
+(Use `uv` per the Python package manager rule — HostControl is outside `modules/`.) The change is complete only when this reports zero failures, including both `test_hostcontrol.py` and `test_hostcontrol_consumers.py`. Treat a failure here the same as a failing formatter check: keep working until it is clean. Do not "fix" a failure by weakening or deleting the contract assertions — update the real contract in all coupled locations.
 
 ## Verification
 

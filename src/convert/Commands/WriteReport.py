@@ -1,4 +1,7 @@
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
+    KPartMeasureOpt,
+)
 
 
 # conversion evidence needs a stable public representation without claiming target application acceptance
@@ -29,5 +32,11 @@ def WriteReport(Result: WriteResult) -> dict[str, object]:
             }
             for Value in Result.Diagnostics
         ],
-        "acceptance": "Writer evidence only; target application open, edit, and rebuild remain unverified",
+        "acceptance": (
+            "Exact output matches the caller supplied offline SOLIDWORKS native measurement"
+            if KPartMeasureOpt in Result.metadata
+            and Result.IsVendorLoadable
+            and Result.IsAppUsable
+            else "Writer evidence only; target application open, edit, and rebuild remain unverified"
+        ),
     }

@@ -29,7 +29,7 @@ def span_payload(config, witness):
     return data
 
 
-def check_branch(config, witness):
+def check_branch(config, witness, owner):
     data = span_payload(config, witness)
     mode, field, mask = witness["mode"], witness["field"], witness["mask"]
     start, base, counter = witness["start"]
@@ -49,7 +49,7 @@ def check_branch(config, witness):
                 and (mode != "Greater" or not data), "the native comparison body changed")
     context = BodyContext(19000, {}, {}, {}, FlagsValue={"conditions": witness["conditions"]})
     rule = NativeField("Branch", field, ModeValue=mode, MaskValue=mask)
-    outcome = IsBranchTaken(context, FieldScope(fields), rule)
+    outcome = IsBranchTaken(context, FieldScope(fields), rule, owner)
     require(compared == witness["compared"] and outcome is witness["predicate"],
             "the production predicate differs from the pinned native context")
     return {"mode": mode, "field": field, "mask": mask, "compared": compared, "predicate": outcome,
@@ -113,5 +113,5 @@ def check_mode_witnesses(config, witnesses, prefix):
     require([row["mode"] for row in branches] == ["Equals", "Greater", "NotCondition"]
             and [row["mode"] for row in repeats] == ["Fixed"],
             "the physical mode witness inventory is incomplete")
-    return {"branch_witnesses": [check_branch(config, row) for row in branches],
+    return {"branch_witnesses": [check_branch(config, row, prefix.RootValue) for row in branches],
             "native_repeat": check_repeat(config, repeats[0], prefix)}

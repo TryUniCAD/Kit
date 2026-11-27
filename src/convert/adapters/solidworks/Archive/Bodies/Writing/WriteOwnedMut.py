@@ -8,6 +8,7 @@ from convert.adapters.solidworks.Archive.Bodies.Owned.CheckOwnedNode import (
 )
 from convert.adapters.solidworks.Archive.Bodies.Owned.CopyOwnedMap import CopyOwnedMap
 from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
+from convert.adapters.solidworks.Archive.Bodies.RequirePartOwn import RequirePartOwn
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
@@ -15,7 +16,11 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 # direct emission keeps a refused body out of the surrounding bytes and identity map
 def WriteOwnedMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     WriterValue = FrameValue.WriterValue
-    ClassValue = GetOwnedClass(WriterValue.ContextValue, RuleValue)
+    ClassValue = RequirePartOwn(
+        WriterValue.ContextValue, FrameValue.NodeValue, RuleValue
+    )
+    if RuleValue.TypeValue in WriterValue.ContextValue.SchemasValue:
+        GetOwnedClass(WriterValue.ContextValue, RuleValue)
     NodeValue = ArchiveNode.RequireNode(
         ReadScopeValue(FrameValue.ScopeValue, RuleValue.NameValue)
     )

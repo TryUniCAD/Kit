@@ -93,10 +93,15 @@ class AdaptiveCapacity:
             return "no work started"
         if now < state["next_increase"]:
             return "healthy minute incomplete"
-        load = host.get("load_average_1m")
+        if "cpu_busy_fraction_1m" in host:
+            load = host["cpu_busy_fraction_1m"]
+            threshold = 0.85
+        else:
+            load = host.get("load_average_1m")
+            threshold = host["logical_cpus"] * 0.85
         if load is None:
             return "load measurement unavailable"
-        if load >= host["logical_cpus"] * 0.85:
+        if load >= threshold:
             return "load threshold"
         if host["available_memory_bytes"] <= reserved_memory + estimate:
             return "memory threshold"

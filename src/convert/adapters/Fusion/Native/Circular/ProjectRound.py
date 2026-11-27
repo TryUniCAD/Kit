@@ -1,3 +1,7 @@
+from convert.adapters.Fusion.Native.Circular.Spans.ProjectSpan import (
+    ProjectSpan,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
 from convert.adapters.Fusion.Native.Circular.CheckRoundBody import CheckRoundBody
 from convert.adapters.Fusion.Native.Circular.CheckRoundTags import CheckRoundTags
 from convert.adapters.Fusion.Native.Circular.ProjectCircle import (
@@ -39,6 +43,8 @@ def ProjectRound(
     Model: DocumentModel, Source: CadSource, Graph: NativeGraph
 ) -> CadDocument:
     Context = SelectExtrusion(Graph)
+    if len(Model.Bodies) == 1 and isinstance(Model.Bodies[0].History, JournalModel):
+        return ProjectSpan(Model, Source, Graph, Context)
     CheckGraph(Graph, Context)
     CheckScopes(Graph, Context, Model.Asset.AssetId)
     Shape = ReadCircle(Graph, Context)

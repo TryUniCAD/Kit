@@ -18,6 +18,8 @@ KUnitFields = MappingProxyType(
                 "has_fb8",
                 "u8",
                 BodyValue=(NativeField("Node", "fb8"),),
+                CountValue="fb8",
+                ModeValue="ObjectPresence",
             ),
             NativeField("Scalar", "fc8", "u16"),
             NativeField("Scalar", "fcc", "i32"),

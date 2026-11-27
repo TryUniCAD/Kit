@@ -40,6 +40,7 @@ def WriteAtomMgr(
         raise BodyUnsupported("SOLIDWORKS atom manager requires its mapped part owner")
     WriterValue = BodyWriter(MapValue, ContextValue, PutAtomBodyMut)
     Fields = dict(FieldsValue)
+    _ = Fields.pop("n6c", None)
     ScopeValue = FieldScope(Fields)
     FrameValue = WriteFrame(
         WriterValue, ScopeValue, ModelValue, WriteSchemaMut, WriteFieldsMut

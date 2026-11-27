@@ -1,0 +1,111 @@
+from types import MappingProxyType
+
+from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+
+# ordinary detail settings share the table family wire fields and their concrete widths
+KAnnotTableRules = MappingProxyType(
+    {
+        "moBOMTableDefs_c": (
+            NativeField("Base", "moGeneralTableDefs_c"),
+            NativeField("Scalar", "f40", "u32"),
+            NativeField("Text", "f48"),
+            NativeField("Text", "f50"),
+            NativeField("Text", "f58"),
+        ),
+        "moBendTableDefs_c": (
+            NativeField("Base", "moGeneralTableDefs_c"),
+            NativeField("Scalar", "f40", "i32"),
+            NativeField("Scalar", "f44", "i32"),
+            NativeField("Scalar", "f4c", "i32"),
+            NativeField("Scalar", "f48", "i32"),
+        ),
+        "moFamilyTableDefs_c": (
+            NativeField("Base", "moGeneralTableDefs_c"),
+            NativeField("Scalar", "f40", "u32"),
+        ),
+        "moGeneralTableDefs_c": (
+            NativeField("Scalar", "f2c", "i32"),
+            NativeField("Scalar", "f28", "i32"),
+            NativeField("Scalar", "f08", "u32"),
+            NativeField("Scalar", "f0c", "i16"),
+            NativeField(
+                "Branch",
+                "",
+                BodyValue=(
+                    NativeField(
+                        "Branch",
+                        "f0c",
+                        BodyValue=(NativeField("Node", "f30"),),
+                        ModeValue="NotEquals",
+                        MaskValue=-1,
+                    ),
+                ),
+                ModeValue="Condition",
+                MaskValue=1073741824,
+            ),
+            NativeField("Scalar", "f38", "i32"),
+            NativeField("Embed", "f18", "utLineWidth_c.Serialize0"),
+            NativeField("Embed", "f20", "utLineWidth_c.Serialize0"),
+            NativeField("Embed", "f10", "utCharFormat_c"),
+        ),
+        "moHoleTableDefs_c": (
+            NativeField("Base", "moGeneralTableDefs_c"),
+            NativeField("Scalar", "f40", "i32"),
+            NativeField("Scalar", "f44", "i32"),
+            NativeField("Scalar", "f48", "f64"),
+            NativeField("Scalar", "f50", "f64"),
+            NativeField("Scalar", "f58", "i32"),
+            NativeField("Scalar", "f5c", "i32"),
+            NativeField("Scalar", "f60", "i32"),
+            NativeField("Scalar", "f68", "i32"),
+            NativeField("Scalar", "f6c", "i32"),
+            NativeField("Scalar", "f70", "i32"),
+            NativeField("Scalar", "f74", "i32"),
+            NativeField("Scalar", "f78", "i32"),
+            NativeField("Scalar", "f64", "i32"),
+            NativeField("Scalar", "f7c", "i32"),
+        ),
+        "moPunchTableDefs_c": (
+            NativeField("Base", "moGeneralTableDefs_c"),
+            NativeField("Scalar", "f40", "i32"),
+            NativeField("Scalar", "f44", "i32"),
+            NativeField("Scalar", "f58", "f64"),
+            NativeField("Scalar", "f60", "f64"),
+            NativeField("Scalar", "f48", "i32"),
+            NativeField("Scalar", "f4c", "i32"),
+            NativeField("Scalar", "f6c", "i32"),
+            NativeField("Scalar", "f50", "i32"),
+            NativeField("Scalar", "f70", "i32"),
+            NativeField("Scalar", "f68", "i32"),
+        ),
+        "moRevisionTableDefs_c": (
+            NativeField("Base", "moGeneralTableDefs_c"),
+            NativeField("Scalar", "f40", "i32"),
+            NativeField("Scalar", "f44", "i32"),
+            NativeField("Scalar", "f48", "i32"),
+            NativeField("Scalar", "f58", "u32"),
+            NativeField("Scalar", "f4c", "i32"),
+            NativeField("Text", "f50"),
+        ),
+        "moTableDefs_c": (
+            NativeField("Scalar", "f08", "i32"),
+            NativeField("Embed", "f10", "moGeneralTableDefs_c"),
+            NativeField("Embed", "f50", "moRevisionTableDefs_c"),
+            NativeField("Embed", "fb0", "moBOMTableDefs_c"),
+            NativeField("Embed", "f150", "moHoleTableDefs_c"),
+            NativeField("Embed", "f328", "utCharFormat_c"),
+            NativeField("Embed", "f110", "moTitleBlockTableDefs_c"),
+            NativeField("Embed", "f1d0", "moWeldTableDefs_c"),
+            NativeField("Embed", "f218", "moBendTableDefs_c"),
+            NativeField("Embed", "f268", "moPunchTableDefs_c"),
+            NativeField("Embed", "f2e0", "moFamilyTableDefs_c"),
+            NativeField("Scalar", "f330", "f64"),
+            NativeField("Scalar", "f338", "f64"),
+        ),
+        "moTitleBlockTableDefs_c": (NativeField("Base", "moGeneralTableDefs_c"),),
+        "moWeldTableDefs_c": (
+            NativeField("Base", "moGeneralTableDefs_c"),
+            NativeField("Scalar", "f40", "i32"),
+        ),
+    }
+)
