@@ -1,7 +1,7 @@
 const Fs = require("node:fs");
 const { CiWorkflows } = require("./CiAllowlist.cjs");
 
-async function ReadReports(Github, Context, Refs, Workflows) {
+async function ReadReports(Github, Context, Refs, Workflows, Gate) {
   const Repository = Context.repo;
   const LatestRuns = new Map();
   const Checks = [];
@@ -13,6 +13,10 @@ async function ReadReports(Github, Context, Refs, Workflows) {
         ...Repository,
         head_sha: Ref,
         per_page: 100,
+      },
+      (Response) => {
+        if (Gate && !Gate.etag) Gate.etag = Response.headers?.etag;
+        return Response.data;
       },
     );
     for (const Run of Runs) {
@@ -208,10 +212,6 @@ async function QueueRunsSettled(Github, Context, Workflows, Gate) {
 }
 
 async function QueueDelay(Github, Context, Core, Gate) {
-  const Created = Date.parse(
-    Context.payload.merge_group?.head_commit?.timestamp ?? "",
-  );
-  const Idle = Number.isNaN(Created) ? 0 : Created + 8 * 60000 - Date.now();
   const Limit = (await Github.rest.rateLimit.get()).data.resources.core;
   const Window = Math.max(0, Limit.reset * 1000 - Date.now());
   const Spendable = Limit.remaining - QueueReserve;
@@ -219,10 +219,10 @@ async function QueueDelay(Github, Context, Core, Gate) {
     Spendable > 0
       ? Math.ceil(
           ((Window * QueueShare) / Spendable) *
-            (Gate.polls ? (Gate.charged ?? 0) / Gate.polls : 1),
+            (Gate.polls ? (Gate.charged ?? 0) / Gate.polls : Gate.etag ? 0 : 1),
         )
       : Window + 1000;
-  const Delay = Math.max(30000, Idle, Paced);
+  const Delay = Math.max(30000, Paced);
   Core.info(
     `API rate limit ${Limit.remaining}/${Limit.limit} remaining; next poll in ${Math.ceil(Delay / 1000)} s`,
   );
@@ -270,7 +270,13 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
         !Rows ||
         (await QueueRunsSettled(Github, Context, Workflows, Gate))
       ) {
-        Rows = await ReadReports(Github, Context, Refs, Workflows);
+        Rows = await ReadReports(
+          Github,
+          Context,
+          Refs,
+          Workflows,
+          !IsPull && !Rows ? Gate : null,
+        );
         const Failed = Rows.filter((Row) => Row.state === "fail");
         if (Failed.length) {
           await Core.summary
