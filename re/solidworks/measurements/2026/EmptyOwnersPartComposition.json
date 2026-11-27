@@ -1,0 +1,536 @@
+{
+  "base_research_revision": "1f8648567335e96b5e419735e045105eb311f4da",
+  "controls": {
+    "absent_appearance_cut": {
+      "appearance": {
+        "appearance": {
+          "ManagerOnWire": false,
+          "NextAppearanceId": 1
+        },
+        "definition": {
+          "bytes": 459,
+          "sha256": "984487530772d4c3099f70c75ce35d44b605de188e3c241affdad409bbd0c7af"
+        },
+        "exact_replay": true,
+        "map_next": 7,
+        "reference_count": null,
+        "reference_rows": null,
+        "signed_counter_words": null
+      },
+      "archive": {
+        "bytes": 10927,
+        "path": "reconstruction.SLDPRT",
+        "sha256": "4361add722ae409c2e43a261afe0e0eb4f3768715da4de58a2de13fc1859084b"
+      },
+      "different_clear_streams_from_both": [
+        "Contents/Definition"
+      ],
+      "ordinary_definition": {
+        "returned": true
+      },
+      "property": {
+        "actual_cut_owner": true,
+        "cut_lists_empty": true,
+        "exact_object_map": true,
+        "exact_reemit": true,
+        "file_lists_null": true,
+        "key": 0,
+        "map_next": 9,
+        "owner_slots": [
+          [
+            2,
+            "moCusPropMgr_c"
+          ],
+          [
+            4,
+            "moCusPropContainer_c"
+          ],
+          [
+            6,
+            "moFilePropContainer_c"
+          ],
+          [
+            8,
+            "moCutListPropContainer_c"
+          ]
+        ]
+      },
+      "report_sha256": "b1a706d6b05f4531b5b9100bd225c64b4aed6e8ad5a1fb21a1ec4c77a12fe851"
+    },
+    "absent_appearance_file_only": {
+      "appearance": {
+        "appearance": {
+          "ManagerOnWire": false,
+          "NextAppearanceId": 1
+        },
+        "definition": {
+          "bytes": 459,
+          "sha256": "984487530772d4c3099f70c75ce35d44b605de188e3c241affdad409bbd0c7af"
+        },
+        "exact_replay": true,
+        "map_next": 7,
+        "reference_count": null,
+        "reference_rows": null,
+        "signed_counter_words": null
+      },
+      "archive": {
+        "bytes": 10913,
+        "path": "reconstruction.SLDPRT",
+        "sha256": "72409c6f699a367541c949c7a412a7be623084bda063022c9a833b9d3a1f3ea1"
+      },
+      "different_clear_streams_from_both": [
+        "Contents/CusProps",
+        "Contents/Definition"
+      ],
+      "ordinary_definition": {
+        "returned": true
+      },
+      "property": {
+        "actual_cut_owner": false,
+        "cut_lists_empty": null,
+        "exact_object_map": true,
+        "exact_reemit": true,
+        "file_lists_null": true,
+        "key": 0,
+        "map_next": 7,
+        "owner_slots": [
+          [
+            2,
+            "moCusPropMgr_c"
+          ],
+          [
+            4,
+            "moCusPropContainer_c"
+          ],
+          [
+            6,
+            "moFilePropContainer_c"
+          ]
+        ]
+      },
+      "report_sha256": "6e858386335bdb5d2d17fb4958b78c11b320c3f32debf8d9c11985a95c7e401b"
+    },
+    "appearance_file_only": {
+      "appearance": {
+        "appearance": {
+          "ManagerOnWire": true,
+          "NextAppearanceId": 4
+        },
+        "definition": {
+          "bytes": 469,
+          "sha256": "88bdf38bd957f45e54a95340dfb74a593408b2aa30c51f62f0faf5a3e312378a"
+        },
+        "exact_replay": true,
+        "map_next": 7,
+        "reference_count": 0,
+        "reference_rows": 0,
+        "signed_counter_words": [
+          4,
+          0
+        ]
+      },
+      "archive": {
+        "bytes": 10918,
+        "path": "reconstruction.SLDPRT",
+        "sha256": "b4252d464d82e677d82e0e6e7937978fe0c3f32a99205b72a56877fde91b6d6b"
+      },
+      "different_clear_streams_from_both": [
+        "Contents/CusProps"
+      ],
+      "ordinary_definition": {
+        "reason": "SOLIDWORKS part Definition has an alternate renderer profile",
+        "returned": false
+      },
+      "property": {
+        "actual_cut_owner": false,
+        "cut_lists_empty": null,
+        "exact_object_map": true,
+        "exact_reemit": true,
+        "file_lists_null": true,
+        "key": 0,
+        "map_next": 7,
+        "owner_slots": [
+          [
+            2,
+            "moCusPropMgr_c"
+          ],
+          [
+            4,
+            "moCusPropContainer_c"
+          ],
+          [
+            6,
+            "moFilePropContainer_c"
+          ]
+        ]
+      },
+      "report_sha256": "50c3b9b60db6817e8b03c37c22e3ec0dae8f7d278c709e444a71dadb0a616d55"
+    }
+  },
+  "exact_combined": {
+    "added_streams": [
+      "Contents/CusProps",
+      "docProps/Config-0-Properties.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml"
+    ],
+    "appearance": {
+      "appearance": {
+        "ManagerOnWire": true,
+        "NextAppearanceId": 4
+      },
+      "definition": {
+        "bytes": 469,
+        "sha256": "88bdf38bd957f45e54a95340dfb74a593408b2aa30c51f62f0faf5a3e312378a"
+      },
+      "exact_replay": true,
+      "map_next": 7,
+      "reference_count": 0,
+      "reference_rows": 0,
+      "signed_counter_words": [
+        4,
+        0
+      ]
+    },
+    "archive": {
+      "bytes": 10932,
+      "path": "reconstruction.SLDPRT",
+      "sha256": "e5b83d46bb2db35e171c10bc5988b717eee0751f373c3edcc5986c794ad901cd"
+    },
+    "base_sha256": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29",
+    "changed_base_streams": [
+      "Contents/Definition"
+    ],
+    "clear_streams": {
+      "Contents/CMgr": [
+        1129,
+        "908b33dd287ea62a3f955966e0213fe43927258e793fdb747001c1abea57a91b"
+      ],
+      "Contents/CMgrHdr2": [
+        137,
+        "7dc495570f9258aae2c4f87e7e0dce6ba10f3a32f9edcede145b750fd653d77c"
+      ],
+      "Contents/Config-0": [
+        22540,
+        "1f68e960008d422d7e9d59f5c489a50dfe07a99d8c2d88ff6ee52ec69da8e104"
+      ],
+      "Contents/Config-0-ModelHeader": [
+        633,
+        "d82c5ae9474eede0b0cd119424f7efc92cb84c9c089f9ce6de88cead42f124b9"
+      ],
+      "Contents/Config-0-ResolvedFeatures": [
+        13867,
+        "5a16184d66eea4d1288ed2b6c8c8e6f7f9a27d9bc513d6f718ef3c44d7f06361"
+      ],
+      "Contents/CusProps": [
+        138,
+        "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+      ],
+      "Contents/Definition": [
+        469,
+        "88bdf38bd957f45e54a95340dfb74a593408b2aa30c51f62f0faf5a3e312378a"
+      ],
+      "Header2": [
+        633,
+        "f7592bc4f7b76a947ac69b9afa3f2a441431339e691c7db3f230ccfe6bb53d71"
+      ],
+      "_MO_VERSION_19000/Biography": [
+        23,
+        "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      ],
+      "_MO_VERSION_19000/History": [
+        187,
+        "f4131f5d7fbf41459585b8dbeadf6bc8d56f62150598bc1a9817b505a0329b0c"
+      ],
+      "docProps/Config-0-Properties.xml": [
+        699,
+        "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+      ],
+      "docProps/core.xml": [
+        367,
+        "b7b0ec7e305839db5538d3a73e07749acbcf62856989d257bf4702ad9b795e35"
+      ],
+      "docProps/custom.xml": [
+        853,
+        "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+      ],
+      "swXmlContents/KeyWords": [
+        1431,
+        "c164a2374f5a47d400d419a92b5b96b18a97458ff284204d3caa2ee88fb5d9c1"
+      ]
+    },
+    "configuration": {
+      "config_xml_owner_verified": true,
+      "id": 0,
+      "name": "Default"
+    },
+    "external_generation_attempts": 0,
+    "geometry": {
+      "coordinates_m": [
+        [
+          "-0x1.a9fbe76c8b439p-7",
+          "-0x1.89374bc6a7efap-9"
+        ],
+        [
+          "0x1.0624dd2f1a9fcp-7",
+          "-0x1.26e978d4fdf3bp-7"
+        ],
+        [
+          "0x1.374bc6a7ef9dbp-6",
+          "0x1.89374bc6a7efap-8"
+        ],
+        [
+          "0x1.0624dd2f1a9fcp-8",
+          "0x1.78d4fdf3b645ap-6"
+        ]
+      ],
+      "depth_m": "0x1.d4e8fb00bcbe6p-7",
+      "derived_prism": {
+        "source": "linked native profile, support and boss",
+        "topology": [
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 7584.299999999999
+      },
+      "map": [
+        89,
+        89,
+        204
+      ],
+      "plane_words": [
+        131072,
+        0
+      ],
+      "top": {
+        "frame": [
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "-0x0.0p+0"
+        ],
+        "id": 200,
+        "slot": 87
+      },
+      "unit_table_codes": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    "native_launches": 0,
+    "native_locator": "C:\\KitEncoderRoundTrip\\reconstruction.SLDPRT",
+    "property": {
+      "actual_cut_owner": true,
+      "cut_lists_empty": true,
+      "exact_object_map": true,
+      "exact_reemit": true,
+      "file_lists_null": true,
+      "key": 0,
+      "map_next": 9,
+      "owner_slots": [
+        [
+          2,
+          "moCusPropMgr_c"
+        ],
+        [
+          4,
+          "moCusPropContainer_c"
+        ],
+        [
+          6,
+          "moFilePropContainer_c"
+        ],
+        [
+          8,
+          "moCutListPropContainer_c"
+        ]
+      ]
+    },
+    "property_revision": "5fb7e7737f0b9af52373da5e3f4556cd83ba8607",
+    "readers": {
+      "ordinary_definition": {
+        "reason": "SOLIDWORKS part Definition has an alternate renderer profile",
+        "returned": false
+      },
+      "public_121": {
+        "base": {
+          "default": {
+            "reason": "SLDPRT contains no readable Parasolid payload",
+            "returned": false
+          },
+          "without_brep": {
+            "bodies": 1,
+            "boss_operation": "create",
+            "diagnostics": [
+              "sldprt.native_record_unresolved"
+            ],
+            "returned": true
+          }
+        },
+        "final": {
+          "default": {
+            "reason": "SLDPRT contains no readable Parasolid payload",
+            "returned": false
+          },
+          "without_brep": {
+            "bodies": 1,
+            "boss_operation": "join",
+            "diagnostics": [
+              "sldprt.native_record_unresolved"
+            ],
+            "returned": true
+          }
+        }
+      }
+    },
+    "requests_sha256": {
+      "appearance": "02da48e4745fc60dbe2d6f23146ab185e981703a5a66a78c8e4f277ff82c1f30",
+      "part": "cdefa9be027d8257c0f5b08cf722efff746f38960b86e5e73eac2e63bf7d1ac4",
+      "property": "45ba35ff0c0e7c501ad6f9620920c7491a14eb7157e3d2fe2e487f248c9d63a9"
+    },
+    "scope": "generated part; scoped owner and linked CAD wire checks",
+    "sdk_revision": "c0a401a607759fb0c2589647c2a22af65ebb7ce1",
+    "written_at": 1785626030
+  },
+  "fresh_generation_processes": 5,
+  "independent_process": {
+    "configuration_owners": {
+      "0": "Default"
+    },
+    "evidence_sha256": "39186cae7bf5d21e168cc6ae1c88af72fd7fc32e640263c7f14f8df8174d5059",
+    "generated_archive_sha256": "e5b83d46bb2db35e171c10bc5988b717eee0751f373c3edcc5986c794ad901cd",
+    "generation_processes": 1,
+    "method_sha256": "e2a885b4261c688174d72cdb33b13baee8c2a6e0169ed5f21095c88b2f99665b",
+    "native_launches": 0,
+    "positive_readback_processes": 1,
+    "property_slots": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "refused_generation_processes": 4,
+    "source": "separate fresh emitter and pinned typed archive reader",
+    "structural_geometry": {
+      "bounding_box": {
+        "maximum": {
+          "x": 19.0,
+          "y": 23.0,
+          "z": 14.309999999999999
+        },
+        "minimum": {
+          "x": -13.0,
+          "y": -9.0,
+          "z": 0.0
+        }
+      },
+      "edge_count": 12,
+      "face_count": 6,
+      "shell_count": 1,
+      "solid_count": 1,
+      "surface_area": 2407.678910782004,
+      "valid": true,
+      "vertex_count": 8,
+      "volume": 7584.299999999999
+    },
+    "structural_geometry_matches_base": true
+  },
+  "initial_report_sha256": "69acab5ccaff4bdd1fe94f48c95f755275403c1c7179e99f8f5c8a07786086d5",
+  "method_digests": {
+    "re/automation/EncoderRoundTrip/Artifacts.py": "5ff87aae7c5ec141ee5349f29587c745fc0fab17f9f41f9d65c5850ba27ad651",
+    "re/solidworks/EncoderBoundary/ExactSketchIntent.py": "8455c052d58c5927265dedbf93c9dc9a8fe3831bdacc9d521a61621da13ad5ca",
+    "re/solidworks/RendererBoundary/ComposeEmptyOwnersPart.py": "dbe67e0b8c1b15312d3d7d0e599069863ce8a6a886bd1722ceef6b775a24d421",
+    "re/solidworks/RendererBoundary/InspectResavedRenderer.py": "5c8f1519dc758b185fbb062f0c634ab9bce2ddf2d354e39787e45569432e7f40",
+    "re/solidworks/RendererBoundary/ReplayEmptyAppearance.py": "04a464f9433ef1903e7214a23790d8655e1d443f760199536d4a484a7ed4140c",
+    "re/solidworks/WriterResearch/ComposeTopAnnotation.py": "35dc75f89a9ef4970c6bc3514d8eb2522e53130f6a6d3c3ca89e8bcd704d2d89"
+  },
+  "native_launches": 0,
+  "property_method_sha256": "b89154f71bacb3bf01e220f3e8be86a84949540ae6a9479ba38bf734b0c2483c",
+  "public_316": {
+    "record_sha256": "184af7a1ea95a13b24e0e58e82bc176407025c5c9f3cd596520a56ae527cc2e2",
+    "revision": "0d1f6633e6e9e834a200d3c02990b3dea3174c9b",
+    "strict_default": {
+      "base": {
+        "bodies": 1,
+        "boss_operation": "create",
+        "d1_m": "0x1.d4e8fb00bcbe6p-7",
+        "diagnostics": [
+          {
+            "code": "sldprt.native_record_unresolved",
+            "message": "native name records unavailable for 9:Lights and Cameras"
+          }
+        ],
+        "returned": true,
+        "sha256": "2d027288f37b8bffe90dc289842913b9c4ca807942fe6b32ad1eb7fea5acea29",
+        "topology": [
+          6,
+          12,
+          8
+        ]
+      },
+      "combined": {
+        "bodies": 1,
+        "boss_operation": "create",
+        "d1_m": "0x1.d4e8fb00bcbe6p-7",
+        "diagnostics": [
+          {
+            "code": "sldprt.native_record_unresolved",
+            "message": "native name records unavailable for 9:Lights and Cameras"
+          },
+          {
+            "code": "solidworks.part_text_properties_unavailable",
+            "message": "part properties require an empty compatible native manager"
+          }
+        ],
+        "returned": true,
+        "sha256": "e5b83d46bb2db35e171c10bc5988b717eee0751f373c3edcc5986c794ad901cd",
+        "topology": [
+          6,
+          12,
+          8
+        ]
+      }
+    }
+  },
+  "refusals": {
+    "AbsentNonseed": {
+      "diagnostic": "ValueError: an absent appearance manager requires the constructor seed",
+      "exit": 1,
+      "output_exists": false
+    },
+    "InactiveTop": {
+      "diagnostic": "ValueError: Top annotation must bind the active neutral configuration",
+      "exit": 1,
+      "output_exists": false
+    },
+    "IntegerCut": {
+      "diagnostic": "ValueError: empty cut-owner presence must be a Boolean",
+      "exit": 1,
+      "output_exists": false
+    },
+    "UnexpectedAppearance": {
+      "diagnostic": "ValueError: expected the existing two appearance state fields",
+      "exit": 1,
+      "output_exists": false
+    }
+  },
+  "repeat_report_sha256": "69acab5ccaff4bdd1fe94f48c95f755275403c1c7179e99f8f5c8a07786086d5",
+  "runtime": {
+    "arch": "AMD64",
+    "python": "3.14.6",
+    "zlib": "1.3.1.zlib-ng"
+  },
+  "schema": "kit.research.empty-owners-part-composition.v1"
+}

@@ -70,7 +70,6 @@ from convert.adapters.solidworks.Core.Reading.ReadAdapter import (
     SplineGeometry as SplineGeometry,
     SldprtReader,
 )
-from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange import CadDocument as CadDoc
 
 
@@ -140,7 +139,6 @@ __all__ = (
     "SketchConstraint",
     "SplineGeometry",
     "SldprtReader",
-    "SldprtWriter",
     "CadDoc",
     "SldprtAdapter",
     "COMPONENT_TREE_STREAM",
@@ -226,6 +224,8 @@ class SldprtAdapter(SldprtReader, PairProtocol):
                 FormatId = KAsmFormatId
             else:
                 FormatId = KFormatId
+        from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+
         RegistryValue = AdapterRegistry()
         RegistryValue.RegisterWriter(SldprtWriter())
         return RegistryValue.WriteDocument(

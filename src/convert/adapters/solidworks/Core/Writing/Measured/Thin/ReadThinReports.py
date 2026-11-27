@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 from convert.adapters.solidworks.Core.Writing.Measured.Thin.ReadThinJson import (
     ReadThinJson,
 )

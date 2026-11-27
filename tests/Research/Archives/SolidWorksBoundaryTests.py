@@ -4,6 +4,7 @@ from struct import pack as PackBytes, unpack_from as UnpackFrom
 import pytest as Pytest
 
 from convert.adapters.solidworks import build_sldprt as BuildSldprt
+from convert.adapters.solidworks.Container.Archive import ArchiveError
 from convert.adapters.solidworks.Container.Container import (
     SldprtArchive,
     container_signatures as ContainerSignatures,
@@ -66,8 +67,9 @@ def ReadSwFixture(RawValue: bytes, IncludeBrep: bool = False) -> CadDocument:
     )
 
 
-# a valid principal datum with the wrong frame must withhold the typed attachment
-def TestSwPlaneRef() -> None:
+# recognized principal attachment contradictions must fail before either public sdk mode can return fallback geometry
+@Pytest.mark.parametrize("IncludeBrep", (False, True))
+def TestSwPlaneRef(IncludeBrep: bool) -> None:
     Original = KPlaneFile.read_bytes()
     Archive = SldprtArchive.from_bytes(Original)
     (Before,) = ReadSwFixture(Original).sketches
@@ -81,20 +83,10 @@ def TestSwPlaneRef() -> None:
     Streams = Archive.streams
     assert (Support.stream, Support.length) == (KFeatureStream, 4)
     Streams[Support.stream] = PatchSwInt(Streams[Support.stream], Support.offset, 4, 2)
-    Updated = ReadSwFixture(RebuildPart(Original, Archive, Streams))
-    (After,) = Updated.sketches
-    assert After.id == Before.id and After.provenance is not None
-    assert After.attributes["support_plane_source"] == "unresolved"
-    assert After.attributes["unframed_support_plane_native_id"] == 2
-    assert any(
-        Value.code == "sldprt.native_record_unresolved"
-        and "sketch supports fall back to decoded planes" in Value.message
-        for Value in Updated.diagnostics
-    )
-    assert all(
-        Value.record_kind != "sketch-support-reference"
-        for Value in After.provenance.spans
-    )
+    with Pytest.raises(
+        ArchiveError, match="invalid owned SOLIDWORKS principal sketch reference"
+    ):
+        _ = ReadSwFixture(RebuildPart(Original, Archive, Streams), IncludeBrep)
 
 
 # the same viewer must keep the closed rectangle while refusing the unsupported boss selector

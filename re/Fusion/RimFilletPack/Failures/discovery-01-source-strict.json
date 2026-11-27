@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "log": "{\"error\": \"ValueError\", \"message\": \"Native Fusion projection requires a sketch followed by one extrusion\"}\n",
+  "raw_sha256": "5d74cb39c16302913fb44531ddf46a3bf209fc44dced1892f4d20c947cf8362a"
+}

@@ -1,4 +1,4 @@
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.ReadAuthRevJson import (
     ReadAuthRevJson,
 )

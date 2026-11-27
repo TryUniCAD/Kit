@@ -1,6 +1,11 @@
 const { Aggregate } = require("../../../.github/scripts/CiReports.cjs");
 const { BuildReports } = require("./ReportInputs.cjs");
-const Inputs = BuildReports(process.argv[2], process.argv[3], process.argv[4]);
+const Inputs = BuildReports(
+  process.argv[2],
+  process.argv[3],
+  process.argv[4],
+  Number(process.argv[5] || 4),
+);
 const PullData = {
   number: 42,
   state: "open",

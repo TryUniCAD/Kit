@@ -26,7 +26,7 @@ from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteReso
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Core.Adapter import NativePartModel
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.ReadOriginAxes import ReadOriginAxes
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.Axes.ReadAxisGeom import ReadAxisGeom
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ReadColdOutput import ReadColdOutput
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures

@@ -484,9 +484,12 @@ def reverse_mutations(model, graph, context):
             "Native Fusion saved geometry or parameter values disagree",
         ),
         (
-            "unwrapped_literal",
-            mutation_archive(model, depth, "expression", "-10 mm"),
-            "Native reverse distance requires a wrapped millimeter literal",
+            "reverse_formula",
+            mutation_archive(model, depth, "expression", "-( 5 mm + 5 mm )"),
+            (
+                "Native reverse distance requires a wrapped millimeter literal",
+                "Native reverse distance requires a negative millimeter literal",
+            ),
         ),
         (
             "wrong_physical_depth",

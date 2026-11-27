@@ -73,7 +73,9 @@ def RunBatch(SessionRoot: FilePath) -> None:
             Marker = SessionRoot.parents[2] / "Started.pid"
             if FilePath(StartedFile).resolve() != Marker:
                 raise ValueError("unexpected group start marker")
-            _ = Marker.write_text(str(OsLayer.getpid()), encoding="ascii")
+            PendingMarker = Marker.with_suffix(".pending")
+            _ = PendingMarker.write_text(str(OsLayer.getpid()), encoding="ascii")
+            _ = PendingMarker.replace(Marker)
         MemoryBlock = (
             b"x"
             * max(

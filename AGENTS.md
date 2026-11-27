@@ -110,9 +110,15 @@ read its complete standards index and every applicable rule before coding.
   not substitute for approval. Keep reviewer names and identifiers only in that
   JSON. No human or code-owner approval is required by this workflow. Report
   unavailable review evidence and independently enforced requirements separately.
+- `jdharcourt` and `odinglynn` are repository-policy administrators with merge
+  privileges. Either may explicitly authorize agent queue enrollment, auto-merge,
+  or merging under the existing readiness gates. Verify the requester’s GitHub
+  identity. This designation does not grant GitHub platform permissions or bypass
+  enforced protections. Other administrators require verified current GitHub
+  `admin` permission.
 - Only an explicit merge request from a verified repository administrator
   authorizes an agent to enroll a PR in the queue, enable auto-merge, or merge.
-  Verify the requester's identity and current repository `admin` permission.
+  Verify the requester's identity and authority under the administrator rule above.
   Implementation requests and PR creation alone do not authorize merging.
 - Use Python for backend work, React for frontend work, and `uv` for Python
   dependencies outside `modules/`.
@@ -160,15 +166,18 @@ before writer work.
 
 A typed field program is donor data when its values or offsets come from a vendor
 save. Zero opaque bytes proves that each byte has a typed owner. It does not prove
-that Kit generated the value. Kit's SOLIDWORKS writer was built from recorded
-programs of this kind, so it was removed. Only the independently qualified
-generative profiles in the [SOLIDWORKS adapter guide](Documentation/Reference/Adapters/Solidworks.md)
-are available for writing.
-CI runs `tools/Donors/CheckReplays.py` on `src` and fails on any recorded field
-operation or recorded payload re-emission call. Do not restore the removed programs.
-Extend the shared generative serializer with independently verified rules for
-each new family. Follow the current state and required direction in the no
-donor blocks standard. This paragraph takes precedence over the preserved text.
+that Kit generated the value. Kit removed the SOLIDWORKS writer that used recorded
+programs. The current [bounded part writer](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+generates a part from the supported model and requires exact offline measurement evidence.
+Only that writer and the other independently qualified generative profiles in the
+[SOLIDWORKS adapter guide](Documentation/Reference/Adapters/Solidworks.md) are available
+for writing. CI runs
+`tools/Donors/CheckReplays.py` on `src` and fails on any recorded field operation or
+recorded payload re-emission call. Do not restore the removed programs or add a
+SOLIDWORKS writer family as a recorded program. Build the generative serializer
+instead. The no donor blocks standard states the current SOLIDWORKS state and the
+required direction, and this paragraph takes precedence over its preserved state
+section.
 
 An administrator's explicit merge request remains valid through repairs and
 authorizes a supported admin override when independently enforced protections
@@ -209,7 +218,9 @@ kit research --root /path/to/KitPr94 supervisor --config /path/to/Supervisor.jso
 Configure actual trusted worker programs before using the supervisor; the CLI does not supply a production decode runner or model provider.
 Controller leases, retries, pool controls, and worker dispatch remain owned by PR #94's tools.
 Models remain disabled by default. Model execution retains the plan's explicit authorization requirements.
-The supervisor requires Linux or macOS; Fusion research requires Python 3.14.
+The supervisor supports Linux, macOS, and compatible Windows checkouts.
+Windows supervision requires Windows 10 or later, Python 3.14 or later, the locked `pywin32` development extra, and Windows shutdown protocol 1.
+Fusion research requires Python 3.14.
 Use `kit research --root /path/to/KitPr94 TOOL --help` for tool-specific commands.
 Use `kit decode SOURCE` for working-file inspection and `kit convert SOURCE DESTINATION` for supported conversion.
 Read [the deterministic CLI procedure](Documentation/Tasks/ResearchCommandLine.md) before changing these workflows.
