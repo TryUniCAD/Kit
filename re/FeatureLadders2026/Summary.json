@@ -1,0 +1,64 @@
+{
+  "source_revision": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+  "scope": "96 controlled rectangular sketch and blind-extrusion batches; 288 intended native files; not full catalogue coverage",
+  "native_dispatch_settled": true,
+  "native_elapsed_minutes": 25.09,
+  "logical_native_successes": 59,
+  "native_successes_by_application": {
+    "fusion": 48,
+    "solidworks": 11
+  },
+  "latest_native_failed": 1,
+  "latest_dispatch_blocked": 36,
+  "native_files_returned": 177,
+  "native_files_not_produced": 111,
+  "strict_neutral_decoded": 57,
+  "strict_neutral_by_application": {
+    "fusion": 24,
+    "solidworks": 33
+  },
+  "strict_rejected": 120,
+  "strict_rejection_reasons": {
+    "{\"error\": \"ValueError\", \"message\": \"Native reverse prism requires a constrained rectangle\"}": 72,
+    "{\"error\": \"ValueError\", \"message\": \"Native Fusion profile requires identity placement\"}": 24,
+    "{\"error\": \"ValueError\", \"message\": \"Native YZ prism requires a constrained rectangle\"}": 24
+  },
+  "native_state_inspection_counts": {
+    "0": 120
+  },
+  "native_state_inspection_expected": 120,
+  "native_requested_volume_checks": {
+    "passed": 177
+  },
+  "neutral_volume_comparisons": {
+    "passed": 24,
+    "unavailable": 33
+  },
+  "blockers": [
+    "SOLIDWORKS COM RPC loss recurred after supported recovery; host investigation required for 37 cases",
+    "Fusion neutral projection rejects reverse unconstrained rectangles and non-identity sketch placement",
+    "SOLIDWORKS neutral topology measurements unavailable for numeric comparison"
+  ],
+  "full_semantics_verified": false,
+  "vendor_conversion_acceptance_established": false,
+  "model_advice_calls": 0,
+  "production_decoder_changes": 0,
+  "commit_candidates": [
+    "successful native controls and variations with ground-truth JSON and hashes",
+    "strict neutral documents and rejection diagnostics",
+    "typed native-state inspection reports",
+    "controller state, immutable receipts, case definitions and source revision",
+    "corrected authoring/runner scripts after review and documentation"
+  ],
+  "commit_requirements": [
+    "remove private paths, host identifiers and process/session metadata from published copies",
+    "retain source hashes, original private receipts and strict failure classification",
+    "keep vendor CAD data in research corpus only; no vendor executables, templates, interop libraries or donor data in production",
+    "document partial coverage and unresolved semantics; create scoped normal PR"
+  ],
+  "publication": "Sanitized research snapshot; original private controller store is retained by operator",
+  "task_id": "A08h-Ladders2026",
+  "owner": "Codex",
+  "delivery": "Research evidence only; no supported production boundary changes",
+  "license": "MIT for independently authored tools; native controls are API-authored research data"
+}

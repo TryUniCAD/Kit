@@ -1,0 +1,355 @@
+{
+  "source_revision": "d36d7d4806891b5d7de31a94144aa06d31cb3130",
+  "scope": "Two P03 routine capture jobs and a same-baseline independent-process comparison; research observations only",
+  "injected_failure": "The first startup process was stopped after its held PID and creation time matched its published owned identity",
+  "startup": {
+    "max_attempts": 3,
+    "seconds": 6.4681617,
+    "attempts": [
+      {
+        "attempt": 1,
+        "pid": 20432,
+        "ready": false,
+        "seconds": 1.5198182,
+        "owned_process_exit_observed": true
+      },
+      {
+        "attempt": 2,
+        "pid": 14396,
+        "ready": true,
+        "seconds": 4.935779699999999,
+        "owned_process_exit_observed": null
+      }
+    ]
+  },
+  "probe": {
+    "revision": "d36d7d4806891b5d7de31a94144aa06d31cb3130",
+    "status": "observed",
+    "cases": 2,
+    "pid": [14396],
+    "seconds": 145.2547429999977,
+    "decoder_overlap": true,
+    "fresh_comparisons": [
+      {
+        "recipe": "P03",
+        "measurements_equal": true,
+        "fresh_pid": 27816
+      }
+    ],
+    "native_acceptance": false
+  },
+  "timings": [
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/second-timings.json",
+      "sha256": "3ee8ed6cc53daf133b42c47c89c437fb563b93e64725bc31cd4f8726ad9736ca",
+      "record": {
+        "phase": "second",
+        "completed": true,
+        "pid": 27816,
+        "stages": [
+          {
+            "stage": "preparation",
+            "seconds": 1.4344329
+          },
+          {
+            "stage": "baseline_reopen",
+            "seconds": 10.1196726
+          },
+          {
+            "stage": "edit_generation",
+            "seconds": 2.6953161
+          },
+          {
+            "stage": "variant_generation",
+            "seconds": 7.4247757
+          },
+          {
+            "stage": "saved_file_verification",
+            "seconds": 13.6585191
+          },
+          {
+            "stage": "healthy_control_after",
+            "seconds": 0.2187207
+          },
+          {
+            "stage": "receipt_publication",
+            "seconds": 0.0378793
+          }
+        ]
+      }
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/first-timings.json",
+      "sha256": "685f5984735f954fea1da1c5c8afa666f016d1b7c6eb1827fde56440ca438b4f",
+      "record": {
+        "phase": "first",
+        "completed": true,
+        "pid": 14396,
+        "stages": [
+          {
+            "stage": "preparation",
+            "seconds": 0.0023726999999999997
+          },
+          {
+            "stage": "healthy_control_before",
+            "seconds": 5.625604099999999
+          },
+          {
+            "stage": "baseline_authoring",
+            "seconds": 6.918641
+          }
+        ]
+      }
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/second-timings.json",
+      "sha256": "81f9e6cd524ef0ff29f19efbd7f447dc19b5c8a879231e55b3760a0761a78bce",
+      "record": {
+        "phase": "second",
+        "completed": true,
+        "pid": 14396,
+        "stages": [
+          {
+            "stage": "preparation",
+            "seconds": 0.004363199999999999
+          },
+          {
+            "stage": "baseline_reopen",
+            "seconds": 1.8474194
+          },
+          {
+            "stage": "edit_generation",
+            "seconds": 2.4483976999999997
+          },
+          {
+            "stage": "variant_generation",
+            "seconds": 7.278124699999999
+          },
+          {
+            "stage": "saved_file_verification",
+            "seconds": 13.6241875
+          },
+          {
+            "stage": "healthy_control_after",
+            "seconds": 0.1102392
+          },
+          {
+            "stage": "receipt_publication",
+            "seconds": 0.027136499999999997
+          }
+        ]
+      }
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/first-timings.json",
+      "sha256": "28e5f234b29a618098b5b41aff12ebef100109b2573e96d2d162163386bb8843",
+      "record": {
+        "phase": "first",
+        "completed": true,
+        "pid": 14396,
+        "stages": [
+          {
+            "stage": "preparation",
+            "seconds": 0.0002489
+          },
+          {
+            "stage": "healthy_control_before",
+            "seconds": 0.1094274
+          },
+          {
+            "stage": "baseline_authoring",
+            "seconds": 3.362524
+          }
+        ]
+      }
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/second-timings.json",
+      "sha256": "93e84e25792b37f299e2428a24272a7a979174eabfe29f2b841efb855a1dea82",
+      "record": {
+        "phase": "second",
+        "completed": true,
+        "pid": 14396,
+        "stages": [
+          {
+            "stage": "preparation",
+            "seconds": 0.0007136
+          },
+          {
+            "stage": "baseline_reopen",
+            "seconds": 2.187709
+          },
+          {
+            "stage": "edit_generation",
+            "seconds": 2.9813826999999997
+          },
+          {
+            "stage": "variant_generation",
+            "seconds": 6.6710537
+          },
+          {
+            "stage": "saved_file_verification",
+            "seconds": 14.562885699999999
+          },
+          {
+            "stage": "healthy_control_after",
+            "seconds": 0.1078268
+          },
+          {
+            "stage": "receipt_publication",
+            "seconds": 0.0275403
+          }
+        ]
+      }
+    }
+  ],
+  "owners": [
+    {
+      "path": "Fresh/second-owner.json",
+      "record": {
+        "phase": "second",
+        "pid": 27816,
+        "created": 134401016410628141,
+        "owned_process_exit_observed": true,
+        "forced_owned_cleanup": false
+      }
+    },
+    {
+      "path": "SolidWorksQueue/c8727866c28b4e82a1cfcfa28dc95a93/first-owner.json",
+      "record": {
+        "phase": "first",
+        "pid": 14396,
+        "created": 134401015531702862,
+        "owned_process_exit_observed": true,
+        "forced_owned_cleanup": false
+      }
+    }
+  ],
+  "native_files": [
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-baseline-a.SLDPRT",
+      "sha256": "6a2c5b0194ea342fa4a05e0d0e09a874a7ad32470de2bfe412867a8758cbf781",
+      "size_bytes": 53237
+    },
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-baseline-b.SLDPRT",
+      "sha256": "4bfb3e85c37fffad84b53501b87df542ea825a7261b3f289923ece7b66497384",
+      "size_bytes": 53963
+    },
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-direction-negative.SLDPRT",
+      "sha256": "5ef9aba6a0f8f80f1fff884dd70005dcf7ea8f87f71b1760892eeef69c57567e",
+      "size_bytes": 53209
+    },
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-depth_mm-11.SLDPRT",
+      "sha256": "954dd190f7a20efe0767de28fd91b16cf11c2712260efa9ab509df37525f3205",
+      "size_bytes": 53566
+    },
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-height_mm-22.SLDPRT",
+      "sha256": "8cedc2e05605929c599224a01c0de2edb99a7de5cdc1e05217fe98b8566e1902",
+      "size_bytes": 53746
+    },
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-width_mm-44.SLDPRT",
+      "sha256": "5d39de1086a232529219e3f54e84750a2fb5caaccc67af54e6a10509cdb0fba6",
+      "size_bytes": 54460
+    },
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-plane-yz.SLDPRT",
+      "sha256": "7e225798d04265a8d5ad6dd1f085a92a1e46fe2d1c5087ec433d4fdaf964c7a6",
+      "size_bytes": 49305
+    },
+    {
+      "path": "Fresh/Caseb2da282dc54d46d1/P03/P03-solidworks-units-inch.SLDPRT",
+      "sha256": "4666e0c56de486b5ff53ad3d67a3757e97dab924181c9e6c8b52e7628108c7bc",
+      "size_bytes": 54731
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-baseline-a.SLDPRT",
+      "sha256": "6a2c5b0194ea342fa4a05e0d0e09a874a7ad32470de2bfe412867a8758cbf781",
+      "size_bytes": 53237
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-baseline-b.SLDPRT",
+      "sha256": "5872b1fb88142678c72dc981bd31aedf5f8b084f5171a754a8e75f63a04d0cd8",
+      "size_bytes": 54177
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-direction-negative.SLDPRT",
+      "sha256": "30a2cb12da35efeae7ecbfb27710c7a2e4a5eb6a0158b8a0e703c02570043383",
+      "size_bytes": 52833
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-depth_mm-11.SLDPRT",
+      "sha256": "a21c1cac8ea3a91906ec9c36f6a464e69b3142e2ace1d19bd814c3491cf5c180",
+      "size_bytes": 54404
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-height_mm-22.SLDPRT",
+      "sha256": "6759deef6a89e4a953f58b6c919f9fa74b66576dcec0337b4ec15da2acbbc0cd",
+      "size_bytes": 54173
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-width_mm-44.SLDPRT",
+      "sha256": "4ca0293cbf1ca7f7ba2bc12d0c14859f740a6500827c1440dda7bc7782df1db5",
+      "size_bytes": 54439
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-plane-yz.SLDPRT",
+      "sha256": "3b883308b48ab29699010cb2c196809c70aa6ec344c531e38229779d3cce1ee3",
+      "size_bytes": 49119
+    },
+    {
+      "path": "NativeAttempts/0/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-units-inch.SLDPRT",
+      "sha256": "76d299bc9a10ae64a9a1cde0a5b0d6c1e83c873de3f9b4ed55ef8b4b1f6618e3",
+      "size_bytes": 53944
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-baseline-a.SLDPRT",
+      "sha256": "abb654e99dea996d7069bc81a1e13e57ab6c027f8c6bda2dcbaf820ee6388544",
+      "size_bytes": 53619
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-baseline-b.SLDPRT",
+      "sha256": "406947f0aadd5c1393583a5557fc953973d6c88a7327ac692a0e1c0c1bfcfe9d",
+      "size_bytes": 53506
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-direction-negative.SLDPRT",
+      "sha256": "b69776d010409fbaa0603f3b460e68bdc7e9281a5be000e10c5f1e59a70cfcd1",
+      "size_bytes": 52788
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-depth_mm-11.SLDPRT",
+      "sha256": "0b3a0322c3f1f169543bfe9e06822b786f30fbec0f7441a17a8a3c5f535312c2",
+      "size_bytes": 54160
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-height_mm-22.SLDPRT",
+      "sha256": "16f3e2abd102b53cff206bb5d6d4f75b76d92c8274248d9825816ef17fd01961",
+      "size_bytes": 54333
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-edit-width_mm-44.SLDPRT",
+      "sha256": "b6a9378d5f6cbe7f76674a3400dc5a494f6f75bd8b44c05a5de4839fdaf39d25",
+      "size_bytes": 54515
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-plane-yz.SLDPRT",
+      "sha256": "d93b3fcddf0ec2eb893f1ac3879a04a9456b9fd2e3e68f82b06457ae8a9e6de9",
+      "size_bytes": 48885
+    },
+    {
+      "path": "NativeAttempts/1/Capture/Caseb2da282dc54d46d1/P03/P03-solidworks-units-inch.SLDPRT",
+      "sha256": "dbf3f865560b2e1dd56cdb43005a691143a1a257b76314a72e288d611434632d",
+      "size_bytes": 54098
+    }
+  ],
+  "limits": [
+    "P03 only; no general performance or multi-instance claim",
+    "The first 765e6b71 probe failed the unchanged strict receipt-shape check and remains retained",
+    "A recovered part-open failure was not induced; native successful opens and compiler coverage were exercised"
+  ]
+}

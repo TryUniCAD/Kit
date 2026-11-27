@@ -45,7 +45,7 @@ The fix is a directory junction so Ghidra sees a dot-free path while the files p
 inside `.rescratch/ghidra`:
 
 ```powershell
-cmd /c mklink /J "C:\Users\odin\kitgh" "C:\Users\odin\Documents\Parashell\Kit\.rescratch\ghidra"
+cmd /c mklink /J "C:\Users\odin\kitgh" "C:\Users\odin\Documents\UniCAD\Kit\.rescratch\ghidra"
 ```
 
 Every Ghidra invocation below uses `C:\Users\odin\kitgh\...`. Nothing is stored outside

@@ -1,4 +1,5 @@
-from subprocess import Popen
+from subprocess import Popen, TimeoutExpired
+from sys import platform as KPlatform
 
 from KitCli.ForwardSignal import ForwardSignal
 
@@ -12,6 +13,6 @@ def WaitResearchMut(
         ForwardSignal(ChildProcess, PendingSignals.pop(0), None)
     while True:
         try:
-            return ChildProcess.wait()
-        except KeyboardInterrupt:
+            return ChildProcess.wait(timeout=0.1 if KPlatform == "win32" else None)
+        except (KeyboardInterrupt, TimeoutExpired):
             continue

@@ -1,0 +1,8 @@
+[
+  {
+    "case": "solidworks-020",
+    "name": "~$variation.SLDPRT",
+    "sha256": "d9ed2612d67aa3156316d7074bea2792a1749eaf5ff4a56356df1a644545ed25",
+    "reason": "SOLIDWORKS lock sidecar, not a native corpus input"
+  }
+]
