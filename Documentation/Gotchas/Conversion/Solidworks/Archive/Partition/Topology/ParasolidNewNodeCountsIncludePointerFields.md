@@ -12,4 +12,4 @@ rectangles all have 17 more runtime nodes than emitted deletion pairs.
 Count the constructed pointer-field allocations separately from the
 emitted rollback references.
 
-[Measured records and allocation sites](../../../../../../re/solidworks/records/GeneratedRectanglePartition2026.md)
+[Measured records and allocation sites](../../../../../../../re/solidworks/records/GeneratedRectanglePartition2026.md)

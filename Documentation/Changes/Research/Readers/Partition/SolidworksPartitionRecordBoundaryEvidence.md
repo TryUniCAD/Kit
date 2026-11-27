@@ -13,7 +13,7 @@ three inputs while the unchanged public five-line read still lacks a B-rep.
 There is no SDK, serializer or public heuristic change.
 
 Use [the scoped command and selective checkout procedure](../../../../../re/solidworks/records/PartitionRecordBoundary.md).
-The [record-boundary gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/VertexScanCanMisreadFinPayload.md)
+The [record-boundary gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/Topology/VertexScanCanMisreadFinPayload.md)
 records the actual earlier-match behavior and the next owner handoff.
 
 ## Actual verification

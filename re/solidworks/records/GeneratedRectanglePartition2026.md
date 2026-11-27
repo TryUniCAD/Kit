@@ -149,4 +149,4 @@ validates one solid, six faces and the expected absolute geometry. Its loop
 orientation is inward for this cache and for the L1, A13 and A14 vendor-saved
 controls. All four typed walks find outward loops. The SDK pairs `HALFEDGE`
 backward-link traversal with treating each fin's terminal vertex as its
-start, preserving closure and reversing the signed volume. [SDK fin orientation gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/CurrentParasolidFinsStoreTerminalVertices.md).
+start, preserving closure and reversing the signed volume. [SDK fin orientation gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/Topology/CurrentParasolidFinsStoreTerminalVertices.md).
