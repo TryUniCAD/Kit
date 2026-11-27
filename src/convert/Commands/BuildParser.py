@@ -24,7 +24,16 @@ def BuildParser(VersionText: str | None = None) -> ArgumentParser:
     )
     Commands = Parser.add_subparsers(dest="Command", required=True)
     Formats = Commands.add_parser(
-        "formats", help="List registered readers and writers", allow_abbrev=False
+        "formats",
+        help="List registered readers and writers",
+        description="List registry metadata, not qualified feature or conversion support.",
+        allow_abbrev=False,
+    )
+    _ = Formats.add_argument(
+        "FormatName",
+        nargs="?",
+        metavar="FORMAT",
+        help="Select a registered format identifier or alias",
     )
     _ = Formats.add_argument(
         "--json",

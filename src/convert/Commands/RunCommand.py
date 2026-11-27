@@ -13,7 +13,7 @@ from convert.Commands.SaveDecode import SaveDecode
 # command routing must apply shared file protections before conversion or inspection can publish output
 def RunCommand(Options: CliOptions) -> None:
     if Options.Command == "formats":
-        Formats = FormatReport()
+        Formats = FormatReport(Options.FormatName)
         if Options.JsonOutput:
             print(DumpJson(Formats, indent=2, ensure_ascii=True))
             return
