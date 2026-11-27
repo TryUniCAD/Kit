@@ -1,0 +1,60 @@
+{
+  "task": "A08h-FusionUnequalAxis20261127",
+  "source_revision": "fb4afa1aaad538c402ca67f27a0a565d7e32f1e2",
+  "reader_revision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
+  "capture_script_sha256": "33007f4c0806180c364d1d4ac43d47a874cc8eccc0fb49ffaf3600f27f4b1934",
+  "source_job": "ce9d27182f07b063c541f3d0847fce89",
+  "source_process": {
+    "application": "fusion",
+    "build": "2706.1.17",
+    "nonce": "e4ff82f8ab3c9a1768cc11c31098e5542bc2fa43976de8a3",
+    "pid": 31104,
+    "source_sha256": null,
+    "status": "completed"
+  },
+  "native_files": 46,
+  "native_capture_observations": 57,
+  "fresh_processes": 11,
+  "fresh_process_ids": [
+    8592,
+    7648,
+    7408,
+    13552,
+    22112,
+    29920,
+    2364,
+    20336,
+    30488,
+    23172,
+    1560
+  ],
+  "native_verification_checks": 132,
+  "native_verification_failed": 0,
+  "native_decode_checks": 552,
+  "native_decode_unresolved": 8,
+  "strict": {
+    "assets": 46,
+    "decoded": 0,
+    "partial": 0,
+    "reader_error": 0,
+    "rejected": 46,
+    "strict": 0
+  },
+  "partial": {
+    "assets": 46,
+    "decoded": 46,
+    "partial": 46,
+    "reader_error": 0,
+    "rejected": 0,
+    "strict": 0
+  },
+  "models": false,
+  "conversion_acceptance": "not_established",
+  "remaining": [
+    "point-provider nonzero-prefix semantics",
+    "research ASM4 complete reconstruction integration",
+    "independently driven axis and profile edits",
+    "general profiles, contexts and operations",
+    "portable semantics and editable cross-format conversion"
+  ]
+}

@@ -948,3 +948,24 @@ The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native
 All strict neutral and public conversion refusals remain explicit.
 The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
 The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.
+
+## A08h-FusionUnequalAxis20261127
+
+Codex owns this bounded research campaign on `feat/fusion-unequal-revolve-20261127`, based on fresh main `331ef8ce95f7e46814c5086110be9a23478ca8a8`.
+The [package](../../../re/Fusion/UnequalAxis20261127/README.md) retains unequal two-sided solid NewBody revolutions about explicit TwoPoints construction axes.
+Dependencies are A03, A05a, A08h, the existing catalogue and native API workers, and the licensed private Fusion oracle.
+The child claim and progress are recorded on PR #94; delivery uses its own scoped PR as explicitly requested.
+Planning is absent from this task's fetched main; retain this child for later linking to its stable register.
+
+The source checkpoint `fb4afa1aaad538c402ca67f27a0a565d7e32f1e2` contains 46 native archives and 57 matching API observations.
+Independent angle, axis-origin, axis-direction, radial-offset and axial-offset contrasts include reversal, swapped angles and two combined holdouts.
+The [change entry](../../Changes/Research/Campaigns/FusionUnequalConstructionAxisRevolutions.md) records the evidence boundary.
+Eleven fresh native processes passed 132 lifecycle comparisons, including the two holdouts, with healthy controls.
+The oracle was released idle with no recovery marker.
+Status is checking for publication; pinned reader outcomes and failed attempts are retained in the package.
+Strict refusals, partial receipts, eight point-provider prefix refusals and the separate research helper's ASM4 limitation remain explicit.
+No shared decoder, worker or production support boundary changes.
+
+Exit requires sealed native hashes, independent edit/restore/rebuild/save/reopen measurements with healthy controls, deterministic committed-file comparisons and current-head CI and review.
+Full support-provider semantics, general reconstruction, independently edited axis/profile drivers and editable cross-format acceptance remain unfinished.
+This child does not close B02–B05 or infer unsupported grammar from absent public projection.

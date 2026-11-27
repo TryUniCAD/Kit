@@ -746,3 +746,11 @@ Delivery: [PR #377](https://github.com/TryUniCAD/Kit/pull/377).
 See the [first-use change entry](https://github.com/TryUniCAD/Kit/blob/8c2a2affc/Documentation/Changes/Guides/FirstUseWorkflow.md) on that delivery branch.
 Exit: source-backed corrections, link/render evidence where available, current-head CI and configured approval.
 Representative-user evaluation and the broader B11 exit remain open.
+
+## A08h-FusionUnequalAxis20261127 research evidence
+
+Codex owns a bounded unequal two-sided Fusion revolution campaign on `feat/fusion-unequal-revolve-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusionunequalaxis20261127) records dependencies, evidence and exit requirements.
+The [package](../../re/Fusion/UnequalAxis20261127/README.md) retains native source controls, explicit refusals and deterministic reader receipts.
+Publication uses a separate scoped PR; B02–B05 and the production snapshot remain unchanged.
+Planning-register linkage follows stable availability of that separate work.
