@@ -115,6 +115,15 @@ def guarded_worker(raw, name, edited_raw=None, check_deltas=False):
                 and (include or not doc.brep_payloads), "incorrect design or boundary mode")
         if include:
             doc.assert_valid()
+            points = [vertex.point for vertex in doc.brep.vertices]
+            saved_bounds = topology.bounding_box
+            require(saved_bounds is not None and all(
+                getattr(saved_bounds.minimum, axis) == min(getattr(point, axis) for point in points)
+                and getattr(saved_bounds.maximum, axis) == max(getattr(point, axis) for point in points)
+                for axis in "xyz"
+            ), "shell bounds must match the decoded vertex extrema")
+        else:
+            require(topology.bounding_box == saved_bounds, "design-only mode changed saved bounds")
         reread = type(doc).from_json(doc.to_json())
         require(reread.feature_timeline[-1].definition == shell.definition
                 and reread.selections[0].path == selection.path

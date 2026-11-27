@@ -22,3 +22,7 @@ shared queue exercises the native retained transaction codec with a tracked
 independent control and the shell geometry guard with an authored rounded
 boundary. Native shell writing, arbitrary shell modes and protected
 acceptance are tracked separately.
+
+Both strict read modes report bounds from the saved vertices after validating
+them against the sketch footprint. The shared rounding scenario checks that
+the reported box extends to an admitted rounded vertex.

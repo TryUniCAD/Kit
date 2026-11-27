@@ -19,7 +19,7 @@ from convert.adapters.solidworks.Archive.Partition.ReadHistMarks import ReadHist
 from convert.adapters.solidworks.Container.Parasolid import DecodeBrep, EncodeBrep
 from convert.adapters.solidworks.Core.Partition.PartTopology import LinearPartBox
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.CheckShellCache import CheckShellCache
-from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.MeasureShell import MeasureShell
+from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.SummarizeShell import SummarizeShell
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.ShellFootprint import ShellFootprint
 from interchange.geometry.Models.BoundingBox import BoundingBox
 from interchange.geometry.Models.VectorSpace import SpaceVector
@@ -82,7 +82,10 @@ def rounding():
     for model in (exact, near):
         CheckShellCache(model, footprint)
     rejected = refusal(lambda: CheckShellCache(far, footprint), "matching footprint position")
-    volume, area, centre = MeasureShell(near, footprint)
+    summary, centre = SummarizeShell(near, footprint)
+    assert summary.bounding_box == LinearPartBox(near)
+    assert summary.bounding_box.maximum.x > bounds.maximum.x
+    volume, area = summary.volume, summary.surface_area
     dx, dy, dz = 39.575, 41.525, 29.6
     inner_x, inner_y, inner_z = dx - 2 * thickness, dy - 2 * thickness, dz - thickness
     expected_volume = dx * dy * dz - inner_x * inner_y * inner_z
