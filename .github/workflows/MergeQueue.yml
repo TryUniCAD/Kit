@@ -473,6 +473,7 @@ jobs:
             case "$Pattern" in
               '^tests/Policy/Shards/PlatformPlanTests\.py::') AuditSuite=tests/Policy/Shards/PlatformPlanTests.py ;;
               '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
+              '^tests/Convert/Solidworks/Core/RevolveAxisTests\.py::') AuditSuite=tests/Convert/Solidworks/Core/RevolveAxisTests.py ;;
               '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
               *) exit 1 ;;
             esac
@@ -598,6 +599,7 @@ jobs:
       NativePattern: '^tests/Research/Applications/FusionColdStartTests\.py::'
       SelectionPatterns: |-
         ^tests/Policy/Shards/PlatformPlanTests\.py::
+        ^tests/Convert/Solidworks/Core/RevolveAxisTests\.py::
         ^tests/Research/Supervisor[^/]*Tests\.py::
         ^tests/Research/Supervisor/Supervisor[^/]*Tests\.py::
         ^tests/Research/Outputs/
