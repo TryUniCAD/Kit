@@ -38,17 +38,19 @@ def VerifySwSaved(RoleName: str) -> dict[str, object]:
 
 # both read modes must check the physical owners while optional xml stays on its explicit refusal path
 def VerifySwReview(Report: dict[str, object]) -> None:
-    Boundaries = CastValue(dict[str, dict[str, object]], Report["review_boundaries"])
+    Boundaries = CastValue(dict[str, object], Report["review_boundaries"])
     Counts = CastValue(dict[str, dict[str, int]], Boundaries["geometry_call_counts"])
     assert Counts["full"]["ReadSwBrep"] == 1
     assert Counts["design"]["ReadSwBrep"] == Counts["design"]["DecodeBrep"] == 0
     assert Counts["design"]["ReadSwFrames"] == Counts["design"]["CheckSwTorus"] == 1
     assert Counts["design"]["CheckSwTrims"] == 1
     assert Boundaries["cyclic_shell_refused"] == ["full", "design"]
-    assert len(Boundaries["malformed_optional_xml"]) == 3
+    Malformed = CastValue(dict[str, object], Boundaries["malformed_optional_xml"])
+    assert len(Malformed) == 3
     assert Report["permissive_legacy_layout_reads"] == 3
-    assert Boundaries["saved_grammar_scope"]["isolated_new_classes"] == 4
-    assert Boundaries["saved_grammar_scope"]["isolated_alternate_layouts"] == 4
+    Grammar = CastValue(dict[str, object], Boundaries["saved_grammar_scope"])
+    assert Grammar["isolated_new_classes"] == 4
+    assert Grammar["isolated_alternate_layouts"] == 4
 
 
 # an actual section edit changes the driving diameter and sketch seam while the signed physical trims keep their owners

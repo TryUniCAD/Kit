@@ -117,7 +117,7 @@ def MakeSwSketch(
     )
 
 
-# the editable seam is angular; exact saved coordinates are only source evidence
+# the editable seam uses an angle so saved coordinates remain source evidence
 def SwSeamAttrs(ProfileValue: SwReadProfile, DiameterId: str) -> dict[str, object]:
     SeamValue = ProfileValue.SeamValue
     if SeamValue is None:
