@@ -18,4 +18,4 @@ Keep the credential file outside the repository and worker artifacts.
 Preserve the supervisor's isolated home and the original failed receipts.
 Use distinct follow-up job identities after correcting the transport configuration.
 
-The [campaign package](../../../../re/Fusion/UnequalAxis20261127/README.md) retains the corrected worker and failure evidence.
+The [campaign package](../../../../../re/Fusion/UnequalAxis20261127/README.md) retains the corrected worker and failure evidence.
