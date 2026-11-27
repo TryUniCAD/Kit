@@ -735,6 +735,9 @@ Scope: `kit formats [FORMAT]` lookup by primary identifier or alias, visible tex
 Dependencies: existing registry discovery and its unchanged JSON list schema.
 Delivery: [PR #376](https://github.com/TryUniCAD/Kit/pull/376).
 Exit: real-process discovery/refusal coverage, current-head CI and configured approval.
+Queue repair: preserve the intended text reminder and update directional CLI coverage to assert all three lines and directional aliases.
+The directional-format file and focused CLI process cases pass locally under explicit repair authorization.
+Remote PR checks and merge-group acceptance remain distinct evidence.
 Representative-user workflow evaluation and the broader B10 exit remain open.
 
 ## B11-FirstUseGuides: installation and recovery guidance

@@ -28,5 +28,12 @@ The added process coverage in `tests/Convert/Commands/Discovery/CliFormatTests.p
 It uses the existing CLI subprocess harness and shared suite discovery.
 Focused steering passed for all six changed Python files.
 Black formatting and Prettier checks passed for changed code and Markdown.
-Process tests are deferred to remote CI under repository policy.
+The queue repair reproduced `TestAliasCli` failing in the complete directional-format file before the fix.
+The text reminder was legitimate; its older two-line assertion was stale.
+The repaired integration assertion requires exactly three lines and the exact reminder.
+It also checks separate reader and writer aliases, preserving the original directional extension checks.
+Under explicit repair authorization, Python 3.14.2 ran the directional file and focused discovery process cases: nine passed.
+Ruff, Black, focused Pyright, focused Mypy and focused Python steering passed.
+See the [text reminder gotcha](../../Gotchas/Commands/FormatTableReminder.md).
+Full shard and remote check results are recorded on PR #376; queue acceptance remains separate.
 Native acceptance and representative-user evaluation were not performed.
