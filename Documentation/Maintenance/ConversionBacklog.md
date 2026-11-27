@@ -717,6 +717,14 @@ The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-c
 The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
 The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.
 
+## A05c-FusionOffsetReader20261127 source-reader promotion
+
+Codex owns the bounded signed-offset circular reader extension on `feat/fusion-offset-sdk-reader-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a05c-fusionoffsetreader20261127) records scope, dependencies, evidence and exit conditions.
+It promotes qualified XY source inspection through the existing SDK and CLI, with five distinct owned parameters and the existing full native body proofs.
+Read-only publication and conversion guards remain enforced; B02–B05 target acceptance and broader frame/feature support remain unfinished.
+Delivery is a separate normal PR; the [change entry](../Changes/Fusion/Readers/FusionOffsetStartReader.md) supplies usage and limitations.
+
 ## A08h-FusionTwoSidedDraft20261127 research evidence
 
 Codex owns independently drafted two-sided circular Fusion extrusion evidence on `feat/fusion-two-sided-draft-20261127`.

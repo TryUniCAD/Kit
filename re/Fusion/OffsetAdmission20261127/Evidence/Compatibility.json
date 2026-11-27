@@ -1,0 +1,152 @@
+{
+  "baseline_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+  "files": 16,
+  "unchanged": 16,
+  "rows": [
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyBefore.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "7d8686e39a31b8bc52709265d163cb9a95000dd3810cc205f79bbc1d0ae8aa7e",
+      "after_document_sha256": "7d8686e39a31b8bc52709265d163cb9a95000dd3810cc205f79bbc1d0ae8aa7e",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscSymmetric.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "8b1322519a77d456de7ed2b80360ae1b9a13739b436f34102c1f671cff8951f3",
+      "after_document_sha256": "8b1322519a77d456de7ed2b80360ae1b9a13739b436f34102c1f671cff8951f3",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscTwoSided.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "d7d32fc4f97e5c0edc8280529f3466f58d43ea359dc5dc6675830d09393ae7e4",
+      "after_document_sha256": "d7d32fc4f97e5c0edc8280529f3466f58d43ea359dc5dc6675830d09393ae7e4",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscFlip.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "2dde4192c0083cffb5b89cd3ad67c9b90c25e78a3e8f233edd5e1b9b621861f2",
+      "after_document_sha256": "2dde4192c0083cffb5b89cd3ad67c9b90c25e78a3e8f233edd5e1b9b621861f2",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyAfter.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "d3ccae386ab79a3381be3cbf9182c5b52293f1dc3caf1fb1130560a4987605c6",
+      "after_document_sha256": "d3ccae386ab79a3381be3cbf9182c5b52293f1dc3caf1fb1130560a4987605c6",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyBefore.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "7d736b491539d8ddc2627a2345adb8a6fe3a2d36340d3f1c67ce2768ba41a05d",
+      "after_document_sha256": "7d736b491539d8ddc2627a2345adb8a6fe3a2d36340d3f1c67ce2768ba41a05d",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscSymmetric.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "fc7c2793656433d37be3e0c1b6bbd1f1f547072ab092eeda7fcb9fd85d7f394b",
+      "after_document_sha256": "fc7c2793656433d37be3e0c1b6bbd1f1f547072ab092eeda7fcb9fd85d7f394b",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscTwoSided.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "385a27d0e6dac5b9585304425ade163af7cba73cbace518f9fc20c58f3a5a01f",
+      "after_document_sha256": "385a27d0e6dac5b9585304425ade163af7cba73cbace518f9fc20c58f3a5a01f",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscFlip.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "c5581731b96b75f502eba177bf0c741d26014c58106e3526b5e598a30322bece",
+      "after_document_sha256": "c5581731b96b75f502eba177bf0c741d26014c58106e3526b5e598a30322bece",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyAfter.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "88b5ee40e7fbd82e6690c0abd4f64dc23b2ba059c8ceebbe5d7cab903f67525d",
+      "after_document_sha256": "88b5ee40e7fbd82e6690c0abd4f64dc23b2ba059c8ceebbe5d7cab903f67525d",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyBefore.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "e45adc3d3b0be5e4910dcfe748d3cc32965f98d6cc9770d3a8b46f23b039b79c",
+      "after_document_sha256": "e45adc3d3b0be5e4910dcfe748d3cc32965f98d6cc9770d3a8b46f23b039b79c",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/DiscHalf.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "1cf0247102483e6396ef029fa748bff64764fe6329317f3f34629ac4d591fa73",
+      "after_document_sha256": "1cf0247102483e6396ef029fa748bff64764fe6329317f3f34629ac4d591fa73",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyAfter.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "6236c5c99230d69820fe1029dfa8e1f49ed700c00f55d2775491d4f55cecbf4f",
+      "after_document_sha256": "6236c5c99230d69820fe1029dfa8e1f49ed700c00f55d2775491d4f55cecbf4f",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyBefore.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "bbd35fbf462400bd181b20f77b9d21129627642766d31255cc48569fab48dcc1",
+      "after_document_sha256": "bbd35fbf462400bd181b20f77b9d21129627642766d31255cc48569fab48dcc1",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/DiscTwoSided.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "80f2365b1c8239e51b81b079b8555a0537d17dbe3e4ed3fe0bf47c003e98e4dd",
+      "after_document_sha256": "80f2365b1c8239e51b81b079b8555a0537d17dbe3e4ed3fe0bf47c003e98e4dd",
+      "unchanged": true
+    },
+    {
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyAfter.f3d",
+      "source_sha256": null,
+      "before": "decoded",
+      "after": "decoded",
+      "before_document_sha256": "01247ba1a45a768459ff4ed7d95f52a9b67071ccc08d077612834ac2b079a151",
+      "after_document_sha256": "01247ba1a45a768459ff4ed7d95f52a9b67071ccc08d077612834ac2b079a151",
+      "unchanged": true
+    }
+  ]
+}

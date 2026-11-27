@@ -1,0 +1,2097 @@
+{
+  "schema": 1,
+  "task": "A05c-FusionOffsetReader20261127",
+  "source_campaign": "https://github.com/TryUniCAD/Kit/pull/395",
+  "sdk_baseline": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "candidate": "23be702fd32d3092d98974c725bcc9d3b95fe0ee",
+  "samples": [
+    {
+      "id": "baseline",
+      "file": "Controls/baseline.f3d",
+      "sha256": "9b32fdb3df77fafb1a7a1c10b0933cf20c439b00aef8c7aeed60c2b2b09ddde2",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "baseline",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006016,
+        "area_cm2": 48.19203130606743,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          0.09999999999999992
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -2.2
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            2.4000000000000004
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.7000000000000001,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.7000000000000001,
+            "unit": "mm",
+            "expression": "7 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            0.09999999999999998
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "baseline_edit_first",
+      "file": "Controls/baseline_edit_first.f3d",
+      "sha256": "92b89e1376663e61de7509fad5826457dd0929c980df57e149fbcfa753b4c732",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "baseline",
+      "stage": "edit_first",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 26.01552876437597,
+        "area_cm2": 50.64247357586747,
+        "center_cm": [
+          0.6999999997281232,
+          -1.1,
+          0.25000000000000006
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -2.2
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            2.7
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 2.0,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.7000000000000001,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.7000000000000001,
+            "unit": "mm",
+            "expression": "7 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 2.0,
+            "unit": "mm",
+            "expression": "20 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 26.015528764377077,
+          "area_cm2": 50.64247357586746,
+          "center_cm": [
+            0.7,
+            -1.1,
+            0.24999999999999994
+          ],
+          "end_sections": [
+            {
+              "station_cm": 2.0,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "baseline_edit_second",
+      "file": "Controls/baseline_edit_second.f3d",
+      "sha256": "3ef07abb57563f1b97360e32835acf8ebb836e03ff8db241fc37c24739af06ff",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "baseline",
+      "stage": "edit_second",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 26.01552876437597,
+        "area_cm2": 50.64247357586747,
+        "center_cm": [
+          0.6999999997281232,
+          -1.1,
+          -0.049999999999999954
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -2.5
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            2.4000000000000004
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 3.2,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.7000000000000001,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.7000000000000001,
+            "unit": "mm",
+            "expression": "7 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 3.2,
+            "unit": "mm",
+            "expression": "32 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 26.015528764377084,
+          "area_cm2": 50.64247357586747,
+          "center_cm": [
+            0.7,
+            -1.1,
+            -0.050000000000000155
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -3.2,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "baseline_edit_offset",
+      "file": "Controls/baseline_edit_offset.f3d",
+      "sha256": "6ec10c483221b7975bfd5d8e3bad063db053e4249a8f882ca3d358ba92af5650",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "baseline",
+      "stage": "edit_offset",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006016,
+        "area_cm2": 48.19203130606743,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          0.3999999999999997
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -1.9000000000000004
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            2.7
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 1.0,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 1.0,
+            "unit": "mm",
+            "expression": "10 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            0.4
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "negative_offset",
+      "file": "Controls/negative_offset.f3d",
+      "sha256": "3f66339fe0282407e6559651a63e989edc4f8568e96d6e74f1c90286104e5d8c",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "negative_offset",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006016,
+        "area_cm2": 48.19203130606743,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          -1.4999999999999998
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -3.8000000000000003
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            0.8000000000000003
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": -0.9,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": -0.9,
+            "unit": "mm",
+            "expression": "-9 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            -1.5
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "zero_offset",
+      "file": "Controls/zero_offset.f3d",
+      "sha256": "4e87114c7389eddbada8f83a50e1ac37453fb1ffec6d682db84fd1f114f891b1",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "zero_offset",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006016,
+        "area_cm2": 48.19203130606743,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          -0.5999999999999999
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -2.9000000000000004
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            1.7000000000000002
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.0,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.0,
+            "unit": "mm",
+            "expression": "0 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            -0.6
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "swapped",
+      "file": "Controls/swapped.f3d",
+      "sha256": "05d72ee29216a83b24b9a0d1367432540ee813e019646e52806420f9d7e58e7e",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "swapped",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006016,
+        "area_cm2": 48.19203130606743,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          1.2999999999999998
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -1.0
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            3.6000000000000005
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 2.9000000000000004,
+        "second": 1.7000000000000002,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.7000000000000001,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.7000000000000001,
+            "unit": "mm",
+            "expression": "7 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            1.2999999999999998
+          ],
+          "end_sections": [
+            {
+              "station_cm": 2.9,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -1.7,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "holdout_b",
+      "file": "Controls/holdout_b.f3d",
+      "sha256": "083d9f568181bfcfbda7981c9b23cf1dd63a39dfdb084fc53ec052b1ac0539df",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "case": "holdout_b",
+      "stage": "baseline",
+      "holdout": true,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 47.632827813726394,
+        "area_cm2": 72.8221177102114,
+        "center_cm": [
+          -0.9000000003973583,
+          -1.7000000000000002,
+          2.899999999999999
+        ],
+        "bounds_cm": [
+          [
+            -2.8,
+            -3.5999999999999996,
+            0.8
+          ],
+          [
+            1.0,
+            0.20000000000000018,
+            5.0
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 3.1,
+        "second": 1.1,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 1.9000000000000001,
+        "profile": {
+          "radius_cm": 1.9,
+          "center_world_cm": [
+            -0.9,
+            -1.7,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 1.9000000000000001,
+            "unit": "mm",
+            "expression": "19 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 3.1,
+            "unit": "mm",
+            "expression": "31 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 1.1,
+            "unit": "mm",
+            "expression": "11 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 47.63282781372845,
+          "area_cm2": 72.82211771021142,
+          "center_cm": [
+            -0.9,
+            -1.7,
+            2.9000000000000004
+          ],
+          "end_sections": [
+            {
+              "station_cm": 3.1,
+              "radius_cm": 1.9
+            },
+            {
+              "station_cm": -1.1,
+              "radius_cm": 1.9
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "wide_first_small",
+      "file": "Controls/wide_first_small.f3d",
+      "sha256": "c6bf9e19568eb2e2a7289673035241af3de88d1790ce65b7ec508be41d1af685",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "case": "wide_first_small",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 15.463311740050003,
+        "area_cm2": 34.408293538442216,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          -0.7437499999999998
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -2.2
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            0.7124999999999999
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 0.0125,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.7000000000000001,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.7000000000000001,
+            "unit": "mm",
+            "expression": "7 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 0.0125,
+            "unit": "mm",
+            "expression": "0.125 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 15.463311740050662,
+          "area_cm2": 34.40829353844221,
+          "center_cm": [
+            0.7,
+            -1.1,
+            -0.7437500000000001
+          ],
+          "end_sections": [
+            {
+              "station_cm": 0.0125,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "wide_offset_below",
+      "file": "Controls/wide_offset_below.f3d",
+      "sha256": "f49c6a1ca37364d687eb042f4961a29b136b65fcfea485372a98c7b247f14d40",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "case": "wide_offset_below",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006005,
+        "area_cm2": 48.19203130606743,
+        "center_cm": [
+          0.6999999997281232,
+          -1.0999999999999999,
+          -10.700000000000001
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -13.000000000000002
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            -8.400000000000002
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": -10.100000000000001,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": -10.100000000000001,
+            "unit": "mm",
+            "expression": "-101 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            -10.7
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "wide_offset_above",
+      "file": "Controls/wide_offset_above.f3d",
+      "sha256": "529a857b1ce088868736b385e6e93f4326e7d447368301cadf85b5781c6a74b1",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "case": "wide_offset_above",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006016,
+        "area_cm2": 48.19203130606744,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          10.100000000000001
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            7.800000000000001
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            12.400000000000002
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 10.700000000000001,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 10.700000000000001,
+            "unit": "mm",
+            "expression": "107 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            10.1
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "wide_offset_near_zero_edit_offset",
+      "file": "Controls/wide_offset_near_zero_edit_offset.f3d",
+      "sha256": "5f256f6833245755e9f19d9c5786c4eade2222cb675bb19237cc4a8d89f75b62",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "case": "wide_offset_near_zero",
+      "stage": "edit_offset",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 24.422741289006016,
+        "area_cm2": 48.19203130606743,
+        "center_cm": [
+          0.6999999997281231,
+          -1.0999999999999999,
+          -0.3999999999999997
+        ],
+        "bounds_cm": [
+          [
+            -0.6000000000000001,
+            -2.4000000000000004,
+            -2.7
+          ],
+          [
+            2.0,
+            0.20000000000000018,
+            1.9000000000000004
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.2,
+        "profile": {
+          "radius_cm": 1.3,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.2,
+            "unit": "mm",
+            "expression": "2 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 24.422741289007053,
+          "area_cm2": 48.19203130606742,
+          "center_cm": [
+            0.7,
+            -1.1,
+            -0.39999999999999997
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 1.3
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 1.3
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "wide_radius_small",
+      "file": "Controls/wide_radius_small.f3d",
+      "sha256": "8631fe51c40b18a9c1513344a6c12065804d69f25de021353c6a95c09145e691",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "case": "wide_radius_small",
+      "stage": "baseline",
+      "holdout": false,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 0.11705574227275063,
+        "area_cm2": 2.6521325181605024,
+        "center_cm": [
+          0.6999999999811776,
+          -1.0999999999999999,
+          0.10000000000000017
+        ],
+        "bounds_cm": [
+          [
+            0.61,
+            -1.19,
+            -2.2
+          ],
+          [
+            0.7899999999999999,
+            -1.0100000000000002,
+            2.4000000000000004
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.7000000000000002,
+        "second": 2.9000000000000004,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.7000000000000001,
+        "profile": {
+          "radius_cm": 0.08999999999999997,
+          "center_world_cm": [
+            0.7,
+            -1.1,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.7000000000000001,
+            "unit": "mm",
+            "expression": "7 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.7000000000000002,
+            "unit": "mm",
+            "expression": "17 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 2.9000000000000004,
+            "unit": "mm",
+            "expression": "29 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 0.11705574227275567,
+          "area_cm2": 2.6521325181605033,
+          "center_cm": [
+            0.7,
+            -1.1,
+            0.09999999999999998
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.7,
+              "radius_cm": 0.09
+            },
+            {
+              "station_cm": -2.9,
+              "radius_cm": 0.09
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "holdout_e",
+      "file": "Controls/holdout_e.f3d",
+      "sha256": "0420aa309615d5d0c43b5dcd2e8ac6423094619a571bcd9887a4e0fa55a2f8f1",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "case": "holdout_e",
+      "stage": "baseline",
+      "holdout": true,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 10.21471572555083,
+        "area_cm2": 31.941200827578143,
+        "center_cm": [
+          -3.7000000001484854,
+          -1.2999999999999998,
+          -2.1874999999999996
+        ],
+        "bounds_cm": [
+          [
+            -4.41,
+            -2.01,
+            -5.4125000000000005
+          ],
+          [
+            -2.99,
+            -0.5900000000000001,
+            1.0375000000000005
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.1125,
+        "second": 5.3375,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": -0.07500000000000001,
+        "profile": {
+          "radius_cm": 0.71,
+          "center_world_cm": [
+            -3.7,
+            -1.3,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": -0.07500000000000001,
+            "unit": "mm",
+            "expression": "-0.75 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.1125,
+            "unit": "mm",
+            "expression": "11.125 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 5.3375,
+            "unit": "mm",
+            "expression": "53.375 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 10.214715725551265,
+          "area_cm2": 31.941200827578143,
+          "center_cm": [
+            -3.7,
+            -1.3,
+            -2.1875000000000004
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.1125,
+              "radius_cm": 0.71
+            },
+            {
+              "station_cm": -5.3375,
+              "radius_cm": 0.71
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    },
+    {
+      "id": "holdout_e_edit_offset",
+      "file": "Controls/holdout_e_edit_offset.f3d",
+      "sha256": "23c808737db517402d105500eee4d41ed97bb48be98952d13681a755cdaa086e",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "case": "holdout_e",
+      "stage": "edit_offset",
+      "holdout": true,
+      "observed": {
+        "body_count": 1,
+        "body_solid": true,
+        "volume_cm3": 10.21471572555083,
+        "area_cm2": 31.941200827578147,
+        "center_cm": [
+          -3.7000000001484863,
+          -1.2999999999999998,
+          -1.8875000000000002
+        ],
+        "bounds_cm": [
+          [
+            -4.41,
+            -2.01,
+            -5.112500000000001
+          ],
+          [
+            -2.99,
+            -0.5900000000000001,
+            1.3375000000000004
+          ]
+        ],
+        "health": 0,
+        "error": "",
+        "first": 1.1125,
+        "second": 5.3375,
+        "draft_first": 0.0,
+        "draft_second": 0.0,
+        "operation": 3,
+        "solid": true,
+        "two_sides": true,
+        "extent_type": 1,
+        "start_type": "adsk::fusion::OffsetStartDefinition",
+        "offset": 0.225,
+        "profile": {
+          "radius_cm": 0.71,
+          "center_world_cm": [
+            -3.7,
+            -1.3,
+            0.0
+          ],
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "parameters": [
+          {
+            "name": "d1",
+            "role": "ProfileOffset",
+            "value": 0.225,
+            "unit": "mm",
+            "expression": "2.25 mm"
+          },
+          {
+            "name": "d2",
+            "role": "AlongDistance",
+            "value": 1.1125,
+            "unit": "mm",
+            "expression": "11.125 mm"
+          },
+          {
+            "name": "d3",
+            "role": "TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          },
+          {
+            "name": "d4",
+            "role": "AgainstDistance",
+            "value": 5.3375,
+            "unit": "mm",
+            "expression": "53.375 mm"
+          },
+          {
+            "name": "d5",
+            "role": "Side2TaperAngle",
+            "value": 0.0,
+            "unit": "deg",
+            "expression": "0 deg"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "CircularProfile",
+            "type": "adsk::fusion::Sketch"
+          },
+          {
+            "name": "OffsetTwoSides",
+            "type": "adsk::fusion::ExtrudeFeature"
+          }
+        ],
+        "expected": {
+          "volume_cm3": 10.214715725551265,
+          "area_cm2": 31.941200827578143,
+          "center_cm": [
+            -3.7,
+            -1.3,
+            -1.8875000000000002
+          ],
+          "end_sections": [
+            {
+              "station_cm": 1.1125,
+              "radius_cm": 0.71
+            },
+            {
+              "station_cm": -5.3375,
+              "radius_cm": 0.71
+            }
+          ]
+        },
+        "geometry_pass": true,
+        "settings_pass": true
+      }
+    }
+  ],
+  "refusals": [
+    {
+      "file": "Controls/frame.f3d",
+      "sha256": "192e2924d1a1a307413427f141cf6173c653824dbf37116a85e145e02ae74630",
+      "reason": "placement"
+    },
+    {
+      "file": "Controls/wide_frame_yz.f3d",
+      "sha256": "41b97f96047d07c7ea9b833cffed52f86f8aa4eb3b155043e3cbb721ff7bf23b",
+      "reason": "placement"
+    },
+    {
+      "file": "Controls/TwoSidedDraft.f3d",
+      "sha256": "266af08c723ec7dbc67e97c3cddae7fff701c9342faf73da12edacce85ef89ea",
+      "reason": "taper"
+    }
+  ],
+  "final_reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d"
+}

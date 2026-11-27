@@ -1,0 +1,88 @@
+{
+  "jobs": [
+    {
+      "id": "initial-strict-final-owned-process",
+      "kind": "offset.read",
+      "inputs": {},
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+      "rule_version": "owned-offset@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "manifest": "/private/tmp/KitOffsetStart20261127/Corpus.json",
+        "partial": false
+      }
+    },
+    {
+      "id": "initial-partial-final-owned-process",
+      "kind": "offset.read",
+      "inputs": {},
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+      "rule_version": "owned-offset@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "manifest": "/private/tmp/KitOffsetStart20261127/Corpus.json",
+        "partial": true
+      }
+    },
+    {
+      "id": "expanded-strict-final-owned-process",
+      "kind": "offset.read",
+      "inputs": {},
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+      "rule_version": "owned-offset@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "manifest": "/private/tmp/KitOffsetStart20261127/Expansion/Corpus.json",
+        "partial": false
+      }
+    },
+    {
+      "id": "expanded-partial-final-owned-process",
+      "kind": "offset.read",
+      "inputs": {},
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+      "rule_version": "owned-offset@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "manifest": "/private/tmp/KitOffsetStart20261127/Expansion/Corpus.json",
+        "partial": true
+      }
+    },
+    {
+      "inputs": {},
+      "rule_version": "old-span-compat@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "manifest": "/private/tmp/KitOffsetAdmission20261127/PriorCorpus.json",
+        "partial": false
+      },
+      "id": "prior-baseline-owned-process",
+      "kind": "offset.baseline",
+      "tool_version": "91a73de348894a5791a51b977cd6fe0fe677a617"
+    },
+    {
+      "inputs": {},
+      "rule_version": "old-span-compat@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "manifest": "/private/tmp/KitOffsetAdmission20261127/PriorCorpus.json",
+        "partial": false
+      },
+      "id": "prior-current-owned-process",
+      "kind": "offset.read",
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d"
+    }
+  ]
+}

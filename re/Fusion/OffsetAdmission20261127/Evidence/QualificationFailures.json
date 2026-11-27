@@ -1,0 +1,11 @@
+{
+  "attempts": [
+    {
+      "phase": "research document comparison",
+      "failed_comparisons": 109,
+      "reason": "The comparison initially expected only fusion.read_only metadata and omitted the existing kit.research_read_status unqualified marker added by the research reader",
+      "repair": "Require both markers unchanged; all geometry, parameters and definition checks already matched",
+      "source_or_production_code_changed": false
+    }
+  ]
+}

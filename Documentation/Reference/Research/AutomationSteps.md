@@ -907,6 +907,20 @@ The existing partial-only P04 run must preserve its recipe selection and incompl
 Both installed CLI cases passed on Windows at `d3b2cb982c` in 84.79 seconds. Hosted verification and review remain pending.
 See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) for the range and qualification limits.
 
+## A05c-FusionOffsetReader20261127
+
+Codex owns this checking production-reader extension on `feat/fusion-offset-sdk-reader-20261127`, based on fresh main `91a73de348894a5791a51b977cd6fe0fe677a617`.
+Dependencies are A05a/A05c, the signed-offset native campaign on PR #395, the existing typed native graph and circular journal/snapshot proof, and the shared CLI/test planner.
+The child claim is recorded on PR #94; delivery uses a separate scoped PR.
+Scope is identity-XY single-circle, untapered NewBody, positive unequal two-sided distance extents and an independently owned signed OffsetStart.
+The [package](../../../re/Fusion/OffsetAdmission20261127/README.md) pins both native source groups, production candidates, reader outcomes and retained failures.
+The first candidate `23be702fd32d3092d98974c725bcc9d3b95fe0ee` admits 109 XY files, preserves 30 placement refusals and passes 1,447 native geometry/role/receipt comparisons.
+Final binding decomposition `7ce58d3962f89c5c184e1fd993126e4927f9d73d` repeats 109 strict reads, 30 refusals and 1,447 passing comparisons; all sixteen prior-corpus documents retain their baseline hashes.
+All graphs retain read-only status; no writer, target acceptance or broader frame/operation/taper support is added.
+Exit requires revision-bound SDK/CLI and held-out/malformed archive coverage, unchanged old cases, complete field ownership and current-head CI/review.
+The [change entry](../../Changes/Fusion/Readers/FusionOffsetStartReader.md) records usage and limits.
+Planning PR #392 remains separate and unmerged; retain the existing child claim until stable scope links and views can be regenerated.
+
 ## A08h-FusionTwoSidedDraft20261127
 
 Codex owns this bounded campaign on `feat/fusion-two-sided-draft-20261127`, based on fresh main `18b41b98c96fd123a11d1ae0d1cda29b9d9746ed`.
