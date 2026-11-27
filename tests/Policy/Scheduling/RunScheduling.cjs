@@ -79,7 +79,9 @@ const Github = {
                 ...(CaseName === "budget-audit"
                   ? { Version: 1, Linux: 8, Windows: 5, Macos: 5 }
                   : {}),
-                ...(CaseName === "budget-previous"
+                ...(["budget-previous", "budget-previous-minimum"].includes(
+                  CaseName,
+                )
                   ? { Version: 2, Linux: 16, Windows: 5, Macos: 5 }
                   : {}),
                 ...(CaseName === "budget-team"
@@ -115,18 +117,30 @@ const Github = {
           type: "merge_queue",
           parameters: {
             max_entries_to_build:
-              CaseName === "budget-uncontrolled"
-                ? 101
-                : CaseName === "budget-five"
-                  ? 5
-                  : CaseName === "budget-audit"
-                    ? 1
-                    : CaseName === "budget-team"
-                      ? 2
-                      : 100,
-            min_entries_to_merge: CaseName === "budget-minimum" ? 2 : 1,
-            min_entries_to_merge_wait_minutes:
-              CaseName === "budget-wait" ? 10 : 0,
+              CaseName === "budget-live"
+                ? 25
+                : CaseName === "budget-uncontrolled"
+                  ? 101
+                  : CaseName === "budget-five"
+                    ? 5
+                    : CaseName === "budget-audit"
+                      ? 1
+                      : CaseName === "budget-team"
+                        ? 2
+                        : 100,
+            min_entries_to_merge: [
+              "budget-minimum",
+              "budget-live",
+              "budget-previous-minimum",
+            ].includes(CaseName)
+              ? 2
+              : 1,
+            min_entries_to_merge_wait_minutes: [
+              "budget-wait",
+              "budget-live",
+            ].includes(CaseName)
+              ? 10
+              : 0,
           },
         },
       ];

@@ -88,7 +88,12 @@ def TestAliasCli(MonkeyPatch: Pytest.MonkeyPatch) -> None:
     TableOutput = StringIo()
     with RedirectOutput(TableOutput):
         RunCommand(Options)
-    Header, ValueRow = TableOutput.getvalue().splitlines()
+    Header, ValueRow, Notice = TableOutput.getvalue().splitlines()
+    assert Notice == (
+        "Registry metadata only; feature, version and conversion acceptance require evidence."
+    )
     Columns = dict(zip(Header.split("\t"), ValueRow.split("\t"), strict=True))
     assert LoadJson(Columns["extensions"]) == [".json", ".snapshot"]
+    assert LoadJson(Columns["aliases"]) == ["interchange.snapshot"]
     assert LoadJson(Columns["write_extensions"]) == [".json"]
+    assert LoadJson(Columns["write_aliases"]) == []

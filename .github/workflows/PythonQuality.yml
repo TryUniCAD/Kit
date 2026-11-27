@@ -24,7 +24,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Read the trusted base validation phase
+      - &ReadPhase
+        name: Read the trusted base validation phase
         id: phase
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
@@ -33,9 +34,7 @@ jobs:
             await SetPhase({ github, context, core });
 
   ruff:
-    if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
-    needs: pr-ci-reuse
+    if: github.event_name == 'pull_request'
     name: Ruff
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -45,7 +44,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - *ReadPhase
+
       - name: Set up uv
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
@@ -53,15 +55,15 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run Ruff over tracked Python
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         run: uv run ruff check .
 
   black:
-    if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
-    needs: pr-ci-reuse
+    if: github.event_name == 'pull_request'
     name: Black
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -71,7 +73,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - *ReadPhase
+
       - name: Set up uv
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
@@ -79,15 +84,15 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run Black over tracked Python
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         run: uv run black --check .
 
   pyright:
-    if: >-
-      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
-    needs: pr-ci-reuse
+    if: ${{ !cancelled() }}
     name: Pyright
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -97,7 +102,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - *ReadPhase
+
       - name: Set up uv
+        if: steps.phase.outputs.phase != ''
         uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
@@ -105,15 +113,15 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
+        if: steps.phase.outputs.phase != ''
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run strict Pyright
+        if: steps.phase.outputs.phase != ''
         run: uv run pyright
 
   mypy:
-    if: >-
-      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
-    needs: pr-ci-reuse
+    if: ${{ !cancelled() }}
     name: Mypy
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -123,7 +131,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - *ReadPhase
+
       - name: Set up uv
+        if: steps.phase.outputs.phase != ''
         uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
@@ -131,7 +142,9 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
+        if: steps.phase.outputs.phase != ''
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run strict Mypy
+        if: steps.phase.outputs.phase != ''
         run: uv run mypy

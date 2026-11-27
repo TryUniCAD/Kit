@@ -907,6 +907,28 @@ The existing partial-only P04 run must preserve its recipe selection and incompl
 Both installed CLI cases passed on Windows at `d3b2cb982c` in 84.79 seconds. Hosted verification and review remain pending.
 See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) for the range and qualification limits.
 
+## A08h-FusionTwoSidedDraft20261127
+
+Codex owns this bounded campaign on `feat/fusion-two-sided-draft-20261127`, based on fresh main `18b41b98c96fd123a11d1ae0d1cda29b9d9746ed`.
+It depends on A03, A05a, A08h, the existing catalogue and native script workers, and the licensed THY-PC Fusion resource.
+The child claim and progress are recorded on PR #94. Delivery: [PR #394](https://github.com/TryUniCAD/Kit/pull/394).
+The [package](../../../re/Fusion/TwoSidedDraft20261127/README.md) retains unequal two-side circular extrusions with independent signed draft angles.
+Discovery varies each distance and draft, radius, placement and frame, with swapped-side counterexamples and two parameter holdouts.
+
+Source commit `c2f00415b3f48dea33b349dcc43048509db3568d` contains 68 native archives and 101 matching API observations on Fusion `2706.1.17`.
+The existing native helper matches all 1,224 side-distance, taper-role, operation, profile and ownership comparisons.
+Strict reads accept two untapered controls and reject 66 drafted states; explicit partial replay preserves all 68 outcomes and receipts.
+The research helper's ASM4 body-identity reconstruction limit remains separate from known width-aware production parsing.
+The original script-size refusals remain retained. Revised template generations use one intact known control measured before and after each fresh process.
+
+Eleven distinct fresh processes passed all 198 lifecycle, process and control comparisons.
+The oracle was released idle with no recovery marker.
+Status is checking on PR #394 after integration with main `cdee122fd647511c635758ea14fe9c9bbc964796`; current-head CI and configured review remain required.
+Exit requires sealed committed inputs, complete source/lifecycle observations, retained strict refusals and counterexamples, current-head CI and configured review.
+No model, shared decoder, catalogue-builder or worker change is claimed. B02–B05 and editable target conversion remain unfinished.
+The [change entry](../../Changes/Research/Campaigns/FusionIndependentTwoSidedDrafts.md) records the evidence boundary.
+Planning remains unmerged on PR #392; retain this established child claim for stable scope linkage after that integration.
+
 ## A08h-Placement20261123: decimal native reader evidence
 
 Codex owns this evidence publication on `feat/native-placement-decoding-20261123`, from main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`. Delivery PR is [#274](https://github.com/TryUniCAD/Kit/pull/274).
@@ -948,3 +970,29 @@ The [pack](../../../re/Fusion/RimFilletPack/README.md) retains 48 passing native
 All strict neutral and public conversion refusals remain explicit.
 The exit requires revision-bound native evidence, shared-suite regressions, current-head CI/review and retained failures.
 The bounded width repair now has 22 passing complete-model/native comparisons, six measured depth edits and four post-freeze cases in the [qualification pack](../../../re/Fusion/RimFilletPack/Qualification/Audit.json). Original failures remain retained. Current-head CI/review remains the delivery gate; B02–B05 and complete neutral conversion remain unfinished.
+
+## A08h-FusionUnequalAxis20261127
+
+Codex owns this bounded research campaign on `feat/fusion-unequal-revolve-20261127`, based on fresh main `331ef8ce95f7e46814c5086110be9a23478ca8a8`.
+The [package](../../../re/Fusion/UnequalAxis20261127/README.md) retains unequal two-sided solid NewBody revolutions about explicit TwoPoints construction axes.
+Dependencies are A03, A05a, A08h, the existing catalogue and native API workers, and the licensed private Fusion oracle.
+The child claim and progress are recorded on PR #94.
+Delivery is [PR #393](https://github.com/TryUniCAD/Kit/pull/393), a separate scoped PR as explicitly requested.
+Planning is absent from this task's fetched main; retain this child for later linking to its stable register.
+
+The source checkpoint `233985bac73d454f6df22e44dd3cad06bb92f7da` contains 46 native archives and 57 matching API observations.
+Independent angle, axis-origin, axis-direction, radial-offset and axial-offset contrasts include reversal, swapped angles and two combined holdouts.
+The [change entry](../../Changes/Research/Campaigns/FusionUnequalConstructionAxisRevolutions.md) records the evidence boundary.
+Eleven fresh native processes passed 132 lifecycle comparisons, including the two holdouts, with healthy controls.
+The oracle was released idle with no recovery marker.
+Status is checking for publication; pinned reader outcomes and failed attempts are retained in the package.
+Independent numerical and provenance audits found no actionable findings in the published evidence.
+Configured approval remains unavailable: the native review service reports an expired trial and no remaining credits.
+Its green skipped-review status does not supply approval. Current-head PR CI and merge-group acceptance remain separate.
+The initial path-policy failure was repaired by placing the new transport gotcha in the existing runtime topic folder.
+Strict refusals, partial receipts, eight point-provider prefix refusals and the separate research helper's ASM4 limitation remain explicit.
+No shared decoder, worker or production support boundary changes.
+
+Exit requires sealed native hashes, independent edit/restore/rebuild/save/reopen measurements with healthy controls, deterministic committed-file comparisons and current-head CI and review.
+Full support-provider semantics, general reconstruction, independently edited axis/profile drivers and editable cross-format acceptance remain unfinished.
+This child does not close B02–B05 or infer unsupported grammar from absent public projection.

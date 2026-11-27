@@ -89,15 +89,23 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
         (
             "plain",
             True,
-            ("next poll in 720 s", "next poll in 1152 s", "next poll in 346 s"),
+            ("poll 30 s", "poll 60 s", "poll 90 s", "gates 3; charged 1; reads 2"),
         ),
         ("ratelimit", True, ("GitHub API rate limit reached; retrying in 601 s",)),
         ("secondary", True, ("GitHub API rate limit reached; retrying in 60 s",)),
         ("forbidden", False, ("Resource not accessible by integration",)),
-        ("pacing", True, ("600/1000 remaining; next poll in 3600 s",)),
+        ("pacing", True, ("600/1000 remaining; next poll in 3570 s",)),
         ("exhausted", True, ("450/1000 remaining; next poll in 3601 s",)),
-        ("failure", False, ("CI failed: Merge queue",)),
-        ("job-failure", False, ("CI failed: Test suite / Shard (2)\n",)),
+        (
+            "failure",
+            False,
+            ("CI failed: Merge queue acceptance", "poll 30 s", "detected 60 s"),
+        ),
+        (
+            "job-failure",
+            False,
+            ("CI failed: Test suite / Shard (2)\n", "detected 60 s"),
+        ),
     ),
 )
 def CheckPolling(CaseName: str, Passed: bool, Expected: tuple[str, ...]) -> None:

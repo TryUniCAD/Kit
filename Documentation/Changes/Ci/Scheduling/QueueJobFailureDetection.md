@@ -12,11 +12,11 @@ Observed on PR #305's candidate ([run 45902259589](https://github.com/TryUniCAD/
 
 Each queue poll now also reads the jobs of every unfinished registered workflow run (`GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs?filter=latest`, all pages). A completed job with a conclusion other than `success` or `skipped` triggers the full check read straight away. The full read applies the existing failure rules, so a failed registered job fails `CI Agg`. GitHub removes the entry as soon as a required check fails. On 26 November, PR #288's candidates were rebuilt seven seconds after its `CI Agg` failed while its `Merge queue acceptance` was still pending.
 
-Each job failure triggers at most one full read. Job reads send the previous `ETag`, so an unchanged page costs nothing. A changed page counts as a charged request in the existing fair-share pacing. The failure rules, the registered checks, `Merge queue acceptance`, and pull-request aggregation are unchanged.
+Each job failure triggers at most one full read. Job reads send the previous `ETag`, so an unchanged page costs nothing. The first read of each job page primes its cache and, like the startup workflow listing, is not counted in fair-share pacing. Later changed pages count as charged requests. The workflow-runs poll reuses the startup listing's `ETag`. The failure rules, the registered checks, `Merge queue acceptance`, and pull-request aggregation are unchanged.
 
 ## Limits
 
-- Detection still waits for the first poll, at least eight minutes after the candidate's commit, and then one poll interval.
+- Detection waits for the next poll, 30 seconds apart while most reads are unchanged.
 - Charged job reads lengthen the paced interval while jobs change often. A candidate with more than 100 jobs needs one request per page.
 - The merge-group `CI Agg` loads this script from the candidate's base commit, so the change applies to candidates built on a `main` that includes it.
 

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Use Kit from a Python application.
+Install Kit, inspect registered formats, and evaluate a conversion from a Python application.
 This guide links the shortest path from installation to result evaluation.
 The complete API is in the [API reference](Reference/Overview/ApiReference.md).
 
@@ -35,19 +35,39 @@ Run examples with `uv run python` in the installed application project.
 Use the repository instructions when contributing to Kit.
 See [release publishing](Changes/CommitReleases.md) for artifact and publication details.
 
+## Check the installed package
+
+Run these commands in the application project after installation:
+
+```sh
+uv run kit --version
+uv run kit formats
+```
+
+Expected result: the commands print the package version and registered reader and writer formats.
+Registration does not establish support for every feature, vendor version, or conversion direction.
+Read [format selection](Tasks/SelectFormat.md) before choosing a destination.
+Fusion decoding and some geometry paths require Python 3.14 despite the package's Python 3.11 minimum.
+Use the [CLI prerequisites](Tasks/CommandLine.md#before-you-start) for those paths.
+
 ## First conversion
 
 The example requires a real file named `bracket.SLDPRT`.
 It requests FreeCAD output at `bracket.FCStd`.
 The source content can exceed the implemented feature coverage.
+This example is a request pattern, not a qualified sample or a guaranteed conversion.
+To inspect an unsupported source, use [development decoding](Tasks/CommandLine.md#decode-a-file-for-development).
 
 ```python
 from convert import convert as ConvertDoc
 
+# the result retains writer evidence for independent acceptance checks
 Result = ConvertDoc("bracket.SLDPRT", "bracket.FCStd", allow_carrier=False)
 ```
 
-Expected result: a `ConversionResult` or an exception that explains the failed boundary.
+Expected result: a supported request returns a `ConversionResult`.
+A rejected request raises an exception identifying the failed boundary.
+Use [error recovery](Tasks/Troubleshoot.md) before changing options or repeating a rejected request.
 The destination suffix selects the writer unless `destination_format` is supplied.
 Existing destinations are protected by default.
 
