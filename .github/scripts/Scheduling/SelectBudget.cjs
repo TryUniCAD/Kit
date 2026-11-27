@@ -64,10 +64,7 @@ async function SelectBudget(Github, Context, Logger) {
   );
   Logger.setOutput("count", String(Count));
   Logger.setOutput("max-tests", RuntimeEnabled ? "1000" : "1200");
-  Logger.setOutput(
-    "runtime-target",
-    Enterprise ? "600" : Expanded ? "1200" : "0",
-  );
+  Logger.setOutput("runtime-target", RuntimeEnabled ? "1200" : "0");
   Logger.info(
     `Native shards: ${Count}; GitHub hosted scheduling; trusted budget active: ${Enabled}`,
   );

@@ -87,11 +87,7 @@ def CheckScheduler(CaseName: str) -> None:
                 "budget-legacy",
                 "budget-previous-minimum",
             }
-            else (
-                "1200"
-                if CaseName in {"budget-audit", "budget-previous", "budget-team"}
-                else "600"
-            )
+            else "1200"
         )
         assert Evidence["Outputs"]["max-tests"] == (
             "1200"
