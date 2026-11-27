@@ -1,0 +1,814 @@
+{
+  "base_revision": "f34820a9d87ac34ca01bd2c5f59cbf6af37f93df",
+  "binding": "working tree exact source hashes; committed-file CLI replay is separate",
+  "python": "3.14.6 (main, Jul 23 2026, 14:51:00) [Clang 22.1.3 ]",
+  "interpreter_sha256": "0826ccaa8dd19bd84a5f0ffdbe84558f036e3b7d8ce7725704a7393995392129",
+  "models": false,
+  "native_calls": 0,
+  "native_acceptance": "not_established",
+  "semantic_qualification": "unverified",
+  "portable_complete": false,
+  "source_inventory_sha256": "0c254f4d7fbfcaa915ee632cb63abea39a189404f4ab57373864f32c35e8d945",
+  "positives": [
+    {
+      "case": "source-discovery-01",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-01/Native.f3d",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "passed": true,
+      "document_sha256": "90362e5cdc9d2929ed52544a117868d993c12170d8999061697577429ba6bd0d",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-discovery-02",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-02/Native.f3d",
+      "source_sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "passed": true,
+      "document_sha256": "f78a567ae0c7f0eaf4e1471bd00e4ec8b2bb6b1a8b92d1cc550ad08e3ddfd8ad",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-discovery-03",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-03/Native.f3d",
+      "source_sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "passed": true,
+      "document_sha256": "7cb28041e18fb35f2844e3e3e04d31caf085688d8ca0ef25a89557e78ee17717",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-discovery-04",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-04/Native.f3d",
+      "source_sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "passed": true,
+      "document_sha256": "dc1f4abe57bbe672c2720797879882094f9108223bee0500bda59deeecde67a2",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-discovery-05",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-05/Native.f3d",
+      "source_sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "passed": true,
+      "document_sha256": "c2753535693e6b244d7de7313b658e3198c3b295c71c42ef89fba1ce20e12ebf",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-discovery-06",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-06/Native.f3d",
+      "source_sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "passed": true,
+      "document_sha256": "97649e70de96e0c6b3d2e154766b6c20629a736f34b4b39759ca8c2ee2417695",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-holdout-01",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-01/Native.f3d",
+      "source_sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "passed": true,
+      "document_sha256": "05e05da1a1a2495d956e0e2f6e60b7a473ab55ae991b32f135645eddacdef696",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-holdout-02",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-02/Native.f3d",
+      "source_sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "passed": true,
+      "document_sha256": "df42382d9e3b72419bf7c557d13da43df45e65739ef42120a130c555c2bb5b80",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-holdout-03",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-03/Native.f3d",
+      "source_sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "passed": true,
+      "document_sha256": "b93dd73ca68464d906f3bafc042ebc99e734b13594051700b87785a7d5a79f03",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-holdout-04",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-04/Native.f3d",
+      "source_sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "passed": true,
+      "document_sha256": "c1b853ebc598b2879aa62aa99d644141a83f26c1787e0934e793c611ad9ba364",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-holdout-05",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-05/Native.f3d",
+      "source_sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "passed": true,
+      "document_sha256": "e82b60a28cce1f87a220bca0e5420a257e981650d3f5757eeb4ca133182fab9c",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "source-holdout-06",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-06/Native.f3d",
+      "source_sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "passed": true,
+      "document_sha256": "8cc9be5e3266850df97e0030e7e45f1f501b63b7339b58a03c1a29e11afc4047",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "depth-holdout-01",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-01/Native.f3d",
+      "source_sha256": "bad4d6c0ee8a14ab3cd5a34f6dc6bb47b1554d4402d7add6f37dea6871e01155",
+      "passed": true,
+      "document_sha256": "dc78db004ac7f77253e1d179f76a775f0476f543cbfd74a830b6c6cf1b9e5f75",
+      "parameters": 5,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "depth-holdout-02",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-02/Native.f3d",
+      "source_sha256": "2102ee4232041164554c0de440ae72763c285154f7951a788139345f9b284222",
+      "passed": true,
+      "document_sha256": "53b614239293b8d4983dd0f2157abf12c5605e9ffbe2edff94e729d2d95e4075",
+      "parameters": 5,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "depth-holdout-03",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-03/Native.f3d",
+      "source_sha256": "c5f6958e0024001f2e0f8174e4137908011479cbf5b67f108214e6b1f416cb48",
+      "passed": true,
+      "document_sha256": "b0373400009362d39de3bd1a7893440eb832e8b59c487472d2cfd6ea6537e854",
+      "parameters": 5,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "depth-holdout-04",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-04/Native.f3d",
+      "source_sha256": "50a8217a08b705f1d73d633345d41b01d45e2a3d1cc9c7576fad21fa4400c2cd",
+      "passed": true,
+      "document_sha256": "322f8543a80aa8660c366d06e94182a425b33605657ca032ed7a5beb0ce8cc95",
+      "parameters": 5,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "depth-holdout-05",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-05/Native.f3d",
+      "source_sha256": "e411dd935b5012380a338a05f2c07b509f0bbed368d5ffc39b04415f5c210dc8",
+      "passed": true,
+      "document_sha256": "988ad59ed25679f8ad9b36a6bfbe6b5175cdcd4241da73b4eddae81b8bf1cb79",
+      "parameters": 5,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "depth-holdout-06",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-06/Native.f3d",
+      "source_sha256": "2ac34319d4d8d58b66daf75ffb3b8be9285228fce485f491d8d2f7c8bd68b4b0",
+      "passed": true,
+      "document_sha256": "6dcfd08d06844660799cc3736c50b17e57c07563e9ae471309068af0301e88f1",
+      "parameters": 5,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "fresh-01",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-01/Native.f3d",
+      "source_sha256": "e76d95e1f7893ee07061bc41a9c261aab8c6d29942add8fd19a3a95f27e51a96",
+      "passed": true,
+      "document_sha256": "767d0fa23aa3c63e864b683b626714639a7015250441a8c174fcb18193f1ac17",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "fresh-02",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-02/Native.f3d",
+      "source_sha256": "aeab2b02af0746b595fb22877dc555120584752e262f8c9cb291e6cba4e6b41b",
+      "passed": true,
+      "document_sha256": "167505a1b9656e600e852395bcfd4ec97ef65d18a7603ea26bb2f4b43a52aa00",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "fresh-03",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-03/Native.f3d",
+      "source_sha256": "c1d83697087f94c914e56996e728a1c50cba217a1f82c191b2edd968962943ec",
+      "passed": true,
+      "document_sha256": "fcb9a2681e147dc0d3904937e5abbfcd5f7d6340668e97db37c0fdc0dcc4c7ed",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    },
+    {
+      "case": "fresh-04",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-04/Native.f3d",
+      "source_sha256": "608c77123d4a5d70d170c43318b97e56eee27ea1f1ea5277e62207fd82844af3",
+      "passed": true,
+      "document_sha256": "6ed82c73b7b110825949704b081eb01afc4371589753a0a667be35cf782459fb",
+      "parameters": 4,
+      "features": 3,
+      "selections": 1
+    }
+  ],
+  "negatives": [
+    {
+      "family": "policy",
+      "case": "role",
+      "sha256": "b98d8e96cb2c37fb7c965024ea5f404b8765490b8a13a62e00dbf3bf3462da6a",
+      "passed": true,
+      "refusal": "Unsupported native Fusion Parameter.name"
+    },
+    {
+      "family": "policy",
+      "case": "unit",
+      "sha256": "587d05c5ff962023ae5cc6836f137f6008d3733711e209a1ddd25b46fea98a41",
+      "passed": true,
+      "refusal": "Unsupported native Fusion Parameter.unit"
+    },
+    {
+      "family": "policy",
+      "case": "expression",
+      "sha256": "0a4b7a6456acc1f188ca4ce20857ba9895b16ac260e1af101e8667629128a917",
+      "passed": true,
+      "refusal": "Native parameter formula is outside the qualified literal/reference grammar"
+    },
+    {
+      "family": "policy",
+      "case": "owner",
+      "sha256": "bda39b82d3dfa607e8228b868f07dab3e96439afc72545ce14ab0ca48d8ef613",
+      "passed": true,
+      "refusal": "Native rim parameter binding has inconsistent owners"
+    },
+    {
+      "family": "policy",
+      "case": "reciprocal",
+      "sha256": "984fa1d11d754ddfdd1662f3b15547baf941612ff70f0280e6641a055050913e",
+      "passed": true,
+      "refusal": "Native rim parameter binding is not reciprocal"
+    },
+    {
+      "family": "policy",
+      "case": "allocator",
+      "sha256": "786d68cbd75a5c1ff1e65ab6cb50ddee861b835df1d9052be868e0798ba4b945",
+      "passed": true,
+      "refusal": "Native rim parameter identifiers disagree with their allocator"
+    },
+    {
+      "family": "policy",
+      "case": "selected_owner",
+      "sha256": "a8c387e39873c0e3ad29cb60d404311d106f3aa2972617068103b6342ba5933d",
+      "passed": true,
+      "refusal": "Native rim selected reference has inconsistent ownership"
+    },
+    {
+      "family": "policy",
+      "case": "selected_alias",
+      "sha256": "b7c22e46e2cd244fe726699713340aac952056acaded1ca8aad92c1d0d46f547",
+      "passed": true,
+      "refusal": "Native rim fillet requires one selected brep reference"
+    },
+    {
+      "family": "policy",
+      "case": "selected_body",
+      "sha256": "3ac7df73127f1133901d90e6feb8e53dd218098d5a85c5f67ad7b975c0f0e11c",
+      "passed": true,
+      "refusal": "Native rim selection references a different target or body"
+    },
+    {
+      "family": "policy",
+      "case": "radius_alias",
+      "sha256": "cb636c9495e25b5b536a233e6646e80dc0a61ba6ad72fa3438c988aadb89811b",
+      "passed": true,
+      "refusal": "Native Fusion ownership collection disagrees with its semantic graph"
+    },
+    {
+      "family": "policy",
+      "case": "variable_mode",
+      "sha256": "f271208e5abd0b277b13eeb3fa3b47de99eb1e4b4963e058b36564f49e408c2f",
+      "passed": true,
+      "refusal": "Unsupported native Fusion DcFilletEdgeData.bConstantRadius"
+    },
+    {
+      "family": "policy",
+      "case": "scope_mode",
+      "sha256": "83858ba70df0e5dc6e61ea44a9a9756d8f568eacc7a6676168e7bf00fd412fc7",
+      "passed": true,
+      "refusal": "Unsupported native Fusion DcFilletEdgeFeature.scopeOption"
+    },
+    {
+      "family": "policy",
+      "case": "history_join",
+      "sha256": "ea36629f541db8798f0a6e38398d46c86c74a10e9356456eafcfc7adafcba2d7",
+      "passed": true,
+      "refusal": "Native rim history does not continue its extrusion"
+    },
+    {
+      "family": "policy",
+      "case": "dynamic_owner",
+      "sha256": "e23b8b38d834d44010513125817c0603e632f4107b6cfaf1593599d22482e8fb",
+      "passed": true,
+      "refusal": "Native rim dynamic update owner is not reciprocal"
+    },
+    {
+      "family": "policy",
+      "case": "cached_radius",
+      "sha256": "d201ec3c18e39d38c3365b80366256b8dd3e5b91710a96d8d8efdfc6f1d17cae",
+      "passed": true,
+      "refusal": "Native Fusion saved geometry or parameter values disagree"
+    },
+    {
+      "family": "policy",
+      "case": "recipe_face",
+      "sha256": "2ba02ce76867c4a712823c3a7283ab61b05d5e932de376ccc48ebca6b6554300",
+      "passed": true,
+      "refusal": "Native rim edge recipe adjacency is not qualified"
+    },
+    {
+      "family": "policy",
+      "case": "cache_distribution",
+      "sha256": "ae6f801f332328d28a7f71f9816646f4b455096103c991087b5af0c8e61881c2",
+      "passed": true,
+      "refusal": "Native rim matrix caches require one distinct source owner each"
+    },
+    {
+      "family": "geometry",
+      "case": "torus_major",
+      "sha256": "50e6ed7b74a0e7b82ab5281d795b45d9c7c691b1b50f4a6afc01c10a0e2812e4",
+      "passed": true,
+      "refusal": "Native Fusion saved geometry or parameter values disagree"
+    },
+    {
+      "family": "geometry",
+      "case": "torus_minor",
+      "sha256": "97928ca1c2d38ecb554a761cae7b069faaac5b9844cdef4645ec59873598fe44",
+      "passed": true,
+      "refusal": "Native Fusion saved geometry or parameter values disagree"
+    },
+    {
+      "family": "geometry",
+      "case": "torus_center",
+      "sha256": "037ffe6b8f6fb47a4ac250d57a5d562f1fb0cf138c9906e4de26fa38bcf53156",
+      "passed": true,
+      "refusal": "Native Fusion saved geometry or parameter values disagree"
+    },
+    {
+      "family": "geometry",
+      "case": "top_winding",
+      "sha256": "c8fd3bfda7e5344232335a790922ab1769d777799270c33cda50f3e9da8079a5",
+      "passed": true,
+      "refusal": "Native rim face has an unsupported role or owner"
+    },
+    {
+      "family": "geometry",
+      "case": "seam_parameter",
+      "sha256": "9a137d0a7754f338b44c284c5e320a4ca675a2f18a7c43b5f04c8d732cef36fc",
+      "passed": true,
+      "refusal": "Native Fusion saved geometry or parameter values disagree"
+    },
+    {
+      "family": "geometry",
+      "case": "tracker_owner",
+      "sha256": "46ebfff1b72a5ca7d80e85bbc107b0d6a95d858b9d176fe020b31ec4898275a2",
+      "passed": true,
+      "refusal": "Native rim tracker does not belong to its actual selection"
+    },
+    {
+      "family": "geometry",
+      "case": "snapshot_height",
+      "sha256": "328253f410d57ef0008bdfbc4fa7259ef5e9a09058cb59df9b2f0ff7047964f6",
+      "passed": true,
+      "refusal": "Native rim snapshot disagrees with its complete predecessor"
+    },
+    {
+      "family": "geometry",
+      "case": "history_end",
+      "sha256": "8cc5ad9eea5307946297085b481fb6226922f88ae75c2861aeaa3b92a6388188",
+      "passed": true,
+      "refusal": "Native rim history does not continue its extrusion"
+    },
+    {
+      "family": "geometry",
+      "case": "history_scale",
+      "sha256": "fcbc59a39c15611c6ffaeb25df21d9deab8828cdbc4ffa24aecca63bda1e74f2",
+      "passed": true,
+      "refusal": "Native rim history has unqualified framing"
+    },
+    {
+      "family": "geometry",
+      "case": "selected_lower",
+      "sha256": "6b840e29f0d2420bd8a90f70c0d77c65e637e3d239ef3affbf4daccc95e176ed",
+      "passed": true,
+      "refusal": "Native rim recipe selects another physical edge or face"
+    },
+    {
+      "family": "geometry",
+      "case": "adjacent_faces",
+      "sha256": "7e9ffbf03a6221bea49bfc500b822234c65798220b6bb816480fc5d194f4701b",
+      "passed": true,
+      "refusal": "Native rim recipe selects another physical edge or face"
+    },
+    {
+      "family": "geometry",
+      "case": "body_clock",
+      "sha256": "08b0215a35662d938a9dcdd258eff6f7bcf5f7dc8f9f59bf9903f197f7d9b1fe",
+      "passed": true,
+      "refusal": "Native rim has an unsupported body timestamp"
+    },
+    {
+      "family": "geometry",
+      "case": "blend_operation",
+      "sha256": "4583e863f050764250e90d3d33bb6efa6d592d40d358b7e7f081722cdfbd238c",
+      "passed": true,
+      "refusal": "Native rim physical labels disagree with the source operations"
+    },
+    {
+      "family": "geometry",
+      "case": "bottom_source",
+      "sha256": "3f446736d9199860a0e23f07db9ace44f650232bff9605d93458629e715c2836",
+      "passed": true,
+      "refusal": "Native circular source link belongs to another curve"
+    },
+    {
+      "family": "geometry",
+      "case": "attribute_cycle",
+      "sha256": "c410ead498d0f0552e5bb9ac09365ca2d5ce433e171a729f6ea5cd8ea1bd92bf",
+      "passed": true,
+      "refusal": "Native rim attribute chain is cyclic or missing"
+    },
+    {
+      "family": "mass",
+      "case": "volume:",
+      "sha256": "9194d090cf82573b9f8f7945f071e850d319cbe5a1ae0e453f90d3f29a84e703",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "area:",
+      "sha256": "0a0f0b1e344597e0096e9bb95d3e587e187d6ee6807e285ac8f15e4fc0367600",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "cog:x",
+      "sha256": "a090fa5f6c3b2778ab9381b839714f428502c6de6401881b1d65db6be86aaabd",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "cog:y",
+      "sha256": "37ad8c81db7c2b385ae5a750571d1846f746d65d515f8d827e7f96ce9f0d3b63",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "cog:z",
+      "sha256": "0790965d069b86df14436b888e2e07344f2682e13bdd0007d880f5e79c9a45b8",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "moi:x",
+      "sha256": "571bff1162e2d532cb7b66008dc563b4d853ac1424a8811e97703d236405e17e",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "moi:y",
+      "sha256": "a7692b49f620ee3e7a328d0aba70c96c806f4420164537a9e439eceb26434636",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "moi:z",
+      "sha256": "c131bcb6a076a6aa4a306aee128c31a2b45dd06f11c5365a4f36988f1e3c4d95",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "moiOffDiag:x",
+      "sha256": "005b33b683f849229b75e8f3357ec4130800574cc1a9531e1538b779fab12669",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "moiOffDiag:y",
+      "sha256": "dfec89cfdf4e65b9242cf835e7c3a1a8232c3cb6736fc1c320a70cd82bff97ff",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "family": "mass",
+      "case": "moiOffDiag:z",
+      "sha256": "7d237d21c12b9e482c66d59f8bc5bb62c320ae7bae6266e9897001a33174189f",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry"
+    }
+  ],
+  "errors": [],
+  "source_files": 4520,
+  "source_hashes_sha256": "f3b667d336d16a657e561b71acdcfe53088ba0f9297d125fd2aeb8ad6a4e3a6e",
+  "script_sha256": "5ffef15dad6358d027028c44e676083b6bcc03b65d7e03ddab3e4dca4a64a0a1",
+  "summary": {
+    "positive": 22,
+    "accepted": 22,
+    "negative": 43,
+    "refused": 43,
+    "errors": 0
+  },
+  "artifacts": {
+    "Documents/depth-holdout-01.json": {
+      "sha256": "dc78db004ac7f77253e1d179f76a775f0476f543cbfd74a830b6c6cf1b9e5f75",
+      "bytes": 31000
+    },
+    "Documents/depth-holdout-02.json": {
+      "sha256": "53b614239293b8d4983dd0f2157abf12c5605e9ffbe2edff94e729d2d95e4075",
+      "bytes": 30985
+    },
+    "Documents/depth-holdout-03.json": {
+      "sha256": "b0373400009362d39de3bd1a7893440eb832e8b59c487472d2cfd6ea6537e854",
+      "bytes": 30922
+    },
+    "Documents/depth-holdout-04.json": {
+      "sha256": "322f8543a80aa8660c366d06e94182a425b33605657ca032ed7a5beb0ce8cc95",
+      "bytes": 31039
+    },
+    "Documents/depth-holdout-05.json": {
+      "sha256": "988ad59ed25679f8ad9b36a6bfbe6b5175cdcd4241da73b4eddae81b8bf1cb79",
+      "bytes": 30987
+    },
+    "Documents/depth-holdout-06.json": {
+      "sha256": "6dcfd08d06844660799cc3736c50b17e57c07563e9ae471309068af0301e88f1",
+      "bytes": 31034
+    },
+    "Documents/fresh-01.json": {
+      "sha256": "767d0fa23aa3c63e864b683b626714639a7015250441a8c174fcb18193f1ac17",
+      "bytes": 30143
+    },
+    "Documents/fresh-02.json": {
+      "sha256": "167505a1b9656e600e852395bcfd4ec97ef65d18a7603ea26bb2f4b43a52aa00",
+      "bytes": 30032
+    },
+    "Documents/fresh-03.json": {
+      "sha256": "fcb9a2681e147dc0d3904937e5abbfcd5f7d6340668e97db37c0fdc0dcc4c7ed",
+      "bytes": 30020
+    },
+    "Documents/fresh-04.json": {
+      "sha256": "6ed82c73b7b110825949704b081eb01afc4371589753a0a667be35cf782459fb",
+      "bytes": 30062
+    },
+    "Documents/source-discovery-01.json": {
+      "sha256": "90362e5cdc9d2929ed52544a117868d993c12170d8999061697577429ba6bd0d",
+      "bytes": 30143
+    },
+    "Documents/source-discovery-02.json": {
+      "sha256": "f78a567ae0c7f0eaf4e1471bd00e4ec8b2bb6b1a8b92d1cc550ad08e3ddfd8ad",
+      "bytes": 30103
+    },
+    "Documents/source-discovery-03.json": {
+      "sha256": "7cb28041e18fb35f2844e3e3e04d31caf085688d8ca0ef25a89557e78ee17717",
+      "bytes": 30171
+    },
+    "Documents/source-discovery-04.json": {
+      "sha256": "dc1f4abe57bbe672c2720797879882094f9108223bee0500bda59deeecde67a2",
+      "bytes": 30242
+    },
+    "Documents/source-discovery-05.json": {
+      "sha256": "c2753535693e6b244d7de7313b658e3198c3b295c71c42ef89fba1ce20e12ebf",
+      "bytes": 30034
+    },
+    "Documents/source-discovery-06.json": {
+      "sha256": "97649e70de96e0c6b3d2e154766b6c20629a736f34b4b39759ca8c2ee2417695",
+      "bytes": 30032
+    },
+    "Documents/source-holdout-01.json": {
+      "sha256": "05e05da1a1a2495d956e0e2f6e60b7a473ab55ae991b32f135645eddacdef696",
+      "bytes": 30175
+    },
+    "Documents/source-holdout-02.json": {
+      "sha256": "df42382d9e3b72419bf7c557d13da43df45e65739ef42120a130c555c2bb5b80",
+      "bytes": 30097
+    },
+    "Documents/source-holdout-03.json": {
+      "sha256": "b93dd73ca68464d906f3bafc042ebc99e734b13594051700b87785a7d5a79f03",
+      "bytes": 30074
+    },
+    "Documents/source-holdout-04.json": {
+      "sha256": "c1b853ebc598b2879aa62aa99d644141a83f26c1787e0934e793c611ad9ba364",
+      "bytes": 30103
+    },
+    "Documents/source-holdout-05.json": {
+      "sha256": "e82b60a28cce1f87a220bca0e5420a257e981650d3f5757eeb4ca133182fab9c",
+      "bytes": 30032
+    },
+    "Documents/source-holdout-06.json": {
+      "sha256": "8cc9be5e3266850df97e0030e7e45f1f501b63b7339b58a03c1a29e11afc4047",
+      "bytes": 30061
+    },
+    "Malformed-geometry-adjacent_faces.f3d": {
+      "sha256": "7e9ffbf03a6221bea49bfc500b822234c65798220b6bb816480fc5d194f4701b",
+      "bytes": 334149
+    },
+    "Malformed-geometry-attribute_cycle.f3d": {
+      "sha256": "c410ead498d0f0552e5bb9ac09365ca2d5ce433e171a729f6ea5cd8ea1bd92bf",
+      "bytes": 334149
+    },
+    "Malformed-geometry-blend_operation.f3d": {
+      "sha256": "4583e863f050764250e90d3d33bb6efa6d592d40d358b7e7f081722cdfbd238c",
+      "bytes": 334149
+    },
+    "Malformed-geometry-body_clock.f3d": {
+      "sha256": "08b0215a35662d938a9dcdd258eff6f7bcf5f7dc8f9f59bf9903f197f7d9b1fe",
+      "bytes": 334149
+    },
+    "Malformed-geometry-bottom_source.f3d": {
+      "sha256": "3f446736d9199860a0e23f07db9ace44f650232bff9605d93458629e715c2836",
+      "bytes": 334149
+    },
+    "Malformed-geometry-history_end.f3d": {
+      "sha256": "8cc5ad9eea5307946297085b481fb6226922f88ae75c2861aeaa3b92a6388188",
+      "bytes": 334149
+    },
+    "Malformed-geometry-history_scale.f3d": {
+      "sha256": "fcbc59a39c15611c6ffaeb25df21d9deab8828cdbc4ffa24aecca63bda1e74f2",
+      "bytes": 334149
+    },
+    "Malformed-geometry-seam_parameter.f3d": {
+      "sha256": "9a137d0a7754f338b44c284c5e320a4ca675a2f18a7c43b5f04c8d732cef36fc",
+      "bytes": 334149
+    },
+    "Malformed-geometry-selected_lower.f3d": {
+      "sha256": "6b840e29f0d2420bd8a90f70c0d77c65e637e3d239ef3affbf4daccc95e176ed",
+      "bytes": 334153
+    },
+    "Malformed-geometry-snapshot_height.f3d": {
+      "sha256": "328253f410d57ef0008bdfbc4fa7259ef5e9a09058cb59df9b2f0ff7047964f6",
+      "bytes": 334149
+    },
+    "Malformed-geometry-top_winding.f3d": {
+      "sha256": "c8fd3bfda7e5344232335a790922ab1769d777799270c33cda50f3e9da8079a5",
+      "bytes": 334149
+    },
+    "Malformed-geometry-torus_center.f3d": {
+      "sha256": "037ffe6b8f6fb47a4ac250d57a5d562f1fb0cf138c9906e4de26fa38bcf53156",
+      "bytes": 334149
+    },
+    "Malformed-geometry-torus_major.f3d": {
+      "sha256": "50e6ed7b74a0e7b82ab5281d795b45d9c7c691b1b50f4a6afc01c10a0e2812e4",
+      "bytes": 334149
+    },
+    "Malformed-geometry-torus_minor.f3d": {
+      "sha256": "97928ca1c2d38ecb554a761cae7b069faaac5b9844cdef4645ec59873598fe44",
+      "bytes": 334149
+    },
+    "Malformed-geometry-tracker_owner.f3d": {
+      "sha256": "46ebfff1b72a5ca7d80e85bbc107b0d6a95d858b9d176fe020b31ec4898275a2",
+      "bytes": 334149
+    },
+    "Malformed-mass-area_.f3d": {
+      "sha256": "0a0f0b1e344597e0096e9bb95d3e587e187d6ee6807e285ac8f15e4fc0367600",
+      "bytes": 334149
+    },
+    "Malformed-mass-cog_x.f3d": {
+      "sha256": "a090fa5f6c3b2778ab9381b839714f428502c6de6401881b1d65db6be86aaabd",
+      "bytes": 334149
+    },
+    "Malformed-mass-cog_y.f3d": {
+      "sha256": "37ad8c81db7c2b385ae5a750571d1846f746d65d515f8d827e7f96ce9f0d3b63",
+      "bytes": 334149
+    },
+    "Malformed-mass-cog_z.f3d": {
+      "sha256": "0790965d069b86df14436b888e2e07344f2682e13bdd0007d880f5e79c9a45b8",
+      "bytes": 334149
+    },
+    "Malformed-mass-moiOffDiag_x.f3d": {
+      "sha256": "005b33b683f849229b75e8f3357ec4130800574cc1a9531e1538b779fab12669",
+      "bytes": 334149
+    },
+    "Malformed-mass-moiOffDiag_y.f3d": {
+      "sha256": "dfec89cfdf4e65b9242cf835e7c3a1a8232c3cb6736fc1c320a70cd82bff97ff",
+      "bytes": 334149
+    },
+    "Malformed-mass-moiOffDiag_z.f3d": {
+      "sha256": "7d237d21c12b9e482c66d59f8bc5bb62c320ae7bae6266e9897001a33174189f",
+      "bytes": 334149
+    },
+    "Malformed-mass-moi_x.f3d": {
+      "sha256": "571bff1162e2d532cb7b66008dc563b4d853ac1424a8811e97703d236405e17e",
+      "bytes": 334149
+    },
+    "Malformed-mass-moi_y.f3d": {
+      "sha256": "a7692b49f620ee3e7a328d0aba70c96c806f4420164537a9e439eceb26434636",
+      "bytes": 334149
+    },
+    "Malformed-mass-moi_z.f3d": {
+      "sha256": "c131bcb6a076a6aa4a306aee128c31a2b45dd06f11c5365a4f36988f1e3c4d95",
+      "bytes": 334149
+    },
+    "Malformed-mass-volume_.f3d": {
+      "sha256": "9194d090cf82573b9f8f7945f071e850d319cbe5a1ae0e453f90d3f29a84e703",
+      "bytes": 334149
+    },
+    "Malformed-policy-allocator.f3d": {
+      "sha256": "786d68cbd75a5c1ff1e65ab6cb50ddee861b835df1d9052be868e0798ba4b945",
+      "bytes": 334149
+    },
+    "Malformed-policy-cache_distribution.f3d": {
+      "sha256": "ae6f801f332328d28a7f71f9816646f4b455096103c991087b5af0c8e61881c2",
+      "bytes": 334149
+    },
+    "Malformed-policy-cached_radius.f3d": {
+      "sha256": "d201ec3c18e39d38c3365b80366256b8dd3e5b91710a96d8d8efdfc6f1d17cae",
+      "bytes": 334149
+    },
+    "Malformed-policy-dynamic_owner.f3d": {
+      "sha256": "e23b8b38d834d44010513125817c0603e632f4107b6cfaf1593599d22482e8fb",
+      "bytes": 334149
+    },
+    "Malformed-policy-expression.f3d": {
+      "sha256": "0a4b7a6456acc1f188ca4ce20857ba9895b16ac260e1af101e8667629128a917",
+      "bytes": 334147
+    },
+    "Malformed-policy-history_join.f3d": {
+      "sha256": "ea36629f541db8798f0a6e38398d46c86c74a10e9356456eafcfc7adafcba2d7",
+      "bytes": 334149
+    },
+    "Malformed-policy-owner.f3d": {
+      "sha256": "bda39b82d3dfa607e8228b868f07dab3e96439afc72545ce14ab0ca48d8ef613",
+      "bytes": 334149
+    },
+    "Malformed-policy-radius_alias.f3d": {
+      "sha256": "cb636c9495e25b5b536a233e6646e80dc0a61ba6ad72fa3438c988aadb89811b",
+      "bytes": 334149
+    },
+    "Malformed-policy-recipe_face.f3d": {
+      "sha256": "2ba02ce76867c4a712823c3a7283ab61b05d5e932de376ccc48ebca6b6554300",
+      "bytes": 334149
+    },
+    "Malformed-policy-reciprocal.f3d": {
+      "sha256": "984fa1d11d754ddfdd1662f3b15547baf941612ff70f0280e6641a055050913e",
+      "bytes": 334149
+    },
+    "Malformed-policy-role.f3d": {
+      "sha256": "b98d8e96cb2c37fb7c965024ea5f404b8765490b8a13a62e00dbf3bf3462da6a",
+      "bytes": 334163
+    },
+    "Malformed-policy-scope_mode.f3d": {
+      "sha256": "83858ba70df0e5dc6e61ea44a9a9756d8f568eacc7a6676168e7bf00fd412fc7",
+      "bytes": 334149
+    },
+    "Malformed-policy-selected_alias.f3d": {
+      "sha256": "b7c22e46e2cd244fe726699713340aac952056acaded1ca8aad92c1d0d46f547",
+      "bytes": 334149
+    },
+    "Malformed-policy-selected_body.f3d": {
+      "sha256": "3ac7df73127f1133901d90e6feb8e53dd218098d5a85c5f67ad7b975c0f0e11c",
+      "bytes": 334138
+    },
+    "Malformed-policy-selected_owner.f3d": {
+      "sha256": "a8c387e39873c0e3ad29cb60d404311d106f3aa2972617068103b6342ba5933d",
+      "bytes": 334149
+    },
+    "Malformed-policy-unit.f3d": {
+      "sha256": "587d05c5ff962023ae5cc6836f137f6008d3733711e209a1ddd25b46fea98a41",
+      "bytes": 334151
+    },
+    "Malformed-policy-variable_mode.f3d": {
+      "sha256": "f271208e5abd0b277b13eeb3fa3b47de99eb1e4b4963e058b36564f49e408c2f",
+      "bytes": 334149
+    },
+    "SourceHashes.json.gz": {
+      "sha256": "c7b5f4085f7ecad2956865f2be9cb17e0f51ecc61ebe3fd9ad966bdfbf9b42f0",
+      "bytes": 213146
+    }
+  }
+}

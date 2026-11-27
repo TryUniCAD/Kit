@@ -1,0 +1,204 @@
+{
+  "manifest_version": 1,
+  "source_revision": "f34820a9d87ac34ca01bd2c5f59cbf6af37f93df",
+  "assets": [
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/discovery-01/Native.f3d",
+      "git_blob": "7ad50e1d1304d539006d7c4394773eae49ca919d",
+      "sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "size_bytes": 220263,
+      "prefix_hex": "504b03040a00000000007db4795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/discovery-02/Native.f3d",
+      "git_blob": "377fa8a4f5ff30b2e4fc2933381293b4a7aa28f4",
+      "sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "size_bytes": 226894,
+      "prefix_hex": "504b03040a0000000000b7b4795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/discovery-03/Native.f3d",
+      "git_blob": "49ecb31243b91bcb101f8720ec516bae1b099cea",
+      "sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "size_bytes": 233944,
+      "prefix_hex": "504b03040a0000000000f4b4795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/discovery-04/Native.f3d",
+      "git_blob": "d79e650a1b31ee47456d32ad4359ee8f70b9b33f",
+      "sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "size_bytes": 220574,
+      "prefix_hex": "504b03040a000000000035b5795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/discovery-05/Native.f3d",
+      "git_blob": "7b2013a779d1e61dec91a7f7f7e7facb583f2fb4",
+      "sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "size_bytes": 235310,
+      "prefix_hex": "504b03040a00000000009cb5795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/discovery-06/Native.f3d",
+      "git_blob": "50e310d7bbcfafb371a6aed0634c52fd5d788db1",
+      "sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "size_bytes": 228092,
+      "prefix_hex": "504b03040a0000000000f3b5795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/holdout-01/Native.f3d",
+      "git_blob": "45ca42745456f6a9e8e3d443250151dad5021b85",
+      "sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "size_bytes": 223552,
+      "prefix_hex": "504b03040a000000000043b6795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/holdout-02/Native.f3d",
+      "git_blob": "b9f44326c65b8398c7c8b3abab93e6908cf4f5a5",
+      "sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "size_bytes": 230911,
+      "prefix_hex": "504b03040a000000000092b6795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/holdout-03/Native.f3d",
+      "git_blob": "8e379d71db2942165ce9ee18aeff8d5e563ad453",
+      "sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "size_bytes": 233174,
+      "prefix_hex": "504b03040a0000000000edb6795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/holdout-04/Native.f3d",
+      "git_blob": "5d7f231ec287668d62432cfa652af63cb125e1f3",
+      "sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "size_bytes": 227844,
+      "prefix_hex": "504b03040a000000000051b7795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/holdout-05/Native.f3d",
+      "git_blob": "1532b99c5d839ff546f33b16ece9744971998115",
+      "sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "size_bytes": 232064,
+      "prefix_hex": "504b03040a000000000017b8795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Sources/holdout-06/Native.f3d",
+      "git_blob": "0dbe03935615bfd8c5dc2656ff9d5d712aca7695",
+      "sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "size_bytes": 240526,
+      "prefix_hex": "504b03040a000000000065b8795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-01/Native.f3d",
+      "git_blob": "cf5bbfc753338802e300c84d9b1f02bdf41052da",
+      "sha256": "bad4d6c0ee8a14ab3cd5a34f6dc6bb47b1554d4402d7add6f37dea6871e01155",
+      "size_bytes": 84751,
+      "prefix_hex": "504b03040a0000000000f2bb795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-02/Native.f3d",
+      "git_blob": "ee37289bd289f06e2cb29084ef50f1bf6eb70a43",
+      "sha256": "2102ee4232041164554c0de440ae72763c285154f7951a788139345f9b284222",
+      "size_bytes": 85284,
+      "prefix_hex": "504b03040a000000000028bc795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-03/Native.f3d",
+      "git_blob": "5553fc0eb1f49bca5cbfb8536395fadad54b3f73",
+      "sha256": "c5f6958e0024001f2e0f8174e4137908011479cbf5b67f108214e6b1f416cb48",
+      "size_bytes": 97592,
+      "prefix_hex": "504b03040a00000000004fbc795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-04/Native.f3d",
+      "git_blob": "bbf3bb9dcf99e511404fadfc0cb249296731860e",
+      "sha256": "50a8217a08b705f1d73d633345d41b01d45e2a3d1cc9c7576fad21fa4400c2cd",
+      "size_bytes": 98915,
+      "prefix_hex": "504b03040a00000000007abc795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-05/Native.f3d",
+      "git_blob": "aefc32a495ce5102d102713e4f69e07bd74b1772",
+      "sha256": "e411dd935b5012380a338a05f2c07b509f0bbed368d5ffc39b04415f5c210dc8",
+      "size_bytes": 89059,
+      "prefix_hex": "504b03040a0000000000a8bc795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-06/Native.f3d",
+      "git_blob": "9d45f4550676839ca996e056c271a162edbb17fe",
+      "sha256": "2ac34319d4d8d58b66daf75ffb3b8be9285228fce485f491d8d2f7c8bd68b4b0",
+      "size_bytes": 98813,
+      "prefix_hex": "504b03040a00000000000ebd795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-01/Native.f3d",
+      "git_blob": "ae07172b0313a948a2bb12549aad5c220056db01",
+      "sha256": "e76d95e1f7893ee07061bc41a9c261aab8c6d29942add8fd19a3a95f27e51a96",
+      "size_bytes": 241594,
+      "prefix_hex": "504b03040a000000000046be795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-02/Native.f3d",
+      "git_blob": "725f885f46f86f565ea2d18248ae80441337fb86",
+      "sha256": "aeab2b02af0746b595fb22877dc555120584752e262f8c9cb291e6cba4e6b41b",
+      "size_bytes": 233640,
+      "prefix_hex": "504b03040a000000000068be795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-03/Native.f3d",
+      "git_blob": "594307a403819aa5e823753368f64d4cc3d43423",
+      "sha256": "c1d83697087f94c914e56996e728a1c50cba217a1f82c191b2edd968962943ec",
+      "size_bytes": 237248,
+      "prefix_hex": "504b03040a000000000089be795d0000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-04/Native.f3d",
+      "git_blob": "9c6554dc6d472f4a32dde4c6911d90b7134452d5",
+      "sha256": "608c77123d4a5d70d170c43318b97e56eee27ea1f1ea5277e62207fd82844af3",
+      "size_bytes": 236056,
+      "prefix_hex": "504b03040a0000000000abbe795d0000",
+      "kind": "native",
+      "format": "f3d"
+    }
+  ]
+}

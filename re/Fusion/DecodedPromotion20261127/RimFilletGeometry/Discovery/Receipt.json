@@ -1,0 +1,133 @@
+{
+  "models": false,
+  "native_calls": 0,
+  "revision": "6087ed24cb75ad8fb10626b556192c0351d989d7",
+  "rows": [
+    {
+      "body_type": "JournalModel",
+      "sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "snapshot_types": [
+        "SnapshotModel"
+      ],
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-01/Native.f3d",
+      "stream": {
+        "fields": {
+          "ActiveNode": 0,
+          "CurrentStateId": 12,
+          "InitialNode": 1,
+          "MaxStateId": 12,
+          "MaxStatesToKeep": 0,
+          "NextEntityTag": 3,
+          "OwnerEntity": -1,
+          "WorkingNode": -1
+        },
+        "record": "convert.Formats.Fusion.BrepCodec.Journal.States.StreamState.StreamState"
+      }
+    },
+    {
+      "body_type": "JournalModel",
+      "sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "snapshot_types": [
+        "SnapshotModel"
+      ],
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-02/Native.f3d",
+      "stream": {
+        "fields": {
+          "ActiveNode": 0,
+          "CurrentStateId": 12,
+          "InitialNode": 1,
+          "MaxStateId": 12,
+          "MaxStatesToKeep": 0,
+          "NextEntityTag": 3,
+          "OwnerEntity": -1,
+          "WorkingNode": -1
+        },
+        "record": "convert.Formats.Fusion.BrepCodec.Journal.States.StreamState.StreamState"
+      }
+    },
+    {
+      "body_type": "JournalModel",
+      "sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "snapshot_types": [
+        "SnapshotModel"
+      ],
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-03/Native.f3d",
+      "stream": {
+        "fields": {
+          "ActiveNode": 0,
+          "CurrentStateId": 12,
+          "InitialNode": 1,
+          "MaxStateId": 12,
+          "MaxStatesToKeep": 0,
+          "NextEntityTag": 3,
+          "OwnerEntity": -1,
+          "WorkingNode": -1
+        },
+        "record": "convert.Formats.Fusion.BrepCodec.Journal.States.StreamState.StreamState"
+      }
+    },
+    {
+      "body_type": "JournalModel",
+      "sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "snapshot_types": [
+        "SnapshotModel"
+      ],
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-04/Native.f3d",
+      "stream": {
+        "fields": {
+          "ActiveNode": 0,
+          "CurrentStateId": 12,
+          "InitialNode": 1,
+          "MaxStateId": 12,
+          "MaxStatesToKeep": 0,
+          "NextEntityTag": 3,
+          "OwnerEntity": -1,
+          "WorkingNode": -1
+        },
+        "record": "convert.Formats.Fusion.BrepCodec.Journal.States.StreamState.StreamState"
+      }
+    },
+    {
+      "body_type": "JournalModel",
+      "sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "snapshot_types": [
+        "SnapshotModel"
+      ],
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-05/Native.f3d",
+      "stream": {
+        "fields": {
+          "ActiveNode": 0,
+          "CurrentStateId": 12,
+          "InitialNode": 1,
+          "MaxStateId": 12,
+          "MaxStatesToKeep": 0,
+          "NextEntityTag": 3,
+          "OwnerEntity": -1,
+          "WorkingNode": -1
+        },
+        "record": "convert.Formats.Fusion.BrepCodec.Journal.States.StreamState.StreamState"
+      }
+    },
+    {
+      "body_type": "JournalModel",
+      "sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "snapshot_types": [
+        "SnapshotModel"
+      ],
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-06/Native.f3d",
+      "stream": {
+        "fields": {
+          "ActiveNode": 0,
+          "CurrentStateId": 12,
+          "InitialNode": 1,
+          "MaxStateId": 12,
+          "MaxStatesToKeep": 0,
+          "NextEntityTag": 3,
+          "OwnerEntity": -1,
+          "WorkingNode": -1
+        },
+        "record": "convert.Formats.Fusion.BrepCodec.Journal.States.StreamState.StreamState"
+      }
+    }
+  ]
+}

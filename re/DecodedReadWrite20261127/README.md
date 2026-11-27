@@ -44,3 +44,9 @@ The later clean pinned SDK and corpus `6087ed24cb75ad8fb10626b556192c0351d989d7`
 `WorldDraftReader/Replay.json` binds the exact committed input blobs, SDK revision, worker receipt digest, outcome counts and all 138 retained document/receipt/summary/log member hashes. `Readers.tar.gz` preserves their exact bytes. `RetainWorldReplay.py RUNTIME PINNED_SDK UNUSED_OUTPUT` verifies the clean tracked checkout, revision agreement, committed input hashes, every unqualified/read-only marker and all retained member hashes. The previous XY-only replay and twelve refusals remain unchanged as historical evidence.
 
 All 68 receipts retain the unresolved independent source inventory/native acceptance finding. `portable_complete` remains false, semantic qualification stays unverified and native acceptance stays unestablished. Exit `0` proves the recorded strict inspection outcomes; it does not qualify editable conversion or writing.
+
+## Circular rim baseline replay
+
+Before the new public projector, clean committed SDK/corpus `f34820a9d87ac34ca01bd2c5f59cbf6af37f93df` processes all 22 rim sources through the existing controller/supervisor. Strict mode publishes 22 refusals, zero errors and exit `3`; explicit fallback publishes 22 partial documents, zero strict reads and exit `0`. Controller completion does not qualify either cohort.
+
+`RimFilletBaseline/Replay.json` retains all input blobs, worker receipt digests, outcome counts and 48 exact document/receipt/summary/log artifacts. All 154 partial unresolved findings and unqualified markers remain intact. Legacy partial body/history/assembly diagnostics do not prove absent native wire grammar; the new source-specific reader must independently prove its complete semantic boundary. `RetainRimBaseline.py RUNTIME PINNED_SDK UNUSED_OUTPUT` validates committed bytes and lossless retention. No API, model or oracle lease participates.

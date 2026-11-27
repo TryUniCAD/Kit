@@ -1,5 +1,6 @@
 from convert.adapters.Fusion.Native.Circular.ProjectRound import ProjectRound
 from convert.adapters.Fusion.Native.Circular.ProjectDisk import ProjectDisk
+from convert.adapters.Fusion.Native.Circular.RimProjection.ProjectRim import ProjectRim
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from interchange.document.Models.DocumentModel import CadDocument
@@ -10,6 +11,8 @@ from interchange.Records.RecordSource import CadSource
 def ProjectCircular(
     Model: DocumentModel, Source: CadSource, Graph: NativeGraph
 ) -> CadDocument:
+    if Graph.ByClass("DcFilletEdgeFeature"):
+        return ProjectRim(Model, Source, Graph)
     if Graph.ByClass("DcExtrudeFeature"):
         return ProjectRound(Model, Source, Graph)
     return ProjectDisk(Model, Source, Graph)

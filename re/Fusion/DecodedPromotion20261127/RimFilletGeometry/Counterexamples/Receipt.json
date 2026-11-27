@@ -1,0 +1,139 @@
+{
+  "models": false,
+  "native_calls": 0,
+  "rows": [
+    {
+      "candidate": "chord_mode.f3d",
+      "emitted": true,
+      "mode": "chord_mode",
+      "passed": true,
+      "refusal": "AssertionError: ",
+      "sha256": "d04048f0101b564a6375e59f18b32e07eaccd880f21738f4df4018aa44a1a962",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "history_end.f3d",
+      "emitted": true,
+      "mode": "history_end",
+      "passed": true,
+      "refusal": "AssertionError: ",
+      "sha256": "8cc5ad9eea5307946297085b481fb6226922f88ae75c2861aeaa3b92a6388188",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "radius_owner.f3d",
+      "emitted": true,
+      "mode": "radius_owner",
+      "passed": true,
+      "refusal": "ValueError: Native Fusion semantic link requires an entity reference",
+      "sha256": "bad19f2f84ac36d080badf2c2e1206219e7c8e760facadd2503392b23949d1e7",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "snapshot_height.f3d",
+      "emitted": true,
+      "mode": "snapshot_height",
+      "passed": true,
+      "refusal": "AssertionError: ",
+      "sha256": "328253f410d57ef0008bdfbc4fa7259ef5e9a09058cb59df9b2f0ff7047964f6",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "selected_lower.f3d",
+      "emitted": true,
+      "mode": "selected_lower",
+      "passed": true,
+      "refusal": "AssertionError: ",
+      "sha256": "054508209ed327953e7e8e8c3aaa4c60eba5e1f82373df110bebb870d7d28193",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "mass_inertia.f3d",
+      "emitted": true,
+      "mode": "mass_inertia",
+      "passed": true,
+      "refusal": "ValueError: Native circular mass cache disagrees with analytic geometry",
+      "sha256": "571bff1162e2d532cb7b66008dc563b4d853ac1424a8811e97703d236405e17e",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "torus_major.f3d",
+      "emitted": true,
+      "mode": "torus_major",
+      "passed": true,
+      "refusal": "AssertionError: (1.0706, 1.06)",
+      "sha256": "50e6ed7b74a0e7b82ab5281d795b45d9c7c691b1b50f4a6afc01c10a0e2812e4",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "torus_minor.f3d",
+      "emitted": true,
+      "mode": "torus_minor",
+      "passed": true,
+      "refusal": "AssertionError: (0.077, 0.06999999999999999)",
+      "sha256": "97928ca1c2d38ecb554a761cae7b069faaac5b9844cdef4645ec59873598fe44",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "torus_center.f3d",
+      "emitted": true,
+      "mode": "torus_center",
+      "passed": true,
+      "refusal": "AssertionError: (2.31, 2.3000000000000003)",
+      "sha256": "037ffe6b8f6fb47a4ac250d57a5d562f1fb0cf138c9906e4de26fa38bcf53156",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "tracker_owner.f3d",
+      "emitted": true,
+      "mode": "tracker_owner",
+      "passed": true,
+      "refusal": "AssertionError: ",
+      "sha256": "46ebfff1b72a5ca7d80e85bbc107b0d6a95d858b9d176fe020b31ec4898275a2",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "candidate": "seam_parameter.f3d",
+      "emitted": true,
+      "mode": "seam_parameter",
+      "passed": true,
+      "refusal": "AssertionError: (-2.827433388230814, -3.141592653589793)",
+      "sha256": "9a137d0a7754f338b44c284c5e320a4ca675a2f18a7c43b5f04c8d732cef36fc",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Counterexamples.py\", line 70, in <module>\n    payload=EmitParsed(corrupt(original,mode));path=out/(mode+'.f3d');path.write_bytes(payload);row.update(emitted=True,sha256=hashlib.sha256(payload).hexdigest(),candidate=path.name)\n  File \"<checkout>/src/convert/Formats/Fusion/DocumentCodec/EmitParsed.py\", line 56, in EmitParsed\n    tuple(EmitBodyPart(BodyValue) for BodyValue in Value.Bodies)\n    ^^^^^\n  File \"<checkout>/src/convert/Formats/Fusion/DocumentCodec/EmitParsed.py\", line 56, in <genexpr>\n    tuple(EmitBodyPart(BodyValue) for BodyValue in Value.Bodies)\n          ~~~~~~~~~~~~^^^^^^^^^^^\n  File \"<checkout>/src/convert/Formats/Fusion/DocumentCodec/EmitBodyPart.py\", line 24, in EmitBodyPart\n    return ContainerPart(Value.PartName, EmitJournal(History))\n                                         ~~~~~~~~~~~^^^^^^^^^\n  File \"<checkout>/src/convert/Formats/Fusion/BrepCodec/Journal/EmitJournal.py\", line 26, in EmitJournal\n    _ = WalkStates(Model)\n  File \"<checkout>/src/convert/Formats/Fusion/BrepCodec/Journal/Validation/WalkStates.py\", line 33, in WalkStates\n    CheckLiveRefs(Records, Versions, Aliases, Model.Header.RootCount)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/src/convert/Formats/Fusion/BrepCodec/Journal/Validation/CheckLiveRefs.py\", line 67, in CheckLiveRefs\n    CheckLiveUses(Records, Versions, Aliases)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/src/convert/Formats/Fusion/BrepCodec/Journal/Validation/CheckLiveUses.py\", line 27, in CheckLiveUses\n    CheckUsePairs(SlotId, tuple(Groups.get(SlotId, ())), Selected, Aliases)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/src/convert/Formats/Fusion/BrepCodec/Journal/Validation/CheckUsePairs.py\", line 29, in CheckUsePairs\n    raise ValueError(\"Fusion edge partners disagree with boundary incidence\")\nValueError: Fusion edge partners disagree with boundary incidence\n",
+      "mode": "coedge_partner",
+      "passed": false,
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562"
+    },
+    {
+      "candidate": "top_winding.f3d",
+      "emitted": true,
+      "mode": "top_winding",
+      "passed": true,
+      "refusal": "AssertionError: ",
+      "sha256": "c8fd3bfda7e5344232335a790922ab1769d777799270c33cda50f3e9da8079a5",
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "typed_reparsed": true
+    }
+  ],
+  "script_sha256": "12287121a736b2db49d85f16981741a6ddaded87d54642e15dd33094e3caafac",
+  "summary": {
+    "cases": 13,
+    "emitted": 12,
+    "passed": 12,
+    "typed_reparsed": 12
+  }
+}

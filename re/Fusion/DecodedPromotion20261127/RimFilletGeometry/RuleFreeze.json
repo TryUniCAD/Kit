@@ -1,0 +1,14 @@
+{
+  "discovery_receipt_sha256": "141df3478d9851c832dda5f6dcb0e7ddd371b157e1825fbe1f76d2ef4f0510c4",
+  "files": {
+    "ProveRim.py": "4ad63690eb6a29daa1ac886f5d3631ecee32ac52fcad80424b11aa87bc6b9ad2",
+    "RimAttributes.py": "e1666ebd9770e1cb8847149de2f1055ad0920bbe514177441fe92e08020732fd",
+    "RimMath.py": "ade32ebd4e4b290bbcf0ccba0876f82fb1091c08097f3148337aa0fc1107fe06",
+    "RimSource.py": "055d395d895f57d4947739e8b51bc73155427744afed47d563ad16a7a608c39e",
+    "RimState.py": "a3d544a312edc130b984caf3dde7883d760da086e5eddb5a77d203d36debab4d",
+    "Rules.md": "f4a0e6e61fb69e850ee8d79e97f0e9c33fb9e1ee8e7f6a7db37fe263170fac8c"
+  },
+  "heldout_native_archives_opened": 0,
+  "measurement_metadata_previously_visible": true,
+  "revision": "6087ed24cb75ad8fb10626b556192c0351d989d7"
+}

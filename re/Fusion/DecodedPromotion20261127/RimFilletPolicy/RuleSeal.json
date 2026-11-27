@@ -1,0 +1,14 @@
+{
+  "phase": "before reserved archive bytes opened",
+  "native_calls": 0,
+  "models": false,
+  "discovery_receipt_sha256": "e0e0312b15c70f5f03231b653bd9b6c71ea569440eb90db33640b8aae76385be",
+  "files": {
+    "GraphProof.py": "2b8b98fcc325eb424c1073102f0a6db69fcb190a55a96b7592aa9e00a4094857",
+    "InspectDiscovery.py": "e1172eb878553ce5af8034e167087a467b846deace0b53f83fee28dae259e1d2",
+    "Policy.py": "1d8a17bf43ac7f73965a2672f28a802083c55693046efda37ec270729297dd39",
+    "RoleChecks.py": "c1eb9592b156c28d86ea50d02403788f5c50969137de8da1ceced08368e2487e",
+    "RunPolicy.py": "e7838c88cbc185519846a4d256cc356a51ded6ccbeec3d5eae8f076336a5ae8b",
+    "Rules.md": "419758837604f24032b22a4d0683038cc7f4289fe9ded1edae656cf0bb379f10"
+  }
+}

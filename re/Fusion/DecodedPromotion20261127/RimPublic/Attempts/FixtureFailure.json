@@ -1,0 +1,8 @@
+{
+  "cases": 26,
+  "passed": 4,
+  "failed": 22,
+  "reason": "test incorrectly assumed first sketch entity was the circle; native point entities must be preserved",
+  "source_sha256": "84ecf1bcf1330d86057352a79d5c5a9725044ec9bea05338e86e50f98550c1a5",
+  "raw_xml_sha256": "e2905b6d96eb79fe8f73a60ff335c44a43db357ba7fa776ce6abed41db6f196f"
+}

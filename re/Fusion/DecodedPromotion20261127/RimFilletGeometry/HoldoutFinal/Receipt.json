@@ -1,0 +1,407 @@
+{
+  "base_revision": "6087ed24cb75ad8fb10626b556192c0351d989d7",
+  "mode": "holdout",
+  "models": false,
+  "native_calls": 0,
+  "rows": [
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.27,
+        2.7100000000000004,
+        0.09000000000000001
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "source-holdout-01",
+      "passed": false,
+      "sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-01/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.49,
+        3.3100000000000005,
+        0.13
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "source-holdout-02",
+      "passed": false,
+      "sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-02/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.9300000000000002,
+        3.7700000000000005,
+        0.29
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "source-holdout-03",
+      "passed": false,
+      "sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-03/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        2.3899999999999997,
+        4.13,
+        0.31000000000000005
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "source-holdout-04",
+      "passed": false,
+      "sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-04/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia"
+      ],
+      "dimensions_cm": [
+        1.67,
+        3.59,
+        0.19
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 54, in <module>\n    CacheNumbers(actual,want);row['checks'].append('saved_mass_'+label)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/Native/Circular/RotaryMass.py\", line 65, in CacheNumbers\n    raise ValueError(\"Native circular mass cache disagrees with analytic geometry\")\nValueError: Native circular mass cache disagrees with analytic geometry\n",
+      "id": "source-holdout-05",
+      "passed": false,
+      "sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-05/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        2.1100000000000003,
+        4.37,
+        0.37000000000000005
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "source-holdout-06",
+      "passed": false,
+      "sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-06/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.27,
+        3.04875,
+        0.09000000000000001
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "depth-holdout-01",
+      "passed": false,
+      "sha256": "bad4d6c0ee8a14ab3cd5a34f6dc6bb47b1554d4402d7add6f37dea6871e01155",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-01/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.49,
+        3.723750000000001,
+        0.13
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "depth-holdout-02",
+      "passed": false,
+      "sha256": "2102ee4232041164554c0de440ae72763c285154f7951a788139345f9b284222",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-02/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.9300000000000002,
+        4.24125,
+        0.29
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "depth-holdout-03",
+      "passed": false,
+      "sha256": "c5f6958e0024001f2e0f8174e4137908011479cbf5b67f108214e6b1f416cb48",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-03/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        2.3899999999999997,
+        4.64625,
+        0.31000000000000005
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "depth-holdout-04",
+      "passed": false,
+      "sha256": "50a8217a08b705f1d73d633345d41b01d45e2a3d1cc9c7576fad21fa4400c2cd",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-04/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia"
+      ],
+      "dimensions_cm": [
+        1.67,
+        4.038749999999999,
+        0.19
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 54, in <module>\n    CacheNumbers(actual,want);row['checks'].append('saved_mass_'+label)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/Native/Circular/RotaryMass.py\", line 65, in CacheNumbers\n    raise ValueError(\"Native circular mass cache disagrees with analytic geometry\")\nValueError: Native circular mass cache disagrees with analytic geometry\n",
+      "id": "depth-holdout-05",
+      "passed": false,
+      "sha256": "e411dd935b5012380a338a05f2c07b509f0bbed368d5ffc39b04415f5c210dc8",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-05/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        2.1100000000000003,
+        4.916250000000001,
+        0.37000000000000005
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "depth-holdout-06",
+      "passed": false,
+      "sha256": "2ac34319d4d8d58b66daf75ffb3b8be9285228fce485f491d8d2f7c8bd68b4b0",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-06/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.17,
+        2.6300000000000003,
+        0.19
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "fresh-01",
+      "passed": false,
+      "sha256": "e76d95e1f7893ee07061bc41a9c261aab8c6d29942add8fd19a3a95f27e51a96",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-01/Native.f3d"
+    },
+    {
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology"
+      ],
+      "dimensions_cm": [
+        1.81,
+        3.4700000000000006,
+        0.27
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 43, in <module>\n    row['attributes']={'prior':attributes(prior,pr,selected,snapshot,graph,False),'current':attributes(current,cr,selected,snapshot,graph,True)};row['checks'].append('all_live_attribute_chains_and_physical_tag_operations')\n                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py\", line 31, in attributes\n    expected={roles['root']:tag,roles['faces']['side']:(snapshot.TagSet.SideFace,),roles['faces']['top']:(snapshot.TagSet.TopFace,),roles['faces']['bottom']:(snapshot.TagSet.BottomFace,),roles['edges']['bottom']:(snapshot.TagSet.BottomEdge,)}\n                                                        ^^^^^^^^^^^^^^^\nAttributeError: 'GeometryState' object has no attribute 'TagSet'\n",
+      "id": "fresh-02",
+      "passed": false,
+      "sha256": "aeab2b02af0746b595fb22877dc555120584752e262f8c9cb291e6cba4e6b41b",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-02/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia"
+      ],
+      "dimensions_cm": [
+        2.23,
+        4.79,
+        0.33
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 54, in <module>\n    CacheNumbers(actual,want);row['checks'].append('saved_mass_'+label)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/Native/Circular/RotaryMass.py\", line 65, in CacheNumbers\n    raise ValueError(\"Native circular mass cache disagrees with analytic geometry\")\nValueError: Native circular mass cache disagrees with analytic geometry\n",
+      "id": "fresh-03",
+      "passed": false,
+      "sha256": "c1d83697087f94c914e56996e728a1c50cba217a1f82c191b2edd968962943ec",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-03/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0003531734940841459,
+        "volumePrec": 0.0003531734940841459
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.1300000000000001,
+        2.89,
+        0.13
+      ],
+      "documents": {
+        "Documents/fresh-04_CleanedPrior.json": "6160b9ac4a408d854edca2596182eba680d192f656a649d621888f89e0693623",
+        "Documents/fresh-04_Current.json": "1ecf7411b7e41b64964b6b0a9f749a320deb476d16648b0b7cd57062dd252661",
+        "Documents/fresh-04_Prior.json": "bae93d69fd30cfca479aba729f10b1964e7728e47a678397c2e0f248d4fa5a7f",
+        "Documents/fresh-04_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/fresh-04_Snapshot.json": "f486aa355b4efa665dc42146601dcbf561acffb2b84a6e3a8483f4ea3e6dcba3"
+      },
+      "id": "fresh-04",
+      "inertia_errors": [
+        2.2822633383157154e-07,
+        -6.846844016195064e-07,
+        -4.5645566437713114e-07
+      ],
+      "metrics": {
+        "area": 28.13832505282325,
+        "centroid": [
+          0.0,
+          0.0,
+          1.4419298265286817
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.1300000000000001,
+          -1.1300000000000001,
+          0.0
+        ],
+        "moi": [
+          35.75625249039404,
+          35.75625249039404,
+          7.371245817570701
+        ],
+        "upper": [
+          1.1300000000000001,
+          1.1300000000000001,
+          2.89
+        ],
+        "volume": 11.568145648053747
+      },
+      "passed": true,
+      "prior_entities": 36,
+      "sha256": "608c77123d4a5d70d170c43318b97e56eee27ea1f1ea5277e62207fd82844af3",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-04/Native.f3d"
+    }
+  ],
+  "rules_sha256": "f4a0e6e61fb69e850ee8d79e97f0e9c33fb9e1ee8e7f6a7db37fe263170fac8c",
+  "scripts": {
+    "InspectDiscovery.py": "67d78f21c8f76227feba6e3265d27fa80f54a48a2d6b8c54b675ff371d498f86",
+    "ProveRim.py": "4ad63690eb6a29daa1ac886f5d3631ecee32ac52fcad80424b11aa87bc6b9ad2",
+    "RimAttributes.py": "e1666ebd9770e1cb8847149de2f1055ad0920bbe514177441fe92e08020732fd",
+    "RimMath.py": "ade32ebd4e4b290bbcf0ccba0876f82fb1091c08097f3148337aa0fc1107fe06",
+    "RimSource.py": "055d395d895f57d4947739e8b51bc73155427744afed47d563ad16a7a608c39e",
+    "RimState.py": "a3d544a312edc130b984caf3dde7883d760da086e5eddb5a77d203d36debab4d"
+  },
+  "summary": {
+    "checks": 63,
+    "failed": 15,
+    "files": 16,
+    "passed": 1
+  }
+}

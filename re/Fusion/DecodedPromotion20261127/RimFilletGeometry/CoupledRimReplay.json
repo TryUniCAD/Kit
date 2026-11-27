@@ -1,0 +1,851 @@
+{
+  "disposition": "post-exposure replay; original11refusals retained; independent cohort proof separate",
+  "models": false,
+  "native_calls": 0,
+  "rows": [
+    {
+      "id": "source-discovery-01",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            7.470412651913781,
+            7.470411891154834,
+            6.060759223198776
+          ],
+          [
+            -3.552713678800501e-15,
+            -7.434013489029337e-11,
+            -1.7763568394002505e-15
+          ]
+        ],
+        "central_cross_errors": [
+          -3.552713678800501e-15,
+          -7.434013489029337e-11,
+          -1.7763568394002505e-15
+        ],
+        "expected_central": [
+          [
+            7.470412461724342,
+            7.470412461724342,
+            6.060759603578497
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-01/Native.f3d"
+    },
+    {
+      "id": "source-discovery-02",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            7.449699456673899,
+            7.4496987091455384,
+            6.047844194616422
+          ],
+          [
+            -3.552713678800501e-15,
+            -1.1311535744018633e-10,
+            -1.7763568394002505e-15
+          ]
+        ],
+        "central_cross_errors": [
+          -3.552713678800501e-15,
+          -1.1311535744018633e-10,
+          -1.7763568394002505e-15
+        ],
+        "expected_central": [
+          [
+            7.449699269792093,
+            7.449699269792093,
+            6.047844568380843
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-02/Native.f3d"
+    },
+    {
+      "id": "source-discovery-03",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            7.403394202609723,
+            7.403393474927251,
+            6.019030474263818
+          ],
+          [
+            1.7763568394002505e-15,
+            -1.665297103197694e-10,
+            -1.7763568394002505e-15
+          ]
+        ],
+        "central_cross_errors": [
+          1.7763568394002505e-15,
+          -1.665297103197694e-10,
+          -1.7763568394002505e-15
+        ],
+        "expected_central": [
+          [
+            7.403394020689374,
+            7.403394020689374,
+            6.019030838105294
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-03/Native.f3d"
+    },
+    {
+      "id": "source-discovery-04",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            11.416933317676605,
+            11.41693431463947,
+            10.928925310890616
+          ],
+          [
+            0.0,
+            -2.5695071531803855e-12,
+            -3.552713678800501e-15
+          ]
+        ],
+        "central_cross_errors": [
+          0.0,
+          -2.5695071531803855e-12,
+          -3.552713678800501e-15
+        ],
+        "expected_central": [
+          [
+            11.416934065398372,
+            11.416934065398372,
+            10.928925809371734
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-04/Native.f3d"
+    },
+    {
+      "id": "source-discovery-05",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            12.11225859005867,
+            12.112257657302042,
+            7.482083598215677
+          ],
+          [
+            -5.329070518200751e-15,
+            -1.4111898007316788e-10,
+            0.0
+          ]
+        ],
+        "central_cross_errors": [
+          -5.329070518200751e-15,
+          -1.4111898007316788e-10,
+          0.0
+        ],
+        "expected_central": [
+          [
+            12.112258356869983,
+            12.112258356869983,
+            7.482084064594291
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-05/Native.f3d"
+    },
+    {
+      "id": "source-discovery-06",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            51.80041158828597,
+            51.80041539686802,
+            50.74448569005088
+          ],
+          [
+            1.421085471608579e-14,
+            -2.3672810038082246e-11,
+            1.1219603019280364e-14
+          ]
+        ],
+        "central_cross_errors": [
+          1.421085471608579e-14,
+          -2.3672810038082246e-11,
+          1.1219603019280364e-14
+        ],
+        "expected_central": [
+          [
+            51.80041444472097,
+            51.80041444472097,
+            50.74448759434065
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-06/Native.f3d"
+    },
+    {
+      "id": "source-holdout-01",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            13.90593554377724,
+            13.905934161097385,
+            11.052649216202902
+          ],
+          [
+            -0.0,
+            -1.5398599853009899e-10,
+            0.0
+          ]
+        ],
+        "central_cross_errors": [
+          -0.0,
+          -1.5398599853009899e-10,
+          0.0
+        ],
+        "expected_central": [
+          [
+            13.90593519810783,
+            13.90593519810783,
+            11.052649907543291
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-01/Native.f3d"
+    },
+    {
+      "id": "source-holdout-02",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            33.76745639083576,
+            33.76745321119796,
+            25.555596076575505
+          ],
+          [
+            -1.4210854715202004e-14,
+            -4.33013728186908e-10,
+            0.0
+          ]
+        ],
+        "central_cross_errors": [
+          -1.4210854715202004e-14,
+          -4.33013728186908e-10,
+          0.0
+        ],
+        "expected_central": [
+          [
+            33.76745559592759,
+            33.76745559592759,
+            25.555597666395443
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-02/Native.f3d"
+    },
+    {
+      "id": "source-holdout-03",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            92.26241991871959,
+            92.2624254512319,
+            81.42795014412161
+          ],
+          [
+            2.842170943217218e-14,
+            -4.78785033474684e-11,
+            -1.7587983065190097e-15
+          ]
+        ],
+        "central_cross_errors": [
+          2.842170943217218e-14,
+          -4.78785033474684e-11,
+          -1.7587983065190097e-15
+        ],
+        "expected_central": [
+          [
+            92.26242406810132,
+            92.26242406810132,
+            81.42795291037599
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-03/Native.f3d"
+    },
+    {
+      "id": "source-holdout-04",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            209.16668167498943,
+            209.16669735726379,
+            210.04838850896988
+          ],
+          [
+            5.684341886550921e-14,
+            -9.916489951830399e-11,
+            1.153032512563704e-13
+          ]
+        ],
+        "central_cross_errors": [
+          5.684341886550921e-14,
+          -9.916489951830399e-11,
+          1.153032512563704e-13
+        ],
+        "expected_central": [
+          [
+            209.16669343668934,
+            209.16669343668934,
+            210.04839635010174
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-04/Native.f3d"
+    },
+    {
+      "id": "source-holdout-05",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            55.36354921209879,
+            55.363543847339244,
+            43.65100674606752
+          ],
+          [
+            1.421085471284579e-14,
+            -9.42348617915122e-10,
+            1.2722806276087136e-14
+          ]
+        ],
+        "central_cross_errors": [
+          1.421085471284579e-14,
+          -9.42348617915122e-10,
+          1.2722806276087136e-14
+        ],
+        "expected_central": [
+          [
+            55.36354787091096,
+            55.36354787091096,
+            43.651009428449065
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-05/Native.f3d"
+    },
+    {
+      "id": "source-holdout-06",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            162.86422444827065,
+            162.86420836422582,
+            134.51668639079054
+          ],
+          [
+            -5.684341886080802e-14,
+            -4.2478014282922626e-09,
+            -5.684341886080802e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -5.684341886080802e-14,
+          -4.2478014282922626e-09,
+          -5.684341886080802e-14
+        ],
+        "expected_central": [
+          [
+            162.86422042726537,
+            162.86422042726537,
+            134.51669443281807
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-06/Native.f3d"
+    },
+    {
+      "id": "depth-holdout-01",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            18.15332699588869,
+            18.153325434436766,
+            12.436897636897122
+          ],
+          [
+            -0.0,
+            -1.738929821376677e-10,
+            0.0
+          ]
+        ],
+        "central_cross_errors": [
+          -0.0,
+          -1.738929821376677e-10,
+          0.0
+        ],
+        "expected_central": [
+          [
+            18.15332660552646,
+            18.15332660552646,
+            12.436898417623615
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "bad4d6c0ee8a14ab3cd5a34f6dc6bb47b1554d4402d7add6f37dea6871e01155",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-01/Native.f3d"
+    },
+    {
+      "id": "depth-holdout-02",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            44.27865307150182,
+            44.27864947816113,
+            28.758935284636095
+          ],
+          [
+            -0.0,
+            -4.893300546570256e-10,
+            -1.4210854715202004e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -0.0,
+          -4.893300546570256e-10,
+          -1.4210854715202004e-14
+        ],
+        "expected_central": [
+          [
+            44.278652173168425,
+            44.278652173168425,
+            28.75893708130764
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "2102ee4232041164554c0de440ae72763c285154f7951a788139345f9b284222",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-02/Native.f3d"
+    },
+    {
+      "id": "depth-holdout-03",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            119.35033920859055,
+            119.350328086941,
+            91.6986575733217
+          ],
+          [
+            2.842170943040401e-14,
+            -2.5420208502686895e-09,
+            0.0
+          ]
+        ],
+        "central_cross_errors": [
+          2.842170943040401e-14,
+          -2.5420208502686895e-09,
+          0.0
+        ],
+        "expected_central": [
+          [
+            119.35033642818274,
+            119.35033642818274,
+            91.69866313415015
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "c5f6958e0024001f2e0f8174e4137908011479cbf5b67f108214e6b1f416cb48",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-03/Native.f3d"
+    },
+    {
+      "id": "depth-holdout-04",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            266.71397328817613,
+            266.71399093073467,
+            236.50727294251703
+          ],
+          [
+            5.68434188655071e-14,
+            -1.1204071205433698e-10,
+            8.951970296600443e-15
+          ]
+        ],
+        "central_cross_errors": [
+          5.68434188655071e-14,
+          -1.1204071205433698e-10,
+          8.951970296600443e-15
+        ],
+        "expected_central": [
+          [
+            266.7139865200871,
+            266.7139865200871,
+            236.5072817637905
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "50a8217a08b705f1d73d633345d41b01d45e2a3d1cc9c7576fad21fa4400c2cd",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-04/Native.f3d"
+    },
+    {
+      "id": "depth-holdout-05",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            72.35626039836296,
+            72.35625432553402,
+            49.13365261507859
+          ],
+          [
+            -2.842170943040401e-14,
+            -1.0666474872523401e-09,
+            -1.4210854715202004e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -2.842170943040401e-14,
+          -1.0666474872523401e-09,
+          -1.4210854715202004e-14
+        ],
+        "expected_central": [
+          [
+            72.35625888015846,
+            72.35625888015846,
+            49.13365565149502
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "e411dd935b5012380a338a05f2c07b509f0bbed368d5ffc39b04415f5c210dc8",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-05/Native.f3d"
+    },
+    {
+      "id": "depth-holdout-06",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            212.13487337966916,
+            212.13485509914705,
+            151.52421147446006
+          ],
+          [
+            -1.7053025657076264e-13,
+            -4.826522169849304e-09,
+            -6.949487035417326e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -1.7053025657076264e-13,
+          -4.826522169849304e-09,
+          -6.949487035417326e-14
+        ],
+        "expected_central": [
+          [
+            212.13486880954645,
+            212.13486880954645,
+            151.52422061472697
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "2ac34319d4d8d58b66daf75ffb3b8be9285228fce485f491d8d2f7c8bd68b4b0",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-06/Native.f3d"
+    },
+    {
+      "id": "fresh-01",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            10.265808259982911,
+            10.265807332429919,
+            7.671403635339534
+          ],
+          [
+            1.7763568394002505e-15,
+            -2.2799953619647388e-10,
+            -3.552713678800501e-15
+          ]
+        ],
+        "central_cross_errors": [
+          1.7763568394002505e-15,
+          -2.2799953619647388e-10,
+          -3.552713678800501e-15
+        ],
+        "expected_central": [
+          [
+            10.265808028095062,
+            10.265808028095062,
+            7.671404099116342
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "e76d95e1f7893ee07061bc41a9c261aab8c6d29942add8fd19a3a95f27e51a96",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-01/Native.f3d"
+    },
+    {
+      "id": "fresh-02",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            64.33752036573954,
+            64.33752432503586,
+            57.97320536536219
+          ],
+          [
+            2.842170943040401e-14,
+            -3.371519767793764e-11,
+            -1.4210854715202004e-14
+          ]
+        ],
+        "central_cross_errors": [
+          2.842170943040401e-14,
+          -3.371519767793764e-11,
+          -1.4210854715202004e-14
+        ],
+        "expected_central": [
+          [
+            64.3375233352101,
+            64.3375233352101,
+            57.97320734500907
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "aeab2b02af0746b595fb22877dc555120584752e262f8c9cb291e6cba4e6b41b",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-02/Native.f3d"
+    },
+    {
+      "id": "fresh-03",
+      "original_all_fields_passed": false,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            233.66571336612833,
+            233.66569099129686,
+            184.5935551124557
+          ],
+          [
+            5.684341886080802e-14,
+            -5.041373093107518e-09,
+            0.0
+          ]
+        ],
+        "central_cross_errors": [
+          5.684341886080802e-14,
+          -5.041373093107518e-09,
+          0.0
+        ],
+        "expected_central": [
+          [
+            233.66570777242896,
+            233.66570777242896,
+            184.59356629987892
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "c1d83697087f94c914e56996e728a1c50cba217a1f82c191b2edd968962943ec",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-03/Native.f3d"
+    },
+    {
+      "id": "fresh-04",
+      "original_all_fields_passed": true,
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            11.70420821902228,
+            11.704207306111545,
+            7.371245361115037
+          ],
+          [
+            -3.552713679202282e-15,
+            -1.6203956742235377e-10,
+            2.561381909289445e-15
+          ]
+        ],
+        "central_cross_errors": [
+          -3.552713679202282e-15,
+          -1.6203956742235377e-10,
+          2.561381909289445e-15
+        ],
+        "expected_central": [
+          [
+            11.704207990795048,
+            11.704207990795048,
+            7.371245817570701
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "608c77123d4a5d70d170c43318b97e56eee27ea1f1ea5277e62207fd82844af3",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-04/Native.f3d"
+    }
+  ],
+  "rule_freeze_sha256": "3bd0efc489fb2d9e6bd7dc2af34403ac200be868808de111c5b1e248da78d906",
+  "script_sha256": "4d0c9c006e745f71aca9e3659f7a1cab36ae6e22432c353e0721825741ac2ece",
+  "summary": {
+    "max_central_cross_error": 5.041373093107518e-09,
+    "original_mass_refusals": 11,
+    "passed": 22,
+    "sources": 22
+  }
+}

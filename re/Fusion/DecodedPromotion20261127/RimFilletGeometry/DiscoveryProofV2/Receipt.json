@@ -1,0 +1,197 @@
+{
+  "base_revision": "6087ed24cb75ad8fb10626b556192c0351d989d7",
+  "mode": "discovery",
+  "models": false,
+  "native_calls": 0,
+  "rows": [
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations"
+      ],
+      "dimensions_cm": [
+        1.1300000000000001,
+        2.37,
+        0.06999999999999999
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 44, in <module>\n    archive=ZipFile(BytesIO(raw));snap=ReadGeometry(archive.read(model.Snapshots[0].Name));roles=ReadSnapRoles(snap);solid=next(i for i,role in roles if role=='solid')\n                                                    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1690, in read\n    with self.open(name, \"r\", pwd) as fp:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1727, in open\n    zinfo = self.getinfo(name)\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1655, in getinfo\n    raise KeyError(\n        'There is no item named %r in the archive' % name)\nKeyError: \"There is no item named 'Breps.BlobParts/BREP.e801e190-88e9-4eae-acd4-4b9dc204b255.smb' in the archive\"\n",
+      "id": "source-discovery-01",
+      "passed": false,
+      "sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-01/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations"
+      ],
+      "dimensions_cm": [
+        1.1300000000000001,
+        2.37,
+        0.11000000000000001
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 44, in <module>\n    archive=ZipFile(BytesIO(raw));snap=ReadGeometry(archive.read(model.Snapshots[0].Name));roles=ReadSnapRoles(snap);solid=next(i for i,role in roles if role=='solid')\n                                                    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1690, in read\n    with self.open(name, \"r\", pwd) as fp:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1727, in open\n    zinfo = self.getinfo(name)\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1655, in getinfo\n    raise KeyError(\n        'There is no item named %r in the archive' % name)\nKeyError: \"There is no item named 'Breps.BlobParts/BREP.b816cd4d-5d69-4fc3-a25c-0f0e41d9683a.smb' in the archive\"\n",
+      "id": "source-discovery-02",
+      "passed": false,
+      "sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-02/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations"
+      ],
+      "dimensions_cm": [
+        1.1300000000000001,
+        2.37,
+        0.17
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 44, in <module>\n    archive=ZipFile(BytesIO(raw));snap=ReadGeometry(archive.read(model.Snapshots[0].Name));roles=ReadSnapRoles(snap);solid=next(i for i,role in roles if role=='solid')\n                                                    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1690, in read\n    with self.open(name, \"r\", pwd) as fp:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1727, in open\n    zinfo = self.getinfo(name)\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1655, in getinfo\n    raise KeyError(\n        'There is no item named %r in the archive' % name)\nKeyError: \"There is no item named 'Breps.BlobParts/BREP.b7198bbe-135d-4ae2-bbf4-e14c32292da9.smb' in the archive\"\n",
+      "id": "source-discovery-03",
+      "passed": false,
+      "sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-03/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations"
+      ],
+      "dimensions_cm": [
+        1.31,
+        2.37,
+        0.11000000000000001
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 44, in <module>\n    archive=ZipFile(BytesIO(raw));snap=ReadGeometry(archive.read(model.Snapshots[0].Name));roles=ReadSnapRoles(snap);solid=next(i for i,role in roles if role=='solid')\n                                                    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1690, in read\n    with self.open(name, \"r\", pwd) as fp:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1727, in open\n    zinfo = self.getinfo(name)\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1655, in getinfo\n    raise KeyError(\n        'There is no item named %r in the archive' % name)\nKeyError: \"There is no item named 'Breps.BlobParts/BREP.c520c097-f34f-4d26-bba4-64aeaa6ef6a7.smb' in the archive\"\n",
+      "id": "source-discovery-04",
+      "passed": false,
+      "sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-04/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations"
+      ],
+      "dimensions_cm": [
+        1.1300000000000001,
+        2.93,
+        0.11000000000000001
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 44, in <module>\n    archive=ZipFile(BytesIO(raw));snap=ReadGeometry(archive.read(model.Snapshots[0].Name));roles=ReadSnapRoles(snap);solid=next(i for i,role in roles if role=='solid')\n                                                    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1690, in read\n    with self.open(name, \"r\", pwd) as fp:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1727, in open\n    zinfo = self.getinfo(name)\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1655, in getinfo\n    raise KeyError(\n        'There is no item named %r in the archive' % name)\nKeyError: \"There is no item named 'Breps.BlobParts/BREP.878fc290-32fa-4a5f-a5ff-b8fe23145758.smb' in the archive\"\n",
+      "id": "source-discovery-05",
+      "passed": false,
+      "sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-05/Native.f3d"
+    },
+    {
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations"
+      ],
+      "dimensions_cm": [
+        1.7899999999999998,
+        3.17,
+        0.22999999999999998
+      ],
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py\", line 44, in <module>\n    archive=ZipFile(BytesIO(raw));snap=ReadGeometry(archive.read(model.Snapshots[0].Name));roles=ReadSnapRoles(snap);solid=next(i for i,role in roles if role=='solid')\n                                                    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1690, in read\n    with self.open(name, \"r\", pwd) as fp:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1727, in open\n    zinfo = self.getinfo(name)\n  File \"<home>/.local/share/uv/python/cpython-3.14.6-macos-aarch64-none/lib/python3.14/zipfile/__init__.py\", line 1655, in getinfo\n    raise KeyError(\n        'There is no item named %r in the archive' % name)\nKeyError: \"There is no item named 'Breps.BlobParts/BREP.72f29f5a-5f8e-4599-b7bb-c6e36305e9d0.smb' in the archive\"\n",
+      "id": "source-discovery-06",
+      "passed": false,
+      "sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-06/Native.f3d"
+    }
+  ],
+  "rules_sha256": "f4a0e6e61fb69e850ee8d79e97f0e9c33fb9e1ee8e7f6a7db37fe263170fac8c",
+  "scripts": {
+    "InspectDiscovery.py": "67d78f21c8f76227feba6e3265d27fa80f54a48a2d6b8c54b675ff371d498f86",
+    "ProveRim.py": "d6ff531276775756be929caf8c1a5b026f9319294b911aafb726b29baefea271",
+    "RimAttributes.py": "4175c6cf0dab4cf531c42874349abe0320a64880bd6d05183ae2e423346f0155",
+    "RimMath.py": "ade32ebd4e4b290bbcf0ccba0876f82fb1091c08097f3148337aa0fc1107fe06",
+    "RimSource.py": "055d395d895f57d4947739e8b51bc73155427744afed47d563ad16a7a608c39e",
+    "RimState.py": "00bc473c415ee494dfe998b506ad2dc55bc1bbb333d2292fb8fa2e5310c4aafb"
+  },
+  "summary": {
+    "checks": 18,
+    "failed": 6,
+    "files": 6,
+    "passed": 0
+  }
+}

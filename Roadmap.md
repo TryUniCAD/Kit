@@ -40,6 +40,7 @@ Fusion independent-side geometry comparisons remain separate from complete stric
 The subsequent independent draft reader adds bounded strict SDK/CLI inspection after full live/snapshot and parameter validation.
 Its source-qualified principal XZ extension preserves measured world placement and the separate local sketch sheet.
 Its read-only output remains outside native writer and cross-format acceptance.
+The circular top-rim fillet extension adds strict SDK/CLI source inspection, explicit radius/weight/edge bindings and exact analytic geometry; native fillet output and target acceptance remain unqualified.
 These pending changes do not close M2 or establish full decoded-feature conversion support.
 
 ## Destination

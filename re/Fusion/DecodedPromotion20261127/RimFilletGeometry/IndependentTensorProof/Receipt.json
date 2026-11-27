@@ -1,0 +1,429 @@
+{
+  "models": false,
+  "native_calls": 0,
+  "negatives": [
+    {
+      "axis": "",
+      "candidate": "volume_.f3d",
+      "emitted": true,
+      "field": "volume",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "bd8d7794cc3cb6bda818a038098e404c60b2e7d7f11b5bfe09403e89d8e61512",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "",
+      "candidate": "area_.f3d",
+      "emitted": true,
+      "field": "area",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "ff8b45bdcce75724258c36373871d274fb878d226cbdbfca2eb7cb9d98bf4649",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "x",
+      "candidate": "cog_x.f3d",
+      "emitted": true,
+      "field": "cog",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "d3280b3adcd1a00d670af0d455cc96b9df16fed193eae18c3a11d8b25b0be5ed",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "y",
+      "candidate": "cog_y.f3d",
+      "emitted": true,
+      "field": "cog",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "d2c6f61ce410df491b51f131457ccc2b35f16fad8cfcd5f831b15eb75b1347a7",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "z",
+      "candidate": "cog_z.f3d",
+      "emitted": true,
+      "field": "cog",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "75f499688bf2e014cd82eddd48e4b9e33fde3d0455c289b40c8bdf6ff1f7a4f0",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "x",
+      "candidate": "moi_x.f3d",
+      "emitted": true,
+      "field": "moi",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "8e79be5ac941ca7fa78282868470dd3b0f33445059fd708eb531ce7febd6d3d1",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "y",
+      "candidate": "moi_y.f3d",
+      "emitted": true,
+      "field": "moi",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "67f8711b2148a3426a8bae9bb53ada5277d723946a45ea7252a45fca6fe0f634",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "z",
+      "candidate": "moi_z.f3d",
+      "emitted": true,
+      "field": "moi",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "6e55500865652567c46552293c2dd7bcd9f09d407edc55ef98532f7a6b1114b1",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "x",
+      "candidate": "moiOffDiag_x.f3d",
+      "emitted": true,
+      "field": "moiOffDiag",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "9612ddcd65938c95bed07d660d29f69017c405843f552e28aaecd290c83f382c",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "y",
+      "candidate": "moiOffDiag_y.f3d",
+      "emitted": true,
+      "field": "moiOffDiag",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "2e2b1cdab10911b5224a86459df951f5450258e99bf1b6a8af4fa48e862cbec3",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "z",
+      "candidate": "moiOffDiag_z.f3d",
+      "emitted": true,
+      "field": "moiOffDiag",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "498abe13eeefa4318e993cb81ce56481b00a441f332947f411b8077390201ebe",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "",
+      "candidate": "wrong_sign_.f3d",
+      "emitted": true,
+      "field": "wrong_sign",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "3b9a4cf6cca57343e3deecf551dd51f6b3f47bc74896f6a919c1f87280990d57",
+      "typed_reparsed": true
+    },
+    {
+      "axis": "",
+      "candidate": "missing_translation_.f3d",
+      "emitted": true,
+      "field": "missing_translation",
+      "passed": true,
+      "refusal": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "83945167440789d4ffcbac0fc7f74da5a11413d8a9ec282364fc685cccbf896f",
+      "typed_reparsed": true
+    }
+  ],
+  "rows": [
+    {
+      "actual_origin_cross": [
+        18.227928122213967,
+        5.978339597012322,
+        -9.394533654881627
+      ],
+      "expected_origin_cross": [
+        18.22792812927148,
+        5.978339598561303,
+        -9.394533654882048
+      ],
+      "id": "baseline",
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            51.55502206713038,
+            51.55501947920355,
+            20.03855436398053
+          ],
+          [
+            -3.552713678800501e-15,
+            7.657199319055508e-10,
+            1.4210854715202004e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -3.552713678800501e-15,
+          7.657208200839705e-10,
+          1.4210854715202004e-14
+        ],
+        "expected_central": [
+          [
+            51.555021420150936,
+            51.55502142015094,
+            20.038555657944833
+          ],
+          [
+            0.0,
+            -8.881784197001252e-16,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "266af08c723ec7dbc67e97c3cddae7fff701c9342faf73da12edacce85ef89ea",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline.f3d"
+    },
+    {
+      "actual_origin_cross": [
+        19.920499990162767,
+        3.1298858472194695,
+        -4.918392046021154
+      ],
+      "expected_origin_cross": [
+        19.920499997992653,
+        3.1298858474681284,
+        -4.918392046021344
+      ],
+      "id": "baseline_edit_first",
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            62.69482204013733,
+            62.69481912109349,
+            22.602423430396875
+          ],
+          [
+            3.197442310920451e-14,
+            9.815632751042358e-10,
+            -1.5987211554602254e-14
+          ]
+        ],
+        "central_cross_errors": [
+          2.842170943040401e-14,
+          9.815646073718653e-10,
+          -1.9539925233402755e-14
+        ],
+        "expected_central": [
+          [
+            62.69482131037901,
+            62.69482131037903,
+            22.60242488991974
+          ],
+          [
+            3.552713678800501e-15,
+            -1.3322676295501878e-15,
+            3.552713678800501e-15
+          ]
+        ]
+      },
+      "sha256": "7f1aebc85754f9cfcc20e887d2fcd9f381019af0c529935bbdbf183be639592c",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_first.f3d"
+    },
+    {
+      "actual_origin_cross": [
+        5.978339599335925,
+        -18.22792813280062,
+        9.394533654882466
+      ],
+      "expected_origin_cross": [
+        5.978339598561303,
+        -18.22792812927148,
+        9.394533654882048
+      ],
+      "id": "frame",
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            51.55501946952829,
+            20.038554354302853,
+            51.55502206713515
+          ],
+          [
+            -3.828573014175163e-10,
+            0.0,
+            8.881784197001252e-15
+          ]
+        ],
+        "central_cross_errors": [
+          -3.828564132390966e-10,
+          0.0,
+          8.881784197001252e-15
+        ],
+        "expected_central": [
+          [
+            51.555021420150936,
+            20.038555657944833,
+            51.55502142015094
+          ],
+          [
+            -8.881784197001252e-16,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d"
+    },
+    {
+      "actual_origin_cross": [
+        8.35399221727016,
+        -19.084992096653636,
+        13.12770205388739
+      ],
+      "expected_origin_cross": [
+        8.353992216109793,
+        -19.084992092985313,
+        13.127702053886818
+      ],
+      "id": "frame_edit_second",
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            59.57468184526104,
+            20.695906080175504,
+            59.57468452814487
+          ],
+          [
+            -4.45346870492358e-10,
+            3.552713678800501e-15,
+            1.4210854715202004e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -4.45346870492358e-10,
+          3.552713678800501e-15,
+          1.5987211554602254e-14
+        ],
+        "expected_central": [
+          [
+            59.57468385993649,
+            20.695907426646805,
+            59.5746838599365
+          ],
+          [
+            0.0,
+            0.0,
+            -1.7763568394002505e-15
+          ]
+        ]
+      },
+      "sha256": "0dca70e11c2e4d4db2965991818866b591312076f7b807ff0d7210ae9025d3bb",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d"
+    },
+    {
+      "actual_origin_cross": [
+        -35.22155908830982,
+        29.327699778077587,
+        9.268831339028864
+      ],
+      "expected_origin_cross": [
+        -35.22155908830978,
+        29.327699778077616,
+        9.26883133902889
+      ],
+      "id": "holdout_a",
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            52.34127572829017,
+            46.49618947370159,
+            52.341275728290825
+          ],
+          [
+            -2.842170943040401e-14,
+            -6.394884621840902e-14,
+            -4.085620730620576e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -2.1316282072803006e-14,
+          -6.039613253960852e-14,
+          -4.263256414560601e-14
+        ],
+        "expected_central": [
+          [
+            52.341275728291116,
+            46.49618947370277,
+            52.34127572829114
+          ],
+          [
+            -7.105427357601002e-15,
+            -3.552713678800501e-15,
+            1.7763568394002505e-15
+          ]
+        ]
+      },
+      "sha256": "5523335a3ac6e3a04758251c00bc053be8979cdc3548737b24b60e6bb8dc87ca",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a.f3d"
+    },
+    {
+      "actual_origin_cross": [
+        -61.158202060191286,
+        27.18350125708787,
+        51.346613467725064
+      ],
+      "expected_origin_cross": [
+        -61.158202035077515,
+        27.183501247620313,
+        51.34661346772726
+      ],
+      "id": "holdout_b",
+      "passed": true,
+      "result": {
+        "actual_central": [
+          [
+            87.58622338240642,
+            87.58621524406134,
+            63.015950297830926
+          ],
+          [
+            -1.1368683772161603e-13,
+            -1.6949321945958218e-09,
+            -2.1316282072803006e-14
+          ]
+        ],
+        "central_cross_errors": [
+          -1.2079226507921703e-13,
+          -1.6949215364547854e-09,
+          7.105427357601002e-15
+        ],
+        "expected_central": [
+          [
+            87.586221347824,
+            87.58622134782398,
+            63.01595436700629
+          ],
+          [
+            7.105427357601002e-15,
+            -1.0658141036401503e-14,
+            -2.842170943040401e-14
+          ]
+        ]
+      },
+      "sha256": "1e54a7442f938c2ec4cd05cc5d9d77899b74e638369bf2a23d9ef8b681747ae0",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b.f3d"
+    }
+  ],
+  "rule_freeze_sha256": "3bd0efc489fb2d9e6bd7dc2af34403ac200be868808de111c5b1e248da78d906",
+  "script_sha256": "3a719ff8cb0b236ed7d9e08650375d7f04799657f116bf32fafab3cbbcbb60a4",
+  "summary": {
+    "independent_native_sources": 6,
+    "max_central_cross_error": 1.6949215364547854e-09,
+    "negatives_refused": 13,
+    "passed": 6,
+    "serialized_negatives": 13
+  }
+}

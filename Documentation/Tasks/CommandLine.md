@@ -134,6 +134,7 @@ Run `kit convert --help` for the complete option list.
 Supply a real source named `part.SLDPRT` before these examples.
 The neutral view works with registered readers and emits a development report.
 Its `document` field contains the SDK document JSON.
+The [bounded circular rim-fillet reader](../Changes/Fusion/Readers/FusionCircularRimReader.md) exposes the same strict source inspection through SDK and ordinary CLI, retaining read-only conversion refusal.
 The report records `kind: "kit.decode"`, `layer`, and the explicit `partial` selection.
 It is not an interchange document accepted by `kit convert`.
 

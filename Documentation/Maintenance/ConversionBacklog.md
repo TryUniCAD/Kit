@@ -778,5 +778,5 @@ The Fusion independent-side geometry child remains separate from complete strict
 Its subsequent reader child adds strict read-only source projection through the SDK and CLI after complete live and saved-state checks.
 The principal XZ extension reads all 68 committed draft sources through pinned SDK/CLI `6087ed24c`, with qualification gaps retained.
 The measured cold-part CLI parity child reaches the existing SDK writer contract without changing its complete regenerated-document comparison or exact native receipt gate.
-The decided rim-fillet reader child investigates complete selection/history semantics from the existing measured corpus; no fillet source projection is claimed yet.
+The rim-fillet reader child adds bounded strict SDK/CLI projection of all 22 measured circular sources, with selected rim, parameter/mode bindings and full prior/current/snapshot validation. Its source output remains read-only; current production/native acceptance and full decoded-feature writing remain unfinished.
 Full decoded-feature writing remains active implementation work, with native acceptance unavailable while the API is down.

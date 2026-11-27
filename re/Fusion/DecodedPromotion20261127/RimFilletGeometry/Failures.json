@@ -1,0 +1,40 @@
+[
+  {
+    "attempt": "InspectDiscoveryV1",
+    "failure": "DocumentSnap has Snapshot, not Model; first discovery parse completed but export failed before output; reserved native bytes unopened"
+  },
+  {
+    "attempt": "InspectDiscoveryV2",
+    "failure": "Extrusion start before solid creation has empty/non-solid state; geometry snapshot checker rejects it; retaining state refusal instead of treating as solid"
+  },
+  {
+    "attempt": "DiscoveryProofV1",
+    "reason": "Geometry validator applied final top ellipse winding to prior cylinder whose top ellipse has +Z normal; corrected independently observed prior topology. No reserved native bytes opened.",
+    "result": "0/6 pass after source ownership checks"
+  },
+  {
+    "attempt": "DiscoveryProofV2",
+    "reason": "DocumentSnap.Name is asset-relative, while outer ZIP member has FusionAssetName[Active] prefix; resolve exact unique suffix rather than omit native snapshot.",
+    "result": "6/6 source binding, geometry and attribution pass; snapshot lookup preparation failed"
+  },
+  {
+    "attempt": "FrozenHoldoutFinal",
+    "reason": "Full geometry and ownership passed; generic GeometryState lacks optimized TagSet field; raw snapshot rule preserved. Later corrected representation exposed11total old mass refusers. Original receipts retained.",
+    "result": "1/16 full passes,12 convenience snapshot representation errors and3 first exposed mass cross refusals"
+  },
+  {
+    "attempt": "InitialProductionSteering",
+    "reason": "Two four-letter local names and six punctuation-bearing rationale comments; renamed locals and removed punctuation. No geometry guard changed.",
+    "result": "10 violations"
+  },
+  {
+    "attempt": "FinalStaticV1",
+    "reason": "Recipe payload narrowing was lost after reassignment; explicitly narrowed the actual EdgeRecipe before mutation. Runtime assertions unchanged.",
+    "result": "4 mypy union errors in one test mutation helper"
+  },
+  {
+    "attempt": "CounterexamplePartner",
+    "reason": "Invalid partner incidence is rejected by the existing complete history guard; retained as an earlier-boundary refusal and covered by archive integration.",
+    "result": "existing archive encoder refused before emission"
+  }
+]

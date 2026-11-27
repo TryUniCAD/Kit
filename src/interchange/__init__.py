@@ -97,6 +97,7 @@ from interchange.Enums.EnumGeometry import ConstraintKind, GeometryKind
 from interchange.Enums.EnumUnits import UnitSystem
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.Features.FeatureAngleRev import AngularRevolve
+from interchange.Features.Fillets.RadiusFillet import RadiusFillet
 from interchange.Features.FeatureBody import DesignBody
 from interchange.Features.FeatureContract import FeatureDef
 from interchange.Features.FeatureBoundPlane import BoundConstructionPlane
@@ -470,6 +471,7 @@ BindTypeGlobals(
 
 RegisterTypes(
     AngularRevolve,
+    RadiusFillet,
     BoundConstructionPlane,
     BoundScale,
     DistanceExtrude,

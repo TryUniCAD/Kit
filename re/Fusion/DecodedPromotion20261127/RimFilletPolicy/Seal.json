@@ -1,0 +1,14 @@
+{
+  "scope": "offline rim fillet graph and role policy",
+  "native_calls": 0,
+  "models": false,
+  "manifest_sha256": "45755451b0da86a5fa38b2fa98ed84ec530e4516597a589e500e74f3561ba374",
+  "production_receipt_sha256": "a4a221408280529168cadcf4c6f8ec1ecfe02f8be0ed7f9e50d9bc659c2f7779",
+  "positive_sources": 22,
+  "actual_parameter_comparisons": 94,
+  "encoded_refusals": 17,
+  "integration_cases": 39,
+  "integration_seconds": 4.1,
+  "static_files": 28,
+  "publication_binding": "parent must bind source hashes to publication commit"
+}

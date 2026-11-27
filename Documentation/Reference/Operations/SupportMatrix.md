@@ -75,6 +75,7 @@ adds read-only XY two-sided source inspection with separate taper controls and c
 The [qualified XZ extension](../../Changes/Fusion/Readers/FusionDraftFrameReader.md)
 adds source-owned principal XZ placement, preserving the world solid and separate local sketch sheet.
 Its SDK and CLI write paths remain refused; native conversion acceptance is not added.
+The [constant top-rim fillet reader](../../Changes/Fusion/Readers/FusionCircularRimReader.md) adds read-only inspection of the measured three-feature circular family, with explicit selected-edge and bound radius/weight roles. It validates the predecessor snapshot and complete final analytic solid; native output remains unqualified.
 Both bounded contracts include neutral JSON transport of admitted state.
 This does not qualify arbitrary JSON-to-native graphs or complete native-to-neutral semantics.
 A **U** cell does not assert every input fails or that no writer exists.

@@ -1,0 +1,360 @@
+{
+  "base_revision": "f34820a9d87ac34ca01bd2c5f59cbf6af37f93df",
+  "files": {
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/.gitignore": {
+      "bytes": 18,
+      "sha256": "40936d89551bf769e29a5a7ca1c4f69462d4229d555578243189b6138d70f743"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Bindings.json": {
+      "bytes": 11911,
+      "sha256": "64f9679807614c9868ff6ea9fb0ba59746ba585dce3abb5be5cbe5c6dff1f4c1"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/CheckBindings.py": {
+      "bytes": 2500,
+      "sha256": "2ecf2716a65c4304e09a44476b53ceeba31ba69b33c2f6c8a7b27c317f274ed7"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Counterexamples.py": {
+      "bytes": 7148,
+      "sha256": "12287121a736b2db49d85f16981741a6ddaded87d54642e15dd33094e3caafac"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Counterexamples/Receipt.json": {
+      "bytes": 7168,
+      "sha256": "75f006f54b4b9dacf5346c4c047c99642431f22c865b586cb3802c5b3d826c06"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/CoupledFreeze.json": {
+      "bytes": 275,
+      "sha256": "3bd0efc489fb2d9e6bd7dc2af34403ac200be868808de111c5b1e248da78d906"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/CoupledRimReplay.json": {
+      "bytes": 21401,
+      "sha256": "f0d004f6187855d20469c7a9758dadf5e39a433434e512aa638aa9e0af09f5b7"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/CoupledTensor.py": {
+      "bytes": 1058,
+      "sha256": "48b9b037d7a6ea38f064041e273f326fc95591d80bb22691e0630e935bc0174f"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/CoupledTensorRule.md": {
+      "bytes": 3110,
+      "sha256": "9f820350628ddb4ad51791b7d43f98afb87fa7366b7690580727a593a0d67884"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Discovery/Receipt.json": {
+      "bytes": 4010,
+      "sha256": "4c3060df6ff9c1553c0b47c0cebcbdcb6866d37031a0151daf69d9693c14bbd7"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/DiscoveryFinal/Receipt.json": {
+      "bytes": 18473,
+      "sha256": "141df3478d9851c832dda5f6dcb0e7ddd371b157e1825fbe1f76d2ef4f0510c4"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/DiscoveryProofV1/Receipt.json": {
+      "bytes": 7304,
+      "sha256": "4bb74edb3a04dc778e8d99c6ee2e6f26da84d29f7a9eb6f0a4cb7dc0ee9f470b"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/DiscoveryProofV2/Receipt.json": {
+      "bytes": 12459,
+      "sha256": "ce3cab820ac069f14768d7efc0de6668f49687acd59cb16882b1e8c48c04a9b4"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/DiscoveryProofV3/Receipt.json": {
+      "bytes": 18473,
+      "sha256": "44412db48a302e33b7be2945957f4e3ca92768bef21c8a2901882e14efd70b0e"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/DocumentArchive.json": {
+      "bytes": 46155,
+      "sha256": "001d07111f9038d43a10512da8400570a0487a6022387c338dab93005ece54ad"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Documents.tar.gz": {
+      "bytes": 5195359,
+      "sha256": "a5ce0fe7600829a71099607cea106dc0bbfb2266789c3b70bafde7b8140ad9ff"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Failures.json": {
+      "bytes": 2226,
+      "sha256": "348eb95f3545daeea068f9830ddfc2759a03eb018df29923e7ca4b15e1c4537d"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/InspectV1.py": {
+      "bytes": 2178,
+      "sha256": "ea320a8bbfc9fe61a477eb0937d8ff3cfc45202a1c4f827b647cbb4146ada7d8"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/InspectV2.py": {
+      "bytes": 2180,
+      "sha256": "07b39e52c97d672efbdc872cab9e6526a0667ad8390dc192ca3f436e26421dff"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/ProveRimFrozen.py": {
+      "bytes": 7624,
+      "sha256": "4ad63690eb6a29daa1ac886f5d3631ecee32ac52fcad80424b11aa87bc6b9ad2"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/ProveRimV2.py": {
+      "bytes": 7468,
+      "sha256": "d6ff531276775756be929caf8c1a5b026f9319294b911aafb726b29baefea271"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/ProveRimV3.py": {
+      "bytes": 7561,
+      "sha256": "1515d649ed60ecbf32fc9544f84ad6995e8221e6c3c6657950969ba358921364"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/RimAttributesV3.py": {
+      "bytes": 3657,
+      "sha256": "4175c6cf0dab4cf531c42874349abe0320a64880bd6d05183ae2e423346f0155"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/RimStateV1.py": {
+      "bytes": 8055,
+      "sha256": "35a95e48b21ce81dc44bf40285d601b6709a15b33e93c326d713cfef99d5d199"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HistoricalSources/RimStateV3.py": {
+      "bytes": 8059,
+      "sha256": "00bc473c415ee494dfe998b506ad2dc55bc1bbb333d2292fb8fa2e5310c4aafb"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/HoldoutFinal/Receipt.json": {
+      "bytes": 25883,
+      "sha256": "f254ef7b268c5b7adad02bbe04c839a017f85da4d54a41cf9f6299c3071e5c46"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/IndependentTensorProof/Receipt.json": {
+      "bytes": 11879,
+      "sha256": "61c12d9cb413f46ab9d534183144764f6ffc0ccdc43930220da0fb2b281ac1ae"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/InspectDiscovery.py": {
+      "bytes": 2276,
+      "sha256": "67d78f21c8f76227feba6e3265d27fa80f54a48a2d6b8c54b675ff371d498f86"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/MassRefusals.json": {
+      "bytes": 9116,
+      "sha256": "0dce53455db157ff4185c390170eb400c33493c8cca7c3dacd2a6aa5f582a85c"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/PackEvidence.py": {
+      "bytes": 1700,
+      "sha256": "2968a9b9c34ae1635307b694984518e329ed1901dcfced915d752578f017f14c"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProductionPlan.md": {
+      "bytes": 6107,
+      "sha256": "5b6fa8875838d9b6d3df5fc1737e8666078f346060b1f210706f141898a219c2"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProductionProof/Receipt.json": {
+      "bytes": 265573,
+      "sha256": "6d643803c81e92fb6eff2a277262cb76e1fbd1d53611f6e6fa09dcb9236f4fff"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveCoupled.py": {
+      "bytes": 4514,
+      "sha256": "3a719ff8cb0b236ed7d9e08650375d7f04799657f116bf32fafab3cbbcbb60a4"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ProveRim.py": {
+      "bytes": 8054,
+      "sha256": "9833db67a8671e1cdd0cdda46c5bd094bbde324f97a0f82ed0f4594319d6b473"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/README.md": {
+      "bytes": 7271,
+      "sha256": "757d73faa9536e01552fbba64b744f4dcdc1b2fbc78f1a5c2a30c2a7b0a3e6a2"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RecipeCounterexample.json": {
+      "bytes": 714,
+      "sha256": "99714988dbae6f9a1bf1a6a1d6bad96e31d83a8c2b0784834ba90e1465ae42d9"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RecipeCounterexample.py": {
+      "bytes": 2525,
+      "sha256": "b184a475ccb27b377e679a4e0b842dd1a103859bcb913a8f5833a59ca8aa387a"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ReplayRimTensor.py": {
+      "bytes": 1909,
+      "sha256": "4d0c9c006e745f71aca9e3659f7a1cab36ae6e22432c353e0721825741ac2ece"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RepresentationGap.md": {
+      "bytes": 1541,
+      "sha256": "47832449221a927face3e7c2c86c3421e190d28744f23590fd6f3df008f5522a"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/ReservedReplay/Receipt.json": {
+      "bytes": 67711,
+      "sha256": "8b8d2cee61f86bb6fc483effab05b1a25f55f9f05e31f073fa6b8d40f4a23339"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimAttributes.py": {
+      "bytes": 3740,
+      "sha256": "e1666ebd9770e1cb8847149de2f1055ad0920bbe514177441fe92e08020732fd"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimMath.py": {
+      "bytes": 673,
+      "sha256": "ade32ebd4e4b290bbcf0ccba0876f82fb1091c08097f3148337aa0fc1107fe06"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimRecipe.py": {
+      "bytes": 2168,
+      "sha256": "ca9248c34ac1de5591cf76f969d9d79d148589447ad2a04e3f38d583ed588a4d"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimSnapshot.py": {
+      "bytes": 1489,
+      "sha256": "4109c8dbc19afe07b3dda0fc4af2023eb3694d91d8198317dd74331027b96f79"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimSource.py": {
+      "bytes": 5716,
+      "sha256": "055d395d895f57d4947739e8b51bc73155427744afed47d563ad16a7a608c39e"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RimState.py": {
+      "bytes": 8787,
+      "sha256": "a3d544a312edc130b984caf3dde7883d760da086e5eddb5a77d203d36debab4d"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/RuleFreeze.json": {
+      "bytes": 790,
+      "sha256": "22e2ce6d45f35c279fec9d12a33712a49049380593a64b9f56d0dbafc700e607"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Rules.md": {
+      "bytes": 7955,
+      "sha256": "f4a0e6e61fb69e850ee8d79e97f0e9c33fb9e1ee8e7f6a7db37fe263170fac8c"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Sanitization.json": {
+      "bytes": 406,
+      "sha256": "fc421bb2962ccd83ccb41feacb74d0e96be0c0bca3c5b8c3d15dc622da0b1758"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/Verification.json": {
+      "bytes": 6447,
+      "sha256": "d23e5f296ba20ccd2dc5fed3e36581375ead44e562540fe4496f3ae8ba662590"
+    },
+    "re/Fusion/DecodedPromotion20261127/RimFilletGeometry/VerifyProduction.py": {
+      "bytes": 3655,
+      "sha256": "6888bc6bd224388629e1240bb4c6789ac3025090f6e33465c1dea1c51bfeee12"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CenterRimTensor.py": {
+      "bytes": 919,
+      "sha256": "fb8b90b72eae536b2993e4971849d10a72147af2055171effe5266784ee85673"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimAttrs.py": {
+      "bytes": 2028,
+      "sha256": "d8ac4525ec3e0011d244c1b8fb0c9e265908a733646ff1dcb3bf96fc2e1d422a"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimCone.py": {
+      "bytes": 1026,
+      "sha256": "ca02105af78dface16e98cf5b47a4c7d87ecffe6988802b1fd1984d8a69bc10a"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimCover.py": {
+      "bytes": 1673,
+      "sha256": "f3fd2cd2d2d1f278bb9b2dca3d96d633469691dd8c8f2c7ddfcb756b92ccb7f1"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimGeo.py": {
+      "bytes": 1638,
+      "sha256": "0fc2ae98ccefea0bf2a170d9dc412780fd76fe81aa6dcdb0f3f32aea06fcd3ed"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimLinks.py": {
+      "bytes": 1792,
+      "sha256": "e2c85e5481a87d2e6224a72c6fce2c3e1e8a1e925414f6c3076229bcfe79d785"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimLive.py": {
+      "bytes": 2786,
+      "sha256": "e7eb9d0859eb0abdf68138df2728a59a6671b2e39486498a89995a630a0df362"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimMass.py": {
+      "bytes": 1659,
+      "sha256": "8baea5d8fb83f5559e230e533ed7e43bf6823185f023a5eedaaaa83a3244182d"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimRecipe.py": {
+      "bytes": 2722,
+      "sha256": "d63bd9d4135634d953154ff4b9275ed90c449a37d2cdee050404d57826918ef9"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimSnaps.py": {
+      "bytes": 3476,
+      "sha256": "81b05a4d34ed6d3e08c30d5c3c3baa661f655f4ae6794a9d3a643e7dc6ad6782"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimTags.py": {
+      "bytes": 2211,
+      "sha256": "ad6041b798bf71a84b1c02d10f671ad77e2b98bb35b776c762c72118f1711e0d"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimTorus.py": {
+      "bytes": 861,
+      "sha256": "07de826398754e448595b8f7e2d44bff8810e0ccda2427408883cdd01ec19d55"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimTrack.py": {
+      "bytes": 2453,
+      "sha256": "61335b838e9f4b5fb56febeb7bbb94d49328cf5f0ff6a61a5c978095cecae383"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/CheckRimUse.py": {
+      "bytes": 1753,
+      "sha256": "5585a65f85890792eae754e8dc541d4afd439adb25795febfb57ccf0093299a6"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/FindRimOwner.py": {
+      "bytes": 966,
+      "sha256": "eadce37fcc2b1f37beaa46268be922215a5e4d4a9bda1e73e74f1704b6d49846"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimBaseTags.py": {
+      "bytes": 1712,
+      "sha256": "66afdd010e1e6b1fbb06a374b1dccbc16b9c79baf662c452b877c4157950c916"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimCarriers.py": {
+      "bytes": 1998,
+      "sha256": "4f20595d2aa0a05ee0771f4026e496452f71e224bb73800efed9ffa1923248b5"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimCircle.py": {
+      "bytes": 1236,
+      "sha256": "7bb9df06c6f92f5b245b59c6f6f8c6385ddba4daeba67c4dee1af0571e0e8894"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimEdges.py": {
+      "bytes": 2925,
+      "sha256": "2cc642b9fdfa9f66cb268184be5b090ec2ed752ba5d49b8b1956975330a53e55"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimFaces.py": {
+      "bytes": 3716,
+      "sha256": "6944e6e2df2fe37d47af35be9d4b3fefa218ad03d27966f1004d88f095d007cd"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimOps.py": {
+      "bytes": 1858,
+      "sha256": "d67ad9726de339ec6a85167e4cd13c34c6f445da02fa85182183ae6660ac9897"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimPlane.py": {
+      "bytes": 881,
+      "sha256": "d94b302c6e9d73e128971beac877512c2b92d690ff86bd85240d433099be749e"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimRecipe.py": {
+      "bytes": 674,
+      "sha256": "86e0c4e1e1c79652902f3104803443604f7bb4b13c4390353069660ca8e38e36"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimSnapshot.py": {
+      "bytes": 1017,
+      "sha256": "8c495355f2ea3f585a08965a64a32149757c9c3b16b830959674cbf450e7458e"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimStates.py": {
+      "bytes": 2203,
+      "sha256": "1cd6d35fab7c447180c058e5080c747c2e47e9e63bbfb85eada009b4d08fe1ed"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/ReadRimTag.py": {
+      "bytes": 818,
+      "sha256": "e77069decc1d152ebcc195fd2cfda2afd5e39eb7c092c63d994163c2873897ca"
+    },
+    "src/convert/adapters/Fusion/Native/Circular/RimFillet/RestoreRimTrack.py": {
+      "bytes": 1500,
+      "sha256": "67120b09d02fd794e8df9dfe877fde0453d16608be722cd8a6cda52a7766b4b1"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/ChangeRimAttr.py": {
+      "bytes": 1552,
+      "sha256": "3470dc0a561113977843564f7827c9453fd18512b870c0a84561c49d391984f4"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/ChangeRimModel.py": {
+      "bytes": 2923,
+      "sha256": "1323162f66f5bcac553e545096aa012e323bb4e671009a65f28e06d9141b84e7"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/ChangeRimNode.py": {
+      "bytes": 1829,
+      "sha256": "12ec19f7f9f8e3db7773ae8b5f28f3b59ff62370dbbcb26804ba11e3c2f8b6a5"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/ChangeRimRecipe.py": {
+      "bytes": 2376,
+      "sha256": "ac9258b6d4440e86973e1dfa2931f411223cfda53a77761054afecfc01b0003a"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/FindRimSlot.py": {
+      "bytes": 3226,
+      "sha256": "0a4f49305bc0aed2fb71f298f30a6eef0d6698d3e3ed4276dd7f7e08fa3489e1"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/RimGeometryBadTests.py": {
+      "bytes": 2079,
+      "sha256": "1d753b43e0ef79a5b4ecbcd521810765c6688761bf4a355ef7e5ab99b02a67c7"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/RimLiveTests.py": {
+      "bytes": 1989,
+      "sha256": "2aad045833cc346d84c5826d80e0b778ec05b7aae16c56d70c8fe1cc171770e3"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/RimMassBadTests.py": {
+      "bytes": 2491,
+      "sha256": "dc0a1e14a412255730c41e508e0ad3b9b4e02d6b9a752c472dd676dba6354db0"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/RimPartnerTests.py": {
+      "bytes": 890,
+      "sha256": "28a2196948cc5265e1bf603f0180fbcc89efc3711c46c219ac3f3047fcae7090"
+    },
+    "tests/Convert/Integration/Fusion/RimFillet/Geometry/RimTensorTests.py": {
+      "bytes": 2875,
+      "sha256": "05e1a27826b766814c1362f13ada0c7f4149dcdffc97d33c39435e12df66e930"
+    }
+  },
+  "models": false,
+  "native_calls": 0,
+  "scope": "bounded identity XY top circular constant radius fillet native reader components"
+}

@@ -1,0 +1,1487 @@
+{
+  "rule_seal_sha256": "95beaf3f7af24672d4bd20a22b8ca70838d3066e8ce80a573a1f77c38c634f59",
+  "native_calls": 0,
+  "models": false,
+  "typed_source_split_only": true,
+  "producer_sha256": "07e856b42e32d679121af8f65f06bec8cb37260cbae7602313305884d3dcb1b5",
+  "rows": [
+    {
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-01/Native.f3d",
+      "sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "case": "source-holdout-01",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 27.100000000000005,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "27.1 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 0.9000000000000001,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.9 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-02/Native.f3d",
+      "sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "case": "source-holdout-02",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 33.10000000000001,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "33.1 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 1.3,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1.3 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-03/Native.f3d",
+      "sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "case": "source-holdout-03",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 37.7,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "37.7 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 2.9,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "2.9 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-04/Native.f3d",
+      "sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "case": "source-holdout-04",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 41.3,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "41.3 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 3.1000000000000005,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "3.1 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-05/Native.f3d",
+      "sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "case": "source-holdout-05",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 35.9,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "35.9 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 1.9,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1.9 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-06/Native.f3d",
+      "sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "case": "source-holdout-06",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 43.7,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "43.7 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 3.7000000000000006,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "3.7 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-01/Native.f3d",
+      "sha256": "bad4d6c0ee8a14ab3cd5a34f6dc6bb47b1554d4402d7add6f37dea6871e01155",
+      "case": "depth-holdout-01",
+      "native_build": "2706.1.17",
+      "passed": false,
+      "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-02/Native.f3d",
+      "sha256": "2102ee4232041164554c0de440ae72763c285154f7951a788139345f9b284222",
+      "case": "depth-holdout-02",
+      "native_build": "2706.1.17",
+      "passed": false,
+      "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-03/Native.f3d",
+      "sha256": "c5f6958e0024001f2e0f8174e4137908011479cbf5b67f108214e6b1f416cb48",
+      "case": "depth-holdout-03",
+      "native_build": "2706.1.17",
+      "passed": false,
+      "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-04/Native.f3d",
+      "sha256": "50a8217a08b705f1d73d633345d41b01d45e2a3d1cc9c7576fad21fa4400c2cd",
+      "case": "depth-holdout-04",
+      "native_build": "2706.1.17",
+      "passed": false,
+      "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-05/Native.f3d",
+      "sha256": "e411dd935b5012380a338a05f2c07b509f0bbed368d5ffc39b04415f5c210dc8",
+      "case": "depth-holdout-05",
+      "native_build": "2706.1.17",
+      "passed": false,
+      "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-06/Native.f3d",
+      "sha256": "2ac34319d4d8d58b66daf75ffb3b8be9285228fce485f491d8d2f7c8bd68b4b0",
+      "case": "depth-holdout-06",
+      "native_build": "2706.1.17",
+      "passed": false,
+      "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-01/Native.f3d",
+      "sha256": "e76d95e1f7893ee07061bc41a9c261aab8c6d29942add8fd19a3a95f27e51a96",
+      "case": "fresh-01",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 26.300000000000004,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "26.3 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 1.9,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1.9 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-02/Native.f3d",
+      "sha256": "aeab2b02af0746b595fb22877dc555120584752e262f8c9cb291e6cba4e6b41b",
+      "case": "fresh-02",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 34.7,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "34.7 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 2.7,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "2.7 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-03/Native.f3d",
+      "sha256": "c1d83697087f94c914e56996e728a1c50cba217a1f82c191b2edd968962943ec",
+      "case": "fresh-03",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 47.9,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "47.9 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 3.3000000000000003,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "3.3 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    },
+    {
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-04/Native.f3d",
+      "sha256": "608c77123d4a5d70d170c43318b97e56eee27ea1f1ea5277e62207fd82844af3",
+      "case": "fresh-04",
+      "native_build": "2706.1.17",
+      "passed": true,
+      "result": {
+        "check_groups": 18,
+        "reference_occurrences": 859,
+        "semantic_nodes": 276,
+        "field_occurrences": 2307,
+        "selected_reference": "fusion:0:272",
+        "parameters": [
+          {
+            "id": "fusion:0:242",
+            "name": "d1",
+            "value": {
+              "value": 28.900000000000002,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "28.9 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "AlongDistance"
+            }
+          },
+          {
+            "id": "fusion:0:245",
+            "name": "d2",
+            "value": {
+              "value": 0.0,
+              "kind": "angle",
+              "unit": "rad"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "0.0 deg",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:234",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TaperAngle"
+            }
+          },
+          {
+            "id": "fusion:0:276",
+            "name": "d3",
+            "value": {
+              "value": 1,
+              "kind": "number",
+              "unit": ""
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "TangencyWeight"
+            }
+          },
+          {
+            "id": "fusion:0:279",
+            "name": "d4",
+            "value": {
+              "value": 1.3,
+              "kind": "length",
+              "unit": "mm"
+            },
+            "role": "driving",
+            "expression": {
+              "source": "1.3 mm",
+              "parameter_ids": [],
+              "language": "fusion"
+            },
+            "owner_id": "fusion:0:267",
+            "provenance": null,
+            "attributes": {
+              "comment": "",
+              "native_name": "Radius"
+            }
+          }
+        ],
+        "inherited_checks": {
+          "classes": {
+            "passed": true
+          },
+          "assembly": {
+            "passed": true
+          },
+          "containers": {
+            "passed": true
+          },
+          "placement": {
+            "passed": true
+          },
+          "sketch_feature": {
+            "passed": true
+          },
+          "extrude_feature": {
+            "passed": true
+          },
+          "rim_feature": {
+            "passed": true
+          },
+          "extrusion": {
+            "passed": true
+          },
+          "scope": {
+            "passed": true
+          },
+          "scene": {
+            "passed": true
+          },
+          "material": {
+            "passed": true
+          },
+          "circle": {
+            "passed": true
+          },
+          "region": {
+            "passed": false,
+            "error": "ValueError: Native Fusion ownership collection disagrees with its semantic graph"
+          }
+        }
+      },
+      "actual_api_parameter_comparisons": 4
+    }
+  ]
+}
