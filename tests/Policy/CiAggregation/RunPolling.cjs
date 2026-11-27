@@ -1,3 +1,4 @@
+const Crypto = require("node:crypto");
 const { Aggregate } = require("../../../.github/scripts/CiReports.cjs");
 const { BuildReports } = require("./ReportInputs.cjs");
 
@@ -47,6 +48,28 @@ const Github = {
   paginate: async (Method) =>
     Method === "listWorkflowRunsForRepo" ? Inputs.Runs : Inputs.Checks,
   request: async (Route, Request) => {
+    if (Route === "GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs") {
+      const Run = Inputs.Runs.find((Item) => Item.id === Request.run_id);
+      const Jobs = Inputs.Checks.filter(
+        (Check) => Check.check_suite?.id === Run.check_suite_id,
+      ).map(({ id, name, status, conclusion }) => ({
+        id,
+        name,
+        status,
+        conclusion,
+      }));
+      const Digest = Crypto.createHash("sha256")
+        .update(JSON.stringify(Jobs))
+        .digest("hex");
+      const Tag = `W/"${Digest}"`;
+      if (Request.headers["if-none-match"] === Tag)
+        throw Object.assign(new Error("Not Modified"), { status: 304 });
+      process.stdout.write(`jobs read ${Request.page}\n`);
+      return {
+        data: { total_count: Jobs.length, jobs: Jobs },
+        headers: { etag: Tag },
+      };
+    }
     if (Route !== "GET /repos/{owner}/{repo}/actions/runs")
       throw new Error(`Unexpected request ${Route}`);
     Gates += 1;
@@ -58,6 +81,11 @@ const Github = {
     if (Gates === 2) {
       if (Request.headers["if-none-match"] !== "W/1")
         throw new Error("Later polls must send the previous ETag");
+      if (CaseName === "job-failure")
+        Object.assign(
+          Inputs.Checks.find((Check) => Check.name === "Test suite / Shard (2)"),
+          { status: "completed", conclusion: "failure" },
+        );
       throw Object.assign(new Error("Not Modified"), { status: 304 });
     }
     if (Gates === 3 && CaseName === "ratelimit")

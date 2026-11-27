@@ -103,6 +103,9 @@ On merge groups, `Merge queue acceptance` requires every direct heavy job to
 succeed. `CI Agg` also requires the queue-only workflows and completed acceptance.
 Acceptance does not wait on the aggregate. Both contexts remain required by the
 live ruleset. The aggregate's 80-minute wait remains within its 90-minute limit.
+Between full reads, the queue aggregate also polls job results. A failed job fails
+`CI Agg` within one poll, even while other jobs in its workflow are still queued, so
+GitHub removes the failing entry. See [queue job failure detection](Documentation/Changes/Ci/Scheduling/QueueJobFailureDetection.md).
 
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary.

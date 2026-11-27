@@ -169,24 +169,68 @@ function RateLimitWait(ErrorInfo) {
   return 60000;
 }
 
-async function QueueRunsSettled(Github, Context, Workflows, Gate) {
-  let Response;
-  Gate.polls = (Gate.polls ?? 0) + 1;
+async function ConditionalRead(Github, Gate, Route, Parameters) {
+  Gate.cache ??= new Map();
+  const Key = `${Route}?${new URLSearchParams(Parameters)}`;
+  const Cached = Gate.cache.get(Key);
   try {
-    Response = await Github.request("GET /repos/{owner}/{repo}/actions/runs", {
-      ...Context.repo,
-      head_sha: Context.sha,
-      per_page: 100,
-      headers: Gate.etag ? { "if-none-match": Gate.etag } : {},
+    const Response = await Github.request(Route, {
+      ...Parameters,
+      headers: Cached?.etag ? { "if-none-match": Cached.etag } : {},
     });
+    Gate.charged = (Gate.charged ?? 0) + 1;
+    Gate.cache.set(Key, { etag: Response.headers?.etag, data: Response.data });
+    return { data: Response.data, changed: true };
   } catch (ErrorInfo) {
-    if (ErrorInfo.status === 304) return false;
+    if (ErrorInfo.status === 304 && Cached)
+      return { data: Cached.data, changed: false };
     throw ErrorInfo;
   }
-  Gate.charged = (Gate.charged ?? 0) + 1;
-  Gate.etag = Response.headers?.etag;
+}
+
+// Queued jobs can hold a run open past the queue timeout, so a failed job must trigger a full read before its run completes.
+async function NewJobFailure(Github, Context, Gate, Run) {
+  Gate.failedJobs ??= new Set();
+  let Found = false;
+  for (let Page = 1; ; Page += 1) {
+    const { data: Data } = await ConditionalRead(
+      Github,
+      Gate,
+      "GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs",
+      {
+        ...Context.repo,
+        run_id: Run.id,
+        filter: "latest",
+        per_page: 100,
+        page: Page,
+      },
+    );
+    const Jobs = Data.jobs ?? [];
+    for (const Job of Jobs) {
+      if (
+        Job.status !== "completed" ||
+        ["success", "skipped"].includes(Job.conclusion) ||
+        Gate.failedJobs.has(Job.id)
+      )
+        continue;
+      Gate.failedJobs.add(Job.id);
+      Found = true;
+    }
+    if (Jobs.length < 100 || Page * 100 >= (Data.total_count ?? 0))
+      return Found;
+  }
+}
+
+async function QueueRunsSettled(Github, Context, Workflows, Gate) {
+  Gate.polls = (Gate.polls ?? 0) + 1;
+  const { data: Data, changed: Changed } = await ConditionalRead(
+    Github,
+    Gate,
+    "GET /repos/{owner}/{repo}/actions/runs",
+    { ...Context.repo, head_sha: Context.sha, per_page: 100 },
+  );
   const Latest = new Map();
-  for (const Run of Response.data.workflow_runs) {
+  for (const Run of Data.workflow_runs) {
     const Workflow = Run.path?.split("@")[0];
     const Spec = Workflows.get(Workflow);
     if (
@@ -200,11 +244,22 @@ async function QueueRunsSettled(Github, Context, Workflows, Gate) {
       Latest.set(Workflow, Run);
   }
   const Runs = [...Latest.values()];
-  return (
-    Runs.some(
+  if (
+    Changed &&
+    (Runs.some(
       (Run) => Run.status === "completed" && Run.conclusion !== "success",
-    ) || Runs.every((Run) => Run.status === "completed")
-  );
+    ) ||
+      Runs.every((Run) => Run.status === "completed"))
+  )
+    return true;
+  let Failed = false;
+  for (const Run of Runs)
+    if (
+      Run.status !== "completed" &&
+      (await NewJobFailure(Github, Context, Gate, Run))
+    )
+      Failed = true;
+  return Failed;
 }
 
 async function QueueDelay(Github, Context, Core, Gate) {
