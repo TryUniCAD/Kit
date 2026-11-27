@@ -717,6 +717,14 @@ The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-c
 The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
 The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.
 
+## A08h-FusionTwoSidedDraft20261127 research evidence
+
+Codex owns independently drafted two-sided circular Fusion extrusion evidence on `feat/fusion-two-sided-draft-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusiontwosideddraft20261127) records dependencies, native-resource ownership and exit requirements.
+The [package](../../re/Fusion/TwoSidedDraft20261127/README.md) preserves native sources, signed parameter roles, strict refusals and separate fresh-process witnesses.
+Delivery: [PR #394](https://github.com/TryUniCAD/Kit/pull/394). B02–B05 and the supported production boundary remain unchanged.
+The existing child claim is retained while the Planning register remains a separate unmerged delivery.
+
 ## B01-SupportMatrix: consolidate existing support evidence
 
 Codex owns `feat/project-next-steps-20261127`, based on main `1619f00bf532caad262d1557bd69281179e5c497`.
