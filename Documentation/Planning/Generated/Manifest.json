@@ -1,0 +1,23 @@
+{
+  "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
+  "ObservedOn": "2026-11-27",
+  "SourceHashes": {
+    "Documentation/Planning/Links.json": "02cc4690b5858560ca39b4df062762e44a8152f40675ad471a4d4577788ddff8",
+    "Documentation/Planning/PullRequests.json": "eae943ecdd4eb7b5b0109707233b4094165de65cc59947f42fbd501c908c8344",
+    "Documentation/Maintenance/ConversionBacklog.md": "9a9335c8c16486d8235730f53efd611b8d212f345600e7e00b2e3939f2b29118",
+    "Documentation/Reference/Research/AutomationSteps.md": "5f61fe848f74c523e62bf9f80e2f770f5e4a836c496b0e74bced7d6f91a80bd1",
+    "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1",
+    "re/Fusion/PlannerCatalog/Data/Catalog.sqlite": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718",
+    "re/automation/Planning/Board/Board.jsx": "5a95d67e3e0462e5ecc40a04cbf8dec5d0af909fc96202366eced3cee9919847",
+    "re/automation/Planning/Board/Board.css": "81e859f378fdbee5708d986b0735d0ad9c983e1f652fdda79617007a47c0fc80",
+    "Documentation/Planning/BundleManifest.json": "a234df859798a7723b089c0271eb152c59652a28831e44542db4a85f9b29a091",
+    "re/automation/Planning/Board/package.json": "2092945748c03a30a1e0b2d82a3846a04a5090c83dacff8897d2499e9d9b4cb7",
+    "re/automation/Planning/Board/package-lock.json": "0bcdaebbd8c59f432c8d35c05f5aeeb1d4a866a48844ed0e824252bb26bb8e0a",
+    "Documentation/Planning/Generated/Board.js": "1b9414fddafc0cb01fb73187fd28661b3275a750f18d15062d882f8ea3840d5a",
+    "Documentation/Planning/Generated/Board.css": "79e12678d748beedee6849e05f5b5d0b45853e38689b529405c5c473ca46d82f"
+  },
+  "ParentTasks": 39,
+  "RegisterRows": 80,
+  "Scopes": 669,
+  "OpenPullRequests": 79
+}

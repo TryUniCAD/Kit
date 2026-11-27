@@ -1,0 +1,141 @@
+{
+  "SchemaVersion": 1,
+  "ObservedOn": "2026-11-27",
+  "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
+  "ScopeLinks": [],
+  "Schedules": [],
+  "ExtraTasks": [
+    {
+      "Id": "PlanningViews",
+      "Name": "Repository planning register and dependency Gantt",
+      "Status": "active",
+      "Owner": "Codex planning agent",
+      "Dependencies": [],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR"
+    },
+    {
+      "Id": "FusionRevolveContrast",
+      "Name": "Unequal two-sided construction-axis revolve contrasts",
+      "Status": "proposed",
+      "Owner": "Unassigned; prompt supplied for a separate agent",
+      "Dependencies": [],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Refresh ownership, reuse existing evidence, claim a bounded child in AutomationSteps, capture missing API contrasts and prove rules on independent holdouts"
+    },
+    {
+      "Id": "UiInspector",
+      "Name": "Local decoded-document and evidence inspector",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B01"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiConversion",
+      "Name": "Conversion setup and route eligibility interface",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B01", "B12"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiPreservation",
+      "Name": "Preservation differences and refusal explanation interface",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B12"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiResearch",
+      "Name": "Research queue and blocked-work interface",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["A03"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UxAccessibility",
+      "Name": "Keyboard navigation and accessible status reporting",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["UiInspector"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UxCli",
+      "Name": "CLI workflow and recovery improvements",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B10"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiPlanning",
+      "Name": "Planning board schedule editing and scope discovery",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": [],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    }
+  ],
+  "Dependencies": {
+    "B01": [],
+    "B02": [],
+    "B03": ["B02"],
+    "B04": ["B03"],
+    "B05": ["B02", "B03", "B04"],
+    "B06": ["B05"],
+    "B07": ["B06"],
+    "B08": [],
+    "B09": ["B01", "B05"],
+    "B10": [],
+    "B11": [],
+    "B12": ["B01"],
+    "B13": ["A07", "A08", "A14"],
+    "B14": ["B10", "B11", "B12"],
+    "A01": [],
+    "A02": ["A01"],
+    "A03": ["A01"],
+    "A04": ["A01"],
+    "A05": ["A01"],
+    "A06": ["A04", "A05"],
+    "A07": ["A03", "A06"],
+    "A08": [],
+    "A09": ["A07"],
+    "A10": ["A07", "A08", "A09"],
+    "A11": ["A01", "A06", "A09"],
+    "A12": ["A01", "A06", "A09"],
+    "A13": ["A04", "A05", "A08", "A11", "A12"],
+    "A14": ["A03"],
+    "A15": ["A07", "A08", "A14"],
+    "A16": ["A13", "A15"]
+  },
+  "DependencyPolicy": "These are parent-level prerequisite edges only; all detailed source dependency cells and external/native gates remain binding. A missing graph edge never makes a task runnable. B12 and B14 may qualify narrow subsets before all routes are complete.",
+  "SchedulePolicy": {
+    "Start": "2026-11-30",
+    "TimeboxDays": 5,
+    "ParallelLanes": {
+      "SOLIDWORKS": 2,
+      "Fusion": 2,
+      "Project": 2,
+      "UI/UX": 1
+    },
+    "Basis": "Proposed five working day investigation windows with two format lanes and two project lanes; no staffing or native host reservation implied; forecasts are not feature completion promises"
+  }
+}

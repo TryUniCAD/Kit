@@ -9,6 +9,10 @@ from the `Reviewers` array in the sole source of truth,
 
 Follow the [documentation and gotcha rules](AGENTS.md#documentation-and-gotchas).
 
+Follow [planning and scope claims](AGENTS.md#planning-and-scope-claims) before choosing
+work or launching agents. Keep the project, owning registers, catalogue links and
+generated planning views current with scope, ownership, schedule and evidence changes.
+
 Agents MUST read and abide by the
 [CAD success criteria](Documentation/Reference/Operations/CadSuccessCriteria.md) before any CAD
 parsing, writing, conversion, verification, or reverse-engineering work, and before claiming that any

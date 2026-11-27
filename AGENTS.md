@@ -21,6 +21,32 @@ then building the writer. Put both documents in every sub-agent brief for CAD wo
 
 For decoding challenges, agents MUST use the research automation pipeline for supported capture, deterministic comparison, inference and evidence tracking. Investigate unresolved findings and implement decoder rules from the recorded evidence. Validate changes through deterministic checks; a detected pattern alone is not a proven rule. Report missing automation capabilities explicitly
 
+## Planning and scope claims
+
+Before selecting, claiming, dispatching or handing off work, read
+[the planning procedure](Documentation/Planning/README.md), its generated task,
+feature and delivery indexes, the owning register and the live organization project
+recorded in `Documentation/Planning/Project.json` when available.
+Check current ownership, prerequisites, scheduled window, delivery PR and exclusive
+native resource. An unverified or unmapped catalogue scope is not automatically free.
+Do not duplicate an existing owner or infer readiness from a scheduled forecast.
+
+Keep the owning register and project scope synchronized in the same task whenever
+scope, owner, branch, blocker, schedule, dependency, PR or acceptance evidence changes.
+Use stable scope/task IDs and record exact tested revisions and evidence separately
+for capture, decode, semantic qualification, writing and native acceptance.
+Preserve unfinished requirements, cancelled work and superseded delivery history.
+Update explicit catalogue/task links and engineering windows in
+`Documentation/Planning/Links.json`, refresh the forge snapshot when selecting work,
+and regenerate the views with `uv run --locked python re/automation/Planning/Build.py`.
+Verify freshness with the same command plus `--check`; never edit generated views.
+Every new feature or decoding scope must be represented in the owning register or
+catalogue and linked into planning before implementation. Include product, CLI,
+UI/UX, documentation, infrastructure and release work; label proposals explicitly.
+Project assignment records ownership; it does not launch an agent. Dispatch only
+through a configured supported runtime after live claim and dependency checks.
+If project access is unavailable, update the repo records and report the pending sync.
+
 ## Documentation and gotchas
 
 Read the [completion roadmap](Roadmap.md) and [conversion backlog](Documentation/Maintenance/ConversionBacklog.md)

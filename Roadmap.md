@@ -5,6 +5,10 @@ It does not yet provide complete editable conversion across its intended CAD fam
 The next product milestone is a measured, editable SOLIDWORKS ↔ Fusion conversion through the public SDK.
 
 Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) for task IDs, ownership, dependencies, open PRs and completion evidence.
+
+Use [repository planning](Documentation/Planning/README.md) for the scheduled scope
+board, dependency Gantt, complete recorded feature inventory and agent claims.
+Forecast investigation windows do not replace the acceptance criteria below.
 That register is the entry point for available work.
 [PR #158](https://github.com/TryUniCAD/Kit/pull/158) supersedes PR #94 and maintains the research step register.
 Read the linked PR and its current head before claiming a task.
