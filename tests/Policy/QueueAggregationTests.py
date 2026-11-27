@@ -99,7 +99,7 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
         (
             "failure",
             False,
-            ("CI failed: Merge queue", "poll 30 s", "detected 60 s"),
+            ("CI failed: Merge queue acceptance", "poll 30 s", "detected 60 s"),
         ),
     ),
 )

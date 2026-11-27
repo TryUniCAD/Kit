@@ -20,6 +20,13 @@ Date.now = () => Clock;
 global.setTimeout = (Callback, Delay) => {
   process.stdout.write(`sleep ${Math.round(Delay / 1000)} s\n`);
   Clock += Delay;
+  if (CaseName === "failure" && Clock - Start >= 60000) {
+    const FailedCheck = Inputs.Checks.find(
+      (Check) => Check.name === "Merge queue acceptance",
+    );
+    FailedCheck.status = "completed";
+    FailedCheck.conclusion = "failure";
+  }
   return RealTimeout(Callback, 0);
 };
 
