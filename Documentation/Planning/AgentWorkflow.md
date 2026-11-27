@@ -21,6 +21,7 @@ acceptance. Forecast windows do not qualify a feature or reserve a CAD host.
 6. Set **Runner** and **Agent** in the project. Re-read the live claim. If another
    owner claimed it concurrently, coordinate before proceeding. Project edits are
    not atomic execution leases; native capture still uses the controller lease.
+   Set the project's native **Status** to **In Progress before starting work**.
 7. Add explicit catalogue/task links in `Links.json`. A related PR title does not
    assign an entire feature family to its author.
 
@@ -31,9 +32,10 @@ Use **Copy agent prompt**, **Copy local handoff** or **Copy Hoplite handoff** in
 The recipient must repeat the live ownership, schedule, prerequisite and resource
 checks. Copying a prompt does not claim or launch work.
 
-**Prepare GitHub agent issue** opens a draft only. Choose a configured GitHub agent
-and submit after checking the live claim. Direct local and Hoplite runtime launch
-integrations are unavailable; do not report a launch from a text-field assignment.
+**Copy dispatch request** prepares a prompt for a configured runtime. Repository
+issues are disabled, so issue-based launching is unavailable. Direct local and
+Hoplite runtime launch integrations are also unavailable; do not report a launch
+from a project text-field assignment.
 
 ## Keep work current
 
@@ -51,6 +53,15 @@ Keep **capture**, **decode**, **semantics**, **write** and **native** separate.
 A decode receipt, open PR, green PR checks or generated file does not establish
 conversion acceptance. One supported variant does not complete a catalogue family.
 Never clear another owner's claim merely to make a scope dispatchable.
+
+Set native **Status** to **Done only after the claimed scope's exit evidence is
+recorded**. Keep `Recorded status` and the owning register aligned. If the scope is
+blocked, record the blocker explicitly and retain the owner disposition. A completed
+bounded child does not make its parent feature or every vendor version Done.
+The importer maps source-recorded complete tasks to Done and active/checking/open
+work to In Progress when the project status is empty. It preserves existing Done and In Progress states; Todo may be promoted from
+explicit source records. Audit stale disagreements rather than overwriting an agent's
+newer progress from an old repo snapshot.
 
 ## Regenerate and publish
 
@@ -83,3 +94,25 @@ Do not report a remote update as successful without readback.
 Supply task/scope ID, owner/session, exact scope, branch and PR/head, current window,
 dependencies, evidence by stage, unresolved requirements, blocker and next action.
 The receiving agent refreshes main, project claims and live PRs before proceeding.
+
+The repository currently reports issues disabled. GitHub issue-based agent launching
+is unavailable; the board copies dispatch requests instead of opening an unusable
+issue page. Project assignment remains coordination metadata, not a runtime launch.
+
+## Native assignees
+
+Assign native GitHub **Assignees** only after a bounded scope is explicitly claimed
+or delegated. Set verified responsible accounts together with native In Progress;
+leave unclaimed future work unassigned. Historical completed work retains its author
+with Done. Set assignees on both the project draft/issue and the delivery PR.
+Keep the exact runtime/session in Agent and the provider in Runner; these fields
+serve different purposes. Do not infer whole-feature ownership from a related PR.
+For historical tasks recorded only as Codex, use the verified GitHub author of the
+feature/task introduction or exact delivery PR. Record the source commit or PR
+with the mapping. If no author can be verified, record the gap instead of guessing.
+
+Retain the responsible assignees when setting Done so completed work has ownership
+history. At an explicit handoff, update the current responsible accounts and record
+the previous owner, evidence custody and next action. Preserve unrelated assignees
+unless the handoff specifically replaces their responsibility. Duplicate repair must
+also preserve native assignees and flag conflicting assignment sets for coordination.

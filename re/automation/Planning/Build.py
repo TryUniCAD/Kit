@@ -6,8 +6,9 @@ import re
 import sqlite3
 from datetime import date
 from pathlib import Path
-from Schedule import build_schedule
+from Schedule import build_schedule, identify_rows
 from Calendar import calendar_svg
+from Claims import read_claims
 
 
 def read_tables(root, relative):
@@ -45,12 +46,19 @@ def load_scopes(root):
     relative = "re/Fusion/PlannerCatalog/Data/Catalog.sqlite"
     with sqlite3.connect((root / relative).resolve().as_uri() + "?mode=ro", uri=True) as database:
         database.row_factory = sqlite3.Row
-        for row in database.execute("SELECT * FROM api_feature_types ORDER BY id"):
+        feature_ids = {row[0] for row in database.execute("SELECT id FROM api_feature_types")}
+        for row in database.execute("SELECT * FROM items WHERE kind = 'api_type' ORDER BY id"):
             scopes.append({"Id": "fusion:" + row["id"], "FamilyId": "fusion:api-features",
-                           "Family": "API feature declarations", "Name": row["name"], "Format": "Fusion",
+                           "Family": "API type declarations", "Name": row["name"], "Format": "Fusion",
                            "Wave": "unmapped", "Source": relative, "FamilyDependencies": [],
+                           "ScheduleEligible": row["id"] in feature_ids,
                            "Definition": dict(row)})
-    return scopes
+        native_inventory = [dict(row) for row in database.execute("SELECT * FROM items WHERE kind IN ('native_type','native_schema','native_member','ui_command') ORDER BY id")]
+    for row in native_inventory:
+        if row["kind"] == "native_type":
+            scopes.append({"Id": "fusion:" + row["id"], "FamilyId": "fusion:native-types", "Family": "Native decoding domains", "Name": row["name"], "Format": "Fusion", "Wave": "unmapped", "Source": relative, "FamilyDependencies": [], "ScheduleEligible": False,
+                           "Definition": {**row, "Schemas": [value for value in native_inventory if value["kind"] == "native_schema" and value.get("parent_id") == row["id"]]}})
+    return scopes, native_inventory
 
 
 def build_tasks(rows, links):
@@ -63,6 +71,7 @@ def build_tasks(rows, links):
                       "Status": fields["Status"].lower(),
                       "Owner": fields.get("Owner", fields.get("Owner and delivery", "Unassigned")),
                       "Dependencies": links["Dependencies"][row["Id"]],
+                      "Area": "SDK" if row["Id"] in {"A04", "A05", "A11", "A12", "A13", "A14", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B12"} else "Project",
                       "Source": row["Source"], "Line": row["Line"],
                       "Exit": fields.get("Exit criterion", fields.get("Exit condition", "")),
                       "SourceDependencies": fields.get("Depends on", "")})
@@ -72,7 +81,7 @@ def build_tasks(rows, links):
     return tasks
 
 
-def validate(tasks, scopes, links, snapshot, rows):
+def validate(tasks, scopes, links, snapshot, rows, claims, sdk_tasks):
     index = {task["Id"]: task for task in tasks}
     levels = {}
     visiting = set()
@@ -96,7 +105,7 @@ def validate(tasks, scopes, links, snapshot, rows):
     scope_ids = {scope["Id"] for scope in scopes}
     linked = set()
     for claim in links["ScopeLinks"]:
-        if claim["ScopeId"] not in scope_ids or claim["TaskId"] not in set(index) | {row["Id"] for row in rows}:
+        if claim["ScopeId"] not in scope_ids or claim["TaskId"] not in set(index) | {row["Id"] for row in rows} | {"PR" + str(item["number"]) for item in snapshot["PullRequests"]} | {task["Id"] for task in sdk_tasks}:
             raise ValueError("Unknown scope or task in scope link")
         if (claim["ScopeId"], claim["TaskId"]) in linked:
             raise ValueError("Duplicate scope link")
@@ -109,7 +118,7 @@ def validate(tasks, scopes, links, snapshot, rows):
             if result["Status"] == "complete" and (not result["Evidence"] or not re.fullmatch(r"[0-9a-f]{40}", result["Revision"])):
                 raise ValueError("Stage completion requires evidence and revision")
     scheduled = set()
-    all_ids = set(index) | scope_ids | {f'{row["Id"]}:{number}' for number, row in enumerate(rows)}
+    all_ids = set(index) | scope_ids | {row["ScopeId"] for row in rows} | {claim["Id"] for claim in claims} | {task["Id"] for task in sdk_tasks}
     for schedule in links["Schedules"]:
         if schedule["TaskId"] not in all_ids or schedule["TaskId"] in scheduled:
             raise ValueError("Unknown or duplicate scheduled task")
@@ -158,12 +167,15 @@ def make_outputs(root):
     links = json.loads((source / "Links.json").read_text())
     snapshot = json.loads((source / "PullRequests.json").read_text())
     rows = read_tables(root, "Documentation/Maintenance/ConversionBacklog.md") + read_tables(root, "Documentation/Reference/Research/AutomationSteps.md")
+    rows = identify_rows(rows, json.loads((source / "TaskIdentities.json").read_text()))
+    sdk_tasks = json.loads((source / "SdkScopes.json").read_text())["Tasks"]
+    claims = read_claims(root, "Documentation/Maintenance/ConversionBacklog.md") + read_claims(root, "Documentation/Reference/Research/AutomationSteps.md")
     tasks = build_tasks(rows, links)
-    scopes = load_scopes(root)
-    levels = validate(tasks, scopes, links, snapshot, rows)
+    scopes, native_inventory = load_scopes(root)
+    levels = validate(tasks, scopes, links, snapshot, rows, claims, sdk_tasks)
     for scope in scopes:
         scope["TaskLinks"] = [claim for claim in links["ScopeLinks"] if claim["ScopeId"] == scope["Id"]]
-    sources = ["Documentation/Planning/Links.json", "Documentation/Planning/PullRequests.json",
+    sources = ["Documentation/Planning/Links.json", "Documentation/Planning/PullRequests.json", "Documentation/Planning/SdkScopes.json", "Documentation/Planning/TaskIdentities.json",
                "Documentation/Maintenance/ConversionBacklog.md", "Documentation/Reference/Research/AutomationSteps.md",
                "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json", "re/Fusion/PlannerCatalog/Data/Catalog.sqlite",
                "re/automation/Planning/Board/Board.jsx", "re/automation/Planning/Board/Board.css"]
@@ -175,8 +187,12 @@ def make_outputs(root):
     provenance = {path: hashlib.sha256((root / path).read_bytes()).hexdigest() for path in sources}
     outputs = {"Manifest.json": json.dumps({"MainRevision": links["MainRevision"], "ObservedOn": links["ObservedOn"],
                "SourceHashes": provenance, "ParentTasks": len(tasks), "RegisterRows": len(rows),
-               "Scopes": len(scopes), "OpenPullRequests": len(snapshot["PullRequests"])}, indent=2) + "\n"}
+               "Scopes": len(scopes), "OpenPullRequests": sum(item.get("state", "open") == "open" for item in snapshot["PullRequests"]), "DeliveryRecords": len(snapshot["PullRequests"]), "ProseClaims": len(claims)}, indent=2) + "\n"}
     outputs["Tasks.jsonl"] = "".join(json.dumps(row, sort_keys=True) + "\n" for row in rows)
+    outputs["Claims.jsonl"] = "".join(json.dumps(claim, sort_keys=True) + "\n" for claim in claims)
+    outputs["StatusAudit.json"] = json.dumps({"RecordedCompleteTasks": [row["Id"] for row in rows if row["Fields"].get("Status", "").lower() == "complete"], "RecordedActiveTasks": [row["Id"] for row in rows if row["Fields"].get("Status", "").lower() in {"active", "checking"}], "OpenDeliveryPRs": [item["number"] for item in snapshot["PullRequests"] if item.get("state", "open").lower() == "open"], "ExplicitActiveScopeLinks": links["ScopeLinks"], "Policy": "Historical task states and bounded active contributions are distinct from full feature qualification"}, indent=2) + "\n"
+    outputs["NativeInventory.jsonl"] = "".join(json.dumps(row, sort_keys=True) + "\n" for row in native_inventory)
+    outputs["Coverage.json"] = json.dumps({"SolidworksFamilies": len({scope["FamilyId"] for scope in scopes if scope["Format"] == "SOLIDWORKS"}), "SolidworksSubfeatures": sum(scope["Format"] == "SOLIDWORKS" for scope in scopes), "FusionApiTypes": sum(scope["Definition"].get("kind") == "api_type" for scope in scopes), "FusionNativeTypes": sum(scope["Definition"].get("kind") == "native_type" for scope in scopes), "NativeInventory": {kind: sum(row["kind"] == kind for row in native_inventory) for kind in sorted({row["kind"] for row in native_inventory})}, "UniversalVendorCoverage": "unverified; catalogues do not prove every product version or legal feature combination"}, indent=2) + "\n"
     outputs["Scopes.jsonl"] = "".join(json.dumps(scope, sort_keys=True) + "\n" for scope in scopes)
     table = ["# Task index", "", "Generated from owning registers; recorded status can be stale. Refresh linked PRs before claiming work.", "", "| Task | Scope | Recorded status | Owner/contact | Prerequisites | Exit and source |", "| --- | --- | --- | --- | --- | --- |"]
     for task in tasks:
@@ -187,8 +203,8 @@ def make_outputs(root):
     outputs["Tasks.md"] = "\n".join(table) + "\n"
     table = ["# Feature scope index", "", "Inventory declarations are research obligations, not qualified support. No automatic PR-title matching or completion inference is performed.", "", "| Format | Family / wave | Scope ID | Feature | Linked tasks |", "| --- | --- | --- | --- | --- |"]
     for scope in scopes:
-        claims = [item["TaskId"] for item in links["ScopeLinks"] if item["ScopeId"] == scope["Id"]]
-        table.append("| " + " | ".join(markdown_text(value) for value in [scope["Format"], scope["Family"] + " / " + scope["Wave"], scope["Id"], scope["Name"], ", ".join(claims) or "Unmapped — check current claims"]) + " |")
+        scope_claims = [item["TaskId"] for item in links["ScopeLinks"] if item["ScopeId"] == scope["Id"]]
+        table.append("| " + " | ".join(markdown_text(value) for value in [scope["Format"], scope["Family"] + " / " + scope["Wave"], scope["Id"], scope["Name"], ", ".join(scope_claims) or "Unmapped — check current claims"]) + " |")
     outputs["Features.md"] = "\n".join(table) + "\n"
     graph = ["flowchart LR"]
     for task in tasks:
@@ -209,7 +225,7 @@ def make_outputs(root):
     outputs["Calendar.md"] = "# Calendar windows\n\n" + ("```mermaid\n" + "\n".join(schedules) + "\n```\n" if links["Schedules"] else "No dated engineering windows have been supplied. Research completion dates are unknown; use the dependency Gantt.\n")
     outputs["Gantt.html"] = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; style-src \'unsafe-inline\'; img-src \'self\' data:; base-uri \'none\'"><title>Kit planning</title><style>body{font:14px system-ui;color:var(--foreground,#242321)}svg{width:100%;height:auto}a{color:inherit}p{line-height:1.5}</style></head><body><p>Dependency tiers, not dates or durations · snapshot ' + html.escape(links["ObservedOn"]) + '</p>' + outputs["Gantt.svg"] + '<p>Full task gates, catalogue coverage and delivery contacts are in the adjacent Markdown and JSONL files. Missing scope links mean ownership must be checked, not that work is available.</p></body></html>\n'
     board = {"ObservedOn": links["ObservedOn"], "MainRevision": links["MainRevision"], "Links": links,
-             "Items": build_schedule(tasks, scopes, rows, snapshot, links)}
+             "Items": build_schedule(tasks, scopes, rows, snapshot, links, claims, sdk_tasks)}
     outputs["DependencyTiers.svg"] = outputs["Gantt.svg"]
     outputs["Gantt.svg"] = calendar_svg(board["Items"])
     outputs["Gantt.html"] = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Scheduled Kit investigations</title></head><body>' + outputs["Gantt.svg"] + '</body></html>\n'

@@ -1,0 +1,392 @@
+{
+  "RecordedCompleteTasks": [
+    "A07d",
+    "A08f",
+    "A08g",
+    "A01",
+    "A03",
+    "A02a",
+    "A02b",
+    "A02c",
+    "A03a",
+    "A03b",
+    "A03c",
+    "A03d",
+    "A03e",
+    "A04a",
+    "A04b",
+    "A05a",
+    "A05b",
+    "A06e",
+    "A06f",
+    "A08a",
+    "A08b",
+    "A08d",
+    "A14a"
+  ],
+  "RecordedActiveTasks": [
+    "B01",
+    "B08",
+    "A11c",
+    "A12a",
+    "A13a",
+    "A08i",
+    "A04",
+    "A05",
+    "A06",
+    "A08",
+    "A14",
+    "A04c",
+    "A05c",
+    "A06a",
+    "A06c",
+    "A06d",
+    "A11a",
+    "A16a",
+    "A16b",
+    "A16c",
+    "A16d",
+    "A16e",
+    "A16f",
+    "A16g",
+    "A08c",
+    "A08e",
+    "A14b"
+  ],
+  "OpenDeliveryPRs": [
+    394,
+    393,
+    392,
+    247,
+    242,
+    245,
+    243,
+    236,
+    237,
+    254,
+    256,
+    249,
+    225,
+    248,
+    244,
+    261,
+    252,
+    255,
+    385,
+    200,
+    258,
+    299,
+    246,
+    232,
+    259,
+    383,
+    384,
+    382,
+    381,
+    380,
+    379,
+    378,
+    373,
+    374,
+    372,
+    371,
+    366,
+    368,
+    369,
+    367,
+    370,
+    365,
+    345,
+    348,
+    343,
+    340,
+    121,
+    364,
+    342,
+    335,
+    339,
+    338,
+    328,
+    330,
+    329,
+    325,
+    314,
+    344,
+    341,
+    337,
+    333,
+    336,
+    331,
+    327,
+    326,
+    318,
+    313,
+    307,
+    303,
+    296,
+    260,
+    262,
+    240,
+    238,
+    257,
+    250,
+    239,
+    169,
+    120
+  ],
+  "ExplicitActiveScopeLinks": [
+    {
+      "ScopeId": "sw:family:sketchconics:circle",
+      "TaskId": "PR373",
+      "Boundary": "Circle and relation field candidates; no full circle-family acceptance",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/373",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sketchdimensions:linear-dimension",
+      "TaskId": "PR380",
+      "Boundary": "Bounded sketch dimension record bindings",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/380",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sketchdimensions:driving-dimension",
+      "TaskId": "PR369",
+      "Boundary": "Dimension field search; hypothesis evidence remains incomplete",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/369",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "PR366",
+      "Boundary": "Offline blind-boss milestone preparation; native acceptance remains separate",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/366",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "PR314",
+      "Boundary": "Ordered constrained P03 Boss intent; broader source families remain open",
+      "Stages": {
+        "semantics": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/314",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:revolve:boss-base-revolve",
+      "TaskId": "PR244",
+      "Boundary": "Measured principal revolution subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/244",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:revolve:thin-revolve",
+      "TaskId": "PR247",
+      "Boundary": "Six measured thin-revolution cases",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/247",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sweep:boss-base-sweep",
+      "TaskId": "PR238",
+      "Boundary": "Measured Standard sweep subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/238",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sweep:boss-base-sweep",
+      "TaskId": "PR245",
+      "Boundary": "Measured native-saved sweep history subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/245",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:chamfer:distance-distance-chamfer",
+      "TaskId": "PR240",
+      "Boundary": "Measured distance-chamfer subset; inspect exact parameter domain",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/240",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:prismatic:shell",
+      "TaskId": "PR255",
+      "Boundary": "Saved inward open-shell subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/255",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:pattern:linear-pattern",
+      "TaskId": "PR243",
+      "Boundary": "Measured local linear pattern subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/243",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:assembly:subassembly",
+      "TaskId": "PR236",
+      "Boundary": "Receipt-gated nested assembly subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/236",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:properties:part-material",
+      "TaskId": "PR260",
+      "Boundary": "Assigned part material read subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/260",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:configuration:configuration",
+      "TaskId": "PR200",
+      "Boundary": "Bounded configuration master bridge",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/200",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:configuration:equation",
+      "TaskId": "PR258",
+      "Boundary": "Measured width-to-depth equation only",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/258",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR299",
+      "Boundary": "Saved fixed-corner cuboid subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/299",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR303",
+      "Boundary": "Saved cuboid writer research; wider qualification remains open",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/303",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.Parameter",
+      "TaskId": "PR326",
+      "Boundary": "Saved cuboid parameter binding subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/326",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.core.Appearance",
+      "TaskId": "PR337",
+      "Boundary": "Distinct Fusion material appearances research",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/337",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR339",
+      "Boundary": "Witnessed P03 Fusion Boss replay subset",
+      "Stages": {
+        "native": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/339",
+          "Revision": ""
+        }
+      }
+    }
+  ],
+  "Policy": "Historical task states and bounded active contributions are distinct from full feature qualification"
+}

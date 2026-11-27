@@ -13,7 +13,7 @@ Read [the agent workflow](AgentWorkflow.md) for the required start, update and h
 - [Visual Gantt](Generated/Gantt.svg): directly viewable without a server or JavaScript
 - [Standalone visual](Generated/Gantt.html): the same chart in a local HTML file
 - [Task index](Generated/Tasks.md): parent tasks, detailed research rows, owners, dependencies and exit conditions
-- [Feature scopes](Generated/Features.md): every curated SOLIDWORKS subfeature and Fusion API feature declaration in the saved catalogues
+- [Feature scopes](Generated/Features.md): every curated SOLIDWORKS subfeature, every saved Fusion API type and native decoding domain in the saved catalogues
 - [Open deliveries](Generated/Deliveries.md): dated PR collision and stack inventory
 - [Calendar windows](Generated/Calendar.md): explicitly supplied engineering windows only
 - [Source manifest](Generated/Manifest.json): exact source hashes and inventory counts
@@ -46,8 +46,8 @@ exist. Add new inventories as they become available instead of declaring univers
 | [PullRequests.json](PullRequests.json)                                    | Dated open-PR collision snapshot                                                           | Refresh from the forge; author means contact, not inferred feature owner        |
 
 `Generated/Tasks.jsonl` preserves each parsed table row, source path, line and section.
-Repeated historical IDs retain their section context. Prose-only claims remain in the
-linked owning registers and must also be read before starting. `Generated/Scopes.jsonl`
+Repeated historical IDs retain their section context. `Generated/Claims.jsonl` also preserves prose-only claims from the
+linked owning registers, which must be read before starting. `Generated/Scopes.jsonl`
 preserves scope definitions, option axes, acceptance criteria and explicit task links.
 No automatic title matching assigns a feature to a PR.
 
@@ -146,10 +146,9 @@ starting. Copying does not reserve work. A scope is unavailable when already cla
 outside its authorized window, stale, or missing prerequisite evidence.
 
 No supported Hoplite launch API was found in this session. T3 delegation tools are
-available to an active assistant, not directly to a static browser file. The board copies runner-specific handoffs and can prepare a GitHub agent issue
-when the local schedule and owner checks permit it; the recipient still checks the
-live claim. It does not pretend to submit an unconfigured runtime job. Assigning a GitHub-supported coding agent to a converted
-issue may launch that configured integration; project text fields alone do not.
+available to an active assistant, not directly to a static browser file. The board copies runner-specific handoffs and dispatch requests. The recipient
+checks the live claim; copying does not submit a runtime job. Repository issues are
+disabled, so issue-based agent launching is unavailable.
 Native direct launch is a tracked follow-up requiring a supported adapter and atomic
 claim/recheck protocol before external side effects.
 
@@ -169,3 +168,50 @@ credential file must be supplied through a private secret channel; never paste i
 contents into commands, source or logs. The local progress file records published
 IDs and can be reconstructed from remote scope markers after uncertain responses.
 Project mutations use the supported GraphQL creation and bulk-field REST APIs.
+
+## Coverage and status audit
+
+[Coverage.json](Generated/Coverage.json) counts every saved catalogue row: 585
+SOLIDWORKS subfeatures, 2,037 Fusion API types and 1,958 native decoding domains.
+[NativeInventory.jsonl](Generated/NativeInventory.jsonl) preserves all 3,563 saved
+native schema/version rows, 1,991 members and 3,225 observed commands. Technical
+declarations stay unscheduled until a bounded investigation is defined; they remain
+visible in the chart inventory and project. This is complete for the saved inputs,
+not a claim of every vendor version or legal option combination.
+
+[StatusAudit.json](Generated/StatusAudit.json) separates source-recorded completed
+tasks, active tasks, open deliveries and explicitly linked feature contributions.
+A feature with bounded open work is In Progress while its qualification remains
+unverified. Completed task rows are Done at their recorded scope, not at the whole
+feature level. Use the source links to resolve stale or missing evidence.
+
+Use `Project.py --status-only` with the same private credential and progress-file
+arguments to initialize blank native project statuses from the recorded task state.
+Existing Done and In Progress states are preserved; Todo can be promoted when
+source records establish active or completed bounded work. Agents must set In Progress before
+starting and Done after acceptance, as required by the agent workflow.
+
+The repository currently reports issues disabled. GitHub issue-based agent launching
+is unavailable; the board copies dispatch requests instead of opening an unusable
+issue page. Project assignment remains coordination metadata, not a runtime launch.
+
+## SDK scope and historical ownership
+
+[SdkScopes.json](SdkScopes.json) records nine format read obligations, nine write
+obligations and all 81 ordered conversion routes, including same-format routes.
+The SDK board view exposes their dependencies and remaining acceptance boundaries.
+SOLIDWORKS and Fusion feature details separately retain Read, Write and Conversion
+preparation tracks. Existing bounded implementations do not close full-format tasks.
+Unestimated SDK work remains visible without an invented delivery date.
+
+[TaskIdentities.json](TaskIdentities.json) pins existing research task identities;
+new source/task identities are deterministic and survive register reordering. Preserve
+these mappings when editing task names or moving records between owning sources.
+
+Use native Assignees on project items and delivery PRs in addition to Agent/Runner.
+For historical Codex entries, [AssigneeMappings.json](AssigneeMappings.json) records
+the verified feature/task introduction author or exact PR author and evidence.
+`Assignments.py --token-file PATH --apply` adds verified accounts without clearing
+existing assignments; omitted `--apply` writes an audit only. Unavailable users,
+missing imports and ambiguous records remain explicit gaps. A bot PR author cannot
+be assigned as a user; retain its contact and record the missing responsible account.

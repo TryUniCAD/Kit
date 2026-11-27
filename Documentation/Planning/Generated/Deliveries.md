@@ -4,7 +4,9 @@ Observed 2026-11-27; contacts are PR authors, not inferred owners. Refresh live 
 
 | PR | Scope | Contact | Head → base |
 | --- | --- | --- | --- |
-| [#391](https://github.com/TryUniCAD/Kit/pull/391) | fix(tests): cache Windows fixture assembly across processes | usehoplite | codex/windows-fixture-cache → main |
+| [#394](https://github.com/TryUniCAD/Kit/pull/394) | feat(research): record independent two-sided Fusion drafts | jdharcourt | feat/fusion-two-sided-draft-20261127 → main |
+| [#393](https://github.com/TryUniCAD/Kit/pull/393) | feat(research): record unequal construction-axis Fusion revolutions | jdharcourt | feat/fusion-unequal-revolve-20261127 → main |
+| [#392](https://github.com/TryUniCAD/Kit/pull/392) | feat(planning): add scheduled scope board and organization project | jdharcourt | feat/project-todo-review-20261127 → main |
 | [#247](https://github.com/TryUniCAD/Kit/pull/247) | feat(solidworks): publish six measured thin revolutions | odinglyn0 | codex/solidworks-measured-thin-revolve → codex/solidworks-measured-principal-revolve (stack parent #244) |
 | [#242](https://github.com/TryUniCAD/Kit/pull/242) | Write the measured SOLIDWORKS planar mate assembly | odinglyn0 | codex/solidworks-measured-planar-mates → codex/solidworks-nested-assembly-delivery (stack parent #236) |
 | [#245](https://github.com/TryUniCAD/Kit/pull/245) | feat(solidworks): recover measured native-saved sweep history | odinglyn0 | codex/solidworks-saved-sweep-read → codex/solidworks-sweep-main-delivery (stack parent #238) |
@@ -30,8 +32,6 @@ Observed 2026-11-27; contacts are PR authors, not inferred owners. Refresh live 
 | [#383](https://github.com/TryUniCAD/Kit/pull/383) | docs: audit solidworks later-phase coverage | usehoplite | hoplite/tegea-f1d4ae13--later-phases → main |
 | [#384](https://github.com/TryUniCAD/Kit/pull/384) | refactor(solidworks): share proven archive field rules | usehoplite | codex/sw-header-bounds → main |
 | [#382](https://github.com/TryUniCAD/Kit/pull/382) | feat(research): report offline timings and verify advisor opt-in | usehoplite | codex/offline-research-metrics → main |
-| [#377](https://github.com/TryUniCAD/Kit/pull/377) | docs(guides): clarify first-use discovery and recovery | jdharcourt | feat/b11-documentation-usability-20261127 → main |
-| [#376](https://github.com/TryUniCAD/Kit/pull/376) | feat(cli): add focused format discovery and alias guidance | jdharcourt | feat/b10-cli-usability-20261127 → main |
 | [#381](https://github.com/TryUniCAD/Kit/pull/381) | fix(research): recover owned SOLIDWORKS capture sessions | usehoplite | codex/capture-resilience → main |
 | [#380](https://github.com/TryUniCAD/Kit/pull/380) | Verify SOLIDWORKS sketch dimension record bindings | usehoplite | offline-sketch-dimension-records → main |
 | [#379](https://github.com/TryUniCAD/Kit/pull/379) | test: verify solidworks analytic carriers offline | usehoplite | hoplite/solidworks-brep-carriers → main |
@@ -83,3 +83,6 @@ Observed 2026-11-27; contacts are PR authors, not inferred owners. Refresh live 
 | [#239](https://github.com/TryUniCAD/Kit/pull/239) | Write measured SOLIDWORKS 2026 circular blind bosses | odinglyn0 | codex/solidworks-circle-measured-main → main |
 | [#169](https://github.com/TryUniCAD/Kit/pull/169) | Score how completely both readers decode the pinned corpus | Stephen316 | codex/read-scoreboard → main |
 | [#120](https://github.com/TryUniCAD/Kit/pull/120) | chore: publish decode evidence and remove retired branding | Stephen316 | codex/verified-solidworks-decodes → main |
+| [#391](https://github.com/TryUniCAD/Kit/pull/391) | fix(tests): cache Windows fixture assembly across processes | usehoplite | codex/windows-fixture-cache → main |
+| [#377](https://github.com/TryUniCAD/Kit/pull/377) | docs(guides): clarify first-use discovery and recovery | jdharcourt | feat/b11-documentation-usability-20261127 → main |
+| [#376](https://github.com/TryUniCAD/Kit/pull/376) | feat(cli): add focused format discovery and alias guidance | jdharcourt | feat/b10-cli-usability-20261127 → main |

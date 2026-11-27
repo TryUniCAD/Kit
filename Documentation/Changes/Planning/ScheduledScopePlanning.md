@@ -4,7 +4,7 @@
 
 Kit now has a repository planning index, forecast schedule, React scope board and
 organization GitHub Project. The views join B01–B14, research register rows, all
-curated SOLIDWORKS subfeatures, Fusion API feature declarations and a dated open-PR
+curated SOLIDWORKS subfeatures, saved Fusion API types and native decoding domains and a dated open-PR
 inventory. Product and UI/UX proposals are explicit backlog entries.
 
 The [planning procedure](../../Planning/README.md) defines ownership and maintenance.
@@ -17,8 +17,7 @@ The board provides calendar bars, current-work and inventory views, search, area
 owner and type filters, pagination, task details, editable draft windows and schedule
 export. Every scope has a copyable agent prompt. GitHub project items retain a fenced
 prompt that GitHub can copy directly. Assignment does not start an agent runtime.
-Local and Hoplite handoff controls copy runner-specific prompts. A gated control
-prepares a GitHub agent issue; direct runtime launching remains unavailable.
+Local and Hoplite handoff controls copy runner-specific prompts. A dispatch-request control copies a runtime handoff; direct runtime launching remains unavailable.
 
 ## Usage
 
@@ -51,3 +50,7 @@ pinned dependencies. Process regressions exercise real generation, stale-output
 rejection and dependency-cycle rejection through the existing test-suite path.
 Remote PR CI, configured review and merge-group acceptance remain separate delivery
 gates; no local unit-test execution or native CAD verification is claimed.
+
+The repository currently reports issues disabled. GitHub issue-based agent launching
+is unavailable; the board copies dispatch requests instead of opening an unusable
+issue page. Project assignment remains coordination metadata, not a runtime launch.

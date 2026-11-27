@@ -4,17 +4,43 @@
   "Purpose": "Dated collision inventory only; authors are contacts, not inferred feature owners; checks and approvals require fresh revision-bound evidence",
   "PullRequests": [
     {
-      "number": 391,
-      "title": "fix(tests): cache Windows fixture assembly across processes",
-      "url": "https://github.com/TryUniCAD/Kit/pull/391",
-      "author": "usehoplite",
-      "headBranch": "codex/windows-fixture-cache",
+      "number": 394,
+      "title": "feat(research): record independent two-sided Fusion drafts",
+      "url": "https://github.com/TryUniCAD/Kit/pull/394",
+      "author": "jdharcourt",
+      "headBranch": "feat/fusion-two-sided-draft-20261127",
       "baseBranch": "main",
       "state": "open",
       "isDraft": false,
       "reviewDecision": "approved",
       "checksState": "passing",
-      "updatedAt": "2026-11-27T15:48:01Z"
+      "updatedAt": "2026-11-27T17:05:10Z"
+    },
+    {
+      "number": 393,
+      "title": "feat(research): record unequal construction-axis Fusion revolutions",
+      "url": "https://github.com/TryUniCAD/Kit/pull/393",
+      "author": "jdharcourt",
+      "headBranch": "feat/fusion-unequal-revolve-20261127",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": "approved",
+      "checksState": "passing",
+      "updatedAt": "2026-11-27T16:35:18Z"
+    },
+    {
+      "number": 392,
+      "title": "feat(planning): add scheduled scope board and organization project",
+      "url": "https://github.com/TryUniCAD/Kit/pull/392",
+      "author": "jdharcourt",
+      "headBranch": "feat/project-todo-review-20261127",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": "review-required",
+      "checksState": "passing",
+      "updatedAt": "2026-11-27T16:35:18Z"
     },
     {
       "number": 247,
@@ -340,32 +366,6 @@
       "reviewDecision": "review-required",
       "checksState": "passing",
       "updatedAt": "2026-11-27T13:39:03Z"
-    },
-    {
-      "number": 377,
-      "title": "docs(guides): clarify first-use discovery and recovery",
-      "url": "https://github.com/TryUniCAD/Kit/pull/377",
-      "author": "jdharcourt",
-      "headBranch": "feat/b11-documentation-usability-20261127",
-      "baseBranch": "main",
-      "state": "open",
-      "isDraft": false,
-      "reviewDecision": "approved",
-      "checksState": "passing",
-      "updatedAt": "2026-11-27T13:16:46Z"
-    },
-    {
-      "number": 376,
-      "title": "feat(cli): add focused format discovery and alias guidance",
-      "url": "https://github.com/TryUniCAD/Kit/pull/376",
-      "author": "jdharcourt",
-      "headBranch": "feat/b10-cli-usability-20261127",
-      "baseBranch": "main",
-      "state": "open",
-      "isDraft": false,
-      "reviewDecision": "approved",
-      "checksState": "passing",
-      "updatedAt": "2026-11-27T13:14:07Z"
     },
     {
       "number": 381,
@@ -1029,6 +1029,45 @@
       "reviewDecision": "changes-requested",
       "checksState": "passing",
       "updatedAt": "2026-11-16T23:28:23Z"
+    },
+    {
+      "number": 391,
+      "title": "fix(tests): cache Windows fixture assembly across processes",
+      "url": "https://github.com/TryUniCAD/Kit/pull/391",
+      "author": "usehoplite",
+      "headBranch": "codex/windows-fixture-cache",
+      "baseBranch": "main",
+      "state": "merged",
+      "isDraft": false,
+      "reviewDecision": "approved",
+      "checksState": "passing",
+      "updatedAt": "2026-11-27T16:43:56Z"
+    },
+    {
+      "number": 377,
+      "title": "docs(guides): clarify first-use discovery and recovery",
+      "url": "https://github.com/TryUniCAD/Kit/pull/377",
+      "author": "jdharcourt",
+      "headBranch": "feat/b11-documentation-usability-20261127",
+      "baseBranch": "main",
+      "state": "merged",
+      "isDraft": false,
+      "reviewDecision": "approved",
+      "checksState": "passing",
+      "updatedAt": "2026-11-27T16:14:40Z"
+    },
+    {
+      "number": 376,
+      "title": "feat(cli): add focused format discovery and alias guidance",
+      "url": "https://github.com/TryUniCAD/Kit/pull/376",
+      "author": "jdharcourt",
+      "headBranch": "feat/b10-cli-usability-20261127",
+      "baseBranch": "main",
+      "state": "merged",
+      "isDraft": false,
+      "reviewDecision": "approved",
+      "checksState": "passing",
+      "updatedAt": "2026-11-27T16:47:15Z"
     }
   ]
 }

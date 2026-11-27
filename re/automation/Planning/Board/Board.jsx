@@ -16,6 +16,9 @@ use a fresh feat/ or fix/ branch and the task's isolated registered checkout
 read AGENTS.md, Documentation/Planning/README.md and the owning source: ${item.Source}
 for CAD work read Documentation/Reference/Operations/CadSuccessCriteria.md and re/Playbook/README.md in full plus the applicable phase chapters
 claim the task with owner, branch, dependencies, resource lease, delivery PR and exit condition
+set native Assignees on the project item and delivery PR; record Agent and Runner
+set native project Status to In Progress before starting and Done only after exact exit evidence; retain assignees
+do not restart completed scopes; claim a bounded follow-up child if needed
 reuse the existing research controller, CAD API workers and deterministic research CLI
 inspect existing evidence before choosing missing contrasts; retain controls, independent holdouts, failures, documents and receipts
 models stay off for research execution unless explicitly authorized
@@ -32,6 +35,7 @@ function Board() {
   const [area, setArea] = useState('All');
   const [kind, setKind] = useState('Milestone');
   const [owner, setOwner] = useState('All');
+  const [status, setStatus] = useState('All');
   const [mode, setMode] = useState('Schedule');
   const [page, setPage] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -43,7 +47,9 @@ function Board() {
     return schedule ? { ...item, Start: schedule.Start, Finish: schedule.Finish, ScheduleKind: 'Draft supplied window' } : item;
   }), [draft]);
   const filtered = items.filter(item => (area === 'All' || item.Area === area) &&
-    (kind === 'All' || item.Kind === kind) && (owner === 'All' || item.Owner === owner) &&
+    (kind === 'All' || item.Kind === kind) && (status === 'All' || item.Status.toLowerCase() === status) && (owner === 'All' || item.Owner === owner) &&
+    (mode !== 'SDK' || item.Area === 'SDK') &&
+    (mode !== 'Scope inventory' || ['Decoding scope', 'API declaration', 'Native decoding domain'].includes(item.Kind)) &&
     (mode !== 'Current work' || ['active', 'checking', 'open'].includes(item.Status.toLowerCase())) &&
     `${item.Id} ${item.Name} ${item.Owner} ${item.Status}`.toLowerCase().includes(query.toLowerCase()));
   const visible = filtered.slice(page * 40, (page + 1) * 40);
@@ -77,12 +83,13 @@ function Board() {
     <header><h1>Kit planning</h1><button onClick={exportPlan}>Export schedule changes</button></header>
     <p><a href="https://github.com/orgs/TryUniCAD/projects/1">Open shared GitHub project</a></p>
     <p className="context">{data.Items.length} tracked entries · observed {data.ObservedOn} · forecast investigation windows, not completion promises</p>
-    <nav aria-label="Planning views">{['Schedule', 'Current work', 'Scope inventory'].map(value => <button key={value} aria-pressed={mode === value} onClick={() => { setMode(value); setKind(value === 'Current work' ? 'All' : value === 'Scope inventory' ? 'Decoding scope' : 'Milestone'); setPage(0); }}>{value}</button>)}</nav>
+    <nav aria-label="Planning views">{['Schedule', 'Current work', 'Scope inventory', 'SDK'].map(value => <button key={value} aria-pressed={mode === value} onClick={() => { setMode(value); setKind(value === 'Current work' || value === 'Scope inventory' || value === 'SDK' ? 'All' : 'Milestone'); setPage(0); }}>{value}</button>)}</nav>
     <div className="filters">
       <label>Search scopes<input type="search" maxLength={200} value={query} onChange={event => { setQuery(event.target.value); setPage(0); }} placeholder="Feature, task or owner" /></label>
       <label>Area<select value={area} onChange={event => { setArea(event.target.value); setPage(0); }}>{['All', ...new Set(items.map(item => item.Area))].map(value => <option key={value}>{value}</option>)}</select></label>
       <label>Type<select value={kind} onChange={event => { setKind(event.target.value); setPage(0); }}>{['All', ...new Set(items.map(item => item.Kind))].map(value => <option key={value}>{value}</option>)}</select></label>
       <label>Owner / PR contact<select value={owner} onChange={event => { setOwner(event.target.value); setPage(0); }}>{['All', ...new Set(items.map(item => item.Owner))].map(value => <option key={value}>{value}</option>)}</select></label>
+      <label>Recorded state<select value={status} onChange={event => { setStatus(event.target.value); setPage(0); }}>{['All', ...new Set(items.map(item => item.Status.toLowerCase()))].map(value => <option key={value} value={value}>{value === 'complete' ? 'Done (recorded scope)' : value === 'active' || value === 'checking' || value === 'open' ? 'In progress / ' + value : value}</option>)}</select></label>
       <label>Timeline<select value={zoom} onChange={event => setZoom(Number(event.target.value))}><option value={90}>Quarter</option><option value={180}>Six months</option><option value={365}>Year</option><option value={0}>Fit filtered work</option></select></label>
     </div>
     <p className="context">{filtered.length} matching entries · PR authors are contacts · unverified scopes require an ownership check · UI/UX entries are proposals</p>
@@ -102,13 +109,13 @@ function Board() {
     <p role="status">{notice}</p>
     {current && <section className="details" aria-label="Scope details">
       <div className="detail-heading"><h2>{current.Name}</h2><button onClick={() => setSelected(null)}>Close details</button></div>
-      <p>{current.Id} · {current.Status} · {current.Owner}</p><p><a href={current.Source.startsWith('https://') ? current.Source : `https://github.com/TryUniCAD/Kit/blob/${data.MainRevision}/${current.Source}`}>Owning source</a></p>
+      <p>{current.Id} · {current.Status} · {current.Owner}</p><p><a href={current.Source.startsWith('https://') ? current.Source : `https://github.com/TryUniCAD/Kit/blob/${current.Source.startsWith("Documentation/Planning/") ? data.Links.ExtraTasks.find(task => task.Id === "PlanningViews").Branch : data.MainRevision}/${current.Source}`}>Owning source</a></p>
       <p>Dependencies: {current.Dependencies.join(', ') || 'No parent edges recorded; inspect source prerequisites'}</p>
-      <details><summary>Exit condition and evidence</summary><pre>{plain(current.Exit)}</pre><pre>{plain(current.Stages)}</pre></details>
+      <details><summary>Exit condition and evidence</summary><pre>{plain(current.Exit)}</pre><pre>{plain(current.Stages)}</pre><h3>Read / write / conversion tracks</h3><pre>{plain(current.Tracks || current.Boundary || "See owning source")}</pre></details>
       <form key={current.Id} onSubmit={saveWindow}><label>Start<input name="start" type="date" required defaultValue={current.Start || today} /></label><label>Finish<input name="finish" type="date" required defaultValue={current.Finish || today} /></label><label>Estimate basis<input name="basis" required maxLength={500} defaultValue={current.Basis || 'Owner supplied investigation window'} /></label><button>Update draft window</button></form>
-      <div className="actions"><button onClick={() => copyPrompt(current)}>Copy agent prompt</button><button onClick={() => copyPrompt(current, "local Codex")}>Copy local handoff</button><button onClick={() => copyPrompt(current, "Hoplite")}>Copy Hoplite handoff</button><button disabled={!eligible} title="Opens a draft issue; choose an available GitHub agent and submit after checking the live claim" onClick={() => window.open(`https://github.com/TryUniCAD/Kit/issues/new?title=${encodeURIComponent(current.Id + ": " + current.Name)}&body=${encodeURIComponent(promptFor(current))}`, "_blank", "noopener,noreferrer")}>Prepare GitHub agent issue</button></div>
+      <div className="actions"><button onClick={() => copyPrompt(current)}>Copy agent prompt</button><button onClick={() => copyPrompt(current, "local Codex")}>Copy local handoff</button><button onClick={() => copyPrompt(current, "Hoplite")}>Copy Hoplite handoff</button><button onClick={() => copyPrompt(current, "configured GitHub or T3 agent")}>Copy dispatch request</button></div>
       <p>{eligible ? 'Locally eligible for handoff; live claim and prerequisite checks are still required' : 'Dispatch blocked: scope needs a current window, no owner and verified prerequisites'}</p>
-      <p>Copying does not claim or start work. Issue handoff opens a draft; select a configured GitHub agent and submit. Direct local and Hoplite launch integrations are unavailable.</p>
+      <p>Copying does not claim or start work. Repository issues are disabled. Copy a handoff to an available runtime; direct local and Hoplite launch integrations are unavailable.</p>
       <label>Agent prompt<textarea readOnly rows={12} value={promptFor(current)} onFocus={event => event.target.select()} /></label>
     </section>}
   </main>;

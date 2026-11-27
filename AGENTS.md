@@ -25,6 +25,13 @@ For decoding challenges, agents MUST use the research automation pipeline for su
 
 Agents MUST follow the [agent planning workflow](Documentation/Planning/AgentWorkflow.md)
 at task start, at every planning state change and before handoff.
+Set the project's native Status to In Progress before work starts and to Done only
+after the claimed exit has revision-bound evidence. Keep blocked work explicit.
+Completed bounded children do not complete their parent feature or version matrix.
+Update native GitHub Assignees to the verified accounts responsible for claimed
+scopes and delivery PRs. Retain assignees on Done items for ownership history and
+update them explicitly at handoff. Keep the exact runtime/session in Agent and the
+provider in Runner. A related PR author does not own an entire feature family.
 
 Before selecting, claiming, dispatching or handing off work, read
 [the planning procedure](Documentation/Planning/README.md), its generated task,

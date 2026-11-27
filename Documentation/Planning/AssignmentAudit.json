@@ -1,0 +1,907 @@
+{
+  "Assignments": {
+    "B01": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A01": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A03": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A04": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A05": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A06": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A08": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A14": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PlanningViews": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A11c:14": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A12a:15": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A13a:16": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A07d:17": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A08f:18": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A08g:19": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A08i:20": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A04a:46": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A04b:47": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A04c:48": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A05a:49": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A05b:50": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A05c:51": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A06a:52": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A06c:54": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A06d:55": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A06e:56": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A06f:57": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit account mapping"
+    },
+    "A11a:58": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A16a:60": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A16b:61": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A16c:62": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A16d:63": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A16e:64": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A16f:65": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A16g:66": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A08a:67": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A08b:68": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A08c:69": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A08d:70": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A08e:71": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A14a:76": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "A14b:77": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "sw:family:sketchconics:circle": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:sketchdimensions:linear-dimension": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:sketchdimensions:driving-dimension": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:extrude:boss-base-extrude": {
+      "Accounts": [
+        "Stephen316",
+        "usehoplite"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:revolve:boss-base-revolve": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:revolve:thin-revolve": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:sweep:boss-base-sweep": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:chamfer:distance-distance-chamfer": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:prismatic:shell": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:pattern:linear-pattern": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:assembly:subassembly": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:configuration:configuration": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:configuration:equation": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "sw:family:properties:part-material": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "fusion:api:adsk.core.Appearance": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "fusion:api:adsk.fusion.ExtrudeFeature": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "fusion:api:adsk.fusion.Parameter": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit bounded contribution links only"
+    },
+    "PR394": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR393": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR392": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR247": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR242": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR245": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR243": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR236": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR237": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR254": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR256": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR249": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR225": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR248": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR244": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR261": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR252": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR255": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR385": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR200": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR258": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR299": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR246": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR232": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR259": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR383": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR384": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR382": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR381": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR380": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR379": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR378": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR373": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR374": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR372": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR371": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR366": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR368": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR369": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR367": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR370": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR345": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR348": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR343": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR340": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR121": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR364": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR342": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR335": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR339": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR338": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR328": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR330": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR329": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR325": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR314": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR344": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR341": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR337": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR333": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR336": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR331": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR327": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR326": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR318": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR313": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR307": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR303": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR296": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR260": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR262": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR240": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR238": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR257": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR250": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR239": {
+      "Accounts": [
+        "odinglyn0"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR169": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR120": {
+      "Accounts": [
+        "Stephen316"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR391": {
+      "Accounts": [
+        "usehoplite"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR377": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
+    "PR376": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    }
+  },
+  "UnknownAccountMappings": [
+    "B08",
+    "A02a:37",
+    "A02b:38",
+    "A02c:39",
+    "A03a:41",
+    "A03b:42",
+    "A03c:43",
+    "A03d:44",
+    "A03e:45",
+    "PR365",
+    "claim:A08h-OwnedExit:60229f1d",
+    "claim:B14-COMPANION-PUBLICATION:0aeba2a8",
+    "claim:B08-SW2026-TERMINAL-FIN:e283b60c",
+    "claim:A13a-FusionPreparedInputs:b65b5514",
+    "claim:A08b-CatalogueThroughput:77694fef",
+    "claim:A04-PlanePlacement:d7c8b1e1",
+    "claim:A08b-SharedQueue:0932642c",
+    "claim:A05-RectangleRecovery:86b9838d",
+    "claim:A08h-Ladders2026:e7d0750e",
+    "claim:A05c-FusionSavedCuboid20261125:2353cf82",
+    "claim:A06g-BulkDecodedComparison:60e9bdad",
+    "claim:A06d-NativeSketchOwnership:19651031",
+    "claim:A12b:6abe5599",
+    "claim:A08d-PinnedReaderBatches:18801306",
+    "claim:A08d-FileScopeAttribution:c12dcbb5",
+    "claim:A08h-RimFillet20261125:a3d868c3"
+  ],
+  "Applied": [
+    "fusion:api:adsk.fusion.Parameter",
+    "PR394",
+    "PR393",
+    "PR392"
+  ],
+  "Blocked": {
+    "sw:family:sketchconics:circle": "GitHub account could not be verified",
+    "sw:family:sketchdimensions:linear-dimension": "GitHub account could not be verified",
+    "sw:family:sketchdimensions:driving-dimension": "GitHub account could not be verified",
+    "sw:family:extrude:boss-base-extrude": "GitHub account could not be verified",
+    "PR385": "GitHub account could not be verified",
+    "PR383": "GitHub account could not be verified",
+    "PR384": "GitHub account could not be verified",
+    "PR382": "GitHub account could not be verified",
+    "PR381": "GitHub account could not be verified",
+    "PR380": "GitHub account could not be verified",
+    "PR379": "GitHub account could not be verified",
+    "PR378": "GitHub account could not be verified",
+    "PR373": "GitHub account could not be verified",
+    "PR374": "GitHub account could not be verified",
+    "PR372": "GitHub account could not be verified",
+    "PR371": "GitHub account could not be verified",
+    "PR366": "GitHub account could not be verified",
+    "PR368": "GitHub account could not be verified",
+    "PR369": "GitHub account could not be verified",
+    "PR367": "GitHub account could not be verified",
+    "PR370": "GitHub account could not be verified",
+    "PR364": "GitHub account could not be verified",
+    "PR391": "GitHub account could not be verified"
+  },
+  "UnavailableAccounts": {
+    "usehoplite": "gh: Could not resolve to a User with the login of 'usehoplite'.\n"
+  }
+}

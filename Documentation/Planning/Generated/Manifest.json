@@ -2,22 +2,26 @@
   "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
   "ObservedOn": "2026-11-27",
   "SourceHashes": {
-    "Documentation/Planning/Links.json": "8e137bfdd25a04edae8ef92f941a7fa4f9a92ad6b3779bc8af1312dcee5b7a79",
-    "Documentation/Planning/PullRequests.json": "eae943ecdd4eb7b5b0109707233b4094165de65cc59947f42fbd501c908c8344",
+    "Documentation/Planning/Links.json": "d57ceccf8d55e995176a73f4895283f9b1913468925a350ea8680863404aa3c3",
+    "Documentation/Planning/PullRequests.json": "4bf19fa963841a2eb94e04ea489f2bbc08a1679260a62da490bf46f2db6e3538",
+    "Documentation/Planning/SdkScopes.json": "f4b9157b835e504d914d71160ee65e19305e69409261226e1179905df12027b5",
+    "Documentation/Planning/TaskIdentities.json": "6171959aadd12abdc62c9c7c8099c2de93fc5cc0cb9c8689ebdcab02d9bf31f2",
     "Documentation/Maintenance/ConversionBacklog.md": "9a9335c8c16486d8235730f53efd611b8d212f345600e7e00b2e3939f2b29118",
     "Documentation/Reference/Research/AutomationSteps.md": "5f61fe848f74c523e62bf9f80e2f770f5e4a836c496b0e74bced7d6f91a80bd1",
     "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1",
     "re/Fusion/PlannerCatalog/Data/Catalog.sqlite": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718",
-    "re/automation/Planning/Board/Board.jsx": "33ae9ee2b8e29aa2f36e278ad0fd0a3426f3da570b1a1d7d78b56c518e075eb8",
+    "re/automation/Planning/Board/Board.jsx": "c6b46ccbe4e12f76bf9f08a5348655ddbb1d55999739617a3aaa4f6c9b165d6c",
     "re/automation/Planning/Board/Board.css": "81e859f378fdbee5708d986b0735d0ad9c983e1f652fdda79617007a47c0fc80",
-    "Documentation/Planning/BundleManifest.json": "3d6500412f445585123fdd5c7820d4be1a4d42b11401443d71a54489501e01a2",
+    "Documentation/Planning/BundleManifest.json": "791f549f54b540f257a360c9bb3c5819c09e58998f46d9cbfec5f7860ff800bf",
     "re/automation/Planning/Board/package.json": "2092945748c03a30a1e0b2d82a3846a04a5090c83dacff8897d2499e9d9b4cb7",
     "re/automation/Planning/Board/package-lock.json": "0bcdaebbd8c59f432c8d35c05f5aeeb1d4a866a48844ed0e824252bb26bb8e0a",
-    "Documentation/Planning/Generated/Board.js": "5079593261840ae8d4bbe47187904777272133269a6a8ee190015603106022e5",
+    "Documentation/Planning/Generated/Board.js": "07550bbb5f092ca8f4d4bdd0133c79db04a9db7908f473cfb1e3f77a86828cea",
     "Documentation/Planning/Generated/Board.css": "79e12678d748beedee6849e05f5b5d0b45853e38689b529405c5c473ca46d82f"
   },
   "ParentTasks": 39,
   "RegisterRows": 80,
-  "Scopes": 669,
-  "OpenPullRequests": 79
+  "Scopes": 4580,
+  "OpenPullRequests": 79,
+  "DeliveryRecords": 82,
+  "ProseClaims": 70
 }
