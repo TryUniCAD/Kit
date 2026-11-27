@@ -54,6 +54,13 @@ def ReadParameters(
             or NumberValue(SecondTaper.Fields["value"]) != 0
         ):
             raise ValueError("Unsupported native second side distance or taper")
+    if Context.Extrude.Fields["profileOffset"] is not None:
+        OffsetBinding = ResolveField(
+            Graph, Context.Extrude, "profileOffset", "DcDoubleParameter"
+        )
+        OffsetParam = CheckBinding(Graph, OffsetBinding, Context)
+        RequireFields(OffsetParam, {"name": "ProfileOffset", "unit": "mm"})
+        ExtentBindings += (OffsetBinding,)
     SketchBindings = Rectangle.Bindings if Rectangle else ()
     SameNodes(
         (*SketchBindings, *ExtentBindings),

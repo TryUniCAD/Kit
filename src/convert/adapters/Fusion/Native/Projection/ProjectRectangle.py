@@ -73,11 +73,20 @@ def ProjectFeatures(
     SecondParam = (
         Graph.Resolve(SecondTaper.Fields["parameter"]) if SecondTaper else None
     )
+    OffsetBinding = (
+        Graph.Resolve(Context.Extrude.Fields["profileOffset"])
+        if Context.Extrude.Fields["profileOffset"] is not None
+        else None
+    )
+    OffsetParam = (
+        Graph.Resolve(OffsetBinding.Fields["parameter"]) if OffsetBinding else None
+    )
     Definition = DistanceExtrude(
         Along.Identity,
         Direction,
         SideMode=SideMode,
         AgainstParameterId=AgainstParam.Identity if AgainstParam else None,
+        StartOffsetId=OffsetParam.Identity if OffsetParam else None,
         TaperParameterId=Taper.Identity,
         SecondTaperId=SecondParam.Identity if SecondParam else None,
     )
@@ -93,6 +102,7 @@ def ProjectFeatures(
                 (Along.Identity, Taper.Identity)
                 + ((AgainstParam.Identity,) if AgainstParam else ())
                 + ((SecondParam.Identity,) if SecondParam else ())
+                + ((OffsetParam.Identity,) if OffsetParam else ())
             )
         ),
         BooleanOp.KCreate,

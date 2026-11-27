@@ -32,7 +32,7 @@ from interchange.Records.RecordTopology import TopologyCounts
 def ProjectSpan(
     Model: DocumentModel, Source: CadSource, Graph: NativeGraph, Context: ExtrudeContext
 ) -> CadDocument:
-    CheckGraph(Graph, Context)
+    CheckGraph(Graph, Context, AllowOffset=True)
     CheckScopes(Graph, Context, Model.Asset.AssetId)
     Shape = ReadCircle(Graph, Context)
     Parameters = ReadParameters(
