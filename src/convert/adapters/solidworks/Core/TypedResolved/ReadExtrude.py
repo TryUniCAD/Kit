@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadParents import ReadParen
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 
-# blind boss semantics require actual typed parents and the ordinary forward end branch
+# blind boss semantics require actual typed parents and an owned single direction end branch
 def ReadExtrude(
     LinkValue: NativeLink, NodeValue: ArchiveNode, Features: Mapping[int, ArchiveNode]
 ) -> ExtrudeOwner:
@@ -36,8 +36,8 @@ def ReadExtrude(
         ):
             raise ValueError("extrusion end mode is outside ordinary blind semantics")
     ReverseValue = FieldsValue.get("f8c")
-    if type(ReverseValue) is not int or ReverseValue != 0:
-        raise ValueError("reversed extrusion is outside typed forward blind semantics")
+    if type(ReverseValue) is not int or ReverseValue not in (0, 1):
+        raise ValueError("extrusion direction is outside typed blind semantics")
     FromValue = RequireNative(FieldsValue.get("f140"), "moFromEndSpec_c")
     if (
         type(FromValue.FieldsValue.get("t")) is not int

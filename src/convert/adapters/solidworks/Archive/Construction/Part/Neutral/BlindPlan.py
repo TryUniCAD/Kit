@@ -17,3 +17,4 @@ class BlindPlan:
     DepthValue: float
     WidthValue: float
     HeightValue: float
+    IsReversed: bool = False

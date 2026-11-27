@@ -338,6 +338,14 @@ with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
 
+The same constructor can prepare a reversed blind-boss candidate from
+`ExtrudeFeature.reversed=True`. The strict reader reconstructs its signed
+interval `[-depth, 0]` while retaining positive driving depth.
+Public output still requires exact native measurement for those candidate bytes.
+Reversed candidates have no new native acceptance evidence while the CAD API is unavailable.
+[Reversed reader scope](../../Changes/Solidworks/Inspection/Parts/SolidworksReverseColdBoss.md)
+[Candidate preparation and limits](../../Changes/Solidworks/Construction/SolidworksReverseBossPreparation.md)
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.

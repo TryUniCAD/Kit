@@ -17,10 +17,8 @@ class BlindEndInput:
             or self.VersionValue != 19000
         ):
             raise ValueError("blind construction requires archive version 19000")
-        if type(CastValue(object, self.IsReversed)) is not bool or self.IsReversed:
-            raise ValueError(
-                "blind construction currently requires the forward direction"
-            )
+        if type(CastValue(object, self.IsReversed)) is not bool:
+            raise ValueError("blind construction direction must be a boolean")
         if type(CastValue(object, self.DepthValue)) not in (int, float):
             raise TypeError("blind depth must be a real numeric input")
         try:

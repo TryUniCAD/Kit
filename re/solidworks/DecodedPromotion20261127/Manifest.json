@@ -1,5 +1,6 @@
 {
   "sdk_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "reader_phase_base_revision": "93b24ed0feeb033be95fe91622fb615f519dcd65",
   "native_acceptance": false,
   "members": [
     {
@@ -16,6 +17,11 @@
       "path": "Evidence/MainP03TypedAdmission.json",
       "sha256": "8f1b18d2342451cf9c86b5c0bf207b2a5e1a858ba644a4bbf126858beb8efb73",
       "bytes": 1444
+    },
+    {
+      "path": "Evidence/ReaderReceipt.json",
+      "sha256": "b49328cc691f32108bcf798e5b64db7b9fc0a18e2337bedfc7d5ce1e4e61123f",
+      "bytes": 5603
     },
     {
       "path": "Evidence/RepeatReport.json",
@@ -64,18 +70,43 @@
     },
     {
       "path": "Inventory.md",
-      "sha256": "d8834a92a9cf295df6f4c9846ae6cc82b21b035ae11e4632eaf277f0dbb9581e",
-      "bytes": 15399
+      "sha256": "0da08746474e379e0e88fa89bccbf47386c604e939f956fe6086914655564027",
+      "bytes": 29792
+    },
+    {
+      "path": "Preparation/.gitignore",
+      "sha256": "40936d89551bf769e29a5a7ca1c4f69462d4229d555578243189b6138d70f743",
+      "bytes": 18
+    },
+    {
+      "path": "Preparation/Documents.tar.gz",
+      "sha256": "cb3c34bcc37632feb7762cabeddfeb73746dd3dd49f664bf54de94247bfea106",
+      "bytes": 162670
+    },
+    {
+      "path": "Preparation/Receipt.json",
+      "sha256": "e05b63734949508aa14f4c1dc5d915932fbd984c4b7dfa0ef32b90547ed8549e",
+      "bytes": 10199
+    },
+    {
+      "path": "ProvePreparation.py",
+      "sha256": "ce0d72c02a7ff667962e32a9fb2fd54c4c6a23150458aaa62ad01ff651b753d2",
+      "bytes": 4956
     },
     {
       "path": "README.md",
-      "sha256": "6e8c400acb17c950161ae3877f684eb3f1378c0a1beb026c7ca6ba96cc1c7162",
-      "bytes": 6004
+      "sha256": "31fa07d9987c983f952682add49d0db8b85223c13e63b8103e6259ba7b0f4f6d",
+      "bytes": 9238
     },
     {
       "path": "ReversePrototype.py",
       "sha256": "c2737e5cb4006a11bf2de35c05320bc6a10c8fef8ef8359ace99f3c4f48a68b1",
       "bytes": 7668
+    },
+    {
+      "path": "SealEvidence.py",
+      "sha256": "d595bbc6533f39af9227a833dd3152067f9af25d5bc5a6423fc9fceb5b05740c",
+      "bytes": 1111
     },
     {
       "path": "SourceEvidence.py",

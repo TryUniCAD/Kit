@@ -63,4 +63,5 @@ def ProjectBlind(
         ReadLength(Definition.length),
         WidthValue,
         HeightValue,
+        Definition.reversed,
     )
