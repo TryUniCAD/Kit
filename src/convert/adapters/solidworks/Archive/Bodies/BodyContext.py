@@ -17,3 +17,4 @@ class BodyContext:
     FlagsValue: dict[str, int] = DataField(default_factory=dict[str, int])
     DirectNodes: tuple[ArchiveNode, ...] = ()
     PendingNodes: list[ArchiveNode] = DataField(default_factory=list[ArchiveNode])
+    PartRootValue: ArchiveNode | None = None

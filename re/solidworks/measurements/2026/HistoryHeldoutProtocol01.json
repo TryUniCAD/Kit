@@ -1,0 +1,69 @@
+{
+  "schema": "kit.sw2026.standalone-history-heldout-protocol.v1",
+  "codec_revision": "9773b3dd2aa62aa554142590ff45876a49f2a80f",
+  "codec_src_tree": "ccdcec327b9dda93afb42716978eb1f17b53c4aa",
+  "authority_revision": "41ee633c85336eba196e1579834e1dd871cc17b7",
+  "first_form_rules": {
+    "earlier_schema": "b104740a35e4a3abb6ed662cf132ba6a30e73cbe",
+    "earlier_schema_at_utc": "2026-11-15T00:17:36Z",
+    "earlier_schema_does_typed_reemission": true,
+    "earlier_schema_has_fresh_metadata_constructor": false,
+    "first_donor_free_model_constructor": "f747a206c2ba476c2907014acc964cc4b0b3e8ca",
+    "first_donor_free_model_constructor_alternate": "8ed44583a140e7a7ad16ac52e1e9d0a1569b7815",
+    "first_donor_free_model_constructor_at_utc": "2026-11-15T03:36:53Z",
+    "initial_shared_sdk_constructor": "bf06a789ee5521aa563d20fa6aa199072405063e",
+    "initial_shared_sdk_constructor_at_utc": "2026-11-18T01:06:18Z",
+    "superseded_fixed_history_writer": "cef2eda41df296e4395c191051db149676030de3"
+  },
+  "polygon_source_lock": {
+    "baseline": "66fd65e181af98583e51c5b570b90adbe25897d7",
+    "lock_commit": "27bb62b04dd99cbe3d9f6044f99e884f26c7ed23",
+    "locked_at_utc": "2026-11-15T03:32:53.916967Z",
+    "path": "re/solidworks/v2026/heldout/polygon/Lock.json",
+    "sha256": "abc1724a8856083a9c5e7054cd85b3035dc7da8423063f0caabd07a3e6f9dc40"
+  },
+  "previous_native_source_replay": {
+    "path": "re/solidworks/measurements/2026/SdkOriginalPolygonNative01.json",
+    "sha256": "ce44060b5eca37ed1c95e56a8e4718790d8a44c8eb5d5ddc62890942c6855467",
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604",
+    "original_sources_immutable": true,
+    "original_inputs_read_by_writer": 0
+  },
+  "later_locks": {
+    "tree": {
+      "lock_commit": "7e3b294e3fe745c5d6975c18af53a2f8d1e96e62",
+      "lock_commit_at_utc": "2026-11-16T23:01:28Z",
+      "sha256": "4d6c6ea7e60f092a179566c811aa50a16fe7c8186053211b5ae7494ba9208f33",
+      "history_writer_predecessor": false
+    },
+    "camera": {
+      "lock_commit": "9e41c49c59b2930df693c96a76181df6a4999761",
+      "lock_commit_at_utc": "2026-11-16T20:16:37Z",
+      "sha256": "857ff7ff95ac69d81b229379136a988f64aed6af9be2b5fae105ac505499b697",
+      "history_writer_predecessor": false
+    }
+  },
+  "subjects": [
+    {
+      "slot": "H3_scalene",
+      "basename": "H3_scalene.SLDPRT",
+      "bytes": 56502,
+      "sha256": "051437f311217cc7eac0eb49a5a84b2d8acdc2507dbfc0c542e60393fc7d7cda"
+    },
+    {
+      "slot": "H7_irregular",
+      "basename": "H7_irregular.SLDPRT",
+      "bytes": 59927,
+      "sha256": "62602b7f17fc75ec6e51ae13c8a6bb7fd162c6a8b669da37eea99e2935535604"
+    }
+  ],
+  "evaluation": {
+    "archive_version": 19000,
+    "physical_format": 4,
+    "external_native_receipt_required": true,
+    "requires_exact_originals": true,
+    "standalone_codec": "pending_root_replay",
+    "public_native_writer": "requires_complete_generated_document_lifecycle"
+  }
+}

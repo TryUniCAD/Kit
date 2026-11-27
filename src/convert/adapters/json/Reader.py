@@ -1,7 +1,6 @@
-from dataclasses import replace as Replace
-
 from convert.adapters.base import ReadOptions
 from convert.adapters.base import Source
+from convert.adapters.json.ReadConfigJson import ReadConfigJson
 from convert.adapters.json.StreamIo import ReadText
 from interchange import CadDocument
 from interchange import filter_document as FilterDocument
@@ -15,22 +14,12 @@ class JsonReader:
         self, SourceValue: Source, Options: ReadOptions | None = None
     ) -> CadDocument:
         Settings = Options or ReadOptions()
-        Document = CadDocument.from_json(ReadText(SourceValue))
-        if Settings.configuration is not None:
-            Matches = {
-                Config.id
-                for Config in Document.configurations
-                if Settings.configuration in {Config.id, Config.name}
-            }
-            if not Matches:
-                raise ValueError(
-                    f"configuration {Settings.configuration!r} is unavailable"
-                )
-            Configs = tuple(
-                Replace(Config, active=Config.id in Matches)
-                for Config in Document.configurations
-            )
-            Document = Replace(Document, configurations=Configs)
+        TextValue = ReadText(SourceValue)
+        Document = (
+            CadDocument.from_json(TextValue)
+            if Settings.configuration is None
+            else ReadConfigJson(TextValue, Settings.configuration)
+        )
         Document = FilterDocument(
             Document,
             include_brep=Settings.include_brep,

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path as FilePath
+from sys import addaudithook as AddAuditHook
 
 import pytest as Pytest
 
@@ -10,6 +11,8 @@ from convert.adapters import (
     ApplicationUsabilityError,
     WriteOptions,
 )
+from convert.adapters.json.Adapter import JsonAdapter
+from convert.adapters.Staging.PathStaging import WritePathStaged
 from interchange import Capability
 from tests.Convert.Registry.RegistryTestSupport import BuildSource, CarrierAdapter
 
@@ -149,3 +152,40 @@ def CheckConcurrent(TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch) -> None:
         )
     assert SharedPath.is_dir()
     assert tuple(SharedPath.iterdir()) == ()
+
+
+# single file staging must reach atomic publication without moving aside an existing directory
+def CheckFileDir(TmpPath: FilePath) -> None:
+    TmpPath = TmpPath.resolve()
+    TargetPath = TmpPath / "destination.json"
+    TargetPath.mkdir()
+    MarkerPath = TargetPath / "receipt.json"
+    _ = MarkerPath.write_bytes(b"original directory contents")
+    IsActive = True
+    Attempts: list[bool] = []
+
+    # the audit records actual publication after the writer created its single staged file
+    def SeePublication(EventName: str, Arguments: tuple[object, ...]) -> None:
+        if IsActive and EventName == "os.rename" and Arguments[1] == str(TargetPath):
+            Attempts.append(FilePath(str(Arguments[0])).is_file())
+
+    AddAuditHook(SeePublication)
+    try:
+        with Pytest.raises(OSError):
+            _ = WritePathStaged(
+                BuildSource(),
+                JsonAdapter(),
+                TargetPath,
+                WriteOptions(overwrite=True),
+                False,
+                True,
+            )
+    finally:
+        IsActive = False
+    assert Attempts == [True]
+    assert (
+        TargetPath.is_dir()
+        and MarkerPath.read_bytes() == b"original directory contents"
+    )
+    assert tuple(TmpPath.iterdir()) == (TargetPath,)
+    assert tuple(TargetPath.iterdir()) == (MarkerPath,)

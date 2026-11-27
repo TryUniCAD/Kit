@@ -10,6 +10,7 @@ from convert.Formats.Fusion.BrepCodec.Prism.Reading.ReadPrismFrame import ReadPr
 from convert.Formats.Fusion.BrepCodec.Prism.Reading.ReadPrismGraph import ReadPrismGraph
 from convert.Formats.Fusion.BrepCodec.Prism.Reading.ReadPrismRoles import ReadPrismRoles
 from convert.Formats.Fusion.BrepCodec.Prism.Reading.ReadPrismTags import ReadPrismTags
+from convert.Formats.Fusion.BrepCodec.Prism.Reading.ReadPrismIds import ReadPrismIds
 from convert.Formats.Fusion.BrepCodec.Prism.Reading.ReadPrismWire import ReadPrismWire
 from convert.Formats.Fusion.BrepCodec.Prism.Validation.CheckPrismFrame import (
     CheckPrismFrame,
@@ -43,12 +44,22 @@ def ReadPrismHist(Payload: bytes) -> PrismHistory:
         {1: Mapping[1], 26: Mapping[KFirstAttribute], 27: Mapping[KBodyGeneric]},
     )
     TagSet = ReadPrismTags(WireValue.Table, Mapping)
+    Tracking = ReadPrismIds(WireValue.Table, Mapping)
     CheckPrismFrame(Model, Frame)
     CheckPrismTags(Identity, TagSet)
     CheckTopology(
-        PrismTokens(PrismRecords(Identity, TagSet, Frame)), WireValue.Table, Mapping
+        PrismTokens(PrismRecords(Identity, TagSet, Frame, Tracking)),
+        WireValue.Table,
+        Mapping,
     )
     History = ReadJournal(WireValue.Journal, KPrismRecords)
     return PrismHistory(
-        Model, Identity, TagSet, History, WireValue.Stamp, Frame, WireValue.Header
+        Model,
+        Identity,
+        TagSet,
+        History,
+        WireValue.Stamp,
+        Frame,
+        WireValue.Header,
+        Tracking,
     )

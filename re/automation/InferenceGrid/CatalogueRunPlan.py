@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from InferenceGrid.FeatureRoutes import FeatureRecipes
+from InferenceGrid.ScopeOrder import OrderScopes
 from Records import digest
 
 
@@ -46,6 +47,7 @@ def BuildRunPlan(Catalogues, Revision):
         "inputs_sha256": digest([Revision, Pins]),
         "features": Features,
         "scopes": dict(sorted(Scopes.items())),
+        "scope_order": OrderScopes(Catalogues, Scopes),
     }
 
 

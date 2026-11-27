@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -11,7 +11,7 @@ import sqlite3
 import subprocess
 
 from InferenceGrid.FeatureRoutes import FeatureRecipes
-from Pilot.PilotFiles import WriteRecord
+from Sessions import write_private
 from Records import label, read_record
 
 
@@ -31,22 +31,36 @@ def ReadHandoffs(Manifest, ConfigPath, Store):
         raise ValueError(
             "catalogue handoff plan requires one to sixty four assessments"
         )
-    Routes = {}
+    Routes, Attached, Parked = {}, {}, []
     for JobName, Identity in Assessments.items():
         Recipe = FeatureRecipes.get(label(Identity))
         if Recipe is None or Recipe.Advance is None:
             raise ValueError("handoff requires a reviewed native route")
-        if Recipe.Status(Store)["assessment"]["id"] != label(JobName):
+        Status = Recipe.Status(Store)
+        if Status["assessment"]["id"] != label(JobName):
             raise ValueError("handoff route does not own the submitted assessment")
         if any(Item.Scope == Recipe.Scope for Item in Routes.values()):
             raise ValueError("duplicate catalogue handoff scope")
         Routes[JobName] = Recipe
-    return CatalogueHandoffs(Manifest, ConfigPath, Store, KindName, Resource, Routes)
+        if Status["status"] == "experiment_attached":
+            Attached[Recipe.Scope] = Status["phase_jobs"]
+        elif Status["status"] == "experiment_needed":
+            Parked.append(JobName)
+    Routes = {
+        JobName: Route
+        for JobName, Route in Routes.items()
+        if Route.Scope not in Attached
+    }
+    return CatalogueHandoffs(
+        Manifest, ConfigPath, Store, KindName, Resource, Routes, Attached, Parked
+    )
 
 
 # verified native preparation runs beside decoding instead of blocking the supervisor loop
 class CatalogueHandoffs:
-    def __init__(self, Manifest, ConfigPath, Store, KindName, Resource, Routes):
+    def __init__(
+        self, Manifest, ConfigPath, Store, KindName, Resource, Routes, Attached, Parked
+    ):
         self.Output = Manifest.with_name("NativeHandoffResult.json")
         self.ConfigPath = ConfigPath
         self.Store = Store
@@ -54,9 +68,14 @@ class CatalogueHandoffs:
         self.Resource = Resource
         self.Routes = Routes
         self.Pending = {}
-        self.Phases = {}
+        self.Phases = Attached
+        self.Parked = Parked
         self.Failures = []
         self.Executor = ThreadPoolExecutor(max_workers=1)
+
+    def Start(self):
+        for JobName in self.Parked:
+            self.Notify(JobName)
 
     def Notify(self, JobName):
         Recipe = self.Routes.pop(JobName, None)
@@ -112,4 +131,4 @@ class CatalogueHandoffs:
     def Close(self, Report):
         self.Executor.shutdown(cancel_futures=True)
         self.Poll(Report)
-        WriteRecord(self.Output, {"phases": self.Phases, "failures": self.Failures})
+        write_private(self.Output, {"phases": self.Phases, "failures": self.Failures})

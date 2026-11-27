@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -75,11 +75,12 @@ def ReadDatumBody(
     JournalView = LocalBox(Journal, FrameValue)
     SavedView = LocalBox(Saved, FrameValue)
     Extent = NumberValue(Context.Along.Fields["value"])
-    Lower = (Shape.BasePoint[0] / 10, Shape.BasePoint[1] / 10, 0.0)
-    Upper = (Lower[0] + Shape.Width / 10, Lower[1] + Shape.Depth / 10, Extent)
+    AxisX, AxisY, _ = zip(*Shape.NativePoints, strict=True)
+    Lower = (min(AxisX), min(AxisY), 0.0)
+    Upper = (max(AxisX), max(AxisY), Extent)
     _ = CheckCuboid(HistoryTable, JournalView, Lower, Upper)
     Occupied = CheckCuboid(SavedTable, SavedView, Lower, Upper)
-    Curves = SelectedCurves(Shape)
+    Curves = SelectedCurves(Shape, Native=True)
     JournalTags = ReadFeatureTags(HistoryTable)
     BodyTag = JournalTags.pop(Journal.BodyRef, None)
     if BodyTag is None:

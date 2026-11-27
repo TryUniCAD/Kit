@@ -1,0 +1,473 @@
+{
+  "pid": 33358,
+  "started": 1795649305.7283719,
+  "updated": 1795649843.434628,
+  "state": "running",
+  "events": [
+    {
+      "case": "holdout-01",
+      "mode": "native-source-reconstructed-recovery",
+      "start": 1795649305.740482,
+      "job": "9b8e4b7ce243a73e879d7fe998d40d2e",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649337.680521
+    },
+    {
+      "case": "holdout-02",
+      "mode": "native-source-reconstructed-recovery",
+      "start": 1795649337.6816819,
+      "job": "a7537f1801aa7a9524895d22a887b293",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649370.873027
+    },
+    {
+      "case": "holdout-03",
+      "mode": "native-source-reconstructed-recovery",
+      "start": 1795649370.93059,
+      "job": "42448004e4891467c01781bd92a5111e",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649399.654382
+    },
+    {
+      "case": "holdout-04",
+      "mode": "native-source-reconstructed-recovery",
+      "start": 1795649399.655317,
+      "job": "daf594b01aa3b18235d78f5fe4c84612",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649430.8744051
+    },
+    {
+      "case": "holdout-06",
+      "mode": "native-source-reconstructed-recovery",
+      "start": 1795649430.876682,
+      "job": "76816c33fc4af4e2b9d93c0dedb84ca3",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649467.3857448
+    },
+    {
+      "case": "holdout-01",
+      "mode": "independent-depth-edit",
+      "start": 1795649467.388334,
+      "job": "4a3c63ff3308ccbd288ebfc4ed74ee25",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649506.169086
+    },
+    {
+      "name": "TypedCycle",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/RecoveredNative/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Edit/EditedDepth.f3d",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Cycle"
+      ],
+      "start": 1795649506.170068,
+      "pid": 38863,
+      "exit_code": 0,
+      "end": 1795649514.587619
+    },
+    {
+      "case": "holdout-01",
+      "mode": "edited-typed-reconstruction",
+      "start": 1795649514.590153,
+      "job": "3780f7ed6bf5950e5ea3cbfca74352f8",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649550.906623
+    },
+    {
+      "name": "Edited-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Edit/EditedDepth.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Edited-neutral.json"
+      ],
+      "start": 1795649550.9081962,
+      "pid": 40315,
+      "exit_code": 1,
+      "end": 1795649556.997142
+    },
+    {
+      "name": "Edited-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Edit/EditedDepth.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Edited-native.json"
+      ],
+      "start": 1795649556.998166,
+      "pid": 40463,
+      "exit_code": 0,
+      "end": 1795649561.8893209
+    },
+    {
+      "name": "Reconstructed-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Cycle/Reconstructed.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Reconstructed-neutral.json"
+      ],
+      "start": 1795649561.890733,
+      "pid": 41625,
+      "exit_code": 1,
+      "end": 1795649565.623592
+    },
+    {
+      "name": "Reconstructed-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Cycle/Reconstructed.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-01/Reconstructed-native.json"
+      ],
+      "start": 1795649565.624204,
+      "pid": 42241,
+      "exit_code": 0,
+      "end": 1795649567.754546
+    },
+    {
+      "case": "holdout-02",
+      "mode": "independent-depth-edit",
+      "start": 1795649567.755612,
+      "job": "c6d90df49e513e59a60f975103e63ec1",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649604.7942069
+    },
+    {
+      "name": "TypedCycle",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/RecoveredNative/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Edit/EditedDepth.f3d",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Cycle"
+      ],
+      "start": 1795649604.795169,
+      "pid": 43150,
+      "exit_code": 0,
+      "end": 1795649606.336001
+    },
+    {
+      "case": "holdout-02",
+      "mode": "edited-typed-reconstruction",
+      "start": 1795649606.3375008,
+      "job": "5aa9f5fb15ab80433c1bb0837794fe7b",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649637.458119
+    },
+    {
+      "name": "Edited-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Edit/EditedDepth.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Edited-neutral.json"
+      ],
+      "start": 1795649637.459053,
+      "pid": 44376,
+      "exit_code": 1,
+      "end": 1795649639.484788
+    },
+    {
+      "name": "Edited-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Edit/EditedDepth.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Edited-native.json"
+      ],
+      "start": 1795649639.485322,
+      "pid": 44493,
+      "exit_code": 0,
+      "end": 1795649641.059844
+    },
+    {
+      "name": "Reconstructed-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Cycle/Reconstructed.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Reconstructed-neutral.json"
+      ],
+      "start": 1795649641.060407,
+      "pid": 44495,
+      "exit_code": 1,
+      "end": 1795649642.802737
+    },
+    {
+      "name": "Reconstructed-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Cycle/Reconstructed.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-02/Reconstructed-native.json"
+      ],
+      "start": 1795649642.803312,
+      "pid": 44609,
+      "exit_code": 0,
+      "end": 1795649648.673934
+    },
+    {
+      "case": "holdout-03",
+      "mode": "independent-depth-edit",
+      "start": 1795649648.678129,
+      "job": "3165ab21928f5e21052f944d7f2b0243",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649681.067769
+    },
+    {
+      "name": "TypedCycle",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/RecoveredNative/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Edit/EditedDepth.f3d",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Cycle"
+      ],
+      "start": 1795649681.069365,
+      "pid": 45704,
+      "exit_code": 0,
+      "end": 1795649688.993369
+    },
+    {
+      "case": "holdout-03",
+      "mode": "edited-typed-reconstruction",
+      "start": 1795649688.9957628,
+      "job": "9beff24c7ecc4ec48d644ff3b7232f41",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649720.04221
+    },
+    {
+      "name": "Edited-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Edit/EditedDepth.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Edited-neutral.json"
+      ],
+      "start": 1795649720.046795,
+      "pid": 47132,
+      "exit_code": 1,
+      "end": 1795649722.081509
+    },
+    {
+      "name": "Edited-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Edit/EditedDepth.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Edited-native.json"
+      ],
+      "start": 1795649722.082264,
+      "pid": 47166,
+      "exit_code": 0,
+      "end": 1795649723.658719
+    },
+    {
+      "name": "Reconstructed-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Cycle/Reconstructed.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Reconstructed-neutral.json"
+      ],
+      "start": 1795649723.659314,
+      "pid": 47283,
+      "exit_code": 1,
+      "end": 1795649725.090644
+    },
+    {
+      "name": "Reconstructed-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Cycle/Reconstructed.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-03/Reconstructed-native.json"
+      ],
+      "start": 1795649725.0911272,
+      "pid": 47284,
+      "exit_code": 0,
+      "end": 1795649726.641245
+    },
+    {
+      "case": "holdout-04",
+      "mode": "independent-depth-edit",
+      "start": 1795649726.642376,
+      "job": "a675f8a8c5f80e6311fa40532dce958c",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649757.852534
+    },
+    {
+      "name": "TypedCycle",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/RecoveredNative/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Edit/EditedDepth.f3d",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Cycle"
+      ],
+      "start": 1795649757.8536818,
+      "pid": 48500,
+      "exit_code": 0,
+      "end": 1795649759.176765
+    },
+    {
+      "case": "holdout-04",
+      "mode": "edited-typed-reconstruction",
+      "start": 1795649759.177619,
+      "job": "ef57e21ebacc282f87e24042f0f1b1f2",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649790.2854478
+    },
+    {
+      "name": "Edited-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Edit/EditedDepth.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Edited-neutral.json"
+      ],
+      "start": 1795649790.286904,
+      "pid": 49759,
+      "exit_code": 1,
+      "end": 1795649792.4037042
+    },
+    {
+      "name": "Edited-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Edit/EditedDepth.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Edited-native.json"
+      ],
+      "start": 1795649792.404295,
+      "pid": 49874,
+      "exit_code": 0,
+      "end": 1795649797.07455
+    },
+    {
+      "name": "Reconstructed-neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Cycle/Reconstructed.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Reconstructed-neutral.json"
+      ],
+      "start": 1795649797.076443,
+      "pid": 49948,
+      "exit_code": 1,
+      "end": 1795649802.5387032
+    },
+    {
+      "name": "Reconstructed-native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Cycle/Reconstructed.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-04/Reconstructed-native.json"
+      ],
+      "start": 1795649802.5402172,
+      "pid": 50481,
+      "exit_code": 0,
+      "end": 1795649811.8068101
+    },
+    {
+      "case": "holdout-05",
+      "mode": "independent-depth-edit",
+      "start": 1795649811.8147452,
+      "job": "c21d0990647f0221b1d2eb1c6a0a9f7b",
+      "status": "completed",
+      "measurement": "measured",
+      "end": 1795649843.425695
+    },
+    {
+      "name": "TypedCycle",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/RecoveredNative/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-05/Edit/EditedDepth.f3d",
+        "<campaign-output>/RecoveredNative/DepthSurvival/holdout-05/Cycle"
+      ],
+      "start": 1795649843.43462
+    }
+  ]
+}

@@ -1,12 +1,44 @@
 from __future__ import annotations as Annotations
-from convert.adapters.solidworks.Core.NativeOperand import NativeOperand as NativeOperand
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
+)
+from convert.adapters.solidworks.Core.Records.ReadPlanePose import ReadPlanePose
+from convert.adapters.solidworks.Core.Records.ReadPlaneOwner import ReadPlaneOwner
+from convert.adapters.solidworks.Core.Records.ReadLocalOwner import ReadLocalOwner
+from convert.adapters.solidworks.Container.Archive import (
+    ArchiveError,
+    KClassRefKind,
+    ReadTag,
+)
+from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
+from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
+from convert.adapters.solidworks.Core.Records.NativeClass import NativeClass
+from convert.adapters.solidworks.Core.Records.NativeName import NativeName
+from convert.adapters.solidworks.Core.NativeOperand import (
+    NativeOperand as NativeOperand,
+)
+from convert.adapters.solidworks.Core.Dimensions.BindCounts import BindCounts
+from convert.adapters.solidworks.Core.Dimensions.PatternPairs import PatternPairs
+from convert.adapters.solidworks.Core.Dimensions.ReadPairLength import ReadPairLength
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as NativeScalar
-from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
+from convert.adapters.solidworks.Core.NativeDimension import (
+    NativeDimension as NativeDimension,
+)
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
+from convert.adapters.solidworks.Core.BindMirrorField import (
+    BindMirrorField,
+    KMirroredFields,
+)
 from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
 from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
+from interchange.geometry.Models.Transform import Transform
+from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
+from convert.adapters.solidworks.Core.Dimensions.FeatureCounts import FeatureCounts
+from convert.adapters.solidworks.Core.Dimensions.ProjectCounts import ProjectCounts
+from collections import Counter
 from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 from io import StringIO
@@ -27,7 +59,7 @@ from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.base.SafeParsing import CheckXmlDoctype
 from convert.adapters.solidworks.Container.Container import SldprtFormatError
-from convert.adapters.solidworks.Container.PlaneBasis import IsOrthonormal, MatrixAxes
+from convert.adapters.solidworks.Container.PlaneBasis import IsOrthonormal
 from convert.adapters.solidworks.Container.Format import (
     ASSEMBLY_SUFFIX as AsmSuffix,
     CANONICAL_PLANE_FEATURE_TYPE as CanonicalPlaneFeatureType,
@@ -127,29 +159,14 @@ KSketchPlaneIdRelative = 209
 # this binding exists because shared behavior needs one stable value
 KSketchPlaneRefPrefix = bytes.fromhex("50460000")
 
-# this binding exists because shared behavior needs one stable value
+# supported component generations delimit the principal reference before its variable timestamp
+KSketchPlaneRefPrefixes = (KSketchPlaneRefPrefix, bytes.fromhex("384a0000"))
+
+# the historical timestamp stays available for compatibility callers without constraining native decoding
 KSketchPlaneRefTag = bytes.fromhex("f65a1a69")
 
 # this binding exists because shared behavior needs one stable value
-KSketchPlaneAxisDelta = 10
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneBasisFlagDelA = 14
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneBasisDelta = 15
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneBasisBytes = 72
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneAxisComplemeA = 5
-
-# this binding exists because shared behavior needs one stable value
 KSketchPlaneScanBytes = 320
-
-# this binding exists because shared behavior needs one stable value
-KPrincipalPlaneObjectIds = frozenset({2, 3, 4})
 
 
 # this binding exists because shared behavior needs one stable value
@@ -241,6 +258,7 @@ class DecodeState:
     LatestOperation: NativeOperation | None
     LatestPlaneId: int
     LatestUnframed: int | None
+    PlaneOwners: dict[int, tuple[int, int, int] | None]
 
 
 # plane state handling preserves the latest framed support context
@@ -256,8 +274,16 @@ def ApplyPlaneMut(StateData: DecodeState, Feature: NativeFeature) -> None:
 def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
     SketchStart = Feature.native_offset or 0
     SketchEnd = Feature.native_end or len(StateData.Resolved)
+    if 0 not in StateData.PlaneOwners:
+        StateData.PlaneOwners[0] = ReadPlaneOwner(
+            StateData.Resolved, StateData.Classes, SketchStart
+        )
     RefValue = SketchPlaneRef(
-        StateData.Resolved, StateData.Classes, SketchStart, SketchEnd
+        StateData.Resolved,
+        StateData.Classes,
+        SketchStart,
+        SketchEnd,
+        StateData.PlaneOwners,
     )
     Support, SupportSource, UnframedSupport = SupportPlaneRef(
         StateData.Resolved,
@@ -967,35 +993,6 @@ def DecodeTreeMut(StateData: DecodeState, Author: Sequence[NativeFeature]) -> No
 
 # this definition exists because focused behavior needs one stable owner
 @Dataclass(frozen=True, slots=True)
-class NativeName:
-    offset: int
-    text_end: int
-    name: str
-    object_id: int | None
-    class_token: int
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeClass:
-    offset: int
-    name: str
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeRule:
-    id: str
-    kind: str
-    references: tuple[str, ...]
-    parameter: str | None
-    value: float | None
-    native_offset: int | None
-    native_code: int | None
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
 class NativeProfile:
     kind: str
     coordinates: tuple[float, ...]
@@ -1069,6 +1066,8 @@ class NativeSketch:
     unframed_support_plane_id: int | None = None
     rectangle: RectanglePart | None = None
     rectangle_geometry_stream: str | None = None
+    TypedLines: LineLoop | None = None
+    TypedFrame: Transform | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1206,17 +1205,6 @@ class NativeModelA:
     configuration_name: str
     document_path: str
     objects: tuple[tuple[int, str], ...]
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(slots=True)
-class XmlFeature:
-    object_id: int
-    name: str
-    kind: str
-    xml_tag: str
-    properties: dict[str, str]
-    dimensions: list[NativeDimension]
 
 
 # this binding exists because shared behavior needs one stable value
@@ -1428,6 +1416,14 @@ def RecordOffset(Record: NativeName) -> int:
     return Record.offset
 
 
+# public instance count spans must have multiple independently learned copies in the same feature
+KFeatureCountCopies: tuple[int, ...] = ()
+
+
+# each handle displacement requires replay on independent inputs
+KSketchCountOffsets: dict[str, int] = {}
+
+
 # native feature construction owns scalar binding and stream span recovery
 def BuildNativeList(
     XmlFeatures: list[XmlFeature],
@@ -1456,6 +1452,12 @@ def BuildNativeList(
         )
         for Index, Record in enumerate(OrderedRecords)
     }
+    Pairs = PatternPairs(Resolved, XmlFeatures, Names, Classes)
+    SketchCounts = {(Owner, ParamName) for Owner, ParamName, *_ in Pairs}
+    Counts = (
+        BindCounts(Resolved, Pairs, KSketchCountOffsets) if KSketchCountOffsets else {}
+    )
+    Counts.update(FeatureCounts(Resolved, XmlFeatures, Names, KFeatureCountCopies))
     ScalarOwner = ScalarOwners(Scalars, OrderedRecords, EndsValue)
     InchByOwner = (
         {OwnerId: IndexInch(Owned) for OwnerId, Owned in ScalarOwner.items()}
@@ -1476,7 +1478,66 @@ def BuildNativeList(
                 for ItemValue in Semantic(Feature.kind, tuple(Feature.dimensions))
             )
         )
+        if (
+            Feature.kind == "Sketch"
+            and Record
+            and Record.name == Feature.name
+            and Display
+            and Display.UnitName == "mm"
+        ):
+            Occurrences = Counter(Entry.name for Entry in Dimensions)
+            ScalarsByName = IndexInch(Owned)
+            Dimensions = tuple(
+                (
+                    ReadPairLength(
+                        Dimension,
+                        ScalarsByName.get(Dimension.name, ()),
+                        Display,
+                        ResolvedStream,
+                    )
+                    if Occurrences[Dimension.name] == 1
+                    else Dimension
+                )
+                for Dimension in Dimensions
+            )
+        Dimensions = ProjectCounts(
+            Dimensions, Counts, SketchCounts, Feature.object_id, ResolvedStream
+        )
         NativeEnd = EndsValue.get(Record.offset) if Record is not None else None
+        if (
+            KMirroredFields
+            and Record
+            and Record.name == Feature.name
+            and NativeEnd is not None
+        ):
+            Dimensions = tuple(
+                (
+                    BindMirrorField(
+                        Resolved,
+                        NativeEnd,
+                        ResolvedStream,
+                        RawDimension,
+                        Bound,
+                        Owned,
+                        Copies,
+                        Display,
+                    )
+                    if (
+                        Copies := KMirroredFields.get(
+                            (Feature.kind, RawDimension.name, RawDimension.kind)
+                        )
+                    )
+                    and sum(
+                        ItemValue.name == RawDimension.name
+                        for ItemValue in Feature.dimensions
+                    )
+                    == 1
+                    else Bound
+                )
+                for RawDimension, Bound in zip(
+                    Feature.dimensions, Dimensions, strict=True
+                )
+            )
         NativeFeatures.append(
             NativeFeature(
                 object_id=Feature.object_id,
@@ -1596,6 +1657,7 @@ def CreateState(
         None,
         LatestPlaneId,
         None,
+        {},
     )
     return (StateData, Author, Planes, UnframedPlanes)
 
@@ -1811,7 +1873,9 @@ def ParseKeywords(
             if TagValue != "Feature"
             else ElemValue.attrib.get("Type", "Feature")
         )
-        if KindValue.casefold() in PlaneFeatureTypes:
+        if KindValue.casefold() in PlaneFeatureTypes or (
+            TagValue == "Feature" and KindValue == "moRefPlane_c"
+        ):
             KindValue = CanonicalPlaneFeatureType.title()
         NameValue = ElemValue.attrib.get("Name", "")
         Dimensions = [
@@ -2408,7 +2472,10 @@ def PrincipalPlaneA(
 
 # this definition exists because focused behavior needs one stable owner
 def IsOriginFeature(Feature: NativeFeature) -> bool:
-    return Feature.properties.get("Type", "").casefold() == "origin"
+    return Feature.properties.get("Type", "").casefold() in {
+        "origin",
+        "mooriginprofilefeature_c",
+    }
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2552,61 +2619,83 @@ def SupportPlaneRef(
 
 # this definition exists because focused behavior needs one stable owner
 def SketchPlaneRef(
-    DataValue: bytes, Classes: tuple[NativeClass, ...], Start: int, EndValue: int
+    DataValue: bytes,
+    Classes: tuple[NativeClass, ...],
+    Start: int,
+    EndValue: int,
+    OwnerCache: Mapping[int, tuple[int, int, int] | None] | None = None,
 ) -> NativeSketchA | None:
+    OwnerValue = (
+        ReadPlaneOwner(DataValue, Classes, Start)
+        if OwnerCache is None
+        else OwnerCache[0]
+    )
+    if OwnerValue is None:
+        return None
     for Record in Classes:
         if Record.name != SketchChainClass or not Start <= Record.offset < EndValue:
             continue
         Anchored = ReadSketchPlane(
-            DataValue, Record.offset + KSketchPlaneIdRelative, EndValue
+            DataValue,
+            Record.offset + KSketchPlaneIdRelative,
+            EndValue,
+            OwnerValue,
+            Start,
         )
         if Anchored is not None:
             return Anchored
-    for Offset in FindAll(DataValue, KSketchPlaneRefPrefix, Start, EndValue):
+    Offsets = sorted(
+        Offset
+        for Prefix in KSketchPlaneRefPrefixes
+        for Offset in FindAll(DataValue, Prefix, Start, EndValue)
+    )
+    for Offset in Offsets:
         Scanned = ReadSketchPlane(
-            DataValue, Offset + len(KSketchPlaneRefPrefix), EndValue
+            DataValue, Offset + len(KSketchPlaneRefPrefix), EndValue, OwnerValue, Start
         )
         if Scanned is not None:
             return Scanned
     return None
 
 
-# this definition exists because focused behavior needs one stable owner
+# native support identities need the complete bounded pose rather than a sampled timestamp
 def ReadSketchPlane(
-    DataValue: bytes, Offset: int, EndValue: int
+    DataValue: bytes,
+    Offset: int,
+    EndValue: int,
+    OwnerValue: tuple[int, int, int],
+    StartValue: int,
 ) -> NativeSketchA | None:
-    if Offset < 0 or Offset + KSketchPlaneBasisDelta > EndValue:
+    if Offset - 87 < StartValue:
         return None
-    PlaneObjectId = Struct.unpack_from("<I", DataValue, Offset)[0]
-    if PlaneObjectId not in KPrincipalPlaneObjectIds:
+    try:
+        TagValue = ReadTag(DataValue, Offset - 87)
+    except ArchiveError:
         return None
-    if DataValue[Offset + 4 : Offset + 8] != KSketchPlaneRefTag:
+    if TagValue.kind != KClassRefKind or TagValue.wide or TagValue.index == 0:
         return None
-    if DataValue[Offset + 8 : Offset + KSketchPlaneAxisDelta] != b"\x00\x00":
+    if ReadLocalOwner(DataValue, Offset - 85, EndValue) != (*OwnerValue, Offset):
         return None
-    AxisCode = Struct.unpack_from("<I", DataValue, Offset + KSketchPlaneAxisDelta)[0]
-    if AxisCode != KSketchPlaneAxisComplemeA - PlaneObjectId:
+    if Offset + 4 > EndValue or Struct.unpack_from("<i", DataValue, Offset)[0] not in (
+        2,
+        3,
+        4,
+    ):
         return None
-    FlagValue = DataValue[Offset + KSketchPlaneBasisFlagDelA]
-    BasisOffset = Offset + KSketchPlaneBasisDelta
-    if FlagValue == 0:
-        return NativeSketchA(
-            Offset,
-            PlaneObjectId,
-            AxisCode,
-            KIdentityBasis[0],
-            KIdentityBasis[1],
-            KIdentityBasis[2],
-            None,
+    PoseValue = ReadPlanePose(DataValue, Offset, EndValue, OwnerValue, StartValue)
+    if PoseValue is None:
+        raise ArchiveError("invalid owned SOLIDWORKS principal sketch reference")
+    PlaneObjectId, AxisCode, Directions, BasisOffset = PoseValue
+    CanonicalFrame = PrincipalFrame("xyz"[AxisCode - 1])
+    if Directions != (
+        CanonicalFrame.AxisU,
+        CanonicalFrame.AxisV,
+        CanonicalFrame.NormalValue,
+    ):
+        raise ArchiveError(
+            "unsupported in-plane rotation of SOLIDWORKS principal sketch"
         )
-    if FlagValue != 1 or BasisOffset + KSketchPlaneBasisBytes > EndValue:
-        return None
-    RowsValue = Struct.unpack_from("<9d", DataValue, BasisOffset)
-    if not all((MathValue.isfinite(Value) for Value in RowsValue)):
-        return None
-    UAxis, VAxis, Normal = MatrixAxes(RowsValue)
-    if not IsOrthonormal((UAxis, VAxis, Normal)):
-        return None
+    UAxis, VAxis, Normal = Directions
     return NativeSketchA(
         Offset,
         PlaneObjectId,
@@ -4011,7 +4100,10 @@ def Constraints(
                 )
             )
     for Dimension in Feature.dimensions:
-        if Dimension.name in RadialParameters:
+        if Dimension.name in RadialParameters or Dimension.kind in {
+            "instance_count",
+            "sketch_pattern_count",
+        }:
             continue
         Constraints.append(
             NativeRule(
@@ -4337,7 +4429,15 @@ def DimensionValue(
     Dimensions: tuple[NativeDimension, ...], Semantic: str
 ) -> float | None:
     return next(
-        (Dimension.value_mm for Dimension in Dimensions if Dimension.kind == Semantic),
+        (
+            (
+                CountValue(Dimension)
+                if Semantic == "instance_count"
+                else Dimension.value_mm
+            )
+            for Dimension in Dimensions
+            if Dimension.kind == Semantic
+        ),
         None,
     )
 
@@ -4549,7 +4649,6 @@ _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variab
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variable]
-
 
 
 # this binding exists because shared behavior needs one stable value

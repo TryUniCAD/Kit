@@ -1,0 +1,1675 @@
+{
+  "files": 111,
+  "cuboid_measurements_match": 15,
+  "mismatches": 96,
+  "full_semantics_verified": false,
+  "native_conversion_acceptance": false,
+  "note": "bounding box volume and midpoint comparisons apply only to this independently authored ordinary cuboid family; no explicit neutral volume or surface area property is present",
+  "entries": [
+    {
+      "case": "solidworks-060",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-060-restart/Native/control-before.SLDPRT",
+      "sha256": "1dda4997ceb928a3875ada1dd2082bc24d8120d14af14805d469e04fd86754d2",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-060",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-060-restart/Native/control-after.SLDPRT",
+      "sha256": "5e85fcad3eefa762f6b7785443835b711192bbaecf61cb5c274fc473c4c3c4ab",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-060",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-060-restart/Native/variation.SLDPRT",
+      "sha256": "79be480b8d8b4a433d6cc95bf216544f6a16aea284f0861e96fb8ea89f314758",
+      "native_volume_mm3": 3200.0000000000005,
+      "requested_volume_mm3": 3200,
+      "neutral_bounding_box_volume_mm3": 3200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -2.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-061",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-061-restart/Native/control-before.SLDPRT",
+      "sha256": "afc9fcbcf8cbe3fc084a552734a268d83b32636ca648945cce28a43973a0cb20",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-061",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-061-restart/Native/control-after.SLDPRT",
+      "sha256": "b7102dd89dd6b96b01757ab93ecad7e8cdeff7a76118ba742f753a853a611637",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-061",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-061-restart/Native/variation.SLDPRT",
+      "sha256": "35f6918a6abc9ddf8b8e7bc69f7360df6aeaf0bd5e008294aa6946fd55072713",
+      "native_volume_mm3": 15200.000000000002,
+      "requested_volume_mm3": 15200,
+      "neutral_bounding_box_volume_mm3": 15200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -9.5
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-062",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-062-restart/Native/control-before.SLDPRT",
+      "sha256": "647cc45002f94b3ee3f96bc27eba565f15cc7d1473afc9029382bbd9292f1679",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-062",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-062-restart/Native/control-after.SLDPRT",
+      "sha256": "18754acbe01da28ee916cdad9d1cd092d4adff5c321b436ccbec7b819e3cb3eb",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-062",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-062-restart/Native/variation.SLDPRT",
+      "sha256": "e2e69d22509d2627f2b06050a6221fc9eccb0ebfca4e9163ad78f6c9e3777513",
+      "native_volume_mm3": 6200.0,
+      "requested_volume_mm3": 6200,
+      "neutral_bounding_box_volume_mm3": 6200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        15.5,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-063",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-063-restart/Native/control-before.SLDPRT",
+      "sha256": "dcd48e3032be86cc677ceeb982f5a822a0e33d3b56380fe24d5df8e0a2c2dc09",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-063",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-063-restart/Native/control-after.SLDPRT",
+      "sha256": "fe4e6beec2c7349b87d3dd0abe03d47a95a2df513af9e484e0588ce719eac574",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-063",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-063-restart/Native/variation.SLDPRT",
+      "sha256": "9404b625eb6b0900bfc4c94fc6c5d6ef0011457ce346e5078d568c835a4a07e7",
+      "native_volume_mm3": 11600.000000000002,
+      "requested_volume_mm3": 11600,
+      "neutral_bounding_box_volume_mm3": 11600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        14.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-064",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-064-restart/Native/control-before.SLDPRT",
+      "sha256": "9d3a168a14cb0dd589f501511f13ec682040d46086753c30d401524b9e1d9f64",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-064",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-064-restart/Native/control-after.SLDPRT",
+      "sha256": "c2da8805532f01288c6c06b551b83ed1192f46500c085b78453ebd9b6ec3f371",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-064",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-064-restart/Native/variation.SLDPRT",
+      "sha256": "88e9b8bdab7329ec9cf9738b9c8e49e0a9ef492c990efdc33a06cd684f4c3f22",
+      "native_volume_mm3": 4600.0,
+      "requested_volume_mm3": 4600,
+      "neutral_bounding_box_volume_mm3": 4600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        11.5,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-065",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-065-restart/Native/control-before.SLDPRT",
+      "sha256": "aef80ca8a8ed59d733f2f93bf84e97fc6b12134b6bae87b3c98906009dade7ba",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-065",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-065-restart/Native/control-after.SLDPRT",
+      "sha256": "6f8425b29f1c5582e9053529b7b9cdd4b7084b95ade6b8d07f35207a7acd14a9",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-065",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-065-restart/Native/variation.SLDPRT",
+      "sha256": "c288a8f09c7238ec26f0f7f8340bcdb70e3cfe1adb633f88ea71348b88f07771",
+      "native_volume_mm3": 11400.000000000002,
+      "requested_volume_mm3": 11400,
+      "neutral_bounding_box_volume_mm3": 11400.0,
+      "neutral_bounding_box_midpoint_mm": [
+        28.5,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-066",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-066-restart/Native/control-before.SLDPRT",
+      "sha256": "c644a4e94ab026373d6617827d5fe9da489eef1269d58ed3e9357b7c3a149f77",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-066",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-066-restart/Native/control-after.SLDPRT",
+      "sha256": "b30646bfd4fe770d58a32faa60c9bd8c0f2b51ae8a71064d35a804d47ee65cab",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-066",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-066-restart/Native/variation.SLDPRT",
+      "sha256": "2953942d08a729d38b9842d1226aff3c74682f91b7689cbbe157fca494629c26",
+      "native_volume_mm3": 5199.999999999999,
+      "requested_volume_mm3": 5200,
+      "neutral_bounding_box_volume_mm3": 5200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        6.5,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-067",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-067-restart/Native/control-before.SLDPRT",
+      "sha256": "85f57e80b681ac75a1127ed8abf553fd59b80b4816be0b0c651f567fde6238c2",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-067",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-067-restart/Native/control-after.SLDPRT",
+      "sha256": "24f233cd4e25542ebe24f4114b017bd7ec52dec001731dc2b8cbd7b93d15b427",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-067",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-067-restart/Native/variation.SLDPRT",
+      "sha256": "c1085720fefa58934ec307192c8ff3cbc236d8254f1263d6706d394ef37e3683",
+      "native_volume_mm3": 14799.999999999998,
+      "requested_volume_mm3": 14800,
+      "neutral_bounding_box_volume_mm3": 14800.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        18.5,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-069",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-069-restart/Native/control-before.SLDPRT",
+      "sha256": "ee474af31741fe1698911ec9b3c12bbc20870aa14e430f3268cbffe04839ef05",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-069",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-069-restart/Native/control-after.SLDPRT",
+      "sha256": "46660387d289165111a0539820c1f5e4bf0fcf532f48007923420e68159ba256",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-069",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-069-restart/Native/variation.SLDPRT",
+      "sha256": "ad407c2f22e4839683101e0162765952a8db088cba4448458487372e380c1751",
+      "native_volume_mm3": 15200.000000000002,
+      "requested_volume_mm3": 15200,
+      "neutral_bounding_box_volume_mm3": 15200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        9.5
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-070",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-070-restart/Native/control-before.SLDPRT",
+      "sha256": "e873f95ae9f2a7b6da84307125e2dd233d83f8b80dd78298115d1945a06f058e",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-070",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-070-restart/Native/control-after.SLDPRT",
+      "sha256": "bef56a9d3060ebc41513aa5fc16b513da78fedbcb5cb3b7d7f9eba56036c7ff2",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-070",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-070-restart/Native/variation.SLDPRT",
+      "sha256": "142d21eb7da20b505e57bf076e8335b5204e25b8ea866c9fa522514968d75236",
+      "native_volume_mm3": 6200.0,
+      "requested_volume_mm3": 6200,
+      "neutral_bounding_box_volume_mm3": 6200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        15.5,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-071",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-071-restart/Native/control-before.SLDPRT",
+      "sha256": "0865d228dfd69e7a246ca7cccefe682b70e6376df22e7ce03b6c4eae7498fe00",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-071",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-071-restart/Native/control-after.SLDPRT",
+      "sha256": "2033ac1e8c1466467b7808f6588be7672c8ddf675735154e4f1e9cc736d0383d",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-071",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-071-restart/Native/variation.SLDPRT",
+      "sha256": "113a9a5ce49f06e2bf8a473097f478a019a065170fe04fd4d099a9d053259a43",
+      "native_volume_mm3": 11600.000000000002,
+      "requested_volume_mm3": 11600,
+      "neutral_bounding_box_volume_mm3": 11600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        14.5,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-072",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-072-restart/Native/control-before.SLDPRT",
+      "sha256": "5aff140cbf4a32f04d07336fa2b421401b6f87c862ec7823a13da0f4eb16ea0f",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-072",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-072-restart/Native/control-after.SLDPRT",
+      "sha256": "5abac8873bbd3d6ceccbbac63607a2fc3c992768d6cb2010c5c389cab2a3dfcb",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-072",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-072-restart/Native/variation.SLDPRT",
+      "sha256": "f47c71f04b943ddc279601db9a549ba7ee8977555df81bae5016fd72fd9d04df",
+      "native_volume_mm3": 4600.0,
+      "requested_volume_mm3": 4600,
+      "neutral_bounding_box_volume_mm3": 4600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        11.5,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-073",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-073-restart/Native/control-before.SLDPRT",
+      "sha256": "c0f531b249efe604474948d5fa42f0670632afce36781aa16d97cf7e10d4fdaa",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-073",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-073-restart/Native/control-after.SLDPRT",
+      "sha256": "0e8b2d941e7e698dda83a1f9398064174e1ef59b334973a878376093c858de24",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-073",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-073-restart/Native/variation.SLDPRT",
+      "sha256": "99736f720369610cc53b08e0eb0b31aa6c0435ba1f4bd8a065eb73eb1dd6c8e0",
+      "native_volume_mm3": 11400.000000000002,
+      "requested_volume_mm3": 11400,
+      "neutral_bounding_box_volume_mm3": 11400.0,
+      "neutral_bounding_box_midpoint_mm": [
+        28.5,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-074",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-074-restart/Native/control-before.SLDPRT",
+      "sha256": "cdd31bd5fb1266d33dbfa5da185eed1f06cf77634b63c2521c85a808c0152925",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-074",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-074-restart/Native/control-after.SLDPRT",
+      "sha256": "5476b45de148cf0aa7067f799d0ac6612ca5b9ee9da7c45fb1ad26a1aa98208a",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-074",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-074-restart/Native/variation.SLDPRT",
+      "sha256": "59395be0cc3e2c8f2a567788e56b1e5342bb5a37eff646f18a7078a209baed9e",
+      "native_volume_mm3": 5199.999999999999,
+      "requested_volume_mm3": 5200,
+      "neutral_bounding_box_volume_mm3": 5200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        6.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-075",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-075-restart/Native/control-before.SLDPRT",
+      "sha256": "f383e576ec3d362ec83f9a5abd82c13c2da335222675cc9bbf4c8bfa49b0d1a2",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-075",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-075-restart/Native/control-after.SLDPRT",
+      "sha256": "d36d4dcd4d93c19d0e1a4ed6aa2a4ffab46f4f913ee6a4dc1988d4353620be36",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-075",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-075-restart/Native/variation.SLDPRT",
+      "sha256": "fc891a66dbfe8ab84ba34f21969dff22fc5d5c0fda965bdcdf661441e93936e3",
+      "native_volume_mm3": 14799.999999999998,
+      "requested_volume_mm3": 14800,
+      "neutral_bounding_box_volume_mm3": 14800.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        18.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-076",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-076-restart/Native/control-before.SLDPRT",
+      "sha256": "e2ea643c1ff677b169bb7593828b7ea7f23040883367684915ce1d86412b2236",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-076",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-076-restart/Native/control-after.SLDPRT",
+      "sha256": "34b9831c0fea2655a1fbf092673707b39e10567194c9b1e2c090dda771f2c59e",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-076",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-076-restart/Native/variation.SLDPRT",
+      "sha256": "4d375345a9cde101763180986de1e46e28a96d0c45456bb5528184f05bbb05bb",
+      "native_volume_mm3": 3200.0000000000005,
+      "requested_volume_mm3": 3200,
+      "neutral_bounding_box_volume_mm3": 3200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -2.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-077",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-077-restart/Native/control-before.SLDPRT",
+      "sha256": "d6d375d7fd97a2fa32ee88db3599e7232001b39726495173efff2db8280bb42d",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-077",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-077-restart/Native/control-after.SLDPRT",
+      "sha256": "99e29d617e238f8c71a29281eb9f750ae58b50a05066f8583ed144636f79d11f",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-077",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-077-restart/Native/variation.SLDPRT",
+      "sha256": "2cce60892b8f87e9f24d08f5d4b05233063372247a292a9c5c2f41f6dbc93c0d",
+      "native_volume_mm3": 15200.000000000002,
+      "requested_volume_mm3": 15200,
+      "neutral_bounding_box_volume_mm3": 15200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -9.5
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-078",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-078-restart/Native/control-before.SLDPRT",
+      "sha256": "9f035942101f91182b144fb9972dfbf072407cf8d5e5d00febf5e3437abb9ae6",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-078",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-078-restart/Native/control-after.SLDPRT",
+      "sha256": "f09738f85e84bc1316d6d73907abdfc920d11fed71e6effa09ee14a0d4b6aaf5",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-078",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-078-restart/Native/variation.SLDPRT",
+      "sha256": "3c256bcd0406126a0dd97744ad19bc388f2f12c4c16b6b009b7076c62cf79000",
+      "native_volume_mm3": 6200.0,
+      "requested_volume_mm3": 6200,
+      "neutral_bounding_box_volume_mm3": 6200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        15.5,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-079",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-079-restart/Native/control-before.SLDPRT",
+      "sha256": "510bd39b42e77bd4ba3b9225c5878507c2fa0c0af9727ccd3238da2bbc7afc14",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-079",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-079-restart/Native/control-after.SLDPRT",
+      "sha256": "1b4f210644c2c51884052d254255a34794090dae3c6ac2511cb2c7a7ad024b3b",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-079",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-079-restart/Native/variation.SLDPRT",
+      "sha256": "7f51570ea013ff4a3a847ebb6017a40a7bde3cb0d203ddad02d1f8001e41e6e0",
+      "native_volume_mm3": 11600.000000000002,
+      "requested_volume_mm3": 11600,
+      "neutral_bounding_box_volume_mm3": 11600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        14.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-080",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/Native/control-before.SLDPRT",
+      "sha256": "2c8b2ac6e9ccd4f843f80b47a6ab5fb4077cab9aab01631c0b854b3be45303b2",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-080",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/Native/control-after.SLDPRT",
+      "sha256": "15314077c939299b4aeaf8dcc9144abec313e6783b533996110ec0696cee568c",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-080",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/Native/variation.SLDPRT",
+      "sha256": "0dbb277ba2291ea14a837c58ffaf8fa6c652da318d7f5aa4a7341eb8ef079433",
+      "native_volume_mm3": 4600.0,
+      "requested_volume_mm3": 4600,
+      "neutral_bounding_box_volume_mm3": 4600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        11.5,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-081",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-081-restart/Native/control-before.SLDPRT",
+      "sha256": "c78ac07d0e0a2e06caa7b44cbe20e3ada93972a6720c47e6e8398a52153694c8",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-081",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-081-restart/Native/control-after.SLDPRT",
+      "sha256": "77bece026063b3db42d5b00c06dfed9f8dbfd0ecd8105cb85d223bea313859a6",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-081",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-081-restart/Native/variation.SLDPRT",
+      "sha256": "6ea808a5a8c137de5b1d81784570e4f12bbe2548fc37c0a50f25ebe9725d008b",
+      "native_volume_mm3": 11400.000000000002,
+      "requested_volume_mm3": 11400,
+      "neutral_bounding_box_volume_mm3": 11400.0,
+      "neutral_bounding_box_midpoint_mm": [
+        28.5,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-082",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-082-restart/Native/control-before.SLDPRT",
+      "sha256": "f60f06b2ce715b209cd0bef409036436042e5052eb39bda41e1379bcb5536fd2",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-082",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-082-restart/Native/control-after.SLDPRT",
+      "sha256": "e999c6bed8b4743ad7db4f423425169273b66e251028a3ec493238151eab8fcc",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-082",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-082-restart/Native/variation.SLDPRT",
+      "sha256": "52573b9f95a23b7b597fab120534d7b369c551913fa8008f008513dffd25c8e0",
+      "native_volume_mm3": 5199.999999999999,
+      "requested_volume_mm3": 5200,
+      "neutral_bounding_box_volume_mm3": 5200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        6.5,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-083",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-083-restart/Native/control-before.SLDPRT",
+      "sha256": "2a16e2a5518c4cc0653294b4d170b27555b7d437e5de74565ba882e19d1c87c8",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-083",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-083-restart/Native/control-after.SLDPRT",
+      "sha256": "1a8ef7b65627ebd75fca13b8057b0ede9ed4ed1242ec339bd636a7dce1c24cab",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-083",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-083-restart/Native/variation.SLDPRT",
+      "sha256": "22e12aa582b5e3c7e9ed1020db0f86081494413672a2a3241a74ae7899b0c601",
+      "native_volume_mm3": 14799.999999999998,
+      "requested_volume_mm3": 14800,
+      "neutral_bounding_box_volume_mm3": 14800.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        18.5,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-084",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-084-restart/Native/control-before.SLDPRT",
+      "sha256": "5439fabd4da45bee6ebce3e6c4b565bd2142172462d09397a5f50bea0a491036",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-084",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-084-restart/Native/control-after.SLDPRT",
+      "sha256": "3f83e01bce1d1dd079cbc348767eaf32dd8045632b4cb348c06175d7406250af",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-084",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-084-restart/Native/variation.SLDPRT",
+      "sha256": "16dbeca98a0ee33ceb6873b8710364a9b7e433c6c3a3270e411b17e39067cd14",
+      "native_volume_mm3": 3200.0000000000005,
+      "requested_volume_mm3": 3200,
+      "neutral_bounding_box_volume_mm3": 3200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        2.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-085",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-085-restart/Native/control-before.SLDPRT",
+      "sha256": "26db46300ef7600e8608ff2f44fad2462d3f85a530e395812b14a5d28b062ad7",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-085",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-085-restart/Native/control-after.SLDPRT",
+      "sha256": "826eb5029f08ee43354c0292cfce2c1e35f52b22e34f06bc3d050de15c833cf5",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-085",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-085-restart/Native/variation.SLDPRT",
+      "sha256": "7b3ae4ba62d700583d59fd54875c634ffd0845f3addc3a1af8a9c80802d154eb",
+      "native_volume_mm3": 15200.000000000002,
+      "requested_volume_mm3": 15200,
+      "neutral_bounding_box_volume_mm3": 15200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        9.5
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-086",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-086-restart/Native/control-before.SLDPRT",
+      "sha256": "9f4cadabb13b01bb96bb43060250c9b79b4eedb9ebe839f1da45453bc9f46751",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-086",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-086-restart/Native/control-after.SLDPRT",
+      "sha256": "9807091d342bc1bac02918116941f3637b8cefccd4c4aa77514d4e7a43dde7af",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-086",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-086-restart/Native/variation.SLDPRT",
+      "sha256": "c7dfac317b42b6ea86d2c96581e50c12f121f5f88d08863c1a42e96f97bd5966",
+      "native_volume_mm3": 6200.0,
+      "requested_volume_mm3": 6200,
+      "neutral_bounding_box_volume_mm3": 6200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        15.5,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-087",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-087-restart/Native/control-before.SLDPRT",
+      "sha256": "c71eafb3ccf9467f7caff69742e6e5920b43aee61facf4013260a90a31160525",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-087",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-087-restart/Native/control-after.SLDPRT",
+      "sha256": "c7c6aa1e8d2c6c1747ede6e626820ad3fa8b4afa8027cc6dc28f5f7ad322806f",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-087",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-087-restart/Native/variation.SLDPRT",
+      "sha256": "96199df535704de7523ac3dbc81e91923b397c8cb7d80bbcb3df254717c4ec9b",
+      "native_volume_mm3": 11600.000000000002,
+      "requested_volume_mm3": 11600,
+      "neutral_bounding_box_volume_mm3": 11600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        14.5,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-088",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-088-restart/Native/control-before.SLDPRT",
+      "sha256": "b7708fa5385841d4d0abb304fc5540ed7370b029658b55d8ba668215186fa4cd",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-088",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-088-restart/Native/control-after.SLDPRT",
+      "sha256": "f5fb1280efcdb0f4a1d1fb15e4cca3e1a89df2146bc3ecd7fea5aa9620bc4887",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-088",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-088-restart/Native/variation.SLDPRT",
+      "sha256": "a3c0f7e8bbab00e1ebde2981e8bededb1532690e168b5f774c2778138f64663f",
+      "native_volume_mm3": 4600.0,
+      "requested_volume_mm3": 4600,
+      "neutral_bounding_box_volume_mm3": 4600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        11.5,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-089",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-089-restart/Native/control-before.SLDPRT",
+      "sha256": "3877b0ace9b25748b2a0cbfc22588295a8b53219db38f1c4cb028c93a6b9fe25",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-089",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-089-restart/Native/control-after.SLDPRT",
+      "sha256": "32d6e8773b070098d33ad1c1700f38703abd9a5b50949a22259b5a5eb4f20b0f",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-089",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-089-restart/Native/variation.SLDPRT",
+      "sha256": "9febbe66196b00744e734ad0d5d60cd30715dcf7d25ccdb8f4a565841f988f19",
+      "native_volume_mm3": 11400.000000000002,
+      "requested_volume_mm3": 11400,
+      "neutral_bounding_box_volume_mm3": 11400.0,
+      "neutral_bounding_box_midpoint_mm": [
+        28.5,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-090",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-090-restart/Native/control-before.SLDPRT",
+      "sha256": "d0f7d31c4749ca43ee9b3a1ab5c5ff6388a37bc84465ddd6199bdca41cfab58d",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-090",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-090-restart/Native/control-after.SLDPRT",
+      "sha256": "489e91d7731f7545455c05d6de105488e1cb825e02ef06cc6b89747d88a8486e",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-090",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-090-restart/Native/variation.SLDPRT",
+      "sha256": "00aadc5849c6bad328c56a169764cce7cc38368a40abd7d92ed2ac156e2c9c8d",
+      "native_volume_mm3": 5199.999999999999,
+      "requested_volume_mm3": 5200,
+      "neutral_bounding_box_volume_mm3": 5200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        6.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-091",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-091-restart/Native/control-before.SLDPRT",
+      "sha256": "7b6f0e1ee5fda35a8224ec60f07db673fb087571aed7a1deb30d568280c8512c",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-091",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-091-restart/Native/control-after.SLDPRT",
+      "sha256": "c042b134908e5adcf4de2afb773de5270050dd3e31c22afb06ebf97ea7370e7e",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-091",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-091-restart/Native/variation.SLDPRT",
+      "sha256": "f1d734b57a58f2ea949b44745ce46b1d1ad6c261f4c80e14a8a6bc7f9961838b",
+      "native_volume_mm3": 14799.999999999998,
+      "requested_volume_mm3": 14800,
+      "neutral_bounding_box_volume_mm3": 14800.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        18.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-092",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-092-restart/Native/control-before.SLDPRT",
+      "sha256": "39e7d8af8fae990c7a63e41ad365b5a7151ab0b8ac300d5e91ffe7214ce66770",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-092",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-092-restart/Native/control-after.SLDPRT",
+      "sha256": "c8ca2515c33b1b96a71bcdcb205f03b750fe469112e470779bab542c54fcb576",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-092",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-092-restart/Native/variation.SLDPRT",
+      "sha256": "b8f8011379258253b7410c1f47bfdfd001b5b823dfe352665142beaedb43751d",
+      "native_volume_mm3": 3200.0000000000005,
+      "requested_volume_mm3": 3200,
+      "neutral_bounding_box_volume_mm3": 3200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -2.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-093",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-093-restart/Native/control-before.SLDPRT",
+      "sha256": "582871378893c554edae6c30ea856adfd4cb37e1368aa6bdaca39dfeff44cfdf",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-093",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-093-restart/Native/control-after.SLDPRT",
+      "sha256": "24967c789e3ee75eb99152d2aca2dd7b289074fa5b037a4ac6fd4fb2c417f6c7",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-093",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-093-restart/Native/variation.SLDPRT",
+      "sha256": "9f3248cfc94186c69af91dea2faa137f82212224aeb5405be8c905b66f0e4183",
+      "native_volume_mm3": 15200.000000000002,
+      "requested_volume_mm3": 15200,
+      "neutral_bounding_box_volume_mm3": 15200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -9.5
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-094",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-094-restart/Native/control-before.SLDPRT",
+      "sha256": "74f9d9e67c535affaba0a892bdf3bd126b05cc8cfd6e10db704bd35e0ffe9073",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-094",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-094-restart/Native/control-after.SLDPRT",
+      "sha256": "f045ab8507b3941bc24a5954732f3ca5e28374709d695306d9910d4c905aa9da",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-094",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-094-restart/Native/variation.SLDPRT",
+      "sha256": "1b0e968565c9fa1ad37caf3eb9fcb9619188e7176b1418516d0fe76eab12a1b5",
+      "native_volume_mm3": 6200.0,
+      "requested_volume_mm3": 6200,
+      "neutral_bounding_box_volume_mm3": 6200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        15.5,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-095",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-095-restart/Native/control-before.SLDPRT",
+      "sha256": "1d933a763a0a611f817f7db45d536d95d9439eee9cb1e89ac404bcee02d0d31e",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-095",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-095-restart/Native/control-after.SLDPRT",
+      "sha256": "d8bd947bdf4f6603223be6d64d3407db86efb1282ea6ff85e14a78ca35095f82",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-095",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-095-restart/Native/variation.SLDPRT",
+      "sha256": "68dd71b99d776977b699b05c6233215c1fe9ef63d9e1f60433438fcbaa5bc5a0",
+      "native_volume_mm3": 11600.000000000002,
+      "requested_volume_mm3": 11600,
+      "neutral_bounding_box_volume_mm3": 11600.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        14.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-059",
+      "source": "$RECOVERY/SolidWorksCanaryFiles/control-before.SLDPRT",
+      "sha256": "6ac50d21f5333d3bce325945c17ebad749f655f12ecc0e475fe5aca36b2373d9",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-059",
+      "source": "$RECOVERY/SolidWorksCanaryFiles/variation.SLDPRT",
+      "sha256": "c061b7bff9dc15f72bc2165042b8d2b78ac77e2d1de9c535e2c9ad53d093438c",
+      "native_volume_mm3": 14799.999999999998,
+      "requested_volume_mm3": 14800,
+      "neutral_bounding_box_volume_mm3": 14800.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        18.5,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-059",
+      "source": "$RECOVERY/SolidWorksCanaryFiles/control-after.SLDPRT",
+      "sha256": "116ac2434ed621564da43165480a9a39ac8189b6d20c3511cacae60f78e42ba6",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "cuboid_measurements_match": true,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-068",
+      "source": "$RECOVERY/SolidWorksWarmCanaryFiles/control-before.SLDPRT",
+      "sha256": "6e4e3c552e8dadb72c7d3828f73c26c693ac22bfc7bcf1baffc3ac5b5195b9dc",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-068",
+      "source": "$RECOVERY/SolidWorksWarmCanaryFiles/variation.SLDPRT",
+      "sha256": "a11b4b51b2391eaa679031b4e43eb4e889822b022d79c567b62679e1e64104d3",
+      "native_volume_mm3": 3200.0000000000005,
+      "requested_volume_mm3": 3200,
+      "neutral_bounding_box_volume_mm3": 3200.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        2.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    },
+    {
+      "case": "solidworks-068",
+      "source": "$RECOVERY/SolidWorksWarmCanaryFiles/control-after.SLDPRT",
+      "sha256": "b83f81a13baf06600b85260d3316a336fd39d200b5b91a0d1b11643dc8007d10",
+      "native_volume_mm3": 8000.000000000001,
+      "requested_volume_mm3": 8000,
+      "neutral_bounding_box_volume_mm3": 8000.0,
+      "neutral_bounding_box_midpoint_mm": [
+        20.0,
+        10.0,
+        5.0
+      ],
+      "cuboid_measurements_match": false,
+      "neutral_volume_property_available": false
+    }
+  ]
+}

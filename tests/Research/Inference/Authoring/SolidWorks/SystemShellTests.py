@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
+#
+# This SPDX license identifier and copyright notice must not be
+# removed, altered, or obscured. Doing so is a material breach of
+# the PolyForm Strict License 1.0.0 and voids all licenses granted
+# to you under it immediately and permanently.
+
+from functools import partial as BindCall
+from importlib import import_module as ImportModule
+from pathlib import Path
+from sys import platform
+
+from pytest import MonkeyPatch as PatchScope, mark as TestMark
+
+from tests.Research.Inference.Authoring.SolidWorks.CompileCapture import CompileCapture
+from tests.Research.Inference.Authoring.SolidWorks.ShellInterop import ShellInterop
+from tests.Research.Inference.Authoring.SolidWorks.SystemShell import SystemShell
+
+
+# untrusted environment overrides must never redirect the actual native compiler shell
+@TestMark.skipif(platform != "win32", reason="Windows system directory API")
+def CheckShellPath(TmpPath: Path, MonkeyPatch: PatchScope) -> None:
+    MonkeyPatch.setenv("SystemRoot", str(TmpPath))
+    ShellPath = SystemShell()
+    assert ShellPath.name.lower() == "powershell.exe"
+    assert ShellPath.parent.name == "v1.0"
+    assert ShellPath.is_file()
+    assert not ShellPath.is_relative_to(TmpPath)
+    CompilerModule = ImportModule(
+        "tests.Research.Inference.Authoring.SolidWorks.CompileCapture"
+    )
+    MonkeyPatch.setattr(CompilerModule, "LoadInterop", BindCall(ShellInterop, TmpPath))
+    ResultInfo = CompileCapture(TmpPath / "ConfiguredCase.json", TmpPath / "Capture")
+    assert ResultInfo.returncode != 0
+    assert "Select the registered SOLIDWORKS executable" in ResultInfo.stderr
+    assert not (TmpPath / "Capture").exists()

@@ -7,12 +7,17 @@ from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
 
 
-# named repeats use the owning scalar without consuming a second length prefix
+# repeats derive their length from the owning field or a fixed format declaration
 def ReadRepeatMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
-    LengthValue = ReadScopeValue(FrameValue.ScopeValue, RuleValue.CountValue)
+    ModeValue = RuleValue.ModeValue
+    LengthValue = (
+        RuleValue.MaskValue
+        if ModeValue == "Fixed"
+        else ReadScopeValue(FrameValue.ScopeValue, RuleValue.CountValue)
+    )
     if type(LengthValue) is not int:
         raise ValueError("native repeat length must be a stored integer")
-    CountValue = NormalizeCount(LengthValue, RuleValue.ModeValue)
+    CountValue = NormalizeCount(LengthValue, "" if ModeValue == "Fixed" else ModeValue)
     ItemsValue: list[dict[str, object]] = []
     for Index in range(CountValue):
         Fields: dict[str, object] = {}

@@ -45,7 +45,9 @@ def ReadCfgMaster(
         raise BodyUnsupported(
             "SOLIDWORKS sheet metal master requires its mapped part owner"
         )
-    ContextValue = BodyContext(VersionValue, KMasterLayouts, KMasterVirtuals, {})
+    ContextValue = BodyContext(
+        VersionValue, KMasterLayouts, KMasterVirtuals, {}, PartRootValue=PartValue
+    )
     ReaderValue = GraphReader(BinaryReader(BufferValue), MapValue, NoMasterRef)
     Fields: dict[str, object] = {}
     FrameValue = ReadFrame(

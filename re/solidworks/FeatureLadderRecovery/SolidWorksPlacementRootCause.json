@@ -1,0 +1,227 @@
+{
+  "status": "root_cause_identified_not_fixed",
+  "scope": "Independent read-only investigation of captured ordinary rectangular SOLIDWORKS parts; no native API calls, code edits or settled job replays",
+  "source_branch": "fix/native-rectangle-qualification-20261122",
+  "measurement_summary": {
+    "strict_decoded_files": 111,
+    "cuboid_volume_and_centroid_matches": 15,
+    "centroid_mismatches": 96,
+    "all_volume_comparisons_match": true,
+    "grouping_from_campaign_aggregation": {
+      "front_plane_files": 15,
+      "top_plane_files": 48,
+      "right_plane_files": 48
+    }
+  },
+  "legacy_attachment_error": {
+    "certainty": "confirmed on five sampled sources",
+    "field": "PrincipalRef.TimeValue is treated as fixed KSketchPlaneRefTag bytes",
+    "hardcoded_bytes_hex": "f65a1a69",
+    "actual_sample_timestamp_u32_hex": "0x6ad6426c",
+    "evidence": [
+      {
+        "file": "src/convert/adapters/solidworks/Core/Native.py",
+        "line": 152,
+        "finding": "Defines fixed KSketchPlaneRefTag"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Core/Native.py",
+        "line": 2644,
+        "finding": "Rejects reference when its timestamp differs from fixed tag"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Resolved/PrincipalRef.py",
+        "line": 36,
+        "finding": "Typed layout reads FeatureId followed by TimeValue at these positions"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Core/Native.py",
+        "line": 2611,
+        "finding": "Missing sampled reference uses framed fallback with stream-order provenance"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Core/Adapter.py",
+        "line": 4034,
+        "finding": "BoundingBoxA expands local sketch points with the selected support-plane axes; wrong attachment creates wrong world placement"
+      }
+    ],
+    "result": "Top/right sketches become attached to Front even though all three support frames are present in the neutral document; reverse flags themselves survive"
+  },
+  "typed_reader_scene_gap": {
+    "certainty": "confirmed direct ReadRectPart failure on five sampled sources",
+    "error": "ArchiveError: witnessed scene concept: got (1, 1073741824, 0), expected (0, 1073741824, 0)",
+    "evidence": [
+      {
+        "file": "src/convert/adapters/solidworks/Resolved/RectanglePart.py",
+        "line": 82,
+        "finding": "Calls ReadOrdinaryMap before typed sketch attachment"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Config/OrdinaryMap.py",
+        "line": 88,
+        "finding": "Selects unscoped ReadEmptyMap"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Config/Presentation.py",
+        "line": 181,
+        "finding": "Calls ReadSketchBlock with unscoped state"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Config/Scene.py",
+        "line": 92,
+        "finding": "Requires ExpectedState=int(Scoped), hence zero rather than observed one"
+      },
+      {
+        "file": "src/convert/adapters/solidworks/Core/OrdinaryRead.py",
+        "line": 108,
+        "finding": "Catches ArchiveError and retains legacy model instead of attaching typed rectangle datum/boss"
+      }
+    ],
+    "distinction": "Fixing sampled timestamp handling alone does not qualify the complete typed rectangle reader; scene branch and downstream archive guards need independent evidence"
+  },
+  "samples": [
+    {
+      "case": "solidworks-060",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-060-restart/Native/control-before.SLDPRT",
+      "sha256": "1dda4997ceb928a3875ada1dd2082bc24d8120d14af14805d469e04fd86754d2",
+      "native_centroid_mm": [
+        20.0,
+        10.0,
+        -5.0
+      ],
+      "selected_native_plane_id": 2,
+      "native_reference_offset": 8254,
+      "native_timestamp_u32_hex": "0x6ad6426c",
+      "axis_code": 3,
+      "basis_rows": null,
+      "decoded_sketch_support_id": "sldprt:plane:2",
+      "decoded_support_source": "plane-reference",
+      "decoded_reverse": true
+    },
+    {
+      "case": "solidworks-064",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-064-restart/Native/control-before.SLDPRT",
+      "sha256": "9d3a168a14cb0dd589f501511f13ec682040d46086753c30d401524b9e1d9f64",
+      "native_centroid_mm": [
+        20.0,
+        5.0,
+        -10.0
+      ],
+      "selected_native_plane_id": 3,
+      "native_reference_offset": 8254,
+      "native_timestamp_u32_hex": "0x6ad6426c",
+      "axis_code": 2,
+      "basis_rows": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "decoded_sketch_support_id": "sldprt:plane:2",
+      "decoded_support_source": "stream-order",
+      "decoded_reverse": false
+    },
+    {
+      "case": "solidworks-072",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-072-restart/Native/control-before.SLDPRT",
+      "sha256": "5aff140cbf4a32f04d07336fa2b421401b6f87c862ec7823a13da0f4eb16ea0f",
+      "native_centroid_mm": [
+        20.0,
+        -5.0,
+        -10.0
+      ],
+      "selected_native_plane_id": 3,
+      "native_reference_offset": 8254,
+      "native_timestamp_u32_hex": "0x6ad6426c",
+      "axis_code": 2,
+      "basis_rows": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "decoded_sketch_support_id": "sldprt:plane:2",
+      "decoded_support_source": "stream-order",
+      "decoded_reverse": true
+    },
+    {
+      "case": "solidworks-080",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-080-restart/Native/control-before.SLDPRT",
+      "sha256": "2c8b2ac6e9ccd4f843f80b47a6ab5fb4077cab9aab01631c0b854b3be45303b2",
+      "native_centroid_mm": [
+        5.0,
+        10.0,
+        -20.0
+      ],
+      "selected_native_plane_id": 4,
+      "native_reference_offset": 8254,
+      "native_timestamp_u32_hex": "0x6ad6426c",
+      "axis_code": 1,
+      "basis_rows": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "decoded_sketch_support_id": "sldprt:plane:2",
+      "decoded_support_source": "stream-order",
+      "decoded_reverse": false
+    },
+    {
+      "case": "solidworks-088",
+      "source": "$RECOVERY/SolidWorksRemaining/solidworks-088-restart/Native/control-before.SLDPRT",
+      "sha256": "b7708fa5385841d4d0abb304fc5540ed7370b029658b55d8ba668215186fa4cd",
+      "native_centroid_mm": [
+        -5.0,
+        10.0,
+        -20.0
+      ],
+      "selected_native_plane_id": 4,
+      "native_reference_offset": 8254,
+      "native_timestamp_u32_hex": "0x6ad6426c",
+      "axis_code": 1,
+      "basis_rows": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "decoded_sketch_support_id": "sldprt:plane:2",
+      "decoded_support_source": "stream-order",
+      "decoded_reverse": true
+    }
+  ],
+  "safe_next_step": [
+    "Qualify owned typed plane-reference parsing with timestamp as a timestamp, not a fixed marker; retain identity, axis, basis, record bounds and owner guards",
+    "Investigate the observed unscoped sketch-block state-one branch without weakening unrelated scene guards or globally switching Scoped=True",
+    "Replay all captured planes/directions and held-out dimensional cases, comparing native world centroid/bounds and feature placement",
+    "Add process integration negatives for corrupted owner, plane ID, axis, basis, timestamp framing and scene layout"
+  ],
+  "acceptance": {
+    "strict_decode_success_is_complete_semantic_recovery": false,
+    "complete_semantics_verified": false,
+    "native_conversion_acceptance": false,
+    "native_authoring_failure_caused_placement_gap": false,
+    "note": "Captured native authoring succeeded; the identified error is offline attachment/projection. Native source measurements do not establish acceptance of converted target files."
+  }
+}

@@ -108,12 +108,15 @@ def ReadAsmTable(BlobData: bytes) -> AsmTable:
     if len(BlobData) > 2 * 1024 * 1024:
         raise ValueError("Fusion ASM selection cache exceeds its size limit")
     Cursor = MetaCursor(BlobData)
-    if Cursor.TakeBytes(15) != b"ASM BinaryFile8":
+    Width = KAsmWidths.get(Cursor.TakeBytes(15))
+    if Width is None:
         raise ValueError("Unsupported Fusion ASM file header")
-    Version, Stored, Roots, Flags = Unpack("<4q", Cursor.TakeBytes(32))
+    Version, Stored, Roots, Flags = Unpack(
+        "<4" + KIntCodes[Width][1], Cursor.TakeBytes(4 * Width)
+    )
     if Version <= 0 or Stored != 0 or not 2 <= Roots <= 256 or Flags not in (2, 3):
         raise ValueError("Unsupported Fusion ASM header")
-    Header = tuple(ReadAsmToken(Cursor) for _ in range(6))
+    Header = tuple(ReadAsmToken(Cursor, Width) for _ in range(6))
     if tuple(Token[0] for Token in Header) != (7, 7, 7, 6, 6, 6):
         raise ValueError("Invalid Fusion ASM header tokens")
     Records: list[AsmRecord] = []
@@ -125,5 +128,5 @@ def ReadAsmTable(BlobData: bytes) -> AsmTable:
             if not Roots <= len(Records) or Records[0].Name != "asmheader":
                 raise ValueError("Invalid Fusion ASM root table extent")
             return AsmTable(Roots, tuple(Records))
-        Records.append(ReadAsmRecord(Cursor, NameValue))
+        Records.append(ReadAsmRecord(Cursor, NameValue, Width))
     raise ValueError("Fusion ASM initial record table exceeds its size limit")

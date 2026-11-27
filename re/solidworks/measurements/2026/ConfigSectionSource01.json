@@ -1,0 +1,104 @@
+{
+  "archive_version": 19000,
+  "config_stream": "Contents/Config-0",
+  "controls": {
+    "concave": {
+      "config_bytes": 22700,
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "descriptor_bytes": 14,
+      "descriptor_sha256": "11bba7ab76912873a06da79bab0539045bcc9a1809541f4bbb69362f081e7036",
+      "direct_counter": [3, 4],
+      "direct_offset": 18,
+      "ghost": {
+        "counter": [52, 52],
+        "f80": 10000,
+        "fe0": 0,
+        "interval": [2227, 2235],
+        "sha256": "8e965763e6a4bbc1088a94bf6c9cb3cbbdb4955f88355c807362a0fd43de4e3a"
+      },
+      "header_bytes": 789,
+      "header_self_slot": 15,
+      "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "lead_end": 26,
+      "lead_words": [0, 0],
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "sections": [
+        {
+          "body": [18, 2105],
+          "length": 2087,
+          "prefix": 14,
+          "scope": "LW",
+          "sha256": "8efa6f3a12513e5a43ff5cd094030471adf599197727b646fb279fe4f5ed4d94"
+        },
+        {
+          "body": [2109, 22700],
+          "length": 20591,
+          "prefix": 2105,
+          "scope": "RES",
+          "sha256": "a0ce3ae61eb4df25cc4d8afbaf1e47b4eae98b28532cd728a04b578d630d7a1e"
+        }
+      ]
+    },
+    "ladder": {
+      "config_bytes": 25390,
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "descriptor_bytes": 14,
+      "descriptor_sha256": "11bba7ab76912873a06da79bab0539045bcc9a1809541f4bbb69362f081e7036",
+      "direct_counter": [3, 4],
+      "direct_offset": 18,
+      "ghost": {
+        "counter": [59, 59],
+        "f80": 10000,
+        "fe0": 1,
+        "interval": [3174, 3182],
+        "sha256": "92fe14bf563b32217307d459e91ae6010962c02a71eea5e40c4dc9604de57523"
+      },
+      "header_bytes": 2315,
+      "header_self_slot": 69,
+      "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "lead_end": 26,
+      "lead_words": [0, 19000],
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "sections": [
+        {
+          "body": [18, 3052],
+          "length": 3034,
+          "prefix": 14,
+          "scope": "LW",
+          "sha256": "f03385e1603696e38fd22c98f9fd27bf5357152690b3a66c2884d5f1ef7fac6c"
+        },
+        {
+          "body": [3056, 25390],
+          "length": 22334,
+          "prefix": 3052,
+          "scope": "RES",
+          "sha256": "ba58f505f250cf49f43afc742467663bd11c4b06516fc7f267933b7b9c840186"
+        }
+      ]
+    }
+  },
+  "delivery_preparation_base": "fda31a2679995db48aad4fd2ff54d86966fd272d",
+  "ghost_owner": "moModel_c.FUN_4c234150.fd90",
+  "header_stream": "Contents/Config-0-ModelHeader",
+  "reference_checkout": "41569e84c090bad1066cda6b64567d8f901768f7",
+  "reference_source_commit": "f4fc8744235448c0ff6048e4447440bb7927a6d1",
+  "reference_source_sha256": {
+    "re/solidworks/records/ConfigHeaderHandoff2026.md": "ff42895734cba579046a650f4c9e80d26c5d5fc57325b54540445304b96b5b79",
+    "re/solidworks/records/ModelConstruction2026.md": "f770fc34a202836ff1fdc3fe307abcecca9f9340ffd5e654d7ad770b4a96b782",
+    "re/tooling/sw2026/serial/defs/ConfigPart.py": "861747fe96fde0ea8c98d3f17597177587d72e9ddfae3c185fa4d40c1caa87a9",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py": "fb679705fcb9ae37b7de314d9c12bd2433d444dce3e928fe7d8d3469116247c7",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadDirectMut.py": "00fef1db05672b45e4417b1c3f6a0372221f136efaf951ff266c4867af5a4339",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadGhostMut.py": "20c1c2d7bcd2414427e7925351b5566c2d4dec94e92eff526811af7ad576fb6e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadSectionMut.py": "e3302990faf22e529b975b7876a961ed2c48b096de982acff85535aded9d562b",
+    "src/convert/adapters/solidworks/Archive/Config/MakeConfigCtx.py": "1e56b269c1e146a96ffd9c38c98bf47d2d143b1397d5cebb8d7856e865679cbb",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "154f9b3bb35bd37a9a731ea8ef55befb5f4342b7c544d96599f6fbea0487ed48",
+    "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py": "a6792564852e0e46cbb147abc700147bfda23bbac5b40c2e48a1dfa02f7c6910"
+  },
+  "solidworks_executable_build": "34.5.2.0604",
+  "vendor_modules": {
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "cases": [
+    {
+      "archive_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "boundaries": {
+        "direct": {
+          "accepted_sinks": 2,
+          "final_cursor": 8094,
+          "refusals": [
+            "stale_tail",
+            "prefix",
+            "displaced_empty_cursor",
+            "nonseekable"
+          ]
+        },
+        "registry": {
+          "accepted_sinks": 2,
+          "final_cursor": 8094,
+          "refusals": [
+            "stale_tail",
+            "prefix",
+            "displaced_empty_cursor",
+            "nonseekable"
+          ]
+        }
+      },
+      "case": "Skew",
+      "generic_append": true,
+      "literal_tilde_receipt": true,
+      "runtime_input_reads": 0
+    },
+    {
+      "archive_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "boundaries": {
+        "direct": {
+          "accepted_sinks": 2,
+          "final_cursor": 8180,
+          "refusals": [
+            "stale_tail",
+            "prefix",
+            "displaced_empty_cursor",
+            "nonseekable"
+          ]
+        },
+        "registry": {
+          "accepted_sinks": 2,
+          "final_cursor": 8180,
+          "refusals": [
+            "stale_tail",
+            "prefix",
+            "displaced_empty_cursor",
+            "nonseekable"
+          ]
+        }
+      },
+      "case": "Step",
+      "generic_append": true,
+      "literal_tilde_receipt": true,
+      "runtime_input_reads": 0
+    }
+  ],
+  "method_sha256": "37a5057938665c97e2dca7e2f8902b85579eea7e663e45b838b283a5824d3f76",
+  "native_launches": 0,
+  "native_result_sha256": "8ca7b13b7bd69f916655539fa08d1df4d836c6c551f218b745e538b84b9bfc0c",
+  "numeric_native_checks": 240,
+  "oracle_phases": 6,
+  "schema": "kit.sw2026.standalone-measured-stream-proof.v1",
+  "source_sha256": {
+    "src/convert/Commands/NativeMeasVals.py": "914b8b3ab6e0efeb840404edff0cb3f8e9049f4bf8f62cf0e2a0534e51782221",
+    "src/convert/adapters/Staging/CheckWholeSink.py": "b7c6e7601bf91b8a13a23ae44b0c38c2bb005de4845a11821eeb2bbff934dd9d",
+    "src/convert/adapters/Staging/SeekBinary.py": "7a4412600555090c029df253dea731248465372c9564368e6b932b22ca9bb251",
+    "src/convert/adapters/Staging/SinkExtentMut.py": "92a9c7eff93a8de20dc048146da6fd285998e8b6fdde50ff20d7d53002ab663b",
+    "src/convert/adapters/Staging/StreamStaging.py": "7284f4deed2f9df79028c393c7d4b5801d86ab4b47405694715d1c7ae7b39171",
+    "src/convert/adapters/Staging/WriteWholeMut.py": "204bf2caa6bc82314d4521bccf59242001c7be783719bdd73ca83147d80b936d",
+    "src/convert/adapters/base/WholeStreamWriter.py": "8fbed1267526525d7ca677a92d54f515a3aef866e385855171c79f085f05507a",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "c9d1ea21eb33d876cf03ee5c93be62091357679e1f9e9c2f5df28e0beea7e374",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/CheckMeasSlot.py": "1df8078c235fda219bb80c55724dcb1b361defa3227650491330758329aa04b3",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/IsCleanMeasSave.py": "d1a1c6e4a004d329f32997340d4664a224ece5a703004d756e02ec7ba8ca6d72",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/IsSameMeasState.py": "d36f96c3b59d33024f356c6af7f0c42a5655be66163068777e0c50d9ced108d0",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MatchMeasCase.py": "bbe1dcc5a0d97bb1a993abe9499d17ea0558b504b85b29eab39832272b8f9fe2",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MatchPartMeas.py": "07fb79afe8af1f172465e8bd0b3f14f25474e238b170cdb171f66b21c98c8d7b",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MeasPhaseMap.py": "94e96834ce21f2133751e919ba798b4c7f37c12523d843563d55c74c37e6b2d1",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MeasState.py": "160587d0dfd6d9734be6daf853f3cba1d2e17cb97dd29e6308dc935d0f2d625a",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/PartMeasureOpt.py": "16d084c40adbf5f6fc731f141989303b017fd8deaf6dbbf911260d4c3ff88798",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasMap.py": "68a0fe17a7d5a1189f840b93206e1949a57d48496eccc61f9a090f495c71c5d1",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasNum.py": "db88ebf57f39efc94ee811a1ff06a5aa0a267901dab12505f57612f0a995021a",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasRows.py": "8144d3670f227ab2d743aa4960d9fe968e211053d1bf605805ed44023d4cb448",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasSha.py": "6c89e97df915b9b0cd87ab19b1676823f365bb47649a59d8ed85cb461cc87d86",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadPartMeas.py": "56cb7fba1b5a35ff95dc3f04db8300704d1778fb7fd69b0c2adfb905e90de583",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "b4a5c005734740527162c512e76009e7d11cdc4828425f1c0336709446dc326d"
+  }
+}

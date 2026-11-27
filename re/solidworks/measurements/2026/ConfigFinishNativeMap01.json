@@ -1,0 +1,142 @@
+{
+  "archive_version": 19000,
+  "cases": [
+    {
+      "case": "ladder",
+      "checkpoint_count": 3,
+      "exact_intervals": 12,
+      "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "native_checkpoints": [
+        {
+          "base": 4,
+          "classes": 29,
+          "counter": 69,
+          "objects": 39,
+          "role": [
+            "f2e8"
+          ],
+          "slot_count": 68,
+          "slot_range_inclusive": [
+            1,
+            68
+          ],
+          "slot_sha256": "c0b2bbf640914d05b5ce0d8ac50e9ed02294632b2b4b6f7c040d1349b30b2e89"
+        },
+        {
+          "base": 4,
+          "classes": 29,
+          "counter": 69,
+          "objects": 39,
+          "role": [
+            "f730",
+            "f260"
+          ],
+          "slot_count": 68,
+          "slot_range_inclusive": [
+            1,
+            68
+          ],
+          "slot_sha256": "c0b2bbf640914d05b5ce0d8ac50e9ed02294632b2b4b6f7c040d1349b30b2e89"
+        },
+        {
+          "base": 4,
+          "classes": 29,
+          "counter": 69,
+          "objects": 39,
+          "role": [
+            "f730",
+            "f268"
+          ],
+          "slot_count": 68,
+          "slot_range_inclusive": [
+            1,
+            68
+          ],
+          "slot_sha256": "c0b2bbf640914d05b5ce0d8ac50e9ed02294632b2b4b6f7c040d1349b30b2e89"
+        }
+      ],
+      "prefix_anchors": [
+        1,
+        2,
+        3
+      ],
+      "worker_sha256": "0e0a81633022538bf5e77ec52a0c8c947dd4fcc63d425d23ebf740541517cb66"
+    },
+    {
+      "case": "concave",
+      "checkpoint_count": 3,
+      "exact_intervals": 12,
+      "file_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "native_checkpoints": [
+        {
+          "base": 4,
+          "classes": 26,
+          "counter": 54,
+          "objects": 27,
+          "role": [
+            "f2e8"
+          ],
+          "slot_count": 53,
+          "slot_range_inclusive": [
+            1,
+            53
+          ],
+          "slot_sha256": "e86051175a467ba05274ee1c3a8245f60ffbfa94f73a7ca598ab2924bfd7ff2d"
+        },
+        {
+          "base": 4,
+          "classes": 26,
+          "counter": 54,
+          "objects": 27,
+          "role": [
+            "f730",
+            "f260"
+          ],
+          "slot_count": 53,
+          "slot_range_inclusive": [
+            1,
+            53
+          ],
+          "slot_sha256": "e86051175a467ba05274ee1c3a8245f60ffbfa94f73a7ca598ab2924bfd7ff2d"
+        },
+        {
+          "base": 4,
+          "classes": 26,
+          "counter": 54,
+          "objects": 27,
+          "role": [
+            "f730",
+            "f268"
+          ],
+          "slot_count": 53,
+          "slot_range_inclusive": [
+            1,
+            53
+          ],
+          "slot_sha256": "e86051175a467ba05274ee1c3a8245f60ffbfa94f73a7ca598ab2924bfd7ff2d"
+        }
+      ],
+      "prefix_anchors": [
+        1,
+        2,
+        3
+      ],
+      "worker_sha256": "aca804967969b3e28408cbda41b0383b673f484ef2139a18b0ff3600c94c5423"
+    }
+  ],
+  "format_version": 4,
+  "native_launches": 0,
+  "physical_trace_sha256": "61d54b4964e32ece97cf65c99bb073224ab7fa6c1cc408a310bc1b868971d731",
+  "prior_three_anchor_replay_sha256": "ce08a6dcb41e2322ff4439957a9f3fd828e76e746f592e71f4f0be1e9fbed37e",
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.config-finish-native-map.v1",
+  "script_sha256": {
+    "CheckCfgFinish.py": "e5942e3338f7cc7b61a644b388d35382cc8929891aa13c88ba7bfee357395d1d",
+    "FinishSdkPin.py": "261be252d9adc2b92277060a9bdfacdb66438dd3ba659cc26bd46ff296705399",
+    "TraceCfgFinish.py": "8e7cbd8ab2529c5612e066dd1228fa86ba6d311a045f3a3769d2580c69b923ff",
+    "TraceCfgFont.py": "de8fa8ebfb9056872ccf41d0323feb6d9897c26cd94acf5b34f06ef9c4a96701"
+  },
+  "trace_revision": "fe592b8e7a4922dccf8298541453baf41d60b001",
+  "trace_tree": "568962224faa6ac97e7f658d4b4a37fd8d9e2a55",
+  "unchanged_authored_worker_sha256": "d6c129ef9444ffed248ea75f6b6ca1651f65ca4c846214024b0cf2667d2deec0"
+}

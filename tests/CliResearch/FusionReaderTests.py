@@ -16,8 +16,8 @@ def CheckFusReceipt(TmpPath: FilePath) -> None:
         TmpPath, "FusionReader.py", *Arguments, "--output", str(Direct)
     )
     Result = ResearchCli(TmpPath, "fusion", *Arguments, "--output", str(Bridged))
-    assert Reference.returncode == Result.returncode, (Reference.stderr, Result.stderr)
-    assert Result.returncode in (0, 3)
+    assert Reference.returncode in (0, 3), Reference.stderr
+    assert Result.returncode == (4 if Reference.returncode == 0 else 3), Result.stderr
     DirectFiles = {
         Value.relative_to(Direct): Value.read_bytes()
         for Value in Direct.rglob("*")
@@ -26,8 +26,11 @@ def CheckFusReceipt(TmpPath: FilePath) -> None:
     assert DirectFiles == {
         Value.relative_to(Bridged): Value.read_bytes()
         for Value in Bridged.rglob("*")
-        if Value.is_file()
+        if Value.is_file() and Value.name != "NativeVerification.json"
     }
+    NativeReport = LoadJson((Bridged / "NativeVerification.json").read_bytes())
+    assert NativeReport["status"] == "api_unavailable" and NativeReport["action"]
+    assert NativeReport["portable_complete"] is False
     Receipts = list(Bridged.rglob("receipt.json"))
     assert Receipts
     for ReceiptPath in Receipts:

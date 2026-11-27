@@ -1,5 +1,5 @@
 ---
-- description: Parashell maximal Python security and quality queries
+- description: UniCAD maximal Python security and quality queries
 - apply: codeql-suites/python-security-and-quality.qls
   from: codeql/python-queries
 - apply: codeql-suites/python-security-experimental.qls

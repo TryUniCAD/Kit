@@ -62,6 +62,10 @@ Dependency links require finite raw native scalar or dimensional-constraint evid
 Placeholders, malformed numeric defaults, unsupported formulas and ambiguous or external references remain unresolved with raw data preserved.
 The same recovery runs during unchanged-native replay verification.
 
+Native Pad reads also recover [local sketch expression links](../../Changes/Freecad/FreecadLocalSketchExpressions.md).
+The reader corroborates the actual whole-sketch profile, unique driving constraint and stored quantities.
+The original formula, values and units remain available, including when a supported dependency cannot be established.
+
 Embedded snapshots also pass the [scoped inline control guard](../../Changes/Freecad/FreeCadInlineManifestGuard.md) before filtering.
 It refuses changed checked end controls, profile geometry, solver constraints, aliases or geometry-owner inventory instead of returning the old graph.
 Retained routes keep their separate contracts; the guard does not establish cached BREP freshness or reconstruct edited parameters and shapes.

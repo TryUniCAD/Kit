@@ -1,30 +1,19 @@
 from collections.abc import Iterator
 from contextlib import contextmanager as ContextScope
 from functools import partial as BindSignal
-from signal import SIGINT, SIGTERM, getsignal as GetSignal, signal as SetSignal
+from signal import getsignal as GetSignal, signal as SetSignal
 from subprocess import Popen
-from sys import platform as KPlatform
 
 from KitCli.RouteSignalMut import RouteSignalMut
+from KitCli.SelectSignals import SelectSignals
 
 
 # signal ownership must precede spawning and restore callers even when process creation fails
 @ContextScope
-def ResearchSignals() -> Iterator[tuple[list[Popen[bytes]], list[int]]]:
-    SignalNumbers = []
-    if KPlatform != "win32":
-        from signal import SIGCONT, SIGHUP, SIGQUIT, SIGTSTP, SIGUSR1, SIGUSR2
-
-        SignalNumbers = [
-            SIGINT,
-            SIGTERM,
-            SIGHUP,
-            SIGQUIT,
-            SIGUSR1,
-            SIGUSR2,
-            SIGTSTP,
-            SIGCONT,
-        ]
+def ResearchSignals(
+    OwnWindows: bool = False,
+) -> Iterator[tuple[list[Popen[bytes]], list[int]]]:
+    SignalNumbers = SelectSignals(OwnWindows)
     PendingSignals: list[int] = []
     ChildProcesses: list[Popen[bytes]] = []
     PreviousHandlers = {Number: GetSignal(Number) for Number in SignalNumbers}

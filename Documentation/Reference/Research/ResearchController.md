@@ -33,6 +33,11 @@ Back up a quiescent store together with its objects; copying a live database fil
 
 ## Job contract
 
+Multiple local clients can subscribe to canonical jobs through the optional
+[shared request queue](SharedResearchQueue.md). It adds revisioned subscriptions,
+bounded admission, priority aging and subscriber-aware cancellation while retaining
+this controller's normal job, lease, resource and evidence contracts.
+
 Each submitted record must contain these fields:
 
 | Field          | Meaning                                                                                          |
