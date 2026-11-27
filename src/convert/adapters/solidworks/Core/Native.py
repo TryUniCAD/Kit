@@ -2792,7 +2792,7 @@ def SketchPlaneRef(
     if OwnerValue is None:
         return (
             ReadPlaneHandle(DataValue, Start, EndValue, Planes)
-            if Planes and not HasVendorPrincipal(Planes)
+            if Planes and not HasVendorIds(Planes)
             else None
         )
     for Record in Classes:
@@ -2822,7 +2822,7 @@ def SketchPlaneRef(
 
 
 # vendor numbered principal planes keep the owner validated reference contract
-def HasVendorPrincipal(Planes: Mapping[int, NativePlane]) -> bool:
+def HasVendorIds(Planes: Mapping[int, NativePlane]) -> bool:
     return any(
         Plane.principal and Plane.object_id in (2, 3, 4) for Plane in Planes.values()
     )

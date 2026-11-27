@@ -8,5 +8,5 @@ The earlier decoder followed the backward link and used each fin's own
 vertex as its start. This produced closed inward loops. The corners and
 absolute volume still matched the source. Check signed volume when
 verifying winding in the target schema.
-[Measured native part and SDK comparison](../../../../../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
-[Generated and native comparison](../../../../../../re/solidworks/records/GeneratedRectanglePartition2026.md#standalone-archive-attachment)
+[Measured native part and SDK comparison](../../../../../../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
+[Generated and native comparison](../../../../../../../re/solidworks/records/GeneratedRectanglePartition2026.md#standalone-archive-attachment)
