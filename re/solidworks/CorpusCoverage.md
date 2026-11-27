@@ -191,3 +191,188 @@ and 25,158-byte widths with zero opaque spans. The generated negative-Z body ope
 rebuilt without warnings, and independent diameter and depth edits remained parametric. The removed
 writer accepted strict origin-centred Front-plane reversed blind circles and rejected off-origin and
 non-front variants.
+
+## Feature family x SOLIDWORKS version coverage
+
+The SOLIDWORKS reader and writer delivery plan (PR #296) asks each feature and file version to be
+recorded in a coverage table, tracking reading and writing separately. This section covers the 68
+curated families in
+[`PlannerCatalog/Sources/FeaturePlan.json`](PlannerCatalog/Sources/FeaturePlan.json) against the
+`.SLDPRT` files actually committed to the repository.
+
+`read` means the reader has a typed decode for the family: it maps one of the family's native records
+to a concrete neutral `FeatureKind` in
+[`Core/FeatureKindByNative.py`](../../src/convert/adapters/solidworks/Core/FeatureKindByNative.py),
+or reads it through the documented document-state codecs (definition, headers, configuration,
+presentation). `tree only` means the reader retains the node without typed feature semantics (its
+native classes map to `FeatureKind.NATIVE`). It is **typed decode, not native acceptance**; see the
+[SOLIDWORKS adapter reference](../../Documentation/Reference/Adapters/Solidworks.md).
+
+`write` means Kit emits the family from format rules. Only the
+[bounded part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+exists: one Front-plane line loop and one forward blind boss, which is the `extrude` family at
+version 19000. Every other family is `no`, and the matched `extrude` output is a bounded subset, not
+the whole family. The earlier recorded-payload writer that reached more families was removed; it was
+not generative.
+
+### Method
+
+All numbers below were produced by the following commands at commit `1619f00b`. The count is a shell
+command; the per-family sample counts and version counts are one Python census that opens every
+committed part, reads the `swXmlContents/KeyWords` feature `Type` values, and reads the container's
+`_MO_VERSION_<n>` storage (falling back to `swVersion` in `swXmlContents/Features`). Run it from the
+repository root with the project interpreter.
+
+```sh
+git ls-files '*.SLDPRT' | wc -l
+```
+
+```python
+import collections, re, subprocess
+from convert.adapters.solidworks.Container.Container import SldprtArchive
+
+CROSS = {
+    "boss-extrude": "extrude", "cut-extrude": "extrude", "extrusion": "extrude",
+    "revolve": "revolve", "cut-revolve": "revolve",
+    "sweep": "sweep", "cut-sweep": "sweep",
+    "loft": "loft", "cut-loft": "loft",
+    "fillet": "fillet", "varfillet": "fillet", "chamfer": "chamfer",
+    "shell": "prismatic", "mirror": "bodytransform",
+    "cirpattern": "pattern", "lpattern": "pattern",
+    "holewizard": "holes", "advancedhole": "holes", "hole thread": "holes",
+    "3dsketch": "sketch", "sketch": "sketch",
+    "axis": "reference", "plane": "planes", "imported": "interchange",
+    "sheet-metal master": "sheetbase", "body-delete/keep": "bodyboolean",
+    "helix/spiral": "curves",
+}
+
+files = [f for f in subprocess.check_output(
+    ["git", "ls-files", "-z", "*.SLDPRT"]).decode().split("\0") if f]
+samples = collections.defaultdict(set)
+versions = collections.defaultdict(collections.Counter)
+opened = 0
+for path in files:
+    archive = SldprtArchive.OpenAction(path)
+    opened += 1
+    found = [int(m.group(1)) for name in (r.name for r in archive.records)
+             for m in [re.match(r"_MO_VERSION_([0-9]+)/", name)] if m]
+    if not found:
+        head = archive.GetAction("swXmlContents/Features") or b""
+        m = re.search(rb'swVersion="([0-9]+)"', head)
+        found = [int(m.group(1))] if m else [0]
+    version = max(found)
+    keywords = (archive.GetAction("swXmlContents/KeyWords") or b"").decode("utf-8", "replace")
+    families = set()
+    for raw in re.findall(r'Type="([^"]+)"', keywords):
+        name = raw.strip().lower()
+        if name.startswith("croquis"):
+            families.add("sketch")
+        elif name in CROSS:
+            families.add(CROSS[name])
+    for family in families:
+        samples[family].add(path)
+        versions[family][version] += 1
+
+print("committed", len(files), "opened", opened)
+for family in sorted(samples, key=lambda k: -len(samples[k])):
+    print(family, len(samples[family]), dict(sorted(versions[family].items())))
+```
+
+Result: **322** committed `.SLDPRT` files, **322** opened. The version census is
+`19000: 264`, `14000: 57`, `18000: 1`. Version keys are container document-version generations:
+`19000` is SOLIDWORKS 2026
+([archive compatibility](records/Solidworks2026ArchiveCompatibility.md)), `18000` is SOLIDWORKS 2025
+([revolve authoring](features/RevolveAuthoredOneEightZeroZeroZero.md)), and `14000` is the older
+real-world corpus ([GroundTruth](GroundTruth.md)).
+
+### Table
+
+Sample counts are the files matching each family; version counts are `generation x files`. Families
+with no footprint in the committed census show `0`. Sketch sub-families (lines, conics, slots,
+splines, relations, dimensions) are not separately tagged in `KeyWords`, so they show `0` even
+where a matched sketch is present.
+
+| family                          | wave          | read      | write        | samples | versions                          |
+| ------------------------------- | ------------- | --------- | ------------ | ------: | --------------------------------- |
+| document foundations            | foundation    | yes       | no           |       0 | -                                 |
+| selection and topology          | foundation    | tree only | no           |       0 | -                                 |
+| history and execution state     | foundation    | yes       | no           |       0 | -                                 |
+| reference geometry              | foundation    | yes       | no           |      11 | 14000 x11                         |
+| plane definitions               | foundation    | yes       | no           |     320 | 14000 x57, 18000 x1, 19000 x262   |
+| sketch ownership and support    | alpha         | yes       | no           |      32 | 14000 x32                         |
+| sketch linear geometry          | alpha         | yes       | no           |       0 | -                                 |
+| sketch conics                   | alpha         | yes       | no           |       0 | -                                 |
+| sketch slots                    | solid         | yes       | no           |       0 | -                                 |
+| sketch splines and curves       | surface       | yes       | no           |       0 | -                                 |
+| sketch constraints              | alpha         | yes       | no           |       0 | -                                 |
+| sketch dimensions               | alpha         | yes       | no           |       0 | -                                 |
+| sketch transformations and tools | solid         | tree only | no           |       0 | -                                 |
+| sketch patterns and blocks      | solid         | yes       | no           |       0 | -                                 |
+| extrusion family                | alpha         | yes       | yes (bounded) |    299 | 14000 x54, 18000 x1, 19000 x244   |
+| revolution family               | solid         | yes       | no           |      24 | 14000 x17, 19000 x7               |
+| sweep family                    | solid         | yes       | no           |       8 | 14000 x8                          |
+| loft family                     | surface       | yes       | no           |      10 | 14000 x10                         |
+| boundary family                 | surface       | yes       | no           |       0 | -                                 |
+| holes and threads               | solid         | yes       | no           |       7 | 14000 x7                          |
+| fillet family                   | alpha         | yes       | no           |      33 | 14000 x32, 18000 x1               |
+| chamfer family                  | solid         | yes       | no           |      30 | 14000 x30                         |
+| rib shell and draft             | solid         | yes       | no           |       4 | 14000 x4                          |
+| multibody operations            | solid         | yes       | no           |       3 | 14000 x3                          |
+| body transforms and derivation  | solid         | yes       | no           |      16 | 14000 x16                         |
+| direct face editing             | solid         | yes       | no           |       0 | -                                 |
+| shape deformation               | surface       | yes       | no           |       0 | -                                 |
+| part feature and body patterns  | solid         | yes       | no           |      15 | 14000 x15                         |
+| surface creation                | surface       | yes       | no           |       0 | -                                 |
+| surface modification            | surface       | yes       | no           |       0 | -                                 |
+| surface to solid operations     | surface       | yes       | no           |       0 | -                                 |
+| reference curves                | surface       | yes       | no           |       4 | 14000 x4                          |
+| sheet metal foundations         | manufacturing | tree only | no           |       3 | 14000 x2, 19000 x1                |
+| sheet metal flanges and bends   | manufacturing | tree only | no           |       0 | -                                 |
+| sheet metal corners and forming | manufacturing | tree only | no           |       0 | -                                 |
+| sheet metal fold state          | manufacturing | tree only | no           |       0 | -                                 |
+| weldment framework              | manufacturing | tree only | no           |       0 | -                                 |
+| structure system                | manufacturing | tree only | no           |       0 | -                                 |
+| weldment cut lists              | manufacturing | tree only | no           |       0 | -                                 |
+| mold tooling                    | manufacturing | tree only | no           |       0 | -                                 |
+| mesh and scan geometry          | extended      | no        | no           |       0 | -                                 |
+| scan and recognition tools      | extended      | no        | no           |       0 | -                                 |
+| assembly hierarchy              | assembly      | yes       | no           |       0 | -                                 |
+| assembly context and references | assembly      | yes       | no           |       0 | -                                 |
+| standard mates                  | assembly      | tree only | no           |       0 | -                                 |
+| advanced mates                  | assembly      | tree only | no           |       0 | -                                 |
+| mechanical mates                | assembly      | tree only | no           |       0 | -                                 |
+| assembly repetition             | assembly      | tree only | no           |       0 | -                                 |
+| assembly features and evaluation | assembly     | tree only | no           |       0 | -                                 |
+| assembly representations        | assembly      | tree only | no           |       0 | -                                 |
+| motion studies                  | extended      | tree only | no           |       0 | -                                 |
+| configurations and equations    | foundation    | yes       | no           |       0 | -                                 |
+| materials and document data     | foundation    | yes       | no           |       0 | -                                 |
+| presentation state              | strict        | yes       | no           |       0 | -                                 |
+| drawing document and sheets     | drawing       | no        | no           |       0 | -                                 |
+| drawing base views              | drawing       | no        | no           |       0 | -                                 |
+| drawing derived views           | drawing       | no        | no           |       0 | -                                 |
+| drawing view display            | drawing       | no        | no           |       0 | -                                 |
+| dimensions and annotations      | drawing       | no        | no           |       0 | -                                 |
+| manufacturing symbols           | drawing       | no        | no           |       0 | -                                 |
+| drawing and model tables        | drawing       | no        | no           |       0 | -                                 |
+| model based definition          | extended      | no        | no           |       0 | -                                 |
+| routing                         | extended      | no        | no           |       0 | -                                 |
+| simulation studies and inputs   | extended      | tree only | no           |       0 | -                                 |
+| extended product and add in boundaries | extended | no     | no           |       0 | -                                 |
+| import export and interoperability | extended   | yes       | no           |       2 | 19000 x2                          |
+| custom and extensible features  | strict        | tree only | no           |       0 | -                                 |
+| strict fidelity beyond editable alpha | strict  | no        | no           |       0 | -                                 |
+
+### Headline gaps
+
+- **17 of 68 families** have any committed sample. Writing covers **one** family, and only as a
+  bounded single blind boss.
+- **Reading is broad, writing is not.** 36 families have a typed decode; 19 are tree-only (sheet
+  metal, weldments, structure, mates, motion, simulation, custom features) and 13 have no reader
+  path at all (all seven drawing families, MBD, routing, mesh and scan, and the add-in boundaries).
+- **Version skew.** 264 of 322 samples are the 19000 (2026) generation, and 57 are the older 14000
+  corpus. The rich multi-feature families (fillet, chamfer, revolve, loft, sweep, pattern) exist in
+  the committed corpus almost only at 14000, so write acceptance at 19000 is measured only against
+  the bounded boss.
+- **Under-tested families.** The 51 families with `0` samples have no committed `.SLDPRT` at all;
+  these need authoring before any read, write, reopen, rebuild or held-out claim can be made.
