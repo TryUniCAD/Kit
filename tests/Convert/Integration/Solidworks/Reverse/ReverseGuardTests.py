@@ -12,4 +12,6 @@ from tests.Convert.Integration.Solidworks.Reverse.MakeBadReverse import MakeBadR
 def CheckBadReverse(ModeName: str) -> None:
     DataValue = MakeBadReverse(ModeName)
     with RaisesError(SldprtFormat, match="no readable Parasolid payload"):
-        OpenDocument(BytesIO(DataValue), source_format="solidworks.sldprt", strict=True)
+        _ = OpenDocument(
+            BytesIO(DataValue), source_format="solidworks.sldprt", strict=True
+        )

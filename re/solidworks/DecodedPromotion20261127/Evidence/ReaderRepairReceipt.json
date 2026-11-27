@@ -1,0 +1,82 @@
+{
+  "base_revision": "70db4490b82fe92905533154945ee4f792993db0",
+  "causal_ci_job": "https://github.com/TryUniCAD/Kit/actions/runs/46065343140/job/140729181002",
+  "cause": "four intentionally unused call results rejected by reportUnusedCallResult",
+  "repair": "explicit discard assignments retain every call and observable assertion",
+  "production_changes": false,
+  "original_reader_receipt_sha256": "b49328cc691f32108bcf798e5b64db7b9fc0a18e2337bedfc7d5ce1e4e61123f",
+  "original_test_sources": "Evidence/HistoricalReader/Index.json",
+  "sources": [
+    {
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadExtrude.py",
+      "sha256": "91714704e1e201ea02d82aac8dfda8a15ed1a6de104e8661a85932334db326cc",
+      "bytes": 2556
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdPrism.py",
+      "sha256": "c51632b46ec18134a0212e6445a57b2d91f2c23448bebd7ffea8bb13407571bd",
+      "bytes": 1802
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/CheckCliRefuse.py",
+      "sha256": "253d3ff2fd7f142c506414a32c2ebd5b0e4f539db8f1fb53f64d6b19a89dff29",
+      "bytes": 916
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/CheckSignedBody.py",
+      "sha256": "fa14a1b0784035cd1507965b04944282b201c91d917553b97a65217bec0ee15c",
+      "bytes": 1343
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/LoadReverse.py",
+      "sha256": "30799a34b0a91d206e0ef02948d70a0c3c94658ebe4aac1170b43559077d4507",
+      "bytes": 1314
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/MakeBadReverse.py",
+      "sha256": "2dae65550c5cc023d05a99967ac73db2c5caadd11f91c8e96d19ab3091fcb594",
+      "bytes": 2317
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseCase.py",
+      "sha256": "906b36c629013a23b7d661254a2d71b3a8ed90604b07d5804117c3379a2b2593",
+      "bytes": 367
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseCliTests.py",
+      "sha256": "22a123871e1879b8377e772d07ac2846e46b24b74d5b93dc6322f6fe6ed7c006",
+      "bytes": 2917
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseGuardTests.py",
+      "sha256": "b01f582876472e2484ea88255b42c6572c4b0c3377592e32bbfef6666d45e271",
+      "bytes": 752
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseReadTests.py",
+      "sha256": "fad6e9e68f71467108045cfa936996c55c0bed87bee45121d1c3cec16c2ed53b",
+      "bytes": 2313
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/SourceGuardTests.py",
+      "sha256": "5cea6eef290c29e2374847ff949923e6095b0fcb583b6627e77694c3b6964ac9",
+      "bytes": 1473
+    },
+    {
+      "path": "Documentation/Changes/Solidworks/Inspection/Parts/SolidworksReverseColdBoss.md",
+      "sha256": "ef416987a675c468906f27b75e8c69aebb882284e554f1133f5cbb725cf3d94e",
+      "bytes": 2660
+    }
+  ],
+  "verification": {
+    "pyright": "1.1.414 with pytest9.1.1: nine reverse integration files, zero errors and warnings",
+    "integration_passed": 23,
+    "integration_seconds": 14.17,
+    "black": "nine files unchanged under26.10.1",
+    "steering": "nine files pass existing baseline",
+    "markdown": "Prettier3.6.2 passed"
+  },
+  "models": false,
+  "native_calls": 0,
+  "native_acceptance": false
+}

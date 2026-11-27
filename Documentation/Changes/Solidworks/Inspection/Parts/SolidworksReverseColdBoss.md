@@ -9,3 +9,7 @@ The [research package](../../../../../re/solidworks/DecodedPromotion20261127/REA
 The scoped suite also verifies atomic write refusal: direct unmeasured SDK writes fail the existing exact native measurement gate, while CLI conversion still refuses retained unresolved `NativeFeature` records. This reader change does not qualify those sources for conversion or establish native acceptance of generated reversed files. The CAD API was unavailable; independent native edits, restoration, rebuild, save and fresh-process reopen remain unexecuted. A Boolean has no distinct integer wire encoding; the exact integer type guard is retained without inventing a Boolean archive format.
 
 Validation and exact modified-source hashes are retained in the research package's reader receipt. Integration coverage lives in `tests/Convert/Integration/Solidworks/Reverse` and uses the existing complete test-suite discovery and merge-queue execution path
+
+The later Pyright repair explicitly discards four side-effect call results while preserving every call and assertion.
+All 23 archive/process cases pass again, and scoped Pyright 1.1.414 reports no errors or warnings.
+The additive repair receipt and retained original test sources preserve both revision bindings.

@@ -1,0 +1,27 @@
+{
+  "tests/Convert/Integration/Solidworks/Reverse/CheckCliRefuse.py": {
+    "retained_path": "re/solidworks/DecodedPromotion20261127/Evidence/HistoricalReader/CheckCliRefuse.py",
+    "sha256": "c50ba386e8714e56f7c1bf75246c85482c7cd71bea176db6a38b64678cb84def",
+    "bytes": 912
+  },
+  "tests/Convert/Integration/Solidworks/Reverse/ReverseGuardTests.py": {
+    "retained_path": "re/solidworks/DecodedPromotion20261127/Evidence/HistoricalReader/ReverseGuardTests.py",
+    "sha256": "f9e90045f90d83981447ae263cae2efd5ae78adba8271061186a228cbc883e1b",
+    "bytes": 726
+  },
+  "tests/Convert/Integration/Solidworks/Reverse/ReverseReadTests.py": {
+    "retained_path": "re/solidworks/DecodedPromotion20261127/Evidence/HistoricalReader/ReverseReadTests.py",
+    "sha256": "5b14b38384dd8098d75afdaaaf26bb3d7f2c0e590effb711ea61901be156bb0c",
+    "bytes": 2309
+  },
+  "tests/Convert/Integration/Solidworks/Reverse/SourceGuardTests.py": {
+    "retained_path": "re/solidworks/DecodedPromotion20261127/Evidence/HistoricalReader/SourceGuardTests.py",
+    "sha256": "778eb37f28e0004f93ef01a1ca7b640e6efb10a65ed1b5fd72120ee4351eebcf",
+    "bytes": 1469
+  },
+  "Documentation/Changes/Solidworks/Inspection/Parts/SolidworksReverseColdBoss.md": {
+    "retained_path": "re/solidworks/DecodedPromotion20261127/Evidence/HistoricalReader/SolidworksReverseColdBoss.md",
+    "sha256": "17b3257f758be65ba90c156b88b72279420ed787d54413c5cf1efc251687c6cd",
+    "bytes": 2346
+  }
+}

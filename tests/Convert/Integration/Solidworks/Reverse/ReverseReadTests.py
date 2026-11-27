@@ -47,7 +47,7 @@ def CheckReverse(CaseName: str) -> None:
     if Definition.reversed:
         Target = BytesIO(b"preserved")
         with RaisesError(ValueError, match="offline native measurement receipt"):
-            SldprtWriter().write(
+            _ = SldprtWriter().write(
                 Document,
                 Target,
                 WriteOptions(

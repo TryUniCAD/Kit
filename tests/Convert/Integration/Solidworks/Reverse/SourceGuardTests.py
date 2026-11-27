@@ -35,4 +35,4 @@ def CheckSourceGap(CaseName: str) -> None:
     assert HashBytes(DataValue).hexdigest() == Member["sha256"]
     Archive = SldprtArchive.from_bytes(DataValue, Source.name)
     with RaisesError(BodyUnsupported, match="moGhostBodyObject_c.FUN_4bf05390"):
-        ReadNativeLink(Archive, 0)
+        _ = ReadNativeLink(Archive, 0)

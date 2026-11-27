@@ -1,0 +1,11 @@
+# Reversed cold blind-boss reading
+
+The strict SOLIDWORKS reader now reconstructs a reversed, single-direction blind boss from its owned version-19000 typed profile and depth. The typed end owner accepts only integer direction codes zero and one, retains every existing parent, termination, start-type and datum guard, and builds the reversed solid over the ordered interval `[-depth, 0]`. Forward parts retain `[0, depth]`. Depth stays positive and attached to the actual driving parameter.
+
+Use the public SDK's `open_document(path, strict=True)` or `kit decode path --output document.json`. The supported cold path requires one ordinary blind boss, one qualified line-loop sketch and its canonical Front datum. This change preserves the signed bounds, centroid, solid topology and typed parameter provenance; it does not admit other starts, end conditions or datum frames.
+
+The [research package](../../../../../re/solidworks/DecodedPromotion20261127/README.md) binds six immutable Kit-generated archives and eight actual vendor-authored P03 controls. Existing native observations and loader-backed records establish the direction field. The six archives exercise triangular, stepped and quadrilateral profiles in both directions through strict SDK and fresh-process CLI reads. Full serialized direction-code, depth-owner and support-owner corruptions must refuse. The saved P03 controls retain their separate `moGhostBodyObject_c.FUN_4bf05390` typed-grammar refusal, owned by PR #121.
+
+The scoped suite also verifies atomic write refusal: direct unmeasured SDK writes fail the existing exact native measurement gate, while CLI conversion still refuses retained unresolved `NativeFeature` records. This reader change does not qualify those sources for conversion or establish native acceptance of generated reversed files. The CAD API was unavailable; independent native edits, restoration, rebuild, save and fresh-process reopen remain unexecuted. A Boolean has no distinct integer wire encoding; the exact integer type guard is retained without inventing a Boolean archive format.
+
+Validation and exact modified-source hashes are retained in the research package's reader receipt. Integration coverage lives in `tests/Convert/Integration/Solidworks/Reverse` and uses the existing complete test-suite discovery and merge-queue execution path

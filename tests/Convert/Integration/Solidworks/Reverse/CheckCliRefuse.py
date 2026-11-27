@@ -7,7 +7,7 @@ import sys as System
 def CheckCliRefuse(
     Source: FilePath, Target: FilePath, RootPath: FilePath, Environment: dict[str, str]
 ) -> None:
-    Target.write_bytes(b"preserved")
+    _ = Target.write_bytes(b"preserved")
     Refusal = ProcessLayer.run(
         [
             System.executable,
