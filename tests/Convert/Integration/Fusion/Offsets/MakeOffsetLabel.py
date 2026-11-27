@@ -11,6 +11,7 @@ from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
 from convert.Formats.Fusion.DocumentCodec.EmitParsed import EmitParsed
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 
+
 # offset caps need a separate misplaced label witness because neither cap coincides with the sketch
 def MakeOffsetLabel(Source: FilePath, Target: FilePath) -> None:
     Model = ReadDocument(Source.read_bytes())
