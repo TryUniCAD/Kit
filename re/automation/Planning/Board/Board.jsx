@@ -53,6 +53,7 @@ function Board() {
     (mode !== 'Current work' || ['active', 'checking', 'open'].includes(item.Status.toLowerCase())) &&
     `${item.Id} ${item.Name} ${item.Owner} ${item.Status}`.toLowerCase().includes(query.toLowerCase()));
   const visible = filtered.slice(page * 40, (page + 1) * 40);
+  const dated = mode === 'Schedule' && filtered.some(item => item.Start);
   const start = stamp(data.Links.SchedulePolicy.Start);
   const end = zoom === 0 ? Math.max(start + 30 * day, ...filtered.map(item => item.Finish ? stamp(item.Finish) + day : start)) : start + zoom * day;
   const current = selected && items.find(item => item.Id === selected);
@@ -90,17 +91,17 @@ function Board() {
       <label>Type<select value={kind} onChange={event => { setKind(event.target.value); setPage(0); }}>{['All', ...new Set(items.map(item => item.Kind))].map(value => <option key={value}>{value}</option>)}</select></label>
       <label>Owner / PR contact<select value={owner} onChange={event => { setOwner(event.target.value); setPage(0); }}>{['All', ...new Set(items.map(item => item.Owner))].map(value => <option key={value}>{value}</option>)}</select></label>
       <label>Recorded state<select value={status} onChange={event => { setStatus(event.target.value); setPage(0); }}>{['All', ...new Set(items.map(item => item.Status.toLowerCase()))].map(value => <option key={value} value={value}>{value === 'complete' ? 'Done (recorded scope)' : value === 'active' || value === 'checking' || value === 'open' ? 'In progress / ' + value : value}</option>)}</select></label>
-      <label>Timeline<select value={zoom} onChange={event => setZoom(Number(event.target.value))}><option value={90}>Quarter</option><option value={180}>Six months</option><option value={365}>Year</option><option value={0}>Fit filtered work</option></select></label>
+      {dated && <label>Timeline<select value={zoom} onChange={event => setZoom(Number(event.target.value))}><option value={90}>Quarter</option><option value={180}>Six months</option><option value={365}>Year</option><option value={0}>Fit filtered work</option></select></label>}
     </div>
-    <p className="context">{filtered.length} matching entries · PR authors are contacts · unverified scopes require an ownership check · UI/UX entries are proposals</p>
-    <div className="timeline" role="region" aria-label="Scheduled scopes" tabIndex={0}>
-      <div className="row heading"><div>Scope / recorded owner</div><div className="months">{Array.from({ length: 6 }, (_, index) => <span key={index}>{new Date(start + (end - start) * index / 6).toLocaleDateString('en-GB', { month: 'short', year: '2-digit', timeZone: 'UTC' })}</span>)}</div></div>
+    <p className="context">{filtered.length} matching entries · PR authors are contacts · unverified scopes require an ownership check · proposal and active UI/UX work remain distinct</p>
+    <div className={`timeline ${dated ? 'dated' : 'undated'}`} role="region" aria-label="Tracked scopes" tabIndex={0}>
+      <div className="row heading"><div>Scope / recorded owner</div><div className="months">{dated ? Array.from({ length: 6 }, (_, index) => <span key={index}>{new Date(start + (end - start) * index / 6).toLocaleDateString('en-GB', { month: 'short', year: '2-digit', timeZone: 'UTC' })}</span>) : 'Recorded state / type'}</div></div>
       {visible.map(item => {
         const left = item.Start ? (stamp(item.Start) - start) / (end - start) * 100 : 0;
         const width = item.Start ? Math.max(0.5, (stamp(item.Finish) - stamp(item.Start) + day) / (end - start) * 100) : 0;
         return <button className="row task" key={item.Id} onClick={() => setSelected(item.Id)} aria-label={`Open ${item.Name}`}>
           <div className="task-name"><strong>{item.Name}</strong><span>{item.Id} · {item.Status} · {item.Owner}</span></div>
-          <div className="track">{!item.Start ? <span className="unscheduled">Unscheduled</span> : left > 100 ? <span className="unscheduled">{item.Start} — use Fit filtered work</span> : <span title={`${item.Start} → ${item.Finish}: ${item.ScheduleKind}`} className={`bar ${item.Status.toLowerCase()}`} style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}>{width > 9 ? item.Start : ''}</span>}</div>
+          <div className="track">{!dated ? <div className="scope-state"><strong>{item.Status === 'complete' ? 'Done' : ['active', 'checking', 'open'].includes(item.Status.toLowerCase()) ? 'In progress' : item.Status === 'unverified' ? 'Todo / unverified' : item.Status}</strong><span>{item.Kind}</span></div> : !item.Start ? <span className="unscheduled">Unscheduled</span> : left > 100 ? <span className="unscheduled">{item.Start} — use Fit filtered work</span> : <span title={`${item.Start} → ${item.Finish}: ${item.ScheduleKind}`} className={`bar ${item.Status.toLowerCase()}`} style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}>{width > 9 ? item.Start : ''}</span>}</div>
         </button>;
       })}
       {!visible.length && <p>No matching scopes — change the filters</p>}
@@ -112,9 +113,9 @@ function Board() {
       <p>{current.Id} · {current.Status} · {current.Owner}</p><p><a href={current.Source.startsWith('https://') ? current.Source : `https://github.com/TryUniCAD/Kit/blob/${current.Source.startsWith("Documentation/Planning/") ? data.Links.ExtraTasks.find(task => task.Id === "PlanningViews").Branch : data.MainRevision}/${current.Source}`}>Owning source</a></p>
       <p>Dependencies: {current.Dependencies.join(', ') || 'No parent edges recorded; inspect source prerequisites'}</p>
       <details><summary>Exit condition and evidence</summary><pre>{plain(current.Exit)}</pre><pre>{plain(current.Stages)}</pre><h3>Read / write / conversion tracks</h3><pre>{plain(current.Tracks || current.Boundary || "See owning source")}</pre></details>
-      <form key={current.Id} onSubmit={saveWindow}><label>Start<input name="start" type="date" required defaultValue={current.Start || today} /></label><label>Finish<input name="finish" type="date" required defaultValue={current.Finish || today} /></label><label>Estimate basis<input name="basis" required maxLength={500} defaultValue={current.Basis || 'Owner supplied investigation window'} /></label><button>Update draft window</button></form>
+      {mode === 'Schedule' && current.Kind === 'Milestone' && <form key={current.Id} onSubmit={saveWindow}><label>Start<input name="start" type="date" required defaultValue={current.Start || today} /></label><label>Finish<input name="finish" type="date" required defaultValue={current.Finish || today} /></label><label>Estimate basis<input name="basis" required maxLength={500} defaultValue={current.Basis || 'Owner supplied investigation window'} /></label><button>Update draft window</button></form>}
       <div className="actions"><button onClick={() => copyPrompt(current)}>Copy agent prompt</button><button onClick={() => copyPrompt(current, "local Codex")}>Copy local handoff</button><button onClick={() => copyPrompt(current, "Hoplite")}>Copy Hoplite handoff</button><button onClick={() => copyPrompt(current, "configured GitHub or T3 agent")}>Copy dispatch request</button></div>
-      <p>{eligible ? 'Locally eligible for handoff; live claim and prerequisite checks are still required' : 'Dispatch blocked: scope needs a current window, no owner and verified prerequisites'}</p>
+      <p>{eligible ? 'Locally eligible for handoff; live claim and prerequisite checks are still required' : 'Dispatch requires an unclaimed scope and verified prerequisites'}</p>
       <p>Copying does not claim or start work. Repository issues are disabled. Copy a handoff to an available runtime; direct local and Hoplite launch integrations are unavailable.</p>
       <label>Agent prompt<textarea readOnly rows={12} value={promptFor(current)} onFocus={event => event.target.select()} /></label>
     </section>}

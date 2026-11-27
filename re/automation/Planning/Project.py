@@ -135,6 +135,7 @@ def main():
         return item["Id"], remote_id
 
     errors = []
+    processed = 0
     with ThreadPoolExecutor(max_workers=4) as workers:
         futures = {workers.submit(publish, item): item["Id"] for item in remaining}
         try:
@@ -147,7 +148,9 @@ def main():
                     if scope_id not in state.setdefault("Published", []):
                         state["Published"].append(scope_id)
                     state_path.write_text(json.dumps(state, indent=2) + "\n")
-                    print(f"Published {len(state['Published'])} / {len(board['Items'])}", flush=True)
+                    processed += 1
+                    if processed % 50 == 0 or processed == len(remaining):
+                        print(f"Processed {processed} / {len(remaining)} existing or missing scopes", flush=True)
                 except Exception as error:
                     errors.append(futures[future] + ": " + str(error))
                     for pending in futures:

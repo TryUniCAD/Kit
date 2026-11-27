@@ -292,7 +292,7 @@
       "Exit": "Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR",
       "Branch": "feat/project-todo-review-20261127",
       "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/392",
-      "Blocker": "Project item field writes repeatedly fail with HTTP502 across GraphQL and REST; readback and resumable state retained. Configured reviewer skips actual review because trial expired and credits are unavailable."
+      "Blocker": "Bulk project writes repeatedly return HTTP502, connection timeouts and malformed responses across GraphQL and REST. Readback and durable identities retained; missing records and forecast cleanup remain unfinished. Configured reviewer skips actual review because its trial expired and credits are unavailable."
     },
     {
       "Id": "FusionRevolveContrast",
@@ -368,12 +368,24 @@
     {
       "Id": "UiPlanning",
       "Name": "Planning board schedule editing and scope discovery",
-      "Status": "proposed",
-      "Owner": "Unassigned",
+      "Status": "checking",
+      "Owner": "jdharcourt",
       "Dependencies": [],
       "Source": "Documentation/Planning/README.md",
-      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
-      "Area": "UI/UX"
+      "Exit": "React scope discovery, status filters, prompt copying and optional schedule exports are implemented in PR392; source generation and bundle build pass, configured review and queue acceptance remain pending",
+      "Area": "UI/UX",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/392",
+      "Branch": "feat/project-todo-review-20261127"
+    },
+    {
+      "Id": "AgentDispatch",
+      "Name": "Direct local and Hoplite agent dispatch",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["A03", "UiPlanning"],
+      "Source": "Documentation/Planning/README.md",
+      "Area": "UI/UX",
+      "Exit": "Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client"
     }
   ],
   "Dependencies": {

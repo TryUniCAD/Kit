@@ -114,7 +114,7 @@ def main():
     }
     output.write_text(json.dumps(report, indent=2) + "\n")
     if args.apply:
-        with ThreadPoolExecutor(max_workers=2) as pool:
+        with ThreadPoolExecutor(max_workers=1) as pool:
             for offset in range(0, len(candidates), 10):
                 futures = [pool.submit(clear_batch, token, project, candidates[start:start + 5], old) for start in range(offset, min(offset + 10, len(candidates)), 5)]
                 for future in as_completed(futures):

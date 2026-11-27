@@ -1,6 +1,5 @@
 import argparse
 import json
-import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -53,12 +52,12 @@ def missing_values(item, remote, status_options):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Resume one locked project import with batches of at most twenty draft creations")
+    parser = argparse.ArgumentParser(description="Resume one locked project import with serialized single-record writes")
     parser.add_argument("--token-file", type=Path, required=True)
     parser.add_argument("--state", type=Path, required=True)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[3])
     parser.add_argument("--only", action="append", default=[])
-    parser.add_argument("--batch-size", type=int, choices=range(1, 21), default=20)
+    parser.add_argument("--batch-size", type=int, choices=range(1, 21), default=1)
     args = parser.parse_args()
     root = args.root.resolve()
     path = args.state.resolve()
@@ -88,35 +87,46 @@ def main():
         batch = remaining[offset:offset + args.batch_size]
         missing = [item for item in batch if item["Id"] not in state["Items"]]
         if missing:
-            variables = {"project": project["id"]}
-            declarations = ["$project:ID!"]
-            mutations = []
-            for index, item in enumerate(missing):
-                variables["title" + str(index)] = (item["Id"] + " · " + item["Name"])[:240]
-                variables["body" + str(index)] = "<!-- KitScope:" + item["Id"] + " -->\n\nRecorded owner/contact: " + item["Owner"] + "\n\nCopy this prompt to the chosen agent. Assignment does not launch a runtime.\n\n```text\n" + task_prompt(item) + "\n```"
-                declarations.extend([f"$title{index}:String!", f"$body{index}:String!"])
-                mutations.append(f"c{index}:addProjectV2DraftIssue(input:{{projectId:$project,title:$title{index},body:$body{index}}}){{projectItem{{id fullDatabaseId}}}}")
             state["NeedsRescan"] = True
             save_state(path, state)
-            try:
-                result = graphql(token, "mutation(" + ",".join(declarations) + "){" + " ".join(mutations) + "}", variables)
-                for index, item in enumerate(missing):
-                    row = result["c" + str(index)]["projectItem"]
-                    if not row.get("id") or not row.get("fullDatabaseId"):
-                        raise ValueError("Draft creation returned an incomplete item identity")
-                    state["Items"][item["Id"]] = {"Id": row["id"], "NumericId": row["fullDatabaseId"], "Fields": {}, "Status": None}
-                    save_state(path, state)
-                state["NeedsRescan"] = False
+            creation_errors = []
+            with ThreadPoolExecutor(max_workers=1) as creators:
+                futures = {}
+                for item in missing:
+                    body = "<!-- KitScope:" + item["Id"] + " -->\n\nRecorded owner/contact: " + item["Owner"] + "\n\nCopy this prompt to the chosen agent. Assignment does not launch a runtime.\n\n```text\n" + task_prompt(item) + "\n```"
+                    future = creators.submit(graphql, token, 'mutation($project:ID!,$title:String!,$body:String!){addProjectV2DraftIssue(input:{projectId:$project,title:$title,body:$body}){projectItem{id fullDatabaseId}}}', {"project": project["id"], "title": (item["Id"] + " · " + item["Name"])[:240], "body": body})
+                    futures[future] = item["Id"]
+                try:
+                    for future in as_completed(futures):
+                        if future.cancelled():
+                            continue
+                        try:
+                            row = future.result()["addProjectV2DraftIssue"]["projectItem"]
+                            if not row.get("id") or not row.get("fullDatabaseId"):
+                                raise ValueError("Draft creation returned an incomplete identity")
+                            state["Items"][futures[future]] = {"Id": row["id"], "NumericId": row["fullDatabaseId"], "Fields": {}, "Status": None}
+                            save_state(path, state)
+                        except Exception as problem:
+                            creation_errors.append(str(problem))
+                            for pending in futures:
+                                pending.cancel()
+                except KeyboardInterrupt:
+                    for pending in futures:
+                        pending.cancel()
+                    raise
+            if creation_errors:
+                state["Errors"] = creation_errors
                 save_state(path, state)
-            except (ValueError, KeyError, TypeError, subprocess.TimeoutExpired):
                 scan(token, project["id"], state, path)
-                raise ValueError("Draft creation outcome was uncertain; remote identities rescanned and saved. Restart to resume without recreating existing scopes") from None
+                raise ValueError("Draft creation stopped after readback: " + creation_errors[0]) from None
+            state["NeedsRescan"] = False
+            save_state(path, state)
         changes = [(item["Id"], missing_values(item, state["Items"][item["Id"]], status_options)) for item in batch]
         changes = [(scope, values) for scope, values in changes if values]
         state["NeedsRescan"] = True
         save_state(path, state)
         errors = []
-        with ThreadPoolExecutor(max_workers=4) as workers:
+        with ThreadPoolExecutor(max_workers=1) as workers:
             futures = {}
             for scope, values in changes:
                 future = workers.submit(rest, token, "/orgs/TryUniCAD/projectsV2/1/items/" + str(state["Items"][scope]["NumericId"]), {"fields": [{"id": numeric_fields[name], "value": value} for name, value in values.items()]})
@@ -142,9 +152,9 @@ def main():
                     pending.cancel()
                 raise
         if errors:
-            scan(token, project["id"], state, path)
             state["Errors"] = errors
             save_state(path, state)
+            scan(token, project["id"], state, path)
             raise ValueError("Field publication stopped after readback: " + errors[0]) from None
         state["NeedsRescan"] = False
         save_state(path, state)

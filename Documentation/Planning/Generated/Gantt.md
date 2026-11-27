@@ -99,6 +99,9 @@ flowchart LR
   UxCli["UxCli: CLI workflow and recovery improvements"]
   B10 --> UxCli
   UiPlanning["UiPlanning: Planning board schedule editing and scope discovery"]
+  AgentDispatch["AgentDispatch: Direct local and Hoplite agent dispatch"]
+  A03 --> AgentDispatch
+  UiPlanning --> AgentDispatch
 ```
 
 Source gates and detailed child prerequisites remain binding.

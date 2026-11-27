@@ -69,7 +69,7 @@ def main():
             expected_bodies.add(f'<!-- KitScope:{scope} -->\n\nScope: {scope}\n\nOwning source: {item["Source"]}\n\nRecorded owner/contact: {item["Owner"]}\n\nPrerequisites: {", ".join(item["Dependencies"]) or "Inspect source; no parent edges recorded"}\n\nExit condition:\n{json.dumps(item["Exit"], ensure_ascii=False)}\n\nSchedule is a proposed investigation window, not a feature completion promise. Read AGENTS.md and Documentation/Planning/README.md before claiming. Refresh live ownership and source prerequisites. Copy the scope prompt from the repo planning board. Assignment does not launch an agent. Do not start work already claimed by another owner.')
         bodies = {normal_body((row.get("content") or {}).get("body", "")) for row in rows}
         equivalent = bodies <= expected_bodies
-        if (len(bodies) != 1 and not equivalent) or not next(iter(bodies)).startswith("<!-- KitScope:" + scope + " -->"):
+        if not equivalent or not next(iter(bodies)).startswith("<!-- KitScope:" + scope + " -->"):
             report["Conflicts"][scope] = "Distinct body content; retained for explicit reconciliation"
             continue
         merged = {}

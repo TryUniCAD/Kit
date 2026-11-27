@@ -29,7 +29,9 @@ retains newer completed or active project states. Existing field values survive
 reconstruction of the local progress file.
 
 `Batch.py --token-file PATH --state /tmp/KitPlanningImport.json` imports missing
-records with bounded batches under the same project lease. Repeat `--only SCOPE_ID`
+records under the same project lease. Writes default to serialized records after
+parallel creation and field batches returned service errors. Creation uses GraphQL
+and field publication uses REST so their rate budgets remain separate. Repeat `--only SCOPE_ID`
 to restrict a recovery run to explicitly selected scopes. `ClearForecasts.py
 --token-file PATH --apply` removes only dates matching this task's earlier generated
 forecasts; it preserves manual date edits and records exact removals.
@@ -37,7 +39,9 @@ forecasts; it preserves manual date edits and records exact removals.
 `Audit.py --token-file PATH` reads current project coverage and status mismatches
 into `Documentation/Planning/ProjectSnapshot.json` without changing remote items.
 `Duplicates.py --token-file PATH` prepares an equivalence report; `--apply` merges
-only verified generated duplicates and retains distinct manual information.
+only verified generated duplicates and retains manual information. Matching copied
+bodies are insufficient unless they also match a known generated source; unknown
+prompt versions remain for explicit review.
 No token is stored in the repo or browser bundle. No tool launches a model or CAD
 application, and project assignment does not launch an agent.
 
@@ -56,8 +60,15 @@ See the [single-writer gotcha](../../Gotchas/Research/Planning/ProjectImportsNee
 
 Project creation and readback work, but both GraphQL field mutations and REST
 field updates repeatedly returned HTTP 502 during this import. A smaller retry
-also failed; forecast removal separately encountered a connection timeout.
+also failed; forecast removal encountered a connection timeout, and a later REST
+draft batch returned malformed responses. A bounded recovery imported the newest
+claimed delivery before the full import failed again.
 [ProjectSnapshot.json](../../Planning/ProjectSnapshot.json) records actual coverage
 and status gaps, and [ForecastRemoval.json](../../Planning/ForecastRemoval.json)
 retains verified removals and failures. Missing records and uncleared old dates
 remain unfinished remote synchronization work; the local feature board is undated.
+
+The undated board shows recorded state and scope type in place of empty calendar
+tracks. A representative source-record preview passed desktop and 390-pixel
+rendering without console errors; the full local-file browser flow was not verified
+because browser automation disallows local file URLs.

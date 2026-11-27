@@ -1,6 +1,6 @@
 # Repository and decoding planning
 
-Open the [organization project](https://github.com/orgs/TryUniCAD/projects/1) for shared dates and agent claims, or [the local scheduling board](Generated/Board.html) for filters, draft schedule edits and copyable prompts.
+Open the [organization scope board](https://github.com/orgs/TryUniCAD/projects/1/views/6) for shared dates and agent claims, or [the local scheduling board](Generated/Board.html) for filters, draft schedule edits and copyable prompts.
 
 Use this page before selecting or handing off repository work. It joins the existing
 planning sources without transferring their ownership or changing acceptance criteria.
@@ -149,8 +149,8 @@ No supported Hoplite launch API was found in this session. T3 delegation tools a
 available to an active assistant, not directly to a static browser file. The board copies runner-specific handoffs and dispatch requests. The recipient
 checks the live claim; copying does not submit a runtime job. Repository issues are
 disabled, so issue-based agent launching is unavailable.
-Native direct launch is a tracked follow-up requiring a supported adapter and atomic
-claim/recheck protocol before external side effects.
+`AgentDispatch` explicitly tracks native direct launch, supported adapters and atomic
+claim/recheck before external side effects. It remains proposed and unassigned.
 
 ## Project synchronization
 

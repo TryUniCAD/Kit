@@ -60,6 +60,12 @@
       ],
       "Basis": "explicit owning-register account"
     },
+    "UiPlanning": {
+      "Accounts": [
+        "jdharcourt"
+      ],
+      "Basis": "explicit owning-register account"
+    },
     "A11c:14": {
       "Accounts": [
         "Stephen316"
@@ -772,11 +778,9 @@
     "claim:A08h-RimFillet20261125:a3d868c3"
   ],
   "Applied": [
-    "FusionRevolveContrast",
-    "sw:family:extrude:boss-base-extrude"
+    "UiPlanning",
+    "PR395"
   ],
-  "Blocked": {
-    "PR395": "Project scope not yet imported"
-  },
+  "Blocked": {},
   "UnavailableAccounts": {}
 }
