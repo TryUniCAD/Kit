@@ -43,8 +43,8 @@ def CheckInlineFlow(FlowName: str, CaseMode: str) -> None:
             "if:" in Step and "steps.phase.outputs.phase" in Step for Step in Steps
         )
         if not any(
-            f"    name: {Name}\n" in Block
-            for Name in ("Pyright", "Mypy", "Python steering")
+            f"    name: {CheckName}\n" in Block
+            for CheckName in ("Pyright", "Mypy", "Python steering")
         ):
             assert "    if: github.event_name == 'pull_request'" in Block
     Process = RunProcess(
