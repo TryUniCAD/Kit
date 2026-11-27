@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 
-# assembly and ellipse measurements qualify only the exact sp05.2 oracle
+# assembly and ellipse measurements qualify only the exact qualified oracle
 KOraclePart = {
     "build": "34.5.2.0604",
     "product": "SOLIDWORKS 2026 SP05.2",
