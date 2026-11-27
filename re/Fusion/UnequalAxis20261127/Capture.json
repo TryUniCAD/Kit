@@ -1,0 +1,5668 @@
+{
+  "version": 1,
+  "application": "2706.1.17",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "initial_documents": 0,
+  "cases": [
+    {
+      "id": "control_before",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              0.8499999999999998,
+              0.3523143784962471
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "control_before.f3d",
+          "sha256": "7da18cadf793c184bbab114689f4a70d078c4d13451a3854b2272f888a74955e",
+          "size": 58103
+        }
+      ]
+    },
+    {
+      "id": "baseline",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              0.8499999999999998,
+              0.3523143784962471
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.4292277927420463,
+            "area_cm2": 12.157732723502741,
+            "center_cm": [
+              0.11627694820695704,
+              0.8499999999999998,
+              0.40747142967172884
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.8003147252672704,
+                1.7999999999999998,
+                1.3907757818501811
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.1868238913561442,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.4292277927420476,
+              "center_cm": [
+                0.11627694820695689,
+                0.8499999999999999,
+                0.40747142967172917
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              0.8499999999999998,
+              0.3523143784962471
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.4292277927420454,
+            "area_cm2": 12.157732723502738,
+            "center_cm": [
+              0.07395119507150787,
+              0.8500000000000001,
+              0.2845485170099366
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.7499999999999999
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.3119295607090935
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.5235987755982988,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.429227792742047,
+              "center_cm": [
+                0.07395119507150749,
+                0.8499999999999999,
+                0.28454851700993633
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              0.8499999999999998,
+              0.3523143784962471
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "baseline.f3d",
+          "sha256": "0bb3d6b63b3c4bb7df0a80364a65cada7d15e260aada77aee469d1f6b02f7cc9",
+          "size": 57954
+        },
+        {
+          "file": "baseline_edit_first.f3d",
+          "sha256": "d4cdcee48f0f9b6edebcf50f0254f7281235669509f5f37a19b4ce2e90885452",
+          "size": 60304
+        },
+        {
+          "file": "baseline_edit_second.f3d",
+          "sha256": "b25ff187c555ba02adbb8a0000e48c311789b98331bba2d522c65dbe1ef8e8de",
+          "size": 59736
+        },
+        {
+          "file": "baseline_restored.f3d",
+          "sha256": "d9f0979e3665bf0011da2729ec5b955eb35ad82a51fc4cacf6e712d7640f2cb9",
+          "size": 59499
+        }
+      ]
+    },
+    {
+      "id": "first",
+      "spec": {
+        "first": 79,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.7228707127438323,
+            "area_cm2": 13.305810305464613,
+            "center_cm": [
+              0.18610944146754727,
+              0.8499999999999993,
+              0.485924229478081
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.9473528036987642,
+                1.7999999999999998,
+                1.472440775171496
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.3788101090755203,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "79 deg",
+                "value": 1.3788101090755203,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.7228707127438327,
+              "center_cm": [
+                0.18610944146754715,
+                0.8499999999999999,
+                0.48592422947808184
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.9097343891086056,
+            "area_cm2": 14.03640513034944,
+            "center_cm": [
+              0.23486842509188785,
+              0.8499999999999995,
+              0.5301533109484308
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                1.0441948210047,
+                1.7999999999999998,
+                1.4963460753897362
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.5009831567151235,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "86 deg",
+                "value": 1.5009831567151235,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.9097343891086065,
+              "center_cm": [
+                0.23486842509188766,
+                0.8499999999999999,
+                0.530153310948432
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.7228707127438323,
+            "area_cm2": 13.305810305464613,
+            "center_cm": [
+              0.18610944146754727,
+              0.8499999999999993,
+              0.485924229478081
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.9473528036987642,
+                1.7999999999999998,
+                1.472440775171496
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.3788101090755203,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "79 deg",
+                "value": 1.3788101090755203,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.7228707127438327,
+              "center_cm": [
+                0.18610944146754715,
+                0.8499999999999999,
+                0.48592422947808184
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.9097343891086043,
+            "area_cm2": 14.036405130349435,
+            "center_cm": [
+              0.17670754875220673,
+              0.8499999999999998,
+              0.42076861156865836
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.7499999999999999
+              ],
+              [
+                0.9473528036987642,
+                1.7999999999999998,
+                1.472440775171496
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.3788101090755203,
+            "second": 0.5235987755982988,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "79 deg",
+                "value": 1.3788101090755203,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.909734389108606,
+              "center_cm": [
+                0.1767075487522065,
+                0.8499999999999999,
+                0.4207686115686584
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.7228707127438323,
+            "area_cm2": 13.305810305464613,
+            "center_cm": [
+              0.18610944146754727,
+              0.8499999999999993,
+              0.485924229478081
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.9473528036987642,
+                1.7999999999999998,
+                1.472440775171496
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.3788101090755203,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "79 deg",
+                "value": 1.3788101090755203,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.7228707127438327,
+              "center_cm": [
+                0.18610944146754715,
+                0.8499999999999999,
+                0.48592422947808184
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "first.f3d",
+          "sha256": "7248fcae238b0fc27a3d997f84b8d285a88170906b0e98f40cf1932f57ce276d",
+          "size": 60201
+        },
+        {
+          "file": "first_edit_first.f3d",
+          "sha256": "90f015b11a5c5a62caa245834a5037ff0c5b0d78dc564815a2b3c808df0c60a6",
+          "size": 62317
+        },
+        {
+          "file": "first_edit_second.f3d",
+          "sha256": "1c2ea1fcecd28f42f1e249b7f50acc9f468d3ce5ff0be382b787edc691d37fb1",
+          "size": 62165
+        },
+        {
+          "file": "first_restored.f3d",
+          "sha256": "9520049c464b5550acb2ff19e9359e35d4b63fa73b764065f636d06968dbe176",
+          "size": 61777
+        }
+      ]
+    },
+    {
+      "id": "second",
+      "spec": {
+        "first": 61,
+        "second": 37,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.616091469106821,
+            "area_cm2": 12.888327548387569,
+            "center_cm": [
+              0.07667161142134224,
+              0.85,
+              0.21751516373560373
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.9027225347280724
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.311929560709094
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.6457718232379019,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "37 deg",
+                "value": 0.6457718232379019,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.61609146910682,
+              "center_cm": [
+                0.07667161142134216,
+                0.8499999999999999,
+                0.2175151637356038
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.802955145471594,
+            "area_cm2": 13.6189223732724,
+            "center_cm": [
+              0.11088972608493453,
+              0.8499999999999996,
+              0.2743045557383977
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.9027225347280724
+              ],
+              [
+                0.8003147252672704,
+                1.7999999999999998,
+                1.3907757818501811
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.1868238913561442,
+            "second": 0.6457718232379019,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "37 deg",
+                "value": 0.6457718232379019,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.8029551454715933,
+              "center_cm": [
+                0.11088972608493453,
+                0.8499999999999999,
+                0.2743045557383975
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.616091469106821,
+            "area_cm2": 12.888327548387569,
+            "center_cm": [
+              0.07667161142134224,
+              0.85,
+              0.21751516373560373
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.9027225347280724
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.311929560709094
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.6457718232379019,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "37 deg",
+                "value": 0.6457718232379019,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.61609146910682,
+              "center_cm": [
+                0.07667161142134216,
+                0.8499999999999999,
+                0.2175151637356038
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.8029551454715937,
+            "area_cm2": 13.618922373272394,
+            "center_cm": [
+              0.08483308797582859,
+              0.8500000000000001,
+              0.15171771153851416
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -1.0419875556884959
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.3119295607090935
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.767944870877505,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "44 deg",
+                "value": 0.767944870877505,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.802955145471593,
+              "center_cm": [
+                0.08483308797582856,
+                0.8499999999999999,
+                0.15171771153851435
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.616091469106821,
+            "area_cm2": 12.888327548387569,
+            "center_cm": [
+              0.07667161142134224,
+              0.85,
+              0.21751516373560373
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.9027225347280724
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.311929560709094
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.6457718232379019,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "37 deg",
+                "value": 0.6457718232379019,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.61609146910682,
+              "center_cm": [
+                0.07667161142134216,
+                0.8499999999999999,
+                0.2175151637356038
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "second.f3d",
+          "sha256": "ddbe761ab49380ae79de479cdeed1ba0acab9637637bc63da8edb530ec6ab2e5",
+          "size": 58454
+        },
+        {
+          "file": "second_edit_first.f3d",
+          "sha256": "6af922f88e13aa3657c867bd323c14c36826db6e097e577a804d67990a1bdced",
+          "size": 60506
+        },
+        {
+          "file": "second_edit_second.f3d",
+          "sha256": "b137c82f65801d7fedd657b4b1262a24d396f1fa909b92b3d781080259009a6a",
+          "size": 59773
+        },
+        {
+          "file": "second_restored.f3d",
+          "sha256": "9ac3295e8587bbdd15edce94f9805c34073e6d185cd92ab6c2cdae52cdfba1a0",
+          "size": 59977
+        }
+      ]
+    },
+    {
+      "id": "swapped",
+      "spec": {
+        "first": 23,
+        "second": 61,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772774,
+            "area_cm2": 11.427137898617934,
+            "center_cm": [
+              0.07680474960960118,
+              0.8500000000000005,
+              -0.35231437849624786
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -1.3119295607090937
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999994,
+                0.5860966927339106
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.4014257279586958,
+            "second": 1.064650843716541,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                -0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.4292277927420494,
+            "area_cm2": 12.157732723502747,
+            "center_cm": [
+              0.0739511950715078,
+              0.8500000000000005,
+              -0.28454851700993716
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -1.3119295607090937
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999994,
+                0.7499999999999998
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.5235987755982988,
+            "second": 1.064650843716541,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.429227792742047,
+              "center_cm": [
+                0.07395119507150749,
+                0.8499999999999999,
+                -0.28454851700993633
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772774,
+            "area_cm2": 11.427137898617934,
+            "center_cm": [
+              0.07680474960960118,
+              0.8500000000000005,
+              -0.35231437849624786
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -1.3119295607090937
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999994,
+                0.5860966927339106
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.4014257279586958,
+            "second": 1.064650843716541,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                -0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.42922779274205,
+            "area_cm2": 12.157732723502766,
+            "center_cm": [
+              0.11627694820695723,
+              0.8500000000000011,
+              -0.40747142967172933
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -1.3907757818501811
+              ],
+              [
+                0.8003147252672704,
+                1.7999999999999998,
+                0.5860966927339106
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.4014257279586958,
+            "second": 1.1868238913561442,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.4292277927420476,
+              "center_cm": [
+                0.11627694820695689,
+                0.8499999999999999,
+                -0.40747142967172917
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772774,
+            "area_cm2": 11.427137898617934,
+            "center_cm": [
+              0.07680474960960118,
+              0.8500000000000005,
+              -0.35231437849624786
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -1.3119295607090937
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999994,
+                0.5860966927339106
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.4014257279586958,
+            "second": 1.064650843716541,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                -0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "swapped.f3d",
+          "sha256": "c5653fa661f56cba4b74b56457cccfdf5e0f4fb397a9319573f60f3a833e04ea",
+          "size": 57660
+        },
+        {
+          "file": "swapped_edit_first.f3d",
+          "sha256": "cbf7a0e2f36fa7621f9fbc1d0a1f50e309b4bf02b06707459adc7acddb305f2c",
+          "size": 59549
+        },
+        {
+          "file": "swapped_edit_second.f3d",
+          "sha256": "c02670a1a5481692792700b668f5e674091116a78f7677d17d30f1091fd829ff",
+          "size": 60639
+        },
+        {
+          "file": "swapped_restored.f3d",
+          "sha256": "688ef3ec4a099faac3177c016dda09f61c1c4600d1c7778457bcc26dbbe078e7",
+          "size": 59477
+        }
+      ]
+    },
+    {
+      "id": "origin",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          -1.7,
+          2.3,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772725,
+            "area_cm2": 11.427137898617904,
+            "center_cm": [
+              -2.7231952503904027,
+              3.850000000000004,
+              0.35231437849625097
+            ],
+            "bounds_cm": [
+              [
+                -3.2,
+                2.9,
+                -0.5860966927339109
+              ],
+              [
+                -2.08784769619707,
+                4.8,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -1.7,
+                2.3,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                -2.723195250390399,
+                3.8499999999999996,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.4292277927420454,
+            "area_cm2": 12.157732723502734,
+            "center_cm": [
+              -2.6837230517930477,
+              3.8500000000000063,
+              0.40747142967173283
+            ],
+            "bounds_cm": [
+              [
+                -3.2,
+                2.9,
+                -0.5860966927339109
+              ],
+              [
+                -1.9996852747327296,
+                4.8,
+                1.3907757818501814
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.1868238913561442,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -1.7,
+                2.3,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.4292277927420476,
+              "center_cm": [
+                -2.6837230517930433,
+                3.8499999999999996,
+                0.40747142967172917
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772725,
+            "area_cm2": 11.427137898617904,
+            "center_cm": [
+              -2.7231952503904027,
+              3.850000000000004,
+              0.35231437849625097
+            ],
+            "bounds_cm": [
+              [
+                -3.2,
+                2.9,
+                -0.5860966927339109
+              ],
+              [
+                -2.08784769619707,
+                4.8,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -1.7,
+                2.3,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                -2.723195250390399,
+                3.8499999999999996,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.429227792742047,
+            "area_cm2": 12.157732723502738,
+            "center_cm": [
+              -2.726048804928493,
+              3.8500000000000005,
+              0.28454851700993733
+            ],
+            "bounds_cm": [
+              [
+                -3.2,
+                2.9,
+                -0.75
+              ],
+              [
+                -2.08784769619707,
+                4.8,
+                1.3119295607090935
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.5235987755982988,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -1.7,
+                2.3,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.429227792742047,
+              "center_cm": [
+                -2.7260488049284923,
+                3.8499999999999996,
+                0.28454851700993633
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772725,
+            "area_cm2": 11.427137898617904,
+            "center_cm": [
+              -2.7231952503904027,
+              3.850000000000004,
+              0.35231437849625097
+            ],
+            "bounds_cm": [
+              [
+                -3.2,
+                2.9,
+                -0.5860966927339109
+              ],
+              [
+                -2.08784769619707,
+                4.8,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -1.7,
+                2.3,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                -2.723195250390399,
+                3.8499999999999996,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "origin.f3d",
+          "sha256": "95e7362388f82b8aae6c645325863f60c9755f0fac2b6dbf5d787d8b726895b2",
+          "size": 58051
+        },
+        {
+          "file": "origin_edit_first.f3d",
+          "sha256": "5ed15a6ab4623292f370dec98f29fe2ad138bf6d73fbcbfe79eb33fc899e0e7e",
+          "size": 60362
+        },
+        {
+          "file": "origin_edit_second.f3d",
+          "sha256": "2204f0b75bdf0f1586e8da70c0a7eba2b26c97a74a683289abee46e100e148e4",
+          "size": 59740
+        },
+        {
+          "file": "origin_restored.f3d",
+          "sha256": "b93d89c037608723816f551402d292378a533b16b7f6037ba4e277b937efcc18",
+          "size": 59526
+        }
+      ]
+    },
+    {
+      "id": "direction",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0.6,
+          0.8,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.242364116377276,
+            "area_cm2": 11.427137898617927,
+            "center_cm": [
+              1.2114437996876808,
+              1.15391715023424,
+              0.35231437849624775
+            ],
+            "bounds_cm": [
+              [
+                0.2599999999999998,
+                0.012708617718241541,
+                -0.5860966927339109
+              ],
+              [
+                2.2897218430423445,
+                2.2,
+                1.3119295607090944
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                1.2114437996876806,
+                1.1539171502342396,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.429227792742044,
+            "area_cm2": 12.157732723502749,
+            "center_cm": [
+              1.2430215585655655,
+              1.1302338310758275,
+              0.40747142967172945
+            ],
+            "bounds_cm": [
+              [
+                0.2599999999999998,
+                -0.04018883516036245,
+                -0.5860966927339109
+              ],
+              [
+                2.3602517802138165,
+                2.2,
+                1.390775781850182
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.1868238913561442,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.4292277927420476,
+              "center_cm": [
+                1.243021558565565,
+                1.130233831075826,
+                0.40747142967172917
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.242364116377276,
+            "area_cm2": 11.427137898617927,
+            "center_cm": [
+              1.2114437996876808,
+              1.15391715023424,
+              0.35231437849624775
+            ],
+            "bounds_cm": [
+              [
+                0.2599999999999998,
+                0.012708617718241541,
+                -0.5860966927339109
+              ],
+              [
+                2.2897218430423445,
+                2.2,
+                1.3119295607090944
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                1.2114437996876806,
+                1.1539171502342396,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.42922779274205,
+            "area_cm2": 12.157732723502752,
+            "center_cm": [
+              1.2091609560572072,
+              1.155629282957097,
+              0.28454851700993566
+            ],
+            "bounds_cm": [
+              [
+                0.2599999999999998,
+                0.012708617718241541,
+                -0.7499999999999999
+              ],
+              [
+                2.2897218430423445,
+                2.2,
+                1.3119295607090944
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.5235987755982988,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.429227792742047,
+              "center_cm": [
+                1.2091609560572056,
+                1.1556292829570955,
+                0.28454851700993633
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.242364116377276,
+            "area_cm2": 11.427137898617927,
+            "center_cm": [
+              1.2114437996876808,
+              1.15391715023424,
+              0.35231437849624775
+            ],
+            "bounds_cm": [
+              [
+                0.2599999999999998,
+                0.012708617718241541,
+                -0.5860966927339109
+              ],
+              [
+                2.2897218430423445,
+                2.2,
+                1.3119295607090944
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.6,
+                0.8,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                1.2114437996876806,
+                1.1539171502342396,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "direction.f3d",
+          "sha256": "c5f8bbd0a8d479cdcf33a0e244f49d203a05e20e797bd9337ba86e974d8bca61",
+          "size": 70876
+        },
+        {
+          "file": "direction_edit_first.f3d",
+          "sha256": "d165ec813c42b7987b5cc84c04d4afd0d3c15169cb12bc98de1c1c3a6a7644e8",
+          "size": 74639
+        },
+        {
+          "file": "direction_edit_second.f3d",
+          "sha256": "4fb05aca2e52943446a41c9e30f3137dd245d6e4da2c9f422de049bfdf1fe6d2",
+          "size": 72267
+        },
+        {
+          "file": "direction_restored.f3d",
+          "sha256": "17400e7cc156c37ab0321a92de5ed80fd8d5de110aa1dde09ff94a4dd36d954c",
+          "size": 72603
+        }
+      ]
+    },
+    {
+      "id": "reversed",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.242364116377278,
+            "area_cm2": 11.427137898617913,
+            "center_cm": [
+              2.1231952503903995,
+              -2.2499999999999996,
+              0.35231437849624997
+            ],
+            "bounds_cm": [
+              [
+                1.4878476961970697,
+                -3.2,
+                -0.5860966927339106
+              ],
+              [
+                2.6,
+                -1.2999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                2.123195250390399,
+                -2.25,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.429227792742052,
+            "area_cm2": 12.157732723502745,
+            "center_cm": [
+              2.083723051793044,
+              -2.249999999999999,
+              0.40747142967173205
+            ],
+            "bounds_cm": [
+              [
+                1.3996852747327295,
+                -3.2,
+                -0.5860966927339106
+              ],
+              [
+                2.6,
+                -1.2999999999999998,
+                1.3907757818501811
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.1868238913561442,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.4292277927420476,
+              "center_cm": [
+                2.083723051793043,
+                -2.25,
+                0.40747142967172917
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.242364116377278,
+            "area_cm2": 11.427137898617913,
+            "center_cm": [
+              2.1231952503903995,
+              -2.2499999999999996,
+              0.35231437849624997
+            ],
+            "bounds_cm": [
+              [
+                1.4878476961970697,
+                -3.2,
+                -0.5860966927339106
+              ],
+              [
+                2.6,
+                -1.2999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                2.123195250390399,
+                -2.25,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.429227792742051,
+            "area_cm2": 12.157732723502741,
+            "center_cm": [
+              2.1260488049284927,
+              -2.249999999999999,
+              0.28454851700993894
+            ],
+            "bounds_cm": [
+              [
+                1.4878476961970697,
+                -3.2,
+                -0.7499999999999999
+              ],
+              [
+                2.6,
+                -1.2999999999999998,
+                1.3119295607090935
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.5235987755982988,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.429227792742047,
+              "center_cm": [
+                2.1260488049284927,
+                -2.25,
+                0.28454851700993633
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.242364116377278,
+            "area_cm2": 11.427137898617913,
+            "center_cm": [
+              2.1231952503903995,
+              -2.2499999999999996,
+              0.35231437849624997
+            ],
+            "bounds_cm": [
+              [
+                1.4878476961970697,
+                -3.2,
+                -0.5860966927339106
+              ],
+              [
+                2.6,
+                -1.2999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                2.123195250390399,
+                -2.25,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "reversed.f3d",
+          "sha256": "345797af2e84db3da72c23fe5132669ae596b7758cf2e44e18e7e147f494b032",
+          "size": 59285
+        },
+        {
+          "file": "reversed_edit_first.f3d",
+          "sha256": "ba4b0d5ec43ab813ab897649f747db9aa9a10a5cbe285f27d375a91fe39fe0d4",
+          "size": 61563
+        },
+        {
+          "file": "reversed_edit_second.f3d",
+          "sha256": "e3de1907bd79893ebcecea008b5cb19c6b84600c510c12e339b10a78b535b244",
+          "size": 61116
+        },
+        {
+          "file": "reversed_restored.f3d",
+          "sha256": "8f64e56d930084b5f6e7aebd03e10eb27a643fef31e455713f9e534a9ef671f3",
+          "size": 60620
+        }
+      ]
+    },
+    {
+      "id": "radial",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 1.3,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 3.2173050365413034,
+            "area_cm2": 15.23893698497353,
+            "center_cm": [
+              -0.3454518662809313,
+              0.85,
+              0.4977089912416051
+            ],
+            "bounds_cm": [
+              [
+                -0.8999999999999999,
+                -0.09999999999999998,
+                -0.7814622569785475
+              ],
+              [
+                0.4697474936797619,
+                1.7999999999999998,
+                1.7492394142787915
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 3.217305036541306,
+              "center_cm": [
+                -0.34545186628093183,
+                0.8499999999999999,
+                0.49770899124160556
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 3.485413789586414,
+            "area_cm2": 16.28718173372133,
+            "center_cm": [
+              -0.2896901110274835,
+              0.8499999999999996,
+              0.5756284914833553
+            ],
+            "bounds_cm": [
+              [
+                -0.8999999999999999,
+                -0.09999999999999998,
+                -0.7814622569785475
+              ],
+              [
+                0.6130114285593145,
+                1.7999999999999998,
+                1.8543677091335748
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.1868238913561442,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 3.485413789586416,
+              "center_cm": [
+                -0.28969011102748454,
+                0.8499999999999999,
+                0.5756284914833565
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 3.2173050365413034,
+            "area_cm2": 15.23893698497353,
+            "center_cm": [
+              -0.3454518662809313,
+              0.85,
+              0.4977089912416051
+            ],
+            "bounds_cm": [
+              [
+                -0.8999999999999999,
+                -0.09999999999999998,
+                -0.7814622569785475
+              ],
+              [
+                0.4697474936797619,
+                1.7999999999999998,
+                1.7492394142787915
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 3.217305036541306,
+              "center_cm": [
+                -0.34545186628093183,
+                0.8499999999999999,
+                0.49770899124160556
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 3.485413789586418,
+            "area_cm2": 16.287181733721326,
+            "center_cm": [
+              -0.3494830379767035,
+              0.8500000000000002,
+              0.4019772226293588
+            ],
+            "bounds_cm": [
+              [
+                -0.8999999999999999,
+                -0.09999999999999998,
+                -0.9999999999999999
+              ],
+              [
+                0.4697474936797619,
+                1.7999999999999998,
+                1.7492394142787915
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.5235987755982988,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 3.485413789586415,
+              "center_cm": [
+                -0.34948303797670355,
+                0.8499999999999999,
+                0.40197722262935887
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 3.2173050365413034,
+            "area_cm2": 15.23893698497353,
+            "center_cm": [
+              -0.3454518662809313,
+              0.85,
+              0.4977089912416051
+            ],
+            "bounds_cm": [
+              [
+                -0.8999999999999999,
+                -0.09999999999999998,
+                -0.7814622569785475
+              ],
+              [
+                0.4697474936797619,
+                1.7999999999999998,
+                1.7492394142787915
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 3.217305036541306,
+              "center_cm": [
+                -0.34545186628093183,
+                0.8499999999999999,
+                0.49770899124160556
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "radial.f3d",
+          "sha256": "d2bf22d22df73e2c1940eb0991e9810edb3ff62cc6df2b1e8586258818377e5a",
+          "size": 60288
+        },
+        {
+          "file": "radial_edit_first.f3d",
+          "sha256": "905395ff4d373fca7e7006017ee80c546c04738351d5629dee191e72cd393309",
+          "size": 62678
+        },
+        {
+          "file": "radial_edit_second.f3d",
+          "sha256": "9883afbfc0f264cedfd4d8bd5dcd4c7f4c346fb2024285e7957ecac1a7d2528d",
+          "size": 61997
+        },
+        {
+          "file": "radial_restored.f3d",
+          "sha256": "c22ce2a5e92f179694ebf700c50a6e26c25db1bf0a8ca8dd957664cbe914c8ee",
+          "size": 61937
+        }
+      ]
+    },
+    {
+      "id": "axial",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": -0.9
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              -0.6499999999999995,
+              0.3523143784962473
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -1.6,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                0.2999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                -0.65,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.4292277927420463,
+            "area_cm2": 12.157732723502741,
+            "center_cm": [
+              0.11627694820695691,
+              -0.6499999999999997,
+              0.40747142967172884
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -1.6,
+                -0.5860966927339106
+              ],
+              [
+                0.8003147252672704,
+                0.2999999999999998,
+                1.3907757818501811
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.1868238913561442,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "68 deg",
+                "value": 1.1868238913561442,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.4292277927420476,
+              "center_cm": [
+                0.11627694820695689,
+                -0.65,
+                0.40747142967172917
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              -0.6499999999999995,
+              0.3523143784962473
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -1.6,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                0.2999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                -0.65,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.429227792742046,
+            "area_cm2": 12.157732723502738,
+            "center_cm": [
+              0.07395119507150785,
+              -0.6499999999999998,
+              0.2845485170099365
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -1.6,
+                -0.7499999999999999
+              ],
+              [
+                0.7121523038029305,
+                0.2999999999999996,
+                1.3119295607090935
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.5235987755982988,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "30 deg",
+                "value": 0.5235987755982988,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.429227792742047,
+              "center_cm": [
+                0.07395119507150749,
+                -0.65,
+                0.28454851700993633
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              -0.6499999999999995,
+              0.3523143784962473
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -1.6,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                0.2999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                -0.65,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "axial.f3d",
+          "sha256": "20aa075944645035d556dae305a5f0b015c8df1addd63a71839ada5904acd734",
+          "size": 57882
+        },
+        {
+          "file": "axial_edit_first.f3d",
+          "sha256": "aaf712d6870cb4d2c556dac0ebb23444e97b8b32fde766c34d26634fa206590a",
+          "size": 60312
+        },
+        {
+          "file": "axial_edit_second.f3d",
+          "sha256": "0a678338c7d60eca568fa1ebf4bbbf7f6314c1d814362e3eceffb75715ded277",
+          "size": 59795
+        },
+        {
+          "file": "axial_restored.f3d",
+          "sha256": "f0ab2b241a188fd01b6356c3aff7fc471b8d982ef370b522a773f688c3ff89d7",
+          "size": 59313
+        }
+      ]
+    },
+    {
+      "id": "holdout_a",
+      "spec": {
+        "first": 47,
+        "second": 31,
+        "origin": [
+          2.1,
+          -1.3,
+          0
+        ],
+        "direction": [
+          -0.8,
+          0.6,
+          0
+        ],
+        "radial": 1.1,
+        "axial": -0.4
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.6253766207274323,
+            "area_cm2": 12.92463039682905,
+            "center_cm": [
+              0.8480008567496956,
+              -2.052665524333742,
+              0.1901983956167079
+            ],
+            "bounds_cm": [
+              [
+                -0.18000000000000027,
+                -2.9800000000000004,
+                -0.9270685348380978
+              ],
+              [
+                1.969881082358751,
+                -1.0001585568549993,
+                1.3164366629145074
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.8203047484373349,
+            "second": 0.5410520681182421,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "47 deg",
+                "value": 0.8203047484373349,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "31 deg",
+                "value": 0.5410520681182421,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                2.1,
+                -1.3,
+                0.0
+              ],
+              "direction": [
+                -0.8,
+                0.6,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.6253766207274305,
+              "center_cm": [
+                0.8480008567496949,
+                -2.05266552433374,
+                0.1901983956167078
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.8609873431004074,
+            "area_cm2": 13.845815176031653,
+            "center_cm": [
+              0.8684420384224669,
+              -2.0254106154367135,
+              0.2684071456834767
+            ],
+            "bounds_cm": [
+              [
+                -0.18000000000000016,
+                -2.9800000000000004,
+                -0.9270685348380978
+              ],
+              [
+                2.0320617334869677,
+                -0.9172510220173766,
+                1.4562305898749057
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.9424777960769379,
+            "second": 0.5410520681182421,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "54 deg",
+                "value": 0.9424777960769379,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "31 deg",
+                "value": 0.5410520681182421,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                2.1,
+                -1.3,
+                0.0
+              ],
+              "direction": [
+                -0.8,
+                0.6,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.860987343100405,
+              "center_cm": [
+                0.8684420384224664,
+                -2.0254106154367117,
+                0.2684071456834759
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.6253766207274323,
+            "area_cm2": 12.92463039682905,
+            "center_cm": [
+              0.8480008567496956,
+              -2.052665524333742,
+              0.1901983956167079
+            ],
+            "bounds_cm": [
+              [
+                -0.18000000000000027,
+                -2.9800000000000004,
+                -0.9270685348380978
+              ],
+              [
+                1.969881082358751,
+                -1.0001585568549993,
+                1.3164366629145074
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.8203047484373349,
+            "second": 0.5410520681182421,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "47 deg",
+                "value": 0.8203047484373349,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "31 deg",
+                "value": 0.5410520681182421,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                2.1,
+                -1.3,
+                0.0
+              ],
+              "direction": [
+                -0.8,
+                0.6,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.6253766207274305,
+              "center_cm": [
+                0.8480008567496949,
+                -2.05266552433374,
+                0.1901983956167078
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.8609873431004114,
+            "area_cm2": 13.84581517603168,
+            "center_cm": [
+              0.8547158298693531,
+              -2.0437122268408645,
+              0.10562873111354584
+            ],
+            "bounds_cm": [
+              [
+                -0.18000000000000027,
+                -2.9800000000000004,
+                -1.1081906555861851
+              ],
+              [
+                1.969881082358751,
+                -1.0001585568549993,
+                1.3164366629145074
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.8203047484373349,
+            "second": 0.6632251157578453,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "47 deg",
+                "value": 0.8203047484373349,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "38 deg",
+                "value": 0.6632251157578453,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                2.1,
+                -1.3,
+                0.0
+              ],
+              "direction": [
+                -0.8,
+                0.6,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.860987343100405,
+              "center_cm": [
+                0.8547158298693526,
+                -2.0437122268408636,
+                0.10562873111354729
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.6253766207274323,
+            "area_cm2": 12.92463039682905,
+            "center_cm": [
+              0.8480008567496956,
+              -2.052665524333742,
+              0.1901983956167079
+            ],
+            "bounds_cm": [
+              [
+                -0.18000000000000027,
+                -2.9800000000000004,
+                -0.9270685348380978
+              ],
+              [
+                1.969881082358751,
+                -1.0001585568549993,
+                1.3164366629145074
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 0.8203047484373349,
+            "second": 0.5410520681182421,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "47 deg",
+                "value": 0.8203047484373349,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "31 deg",
+                "value": 0.5410520681182421,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                2.1,
+                -1.3,
+                0.0
+              ],
+              "direction": [
+                -0.8,
+                0.6,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.6253766207274305,
+              "center_cm": [
+                0.8480008567496949,
+                -2.05266552433374,
+                0.1901983956167078
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "holdout_a.f3d",
+          "sha256": "803ef2deaf9aa92f74c9a91463826cd8c5475afcd4290ddfe8ba83a5702bbaf8",
+          "size": 107352
+        },
+        {
+          "file": "holdout_a_edit_first.f3d",
+          "sha256": "7bcc626bc9617bde46d7203ce9ef2af06bdac417ffddf4579e7f606546c7e859",
+          "size": 109811
+        },
+        {
+          "file": "holdout_a_edit_second.f3d",
+          "sha256": "aba48707e88e6c18227dbce2ba1091dfb92aabff576b95c634a391cc9188eef8",
+          "size": 115274
+        },
+        {
+          "file": "holdout_a_restored.f3d",
+          "sha256": "ca0d7827dadaa82d02f93f1a06ecdac62b7e6c2bf3e80db609409a15fcb98ad4",
+          "size": 109203
+        }
+      ]
+    },
+    {
+      "id": "holdout_b",
+      "spec": {
+        "first": 103,
+        "second": 19,
+        "origin": [
+          -0.3,
+          -2.7,
+          0
+        ],
+        "direction": [
+          0.8,
+          -0.6,
+          0
+        ],
+        "radial": 0.7,
+        "axial": 1.2
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.9735698065003526,
+            "area_cm2": 14.285987213384644,
+            "center_cm": [
+              1.8188598585712001,
+              -3.4581868552383463,
+              0.5985583829426568
+            ],
+            "bounds_cm": [
+              [
+                0.4710411143511529,
+                -4.811945180865129,
+                -0.45579541624001957
+              ],
+              [
+                3.02,
+                -2.3,
+                1.400000000000018
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.7976891295541595,
+            "second": 0.33161255787892263,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "103 deg",
+                "value": 1.7976891295541595,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "19 deg",
+                "value": 0.33161255787892263,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -0.3,
+                -2.7,
+                0.0
+              ],
+              "direction": [
+                0.8,
+                -0.5999999999999999,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.9735698065002985,
+              "center_cm": [
+                1.8188598585712246,
+                -3.458186855238367,
+                0.5985583829426587
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 3.1441844675290644,
+            "area_cm2": 14.953052053496886,
+            "center_cm": [
+              1.7871535935750686,
+              -3.500461875233189,
+              0.6226970186304956
+            ],
+            "bounds_cm": [
+              [
+                0.37270307960643795,
+                -4.94306256052475,
+                -0.45579541624001957
+              ],
+              [
+                3.02,
+                -2.3,
+                1.400000000000018
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.9198621771937625,
+            "second": 0.33161255787892263,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "110 deg",
+                "value": 1.9198621771937625,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "19 deg",
+                "value": 0.33161255787892263,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -0.3,
+                -2.7,
+                0.0
+              ],
+              "direction": [
+                0.8,
+                -0.5999999999999999,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 3.1441844675290045,
+              "center_cm": [
+                1.787153593575094,
+                -3.500461875233208,
+                0.6226970186304976
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_first",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.9735698065003526,
+            "area_cm2": 14.285987213384644,
+            "center_cm": [
+              1.8188598585712001,
+              -3.4581868552383463,
+              0.5985583829426568
+            ],
+            "bounds_cm": [
+              [
+                0.4710411143511529,
+                -4.811945180865129,
+                -0.45579541624001957
+              ],
+              [
+                3.02,
+                -2.3,
+                1.400000000000018
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.7976891295541595,
+            "second": 0.33161255787892263,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "103 deg",
+                "value": 1.7976891295541595,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "19 deg",
+                "value": 0.33161255787892263,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -0.3,
+                -2.7,
+                0.0
+              ],
+              "direction": [
+                0.8,
+                -0.5999999999999999,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.9735698065002985,
+              "center_cm": [
+                1.8188598585712246,
+                -3.458186855238367,
+                0.5985583829426587
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "edit_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 3.1441844675289525,
+            "area_cm2": 14.953052053496835,
+            "center_cm": [
+              1.8299494924447668,
+              -3.4434006767403504,
+              0.5434809171838335
+            ],
+            "bounds_cm": [
+              [
+                0.4710411143511529,
+                -4.811945180865129,
+                -0.6137196055047085
+              ],
+              [
+                3.02,
+                -2.3,
+                1.3999999999999908
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.7976891295541595,
+            "second": 0.4537856055185257,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "103 deg",
+                "value": 1.7976891295541595,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "26 deg",
+                "value": 0.4537856055185257,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -0.3,
+                -2.7,
+                0.0
+              ],
+              "direction": [
+                0.8,
+                -0.5999999999999999,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 3.1441844675290045,
+              "center_cm": [
+                1.8299494924447464,
+                -3.443400676740338,
+                0.54348091718383
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        },
+        {
+          "stage": "restore_second",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.9735698065003526,
+            "area_cm2": 14.285987213384644,
+            "center_cm": [
+              1.8188598585712001,
+              -3.4581868552383463,
+              0.5985583829426568
+            ],
+            "bounds_cm": [
+              [
+                0.4710411143511529,
+                -4.811945180865129,
+                -0.45579541624001957
+              ],
+              [
+                3.02,
+                -2.3,
+                1.400000000000018
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.7976891295541595,
+            "second": 0.33161255787892263,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "103 deg",
+                "value": 1.7976891295541595,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "19 deg",
+                "value": 0.33161255787892263,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                -0.3,
+                -2.7,
+                0.0
+              ],
+              "direction": [
+                0.8,
+                -0.5999999999999999,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.9735698065002985,
+              "center_cm": [
+                1.8188598585712246,
+                -3.458186855238367,
+                0.5985583829426587
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "holdout_b.f3d",
+          "sha256": "ed74c9ac258f9430bfe26eb14d68ae8e1ce80dc006f0b6e5742b0ff56e9ef04d",
+          "size": 166145
+        },
+        {
+          "file": "holdout_b_edit_first.f3d",
+          "sha256": "73944ea3b74a3604e31b3ecd874ebe2d233a3600a9caac2e74c123ceb08ee0c7",
+          "size": 172379
+        },
+        {
+          "file": "holdout_b_edit_second.f3d",
+          "sha256": "159f3a4d560263f90591674797ac703d326e47c4b98f503416124153bd115058",
+          "size": 170113
+        },
+        {
+          "file": "holdout_b_restored.f3d",
+          "sha256": "57d0592466bd8ae8aaf9161a193586389fce000a06c83770f3ac4ae520e2d1c5",
+          "size": 167934
+        }
+      ]
+    },
+    {
+      "id": "control_after",
+      "spec": {
+        "first": 61,
+        "second": 23,
+        "origin": [
+          1.1,
+          -0.7,
+          0
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "radial": 0.8,
+        "axial": 0.6
+      },
+      "observations": [
+        {
+          "stage": "baseline",
+          "value": {
+            "body_count": 1,
+            "volume_cm3": 2.2423641163772734,
+            "area_cm2": 11.427137898617916,
+            "center_cm": [
+              0.07680474960960117,
+              0.8499999999999998,
+              0.3523143784962471
+            ],
+            "bounds_cm": [
+              [
+                -0.3999999999999999,
+                -0.09999999999999998,
+                -0.5860966927339106
+              ],
+              [
+                0.7121523038029305,
+                1.7999999999999998,
+                1.3119295607090937
+              ]
+            ],
+            "health": 0,
+            "error": "",
+            "first": 1.064650843716541,
+            "second": 0.4014257279586958,
+            "operation": 3,
+            "solid": true,
+            "project_axis": false,
+            "timeline": [
+              {
+                "name": "AxisSupport",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "ExplicitAxis",
+                "type": "adsk::fusion::ConstructionAxis"
+              },
+              {
+                "name": "RevolveProfile",
+                "type": "adsk::fusion::Sketch"
+              },
+              {
+                "name": "UnequalRevolve",
+                "type": "adsk::fusion::RevolveFeature"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "d1",
+                "role": "AlongAngle",
+                "expression": "61 deg",
+                "value": 1.064650843716541,
+                "unit": "deg"
+              },
+              {
+                "name": "d2",
+                "role": "AgainstAngle",
+                "expression": "23 deg",
+                "value": 0.4014257279586958,
+                "unit": "deg"
+              }
+            ],
+            "axis": {
+              "type": "adsk::fusion::ConstructionAxis",
+              "name": "ExplicitAxis",
+              "origin_cm": [
+                1.1,
+                -0.7,
+                0.0
+              ],
+              "direction": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "expected": {
+              "volume_cm3": 2.2423641163772743,
+              "center_cm": [
+                0.07680474960960093,
+                0.8499999999999999,
+                0.3523143784962475
+              ]
+            },
+            "geometry_pass": true,
+            "angles_pass": true
+          }
+        }
+      ],
+      "archives": [
+        {
+          "file": "control_after.f3d",
+          "sha256": "3a24376bd402bb5a914040deb9edd7a1cd4fc8f4cff1e0410c1772d0794f4681",
+          "size": 58361
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
