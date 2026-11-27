@@ -40,9 +40,7 @@ class WriteCatalog(Protocol):
 
 
 # only the matching measured solidworks writer may validate its own typed readback
-def CheckWriteHist(
-    DocumentData: CadDocument, AdapterData: CadWriterAdapter
-) -> None:
+def CheckWriteHist(DocumentData: CadDocument, AdapterData: CadWriterAdapter) -> None:
     from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
         IsColdRead,
     )
@@ -55,9 +53,7 @@ def CheckWriteHist(
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 
     if type(AdapterData) is not SldprtWriter or not (
-        IsColdRead(DocumentData)
-        or IsRevRead(DocumentData)
-        or IsThinRead(DocumentData)
+        IsColdRead(DocumentData) or IsRevRead(DocumentData) or IsThinRead(DocumentData)
     ):
         CheckHistory(DocumentData)
 
