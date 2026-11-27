@@ -1,0 +1,11 @@
+# Dual-side parameter and auxiliary policy
+
+The source corpus is the committed 68-file native TwoSidedDraft campaign. Its receipt binds every archive hash to independent API observations. Models and native calls remain disabled. `ProbeDualPolicy.py` retains complete per-file outcomes and parameter identities.
+
+Confirmed within this recorded source family: all four model roles have independent reciprocal `DcDoubleParameter` / `Parameter` bindings, unique positive fragment-allocated IDs, an owning extrusion and complete parameter table coverage. Native display units remain mm/deg; saved angular values are radians. The existing literal/direct-user-reference expression validator succeeds on every source. Independent first/second distance and first/second taper edits, restoration and the existing held-out combinations preserve this rule. The production field grammar already types these bindings; no new wire grammar is asserted.
+
+The unchanged parameter reader accepts two healthy zero-draft controls and refuses all 66 drafted states specifically at its second-taper zero guard. Existing graph policy admits the 54 XY draft states and two healthy controls; all twelve XZ states retain the identity-placement refusal. Scope, profile-region, scene-reference and material validators pass on all 68 files. The new projector must still apply graph policy before publication, so those XZ files remain refused.
+
+A default-false second-taper permission in the shared parameter reader is therefore a bounded semantic extension. Only the new strict XY two-sided projector may enable it. Full live tags/progenitors and saved snapshots remain separately owned prerequisites. Every material and scene policy call must remain in the new path. No conversion, writer or native acceptance follows from these parameter observations.
+
+The initial harness failed while serializing an Expression object and used the wrong material field spelling. `Attempts.json` retains that failure; the corrected run repeated every source in a fresh output directory. Unsupported expressions, owner/reciprocal joins, unit mismatches, parameter allocation and independent role corruption require serialized public-read counterexamples before delivery.

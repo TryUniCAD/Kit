@@ -70,6 +70,9 @@ The same status applies to each file type listed for a family, subject to the na
 
 SOLIDWORKS **B** covers only the receipt-bound part profile above; `.SLDASM` output remains unsupported.
 Fusion **B** covers the public contract's reconstructed graphs, not all `.f3d` documents.
+The [independent circular draft reader](../../Changes/Fusion/Readers/FusionIndependentDraftReader.md)
+adds read-only XY two-sided source inspection with separate taper controls and complete live/snapshot validation.
+Its SDK and CLI write paths remain refused; native conversion acceptance is not added.
 Both bounded contracts include neutral JSON transport of admitted state.
 This does not qualify arbitrary JSON-to-native graphs or complete native-to-neutral semantics.
 A **U** cell does not assert every input fails or that no writer exists.

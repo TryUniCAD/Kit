@@ -1,0 +1,54 @@
+{
+  "program_sha256": "a990d622930960598b8ae49525ec524f4b4b214d1e061f95a22f5dc96366c65c",
+  "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline.f3d",
+  "source_sha256": "266af08c723ec7dbc67e97c3cddae7fff701c9342faf73da12edacce85ef89ea",
+  "native_calls": 0,
+  "models": false,
+  "counterexamples": [
+    {
+      "mode": "identity",
+      "file": "identity.f3d",
+      "sha256": "1ba52d4cc718e56fe53b4b8c0e3539c0d01f62306c82490c8b01182ff557c0c4",
+      "bytes": 301146,
+      "decoded_snapshot_type": "GeometryState",
+      "status": "refused",
+      "message": "Dual snapshot has an unsupported saved entity identity"
+    },
+    {
+      "mode": "feature",
+      "file": "feature.f3d",
+      "sha256": "f1bc178f93bac266e8cd48f529cdf1fc415ab03615df148d339c49b40cbee12f",
+      "bytes": 301148,
+      "decoded_snapshot_type": "GeometryState",
+      "status": "refused",
+      "message": "Dual snapshot solid disagrees with its complete live topology"
+    },
+    {
+      "mode": "sketch",
+      "file": "sketch.f3d",
+      "sha256": "ab7bbdf9b8c14ff9f6568267bc145f4f5311b54db96b43aaf779898a4d9c831d",
+      "bytes": 301146,
+      "decoded_snapshot_type": "GeometryState",
+      "status": "refused",
+      "message": "Dual snapshot sheet source does not identify its selected circle"
+    },
+    {
+      "mode": "body",
+      "file": "body.f3d",
+      "sha256": "6f61ed7e527afc8bee9c7f030c1d063382242c20eb78e81d817a46933b805f97",
+      "bytes": 301146,
+      "decoded_snapshot_type": "GeometryState",
+      "status": "refused",
+      "message": "Dual snapshot body roles disagree with native passive identities"
+    },
+    {
+      "mode": "geometry",
+      "file": "geometry.f3d",
+      "sha256": "a59521e985a50ab17bf39e2ab7e8a4e5822334a97fce9b341c07a37e5ac731fc",
+      "bytes": 301146,
+      "decoded_snapshot_type": "GeometryState",
+      "status": "refused",
+      "message": "Dual snapshot solid disagrees with its complete live topology"
+    }
+  ]
+}

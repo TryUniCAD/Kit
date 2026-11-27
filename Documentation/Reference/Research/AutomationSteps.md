@@ -1012,6 +1012,15 @@ Planning PR #392 remains separate and unmerged; retain the existing claim until 
 | A12-ReverseBlindBoss20261127       | Generative reverse blind line-loop boss direction and coupled reader/body proof                          | Codex SOLIDWORKS worker | active | Native source-admitted direction/body grammar and held-out editable generated candidates pass public SDK/CLI and native acceptance                                |
 | A11-DualDraftGeometry20261127      | Generic two-sided circular draft BRep and complete mass comparison against committed native observations | Codex Fusion worker     | active | Independent side geometry, complete mass tensor and archive counterexamples pass; strict projection retains separate identity, snapshot, material and scene gates |
 
+`A11-DualDraftRead20261127` is a decided active child owned by Codex root, with live-history/tag and saved-snapshot validators delegated to the two existing workers.
+Its scope is strict SDK/CLI reading of independently drafted XY circular two-sided NewBody sources from the committed native corpus.
+Dependencies are the complete analytic geometry/mass proof, existing graph/parameter/material/scene policy and separately owned offset work in PR #396.
+Exit requires full parameter, identity, live-history, snapshot and auxiliary validation, source-backed SDK/CLI measurements and serialized refusal counterexamples.
+Public writing, native acceptance and non-XY placement remain separate unfinished requirements; no oracle session is requested.
+Its composed public proof reads 54 drafted XY states plus two controls, retains twelve XZ refusals and rejects 42 serialized corruptions.
+All 371 combined integration cases pass, and sixteen pre-existing control documents retain their exact hashes against the previous pinned SDK.
+The [source-bound receipt](../../../re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Verification.json) retains static checks, independent review and failed fixture attempts.
+
 The [change entry](../../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links both complete family inventories and revision-bound prototype evidence.
 Thirteen source-free Fusion span candidates pass typed equality and 117 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
 SOLIDWORKS reverse candidates and genuine saved controls retain their explicit typed-grammar, geometry and native-acceptance gaps.

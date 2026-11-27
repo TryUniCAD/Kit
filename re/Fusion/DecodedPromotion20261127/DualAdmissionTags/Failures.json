@@ -1,0 +1,35 @@
+{
+  "attempts": [
+    {
+      "case": "attribute_chain",
+      "failure_stage": "serialization",
+      "reason": "Fusion historical entity reference is absent or class-incompatible",
+      "attempted_change": "set joint tag PriorAttrib to BODY slot",
+      "repair": "derive actual joint tag live slot and encode a class-compatible self cycle",
+      "final_archive_required": true
+    },
+    {
+      "case": "extended_tag",
+      "failure_stage": "serialization",
+      "reason": "Fusion nested tag attribute is not reciprocal",
+      "attempted_change": "set tag extension to itself",
+      "repair": "construct an actual reciprocal NestedTag extension in the original typed journal",
+      "final_archive_required": true
+    },
+    {
+      "case": "allocator_owner",
+      "failure_stage": "serialization",
+      "reason": "Fusion entity reference target class is incompatible",
+      "attempted_change": "point the manager owner at an extrusion rather than a fragment",
+      "repair": "encode a null typed owner and require strict ownership refusal",
+      "final_archive_required": true
+    },
+    {
+      "stage": "initial scoped steering",
+      "violations": 13,
+      "repair": "use compliant names and compose the existing cap validator without an oversized declaration"
+    }
+  ],
+  "models": false,
+  "native_api_calls": 0
+}

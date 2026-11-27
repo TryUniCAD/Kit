@@ -27,6 +27,9 @@ Every receipt retains forty unresolved items; successful reconstruction does not
 
 The [Fusion geometry entry](../../Fusion/Geometry/FusionIndependentSideGeometry.md) records generic two-sided draft construction and saved-journal comparisons.
 Full identity, snapshot, material and scene qualification remains required before strict source projection.
+The subsequent [independent draft reader](../../Fusion/Readers/FusionIndependentDraftReader.md)
+implements that bounded source projection with separate live and snapshot proofs.
+Its output remains read-only, with native writer and conversion gates enforced.
 
 The [translated sketch-link gotcha](../../../Gotchas/Conversion/Fusion/Geometry/Attribution/TranslatedSpanSketchLinks.md) records a refuted initial attribution rule and the corrected symbolic graph.
 All source/runtime observations, failures and pending acceptance requirements remain recorded.

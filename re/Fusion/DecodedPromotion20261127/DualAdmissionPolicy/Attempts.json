@@ -1,0 +1,9 @@
+[
+  {
+    "attempt": "initial policy harness",
+    "outcome": "failed before receipt publication",
+    "reason": "Expression objects require explicit JSON fields; material model uses Density capitalized",
+    "repair": "serialize expression source and actual Density field; repeat all 68 archives into a new output directory",
+    "native_calls": 0
+  }
+]

@@ -105,6 +105,10 @@ Final generators and their transitive feature dependencies must remain active; s
 Creation requires validated controls and an active declared profile reference; modifiers require generated inputs, and boolean combine requires two distinct generated operands.
 Creator contours currently support one finite positive-radius circle or a simple closed three/four-sided straight ring; member tags must match geometry, and more complex profiles remain inspection-only.
 Body and B-rep conversion also requires Python 3.14 and a matching SDK Fusion authoring/native-state regeneration contract; generic typed histories remain inspection-only.
+Strict `kit decode` also reads the bounded independently drafted two-sided circular XY family.
+Both taper controls, parameter owners and analytic solids remain available in its neutral inspection document.
+`kit convert` still refuses this read-only family before replacing a destination.
+[Source boundary and verification](../Changes/Fusion/Readers/FusionIndependentDraftReader.md)
 Meshes are refused because their model has no typed ownership link to a generator; provenance and free-form ownership tags do not establish one.
 Use `kit decode` or the pinned research readers to inspect those unsupported semantics.
 It does not expose an option to bypass the output policy.

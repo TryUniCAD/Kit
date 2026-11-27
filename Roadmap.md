@@ -36,6 +36,8 @@ The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Con
 [PR #397](https://github.com/TryUniCAD/Kit/pull/397) adds bounded reversed cold-part reading and generative candidate preparation.
 Its exact native publication gate remains enforced; new reversed native acceptance is unavailable while the CAD API is down.
 Fusion independent-side geometry comparisons remain separate from complete strict projection and writer acceptance.
+The subsequent independent draft reader adds bounded strict SDK/CLI inspection after full live/snapshot and parameter validation.
+Its read-only output remains outside native writer and cross-format acceptance.
 These pending changes do not close M2 or establish full decoded-feature conversion support.
 
 ## Destination

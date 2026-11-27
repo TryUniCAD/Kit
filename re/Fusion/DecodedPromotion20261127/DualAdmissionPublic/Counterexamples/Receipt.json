@@ -1,0 +1,349 @@
+{
+  "source_sha256": "266af08c723ec7dbc67e97c3cddae7fff701c9342faf73da12edacce85ef89ea",
+  "summary": {
+    "cases": 42,
+    "refused": 42,
+    "models": false,
+    "native_calls": 0
+  },
+  "rows": [
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/parameter_role.f3d",
+      "sha256": "582fa1131424d7f3d12235bab1bf62899c716388fcc0df425e5d41b2672f6849",
+      "bytes": 301136,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular side parameter role is inconsistent"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/parameter_unit.f3d",
+      "sha256": "d50297287b9530dcc29c9fdd823c24322c7a3c039ee94066118a7ce72b6c43e0",
+      "bytes": 301144,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Unsupported native second side distance or taper"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/parameter_expression.f3d",
+      "sha256": "20cc031fa533c7e6a257a19ff1d34a7a46a5deb2ebded497fb3e2224d8a927d6",
+      "bytes": 301144,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native parameter formula is outside the qualified literal/reference grammar"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/parameter_reciprocal.f3d",
+      "sha256": "06f5c87e60bf5f345e2138c7519351189a7003c35a7cb0aea6b5da7b418e062b",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native parameter binding is not reciprocal"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/parameter_owner.f3d",
+      "sha256": "8b6e7801d0f045df3ccbb4696a62993c73e37a367e4d1d8842d34f73e6a4fc0c",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native extrusion parameter owner is inconsistent"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/parameter_allocation.f3d",
+      "sha256": "55b8c0906f7ef3111141f1c0c62c29f5a0062880fee2de9ce9d7cb7efbc77acc",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native parameter identifiers disagree with their fragment allocator"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/parameter_operation.f3d",
+      "sha256": "8da33b297db69c05695b34bb063ef892b055e06d24152b668e748f0927b450eb",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Unsupported native Fusion DcExtrudeFeature.booleanOperation"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/auxiliary_appearance.f3d",
+      "sha256": "6ec61ca39e539a2accd1f774ddb49129e84c47719ec879d7bfbf1b8755a7bfd0",
+      "bytes": 271840,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native material projection requires shared package and asset appearance"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/auxiliary_material.f3d",
+      "sha256": "545447854a61d2be697f8546878f3391bdaaf3e934757304545aea039f0e63c5",
+      "bytes": 271794,
+      "typed_document": "refused",
+      "codec_reason": "Body material references a missing or incompatible asset",
+      "public_outcome": "refused",
+      "reason": "Body material references a missing or incompatible asset"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionPublic/Counterexamples/auxiliary_visual.f3d",
+      "sha256": "ce57ea7a1773ed020750c4be4be4eff2a963747e7d7365033ef9a80ea0abcb5e",
+      "bytes": 271804,
+      "typed_document": "refused",
+      "codec_reason": "Body material references a missing or incompatible asset",
+      "public_outcome": "refused",
+      "reason": "Body material references a missing or incompatible asset"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/area_scalar.f3d",
+      "sha256": "ff8b45bdcce75724258c36373871d274fb878d226cbdbfca2eb7cb9d98bf4649",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/cog_x.f3d",
+      "sha256": "d3280b3adcd1a00d670af0d455cc96b9df16fed193eae18c3a11d8b25b0be5ed",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/cog_y.f3d",
+      "sha256": "d2c6f61ce410df491b51f131457ccc2b35f16fad8cfcd5f831b15eb75b1347a7",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/cog_z.f3d",
+      "sha256": "75f499688bf2e014cd82eddd48e4b9e33fde3d0455c289b40c8bdf6ff1f7a4f0",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/moiOffDiag_x.f3d",
+      "sha256": "9612ddcd65938c95bed07d660d29f69017c405843f552e28aaecd290c83f382c",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/moiOffDiag_y.f3d",
+      "sha256": "2e2b1cdab10911b5224a86459df951f5450258e99bf1b6a8af4fa48e862cbec3",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/moiOffDiag_z.f3d",
+      "sha256": "498abe13eeefa4318e993cb81ce56481b00a441f332947f411b8077390201ebe",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/moi_x.f3d",
+      "sha256": "8e79be5ac941ca7fa78282868470dd3b0f33445059fd708eb531ce7febd6d3d1",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/moi_y.f3d",
+      "sha256": "67f8711b2148a3426a8bae9bb53ada5277d723946a45ea7252a45fca6fe0f634",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/moi_z.f3d",
+      "sha256": "6e55500865652567c46552293c2dd7bcd9f09d407edc55ef98532f7a6b1114b1",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualDraft/MassInitial/Counterexamples/volume_scalar.f3d",
+      "sha256": "bd8d7794cc3cb6bda818a038098e404c60b2e7d7f11b5bfe09403e89d8e61512",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular mass cache disagrees with analytic geometry"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionSnapshots/Counterexamples/body.f3d",
+      "sha256": "6f61ed7e527afc8bee9c7f030c1d063382242c20eb78e81d817a46933b805f97",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Dual snapshot body roles disagree with native passive identities"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionSnapshots/Counterexamples/feature.f3d",
+      "sha256": "f1bc178f93bac266e8cd48f529cdf1fc415ab03615df148d339c49b40cbee12f",
+      "bytes": 301148,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Dual snapshot solid disagrees with its complete live topology"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionSnapshots/Counterexamples/geometry.f3d",
+      "sha256": "a59521e985a50ab17bf39e2ab7e8a4e5822334a97fce9b341c07a37e5ac731fc",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Dual snapshot solid disagrees with its complete live topology"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionSnapshots/Counterexamples/identity.f3d",
+      "sha256": "1ba52d4cc718e56fe53b4b8c0e3539c0d01f62306c82490c8b01182ff557c0c4",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Dual snapshot has an unsupported saved entity identity"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionSnapshots/Counterexamples/sketch.f3d",
+      "sha256": "ab7bbdf9b8c14ff9f6568267bc145f4f5311b54db96b43aaf779898a4d9c831d",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Dual snapshot sheet source does not identify its selected circle"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/allocator_owner.f3d",
+      "sha256": "bcbf731dab0913f336f1387f9d4d0073a2ed58b30bf16139fbda3660c9f03578",
+      "bytes": 301136,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Unsupported native Fusion DcFeatureIdManager.rOwnerFragment"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/attribute_chain.f3d",
+      "sha256": "01b6163f3175b8e5cbe9cc995aa64d3806432428c6664ff3cc45e114d78e4259",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side attribute chain is cyclic or absent"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/body_operation.f3d",
+      "sha256": "4440a8834ec50c92209648f13c80dde8f4138f307cc12a4191466914cbd2717b",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular span operation maps are not reciprocal"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/body_secondary.f3d",
+      "sha256": "a1703397c4ea506573a6307ba4649b97ea3fe8892961ecbf58a18d271afa197b",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular span body tag disagrees with its progenitor"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/body_uuid.f3d",
+      "sha256": "c4402debab036db51e89e95bc63f3694ff0bc33b5a0fff382ff2e117473bb126",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular span body ownership disagrees"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/cap_label.f3d",
+      "sha256": "78d176d491d0da9669056eda3059795ca6dde426f21ef4f9dfb262953d953f2d",
+      "bytes": 301148,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side feature tag disagrees with its physical owner"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/extended_tag.f3d",
+      "sha256": "88e206a37a896a1177c6f5a79db3619f9c80c5b9293284eddbb9806a36a3c535",
+      "bytes": 301206,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side live state contains unaccounted entities"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/history_end.f3d",
+      "sha256": "1616eddda5b9c3b685dcf1bd8d2fa26ebda1b14671329c522f5a2d5af99250ef",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Requested Fusion journal state is absent"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/joint_label.f3d",
+      "sha256": "783464f552ce319febe6774c47af2ba4be4b4604a78a570936c80854e7486c86",
+      "bytes": 301145,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side feature tag disagrees with its physical owner"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/joint_missing.f3d",
+      "sha256": "3b09fa3c1d07cc5a6fa3b480266ba958ce10036fe639aa5a58d8aa514ce4ef98",
+      "bytes": 301116,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side feature tag disagrees with its physical owner"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/joint_reversed.f3d",
+      "sha256": "560f0f3f51600ea8be2aff68b090119e86cc7f79f6e0b6445120537f4236b876",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side feature tag disagrees with its physical owner"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/rim_label.f3d",
+      "sha256": "56f60e991d6d491bdf873af6053689e095c2dcb3a3c5e8c152dc071e8ff04cc4",
+      "bytes": 301147,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side feature tag disagrees with its physical owner"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/side_operation.f3d",
+      "sha256": "8fe64ba6effa6624026804f996889b4fedd8b45a7067593178d74ce7d7bc4420",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side feature tag disagrees with its physical owner"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/sketch_circle.f3d",
+      "sha256": "5334065b7fc8eac7c05118692e1606e2961c5ad023477e1767cd498aea4cad5d",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native circular source link belongs to another curve"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/sketch_owner.f3d",
+      "sha256": "9035644c523203ca30df9aad8ddc869b3caddd3363385b91dce862007811be52",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side attribute ownership is not reciprocal"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/DualAdmissionTags/Proof/Counterexamples/time_value.f3d",
+      "sha256": "5fa871deeb1c825b38975d368476f0f4d93cf602bf1ad58ea91f839ab18fc3bd",
+      "bytes": 301146,
+      "typed_document": "parsed",
+      "public_outcome": "refused",
+      "reason": "Native dual side time attribute has an unsupported owner or value"
+    }
+  ]
+}
