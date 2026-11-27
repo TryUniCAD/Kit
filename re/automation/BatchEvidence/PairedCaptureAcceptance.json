@@ -1,0 +1,165 @@
+{
+  "application": "solidworks",
+  "application_build": "34.4.1",
+  "cases": [
+    {
+      "archive_count": 11,
+      "body_count": 1,
+      "case": {
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        },
+        "parameters": {
+          "cut_depth_mm": 5,
+          "cut_height_mm": 7,
+          "cut_width_mm": 11,
+          "depth_mm": 19,
+          "height_mm": 33,
+          "width_mm": 55
+        },
+        "recipe": "P04"
+      },
+      "center_of_mass_mm": [
+        27.499999999999996,
+        16.499999999999996,
+        9.420967741935483
+      ],
+      "controls": {
+        "after_volume_mm3": 881814.3482038013,
+        "before_volume_mm3": 881814.3482038013,
+        "native_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408"
+      },
+      "measurements_sha256": "43b8f701ba9318c060ea5d4bd44992e147edaf99491dcebbbe6d6bc3623cd7e3",
+      "native_archives_sha256": "133b816324d261b10c29d17ebf002abff7f6df035f30c438bf97c6fe39a2a61a",
+      "recipe": "P04",
+      "volume_mm3": 34100.00000000001
+    },
+    {
+      "archive_count": 6,
+      "body_count": 0,
+      "case": {
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        },
+        "parameters": {
+          "height_mm": 23,
+          "width_mm": 43
+        },
+        "recipe": "P01"
+      },
+      "center_of_mass_mm": null,
+      "controls": {
+        "after_volume_mm3": 881814.3482038013,
+        "before_volume_mm3": 881814.3482038013,
+        "native_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408"
+      },
+      "measurements_sha256": "40314e6e5cd215265f0f1695023e12daf3096807be976ea23fbb44bd63ca062d",
+      "native_archives_sha256": "22a0665f207e05add759e008cdf1927790327d7a1aa650510761b382d6ac95fd",
+      "recipe": "P01",
+      "volume_mm3": null
+    },
+    {
+      "archive_count": 8,
+      "body_count": 1,
+      "case": {
+        "options": {
+          "basis": "XY",
+          "direction": 1,
+          "termination": "blind"
+        },
+        "parameters": {
+          "depth_mm": 13,
+          "height_mm": 29,
+          "width_mm": 47
+        },
+        "recipe": "P03"
+      },
+      "center_of_mass_mm": [
+        23.499999999999996,
+        14.5,
+        6.500000000000001
+      ],
+      "controls": {
+        "after_volume_mm3": 881814.3482038013,
+        "before_volume_mm3": 881814.3482038013,
+        "native_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408"
+      },
+      "measurements_sha256": "00443d48694b5ae5c150f2853267a0f01e6dbb4474a8c91593b01a16bf73e3db",
+      "native_archives_sha256": "cd068b5380f89a8ef2aeb6730ee4b4f0e4c58eeb102730689411e0c1ac6d086a",
+      "recipe": "P03",
+      "volume_mm3": 17719
+    }
+  ],
+  "catalogue_result_sha256": "bdcf79525f9d75a215091746217581c7ac72d4f3c9385e69908d722769d71610",
+  "catalogue_status": "coverage_incomplete",
+  "command_exit_status": 2,
+  "conversion_qualified": false,
+  "jobs": [
+    {
+      "id": "catalogue-capture-batch:31486de423e2e3bcc4872216ca9ed439bedb754392a8382d1ccda492c7bad5a1",
+      "kind": "capture.catalogue.solidworks.batch",
+      "receipt": "c700ea510c6f20e05f19b8bac78ca138fb004bbc3c6f1f1c8f0a6ffbb29f817d",
+      "result": "80b99a4f7b37f8ac70eed9347b2eede7e7ec5a349c34d570813bff0867b42927",
+      "state": "completed"
+    },
+    {
+      "id": "catalogue-decode:3234c294611bbd6838352e43c073dc1d54a4eb72cbf32f0c0f6c5d70c296d5ea",
+      "kind": "catalogue.decode",
+      "receipt": "3c4b2cc3472668549e676e0b825e1788a38340f85477aff7aa8efc71f62f35e2",
+      "result": "671aa80f339a5884a256e3c461a59a129d96afc2610cfcf1377dfa88058402dc",
+      "state": "completed"
+    },
+    {
+      "id": "catalogue-decode:7935724909c9dc1842b9c3044d10a4ebade2802867c3d3f900c503867950f8a5",
+      "kind": "catalogue.decode",
+      "receipt": "0d815f8b22bbc7c20003418f13b383caa79b0a241fd1ff0e478ee247c5dfb1a6",
+      "result": "b8b6d211f360ec430cb49b45188a1f4a16bd20df6ce58663f690ab18b8ba1e5f",
+      "state": "completed"
+    },
+    {
+      "id": "catalogue-decode:b152fe72d1a1a1c49fdd32e694dbc3b72e79b1842d648f5f21e8d2c7aabb6a67",
+      "kind": "catalogue.decode",
+      "receipt": "e57fb2f3f97b1deca619cdc97dc353d5a1582d93f1cd4ba82143720fb37efd46",
+      "result": "377c9397653b3827697caa929a9dffd4022876e6b2374da4931e23ba2d99593d",
+      "state": "completed"
+    }
+  ],
+  "native_archive_count": 25,
+  "native_process_count": 2,
+  "native_verified_samples": 3,
+  "owners": [
+    {
+      "created": 134400296429537259,
+      "forced_owned_cleanup": false,
+      "owned_process_exit_observed": true,
+      "phase": "first",
+      "pid": 19860
+    },
+    {
+      "created": 134400296995183328,
+      "forced_owned_cleanup": false,
+      "owned_process_exit_observed": true,
+      "phase": "second",
+      "pid": 19436
+    }
+  ],
+  "peak_overlapping_decoder_processes": 3,
+  "portable_complete": false,
+  "private_run": "D:/KitRuns/B231ffae/Run",
+  "remaining_scope": [
+    "unresolved_decoder_semantics",
+    "native_qualification_of_other_recipe_modes",
+    "full_conversion_acceptance",
+    "parallel_native_instances"
+  ],
+  "schema_version": 1,
+  "scope": "native_catalogue_authoring_and_decoder_dispatch",
+  "source_pins_sha256": "39cff25419bc6e782a200859bebdab3c196ae421043cd37a99b006e64bc54ac4",
+  "source_revision": "231ffae38c7a9ca83705c6705e7d382d05c1e208",
+  "supervisor_failures": [],
+  "task": "A08h-PairedBatch"
+}

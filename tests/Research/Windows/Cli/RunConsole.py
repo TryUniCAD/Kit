@@ -44,6 +44,8 @@ def RunConsole(ConfigPath: FilePath, SignalName: str) -> CompletedProcess[str]:
                 stderr=KPipe,
                 text=True,
             ) as ConsoleProcess:
-                return CaptureConsole(ConsoleProcess, JobHandle, ConfigPath.parent)
+                return CaptureConsole(
+                    ConsoleProcess, JobHandle, ConfigPath.parent, Timeout=210
+                )
     else:
         raise OSError("Windows CLI console coverage requires a Windows host")

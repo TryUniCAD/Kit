@@ -1,0 +1,64 @@
+{
+  "codec_freeze_revision": "1318a6a0ce950362dd52ceb85ecde0f29a91cdaa",
+  "format": "KitSolidworksTopAnnotationHeldout/1",
+  "outcomes": {
+    "native": {
+      "9cdc3aca200b1ac24236d8197d5c0c9f7ddf9559d6b46e57639c34ffa6f536b6": {
+        "annotation": {
+          "id": 200,
+          "name": "*Top",
+          "schema": 1
+        },
+        "annotation_matrix": [
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x0.0p+0",
+          "0x1.0000000000000p+0",
+          "-0x0.0p+0",
+          "-0x1.0000000000000p+0",
+          "-0x0.0p+0"
+        ],
+        "annotation_owner": "moPart_c.fa48",
+        "config_sha256": "71b081d8c84d8eb9920a549a823b0e1a6d8e757be9cb560ceb53a9e3ce8df6b6",
+        "display_high_water": 200,
+        "following_offset": 24946,
+        "list_sha256": "e9c26947b8066ed8f7898ead9a29f878eb2befcf65c58047d3eaf0d10f79d381",
+        "list_slot": 99,
+        "list_span": [
+          24500,
+          24782
+        ],
+        "next_slots": [
+          102,
+          107
+        ],
+        "object_slot": 101,
+        "object_span": [
+          24504,
+          24782
+        ]
+      }
+    },
+    "synthetic": {
+      "duplicate_top_refused": true,
+      "following_bytes": 164,
+      "list_bytes": 282,
+      "list_sha256": "e4530e36f48152b696e6a16cb8fc916b8be169daf68407c1a9e614bf67c0674a"
+    }
+  },
+  "proof_command": [
+    "python",
+    "re/solidworks/WriterResearch/VerifyConfigAnnotViews.py",
+    "--top-only",
+    "<independent SOLIDWORKS fixture>"
+  ],
+  "proof_exit_status": 0,
+  "proof_runs_on_released_fixture": 1,
+  "proof_started_on_clean_worktree": true,
+  "proof_stdout_line_ending": "CRLF",
+  "proof_stdout_sha256": "b2037de403630be13634b3dbd01172f3bc0bffd6c769c0c49d024dc4d5ca912f",
+  "scope": "Offline annotation-list generation, exact native span, and following model-list read",
+  "source_sha256_verified_before_and_after": "9cdc3aca200b1ac24236d8197d5c0c9f7ddf9559d6b46e57639c34ffa6f536b6"
+}

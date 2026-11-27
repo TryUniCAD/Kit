@@ -1,0 +1,248 @@
+{
+  "pid": 18804,
+  "started": 1795648952.437218,
+  "updated": 1795648959.635923,
+  "state": "settled",
+  "events": [
+    {
+      "case": "discovery-01",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/discovery-01"
+      ],
+      "start": 1795648952.437682,
+      "pid": 18806,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/discovery-01/generated/State.json",
+      "native_receipt_sha256": "4fe948cac954505bb437d9ae55bf8d7be5183ecd68cbaeffe8bd47c21e8c687d",
+      "new_native_request": false,
+      "end": 1795648953.22127
+    },
+    {
+      "case": "discovery-02",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/discovery-02/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/discovery-02"
+      ],
+      "start": 1795648953.2215118,
+      "pid": 18807,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/discovery-02/generated/State.json",
+      "native_receipt_sha256": "32812750e3fffd16ed5d8b78be697467951009493ed619bd1c454b277f775c80",
+      "new_native_request": false,
+      "end": 1795648953.831166
+    },
+    {
+      "case": "discovery-03",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/discovery-03/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/discovery-03"
+      ],
+      "start": 1795648953.831488,
+      "pid": 18875,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/discovery-03/generated/State.json",
+      "native_receipt_sha256": "7378a47440f8f1da8b25cd88624b5791759a7023fb848db86fcf19df51216aa9",
+      "new_native_request": false,
+      "end": 1795648954.48996
+    },
+    {
+      "case": "discovery-04",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/discovery-04/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/discovery-04"
+      ],
+      "start": 1795648954.490221,
+      "pid": 18936,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/discovery-04/generated/State.json",
+      "native_receipt_sha256": "138b3b87ac6e6b7b5d85a1df51a0be4122666ed4233f29d571df018e110bce00",
+      "new_native_request": false,
+      "end": 1795648955.078039
+    },
+    {
+      "case": "discovery-05",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/discovery-05/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/discovery-05"
+      ],
+      "start": 1795648955.078273,
+      "pid": 18937,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/discovery-05/generated/State.json",
+      "native_receipt_sha256": "2e85e2c31fd2ed25081717c7169a1b8f9b0898e5e98adb48b1643fe671ac5dc1",
+      "new_native_request": false,
+      "end": 1795648955.6279922
+    },
+    {
+      "case": "discovery-06",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/discovery-06/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/discovery-06"
+      ],
+      "start": 1795648955.628814,
+      "pid": 18938,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/discovery-06/generated/State.json",
+      "native_receipt_sha256": "725d32af9c1675d845f24a63df280d4136d7d3ed3691de65deb30357fb80168a",
+      "new_native_request": false,
+      "end": 1795648956.172829
+    },
+    {
+      "case": "holdout-01",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/holdout-01/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/holdout-01"
+      ],
+      "start": 1795648956.173103,
+      "pid": 18939,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/holdout-01/generated/State.json",
+      "native_receipt_sha256": "2a35f5fa1bbd1965f6c9dc64ace16e7149d199ef0692f0a4c825db119fcfa197",
+      "new_native_request": false,
+      "end": 1795648956.732734
+    },
+    {
+      "case": "holdout-02",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/holdout-02/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/holdout-02"
+      ],
+      "start": 1795648956.7329931,
+      "pid": 18940,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/holdout-02/generated/State.json",
+      "native_receipt_sha256": "9542c2cedfcabe989236ee02b67c4fbd0ce2dd5cebd4185a1681e894a3eccfd1",
+      "new_native_request": false,
+      "end": 1795648957.327768
+    },
+    {
+      "case": "holdout-03",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/holdout-03/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/holdout-03"
+      ],
+      "start": 1795648957.327984,
+      "pid": 19033,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/holdout-03/generated/State.json",
+      "native_receipt_sha256": "98c1bb5ca5eba15799033e9c5555a7022ab148d9ab0247af07fa0197376052d5",
+      "new_native_request": false,
+      "end": 1795648957.925688
+    },
+    {
+      "case": "holdout-04",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/holdout-04/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/holdout-04"
+      ],
+      "start": 1795648957.925926,
+      "pid": 19055,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/holdout-04/generated/State.json",
+      "native_receipt_sha256": "9ef9c8152638fe9d00a1482ddc4f86e911d8b9c337e0d4fac73f0528b945f681",
+      "new_native_request": false,
+      "end": 1795648958.472459
+    },
+    {
+      "case": "holdout-05",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/holdout-05/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/holdout-05"
+      ],
+      "start": 1795648958.473228,
+      "pid": 19057,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/holdout-05/generated/State.json",
+      "native_receipt_sha256": "550c2dbdecca7e9d01758bb4401db4ddabb5fdc1c81e6d21b2cbcbe5c6132f24",
+      "new_native_request": false,
+      "end": 1795648959.0338528
+    },
+    {
+      "case": "holdout-06",
+      "command": [
+        "<owner-home>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<campaign-output>/ReadWrite.py",
+        "<research-checkout>",
+        "<campaign-output>/Candidates/holdout-06/Generated.f3d",
+        "<campaign-output>/GeneratedCycles/holdout-06"
+      ],
+      "start": 1795648959.034137,
+      "pid": 19058,
+      "exit_code": 0,
+      "model_equal": true,
+      "byte_equal": true,
+      "same_measured_payload": true,
+      "native_receipt": "Native/holdout-06/generated/State.json",
+      "native_receipt_sha256": "bafe0a9ce21ba10b930647ba7abb34f068f621d11500b34c91ef8c24ea1a295f",
+      "new_native_request": false,
+      "end": 1795648959.635684
+    }
+  ]
+}

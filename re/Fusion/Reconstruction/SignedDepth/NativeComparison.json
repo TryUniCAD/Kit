@@ -1,0 +1,40 @@
+{
+  "source_revision": "2b7497e9e117781043bdac8a2c50354ecad30d82",
+  "candidate_sources": {
+    "src/convert/adapters/Fusion/Native/Parameters/ReverseLiteral.py": "1639d45cff17b5b6b190b70a0fe6aa67e95c9ad07522fef550470889fa56a2cb",
+    "src/convert/adapters/Fusion/Native/Parameters/ParamExpression.py": "a039d9129cf2fd5e1ad8b231f0bbf7769f71c3c6761a878bbbb5111e789d0386"
+  },
+  "cases": [
+    {
+      "case": "BossReverseXY",
+      "split": "discovery",
+      "checks": {
+        "strict": true,
+        "features": true,
+        "signed_parameter": true,
+        "expression_preserved": true,
+        "owner_preserved": true,
+        "volume": true,
+        "body_count": true,
+        "bounds": true
+      },
+      "passed": true
+    },
+    {
+      "case": "BossReverseXYHoldout",
+      "split": "parameter_holdout",
+      "checks": {
+        "strict": true,
+        "features": true,
+        "signed_parameter": true,
+        "expression_preserved": true,
+        "owner_preserved": true,
+        "volume": true,
+        "body_count": true,
+        "bounds": true
+      },
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

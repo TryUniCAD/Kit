@@ -6,6 +6,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from time import sleep
 from urllib.parse import quote
 
 from Corpus import asset_kind, git, read_tree
@@ -246,15 +247,20 @@ def input_blobs(root, revision):
 
 def fetch_pinned_blob(root, contract, revision, path, checksum):
     repository = contract["source_repository"].removeprefix("https://github.com/").removesuffix(".git")
-    connection = HTTPSConnection("raw.githubusercontent.com", timeout=30)
-    try:
-        connection.request("GET", f"/{repository}/{revision}/{quote(path)}")
-        response = connection.getresponse()
-        if response.status != 200:
-            raise ValueError(f"sealed input {checksum} download returned HTTP {response.status}")
-        data = response.read(100 * 1024 * 1024 + 1)
-    finally:
-        connection.close()
+    resource = f"/{repository}/{revision}/{quote(path)}"
+    for attempt in range(3):
+        connection = HTTPSConnection("raw.githubusercontent.com", timeout=30)
+        try:
+            connection.request("GET", resource)
+            response = connection.getresponse()
+            if response.status == 200:
+                data = response.read(100 * 1024 * 1024 + 1)
+                break
+            if response.status not in {502, 503, 504} or attempt == 2:
+                raise ValueError(f"sealed input {checksum} download returned HTTP {response.status}")
+        finally:
+            connection.close()
+        sleep(2 ** attempt)
     if len(data) > 100 * 1024 * 1024:
         raise ValueError("sealed input exceeds the GitHub single file limit")
     observed = git(root, "hash-object", "--stdin", input_data=data).decode("ascii").strip()
