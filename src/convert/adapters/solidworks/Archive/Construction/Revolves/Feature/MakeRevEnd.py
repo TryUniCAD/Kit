@@ -5,15 +5,24 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 
-# the single modern blind angular end must retain its actual active display and native inactive offset defaults
-def MakeRevEnd(FeatureValue: ArchiveNode, AngleValue: DimensionGraph) -> ArchiveNode:
+# the stored mode depends on the owning end spec and retains only the active angular dimensions
+def MakeRevEnd(
+    FeatureValue: ArchiveNode,
+    AngleValue: DimensionGraph,
+    SideMode: str = "one_sided",
+    Against: DimensionGraph | None = None,
+) -> ArchiveNode:
+    if SideMode not in ("one_sided", "symmetric_full", "two_sided") or (
+        (SideMode == "two_sided") != (Against is not None)
+    ):
+        raise ValueError("revolve end mode and angular displays disagree")
     return ArchiveNode(
         RuntimeClass("moRevEndSpec_c", 1),
         {
-            "f08": 1,
+            "f08": int(SideMode == "one_sided"),
             "f138": 0,
             "f13c": 0,
-            "f0c": 0,
+            "f0c": 6 if SideMode == "symmetric_full" else 0,
             "f10": 0,
             "f118": None,
             "f120": None,
@@ -24,7 +33,7 @@ def MakeRevEnd(FeatureValue: ArchiveNode, AngleValue: DimensionGraph) -> Archive
             "f140": 0,
             "f144": 0,
             "f18": AngleValue.DisplayValue,
-            "f20": None,
+            "f20": None if Against is None else Against.DisplayValue,
             "f28": None,
             "f30": None,
             "owner": FeatureValue,

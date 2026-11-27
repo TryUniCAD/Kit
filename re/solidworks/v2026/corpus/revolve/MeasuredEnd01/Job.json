@@ -1,0 +1,47 @@
+{
+  "schema": "kit.sw2026.generated-ordinary-revolve-ends.v1",
+  "spec": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscovery01\\Tool\\Spec.json",
+  "spec_sha256": "eb21b3bdbe9e4d5271e322e164ac27ba8059e30373e523973556323cb5f54cd8",
+  "output": "C:\\KitSdkCandidates\\RevolveEndGenerated01",
+  "publication": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndGenerated01\\Capture",
+  "control": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\GeneratedOrdinaryRevolveNative01\\Control\\RevolveFull.SLDPRT",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "writer_revision": "59cc0c0380132f8bd03ce8b0de815b5d6b3da6e4",
+  "writer_source_tree": "1082f9bb9b69d0b2f2ba10c0902e7694cbe9a860",
+  "generation_receipt_sha256": "9f14cec8aebf970eb461b4b2e4decc2dd1f73bdec27db71a7e7d6db3c5831061",
+  "files": {
+    "EndSingle": {
+      "original": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscovery01\\Capture\\EndSingle\\EndSingle.reopen.json",
+      "original_sha256": "159f5db676d18129461176d58c506ade8d18f0f7804a4fbdb714edd08129497a",
+      "edited": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscovery01\\Capture\\EndSingle\\EndSingle-edited.edited-reopen.json",
+      "edited_sha256": "e578e3a84bce511d2fc3cdb9bc7d00f0a24064786a5ba08f95595a61af02bbc7",
+      "candidate": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndGenerated01\\Assets\\EndSingle.SLDPRT",
+      "candidate_sha256": "8147cdc67c6fd3a760cc3c80e8fca490d97f709f5468abfc32abcaf6f5dee862"
+    },
+    "EndMidplane": {
+      "original": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscoveryRecovery01\\Capture\\EndMidplane\\EndMidplane.reopen.json",
+      "original_sha256": "3fbdc94df11d8ba77a73a5d0ab7d89f45700ab8985f8077c367110a3e9fe0f4c",
+      "edited": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscoveryRecovery01\\Capture\\EndMidplane\\EndMidplane-edited.edited-reopen.json",
+      "edited_sha256": "4196ef66dd8a6aeb32180dcedca3397249e0a059b27f71638c901668159c5656",
+      "candidate": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndGenerated01\\Assets\\EndMidplane.SLDPRT",
+      "candidate_sha256": "d4a942574936ee1ac580aae5f6f33c3e2213be89fce211231b913b5521b8adb4"
+    },
+    "EndTwo": {
+      "original": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscovery01\\Capture\\EndTwo\\EndTwo.reopen.json",
+      "original_sha256": "853546effdbc3d46e983b21deb961297b2b6913e4d1a92ca7ea22bc468df7ddf",
+      "edited": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscovery01\\Capture\\EndTwo\\EndTwo-edited.edited-reopen.json",
+      "edited_sha256": "4981cc05a554457882e5a088c514c249e28fd92908fdba6fd84d5e7f8d736482",
+      "candidate": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndGenerated01\\Assets\\EndTwo.SLDPRT",
+      "candidate_sha256": "6d8d020e57daf676b9f0315475d92e268ac177dfaa4e74c31df2de53a4c78b77"
+    },
+    "EndTwoReverse": {
+      "original": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscovery01\\Capture\\EndTwoReverse\\EndTwoReverse.reopen.json",
+      "original_sha256": "9356d7eec31cca0e1b499409712e512cd5c6f804e8983627af386b5b5e67a7fd",
+      "edited": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndDiscovery01\\Capture\\EndTwoReverse\\EndTwoReverse-edited.edited-reopen.json",
+      "edited_sha256": "37d572a979bad6cd711fcd10b845928dda138cfbdff2b23c418eaebe9e97a583",
+      "candidate": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RevolveEndGenerated01\\Assets\\EndTwoReverse.SLDPRT",
+      "candidate_sha256": "65f21b513348454d05a88a3c473a43062146b110e2161bc2db13900f50f8e7ab"
+    }
+  }
+}

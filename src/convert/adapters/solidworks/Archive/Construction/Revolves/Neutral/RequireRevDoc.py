@@ -35,11 +35,10 @@ def RequireRevDoc(DocumentValue: CadDocument) -> None:
                 DocumentValue.sketches,
                 DocumentValue.feature_timeline,
                 DocumentValue.bodies,
-                DocumentValue.parameters,
                 DocumentValue.selections,
             ),
         )
-    ) != (1, 1, 1, 1, 1, 1, 1):
+    ) != (1, 1, 1, 1, 1, 1):
         raise ValueError("revolve construction requires one complete ordinary model")
     if set(DocumentValue.metadata) != {"name"} or DocumentValue.units != "mm":
         raise ValueError("revolve construction requires explicit names and millimetres")

@@ -51,9 +51,9 @@ def ApplyRevDoc(
         )
     CheckRevSupport(DocumentValue, SketchValues[0], OwnerValue)
     SketchValue = MakeRevSketch(SketchValues[0], OwnerValue)
-    ParamValues = BindRevParams(DocumentValue.parameters, OwnerValue)
+    ParamValues, ParamIds = BindRevParams(DocumentValue.parameters, OwnerValue)
     SelectValue = MakeRevSelect(LinkValue, OwnerValue)
-    StepValue = BindRevStep(StepValues[0], OwnerValue, LinkValue, SelectValue)
+    StepValue = BindRevStep(StepValues[0], OwnerValue, LinkValue, SelectValue, ParamIds)
     SelectValues = tuple(
         Value
         for Value in DocumentValue.selections

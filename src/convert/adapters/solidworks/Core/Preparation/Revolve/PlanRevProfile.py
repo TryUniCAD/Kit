@@ -8,6 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import CheckPlainScope
 from interchange.Features.FeatureAngleRev import AngularRevolve
+from interchange.Features.RevolveSpan import GetAngleSpan
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -19,7 +20,10 @@ def PlanRevProfile(DocumentValue: CadDocument) -> RevolvePlan | None:
         return None
     CheckPlainScope(DocumentValue)
     PlanValue = ProjectRevolve(DocumentValue)
-    if PlanValue.AxisValue not in ("x", "y") or PlanValue.AngleValue == FullTurn:
+    StartAngle, EndAngle = GetAngleSpan(
+        PlanValue.AngleValue, PlanValue.AgainstAngle, PlanValue.SideMode
+    )
+    if PlanValue.AxisValue not in ("x", "y") or EndAngle - StartAngle >= FullTurn:
         raise ValueError(
             "public native revolve requires a partial boss on canonical Top or Right"
         )

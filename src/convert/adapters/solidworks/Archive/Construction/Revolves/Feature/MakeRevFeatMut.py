@@ -32,7 +32,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 
-# the ordinary boss must bind one actual profile selected construction axis and active angular end in the same fresh model
+# the ordinary boss must retain its profile construction axis and each active angular display in the same fresh model
 def MakeRevFeatMut(
     SystemValue: PartSystem,
     ProfileValue: ProfileGraph,
@@ -46,7 +46,14 @@ def MakeRevFeatMut(
     )
     Reference = MakeRevAxisRef(SystemValue, ProfileValue, AxisValue, PlanValue)
     AngleValue = MakeRevAngleMut(FeatureValue, InputValue, PlanValue, Allocator)
-    EndValue = MakeRevEnd(FeatureValue, AngleValue)
+    AgainstValue = (
+        None
+        if PlanValue.AgainstAngle is None
+        else MakeRevAngleMut(
+            FeatureValue, InputValue, PlanValue, Allocator, Against=True
+        )
+    )
+    EndValue = MakeRevEnd(FeatureValue, AngleValue, PlanValue.SideMode, AgainstValue)
     FeatureValue.FieldsValue.update(
         {
             "f60": {

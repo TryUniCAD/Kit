@@ -11,9 +11,6 @@ from convert.adapters.solidworks.Core.Writing.Measured.Revolve.CheckRevBracket i
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.CheckRevLife import (
     CheckRevLife,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevReportPins import (
-    KRevReports,
-)
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevEvidence import (
     RevEvidence,
 )
@@ -37,7 +34,7 @@ def MatchRevMeas(
                 {
                     "generated_sha256": Digest,
                     "oracle_build": KOraclePart["build"],
-                    "native_result_sha256": KRevReports["native_result"][0],
+                    "native_result_sha256": Evidence.NativeReportSha,
                     "edit_record_sha256": Edited,
                     "reopen_record_sha256": Reopen,
                 }

@@ -8,3 +8,5 @@ class RevEvidence:
     Summary: dict[str, object]
     Report: dict[str, object]
     Job: dict[str, object]
+    NativeReportSha: str
+    IsEndBatch: bool

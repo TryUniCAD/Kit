@@ -1,0 +1,723 @@
+{
+  "cases": {
+    "EndMidplane": {
+      "archive_sha256": "d4a942574936ee1ac580aae5f6f33c3e2213be89fce211231b913b5521b8adb4",
+      "ends": {
+        "angles": {
+          "f18": {
+            "dimension_id": 20,
+            "dimension_mode_words": {
+              "f30": 0,
+              "f54": 0
+            },
+            "name": "D1",
+            "owners": [
+              {
+                "class": "moDisplayAngularDim_c",
+                "end": 9924,
+                "field_span": false,
+                "object_index": 182,
+                "offset": 8197,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moFeatureDimHandle_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 184,
+                "offset": 8776,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "AngleDim_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 186,
+                "offset": 8909,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moAngleParameter_c",
+                "end": 8994,
+                "field_span": false,
+                "object_index": 188,
+                "offset": 8929,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ],
+            "radians": 1.714785990084429
+          },
+          "f20": null
+        },
+        "end": {
+          "class": "moRevEndSpec_c",
+          "end": 9930,
+          "field_span": false,
+          "object_index": 180,
+          "offset": 8125,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "end_words": {
+          "f08": 0,
+          "f0c": 6,
+          "f10": 0,
+          "f138": 0,
+          "f13c": 0,
+          "f140": 0,
+          "f144": 0,
+          "f38": 0.01,
+          "f40": 0.01
+        },
+        "feature": {
+          "class": "moRevolution_c",
+          "end": 9931,
+          "field_span": false,
+          "object_index": 170,
+          "offset": 7503,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_legacy_display_slots": {
+          "f808": false,
+          "f810": false
+        },
+        "feature_name": "OrdinaryBossRevolve",
+        "feature_words": {
+          "f820": 0,
+          "f824": 0,
+          "f828": 3,
+          "f870": 1,
+          "f8e8": 0
+        },
+        "nonangle_slots_present": {
+          "f118": false,
+          "f120": false,
+          "f128": false,
+          "f130": false,
+          "f28": false,
+          "f30": false
+        }
+      },
+      "keyword_dimension_order": [
+        "D1"
+      ],
+      "path_and_stream_equal": true,
+      "runtime_external_access_attempts": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22256,
+          "sha256": "6dbc6b868b1bc061a45d16eb91f110e7f9d11dbbf2042298a4a5d8d3ac3d0b55"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 719,
+          "sha256": "18b8080659e2504ee889970e1a425d8877e09e61ebc115632d5e2d8e6103f5bd"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9931,
+          "sha256": "b3a1f7121f02d45662b60ca2a5d8c5d8b71830068f17791ac8154d559c8d2d98"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 719,
+          "sha256": "1e33e4cc639e5e1425cc30142ff7d2304e1cb7cdfa4b9dd687e99451db783ec2"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1406,
+          "sha256": "79fc5ca824245d338f5dad4a9116cb8f63cee701987f543707a1cb80e0978782"
+        }
+      }
+    },
+    "EndSingle": {
+      "archive_sha256": "8147cdc67c6fd3a760cc3c80e8fca490d97f709f5468abfc32abcaf6f5dee862",
+      "ends": {
+        "angles": {
+          "f18": {
+            "dimension_id": 20,
+            "dimension_mode_words": {
+              "f30": 0,
+              "f54": 0
+            },
+            "name": "D1",
+            "owners": [
+              {
+                "class": "moDisplayAngularDim_c",
+                "end": 9924,
+                "field_span": false,
+                "object_index": 182,
+                "offset": 8197,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moFeatureDimHandle_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 184,
+                "offset": 8776,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "AngleDim_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 186,
+                "offset": 8909,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moAngleParameter_c",
+                "end": 8994,
+                "field_span": false,
+                "object_index": 188,
+                "offset": 8929,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ],
+            "radians": 1.714785990084429
+          },
+          "f20": null
+        },
+        "end": {
+          "class": "moRevEndSpec_c",
+          "end": 9930,
+          "field_span": false,
+          "object_index": 180,
+          "offset": 8125,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "end_words": {
+          "f08": 1,
+          "f0c": 0,
+          "f10": 0,
+          "f138": 0,
+          "f13c": 0,
+          "f140": 0,
+          "f144": 0,
+          "f38": 0.01,
+          "f40": 0.01
+        },
+        "feature": {
+          "class": "moRevolution_c",
+          "end": 9931,
+          "field_span": false,
+          "object_index": 170,
+          "offset": 7503,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_legacy_display_slots": {
+          "f808": false,
+          "f810": false
+        },
+        "feature_name": "OrdinaryBossRevolve",
+        "feature_words": {
+          "f820": 0,
+          "f824": 0,
+          "f828": 3,
+          "f870": 1,
+          "f8e8": 0
+        },
+        "nonangle_slots_present": {
+          "f118": false,
+          "f120": false,
+          "f128": false,
+          "f130": false,
+          "f28": false,
+          "f30": false
+        }
+      },
+      "keyword_dimension_order": [
+        "D1"
+      ],
+      "path_and_stream_equal": true,
+      "runtime_external_access_attempts": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22252,
+          "sha256": "ab52b7f6458f6ab208454ebbdde161a42b9452e5142c03567bd3a27a9c433ae0"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 707,
+          "sha256": "9eff7dbb865aa285322a4784395f236806ad9a4dbe2c6de58a076fc36e63622a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 9931,
+          "sha256": "088e64f84b0f4938541054242de89f66fa6a9690e407479e0cde6149902d2355"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 707,
+          "sha256": "e6560a3d59fa92a806839b928df75f2d931edad0abc47c1e6201d80a95e17f80"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1404,
+          "sha256": "25627f9377738f6f87741e9204dd7bf9cc3f032f1ef852e1f1c6ba89d5a22501"
+        }
+      }
+    },
+    "EndTwo": {
+      "archive_sha256": "6d8d020e57daf676b9f0315475d92e268ac177dfaa4e74c31df2de53a4c78b77",
+      "ends": {
+        "angles": {
+          "f18": {
+            "dimension_id": 20,
+            "dimension_mode_words": {
+              "f30": 0,
+              "f54": 0
+            },
+            "name": "D1",
+            "owners": [
+              {
+                "class": "moDisplayAngularDim_c",
+                "end": 9924,
+                "field_span": false,
+                "object_index": 182,
+                "offset": 8197,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moFeatureDimHandle_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 184,
+                "offset": 8776,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "AngleDim_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 186,
+                "offset": 8909,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moAngleParameter_c",
+                "end": 8994,
+                "field_span": false,
+                "object_index": 188,
+                "offset": 8929,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ],
+            "radians": 1.714785990084429
+          },
+          "f20": {
+            "dimension_id": 21,
+            "dimension_mode_words": {
+              "f30": 0,
+              "f54": 0
+            },
+            "name": "D2",
+            "owners": [
+              {
+                "class": "moDisplayAngularDim_c",
+                "end": 11544,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 9924,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moFeatureDimHandle_c",
+                "end": 10739,
+                "field_span": false,
+                "object_index": 193,
+                "offset": 10478,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "AngleDim_c",
+                "end": 10739,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 10587,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moAngleParameter_c",
+                "end": 10636,
+                "field_span": false,
+                "object_index": 195,
+                "offset": 10593,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ],
+            "radians": 0.7592182246175333
+          }
+        },
+        "end": {
+          "class": "moRevEndSpec_c",
+          "end": 11548,
+          "field_span": false,
+          "object_index": 180,
+          "offset": 8125,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "end_words": {
+          "f08": 0,
+          "f0c": 0,
+          "f10": 0,
+          "f138": 0,
+          "f13c": 0,
+          "f140": 0,
+          "f144": 0,
+          "f38": 0.01,
+          "f40": 0.01
+        },
+        "feature": {
+          "class": "moRevolution_c",
+          "end": 11549,
+          "field_span": false,
+          "object_index": 170,
+          "offset": 7503,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_legacy_display_slots": {
+          "f808": false,
+          "f810": false
+        },
+        "feature_name": "OrdinaryBossRevolve",
+        "feature_words": {
+          "f820": 0,
+          "f824": 0,
+          "f828": 3,
+          "f870": 1,
+          "f8e8": 0
+        },
+        "nonangle_slots_present": {
+          "f118": false,
+          "f120": false,
+          "f128": false,
+          "f130": false,
+          "f28": false,
+          "f30": false
+        }
+      },
+      "keyword_dimension_order": [
+        "D2",
+        "D1"
+      ],
+      "path_and_stream_equal": true,
+      "runtime_external_access_attempts": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "22933e1e8a443606d81571b9babc2748ee1208b38628bef91be3cc84bd02d56a"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22246,
+          "sha256": "5b640c26100568e5e8f59d74258a3d7efed37df02aa5426a6a226b0d6623328f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 689,
+          "sha256": "d413bb57391cd4c4d8c3d74315a2aa68656caa174ec4431dc7d63989e64d3365"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 11549,
+          "sha256": "c977db2b6b74999faaa26c36527f72530f848b6ed2df1cf646718f9a4ab9ffdb"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 689,
+          "sha256": "279389e2c3aa09a35d1b62ae96d40ecc3f03939f1e09f57f7ebde5e64e5c8745"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1440,
+          "sha256": "af69e1ca5808314e63ccf955df6a1be17bb5b656863e737dbaf13de82260e3b0"
+        }
+      }
+    },
+    "EndTwoReverse": {
+      "archive_sha256": "65f21b513348454d05a88a3c473a43062146b110e2161bc2db13900f50f8e7ab",
+      "ends": {
+        "angles": {
+          "f18": {
+            "dimension_id": 20,
+            "dimension_mode_words": {
+              "f30": 0,
+              "f54": 0
+            },
+            "name": "D1",
+            "owners": [
+              {
+                "class": "moDisplayAngularDim_c",
+                "end": 9924,
+                "field_span": false,
+                "object_index": 182,
+                "offset": 8197,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moFeatureDimHandle_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 184,
+                "offset": 8776,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "AngleDim_c",
+                "end": 9097,
+                "field_span": false,
+                "object_index": 186,
+                "offset": 8909,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moAngleParameter_c",
+                "end": 8994,
+                "field_span": false,
+                "object_index": 188,
+                "offset": 8929,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ],
+            "radians": 1.714785990084429
+          },
+          "f20": {
+            "dimension_id": 21,
+            "dimension_mode_words": {
+              "f30": 0,
+              "f54": 0
+            },
+            "name": "D2",
+            "owners": [
+              {
+                "class": "moDisplayAngularDim_c",
+                "end": 11544,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 9924,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moFeatureDimHandle_c",
+                "end": 10739,
+                "field_span": false,
+                "object_index": 193,
+                "offset": 10478,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "AngleDim_c",
+                "end": 10739,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 10587,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moAngleParameter_c",
+                "end": 10636,
+                "field_span": false,
+                "object_index": 195,
+                "offset": 10593,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ],
+            "radians": 0.7592182246175333
+          }
+        },
+        "end": {
+          "class": "moRevEndSpec_c",
+          "end": 11548,
+          "field_span": false,
+          "object_index": 180,
+          "offset": 8125,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "end_words": {
+          "f08": 0,
+          "f0c": 0,
+          "f10": 0,
+          "f138": 0,
+          "f13c": 0,
+          "f140": 0,
+          "f144": 0,
+          "f38": 0.01,
+          "f40": 0.01
+        },
+        "feature": {
+          "class": "moRevolution_c",
+          "end": 11549,
+          "field_span": false,
+          "object_index": 170,
+          "offset": 7503,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_legacy_display_slots": {
+          "f808": false,
+          "f810": false
+        },
+        "feature_name": "OrdinaryBossRevolve",
+        "feature_words": {
+          "f820": 0,
+          "f824": 1,
+          "f828": 3,
+          "f870": 1,
+          "f8e8": 0
+        },
+        "nonangle_slots_present": {
+          "f118": false,
+          "f120": false,
+          "f128": false,
+          "f130": false,
+          "f28": false,
+          "f30": false
+        }
+      },
+      "keyword_dimension_order": [
+        "D1",
+        "D2"
+      ],
+      "path_and_stream_equal": true,
+      "runtime_external_access_attempts": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "22933e1e8a443606d81571b9babc2748ee1208b38628bef91be3cc84bd02d56a"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22260,
+          "sha256": "97c89320ea6bc1538e11d2d7738ef5d58cfe8cac9f75e5475d4eb7f70454d818"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 731,
+          "sha256": "6db575f6093643541ab33eb827cd1bf809bddbb26e7c319529a0e6057e719bc8"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 11549,
+          "sha256": "5a329158e0191d9dd8571b77b61a5ec0d8b45729f8a53d89e5568faf893e76d8"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 731,
+          "sha256": "7f4d02e863f425231dec773c7181941d355363d14b3ff6a14ca03649cb2e00c5"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "qualified": true,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "qualified": true,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1447,
+          "sha256": "380fafbce38401e18ab40d611b86f4b735636805e972a107287dc85f6c38ea69"
+        }
+      }
+    }
+  },
+  "schema": "kit.sw2026.ordinary-end-generated-discovery.v1",
+  "source_revision": "59cc0c0380132f8bd03ce8b0de815b5d6b3da6e4",
+  "source_tree": "1082f9bb9b69d0b2f2ba10c0902e7694cbe9a860",
+  "spec_sha256": "eb21b3bdbe9e4d5271e322e164ac27ba8059e30373e523973556323cb5f54cd8",
+  "tool_sha256": "ad575fedfbe9faa4aa750f50b5424146e085c08eb6e8d7ce24bded0812ba2988"
+}

@@ -17,13 +17,14 @@ def ReadRevInput(DocumentValue: CadDocument, NameValue: str) -> CadDocument:
         len(ItemsValue) != 1
         for ItemsValue in (
             DocumentValue.sketches,
-            DocumentValue.parameters,
             DocumentValue.bodies,
             DocumentValue.configurations,
             DocumentValue.selections,
         )
-    ):
-        raise ValueError("SOLIDWORKS revolve readback requires one body profile and D1")
+    ) or len(DocumentValue.parameters) not in (1, 2):
+        raise ValueError(
+            "SOLIDWORKS revolve readback requires one body profile and its angle drivers"
+        )
     (SketchValue,) = DocumentValue.sketches
     (PlaneValue,) = (
         Plane
@@ -37,10 +38,9 @@ def ReadRevInput(DocumentValue: CadDocument, NameValue: str) -> CadDocument:
         configurations=(
             ReplaceValue(DocumentValue.configurations[0], attributes=FreezeMapping()),
         ),
-        parameters=(
-            ReplaceValue(
-                DocumentValue.parameters[0], provenance=None, attributes=FreezeMapping()
-            ),
+        parameters=tuple(
+            ReplaceValue(ParameterItem, provenance=None, attributes=FreezeMapping())
+            for ParameterItem in DocumentValue.parameters
         ),
         support_planes=(
             ReplaceValue(PlaneValue, provenance=None, attributes=FreezeMapping()),

@@ -1,0 +1,559 @@
+{
+  "alternate_deflate_probe": {
+    "cases": [
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "case": "EndMidplane",
+        "denied_routes": [
+          "authored registry",
+          "authored direct",
+          "authored file sink",
+          "strict full JSON registry",
+          "strict full JSON direct",
+          "strict design JSON registry",
+          "strict design JSON direct"
+        ],
+        "logical_streams": 10,
+        "unmeasured_sha256": "aa71d5b1483f4ac0b616b45a31d3c4230822bd78f1363b93d9196cfc4264fa96"
+      },
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "case": "EndTwo",
+        "denied_routes": [
+          "authored registry",
+          "authored direct",
+          "authored file sink",
+          "strict full JSON registry",
+          "strict full JSON direct",
+          "strict design JSON registry",
+          "strict design JSON direct"
+        ],
+        "logical_streams": 10,
+        "unmeasured_sha256": "905f916fd529e7713f3b56b4e3e9dab7a08b31ba0ff35427b7f8b6b5eba4f63f"
+      },
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "case": "EndTwoReverse",
+        "denied_routes": [
+          "authored registry",
+          "authored direct",
+          "authored file sink",
+          "strict full JSON registry",
+          "strict full JSON direct",
+          "strict design JSON registry",
+          "strict design JSON direct"
+        ],
+        "logical_streams": 10,
+        "unmeasured_sha256": "87d1e836fc879db2ea2d36dcfcddaa663f9bd04c5f8a86fc487a750f00be4532"
+      }
+    ],
+    "level": 6,
+    "proof_sha256": "f8d89d49f2d6a96b35d17e56e68c9f0d7823a6415cbfe4463b731dc56782a671"
+  },
+  "complete_queue_tests_locally_run": 0,
+  "exact_measurement_inputs_lf": {
+    "Generation.json": "9f14cec8aebf970eb461b4b2e4decc2dd1f73bdec27db71a7e7d6db3c5831061",
+    "Job.json": "4548c65e6e0b37b5e50619ad244ff6eeec963925fedcbb9bc6175a6e2af731d3",
+    "Result.json": "77baed07b3f1a4cb00c5a4c0462a92ac68d22fd26b9339c5c7f3a0220cc62982"
+  },
+  "guarded_native_launches": 0,
+  "independent_structural": [
+    {
+      "archive_sha256": "c955873c354d1a09907f62552df5fe2d4a06e33ffad83fd190054670551ab999",
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "case": "EndMidplane",
+      "native_launches": 0,
+      "owner_refusals": [
+        "unexpected_secondary"
+      ],
+      "proof_sha256": "8bd67ed403594b675dd91afccbe3ef9ce670acc9976066980139cbe954ee0463",
+      "public_receipt_refusals": 2,
+      "views": [
+        {
+          "angle_span": [
+            -1.0625,
+            1.0625
+          ],
+          "area_mm2": 3295.21875,
+          "mode": "symmetric_full",
+          "plane": "Right",
+          "reverse": false,
+          "signed_cap_corners_checked": true,
+          "target_angles": [
+            2.125
+          ],
+          "volume_mm3": 11710.3271484375
+        },
+        {
+          "angle_span": [
+            -1.0625,
+            1.0625
+          ],
+          "area_mm2": 3295.21875,
+          "mode": "symmetric_full",
+          "plane": "Right",
+          "reverse": false,
+          "signed_cap_corners_checked": false,
+          "target_angles": [
+            2.125
+          ],
+          "volume_mm3": 11710.3271484375
+        }
+      ]
+    },
+    {
+      "archive_sha256": "02d9133507a0d6f80096b9fc2583eb927cf018e8866abb7ac7240a8a510bdf3a",
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "case": "EndTwo",
+      "native_launches": 0,
+      "owner_refusals": [
+        "aliased_display",
+        "duplicate_dimension_identity"
+      ],
+      "proof_sha256": "41fdef8888b0a01f5d60c70b70451e8f628d7fb5829775393a580856ebb30dd9",
+      "public_receipt_refusals": 2,
+      "views": [
+        {
+          "angle_span": [
+            -0.5625,
+            2.375
+          ],
+          "area_mm2": 4213.51953125,
+          "mode": "two_sided",
+          "plane": "Top",
+          "reverse": false,
+          "signed_cap_corners_checked": true,
+          "target_angles": [
+            2.375,
+            0.5625
+          ],
+          "volume_mm3": 14992.9541015625
+        },
+        {
+          "angle_span": [
+            -0.5625,
+            2.375
+          ],
+          "area_mm2": 4213.51953125,
+          "mode": "two_sided",
+          "plane": "Top",
+          "reverse": false,
+          "signed_cap_corners_checked": false,
+          "target_angles": [
+            2.375,
+            0.5625
+          ],
+          "volume_mm3": 14992.9541015625
+        }
+      ]
+    },
+    {
+      "archive_sha256": "208a3e3b4b2c6ea1128c954e066ca00e6290be81e794d4423f2818f4a2279abd",
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "case": "EndTwoReverse",
+      "native_launches": 0,
+      "owner_refusals": [
+        "aliased_display",
+        "duplicate_dimension_identity"
+      ],
+      "proof_sha256": "fd001671b219ba4a7d92ceaffe047c95fcdd8f587fb2e195681057ca232c1cff",
+      "public_receipt_refusals": 2,
+      "views": [
+        {
+          "angle_span": [
+            -1.8125,
+            1.125
+          ],
+          "area_mm2": 6345.3828125,
+          "mode": "two_sided",
+          "plane": "Right",
+          "reverse": true,
+          "signed_cap_corners_checked": true,
+          "target_angles": [
+            1.125,
+            1.8125
+          ],
+          "volume_mm3": 27552.21240234375
+        },
+        {
+          "angle_span": [
+            -1.8125,
+            1.125
+          ],
+          "area_mm2": 6345.3828125,
+          "mode": "two_sided",
+          "plane": "Right",
+          "reverse": true,
+          "signed_cap_corners_checked": false,
+          "target_angles": [
+            1.125,
+            1.8125
+          ],
+          "volume_mm3": 27552.21240234375
+        }
+      ]
+    }
+  ],
+  "measured": [
+    {
+      "atomic_refusals": 16,
+      "case": "EndSingle",
+      "logical_streams": 10,
+      "matched_archive_sha256": "8147cdc67c6fd3a760cc3c80e8fca490d97f709f5468abfc32abcaf6f5dee862",
+      "proof_sha256": "b806b3bed679b4de51fa8a396fab00f1697c8015c88d03f3e1ee981dbecbc168",
+      "publication_count": 7,
+      "readback": {
+        "angle_span": [
+          0.0,
+          1.714785990084429
+        ],
+        "area_mm2": 3941.4207277006467,
+        "driving_values": {
+          "D1": 1.714785990084429
+        },
+        "effective_axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mode": "one_sided",
+        "reversed": false,
+        "topology": [
+          1,
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 15654.487077799562
+      },
+      "strict_views": 2
+    },
+    {
+      "atomic_refusals": 16,
+      "case": "EndMidplane",
+      "logical_streams": 10,
+      "matched_archive_sha256": "d4a942574936ee1ac580aae5f6f33c3e2213be89fce211231b913b5521b8adb4",
+      "proof_sha256": "3b3e841b0ca278ed4415270453d6925f293eda28b1509d9b7a7853136c46e9c4",
+      "publication_count": 7,
+      "readback": {
+        "angle_span": [
+          -0.8573929950422144,
+          0.8573929950422144
+        ],
+        "area_mm2": 3941.4207277006467,
+        "driving_values": {
+          "D1": 1.714785990084429
+        },
+        "effective_axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mode": "symmetric_full",
+        "reversed": false,
+        "topology": [
+          1,
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 15654.487077799562
+      },
+      "strict_views": 2
+    },
+    {
+      "atomic_refusals": 16,
+      "case": "EndTwo",
+      "logical_streams": 10,
+      "matched_archive_sha256": "6d8d020e57daf676b9f0315475d92e268ac177dfaa4e74c31df2de53a4c78b77",
+      "proof_sha256": "0be049d7fbe0d9896cc78d5d9a310092ce629a3d58913e7b543cf4413eefed24",
+      "publication_count": 7,
+      "readback": {
+        "angle_span": [
+          -0.7592182246175333,
+          1.714785990084429
+        ],
+        "area_mm2": 5299.692500270399,
+        "driving_values": {
+          "D1": 1.714785990084429,
+          "D2": 0.7592182246175333
+        },
+        "effective_axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mode": "two_sided",
+        "reversed": false,
+        "topology": [
+          1,
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 22585.48135651998
+      },
+      "strict_views": 2
+    },
+    {
+      "atomic_refusals": 16,
+      "case": "EndTwoReverse",
+      "logical_streams": 10,
+      "matched_archive_sha256": "65f21b513348454d05a88a3c473a43062146b110e2161bc2db13900f50f8e7ab",
+      "proof_sha256": "92a9f9fe0088c34ca04ca837199f2d318c783680ef7710b844c744f8c055a1a0",
+      "publication_count": 7,
+      "readback": {
+        "angle_span": [
+          -0.7592182246175333,
+          1.714785990084429
+        ],
+        "area_mm2": 5299.692500270399,
+        "driving_values": {
+          "D1": 1.714785990084429,
+          "D2": 0.7592182246175333
+        },
+        "effective_axis": [
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "mode": "two_sided",
+        "reversed": true,
+        "topology": [
+          1,
+          6,
+          12,
+          8
+        ],
+        "volume_mm3": 22585.48135651998
+      },
+      "strict_views": 2
+    }
+  ],
+  "method_files": {
+    "re/tooling/sw2026/revolve/AuditSavedRevEndBounds.py": "69c53a4371a0fef152841bf1a9f0b398615b11a260aca00e390a4e566fd5674a",
+    "re/tooling/sw2026/revolve/ProveMeasuredRevolveEnds.py": "37df122d69ba8b3ad317962b01b4cd3fc867a97db1091b7df907ec2d45e4a56e",
+    "re/tooling/sw2026/revolve/ProveRevEndStructure.py": "2271c04833faaf63d4348599f8e0742b2ebb26e30cc82aeadb300eaa0d0842a1",
+    "tests/Convert/Solidworks/RevolveEnds/RevStructTests.py": "ab7600d507e308c95d5ff452bad382a8d9b51c1cbc76de2bf5f155638aaf41d1",
+    "tests/Convert/Solidworks/RevolveEnds/RevolveEndTests.py": "1466eb353885611148a39f6a6dc037374fbd442f87989949de4f930711dfb62c",
+    "tests/Convert/Solidworks/RevolveEnds/RunRevEnd.py": "4b962639f69d3d241dc9ea042c49659b5fcc3335f8bbcbeac6f9ea7b7fb6d519"
+  },
+  "native_disclosed_bound": {
+    "fresh_readers": 6,
+    "native_launches": 0,
+    "new_heldout_credits": 0,
+    "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "proof_sha256": "1f505eb2e9381d776f1beb6832c82ea069d4270054cdb90a6d7fa4c9829c9015",
+    "results": [
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "blocked_stage": "Contents/CMgr",
+        "case": "EndMidplane",
+        "config_map_terminal": 109,
+        "first_refusal": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+        "native_reopen_sha256": "3fbdc94df11d8ba77a73a5d0ab7d89f45700ab8985f8077c367110a3e9fe0f4c",
+        "native_scope": {
+          "angles_radians": [
+            1.714785990084429,
+            0.0
+          ],
+          "api_mode": 1,
+          "bodies": 1,
+          "reverse": false
+        },
+        "role": "original",
+        "source_sha256": "c1908384a73d6d5a5027bfa865849da9b0f007a3f5fdd84096120ef02675f678"
+      },
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "blocked_stage": "Contents/CMgr",
+        "case": "EndMidplane",
+        "config_map_terminal": 109,
+        "first_refusal": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+        "native_reopen_sha256": "4196ef66dd8a6aeb32180dcedca3397249e0a059b27f71638c901668159c5656",
+        "native_scope": {
+          "angles_radians": [
+            2.17293491873294,
+            0.0
+          ],
+          "api_mode": 1,
+          "bodies": 1,
+          "reverse": false
+        },
+        "role": "edited",
+        "source_sha256": "0582c9062522d911d192060766ee7437ae1ac526d92f94cbe27388273a4a3cc1"
+      },
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "blocked_stage": "Contents/CMgr",
+        "case": "EndTwo",
+        "config_map_terminal": 109,
+        "first_refusal": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+        "native_reopen_sha256": "853546effdbc3d46e983b21deb961297b2b6913e4d1a92ca7ea22bc468df7ddf",
+        "native_scope": {
+          "angles_radians": [
+            1.714785990084429,
+            0.7592182246175333
+          ],
+          "api_mode": 2,
+          "bodies": 1,
+          "reverse": false
+        },
+        "role": "original",
+        "source_sha256": "35655a2a861a7a0d2d5c276fec996da8b5bb6c5cd23681d21421a19a5f319df5"
+      },
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "blocked_stage": "Contents/CMgr",
+        "case": "EndTwo",
+        "config_map_terminal": 109,
+        "first_refusal": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+        "native_reopen_sha256": "4981cc05a554457882e5a088c514c249e28fd92908fdba6fd84d5e7f8d736482",
+        "native_scope": {
+          "angles_radians": [
+            2.17293491873294,
+            0.5279620987282847
+          ],
+          "api_mode": 2,
+          "bodies": 1,
+          "reverse": false
+        },
+        "role": "edited",
+        "source_sha256": "c3714dbe15cd5db389c52d7bb5dd2bc0cb093cf5560995b386e03cdc7ad2871f"
+      },
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "blocked_stage": "Contents/CMgr",
+        "case": "EndTwoReverse",
+        "config_map_terminal": 109,
+        "first_refusal": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+        "native_reopen_sha256": "9356d7eec31cca0e1b499409712e512cd5c6f804e8983627af386b5b5e67a7fd",
+        "native_scope": {
+          "angles_radians": [
+            1.714785990084429,
+            0.7592182246175333
+          ],
+          "api_mode": 2,
+          "bodies": 1,
+          "reverse": true
+        },
+        "role": "original",
+        "source_sha256": "d947b0b56aa975e3668eb541c2e8fb83aa3127e53a25f1ec4f4e0a31fb3b6509"
+      },
+      {
+        "audit": {
+          "external_launches": 0,
+          "input_file_reads": 0,
+          "output_opens": 0
+        },
+        "blocked_stage": "Contents/CMgr",
+        "case": "EndTwoReverse",
+        "config_map_terminal": 109,
+        "first_refusal": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+        "native_reopen_sha256": "37d572a979bad6cd711fcd10b845928dda138cfbdff2b23c418eaebe9e97a583",
+        "native_scope": {
+          "angles_radians": [
+            2.17293491873294,
+            0.5279620987282847
+          ],
+          "api_mode": 2,
+          "bodies": 1,
+          "reverse": true
+        },
+        "role": "edited",
+        "source_sha256": "8af22a05cc12e631501fba48e67c0d61fb103ba7f1a0a54b973fb298bb454b46"
+      }
+    ],
+    "schema": "kit.sw2026.saved-revolve-end-delivery-boundary.v1",
+    "source_lock_sha256": [
+      "7e66835b22018dfe16413baf164b6197524ce3191cafe37990d64afc40b82083",
+      "401a7b2e5cddacd96deafecc640e9da8967fe979822524fe1abacf149ac42c54"
+    ]
+  },
+  "new_heldout_credits": 0,
+  "prior_principal_controls": {
+    "Right": {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "case": "Right",
+      "exact_native_hash": true,
+      "legacy_design_only": true,
+      "permuted_contour_equal": true,
+      "proof_sha256": "ef12cb0cbeef0316319fc05be82c8712949f93254286788e27ba52dfc557cf60",
+      "publications": 4
+    },
+    "Top": {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "case": "Top",
+      "exact_native_hash": true,
+      "legacy_design_only": true,
+      "permuted_contour_equal": true,
+      "proof_sha256": "6f3e0c0edcfd2343d7fb46de060ca0670a35f2f552ffa99a33f9ad7f2fe27bb9",
+      "publications": 4
+    }
+  },
+  "review_promotion_boundary": {
+    "exact_receipt_unchanged": true,
+    "new_digests_require_measurement": true,
+    "private_inputs_read": 0,
+    "saved_linked_cmgr_support_pending": true
+  },
+  "schema": "kit.sw2026.ordinary-revolve-end-review-evidence.v1",
+  "source_files": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/CheckRevPair.py": "d7496131ece84954ded1365da2f7a9281838a755c3b0bf42461c568bdfe9b54a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevEnd.py": "60896d6d829a08fa32e9e358b817234387422988df9eb77563024addfa88d81a",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/Revolve/ReadRevEvidence.py": "afa999c8f0af152fe39d833b8ec280fcf46902492dde7a23d85e58295c7b10dc"
+  },
+  "source_parent": "fda3a5b0f9d63117a048895542f7774c5197e7c1"
+}

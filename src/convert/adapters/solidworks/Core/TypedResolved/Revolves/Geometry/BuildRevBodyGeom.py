@@ -19,24 +19,25 @@ from interchange.Records.RecordTopology import TopologyCounts
 # the actual directed sketch axis and ordered contour define the meridian without a saved kernel body
 def BuildRevBody(OwnerValue: RevolveOwner, BodyId: str) -> PartGeometry:
     AxisValue = OwnerValue.FrameValue
-    Meridian = MakeRevMeridian(OwnerValue)
-    Angle = OwnerValue.AngleValue.RadiansValue
+    StartValue, EndValue = OwnerValue.EndValue.IntervalValue
     SweepArgs = (
-        Meridian,
+        MakeRevMeridian(OwnerValue),
         AxisValue.StartValue,
         AxisValue.DirectionValue,
         AxisValue.SupportValue.x_axis,
     )
     ModelValue = (
         BuildFullSweep(BodyId, *SweepArgs)
-        if Angle == FullTurn
-        else BuildPolySweep(BodyId, *SweepArgs, 0.0, Angle)
+        if EndValue - StartValue == FullTurn
+        else BuildPolySweep(BodyId, *SweepArgs, StartValue, EndValue)
     )
     if ModelValue.validate(frozenset((BodyId,))):
         raise ValueError(
             "cache free revolve geometry failed neutral boundary validation"
         )
-    VolumeValue, AreaValue, BoundsValue = MeasureInterval(*SweepArgs, 0.0, Angle)
+    VolumeValue, AreaValue, BoundsValue = MeasureInterval(
+        *SweepArgs, StartValue, EndValue
+    )
     TopologyValue = TopologyCounts(
         solid_count=len(ModelValue.bodies),
         shell_count=len(ModelValue.shells),
@@ -55,7 +56,7 @@ def BuildRevBody(OwnerValue: RevolveOwner, BodyId: str) -> PartGeometry:
             "method": "typed_parametric_ordinary_revolve",
             "revolve_feature_id": NativeNodeId(OwnerValue.NodeValue),
             "source_profile_id": NativeNodeId(OwnerValue.ProfileValue),
-            "angle_radians": Angle,
+            "angle_radians": OwnerValue.AngleValue.RadiansValue,
             "reversed": OwnerValue.IsReverse,
         },
         ProducerValue=OwnerValue.NodeValue,

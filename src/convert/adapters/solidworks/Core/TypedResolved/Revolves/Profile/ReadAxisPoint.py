@@ -45,8 +45,8 @@ def ReadAxisPoint(
         IndexValue,
         CreationValue,
         (
-            RequireScalar(RequireScalar(PositionValue.get("x")) * 1000.0),
-            RequireScalar(RequireScalar(PositionValue.get("y")) * 1000.0),
+            RequireScalar(RequireScalar(PositionValue.get("x")) / 0.001),
+            RequireScalar(RequireScalar(PositionValue.get("y")) / 0.001),
         ),
         (HandleValue,),
         {

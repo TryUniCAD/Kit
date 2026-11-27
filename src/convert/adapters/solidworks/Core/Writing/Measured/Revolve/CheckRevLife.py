@@ -1,3 +1,5 @@
+from typing import cast as CastValue
+
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasRows import ReadMeasRows
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
@@ -14,6 +16,30 @@ from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevEvidence impor
 
 # bind observed angle driver edit and clean native saved derivative to the same candidate and actual fresh reopen
 def CheckRevLife(Evidence: RevEvidence, Digest: str) -> tuple[str, str]:
+    if Evidence.IsEndBatch:
+        (NativeCase,) = (
+            RowValue
+            for RowValue in ReadMeasRows(Evidence.Report.get("cases"), 4)
+            if RowValue.get("candidate_sha256") == Digest
+        )
+        Comparisons = ReadMeasMap(NativeCase.get("comparisons"))
+        PhaseValue = NativeCase.get("native_phase_sha256")
+        PhaseHashes = (
+            CastValue(list[object], PhaseValue) if type(PhaseValue) is list else []
+        )
+        if (
+            NativeCase.get("passed") is not True
+            or NativeCase.get("native_phase_failures") != [None, None]
+            or not {"reopened", "edited", "edited_fresh_reopen"} <= Comparisons.keys()
+            or any(
+                ReadMeasMap(RowValue).get("mass_checks") != 6
+                for RowValue in Comparisons.values()
+            )
+            or len(PhaseHashes) != 2
+        ):
+            raise ValueError("measured revolve lacks its clean edit and fresh reopen")
+        PhaseEdit, PhaseReopen = PhaseHashes
+        return ReadMeasSha(PhaseEdit), ReadMeasSha(PhaseReopen)
     (CaseValue,) = (
         ReadMeasMap(RowValue)
         for RowValue in ReadMeasMap(Evidence.Summary.get("cases")).values()

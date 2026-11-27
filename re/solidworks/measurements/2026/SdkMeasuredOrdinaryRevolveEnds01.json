@@ -1,0 +1,171 @@
+{
+  "additional_heldout_credits": 0,
+  "base_revision": "1f9678d1826102a032ab7c96e2bfe11d394009d4",
+  "cases": [
+    {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "bytes": 8079,
+      "case": "EndSingle",
+      "disclosed_file_independently_compared": true,
+      "drivers_radians": {
+        "D1": 1.714785990084429
+      },
+      "new_native_launches": 0,
+      "publication_routes": [
+        "authored registry",
+        "authored direct",
+        "authored file sink",
+        "strict full JSON registry",
+        "strict full JSON direct",
+        "strict design JSON registry",
+        "strict design JSON direct"
+      ],
+      "refusals": 16,
+      "sha256": "8147cdc67c6fd3a760cc3c80e8fca490d97f709f5468abfc32abcaf6f5dee862",
+      "streams": {
+        "Contents/CMgr": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "ab52b7f6458f6ab208454ebbdde161a42b9452e5142c03567bd3a27a9c433ae0",
+        "Contents/Config-0-ModelHeader": "9eff7dbb865aa285322a4784395f236806ad9a4dbe2c6de58a076fc36e63622a",
+        "Contents/Config-0-ResolvedFeatures": "088e64f84b0f4938541054242de89f66fa6a9690e407479e0cde6149902d2355",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "e6560a3d59fa92a806839b928df75f2d931edad0abc47c1e6201d80a95e17f80",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "25627f9377738f6f87741e9204dd7bf9cc3f032f1ef852e1f1c6ba89d5a22501"
+      },
+      "strict_json_republications": 4
+    },
+    {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "bytes": 8091,
+      "case": "EndMidplane",
+      "disclosed_file_independently_compared": true,
+      "drivers_radians": {
+        "D1": 1.714785990084429
+      },
+      "new_native_launches": 0,
+      "publication_routes": [
+        "authored registry",
+        "authored direct",
+        "authored file sink",
+        "strict full JSON registry",
+        "strict full JSON direct",
+        "strict design JSON registry",
+        "strict design JSON direct"
+      ],
+      "refusals": 16,
+      "sha256": "d4a942574936ee1ac580aae5f6f33c3e2213be89fce211231b913b5521b8adb4",
+      "streams": {
+        "Contents/CMgr": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "6dbc6b868b1bc061a45d16eb91f110e7f9d11dbbf2042298a4a5d8d3ac3d0b55",
+        "Contents/Config-0-ModelHeader": "18b8080659e2504ee889970e1a425d8877e09e61ebc115632d5e2d8e6103f5bd",
+        "Contents/Config-0-ResolvedFeatures": "b3a1f7121f02d45662b60ca2a5d8c5d8b71830068f17791ac8154d559c8d2d98",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "1e33e4cc639e5e1425cc30142ff7d2304e1cb7cdfa4b9dd687e99451db783ec2",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "79fc5ca824245d338f5dad4a9116cb8f63cee701987f543707a1cb80e0978782"
+      },
+      "strict_json_republications": 4
+    },
+    {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "bytes": 8196,
+      "case": "EndTwo",
+      "disclosed_file_independently_compared": true,
+      "drivers_radians": {
+        "D1": 1.714785990084429,
+        "D2": 0.7592182246175333
+      },
+      "new_native_launches": 0,
+      "publication_routes": [
+        "authored registry",
+        "authored direct",
+        "authored file sink",
+        "strict full JSON registry",
+        "strict full JSON direct",
+        "strict design JSON registry",
+        "strict design JSON direct"
+      ],
+      "refusals": 16,
+      "sha256": "6d8d020e57daf676b9f0315475d92e268ac177dfaa4e74c31df2de53a4c78b77",
+      "streams": {
+        "Contents/CMgr": "22933e1e8a443606d81571b9babc2748ee1208b38628bef91be3cc84bd02d56a",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "5b640c26100568e5e8f59d74258a3d7efed37df02aa5426a6a226b0d6623328f",
+        "Contents/Config-0-ModelHeader": "d413bb57391cd4c4d8c3d74315a2aa68656caa174ec4431dc7d63989e64d3365",
+        "Contents/Config-0-ResolvedFeatures": "c977db2b6b74999faaa26c36527f72530f848b6ed2df1cf646718f9a4ab9ffdb",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "279389e2c3aa09a35d1b62ae96d40ecc3f03939f1e09f57f7ebde5e64e5c8745",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "af69e1ca5808314e63ccf955df6a1be17bb5b656863e737dbaf13de82260e3b0"
+      },
+      "strict_json_republications": 4
+    },
+    {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "bytes": 8217,
+      "case": "EndTwoReverse",
+      "disclosed_file_independently_compared": true,
+      "drivers_radians": {
+        "D1": 1.714785990084429,
+        "D2": 0.7592182246175333
+      },
+      "new_native_launches": 0,
+      "publication_routes": [
+        "authored registry",
+        "authored direct",
+        "authored file sink",
+        "strict full JSON registry",
+        "strict full JSON direct",
+        "strict design JSON registry",
+        "strict design JSON direct"
+      ],
+      "refusals": 16,
+      "sha256": "65f21b513348454d05a88a3c473a43062146b110e2161bc2db13900f50f8e7ab",
+      "streams": {
+        "Contents/CMgr": "22933e1e8a443606d81571b9babc2748ee1208b38628bef91be3cc84bd02d56a",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "97c89320ea6bc1538e11d2d7738ef5d58cfe8cac9f75e5475d4eb7f70454d818",
+        "Contents/Config-0-ModelHeader": "6db575f6093643541ab33eb827cd1bf809bddbb26e7c319529a0e6057e719bc8",
+        "Contents/Config-0-ResolvedFeatures": "5a329158e0191d9dd8571b77b61a5ec0d8b45729f8a53d89e5568faf893e76d8",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "7f4d02e863f425231dec773c7181941d355363d14b3ff6a14ca03649cb2e00c5",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "380fafbce38401e18ab40d611b86f4b735636805e972a107287dc85f6c38ea69"
+      },
+      "strict_json_republications": 4
+    }
+  ],
+  "guarded_workers": 4,
+  "historical_fcstd_credits": 0,
+  "native_compared_states": 14,
+  "native_mass_comparisons": 84,
+  "native_processes": 10,
+  "native_result_sha256": "1104e3a29124f46f8c9d3ac61e6f914b089c8d312e42fcbe3585d1677690087c",
+  "new_native_processes": 0,
+  "publications": 28,
+  "refusals": 64,
+  "schema": "kit.sw2026.measured-ordinary-revolve-end-sdk.v1",
+  "strict_read_modes": 8
+}
