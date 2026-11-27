@@ -126,6 +126,8 @@ public sealed partial class SolidWorksCapture
         }
         bool preference=owned.GetUserPreferenceToggle(10);
         owned.SetUserPreferenceToggle(10,false);
+        bool completed=false;
+        run.MarkStage("preparation");
         try {
             var specification=run.IsProgram()?null:run.ConfiguredRecipe(recipe);
             if(phase=="first") {
@@ -140,6 +142,12 @@ public sealed partial class SolidWorksCapture
                 var report=Json.Deserialize<Dictionary<string,object>>(File.ReadAllText(measurements));
                 report["configuration_sha256"]=pin;
                 report["configured_case"]=configured;
+                if(RoutineReadback) {
+                    report["verification_mode"]="document_reopen";
+                    var observed=(Dictionary<string,object>)report["observations"];
+                    observed["document_reopen"]=observed["fresh_reopen"];
+                    observed.Remove("fresh_reopen");
+                }
                 report["authoring_origin"]=run.IsProgram()?"Independently authored through typed native operations from the source pinned written recipe"
                     :"Independently authored through the SOLIDWORKS API from the configured paired recipe";
                 Write(measurements,report);
@@ -149,6 +157,10 @@ public sealed partial class SolidWorksCapture
                 Write(receipt,received);
             }
             Check(Hash(configuration)==pin, "Configured authoring input changed during execution");
-        } finally { owned.SetUserPreferenceToggle(10,preference); }
+            completed=true;
+        } finally {
+            try { run.FinishStages(phase,completed); }
+            finally { owned.SetUserPreferenceToggle(10,preference); }
+        }
     }
 }

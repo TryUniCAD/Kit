@@ -14,9 +14,6 @@ from convert.adapters.solidworks.Archive.Construction.Views.ViewMatrix import Vi
 from convert.adapters.solidworks.Archive.Construction.Views.ViewPlans import KViewPlans
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.Preparation.Materials.PrepMatPart import (
-    PrepMatPart,
-)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
@@ -104,6 +101,10 @@ def CheckMatWire(
     DocumentValue: CadDocument,
     FileValue: SelfFileInput,
 ) -> None:
+    from convert.adapters.solidworks.Core.Preparation.Materials.PrepMatPart import (
+        PrepMatPart,
+    )
+
     Candidate = PrepMatPart(
         DocumentValue,
         BytesIO(),

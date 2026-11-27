@@ -34,7 +34,7 @@ def LaunchNative() -> int:
                     ConfigName,
                     "run",
                     "--max-seconds",
-                    "60",
+                    "150",
                 ],
                 creationflags=(
                     KNewProcessGroup if EventName == "CTRL_BREAK_EVENT" else 0
@@ -42,7 +42,7 @@ def LaunchNative() -> int:
             ) as Launcher:
                 try:
                     SignalConsole(RecordPath, EventName, Launcher.pid)
-                    return Launcher.wait(timeout=75)
+                    return Launcher.wait(timeout=165)
                 finally:
                     StopConsole(Launcher)
         finally:

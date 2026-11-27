@@ -6,7 +6,7 @@ import signal
 import time
 
 import ApplicationProtocol
-from ApplicationProtocol import HostQueue, QueueClient, WaitingApplication, configuration, file_bytes, load_pinned, pin, record, require, sha256, write_record
+from ApplicationProtocol import STOP_MARGIN_SECONDS, HostQueue, QueueClient, WaitingApplication, configuration, file_bytes, load_pinned, pin, record, require, sha256, write_record
 from FusionRestart import wait_for_restart
 
 
@@ -189,7 +189,7 @@ def run_supervised(config, session):
         write_record(session / "result.json", {"outcome": "waiting_application", "reason": "fixture never runs phase B",
                      "records": {"claim": "unqualified_dispatch", "native_qualified": False}})
         return
-    deadline = min(time.time() + (40 if mode == "after_restart" else 20), job["stop_at"] - 1)
+    deadline = min(time.time() + (40 if mode == "after_restart" else 20), job["stop_at"] - STOP_MARGIN_SECONDS)
     if mode == "after_restart":
         supervised_restart(config, session, job, deadline)
     provider = ApplicationProtocol.FUSION_PROVIDER if phase == "a" else "fixture.transport"

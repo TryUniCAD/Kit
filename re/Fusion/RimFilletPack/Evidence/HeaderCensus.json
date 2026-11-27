@@ -1,0 +1,199 @@
+{
+  "pid": 21551,
+  "started": 1795648984.968995,
+  "ended": 1795648985.495724,
+  "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+  "expected_from_existing_writer_guard": {
+    "FileVersion": 23200,
+    "RootCount": 4,
+    "Flags": 2,
+    "Scale": 10.0,
+    "AbsoluteTolerance": 1e-06,
+    "NormalTolerance": 1e-10,
+    "IntWidth": 8
+  },
+  "cases": [
+    {
+      "case": "discovery-01",
+      "snapshots": [
+        {
+          "member": "Breps.BlobParts/BREP.e801e190-88e9-4eae-acd4-4b9dc204b255.smb",
+          "header": {
+            "FileVersion": 23200,
+            "RootCount": 4,
+            "Flags": 2,
+            "Scale": 10.0,
+            "AbsoluteTolerance": 1e-06,
+            "NormalTolerance": 1e-10,
+            "IntWidth": 4
+          },
+          "guard_differences": {
+            "IntWidth": {
+              "expected": 8,
+              "observed": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "discovery-02",
+      "snapshots": [
+        {
+          "member": "Breps.BlobParts/BREP.b816cd4d-5d69-4fc3-a25c-0f0e41d9683a.smb",
+          "header": {
+            "FileVersion": 23200,
+            "RootCount": 4,
+            "Flags": 2,
+            "Scale": 10.0,
+            "AbsoluteTolerance": 1e-06,
+            "NormalTolerance": 1e-10,
+            "IntWidth": 4
+          },
+          "guard_differences": {
+            "IntWidth": {
+              "expected": 8,
+              "observed": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "discovery-03",
+      "snapshots": [
+        {
+          "member": "Breps.BlobParts/BREP.b7198bbe-135d-4ae2-bbf4-e14c32292da9.smb",
+          "header": {
+            "FileVersion": 23200,
+            "RootCount": 4,
+            "Flags": 2,
+            "Scale": 10.0,
+            "AbsoluteTolerance": 1e-06,
+            "NormalTolerance": 1e-10,
+            "IntWidth": 4
+          },
+          "guard_differences": {
+            "IntWidth": {
+              "expected": 8,
+              "observed": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "discovery-04",
+      "snapshots": [
+        {
+          "member": "Breps.BlobParts/BREP.c520c097-f34f-4d26-bba4-64aeaa6ef6a7.smb",
+          "header": {
+            "FileVersion": 23200,
+            "RootCount": 4,
+            "Flags": 2,
+            "Scale": 10.0,
+            "AbsoluteTolerance": 1e-06,
+            "NormalTolerance": 1e-10,
+            "IntWidth": 4
+          },
+          "guard_differences": {
+            "IntWidth": {
+              "expected": 8,
+              "observed": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "discovery-05",
+      "snapshots": [
+        {
+          "member": "Breps.BlobParts/BREP.878fc290-32fa-4a5f-a5ff-b8fe23145758.smb",
+          "header": {
+            "FileVersion": 23200,
+            "RootCount": 4,
+            "Flags": 2,
+            "Scale": 10.0,
+            "AbsoluteTolerance": 1e-06,
+            "NormalTolerance": 1e-10,
+            "IntWidth": 4
+          },
+          "guard_differences": {
+            "IntWidth": {
+              "expected": 8,
+              "observed": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "discovery-06",
+      "snapshots": [
+        {
+          "member": "Breps.BlobParts/BREP.72f29f5a-5f8e-4599-b7bb-c6e36305e9d0.smb",
+          "header": {
+            "FileVersion": 23200,
+            "RootCount": 4,
+            "Flags": 2,
+            "Scale": 10.0,
+            "AbsoluteTolerance": 1e-06,
+            "NormalTolerance": 1e-10,
+            "IntWidth": 4
+          },
+          "guard_differences": {
+            "IntWidth": {
+              "expected": 8,
+              "observed": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "holdout-01",
+      "snapshots": []
+    },
+    {
+      "case": "holdout-02",
+      "snapshots": []
+    },
+    {
+      "case": "holdout-03",
+      "snapshots": []
+    },
+    {
+      "case": "holdout-04",
+      "snapshots": []
+    },
+    {
+      "case": "holdout-05",
+      "snapshots": [
+        {
+          "member": "Breps.BlobParts/BREP.5268401b-2070-488c-b5d6-46cf1d4360c3.smb",
+          "header": {
+            "FileVersion": 23200,
+            "RootCount": 4,
+            "Flags": 2,
+            "Scale": 10.0,
+            "AbsoluteTolerance": 1e-06,
+            "NormalTolerance": 1e-10,
+            "IntWidth": 4
+          },
+          "guard_differences": {
+            "IntWidth": {
+              "expected": 8,
+              "observed": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "holdout-06",
+      "snapshots": []
+    }
+  ],
+  "inference_status": "guard comparison only; no new decoder or writer rule"
+}

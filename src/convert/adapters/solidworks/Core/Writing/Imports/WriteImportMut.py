@@ -12,7 +12,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 from convert.adapters.solidworks.Core.Writing.Measured.PublishMeasMut import (
     PublishMeasMut,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 from interchange.Core.Common import FreezeMapping
 from interchange.Enums.EnumDocument import Capability, Severity
 from interchange.Records.RecordDiagnostic import Diagnostic

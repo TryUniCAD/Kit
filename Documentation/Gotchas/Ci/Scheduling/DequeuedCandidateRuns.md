@@ -15,3 +15,6 @@ Existing branches and uncertain API evidence preserve the run.
 The observed [run](https://github.com/TryUniCAD/Kit/actions/runs/45075282603) used candidate `4f0758ec3150254d049847dc9fadbd63af848753`.
 Its tree matched task head `e48c287601a9991cef109b1891fdd5e5ffebe847`.
 GitHub accepted cancellation after PR #264 left the queue for repair.
+
+The [workflow family cleanup](../../../Changes/Ci/Scheduling/AbandonedWorkflowLanes.md) also covers abandoned `WorkflowQuality.yml` runs.
+Those runs otherwise retain the same shared lanes after the native queue workflow stops.

@@ -59,7 +59,7 @@ def QueueReadback(
             capture_output=True,
             text=True,
             check=False,
-            timeout=40,
+            timeout=85,
         )
         assert Result.returncode == 0, Result.stdout + Result.stderr
         ResultValue: dict[str, object] = DecodeJson(

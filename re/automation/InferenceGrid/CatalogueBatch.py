@@ -35,8 +35,8 @@ from Supervisor import read_config
 KMaxBatchWorkers = 64
 
 
-# short groups reuse the sdk while leaving enough work for other workers
-KCatalogueGroupSize = 4
+# eight rescans amortize SDK startup while bounding time to member settlement
+KCatalogueGroupSize = 8
 
 
 # independent routes keep running when another route lacks local prerequisites

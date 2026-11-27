@@ -30,23 +30,36 @@ def PublishBatch(SessionPath: FilePath) -> None:
     Fault = Packet["job"]["options"]["fault"]
     Bundles: dict[str, dict[str, MemberData]] = {}
     Artifacts: dict[str, ArtifactData] = {}
-    for Label in ("First", "Second"):
-        Current = Fault if Label == "Second" else "normal"
+    Labels = ("Second",) if Fault == "native-rejected" else ("First", "Second")
+    for Label in Labels:
+        Current = (
+            Fault if Label == "Second" and Fault != "native-rejected" else "normal"
+        )
         Members, Artifact = WriteBundle(SessionPath, Label, Content, Current)
         Artifacts["bundle." + Label.lower()] = Artifact
         if Current != "missing":
             Bundles["bundle." + Label.lower()] = (
                 Bundles["bundle.first"] if Current == "swapped" else Members
             )
+    Records: dict[str, object] = {
+        "fixture_only": True,
+        "native_acceptance": False,
+        "application": "fusion",
+        "bundles": Bundles,
+    }
+    if Fault == "native-rejected":
+        Records["source_pins"] = {"fixture_only": True}
+        Records["cases"] = {
+            "fusion:first": {
+                "case": {"recipe": "fixture", "parameters": {}, "options": {}},
+                "native_verified": False,
+                "native_rejection": "fixture measurement mismatch",
+            },
+        }
     Result = {
         "outcome": "completed",
         "reason": "fixture transport of retained native controls only",
-        "records": {
-            "fixture_only": True,
-            "native_acceptance": False,
-            "application": "fusion",
-            "bundles": Bundles,
-        },
+        "records": Records,
         "artifacts": Artifacts,
     }
     _ = (SessionPath / "result.json").write_text(

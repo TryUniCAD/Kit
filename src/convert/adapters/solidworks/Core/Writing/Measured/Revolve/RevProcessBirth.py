@@ -1,5 +1,5 @@
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 
 
 # process id plus creation file time distinguish actual exact build independent native lifetimes

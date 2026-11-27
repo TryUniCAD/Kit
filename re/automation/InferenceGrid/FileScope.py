@@ -19,6 +19,45 @@ from InferenceInputs import read_file
 from Records import digest
 
 
+def member_attribution(document, members):
+    intervals = defaultdict(list)
+    pending = [document]
+    while pending:
+        item = pending.pop()
+        if isinstance(item, list):
+            pending.extend(item)
+        elif isinstance(item, dict):
+            if item.get("$type") == "ProvenanceSpan":
+                stream, start, size = (
+                    item.get("stream"), item.get("offset"), item.get("length")
+                )
+                if (
+                    isinstance(stream, str)
+                    and type(start) is int
+                    and type(size) is int
+                    and start >= 0
+                    and size > 0
+                ):
+                    intervals[stream].append((start, start + size))
+            else:
+                pending.extend(item.values())
+    gaps = []
+    attributed = False
+    for member in members:
+        name, size = member["name"], member["size"]
+        cursor = 0
+        for start, end in sorted(intervals.get(name, ())):
+            if end > size:
+                continue
+            attributed = True
+            if start > cursor:
+                gaps.append([name, cursor, start])
+            cursor = max(cursor, end)
+        if cursor < size:
+            gaps.append([name, cursor, size])
+    return gaps, attributed
+
+
 def file_scope(path, application, scratch, root, control_paths=()):
     data = read_file(path, 128 * 1024 * 1024)
     if not data:
@@ -54,6 +93,8 @@ def file_scope(path, application, scratch, root, control_paths=()):
     command = [sys.executable, "-m", "KitCli", "decode", str(source), "--from", format_id]
     attempts = {}
     reports = {}
+    strict_attribution = None
+    supplemental_attribution = None
     if manifest_text:
         reports["manifest-text"] = manifest_text
     if manifest_patch:
@@ -61,27 +102,48 @@ def file_scope(path, application, scratch, root, control_paths=()):
     for phase, flags in (("container", ["--layer", "container"]), ("strict", []), ("partial", ["--partial"]), ("native", ["--layer", "native"])):
         if phase == "container" and application == "freecad":
             continue
-        if phase == "partial" and "strict" in reports:
-            continue
+        supplemental = phase == "partial" and "strict" in reports
+        if supplemental:
+            members = reports.get("container", {}).get("members", [])
+            if application != "fusion" or not members:
+                continue
+            strict_document = reports["strict"].get("document", {})
+            if not strict_document:
+                continue
+            strict_attribution = member_attribution(strict_document, members)
+            if strict_attribution[1]:
+                continue
         if phase == "native" and application != "fusion":
             continue
         target = scratch / (phase + ".json")
-        result = subprocess.run([*command, *flags, "-o", str(target)], cwd=scratch, env=env,
-                                stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=180)
-        if result.returncode:
-            if result.returncode != 1:
-                raise RuntimeError("reader process exited unexpectedly")
-            failure = json.loads(result.stderr)
-            attempts[phase] = {"error": failure["error"], "message": str(failure["message"])[:1024]}
-        else:
-            reports[phase] = json.loads(read_file(target, 128 * 1024 * 1024))
-            attempts[phase] = {"status": "decoded"}
+        try:
+            result = subprocess.run([*command, *flags, "-o", str(target)], cwd=scratch, env=env,
+                                    stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=180)
+            if result.returncode:
+                if result.returncode != 1:
+                    raise RuntimeError("reader process exited unexpectedly")
+                failure = json.loads(result.stderr)
+                attempts[phase] = {"error": failure["error"], "message": str(failure["message"])[:1024]}
+            else:
+                report = json.loads(read_file(target, 128 * 1024 * 1024))
+                if supplemental:
+                    evidence = report.get("document", {})
+                    if evidence.get("source", {}).get("sha256") != pin:
+                        raise ValueError("supplemental neutral decode refers to a different source")
+                    supplemental_attribution = member_attribution(evidence, members)
+                reports[phase] = report
+                attempts[phase] = {"status": "decoded"}
+        except (AttributeError, KeyError, OSError, RuntimeError, TypeError, ValueError, subprocess.SubprocessError) as error:
+            if not supplemental:
+                raise
+            attempts[phase] = {"error": type(error).__name__, "message": str(error)[:1024]}
     if attempts.get("native", {}).get("message") == "Unsupported Fusion semantic-state value":
         from InferenceGrid.RepairState import repair_state
         repaired = repair_state(root, source, scratch, env)
         if repaired:
             reports["native"], reports["state-repair"] = repaired
-    document = reports.get("strict", reports.get("partial", {})).get("document", {})
+    feature_layer = next((layer for layer in ("strict", "partial") if layer in reports), None)
+    document = reports.get(feature_layer, {}).get("document", {})
     if document and document.get("source", {}).get("sha256") != pin:
         raise ValueError("neutral decode refers to a different source")
     features = {}
@@ -116,32 +178,13 @@ def file_scope(path, application, scratch, root, control_paths=()):
     if package:
         reports["raw-structure"] = {"status": "inspected_zip", "package": package}
         members = [{"name": name, "size": row["size"]} for name, row in package.get("members", {}).items()]
-    intervals = defaultdict(list)
-    pending = [document]
-    while pending:
-        item = pending.pop()
-        if isinstance(item, list):
-            pending.extend(item)
-        elif isinstance(item, dict):
-            if item.get("$type") == "ProvenanceSpan":
-                start, size = item.get("offset"), item.get("length")
-                if type(start) is int and type(size) is int and start >= 0 and size > 0:
-                    intervals[item.get("stream")].append((start, start + size))
-            else:
-                pending.extend(item.values())
-    gaps = []
-    for member in members:
-        name, size = member["name"], member["size"]
-        cursor = 0
-        for start, end in sorted(intervals.get(name, ())):
-            if end > size:
-                continue
-            if start > cursor:
-                gaps.append([name, cursor, start])
-            cursor = max(cursor, end)
-        if cursor < size:
-            gaps.append([name, cursor, size])
+    gaps, attributed = strict_attribution or member_attribution(document, members)
+    provenance_layer = feature_layer if attributed else None
+    if supplemental_attribution and supplemental_attribution[1]:
+        gaps = supplemental_attribution[0]
+        provenance_layer = "partial"
     audit = {"source_sha256": pin, "source_name": path.name, "format": format_id, "reader_attempts": attempts,
+             "feature_layer": feature_layer if document else None, "provenance_layer": provenance_layer,
              "rectangle_driving_parameters": rectangles, "member_count": len(members), "unattributed_stream_ranges": gaps,
              "features_without_experiment": unresolved, "selected_experiments": sorted(features),
              "diagnostics": document.get("diagnostics", {}).get("$tuple", []),
