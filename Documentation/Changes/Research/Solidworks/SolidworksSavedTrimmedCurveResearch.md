@@ -21,4 +21,4 @@ Both documented research commands reproduced their results in fresh
 processes. Another process refused a different loader receipt before
 publishing output. Verification used the retained files without a new
 native session or public SDK decode.
-[Endpoint and carrier ownership gotcha](../../../Gotchas/Research/Readers/MatchingEndpointsLeaveCarrierOwnershipOpen.md)
+[Endpoint and carrier ownership gotcha](../../../Gotchas/Research/Readers/SolidWorksVendor/MatchingEndpointsLeaveCarrierOwnershipOpen.md)
