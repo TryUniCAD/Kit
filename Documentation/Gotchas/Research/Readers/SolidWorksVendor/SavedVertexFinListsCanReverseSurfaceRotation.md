@@ -10,4 +10,4 @@ refuses this part.
 Validate the finite incidence list and surface rotation independently.
 Check the vertex owner and exact fin set in each path. Preserve both
 orders. Use the actual face loops when projecting oriented geometry.
-[Saved owner graph](../../../Changes/Research/Solidworks/SolidworksSavedActiveOwnerResearch.md)
+[Saved owner graph](../../../../Changes/Research/Solidworks/SolidworksSavedActiveOwnerResearch.md)

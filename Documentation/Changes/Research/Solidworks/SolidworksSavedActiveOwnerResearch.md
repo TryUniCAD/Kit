@@ -23,5 +23,5 @@ refused before output.
 Public B-rep recovery, source annotation binding and whole-source
 conversion are separate work. The research ran without a CAD process
 or production SDK changes.
-[Saved vertex attribute gotcha](../../../Gotchas/Research/Readers/SavedVerticesCanCarryAutomationAttributes.md)
-· [Fin incidence order gotcha](../../../Gotchas/Research/Readers/SavedVertexFinListsCanReverseSurfaceRotation.md)
+[Saved vertex attribute gotcha](../../../Gotchas/Research/Readers/SolidWorksVendor/SavedVerticesCanCarryAutomationAttributes.md)
+· [Fin incidence order gotcha](../../../Gotchas/Research/Readers/SolidWorksVendor/SavedVertexFinListsCanReverseSurfaceRotation.md)
