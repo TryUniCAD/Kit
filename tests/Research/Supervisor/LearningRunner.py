@@ -6,10 +6,10 @@ from tests.Research.Supervisor.SessionRoot import SessionRoot
 
 
 # a session that exits between supervision passes has no process group sample to learn from
-def HoldUntilSampled(SessionPath: FilePath) -> None:
+def AwaitSample(SessionPath: FilePath) -> None:
     Marker = f"sampled:{SessionPath.name}\n"
     _ = System.stdout.write(Marker)
-    System.stdout.flush()
+    _ = System.stdout.flush()
     TimeClock.sleep(1)
     LogFile = SessionPath / "stdout.log"
     Until = TimeClock.monotonic() + 50
@@ -26,7 +26,7 @@ def RunLearning() -> None:
     Content = bytearray(2 * 1048576)
     for Offset in range(0, len(Content), 4096):
         Content[Offset] = 1
-    HoldUntilSampled(SessionPath)
+    AwaitSample(SessionPath)
     ResultInfo: dict[str, object] = {
         "outcome": "completed",
         "reason": "measured fixture finished",
