@@ -55,6 +55,10 @@ It also checks every registered workflow outcome. Unexpected failures,
 cancellations, timeouts, and skipped required jobs fail the aggregate.
 Jobs assigned to the other phase are explicitly deferred.
 
+Queue aggregation [polls conditionally from startup](Documentation/Changes/Ci/Scheduling/QueueEarlyPolling.md), without the former eight-minute idle.
+The startup inventory seeds its ETag; unchanged polls use the 30-second interval without primary API charges.
+The existing 100-candidate budget brake and rate-limit waits can extend detection latency.
+
 The Gitleaks job classifies one reviewed standards SHA-256 as public data only at its exact workflow path.
 Real scanner probes require detection for that value in another file and for an unknown value at the allowed path.
 The complete history scan and upstream detector rules remain enabled.
