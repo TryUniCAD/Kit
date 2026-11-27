@@ -78,7 +78,9 @@ def EmitNestedMut(
     Reopened = IsNestedRead(Document)
     Evidence = MatchAsmMeas(Receipt, PlanValue, Candidates, Reopened=Reopened)
     if Reopened:
-        CheckBundleRead(Document, Candidates)
+        CheckBundleRead(
+            Document, tuple((PathValue, Target.BytesValue) for PathValue, Target in Candidates)
+        )
     Transfers = ReadbackTrans(Document) if Reopened else ()
     ResultValue = WriteAsmFiles(
         OutputPath,

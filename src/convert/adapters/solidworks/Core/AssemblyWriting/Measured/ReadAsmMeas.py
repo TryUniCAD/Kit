@@ -11,7 +11,11 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOrac
 
 
 # the assembly receipt has its own bundle lifecycle and supplies the exact measured creation epoch
-def ReadAsmMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
+def ReadAsmMeas(
+    OptionsValue: WriteOptions,
+    *,
+    SchemaValue: str = "kit.sw2026.rigid-nested-measurement.v1",
+) -> tuple[int, dict[str, object]]:
     SourceValue = OptionsValue.values.get(KPartMeasureOpt)
     if SourceValue is None:
         raise ValueError(
@@ -29,7 +33,7 @@ def ReadAsmMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
         )
     Receipt = ReadMeasMap(Envelope["receipt"])
     if (
-        Receipt.get("schema") != "kit.sw2026.rigid-nested-measurement.v1"
+        Receipt.get("schema") != SchemaValue
         or ReadMeasMap(Receipt.get("oracle")) != KOraclePart
         or Receipt.get("passed") is not True
         or Receipt.get("controls_healthy") is not True

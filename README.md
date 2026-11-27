@@ -35,7 +35,7 @@ Native replay and carrier preservation have different meanings from editable cro
 Check the format reference and result for each input.
 The SOLIDWORKS part writer generates one editable Front-plane line-loop blind boss
 from a qualified neutral document. [Writer scope](Documentation/Reference/Adapters/Solidworks.md#writing)
-The assembly writer regenerates a measured rigid hierarchy and its owned part and subassembly files.
+The assembly writer regenerates measured rigid hierarchies and a measured coincident-and-distance mate assembly with their owned files.
 [Assembly writer scope](Documentation/Reference/Adapters/SolidworksAssemblyWriting.md)
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 

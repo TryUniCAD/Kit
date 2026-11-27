@@ -29,11 +29,15 @@ def WithNestedIndex(
     Enabled: bool,
     Strict: bool,
     SourceKey: str,
+    AllowFlat: bool = False,
 ) -> tuple[tuple[ComponentDef, ...], tuple[ComponentInst, ...], str | None]:
     if (
         not Enabled
         or Native.application_version != 19000
-        or not any(Value.depth > 0 for Value in Native.occurrence_paths)
+        or (
+            not AllowFlat
+            and not any(Value.depth > 0 for Value in Native.occurrence_paths)
+        )
     ):
         return Definitions, Instances, None
     SourceData = {
@@ -46,7 +50,13 @@ def WithNestedIndex(
         if Strict:
             raise
         return Definitions, Instances, str(ErrorInfo)
-    except (SldprtFormatError, ValueError, TypeError, KeyError):
+    except (SldprtFormatError, ValueError, TypeError, KeyError) as ErrorInfo:
+        if AllowFlat:
+            if Strict:
+                raise SldprtFormatError(
+                    f"typed planar index rejected: {ErrorInfo}"
+                ) from ErrorInfo
+            return Definitions, Instances, str(ErrorInfo)
         return Definitions, Instances, None
     return (
         tuple(

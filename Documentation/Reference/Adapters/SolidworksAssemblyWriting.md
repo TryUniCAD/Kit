@@ -1,4 +1,4 @@
-# Writing rigid nested SOLIDWORKS assemblies
+# Writing measured SOLIDWORKS assemblies
 
 Kit generates SOLIDWORKS 2026 SP05.2 rigid nested assemblies from a complete millimetre neutral `CadDocument.assembly`. Public writes require exact native measurement of the full generated bundle. Supply an acyclic graph with a root assembly, at least one subassembly, owned rectangular blind-boss part documents and an explicit selected configuration for every definition. Use complete ordered rigid placements. Repeated occurrences of a definition share one native file and retain independent placements.
 
@@ -56,3 +56,21 @@ staged file opens. It refuses if any recovered source state or measured file
 identity differs. This covers the four disclosed rigid nested profiles. Mates
 and other native feature families require their own qualified path.
 [Reopened publication](../../Changes/Solidworks/Archive/Assembly/SolidworksReopenedNestedPublication.md)
+
+## Coincident and distance mates
+
+The planar writer uses a single rectangular blind-boss child, placed twice in
+one root configuration. One occurrence is fixed. The ordered mate group owns an
+aligned coincident mate and an aligned positive distance mate. Each mate owns
+two selections on the actual child datum planes.
+
+The same `write_document` call accepts this graph with the
+`kit.sw2026.planar-assembly-measurement.v1` receipt. Both complete generated
+SHA-256 hashes, the native locator and the four application lifetimes must
+match the receipt. The strict SDK reader recovers the two mates, their four
+endpoints, the fixed state, the owned distance driver and all three editable
+child drivers from the generated bundle. A complete strict reread can
+regenerate both exact files using the same receipt. The writer compares
+the entire reopened neutral document against its regenerated bundle
+before publication.
+[Measured pair and result](../../../re/solidworks/records/MeasuredPlanarPair2026.md)

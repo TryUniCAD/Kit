@@ -183,6 +183,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import Co
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.TypedMates.ReadAsmMates import (
+    AsmMateDiags,
+    ReadAsmMates,
+)
+from convert.adapters.solidworks.Core.TypedMates.WithTypedFixed import WithTypedFixed
 from convert.adapters.solidworks.Core.AssemblyReading.AsmReadData import AsmReadData
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -959,7 +964,26 @@ def AsmDoc(
         MeshIds,
         Label,
         ResolveComponents=ResolveComponents,
-        RootPath=None if Readback is None else PathValue(Label),
+        RootPath=None if Readback is None else Readback.RootPathValue or PathValue(Label),
+    )
+    MateSourceValues, SourceDiagnostics = MateSources(
+        Native,
+        Archive,
+        Label,
+        Index,
+        Settings,
+        ReadArchive=None if Readback is None else Readback.ReadArchive,
+    )
+    MatePayloads, MateEntities, Mates, MateGroups, MateParams, TypedMates = ReadAsmMates(
+        Native,
+        Archive,
+        ResolvedPaths,
+        DocIds,
+        Documents,
+        AsmMates(Native, MateSourceValues),
+        Strict=Settings.strict,
+        ResolveComponents=ResolveComponents,
+        SourceKey=KSourceBytesKey,
     )
     Definitions, Instances, IndexConflict = WithNestedIndex(
         Archive,
@@ -971,16 +995,8 @@ def AsmDoc(
         Enabled=ResolveComponents,
         Strict=Settings.strict,
         SourceKey=KSourceBytesKey,
+        AllowFlat=TypedMates is not None and TypedMates.get("status") == "admitted",
     )
-    MateSourceValues, SourceDiagnostics = MateSources(
-        Native,
-        Archive,
-        Label,
-        Index,
-        Settings,
-        ReadArchive=None if Readback is None else Readback.ReadArchive,
-    )
-    MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
     FlatMateValues = FlattenedMates(Native, Mates)
     PayloadSettings = Replace(Settings, strict=False)
     BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
@@ -1019,6 +1035,7 @@ def AsmDoc(
         + PayloadDiagnostics
         + DocDiagnostics
         + SourceDiagnostics
+        + AsmMateDiags(TypedMates)
     )
     if IndexConflict is not None:
         Diagnostics += (
@@ -1046,7 +1063,7 @@ def AsmDoc(
     AsmValue = AsmData(
         root_definition_id=AsmDefinitionId(Native.root_definition_id),
         definitions=Definitions,
-        instances=Instances,
+        instances=WithTypedFixed(Instances, TypedMates),
         documents=Documents,
         mate_entities=MateEntities,
         mates=Mates,
@@ -1114,7 +1131,7 @@ def AsmDoc(
             ),
         ),
         configurations=ConfigValues,
-        parameters=ParamValues,
+        parameters=(*ParamValues, *MateParams),
         support_planes=PlaneValues,
         sketches=SketchValues,
         selections=SelectValues,
@@ -1141,6 +1158,11 @@ def AsmDoc(
                 "assembly_mate_count": len(Mates),
                 "assembly_flattened_mate_count": len(FlatMateValues),
                 "assembly_mesh_count": len(Meshes),
+                **(
+                    {"solidworks.typed_mates_semantics": TypedMates}
+                    if TypedMates is not None
+                    else {}
+                ),
             }
         ),
         units=UnitSystem.MILLIMETER,
