@@ -7,16 +7,42 @@ const {
 const {
   WaitForQueue,
 } = require("../../../.github/scripts/Scheduling/WaitForQueue.cjs");
+const {
+  SelectLaneSet,
+} = require("../../../.github/scripts/Scheduling/SelectLaneSet.cjs");
 const CaseName = process.argv[2];
 const Outputs = {};
 let Ticks = 0;
 let Pauses = 0;
 let Requests = 0;
 const Github = {
-  graphql: async () => {
+  graphql: async (Query, Variables) => {
     Requests += 1;
     if (CaseName === "admit-error")
       throw new Error("Admission API unavailable");
+    if (CaseName.startsWith("lanes-")) {
+      Assert.equal(Variables.Sha, "c".repeat(40));
+      if (CaseName === "lanes-error") throw new Error("Lane API unavailable");
+      return {
+        repository: {
+          object:
+            CaseName === "lanes-missing"
+              ? null
+              : {
+                  history: {
+                    totalCount:
+                      1000 +
+                      Math.max(
+                        0,
+                        ["lanes-a", "lanes-b", "lanes-c", "lanes-d"].indexOf(
+                          CaseName,
+                        ),
+                      ),
+                  },
+                },
+        },
+      };
+    }
     return {
       repository: {
         mergeQueue: {
@@ -51,9 +77,25 @@ const Github = {
                   ),
                 ),
                 ...(CaseName === "budget-audit"
-                  ? { Version: 1, Linux: 8 }
+                  ? { Version: 1, Linux: 8, Windows: 5, Macos: 5 }
                   : {}),
-                ...(CaseName === "budget-invalid" ? { Version: 3 } : {}),
+                ...(CaseName === "budget-previous"
+                  ? { Version: 2, Linux: 16, Windows: 5, Macos: 5 }
+                  : {}),
+                ...(CaseName === "budget-team"
+                  ? {
+                      Version: 3,
+                      Plan: undefined,
+                      LaneSets: 2,
+                      Linux: 32,
+                      Windows: 9,
+                      WindowsCompatibility: 4,
+                      Macos: 5,
+                    }
+                  : {}),
+                ...(CaseName === "budget-invalid" ? { Version: 6 } : {}),
+                ...(CaseName === "budget-team-macos" ? { Macos: 5 } : {}),
+                ...(CaseName === "budget-single" ? { Total: 501 } : {}),
               }),
             ).toString("base64"),
           },
@@ -74,10 +116,14 @@ const Github = {
           parameters: {
             max_entries_to_build:
               CaseName === "budget-uncontrolled"
-                ? 25
-                : CaseName === "budget-audit"
-                  ? 1
-                  : 2,
+                ? 101
+                : CaseName === "budget-five"
+                  ? 5
+                  : CaseName === "budget-audit"
+                    ? 1
+                    : CaseName === "budget-team"
+                      ? 2
+                      : 100,
             min_entries_to_merge: CaseName === "budget-minimum" ? 2 : 1,
             min_entries_to_merge_wait_minutes:
               CaseName === "budget-wait" ? 10 : 0,
@@ -99,8 +145,14 @@ const Github = {
   },
 };
 const Context = {
+  eventName: CaseName === "lanes-pull" ? "pull_request" : "merge_group",
   repo: { owner: "Example", repo: "Kit" },
-  payload: { merge_group: { base_sha: "trusted-base" } },
+  payload: {
+    merge_group:
+      CaseName === "lanes-pull"
+        ? null
+        : { base_sha: "trusted-base", head_sha: "c".repeat(40) },
+  },
 };
 const Logger = {
   info: () => {},
@@ -111,17 +163,19 @@ const Logger = {
 };
 const Operation = CaseName.startsWith("budget-")
   ? SelectBudget(Github, Context, Logger)
-  : WaitForQueue(
-      Github,
-      Context,
-      Logger,
-      async (Delay) => {
-        Assert.ok(Delay > 0 && Delay <= 30000);
-        Pauses += 1;
-        Ticks += CaseName === "admit-timeout" ? 3600000 : Delay;
-      },
-      () => Ticks,
-    );
+  : CaseName.startsWith("lanes-")
+    ? SelectLaneSet(Github, Context, Logger)
+    : WaitForQueue(
+        Github,
+        Context,
+        Logger,
+        async (Delay) => {
+          Assert.ok(Delay > 0 && Delay <= 30000);
+          Pauses += 1;
+          Ticks += CaseName === "admit-timeout" ? 3600000 : Delay;
+        },
+        () => Ticks,
+      );
 Operation.then(() =>
   process.stdout.write(JSON.stringify({ Outputs, Pauses, Requests })),
 ).catch((ErrorInfo) => {

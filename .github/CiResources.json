@@ -1,7 +1,7 @@
 {
-  "Version": 2,
-  "Linux": 16,
-  "Windows": 5,
-  "Macos": 5,
+  "Version": 5,
+  "Plan": "Enterprise",
+  "Total": 500,
+  "Macos": 50,
   "Control": 2
 }

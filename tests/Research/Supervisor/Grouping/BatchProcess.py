@@ -12,7 +12,7 @@ def WaitBatchFlag(FlagFile: FilePath, Running: Subprocess.Popen[str]) -> None:
     Until = TimeClock.monotonic() + 30
     while TimeClock.monotonic() < Until:
         assert Running.poll() is None, "supervisor ended before grouped runner held"
-        if FlagFile.is_file():
+        if FlagFile.is_file() and FlagFile.read_text(encoding="ascii").strip():
             return
         TimeClock.sleep(0.05)
     raise AssertionError("grouped runner did not write its start marker")

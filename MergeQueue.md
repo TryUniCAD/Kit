@@ -1,9 +1,8 @@
 # Merge queue operations
 
-The [separate Linux test lanes](Documentation/Changes/Ci/Scheduling/SeparateTestLanes.md) increase the cooperating heavy-job budget to sixteen Linux lanes, five Windows lanes, and five macOS lanes, with two control slots. Eight Linux lanes serve candidate tests; the other eight serve scanners, policy jobs, and admitted audits. This fits the observed Team plan’s sixty-job allowance.
+[Enterprise hosted concurrency](Documentation/Changes/Ci/Scheduling/EnterpriseLaneSets.md) removes shared job lanes and matrix throttles. GitHub schedules PRs and candidates against the organization allowance of 500 total hosted jobs, including at most 50 macOS jobs. Linux runtime planning may request up to 256 shards. Workflow-level isolation, audit admission and obsolete-run cleanup remain enabled.
 
-The [shared runner budget](Documentation/Changes/Ci/RunnerBudgetScheduling.md) bounds cooperating heavy jobs and gives native merge acceptance priority over manual audits.
-Native shard expansion starts only after the trusted base includes its resource marker and updated CI allowlist.
+The desired manifest uses build concurrency 100, merge maximum 100, minimum one, no minimum-entry wait and a 90-minute response timeout. GitHub queues jobs above capacity; full speculative admission does not guarantee shorter candidate latency. The trusted resource marker supports rollout from previous resource versions. Aggregation pacing budgets for 100 candidate pollers.
 
 Kit uses GitHub's native merge queue for `main`. The desired settings live in
 [`.github/MergeQueue.json`](.github/MergeQueue.json). Repository settings are
@@ -36,7 +35,7 @@ See the [timing record](Documentation/Changes/Ci/SinglePhaseValidation.md).
 PR validation includes Ruff, Black, Pyright, Mypy, Python steering, explicit imports, path policies, rationale
 comments, skill preservation, workflow pins, Zizmor, actionlint, release artifact
 validation, and metadata labeling. Queue validation includes Pyright, Mypy,
-Python steering, CI process policy, research CLI compatibility, the full suite,
+Python steering, CI process policy, Windows research CLI compatibility, the full suite,
 CodeQL, and the other security and SBOM scans. Fusion and CLI compatibility
 execute through the complete suite.
 
@@ -125,7 +124,9 @@ as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or sec
 thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
-Queue-only type, steering, and research CLI jobs also gate the aggregate.
+Queue-only type, steering, and Windows research CLI jobs also gate the aggregate.
+The serial Linux `Research CLI compatibility` job is
+[retired](Documentation/Changes/Ci/ResearchCliRetirement.md); its `tests/CliResearch` cases run in the complete suite's shards.
 The Windows research CLI compatibility job partitions its existing collected roster
 across four Windows runners. Its stable report requires every shard and verifies
 that each collected case has exactly one outcome. Shard artifacts include the
@@ -147,7 +148,7 @@ The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedT
 The plan [reuses verified results](Documentation/Changes/QueueTestReuse.md) of test modules whose recorded files and folders did not change since an accepted ancestor candidate.
 Every other collected test runs in a shard.
 Each shard holds at most 1,200 tests, which is 300 tests for each CPU of its 4-CPU runner.
-Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with an eight-shard runtime budget.
+Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with a 256-shard runtime budget.
 The count cap takes precedence if it requires more shards.
 Platform shards use platform-specific duration histories from the shared plan instead of count-based modulo selection.
 See [runtime scheduling](Documentation/Changes/Ci/QueueRuntimeScheduling.md).
@@ -179,7 +180,7 @@ Completed-result process checks remain; pending-process liveness and evidence pu
 See the [removal scope and evidence](Documentation/Changes/Ci/FlakyPendingGateRemoval.md).
 
 The checked-in desired queue has no bypass actors, uses squash merges, requires `ALLGREEN`, builds
-up to two candidates at a time, and merges one entry at a time. Its
+up to four candidates at a time, and merges one entry at a time. Its
 90-minute response timeout allows the existing 60-minute analyses plus runner
 scheduling. Each candidate has its own concurrency group; a later PR update
 cannot cancel a different queue candidate. Heavy workflows do not repeat on
@@ -190,6 +191,7 @@ were preserved; only the required status contexts were changed for this repair.
 The 22 November 2026 investigation observed newer live settings: 25 concurrent builds,
 a two-entry merge minimum, a ten-minute minimum-entry wait, and a ten-entry merge maximum.
 These differ from the desired manifest and require separate administrator activation.
+The 26 November 2026 read-back still showed 25 builds with a 60-minute response timeout. An administrator must set max entries to build 4, minimum entries to merge 1, minimum-entries wait 0 and response timeout 90 minutes for the four lane sets and native shard expansion to take effect.
 
 ## Activate after this PR merges
 

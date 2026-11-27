@@ -16,6 +16,8 @@ MAX_BYTES = 256 * 1024 * 1024
 MAX_SPOOL_BYTES = 520 * 1024 * 1024
 MAX_SPOOL_FILES = 32
 ACKNOWLEDGEMENT = "acceptance-journal.json"
+# workers stop dispatch this long before stop_at so fsynced timeout records finish before the supervisor break
+STOP_MARGIN_SECONDS = 3
 CANCEL_REASON = "requesting worker stopped before application completion"
 FUSION_PROVIDER = "autodesk.fusion.addin"
 PROTOCOL = "re/automation/ApplicationWorkers/ApplicationProtocol.py"

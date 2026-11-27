@@ -200,6 +200,12 @@ Run `kit run --root . auto --input /path/to/unknown --directory /tmp/KitUnknownR
 
 ## Run a CAD catalogue with optional advice
 
+For a repeated catalogue setup, configure [saved run defaults](../Changes/Commands/SavedRunDefaults.md).
+Then use `kit run solidworks` or `kit run fusion` for the configured format.
+The installed executable reads the private defaults directly.
+Each new catalogue run gets a unique output directory.
+Explicit options override defaults; explicit `--root` bypasses the preset.
+
 Use a clean checkout with the catalogue runner and install Kit from that revision with
 `uv tool install --python 3.14 .`. Obtain [Fusion Catalog.sqlite](https://github.com/TryUniCAD/Kit/pull/163)
 or [SOLIDWORKS FeaturePlan.json](https://github.com/TryUniCAD/Kit/pull/164).
@@ -268,6 +274,14 @@ To retry a parked native job after its owner restores the application, add `--na
 
 ### Author new catalogue samples
 
+New SOLIDWORKS runs keep an owned application session open across batches.
+Document close and reopen checks release completed bundles to the separate decoder pool.
+Set `verification_mode` to `fresh_process` in the private host configuration for independent-process evidence.
+See [continuous SOLIDWORKS capture](../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md) for lifecycle and evidence limits.
+Startup and part opens retry up to three times.
+Inspect the startup receipts, open-attempt log and separate [capture stage timings](../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md) when a run is slow or cannot open.
+Retries stop if cleanup cannot prove ownership or saved bytes change.
+
 Add `--author-samples` to a catalogue run to create new native samples before
 decoding them. `--authoring-cases` selects catalogue identities and validated
 parameter overrides. `--prepare-only` writes the plan without launching CAD.
@@ -277,16 +291,35 @@ and the four registered revolution recipes.
 
 Add `--authoring-grid three-values` to vary each exposed parameter independently
 across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
-recipes share native batches of at most three cases, with separate decoder jobs.
+recipes share one native authoring launch and one fresh verification launch
+per batch of up to twelve cases, with separate decoder jobs. Existing saved
+plans keep their recorded grouping. See
+[larger SOLIDWORKS batches](../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
 Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
+New SOLIDWORKS authoring plans automatically share application startup across batches of up to three P01–P05 or written-recipe cases.
+Each batch uses one authoring process and a separate fresh verification process.
+Per-case decoder jobs start after native acceptance.
+Saved plans retain their original job definitions.
+See [paired-case batching](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) for limits and verification.
+After both owned native phases finish, a case-level verification failure
+records a `native_rejection` in the catalogue result. Verified sibling cases
+can continue through their own decoder jobs.
+[Batch rejection handling](../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
+The [thin-wall side check](../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+covers the written thin-extrude recipe's native mode, bounds, and reopen.
 
 SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
 Fusion needs its native worker options and `--fusion-lifecycle` for automatic
 owned restart. Use the same source revision across workers and the selected
 checkout. Pause/resume keeps the existing native and decoder receipts.
+
+If the SOLIDWORKS launcher reports an unobserved normal exit, inspect the
+native and owner receipts under `NativeAttempts`. Retain the run directory and
+use a fresh directory to verify a changed worker on the same case parameters.
+See [catalogue capture shutdown](../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md).
 
 See [catalogue sample authoring](../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md)
 for the case format, native host requirements, limitations, and evidence rules.
@@ -331,6 +364,13 @@ kit run --root . fusion --input part.f3d --directory /tmp/KitPartRun --advisor c
 Use `solidworks` for a part or assembly from SOLIDWORKS. The runner snapshots up to 128 MiB of input, inventories its streams, attempts a strict neutral decode, and uses the partial reader if strict decoding refuses the file.
 
 The run saves the successful decode layers and a `FileScope.json` report containing the input digest, reader refusals, features without mapped experiments and stream intervals without cited provenance. Intervals are zero-based and end-exclusive within each uncompressed stream. A cited range can still contain unresolved fields.
+
+Read `feature_layer` for the neutral document used to select experiments.
+Read `provenance_layer` for the document used to cite stream intervals.
+If a strict Fusion read supplies no usable spans for known members, the runner requests partial provenance from the same input.
+The runner checks the source digest and member bounds before it uses those spans.
+The strict document still drives feature selection, and the runner retains both successful reports.
+See the [file scope change entry](../Changes/Research/Encoder/FileScopeAttribution.md) for the observed coverage and limits.
 
 Typed blind-boss and through-all cut records select the existing P03 and P04 research experiments. The experiments use their controlled corpus. Their receipts can inform the investigation of the input. File-driven runs report incomplete coverage until independent evidence establishes whole-file semantics.
 
@@ -508,3 +548,8 @@ Another installation can shadow the executable installed with Python 3.14.
 Resolve `kit` before resuming a durable native campaign and inspect its entry-point interpreter.
 Use the verified installation's absolute path if necessary.
 The [shadowed launcher gotcha](../Gotchas/Research/Supervisor/Runtime/ShadowedKitLauncher.md) records the observed supervisor failure and safe repair.
+
+## Circular rim fillet qualification pack
+
+The [rim-fillet pack](../../re/Fusion/RimFilletPack/README.md) separates source-free writer acceptance, typed reconstruction and public conversion refusals.
+Replay uses existing codecs without a CAD runtime. Native measurements remain revision-bound research evidence.

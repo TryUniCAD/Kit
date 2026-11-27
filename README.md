@@ -116,6 +116,10 @@ See the [research CLI guide](Documentation/Tasks/ResearchCommandLine.md) for pin
 
 ### Start a file or catalogue investigation
 
+After configuring [saved run defaults](Documentation/Changes/Commands/SavedRunDefaults.md), start a catalogue with `kit run solidworks` or `kit run fusion`.
+The installed CLI reads these settings directly, without a PowerShell profile.
+Unconfigured formats require the explicit arguments below.
+
 Supply a local CAD file and choose a new run directory outside the selected checkout.
 Select `fusion`, `solidworks`, or `auto` by input type.
 From the Kit repository directory, the examples use `..` to place the output in a sibling directory.

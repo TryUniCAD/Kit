@@ -9,6 +9,7 @@ using SolidWorks.Interop.sldworks;
 
 public sealed partial class SolidWorksCapture
 {
+    [ThreadStatic] internal static bool RoutineReadback;
     static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
     static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
     readonly ISldWorks app;
@@ -294,18 +295,59 @@ public sealed partial class SolidWorksCapture
         Check(manager.Add2(-1,equation,true) >= 0,"Add " + equation);
     }
     static void Rebuild(IModelDoc2 doc) { Check(doc.ForceRebuild3(false),"Rebuild " + doc.GetTitle()); }
-    void Close(IModelDoc2 doc) { app.CloseDoc(doc.GetTitle()); }
+    void Close(IModelDoc2 doc) {
+        string path=doc.GetPathName();
+        app.CloseDoc(doc.GetTitle());
+        if(RoutineReadback) {
+            Check(app.GetDocumentCount()==0,"Routine document close retained an open document");
+            Check(String.IsNullOrEmpty(path) || app.GetOpenDocumentByName(path)==null,
+                "Routine document close retained the saved model in memory");
+        }
+    }
     IModelDoc2 Open(string path, out object status, bool readOnly = false)
     {
-        int errors=0, warnings=0;
-        var doc=app.OpenDoc6(path,1,readOnly ? 3 : 1,"",ref errors,ref warnings);
-        status=Row("errors",errors,"warnings",warnings);
-        if (doc == null || errors != 0 || (warnings != 0 && !(readOnly && warnings == 2)))
-        {
-            if (doc != null) Close(doc);
-            throw new InvalidOperationException("Open " + path + ": errors " + errors + ", warnings " + warnings);
+        string pin=Hash(path);
+        int initialDocuments=app.GetDocumentCount();
+        var elapsed=System.Diagnostics.Stopwatch.StartNew();
+        status=null;
+        for(int attempt=1;attempt<=3;attempt++) {
+            int errors=0,warnings=0;
+            IModelDoc2 doc=null;
+            var record=Row("attempt",attempt);
+            var clock=System.Diagnostics.Stopwatch.StartNew();
+            try {
+                doc=app.OpenDoc6(path,1,readOnly ? 3 : 1,"",ref errors,ref warnings);
+                Check(doc!=null && errors==0 && (warnings==0 || (readOnly && warnings==2)),
+                    "Open "+path+": errors "+errors+", warnings "+warnings);
+                Check(String.Equals(Path.GetFullPath(doc.GetPathName()),Path.GetFullPath(path),StringComparison.OrdinalIgnoreCase),
+                    "Open returned a different document "+path);
+                Check(Hash(path)==pin,"Open changed saved bytes "+path);
+                status=Row("errors",errors,"warnings",warnings);
+                record["opened"]=true;
+                return doc;
+            } catch(Exception failure) {
+                record["opened"]=false;
+                record["failure"]=failure.ToString();
+                if(doc!=null) {
+                    Check(String.Equals(Path.GetFullPath(doc.GetPathName()),Path.GetFullPath(path),StringComparison.OrdinalIgnoreCase),
+                        "Refuse cleanup of a different document "+path);
+                    Close(doc);
+                }
+                Check(Hash(path)==pin && app.GetDocumentCount()==initialDocuments,
+                    "Cannot safely retry open after document or saved bytes changed "+path);
+                if(attempt==3) throw;
+            } finally {
+                record["errors"]=errors;
+                record["warnings"]=warnings;
+                record["seconds"]=clock.Elapsed.TotalSeconds;
+                record["total_seconds"]=elapsed.Elapsed.TotalSeconds;
+                Directory.CreateDirectory(output);
+                File.AppendAllText(Path.Combine(output,"open-attempts.jsonl"),
+                    Json.Serialize(Row("file",Path.GetFullPath(path),"pid",app.GetProcessID(),"attempt",record))+"\n",Utf8);
+            }
+            System.Threading.Thread.Sleep(1000);
         }
-        return doc;
+        throw new InvalidOperationException("Open attempts exhausted "+path);
     }
     Dictionary<string,object> Save(IModelDoc2 doc, string path, bool copy)
     {
@@ -430,7 +472,7 @@ public sealed partial class SolidWorksCapture
     }
     Dictionary<string,object> Control(string label)
     {
-        if (label != "after" || app.GetDocumentCount() != 0)
+        if (app.GetDocumentCount() != 0)
             return ReadControl(label, false);
 
         // a stock part opened without a window avoids the final document close stall
@@ -455,7 +497,7 @@ public sealed partial class SolidWorksCapture
         }
         finally
         {
-            // the sole read-only final control can close without entering the save path
+            // the sole read-only stock control can close without entering the save path
             if (discard && doc.IsOpenedReadOnly() && app.GetDocumentCount() == 1
                 && string.Equals(doc.GetPathName(), path, StringComparison.OrdinalIgnoreCase))
             {
@@ -493,7 +535,9 @@ public sealed partial class SolidWorksCapture
         var id=(string)recipe["id"];
         var dir=Path.Combine(output,id);
         Directory.CreateDirectory(dir);
+        MarkStage("healthy_control_before");
         var observations=Row("healthy_control_before",Control("before"));
+        MarkStage("baseline_authoring");
         var doc=Build(id,Basis(id),configuredCase != null && (int)configuredOptions["direction"] == -1,
             configuredCase != null && (string)configuredOptions["termination"] == "through_all");
         try
@@ -517,8 +561,9 @@ public sealed partial class SolidWorksCapture
         string basis=Basis(id);
         Func<string,string> path=suffix=>Path.Combine(dir,Filename(id,suffix));
         object status;
-        Check(Convert.ToInt32(first["authoring_process_id"])!=app.GetProcessID(),"Baseline repeat requires a fresh SOLIDWORKS process");
+        Check(RoutineReadback || Convert.ToInt32(first["authoring_process_id"])!=app.GetProcessID(),"Baseline repeat requires a fresh SOLIDWORKS process");
         Check(Hash(path("baseline-a"))==(string)saves[0]["sha256"],"Baseline A hash changed");
+        MarkStage("baseline_reopen");
         var doc=Open(path("baseline-a"),out status);
         try
         {
@@ -526,6 +571,7 @@ public sealed partial class SolidWorksCapture
             Rebuild(doc);
             observations["unchanged_rebuild"]=Measure(doc,"baseline A after rebuild",true);
             saves.Add(Save(doc,path("baseline-b"),true));
+            MarkStage("edit_generation");
             foreach(var edit in Array(recipe["independent_edits"]).Cast<Dictionary<string,object>>())
             {
                 string name=(string)edit["parameter"];
@@ -542,12 +588,14 @@ public sealed partial class SolidWorksCapture
             saves.Add(Save(doc,path("units-inch"),true));
         }
         finally { Close(doc); }
+        MarkStage("variant_generation");
         if (id != "P05") CaptureVariant(id,dir,"plane-yz","YZ",false,false,saves,variants);
         if (id == "P03") CaptureVariant(id,dir,"direction-negative",basis,true,false,saves,variants);
         if (id == "P04") CaptureVariant(id,dir,"termination-through-all",basis,false,true,saves,variants);
         observations["edits"]=edits;
         observations["variants"]=variants;
         var reopened=new Dictionary<string,object>();
+        MarkStage("saved_file_verification");
         foreach(var save in saves)
         {
             var file=(string)save["file"];
@@ -556,7 +604,9 @@ public sealed partial class SolidWorksCapture
             Check(Hash(saved)==(string)save["sha256"],"Saved bytes changed during reopen " + file);
         }
         observations["reopened_files"]=reopened;
+        MarkStage("healthy_control_after");
         observations["healthy_control_after"]=Control("after");
+        MarkStage("receipt_publication");
         var measurements=Path.Combine(dir,"measurements.json");
         var binary=System.Diagnostics.Process.GetProcessById(app.GetProcessID()).MainModule.FileVersionInfo.FileVersion;
         Write(measurements,Row("recipe_id",id,"application","SOLIDWORKS 2026","exact_application_build",app.RevisionNumber(),"executable_file_version",binary,

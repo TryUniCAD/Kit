@@ -1,0 +1,9 @@
+{
+  "tool_sha256": "00433b57c49865b433726737130a2381ea22932b4d655ef1b4e1b81ec8680c06",
+  "source_sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+  "status": "failed",
+  "contract": "typed same-document reconstruction, not neutral conversion",
+  "read": "passed",
+  "typed_json": "passed",
+  "traceback": "Traceback (most recent call last):\n  File \"<campaign-output>/ReadWrite.py\", line 13, in <module>\n    data=EmitParsed(model)\n  File \"<research-checkout>/src/convert/Formats/Fusion/DocumentCodec/EmitParsed.py\", line 58, in EmitParsed\n    + tuple(EmitSnapPart(Snapshot) for Snapshot in Value.Snapshots)\n      ^^^^^\n  File \"<research-checkout>/src/convert/Formats/Fusion/DocumentCodec/EmitParsed.py\", line 58, in <genexpr>\n    + tuple(EmitSnapPart(Snapshot) for Snapshot in Value.Snapshots)\n            ~~~~~~~~~~~~^^^^^^^^^^\n  File \"<research-checkout>/src/convert/Formats/Fusion/DocumentCodec/Auxiliary/Snapshots/EmitSnapPart.py\", line 29, in EmitSnapPart\n    raise ValueError(\"Unsupported Fusion snapshot header\")\nValueError: Unsupported Fusion snapshot header\n"
+}

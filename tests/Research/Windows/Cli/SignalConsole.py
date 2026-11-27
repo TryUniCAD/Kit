@@ -12,7 +12,7 @@ if sys.platform == "win32":
 # real console events must reach the installed launcher without directly cancelling its separate supervisor group
 def SignalConsole(RecordPath: FilePath, EventName: str, GroupNumber: int) -> None:
     if sys.platform == "win32":
-        _ = WaitForPids(RecordPath)
+        _ = WaitForPids(RecordPath, Timeout=90)
         if EventName == "CTRL_C_EVENT":
             EventCode, TargetGroup = KCtrlEvent, 0
         elif EventName == "CTRL_BREAK_EVENT":

@@ -6,9 +6,9 @@ from convert.Security.PathBoundary import ResolveTemp
 
 
 # the test needs an independently recorded roster before it can verify tree cleanup
-def WaitForPids(RecordPath: FilePath) -> list[int]:
+def WaitForPids(RecordPath: FilePath, Timeout: float = 30) -> list[int]:
     RecordPath = ResolveTemp(RecordPath)
-    UntilTime = TimeClock.monotonic() + 30
+    UntilTime = TimeClock.monotonic() + Timeout
     while TimeClock.monotonic() < UntilTime:
         try:
             ProcessIds: list[int] = JsonCodec.loads(

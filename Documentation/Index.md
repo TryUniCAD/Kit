@@ -44,6 +44,8 @@ Complete ASD-STE100 and ISO/IEC/IEEE 2651x conformance remains unverified.
 
 ## Format references
 
+- [Supported formats, versions and conversion evidence](Reference/Operations/SupportMatrix.md)
+
 - [SOLIDWORKS adapter](Reference/Adapters/Solidworks.md)
 - [SOLIDWORKS feature resolution](Reference/Adapters/SolidworksFeatures.md)
 - [FreeCAD adapter](Reference/Adapters/Freecad.md)
