@@ -80,6 +80,9 @@ Urgency preserves the existing scope, authorization boundaries, and completion g
 
 ## Invocation and scope
 
+Agents must use [the agent planning workflow](../../../Documentation/Planning/AgentWorkflow.md)
+to select scheduled work, claim it, update state and hand it off.
+
 Before selecting, claiming or dispatching work, follow
 [repository planning](../../../Documentation/Planning/README.md) and the root
 `AGENTS.md` planning rules. Refresh the live scope claim, schedule, prerequisites,

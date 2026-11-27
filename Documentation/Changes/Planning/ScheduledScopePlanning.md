@@ -8,6 +8,8 @@ curated SOLIDWORKS subfeatures, Fusion API feature declarations and a dated open
 inventory. Product and UI/UX proposals are explicit backlog entries.
 
 The [planning procedure](../../Planning/README.md) defines ownership and maintenance.
+The [agent workflow](../../Planning/AgentWorkflow.md) gives the required selection,
+claim, state-update, regeneration and handoff checklist.
 Root and research agent instructions and the canonical repository skill require
 agents to update scope, owner, dependencies, schedules, blockers and revision evidence.
 
@@ -15,7 +17,8 @@ The board provides calendar bars, current-work and inventory views, search, area
 owner and type filters, pagination, task details, editable draft windows and schedule
 export. Every scope has a copyable agent prompt. GitHub project items retain a fenced
 prompt that GitHub can copy directly. Assignment does not start an agent runtime.
-Local and Hoplite launch controls disclose their unavailable integrations.
+Local and Hoplite handoff controls copy runner-specific prompts. A gated control
+prepares a GitHub agent issue; direct runtime launching remains unavailable.
 
 ## Usage
 

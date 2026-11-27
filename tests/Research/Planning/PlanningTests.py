@@ -27,7 +27,7 @@ def CheckPlanning(TmpPath: FilePath) -> None:
     )
     assert Process.returncode == 0, Process.stderr
     ChartPath = TmpPath / "Documentation/Planning/Generated/Gantt.svg"
-    ChartPath.write_text("stale chart")
+    assert ChartPath.write_text("stale chart") > 0
     Process = RunProcess(
         [*Command, "--check"], capture_output=True, text=True, check=False
     )
@@ -46,7 +46,10 @@ def CheckPlanCycle(TmpPath: FilePath) -> None:
         TargetPath.parent.mkdir(parents=True, exist_ok=True)
         CopyFile(RootPath / RelPath, TargetPath)
     LinkPath = TmpPath / "Documentation/Planning/Links.json"
-    LinkPath.write_text(LinkPath.read_text().replace('"B01": []', '"B01": ["B01"]'))
+    assert (
+        LinkPath.write_text(LinkPath.read_text().replace('"B01": []', '"B01": ["B01"]'))
+        > 0
+    )
     Process = RunProcess(
         [
             PythonExec,

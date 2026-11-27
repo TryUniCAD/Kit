@@ -23,6 +23,9 @@ For decoding challenges, agents MUST use the research automation pipeline for su
 
 ## Planning and scope claims
 
+Agents MUST follow the [agent planning workflow](Documentation/Planning/AgentWorkflow.md)
+at task start, at every planning state change and before handoff.
+
 Before selecting, claiming, dispatching or handing off work, read
 [the planning procedure](Documentation/Planning/README.md), its generated task,
 feature and delivery indexes, the owning register and the live organization project

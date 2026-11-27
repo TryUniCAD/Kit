@@ -21,3 +21,5 @@ parametric, vendor loadable, application usable, measured acceptance, honest att
 implementation, generalization, and traceable knowledge. Agents tasked with reverse engineering MUST
 first read the [reverse-engineering instruction book](re/Playbook/README.md) in full and follow it.
 See [CAD success criteria and reverse engineering](AGENTS.md#cad-success-criteria-and-reverse-engineering).
+
+Follow [the agent planning workflow](Documentation/Planning/AgentWorkflow.md) for schedule selection, claims, evidence updates and handoff.

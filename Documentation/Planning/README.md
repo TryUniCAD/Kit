@@ -7,6 +7,8 @@ planning sources without transferring their ownership or changing acceptance cri
 
 ## Read the current views
 
+Read [the agent workflow](AgentWorkflow.md) for the required start, update and handoff checklist.
+
 - [Dependency Gantt and graph](Generated/Gantt.md): repository milestones and research prerequisites
 - [Visual Gantt](Generated/Gantt.svg): directly viewable without a server or JavaScript
 - [Standalone visual](Generated/Gantt.html): the same chart in a local HTML file
@@ -144,9 +146,9 @@ starting. Copying does not reserve work. A scope is unavailable when already cla
 outside its authorized window, stale, or missing prerequisite evidence.
 
 No supported Hoplite launch API was found in this session. T3 delegation tools are
-available to an active assistant, not directly to a static browser file. Launch
-buttons therefore disclose that runtime dispatch is unconfigured rather than
-pretending to submit jobs. Assigning a GitHub-supported coding agent to a converted
+available to an active assistant, not directly to a static browser file. The board copies runner-specific handoffs and can prepare a GitHub agent issue
+when the local schedule and owner checks permit it; the recipient still checks the
+live claim. It does not pretend to submit an unconfigured runtime job. Assigning a GitHub-supported coding agent to a converted
 issue may launch that configured integration; project text fields alone do not.
 Native direct launch is a tracked follow-up requiring a supported adapter and atomic
 claim/recheck protocol before external side effects.
@@ -160,3 +162,10 @@ already published fields unchanged, preserving manual agent claims and schedules
 Update those fields through GitHub when work changes, then update the owning repo
 register in the delivery PR. This is explicit synchronization, not a background
 two-way sync service. The repo board remains a dated offline snapshot.
+
+The provisioner is invoked with `--owner-id`, `--token-file` and a separate `--state`
+path outside the repository. Add `--populate` to import missing scope items. The
+credential file must be supplied through a private secret channel; never paste its
+contents into commands, source or logs. The local progress file records published
+IDs and can be reconstructed from remote scope markers after uncertain responses.
+Project mutations use the supported GraphQL creation and bulk-field REST APIs.

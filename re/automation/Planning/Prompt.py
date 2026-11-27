@@ -9,7 +9,7 @@ Do not start taken work or work whose required evidence is unavailable.
 Claim the bounded task with owner, dependencies, branch, delivery PR and exit condition.
 Use a fresh feat/ or fix/ branch and an isolated registered checkout.
 Read AGENTS.md and Documentation/Planning/README.md.
-For CAD work read CadSuccessCriteria.md and re/Playbook/README.md in full and the relevant phase chapters.
+For CAD work read Documentation/Reference/Operations/CadSuccessCriteria.md and re/Playbook/README.md in full and the relevant phase chapters.
 Reuse existing deterministic research automation, CAD API workers and the research CLI.
 Inspect existing evidence before choosing new contrasts and reserve independent holdouts.
 Retain controls, failed attempts, documents, hashes, receipts and unresolved findings.

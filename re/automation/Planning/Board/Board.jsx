@@ -14,7 +14,7 @@ refresh main, live GitHub Project ownership, open PRs and the owning register be
 do not start if another owner holds this scope or its prerequisites are unqualified
 use a fresh feat/ or fix/ branch and the task's isolated registered checkout
 read AGENTS.md, Documentation/Planning/README.md and the owning source: ${item.Source}
-for CAD work read CadSuccessCriteria.md and re/Playbook/README.md in full plus the applicable phase chapters
+for CAD work read Documentation/Reference/Operations/CadSuccessCriteria.md and re/Playbook/README.md in full plus the applicable phase chapters
 claim the task with owner, branch, dependencies, resource lease, delivery PR and exit condition
 reuse the existing research controller, CAD API workers and deterministic research CLI
 inspect existing evidence before choosing missing contrasts; retain controls, independent holdouts, failures, documents and receipts
@@ -53,8 +53,8 @@ function Board() {
   const today = new Date().toISOString().slice(0, 10);
   const eligible = current && current.Start && current.Start <= today && current.Finish >= today && current.Owner.startsWith('Unassigned') && current.Dependencies.length === 0;
 
-  async function copyPrompt(item) {
-    try { await navigator.clipboard.writeText(promptFor(item)); setNotice('Prompt copied; recipient must recheck ownership before claiming'); }
+  async function copyPrompt(item, target = "chosen agent") {
+    try { await navigator.clipboard.writeText(`Target runner: ${target}\n\n${promptFor(item)}`); setNotice('Prompt copied; recipient must recheck ownership before claiming'); }
     catch { setNotice('Clipboard unavailable — select the prompt below and copy it'); }
   }
 
@@ -106,9 +106,9 @@ function Board() {
       <p>Dependencies: {current.Dependencies.join(', ') || 'No parent edges recorded; inspect source prerequisites'}</p>
       <details><summary>Exit condition and evidence</summary><pre>{plain(current.Exit)}</pre><pre>{plain(current.Stages)}</pre></details>
       <form key={current.Id} onSubmit={saveWindow}><label>Start<input name="start" type="date" required defaultValue={current.Start || today} /></label><label>Finish<input name="finish" type="date" required defaultValue={current.Finish || today} /></label><label>Estimate basis<input name="basis" required maxLength={500} defaultValue={current.Basis || 'Owner supplied investigation window'} /></label><button>Update draft window</button></form>
-      <div className="actions"><button onClick={() => copyPrompt(current)}>Copy agent prompt</button><button disabled title="A verified launcher is not configured">Launch local agent</button><button disabled title="No supported Hoplite dispatch integration was found">Offload to Hoplite</button></div>
+      <div className="actions"><button onClick={() => copyPrompt(current)}>Copy agent prompt</button><button onClick={() => copyPrompt(current, "local Codex")}>Copy local handoff</button><button onClick={() => copyPrompt(current, "Hoplite")}>Copy Hoplite handoff</button><button disabled={!eligible} title="Opens a draft issue; choose an available GitHub agent and submit after checking the live claim" onClick={() => window.open(`https://github.com/TryUniCAD/Kit/issues/new?title=${encodeURIComponent(current.Id + ": " + current.Name)}&body=${encodeURIComponent(promptFor(current))}`, "_blank", "noopener,noreferrer")}>Prepare GitHub agent issue</button></div>
       <p>{eligible ? 'Locally eligible for handoff; live claim and prerequisite checks are still required' : 'Dispatch blocked: scope needs a current window, no owner and verified prerequisites'}</p>
-      <p>Copying a prompt does not claim or start work. GitHub agent ownership is separate from starting a runtime.</p>
+      <p>Copying does not claim or start work. Issue handoff opens a draft; select a configured GitHub agent and submit. Direct local and Hoplite launch integrations are unavailable.</p>
       <label>Agent prompt<textarea readOnly rows={12} value={promptFor(current)} onFocus={event => event.target.select()} /></label>
     </section>}
   </main>;
