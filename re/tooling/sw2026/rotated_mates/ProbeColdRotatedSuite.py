@@ -213,12 +213,14 @@ def check_public(bundle, paths, members):
         access == {parent.name: 1}
         and len(graph.instances) == 2
         and not graph.documents
-        and not graph.mates
-        and not graph.mate_entities
-        and not deferred.parameters
+        and graph.mates == design.assembly.mates
+        and graph.mate_groups == design.assembly.mate_groups
+        and deferred.parameters == design.parameters
+        and tuple((row.id, row.instance_path, row.source_entity_id) for row in graph.mate_entities)
+        == tuple((row.id, row.instance_path, row.source_entity_id) for row in design.assembly.mate_entities)
         and any(row.format_id == "solidworks.mates" for row in deferred.brep_payloads)
         and deferred.metadata["solidworks.typed_mates_semantics"]["status"] == "deferred",
-        "a deferred graph must retain only the root and physical mate payload",
+        "a deferred graph must retain assembly-owned references and raw payload without loading children",
     )
     target = parent.parent.parent / "unpublished" / parent.name
     require(
