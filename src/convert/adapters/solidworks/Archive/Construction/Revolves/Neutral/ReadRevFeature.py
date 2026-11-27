@@ -33,7 +33,12 @@ def ReadRevFeature(
     Against = DefinitionValue.AgainstParameterId
     DriverIds = (Along,) if Against is None else (Along, Against)
     Parameters = {Parameter.id: Parameter for Parameter in DocumentValue.parameters}
-    if FeatureValue.parameter_ids != DriverIds or Parameters.keys() != set(DriverIds):
+    ExpectedIds = set(DriverIds)
+    if (
+        len(FeatureValue.parameter_ids) != len(DriverIds)
+        or set(FeatureValue.parameter_ids) != ExpectedIds
+        or Parameters.keys() != ExpectedIds
+    ):
         raise ValueError("revolve construction requires all actual angular drivers")
     AngleValue = ReadRevDriver(Parameters[Along], FeatureValue.id, "D1")
     AgainstValue = (

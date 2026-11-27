@@ -103,6 +103,13 @@ def verify(name, scratch, disclosed, *, queue=False):
 
     options = WriteOptions(values=values)
     candidate = audit.run(lambda: PrepareRevolve(document, BytesIO(), request["epoch"], options).BytesValue)
+    if CASES[name][2] == 2:
+        feature, = document.feature_timeline
+        reordered = replace(document, feature_timeline=(
+            replace(feature, parameter_ids=feature.parameter_ids[::-1]),
+        ))
+        reordered.AssertValid()
+        assert audit.run(lambda: PrepareRevolve(reordered, BytesIO(), request["epoch"], options).BytesValue) == candidate
     exact = digest(candidate) == source["candidate_sha256"]
     if not queue or reference is not None:
         assert exact, "canonical runtime failed to reproduce the measured complete archive"
