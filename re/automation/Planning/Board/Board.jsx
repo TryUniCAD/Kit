@@ -57,7 +57,7 @@ function Board() {
   const end = zoom === 0 ? Math.max(start + 30 * day, ...filtered.map(item => item.Finish ? stamp(item.Finish) + day : start)) : start + zoom * day;
   const current = selected && items.find(item => item.Id === selected);
   const today = new Date().toISOString().slice(0, 10);
-  const eligible = current && current.Start && current.Start <= today && current.Finish >= today && current.Owner.startsWith('Unassigned') && current.Dependencies.length === 0;
+  const eligible = current && (!current.Start || current.Start <= today && current.Finish >= today) && current.Owner.startsWith('Unassigned') && current.Dependencies.length === 0;
 
   async function copyPrompt(item, target = "chosen agent") {
     try { await navigator.clipboard.writeText(`Target runner: ${target}\n\n${promptFor(item)}`); setNotice('Prompt copied; recipient must recheck ownership before claiming'); }

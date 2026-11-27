@@ -1,9 +1,10 @@
 {
-  "ObservedAt": "2026-11-27T17:35:51.332762+00:00",
+  "ObservedAt": "2026-11-27T19:14:41.729343+00:00",
   "Project": "https://github.com/orgs/TryUniCAD/projects/1",
-  "ExpectedScopes": 4920,
-  "PresentScopes": 1505,
+  "ExpectedScopes": 4921,
+  "PresentScopes": 1536,
   "MissingScopes": [
+    "PR395",
     "Route-Autocad-Autocad",
     "Route-Autocad-Catia",
     "Route-Autocad-Creo",
@@ -157,37 +158,6 @@
     "claim:B10-RunDefaults:2c2c4ef9",
     "claim:B11-FirstUseGuides:5c5c944a",
     "claim:B14-RecordDecodeCache:8027c223",
-    "fusion:api:adsk.drawing.DrawingPoint",
-    "fusion:api:adsk.drawing.DrawingSketch",
-    "fusion:api:adsk.drawing.DrawingSketches",
-    "fusion:api:adsk.drawing.DrawingStandardTypes",
-    "fusion:api:adsk.drawing.DrawingStandardsSettings",
-    "fusion:api:adsk.drawing.DrawingSymbol",
-    "fusion:api:adsk.drawing.DrawingSymbolInput",
-    "fusion:api:adsk.drawing.DrawingSymbols",
-    "fusion:api:adsk.drawing.DrawingUnitTypes",
-    "fusion:api:adsk.drawing.DrawingViewFlatPatternPreferences",
-    "fusion:api:adsk.drawing.DrawingViewOptions",
-    "fusion:api:adsk.drawing.DrawingViewPreferences",
-    "fusion:api:adsk.drawing.DrawingViewSettings",
-    "fusion:api:adsk.drawing.DrawingViewStyleTypes",
-    "fusion:api:adsk.drawing.EdgeSymbol",
-    "fusion:api:adsk.drawing.EdgeSymbolDirectionTypes",
-    "fusion:api:adsk.drawing.EdgeSymbolInput",
-    "fusion:api:adsk.drawing.EdgeSymbolTypes",
-    "fusion:api:adsk.drawing.Ellipse",
-    "fusion:api:adsk.drawing.Ellipses",
-    "fusion:api:adsk.drawing.FeatureControlFrameInput",
-    "fusion:api:adsk.drawing.FeatureControlFrameSectionInput",
-    "fusion:api:adsk.drawing.FeatureControlFrameSymbol",
-    "fusion:api:adsk.drawing.FlatPatternDrawingViewSettings",
-    "fusion:api:adsk.drawing.FlatPatternOrthogonalViewPreferences",
-    "fusion:api:adsk.drawing.FlatPatternPreferences",
-    "fusion:api:adsk.drawing.FoldedModelPreferences",
-    "fusion:api:adsk.drawing.GeneralTableSettings",
-    "fusion:api:adsk.drawing.GeometricCharacteristicTypes",
-    "fusion:api:adsk.drawing.GlobalPreferences",
-    "fusion:api:adsk.drawing.HatchSettings",
     "fusion:api:adsk.drawing.HolePreferencesTypes",
     "fusion:api:adsk.drawing.HoleTable",
     "fusion:api:adsk.drawing.HoleTableInput",
@@ -3424,9 +3394,11 @@
   "DuplicateScopes": {},
   "NativeStatusCounts": {
     "In Progress": 139,
-    "Todo": 1339,
-    "Done": 27
+    "Todo": 1368,
+    "Done": 29
   },
   "RecordedDoneNotMarked": [],
-  "RecordedActiveNotMarked": []
+  "RecordedActiveNotMarked": [
+    "PR395"
+  ]
 }

@@ -5,8 +5,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from Lease import project_lock
-from Project import graphql
-from BatchFields import load_fields, publish_fields
+from Project import graphql, rest
+from BatchFields import load_fields
 from Prompt import task_prompt
 
 
@@ -57,6 +57,7 @@ def main():
     parser.add_argument("--token-file", type=Path, required=True)
     parser.add_argument("--state", type=Path, required=True)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[3])
+    parser.add_argument("--only", action="append", default=[])
     parser.add_argument("--batch-size", type=int, choices=range(1, 21), default=20)
     args = parser.parse_args()
     root = args.root.resolve()
@@ -68,6 +69,10 @@ def main():
     items = {item["Id"]: item for item in board["Items"]}
     if len(items) != len(board["Items"]):
         raise ValueError("Generated planning contains duplicate scope IDs")
+    if args.only:
+        if set(args.only) - items.keys():
+            raise ValueError("Unknown explicitly selected scope")
+        items = {key: value for key, value in items.items() if key in args.only}
     lease = project_lock(project["id"])
     token = args.token_file.read_text().strip()
     state = {"Project": project["id"], "Items": {}, "NeedsRescan": True}
@@ -75,6 +80,7 @@ def main():
     scan(token, project["id"], state, path)
     fields = load_fields(token, project)
     status_options = {option["name"]: option["id"] for option in fields["Status"]["options"]}
+    numeric_fields = {field["name"]: field["id"] for field in rest(token, "/orgs/TryUniCAD/projectsV2/1/fields")}
     remaining = [item for item in items.values() if item["Id"] not in state["Items"] or missing_values(item, state["Items"][item["Id"]], status_options)]
     remaining.sort(key=lambda item: item["Status"].lower() not in {"active", "checking", "open", "complete"})
     print("Remote scopes", len(state["Items"]), "remaining", len(remaining), flush=True)
@@ -109,21 +115,20 @@ def main():
         changes = [(scope, values) for scope, values in changes if values]
         state["NeedsRescan"] = True
         save_state(path, state)
-        error = False
+        errors = []
         with ThreadPoolExecutor(max_workers=4) as workers:
             futures = {}
-            for start in range(0, len(changes), 5):
-                chunk = changes[start:start + 5]
-                future = workers.submit(publish_fields, token, project, fields, [(state["Items"][scope]["Id"], values) for scope, values in chunk])
-                futures[future] = chunk
+            for scope, values in changes:
+                future = workers.submit(rest, token, "/orgs/TryUniCAD/projectsV2/1/items/" + str(state["Items"][scope]["NumericId"]), {"fields": [{"id": numeric_fields[name], "value": value} for name, value in values.items()]})
+                futures[future] = [(scope, values)]
             try:
                 for future in as_completed(futures):
                     if future.cancelled():
                         continue
                     try:
                         future.result()
-                    except Exception:
-                        error = True
+                    except Exception as problem:
+                        errors.append(str(problem))
                         for pending in futures:
                             pending.cancel()
                         continue
@@ -136,9 +141,11 @@ def main():
                 for pending in futures:
                     pending.cancel()
                 raise
-        if error:
+        if errors:
             scan(token, project["id"], state, path)
-            raise ValueError("Field publication was uncertain; running writes settled and remote state rescanned. Restart to resume") from None
+            state["Errors"] = errors
+            save_state(path, state)
+            raise ValueError("Field publication stopped after readback: " + errors[0]) from None
         state["NeedsRescan"] = False
         save_state(path, state)
         print("Published batch", min(offset + len(batch), len(remaining)), "/", len(remaining), flush=True)

@@ -10,21 +10,23 @@ from Project import graphql
 
 
 REVISION = "deaf10fd15401d88c1654c75b9880ffe2743e66a"
+ACCEPTED_REVISIONS = [REVISION, "8754dedca81a6a0753ddfd7081df5a9d961b2f35", "c217967da65a4c41d164dd7d133101a4b9b886b3"]
 FIELDS = 'id scope:fieldValueByName(name:"Scope ID"){... on ProjectV2ItemFieldTextValue{text}} start:fieldValueByName(name:"Start date"){... on ProjectV2ItemFieldDateValue{date}} finish:fieldValueByName(name:"Target date"){... on ProjectV2ItemFieldDateValue{date}} basis:fieldValueByName(name:"Schedule basis"){... on ProjectV2ItemFieldTextValue{text}} content{... on DraftIssue{body}}'
 
 
 def owned_forecast(row, old):
     scope = (row.get("scope") or {}).get("text")
-    expected = old.get(scope)
-    return bool(
-        expected
-        and expected.get("Start")
+    if not scope or (row.get("basis") or {}).get("text") != "Proposed investigation timebox":
+        return False
+    if not (row.get("content") or {}).get("body", "").startswith("<!-- KitScope:" + scope + " -->"):
+        return False
+    return any(
+        expected.get("Start")
         and expected.get("Finish")
         and expected.get("ScheduleKind") == "Proposed investigation timebox"
-        and (row.get("basis") or {}).get("text") == "Proposed investigation timebox"
         and (row.get("start") or {}).get("date") == expected["Start"]
         and (row.get("finish") or {}).get("date") == expected["Finish"]
-        and (row.get("content") or {}).get("body", "").startswith("<!-- KitScope:" + scope + " -->")
+        for expected in old.get(scope, [])
     )
 
 
@@ -77,8 +79,11 @@ def main():
     project = json.loads((root / "Documentation/Planning/Project.json").read_text())
     lease = project_lock(project["id"])
     token = args.token_file.read_text().strip()
-    saved = subprocess.run(["git", "show", REVISION + ":Documentation/Planning/Generated/BoardData.json"], cwd=root, text=True, capture_output=True, check=True)
-    old = {item["Id"]: item for item in json.loads(saved.stdout)["Items"]}
+    old = {}
+    for revision in ACCEPTED_REVISIONS:
+        saved = subprocess.run(["git", "show", revision + ":Documentation/Planning/Generated/BoardData.json"], cwd=root, text=True, capture_output=True, check=True)
+        for item in json.loads(saved.stdout)["Items"]:
+            old.setdefault(item["Id"], []).append(item)
     rows = []
     cursor = None
     while True:
@@ -95,6 +100,7 @@ def main():
     report = {
         "ObservedAt": datetime.now(timezone.utc).isoformat(),
         "SourceRevision": REVISION,
+        "AcceptedSourceRevisions": ACCEPTED_REVISIONS,
         "Project": project["url"],
         "Applied": args.apply,
         "Candidates": [{"ItemId": row["id"], "ScopeId": row["scope"]["text"]} for row in candidates],
@@ -104,12 +110,13 @@ def main():
         "PreviouslyClearedCount": len(previous.get("ClearedIds", [])),
         "Partial": {},
         "Errors": [],
+        "PriorErrors": previous.get("PriorErrors", []) + ([{"ObservedAt": previous.get("ObservedAt"), "Errors": previous["Errors"]}] if previous.get("Errors") else []),
     }
     output.write_text(json.dumps(report, indent=2) + "\n")
     if args.apply:
-        with ThreadPoolExecutor(max_workers=4) as pool:
-            for offset in range(0, len(candidates), 40):
-                futures = [pool.submit(clear_batch, token, project, candidates[start:start + 10], old) for start in range(offset, min(offset + 40, len(candidates)), 10)]
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            for offset in range(0, len(candidates), 10):
+                futures = [pool.submit(clear_batch, token, project, candidates[start:start + 5], old) for start in range(offset, min(offset + 10, len(candidates)), 5)]
                 for future in as_completed(futures):
                     try:
                         result = future.result()

@@ -292,7 +292,7 @@
       "Exit": "Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR",
       "Branch": "feat/project-todo-review-20261127",
       "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/392",
-      "Blocker": "Configured reviewer trial expired; current-head approval unavailable. Project import is resumable and still in progress."
+      "Blocker": "Project item field writes repeatedly fail with HTTP502 across GraphQL and REST; readback and resumable state retained. Configured reviewer skips actual review because trial expired and credits are unavailable."
     },
     {
       "Id": "FusionRevolveContrast",

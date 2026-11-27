@@ -29,7 +29,8 @@ retains newer completed or active project states. Existing field values survive
 reconstruction of the local progress file.
 
 `Batch.py --token-file PATH --state /tmp/KitPlanningImport.json` imports missing
-records with bounded batches under the same project lease. `ClearForecasts.py
+records with bounded batches under the same project lease. Repeat `--only SCOPE_ID`
+to restrict a recovery run to explicitly selected scopes. `ClearForecasts.py
 --token-file PATH --apply` removes only dates matching this task's earlier generated
 forecasts; it preserves manual date edits and records exact removals.
 
@@ -50,3 +51,13 @@ complete synchronization before readback. Current-head CI, configured review and
 merge-group acceptance remain separate gates.
 
 See the [single-writer gotcha](../../Gotchas/Research/Planning/ProjectImportsNeedOneWriter.md).
+
+## Observed synchronization blocker
+
+Project creation and readback work, but both GraphQL field mutations and REST
+field updates repeatedly returned HTTP 502 during this import. A smaller retry
+also failed; forecast removal separately encountered a connection timeout.
+[ProjectSnapshot.json](../../Planning/ProjectSnapshot.json) records actual coverage
+and status gaps, and [ForecastRemoval.json](../../Planning/ForecastRemoval.json)
+retains verified removals and failures. Missing records and uncleared old dates
+remain unfinished remote synchronization work; the local feature board is undated.

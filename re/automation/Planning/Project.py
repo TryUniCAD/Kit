@@ -73,7 +73,7 @@ def main():
                 by_name[name] = graphql(token, 'mutation($project:ID!,$name:String!,$kind:ProjectV2CustomFieldType!){createProjectV2Field(input:{projectId:$project,name:$name,dataType:$kind}){projectV2Field{... on ProjectV2Field{id}}}}', {"project": state["id"], "name": name, "kind": kind})["createProjectV2Field"]["projectV2Field"]["id"]
         state["Fields"][name] = by_name[name]
         state_path.write_text(json.dumps(state, indent=2) + "\n")
-    for name, layout, filter_text in [("Scheduled roadmap", "ROADMAP_LAYOUT", ""), ("Current work", "TABLE_LAYOUT", 'status:"In Progress"'), ("All scopes", "TABLE_LAYOUT", ""), ("Unassigned scopes", "TABLE_LAYOUT", 'agent:Unassigned')]:
+    for name, layout, filter_text in [("Scope board", "BOARD_LAYOUT", ""), ("Scheduled roadmap", "ROADMAP_LAYOUT", ""), ("Current work", "TABLE_LAYOUT", 'status:"In Progress"'), ("All scopes", "TABLE_LAYOUT", ""), ("Unassigned scopes", "TABLE_LAYOUT", 'agent:Unassigned')]:
         if name not in state["Views"]:
             view = graphql(token, 'mutation($project:ID!,$name:String!,$layout:ProjectV2ViewLayout!){createProjectV2View(input:{projectId:$project,name:$name,layout:$layout}){projectV2View{id name}}}', {"project": state["id"], "name": name, "layout": layout})["createProjectV2View"]["projectV2View"]
             state["Views"][name] = view["id"]
@@ -125,7 +125,7 @@ def main():
         else:
             existing = state.get("RemoteFields", {}).get(item["Id"], {})
             values = {name: value for name, value in values.items() if name not in existing}
-        if not state.get("NativeStatus", {}).get(item["Id"]) or (state.get("NativeStatus", {}).get(item["Id"]) == "Todo" and item["Status"].lower() in {"complete", "active", "checking", "open"}):
+        if not state.get("NativeStatus", {}).get(item["Id"]) or (state.get("NativeStatus", {}).get(item["Id"]) == "Todo" and item["Status"].lower() in {"complete", "active", "checking", "open"}) or (item["Kind"] == "Merged PR" and state.get("NativeStatus", {}).get(item["Id"]) != "Done"):
             native_status = "Done" if item["Status"].lower() == "complete" else "In Progress" if item["Status"].lower() in {"active", "checking", "open"} else "Todo"
             values["Status"] = status_options[native_status]
         if not values:

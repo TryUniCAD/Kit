@@ -9,10 +9,10 @@ def calendar_svg(items):
     span = max(1, (finish - start).days + 1)
     height = 100 + len(rows) * 34
     result = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 {height}" role="img" aria-labelledby="title desc">',
-              '<title id="title">Kit scheduled investigation windows</title>',
+              '<title id="title">Kit scheduled investigation windows</title>' if dates else '<title id="title">Kit scope and status</title>',
               '<desc id="desc">Calendar Gantt of explicitly supplied windows; undated work has no duration assumption. Current open deliveries and detailed scopes are available in the scheduling board.</desc>',
               f'<rect width="1200" height="{height}" fill="#faf9f6"/><g font-family="sans-serif" font-size="12" fill="#262522">',
-              '<text x="16" y="26" font-size="18">Scheduled investigation windows</text>',
+              '<text x="16" y="26" font-size="18">Scheduled investigation windows</text>' if dates else '<text x="16" y="26" font-size="18">Repository scope and status</text>',
               '<text x="16" y="48">Only explicit windows are dated · source prerequisites still bind · no assumed duration or delivery commitment</text>']
     for index in range(7 if dates else 0):
         offset = span * index / 6

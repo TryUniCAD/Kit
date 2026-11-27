@@ -116,3 +116,10 @@ history. At an explicit handoff, update the current responsible accounts and rec
 the previous owner, evidence custody and next action. Preserve unrelated assignees
 unless the handoff specifically replaces their responsibility. Duplicate repair must
 also preserve native assignees and flag conflicting assignment sets for coordination.
+
+## Feature dates
+
+Feature inventory has no delivery-date assumptions. Maintain scope, status, native
+assignees, runtime, dependencies and remaining evidence. A feature claim or explicit
+delegation does not require an invented calendar window. Scheduling controls remain
+available for explicitly scheduled project work.
