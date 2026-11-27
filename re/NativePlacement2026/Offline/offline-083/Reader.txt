@@ -1,0 +1,2 @@
+{"counts": {"fields": 2077, "records": 269, "unresolved": 77}, "fingerprint": "d989aa4f519ded49de9615dd3f9a8a9c1caf9a449c2c8f04841018bb3636530c", "neutral_sha256": "f16218e047b955507255c61c23512d1caad0788752e73b75fb73c2e59cc5c16b", "output": "<campaign>/offline-083/Decode", "portable_complete": false}
+kit: offline decoding only; native verification pending; vendor acceptance not established

@@ -60,7 +60,7 @@ class GroupSession(Session):
             self.keep_leases()
             member.prepare()
             paths.append(f"jobs/{index:02d}/job.json")
-        self.next_renew = 0
+        # The launch gate will renew again after durable process publication.
         self.keep_leases()
         write_private(self.directory / "group.json", {"group_session_version": 1, "session": self.name, "pool": self.pool, "members": paths, "stop_at": self.stop_at})
 

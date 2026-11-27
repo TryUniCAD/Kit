@@ -6,6 +6,16 @@ Run PR #94's pinned readers, corpus, durable controller, and configured supervis
 The CLI delegates to existing implementations and preserves their evidence contracts.
 Users do not write Python imports or scripts.
 
+For multiple local instances, use the [shared research queue](../Reference/Research/SharedResearchQueue.md)
+to submit revisioned requests to one controller and supervisor.
+Existing private catalogue runs retain their own stores unless their jobs are explicitly submitted through that endpoint.
+
+For bounded SOLIDWORKS and Fusion reconstruction, use the [encoder round-trip workflow](../Changes/Research/Encoder/EncoderRoundTripPipeline.md).
+It persists neutral JSON, generates reconstruction and depth-edited candidates, and records their runtime, hashes, and stage timings.
+Attach native observations with the workflow's separate receipt command.
+The manifest remains immutable and keeps native qualification pending.
+Receipt attachment writes a separate bound receipt; the format's measured SDK publication gate remains a separate step.
+
 ## Before you start
 
 Install a CLI revision from its source checkout with `uv tool install .`.
@@ -19,13 +29,32 @@ Use `kit decode` for the installed production reader. `kit run --input` launches
 Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
 `--root` authorizes execution of that checkout's research code and SDK.
 The wheel contains the SDK and CLI, not research fixtures or the `re/` workspace.
-The supervisor requires Linux or macOS.
+On Windows, the supervisor requires Windows 10 or newer, Python 3.14 or newer, and the locked `pywin32` development extra.
+The selected checkout must advertise Windows CLI shutdown protocol 1.
+An older or incompatible checkout is rejected before worker dispatch; update the selected `--root` checkout when prompted.
 On Windows, reader, corpus, and controller commands wait for completion and return the tool's exit status.
 
 The examples use `/path/to/KitPr94` for the trusted research checkout.
 Replace it with its absolute path; the installed CLI checkout can be different.
 Replace example output paths with unused directories that you own.
 Preserve the original CAD files.
+
+## Compare decoded JSON exports
+
+From a trusted checkout with the comparison command, run:
+
+```sh
+kit research --root . compare SolidWorks Fusion --unit mm -o NewComparison
+kit research --root . compare --manifest /path/to/Pairs.json --unit mm -o /path/to/NewComparison
+```
+
+`SolidWorks` and `Fusion` are folders of decoded JSON. Files pair by matching relative paths.
+Either folder can go first. The first is labeled left in reports and the second is labeled right.
+Choose a new output directory for each run.
+Declare the actual geometry units. Use `--left-unit` and `--right-unit` instead of `--unit` when the sides differ.
+The command reads existing decoded JSON and reports every pair.
+It copies the first folder's original JSON to `NewComparison/unified/` for each pair that compares equal at zero tolerance with no unresolved issues.
+See the [comparison procedure](CompareDecodedDocuments.md) for pairing rules, reports and exit codes.
 
 ## Decode committed inputs
 
@@ -43,6 +72,26 @@ Research documents carry `kit.research_read_status: unqualified` in their existi
 The CLI refuses conversion of those marked documents, including marked nested components, before staging output.
 Keep the marker and receipt; the CLI does not promote research results into qualified conversion inputs.
 The separate receipt binds source, SDK, tools, options, hashes, and unresolved evidence.
+
+For several SOLIDWORKS parts, use a checkout with batch support.
+Add `--batch` and repeat `--asset` for up to 1000 distinct pinned parts.
+
+```sh
+kit research --offline --root /path/to/KitPr94 solidworks --batch \
+  --asset re/solidworks/examples/.SLDPRT/example.SLDPRT \
+  --asset "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/CUBIERTA.SLDPRT" \
+  --output /tmp/KitPinnedSwBatch
+```
+
+Batch `summary.json` lists the paths and their document directories in request order.
+Keep each directory's `document.json` and `receipt.json` together.
+One `--configuration` value applies to every part.
+A failed pin or decode returns status `1` and publishes no batch.
+The batch can write up to 4 GiB of documents and receipts.
+Use fewer assets if the run exceeds this limit.
+Omit `--offline` to request native verification for the complete batch.
+Use `--batch` every time you intend to decode several SOLIDWORKS assets.
+See [legacy SOLIDWORKS asset selection](../Gotchas/Research/Offline/LegacySolidWorksAssetSelection.md).
 
 For Fusion, use Python 3.14 and select one or more committed assets:
 
@@ -103,6 +152,13 @@ kit research --root /path/to/KitPr94 controller --store /tmp/KitResearchState st
 Use `controller --help` for evidence binding, batch submission, claims, lease renewal, and result submission.
 The CLI preserves stale-lease status `3` and the controller's integrity checks.
 
+The attribution migration preserves the original capture lineage contract and Fusion outcome baseline.
+Capture intake reports the original and current input identities plus the four reviewed text migrations.
+Other content, mode, roster, or native-asset changes still fail validation.
+The Fusion census reports its historical and current manifest hashes separately.
+Only the documented metadata-only hash pair is accepted across that migration.
+See [attribution queue repairs](../Changes/Ci/AttributionQueueRepair.md).
+
 ## Run configured sessions
 
 Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](../Reference/Research/ResearchSupervisor.md).
@@ -121,6 +177,11 @@ On Linux and macOS the CLI starts a separate research session and owns signal ha
 Interrupt, termination, hangup, quit, and user signals are forwarded; terminal suspension stops both launcher and child, and continuation resumes the child.
 Startup signals wait for the child reference, and continuation cancels a queued suspension.
 It waits for cleanup, preserves output and exit statuses, and terminates with the child's signal when that child is killed.
+On Windows, the supervisor launcher creates a separate console process group.
+It forwards handled interrupt, termination, and break signals as `CTRL_BREAK_EVENT`, then waits for supervisor cleanup and preserves its exit status.
+The supervisor handles that event through its normal shutdown and worker settlement path.
+Console-event forwarding requires the launcher and supervisor to share a Windows console.
+Ordinary Windows reader and controller commands retain their existing wait-for-completion behavior.
 An uncatchable launcher kill cannot be forwarded; use the existing research lease and recovery controls after forced termination.
 Supervisor contention retains status `4`.
 
@@ -138,6 +199,12 @@ See [session output lifetime](../Gotchas/Research/SupervisorSessionOutputLifetim
 Run `kit run --root . auto --input /path/to/unknown --directory /tmp/KitUnknownRun`. The [content-driven input mode](../Changes/Research/Inference/IdentifyResearchInput.md) accepts an extensionless file, probes for native Fusion and SOLIDWORKS containers, and inspects standalone ASM geometry.
 
 ## Run a CAD catalogue with optional advice
+
+For a repeated catalogue setup, configure [saved run defaults](../Changes/Commands/SavedRunDefaults.md).
+Then use `kit run solidworks` or `kit run fusion` for the configured format.
+The installed executable reads the private defaults directly.
+Each new catalogue run gets a unique output directory.
+Explicit options override defaults; explicit `--root` bypasses the preset.
 
 Use a clean checkout with the catalogue runner and install Kit from that revision with
 `uv tool install --python 3.14 .`. Obtain [Fusion Catalog.sqlite](https://github.com/TryUniCAD/Kit/pull/163)
@@ -207,6 +274,14 @@ To retry a parked native job after its owner restores the application, add `--na
 
 ### Author new catalogue samples
 
+New SOLIDWORKS runs keep an owned application session open across batches.
+Document close and reopen checks release completed bundles to the separate decoder pool.
+Set `verification_mode` to `fresh_process` in the private host configuration for independent-process evidence.
+See [continuous SOLIDWORKS capture](../Changes/Research/Supervisor/Catalogue/ContinuousSolidWorksSession.md) for lifecycle and evidence limits.
+Startup and part opens retry up to three times.
+Inspect the startup receipts, open-attempt log and separate [capture stage timings](../Changes/Research/Supervisor/Catalogue/SolidWorksOpenRetriesAndTiming.md) when a run is slow or cannot open.
+Retries stop if cleanup cannot prove ownership or saved bytes change.
+
 Add `--author-samples` to a catalogue run to create new native samples before
 decoding them. `--authoring-cases` selects catalogue identities and validated
 parameter overrides. `--prepare-only` writes the plan without launching CAD.
@@ -216,16 +291,35 @@ and the four registered revolution recipes.
 
 Add `--authoring-grid three-values` to vary each exposed parameter independently
 across three legal values. Omit it to retain baseline cases. New SOLIDWORKS
-recipes share native batches of at most three cases, with separate decoder jobs.
+recipes share one native authoring launch and one fresh verification launch
+per batch of up to twelve cases, with separate decoder jobs. Existing saved
+plans keep their recorded grouping. See
+[larger SOLIDWORKS batches](../Changes/Research/Supervisor/Catalogue/LargeSolidWorksVerificationBatches.md).
 Native execution requires a Windows desktop context outside AppContainer.
 Native outputs persist under the run's `NativeAttempts` directory.
+New SOLIDWORKS authoring plans automatically share application startup across batches of up to three P01–P05 or written-recipe cases.
+Each batch uses one authoring process and a separate fresh verification process.
+Per-case decoder jobs start after native acceptance.
+Saved plans retain their original job definitions.
+See [paired-case batching](../Changes/Research/Supervisor/Catalogue/PairedCaseBatching.md) for limits and verification.
+After both owned native phases finish, a case-level verification failure
+records a `native_rejection` in the catalogue result. Verified sibling cases
+can continue through their own decoder jobs.
+[Batch rejection handling](../Changes/Research/Supervisor/Catalogue/SolidWorksBatchRejectionIsolation.md)
 See [reusable recipe builders](../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
 for exact identities, limits, and evidence requirements.
+The [thin-wall side check](../Changes/Research/Supervisor/Catalogue/SolidWorksThinWallSide.md)
+covers the written thin-extrude recipe's native mode, bounds, and reopen.
 
 SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
 Fusion needs its native worker options and `--fusion-lifecycle` for automatic
 owned restart. Use the same source revision across workers and the selected
 checkout. Pause/resume keeps the existing native and decoder receipts.
+
+If the SOLIDWORKS launcher reports an unobserved normal exit, inspect the
+native and owner receipts under `NativeAttempts`. Retain the run directory and
+use a fresh directory to verify a changed worker on the same case parameters.
+See [catalogue capture shutdown](../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md).
 
 See [catalogue sample authoring](../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md)
 for the case format, native host requirements, limitations, and evidence rules.
@@ -247,15 +341,15 @@ Conversion and inspection do not import its process launcher dependencies.
 
 ## If the command fails
 
-| Symptom                           | Action and stop condition                                          |
-| --------------------------------- | ------------------------------------------------------------------ |
-| Missing research script           | Select the intended trusted PR #94 checkout                        |
-| Missing pinned Git object         | Fetch the manifest's committed revision before retrying            |
-| Hash or prefix mismatch           | Restore or review the intended pin; do not relax checks            |
-| Existing output directory         | Choose an unused path; no overwrite bypass is exposed              |
-| Fusion requires Python 3.14       | Install or run the CLI with that interpreter                       |
-| Supervisor unavailable on Windows | Use Linux or macOS for orchestration                               |
-| Runner unavailable                | Configure an implemented runner or retain the blocked prerequisite |
+| Symptom                              | Action and stop condition                                                                      |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| Missing research script              | Select the intended trusted PR #94 checkout                                                    |
+| Missing pinned Git object            | Fetch the manifest's committed revision before retrying                                        |
+| Hash or prefix mismatch              | Restore or review the intended pin; do not relax checks                                        |
+| Existing output directory            | Choose an unused path; no overwrite bypass is exposed                                          |
+| Fusion requires Python 3.14          | Install or run the CLI with that interpreter                                                   |
+| Windows supervisor checkout rejected | Use a trusted checkout with Windows CLI shutdown protocol 1 and the Windows dependencies above |
+| Runner unavailable                   | Configure an implemented runner or retain the blocked prerequisite                             |
 
 Tests execute only in remote CI.
 The Linux and Windows [compatibility jobs](../Changes/Commands/ResearchCandidateCompatibility.md) install the CLI from the workflow candidate and select a separate research checkout at the same revision.
@@ -270,6 +364,13 @@ kit run --root . fusion --input part.f3d --directory /tmp/KitPartRun --advisor c
 Use `solidworks` for a part or assembly from SOLIDWORKS. The runner snapshots up to 128 MiB of input, inventories its streams, attempts a strict neutral decode, and uses the partial reader if strict decoding refuses the file.
 
 The run saves the successful decode layers and a `FileScope.json` report containing the input digest, reader refusals, features without mapped experiments and stream intervals without cited provenance. Intervals are zero-based and end-exclusive within each uncompressed stream. A cited range can still contain unresolved fields.
+
+Read `feature_layer` for the neutral document used to select experiments.
+Read `provenance_layer` for the document used to cite stream intervals.
+If a strict Fusion read supplies no usable spans for known members, the runner requests partial provenance from the same input.
+The runner checks the source digest and member bounds before it uses those spans.
+The strict document still drives feature selection, and the runner retains both successful reports.
+See the [file scope change entry](../Changes/Research/Encoder/FileScopeAttribution.md) for the observed coverage and limits.
 
 Typed blind-boss and through-all cut records select the existing P03 and P04 research experiments. The experiments use their controlled corpus. Their receipts can inform the investigation of the input. File-driven runs report incomplete coverage until independent evidence establishes whole-file semantics.
 
@@ -435,3 +536,20 @@ For example, an expected value for the first circle sketch entity can be express
 When the baseline fails a measurement, Codex receives the selected modules, the reviewed rule and the finding. The default is GPT-6.2-Sol at medium reasoning effort. Keep proprietary contents out of the written rule. Supply `--candidate replacements.json` (or `--codec-candidate` during a catalogue run) to qualify a mapping from each selected path to its complete proposed source without a model call.
 
 Qualification runs each case through the public CLI in a network-isolated container. Writer cases reopen the generated file with the reader from the pinned base. The resulting Git patch includes codec changes, a replayable regression, the pinned cases and a change entry. Review the patch for generalization and donor data. Native application reopen, editing and losslessness still require the format's acceptance controls.
+
+## Recorded native feature ladders
+
+The [2026 feature ladder package](../../re/FeatureLadders2026/README.md) retains native inputs, strict outcomes, and typed-native inspection reports.
+Its manifest includes failed and blocked cases. These research outcomes do not qualify conversion or complete semantic recovery.
+
+## Verify the selected launcher
+
+Another installation can shadow the executable installed with Python 3.14.
+Resolve `kit` before resuming a durable native campaign and inspect its entry-point interpreter.
+Use the verified installation's absolute path if necessary.
+The [shadowed launcher gotcha](../Gotchas/Research/Supervisor/Runtime/ShadowedKitLauncher.md) records the observed supervisor failure and safe repair.
+
+## Circular rim fillet qualification pack
+
+The [rim-fillet pack](../../re/Fusion/RimFilletPack/README.md) separates source-free writer acceptance, typed reconstruction and public conversion refusals.
+Replay uses existing codecs without a CAD runtime. Native measurements remain revision-bound research evidence.

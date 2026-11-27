@@ -1,0 +1,45 @@
+{
+  "job": "solidworks-020",
+  "revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "case": {
+    "application": "solidworks",
+    "axis": "width",
+    "id": "solidworks-020",
+    "parameters_mm": {
+      "depth": 10,
+      "height": 20,
+      "width": 16.2
+    },
+    "plane": "right",
+    "reverse": true,
+    "script_sha256": "2e9bb466bbd5e76e25967debb8cecd5e1bd82a7f51dadfc1a5fcd5ff4684c5f3",
+    "split": "discovery"
+  },
+  "model_advice": false,
+  "native_status": "failed",
+  "started_at": 1795440641.4243479,
+  "finished_at": 1795440674.058057,
+  "elapsed_seconds": 32.633709192276,
+  "error": {
+    "type": "ValueError",
+    "message": "native authoring did not complete"
+  },
+  "semantic_acceptance": false,
+  "vendor_conversion_acceptance": false,
+  "original_receipt_sha256": "f02ebf83bffe7ed2002259c2c2acfc049e5363bd8de90ae5f6f426d910fa13e1",
+  "command_records": [
+    {
+      "argv": [
+        "<local-user>/.local/share/uv/tools/unicad-kit/bin/python3",
+        "<checkout>/re/automation/Controller.py",
+        "--store",
+        "<campaign>/Store",
+        "resource",
+        "application:solidworks:placement",
+        "--unavailable"
+      ],
+      "exit_code": 0,
+      "log": "DisableResource.log"
+    }
+  ]
+}
