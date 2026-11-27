@@ -1,0 +1,165 @@
+{
+  "task": "A08h-FusionOffsetStart20261127",
+  "reader_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "source_revisions": [
+    "1647204042fca11349eb62a4e495387204648c8b",
+    "c3a229ecfb1195447b9a532cc66dc975f77418b6"
+  ],
+  "models": false,
+  "conversion_acceptance": "not_established",
+  "groups": [
+    {
+      "task": "A08h-FusionOffsetStart20261127",
+      "source_revision": "1647204042fca11349eb62a4e495387204648c8b",
+      "reader_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+      "capture_script_sha256": "05d677a4971d4050c976ac3d959abdc32be2da7058755bf3ead007ad2fb0b18e",
+      "raw_capture_report_sha256": "cf5f877f3df32de8a056bedeae326b9ef879e4b67f26c3eaad20883cd9eda3ae",
+      "source_job": "1a10e869e9306e40ddc056157deebad4",
+      "source_process": {
+        "application": "fusion",
+        "build": "2706.1.17",
+        "nonce": "0b72acf5f66585adae3cdca99d8d4a76aaefffee564a3b43",
+        "pid": 22432,
+        "source_sha256": null,
+        "status": "completed"
+      },
+      "native_files": 57,
+      "capture_observations": 79,
+      "fresh_processes": 11,
+      "fresh_process_ids": [
+        24852,
+        27068,
+        25468,
+        21616,
+        27980,
+        40868,
+        2024,
+        4952,
+        27480,
+        36624,
+        29948
+      ],
+      "lifecycle_comparisons": 165,
+      "lifecycle_failed": 0,
+      "native_decode_checks": 1140,
+      "native_decode_failed": 0,
+      "asm_members": 114,
+      "asm_initial_table_failures": 0,
+      "strict": {
+        "assets": 57,
+        "decoded": 0,
+        "partial": 0,
+        "reader_error": 0,
+        "rejected": 57,
+        "strict": 0
+      },
+      "partial": {
+        "assets": 57,
+        "decoded": 57,
+        "partial": 57,
+        "reader_error": 0,
+        "rejected": 0,
+        "strict": 0
+      },
+      "models": false,
+      "conversion_acceptance": "not_established"
+    },
+    {
+      "task": "A08h-FusionOffsetStart20261127",
+      "source_revision": "c3a229ecfb1195447b9a532cc66dc975f77418b6",
+      "reader_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+      "capture_script_sha256": "df560d27acc45a6aa3e812cfb4b4e70bbe4a251ddeb380e409c9ddfe91c49356",
+      "raw_capture_report_sha256": "f5891d1a4685c1428406e123013d988a826812014f762685bf78932cb6f25ab7",
+      "source_job": "328aa0e7c5cd4cd9f7e418e940fb548b",
+      "source_process": {
+        "application": "fusion",
+        "build": "2706.1.17",
+        "nonce": "70c3ac910e3880025abe668bb465f82fbd87ae6ea467f030",
+        "pid": 36756,
+        "source_sha256": null,
+        "status": "completed"
+      },
+      "native_files": 82,
+      "capture_observations": 114,
+      "fresh_processes": 16,
+      "fresh_process_ids": [
+        16804,
+        6192,
+        39092,
+        9228,
+        30152,
+        22284,
+        2720,
+        2644,
+        39492,
+        27000,
+        19872,
+        28432,
+        28440,
+        18816,
+        23404,
+        30660
+      ],
+      "lifecycle_comparisons": 240,
+      "lifecycle_failed": 0,
+      "native_decode_checks": 1640,
+      "native_decode_failed": 0,
+      "asm_members": 164,
+      "asm_initial_table_failures": 0,
+      "strict": {
+        "assets": 82,
+        "decoded": 0,
+        "partial": 0,
+        "reader_error": 0,
+        "rejected": 82,
+        "strict": 0
+      },
+      "partial": {
+        "assets": 82,
+        "decoded": 82,
+        "partial": 82,
+        "reader_error": 0,
+        "rejected": 0,
+        "strict": 0
+      },
+      "models": false,
+      "conversion_acceptance": "not_established"
+    }
+  ],
+  "native_files": 139,
+  "capture_observations": 193,
+  "fresh_processes": 27,
+  "lifecycle_comparisons": 405,
+  "lifecycle_failed": 0,
+  "native_decode_checks": 2780,
+  "native_decode_failed": 0,
+  "asm_members": 278,
+  "asm_initial_table_failures": 0,
+  "strict": {
+    "assets": 139,
+    "decoded": 0,
+    "partial": 0,
+    "reader_error": 0,
+    "rejected": 139,
+    "strict": 0
+  },
+  "partial": {
+    "assets": 139,
+    "decoded": 139,
+    "partial": 139,
+    "reader_error": 0,
+    "rejected": 0,
+    "strict": 0
+  },
+  "reader_archives": [
+    {
+      "group": "initial",
+      "json_members": 116
+    },
+    {
+      "group": "Expansion",
+      "json_members": 166
+    }
+  ],
+  "native_executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc"
+}

@@ -73,5 +73,7 @@ seals={p.relative_to(campaign).as_posix():dict(sha256=hashlib.sha256(p.read_byte
 (campaign/'Manifest.json').write_text(json.dumps(seals,indent=2))
 assert all(o['value']['geometry_pass'] and o['value']['settings_pass'] for c in truth['cases'] for o in c['observations'])
 print(json.dumps(summary,indent=2))
+if len({v['observations']['executable_sha256'] for v in verifications})!=1:
+    raise SystemExit('native builds disagree')
 if summary['lifecycle_failed'] or summary['native_decode_failed'] or len(set(summary['fresh_process_ids']))!=len([c for c in truth['cases'] if not c['id'].startswith('control')]):
     raise SystemExit('native evidence has unresolved numerical failures')

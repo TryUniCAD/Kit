@@ -28,5 +28,5 @@ The user explicitly expanded this campaign to 27 modelling cases and 139 native 
 The expansion source `c3a229ecfb1195447b9a532cc66dc975f77418b6` adds 82 archives and 114 API observations, including fractional/extreme distances, large signed offsets, a sign-crossing edit, a YZ frame and four more sealed holdouts.
 All 2,780 native comparisons and 278 production BRep initial tables pass across both groups.
 Strict reading rejects all 139 at the existing offset-start guard; partial replay preserves 139 documents and receipts with zero reader errors.
-The initial eleven fresh processes passed all 165 lifecycle/control/process comparisons; sixteen expanded fresh-process jobs are running under the same serial resource.
+All 27 fresh processes passed 405 lifecycle/control/process comparisons. The oracle was released idle without a recovery marker.
 The initial and expanded source commits and reader checkout remain independently pinned; models remain disabled.

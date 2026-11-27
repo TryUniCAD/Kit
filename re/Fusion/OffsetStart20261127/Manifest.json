@@ -15,6 +15,18 @@
     "sha256": "6b73b732ec57a863866e9bf51f33d606c966662db368b78cbe81bf65fd517352",
     "size": 4482
   },
+  "Evidence/BackgroundOverlap.json": {
+    "sha256": "ce079a903cb0872e03cac63dd3b00138c0caedbaabbbdbe8ef2b371e792d81de",
+    "size": 1616
+  },
+  "Evidence/CampaignSummary.json": {
+    "sha256": "1b0276a25db78e40407cb7c2a1198d09bfcf5463bea8b46ee97ef1bc800c3532",
+    "size": 4368
+  },
+  "Evidence/ControllerOutcomes.json": {
+    "sha256": "17ba09f1b7b9cbf697148a32e80040153dda9854f880c3a34b0e3dba80b64aad",
+    "size": 16905
+  },
   "Evidence/Corpus.json": {
     "sha256": "4e5f953676a1f1fa4a4118914e1fa0b76925e8e82e8943f094b6d7e61d1f3af4",
     "size": 20897
@@ -39,6 +51,10 @@
     "sha256": "22ed4a17912c4923a4a758aa7457cc653dd40faf21627d098c4773149dceca9b",
     "size": 481087
   },
+  "Evidence/OracleRelease.json": {
+    "sha256": "ae4dd1993f040b1afd981b0c8bb7394ab8f003956cdef2b21388d21ae84fcb95",
+    "size": 169
+  },
   "Evidence/PackagingAttempts.json": {
     "sha256": "34b46ad93dbc1e3d89cddcb9200f713960a7e82384ad513b33e4ed06b456338f",
     "size": 405
@@ -55,9 +71,45 @@
     "sha256": "f5fa265ffca9a5558521beff57f4d3473828926724555949f7b27232cdae4595",
     "size": 1384
   },
+  "Expansion/.gitignore": {
+    "sha256": "1c605f86869115e767892dcec1b6d4cf375a5646cb9511950f2d97fdc5d7a108",
+    "size": 33
+  },
   "Expansion/Capture.json": {
     "sha256": "f3a11266538d5e4d5b0bfb36fa0c11a1b14bbd9fe896e1e198aff60fa82af6c7",
     "size": 433350
+  },
+  "Expansion/Evidence/Corpus.json": {
+    "sha256": "f1e5121f56dafb6d3e271e100c25cf147de86b1d793b1ce0eca0d31f1f72564e",
+    "size": 31422
+  },
+  "Expansion/Evidence/Counterexamples.json": {
+    "sha256": "23d27fc6e16c63ea6dad75c77243a24aafb8535bec36c8c27441fec570e0f5bf",
+    "size": 4171
+  },
+  "Expansion/Evidence/FailedAttempts.json": {
+    "sha256": "a3bbf4eff799d82fd95ba14585d9f283a3dc047ee0de584211d27a37c633882d",
+    "size": 20
+  },
+  "Expansion/Evidence/NativeComparison.json": {
+    "sha256": "0940570303e5aed696db4d2674d18a6901c879be73fdca40b83d5f3e1a93550c",
+    "size": 1800047
+  },
+  "Expansion/Evidence/NativeVerification.json": {
+    "sha256": "cd9f561ed653c5b996c015b4367cc41da3d78b2cee2325c5f14426a647c79897",
+    "size": 702537
+  },
+  "Expansion/Evidence/ReaderArtifacts.tar.gz": {
+    "sha256": "f150d4880d8c51880d8db2621911ab90a4169fcda188fa263055d31747a969a8",
+    "size": 16297052
+  },
+  "Expansion/Evidence/Summary.json": {
+    "sha256": "7586dea5e6158b7e6528d3517c1c0924db18404f2e98095a8508e63c36def931",
+    "size": 1425
+  },
+  "Expansion/Evidence/Unresolved.json": {
+    "sha256": "f5fa265ffca9a5558521beff57f4d3473828926724555949f7b27232cdae4595",
+    "size": 1384
   },
   "Expansion/Native/control_after.f3d": {
     "sha256": "b292d0e030dc159083bf1b69cc72f0fc99c0ef97d5e8a6832ce1e435d708e255",
@@ -620,12 +672,16 @@
     "size": 200502
   },
   "Package.py": {
-    "sha256": "9ec1b5faaf5674129abb39c3b18eb8e756e6f84b247078391503c8c4e6bd2e65",
-    "size": 8878
+    "sha256": "cd136e95fcac77b90b9aba54eaf0c00e1b54f17bf1b1b4be4a3c7b5ab8215293",
+    "size": 9001
   },
   "README.md": {
-    "sha256": "7f608bb662193563cf661908bde12ac0b3597b6b966c26a427293cf996e49c4f",
-    "size": 8186
+    "sha256": "ab7dc56fc5df75d5a6fd9fd97c63dd04a67b226affb5171faf79020ca643ff4b",
+    "size": 8770
+  },
+  "Seal.py": {
+    "sha256": "25b712646a3777d7ed51ec63e8a935ec9cd0b66781a6f364808ffb5c054e7f68",
+    "size": 4307
   },
   "Verify.py": {
     "sha256": "a20c6507c51b5b654c7adb00ccf2cef7fdb916a504126f47962253aca1ce0ae4",

@@ -35,8 +35,11 @@ Four additional holdouts combine independent fractional distances, signed offset
 The -1 mm offset edit crosses to +2 mm; the extreme offsets place both cylinder ends on one side of the sketch.
 The initial 57-file source commit and original receipts remain unchanged.
 Expanded native sources, captures, manifests and receipts live under `Expansion/`, with separate runtime jobs and source revision.
-The two groups target 27 modelling cases and 139 saved archives, including four native controls.
-Read each group's sealed summary for its completed evidence; forecast counts do not imply acceptance.
+The two groups contain 27 modelling cases and 139 saved archives, including four native controls.
+All 405 fresh-process lifecycle, control and process comparisons pass across 27 distinct process IDs.
+The [combined summary](Evidence/CampaignSummary.json) binds both groups, 193 source observations, 2,780 native comparisons and 278 BRep initial tables.
+The two reader archives retain 282 JSON artifacts: 139 partial documents, 139 receipts and four batch summaries.
+The oracle was released idle without a recovery marker; controller outcomes retain both prefix refusals and all completed jobs.
 
 ## Native process and edit evidence
 
@@ -81,7 +84,8 @@ These are known admission and helper limits, not evidence that offset-start wire
 The public policy remains unchanged. See the [zero-offset type gotcha](../../../Documentation/Gotchas/Research/Campaigns/ZeroOffsetRetainsStartDefinition.md).
 
 `CompareNative.py ROOT CAMPAIGN OUTPUT` reuses existing inspectors and checks hashes before comparisons.
-`Package.py RUNTIME CAMPAIGN` verifies lifecycle measurements and packages documents, receipts and summaries.
+`Package.py RUNTIME CAMPAIGN` verifies each group’s lifecycle measurements and packages documents, receipts and summaries.
+After both groups complete, `Seal.py RUNTIME CAMPAIGN` validates aggregate counts, controller outcomes, oracle release and background worker overlap before sealing all files.
 The JSON-only reader archive retains every published strict/partial outcome. Exit 3 is incomplete decoding.
 Neither partial decoding nor native source acceptance establishes editable target conversion.
 

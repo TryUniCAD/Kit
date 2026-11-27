@@ -911,7 +911,7 @@ See the [change entry](../../Changes/Research/Encoder/FileScopeAttribution.md) f
 
 Codex owns this checking campaign on `feat/fusion-offset-start-20261127`, based on freshly fetched main `91a73de348894a5791a51b977cd6fe0fe677a617`.
 Dependencies are A03, A05a, A08h, the existing catalogue and native workers, and the exclusive serialized Fusion API resource.
-Claims are recorded on PRs #94 and #158; delivery uses a separate scoped PR.
+Claims are recorded on PRs #94 and #158; delivery is [PR #395](https://github.com/TryUniCAD/Kit/pull/395).
 The [package](../../../re/Fusion/OffsetStart20261127/README.md) measures unequal untapered circular two-sided NewBody extrusions with positive, negative and zero OffsetStart values.
 Both distances and the signed start offset have independent edit/restore/rebuild/save/reopen observations; radius, placement and frame are authoring contrasts.
 Swapped sides and two sealed parameter holdouts distinguish distance roles from offset translation.
@@ -920,13 +920,20 @@ Source `1647204042fca11349eb62a4e495387204648c8b` retains 57 native files and 79
 The frozen reader checkout at the base above matches all 1,140 native comparisons and parses 114 BRep initial tables.
 Strict decoding rejects all 57 explicit OffsetStart states; partial replay retains 57 documents and receipts with no reader errors.
 The first two offline attempts failed a manifest-prefix check; corrected jobs retain the same source bytes and preserve the failures.
-Fresh-process verification is running under the single native controller resource; current-head CI and configured review remain required.
+All 27 fresh processes passed 405 lifecycle, process and control comparisons under the single native controller resource. The oracle was released idle without a recovery marker. Current-head CI and configured review remain required.
 No shared decoder, catalogue-builder or worker source changes are included. Models are off.
 
 Exit requires complete revision-bound lifecycle and control evidence, sealed files/documents/receipts, retained refusals and counterexamples, current-head CI and configured review.
 Complete portable source admission, ASM4 source-to-BODY identity, independently driven sketch edits, other operations and editable target conversion remain unfinished.
 The [change entry](../../Changes/Research/Campaigns/FusionSignedOffsetStartContrasts.md) records scope and replay.
 The Planning register remains separately owned and unmerged on PR #392; retain this child for later stable linking and view regeneration.
+
+The user explicitly expanded this campaign to 27 modelling cases and 139 native saves.
+The expansion source `c3a229ecfb1195447b9a532cc66dc975f77418b6` adds 82 archives and 114 API observations, including fractional/extreme distances, large signed offsets, a sign-crossing edit, a YZ frame and four more sealed holdouts.
+All 2,780 native comparisons and 278 production BRep initial tables pass across both groups.
+Strict reading rejects all 139 at the existing offset-start guard; partial replay preserves 139 documents and receipts with zero reader errors.
+The initial eleven fresh processes passed 165 lifecycle/control/process comparisons; the sixteen expanded processes passed another 240. All source/control hashes and independent edit, restore, rebuild, save and reopen observations agree.
+The initial and expanded source commits and reader checkout remain independently pinned; models remain disabled.
 
 ## A08h-FusionTwoSidedDraft20261127
 
@@ -1017,10 +1024,3 @@ No shared decoder, worker or production support boundary changes.
 Exit requires sealed native hashes, independent edit/restore/rebuild/save/reopen measurements with healthy controls, deterministic committed-file comparisons and current-head CI and review.
 Full support-provider semantics, general reconstruction, independently edited axis/profile drivers and editable cross-format acceptance remain unfinished.
 This child does not close B02–B05 or infer unsupported grammar from absent public projection.
-
-The user explicitly expanded this campaign to 27 modelling cases and 139 native saves.
-The expansion source `c3a229ecfb1195447b9a532cc66dc975f77418b6` adds 82 archives and 114 API observations, including fractional/extreme distances, large signed offsets, a sign-crossing edit, a YZ frame and four more sealed holdouts.
-All 2,780 native comparisons and 278 production BRep initial tables pass across both groups.
-Strict reading rejects all 139 at the existing offset-start guard; partial replay preserves 139 documents and receipts with zero reader errors.
-The initial eleven fresh processes passed all 165 lifecycle/control/process comparisons; sixteen expanded fresh-process jobs are running under the same serial resource.
-The initial and expanded source commits and reader checkout remain independently pinned; models remain disabled.
