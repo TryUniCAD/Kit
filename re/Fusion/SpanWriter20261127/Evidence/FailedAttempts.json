@@ -1,0 +1,29 @@
+{
+  "attempts": [
+    {
+      "phase": "initial generated proof on main reader91a",
+      "outcome": "rejected",
+      "reason": "ReadParameters excludes profileOffset before separately owned396 reader; no guard changed"
+    },
+    {
+      "phase": "cache comparison",
+      "outcome": "setup error",
+      "reason": "Graph cache is ValueObject; comparator corrected to ObjectFields and PointCoords; generation unchanged"
+    },
+    {
+      "phase": "tailnet native status",
+      "outcome": "transport timed out before native job submission",
+      "native_process_started": false
+    },
+    {
+      "phase": "local tailnet status",
+      "outcome": "CLI could not connect to local tailscaled socket; IPNExtension observed running",
+      "native_process_started": false
+    },
+    {
+      "phase": "evidence packaging",
+      "outcome": "path normalization error",
+      "reason": "A Python standard-library codec was outside checkout; resource paths now identify either checkout files or Python314 modules"
+    }
+  ]
+}

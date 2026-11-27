@@ -1,0 +1,372 @@
+{
+  "source_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "prototype_sha256": "8e5b3a4e7b6d7c2196d08cc10d5f2285d0aae89e27800518a06f5fdfd924dd69",
+  "models": "disabled",
+  "native_acceptance": "not_run_api_unavailable",
+  "zero_external_access_during_construction": true,
+  "denied_events": [],
+  "cases": [
+    {
+      "case": "discoveryTriangleForward",
+      "cohort": "discovery",
+      "semantic_input": {
+        "polygon_mm": [
+          [
+            -11.25,
+            -3.5
+          ],
+          [
+            17.125,
+            -1.25
+          ],
+          [
+            2.75,
+            20.5
+          ]
+        ],
+        "depth_mm": 7.625,
+        "reversed": false
+      },
+      "sha256": "64681c0990f65daf7b828a529e8f5faf1c13731be6bc5fbd20e2e606fb021b10",
+      "bytes": 8133,
+      "expected_geometry": {
+        "volume_mm3": 2476.21875,
+        "centroid_mm": [
+          2.875,
+          5.25,
+          3.8125
+        ]
+      },
+      "derived_members": {
+        "moEndSpec_c.f8c": 0,
+        "moFromEndSpec_c.t": 0
+      },
+      "stream_hashes": {
+        "Header2": "11820fc2485a92cc292d1afa6e1db353e40e1eec8130d22d608c3ab9297aed69",
+        "Contents/Config-0-ModelHeader": "6bc4d51c131c513179d4d712fcb1b25c62252067628fe3f505a993c5f680d2b1",
+        "Contents/Config-0": "c5c415b1f1dc059ac3bb7eb4351c23816c8de4ac48066924663904f084d63905",
+        "Contents/CMgr": "c2c1ecb5f374d827d38d1e3c14e246b1ae681f037433a50ff00524e85c89c10c",
+        "Contents/CMgrHdr2": "1245049936840306a2ec8dec3b0bd23299ca08241371e253b369fde578c53649",
+        "Contents/Config-0-ResolvedFeatures": "fd04ac1e354cc195ea262fe09c0a77793c86c53dca28a5ab54c0714caea88080",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "eaffb9fb5603b7ae65a94ddd13a435a64f461e69197f1c60428a6f43063a13fa",
+        "swXmlContents/KeyWords": "10046692d4fe72ea593a74faa238134c42c3f9c341d72fc0a6d6c66da8af3f9a"
+      },
+      "strict_read": {
+        "status": "failed",
+        "exception": "AttributeError",
+        "message": "'CadDocument' object has no attribute 'bounding_box'"
+      },
+      "semantic_direction_depth_match": false
+    },
+    {
+      "case": "discoveryTriangleReverse",
+      "cohort": "discovery",
+      "semantic_input": {
+        "polygon_mm": [
+          [
+            -11.25,
+            -3.5
+          ],
+          [
+            17.125,
+            -1.25
+          ],
+          [
+            2.75,
+            20.5
+          ]
+        ],
+        "depth_mm": 7.625,
+        "reversed": true
+      },
+      "sha256": "1dfc4ba8ee778fa931000f226065c55adf564dfd0eeeed005ab77eea44eb45b6",
+      "bytes": 8109,
+      "expected_geometry": {
+        "volume_mm3": 2476.21875,
+        "centroid_mm": [
+          2.875,
+          5.25,
+          -3.8125
+        ]
+      },
+      "derived_members": {
+        "moEndSpec_c.f8c": 1,
+        "moFromEndSpec_c.t": 0
+      },
+      "stream_hashes": {
+        "Header2": "d4618fd9bf12deaa42d4984644baf0391c15305fd0978f137e727167a0a561a7",
+        "Contents/Config-0-ModelHeader": "3661892c2379e6bbadc6e3398d9ca44e1bad58e998f6beaf3d2b40bf11a345ce",
+        "Contents/Config-0": "8dc0a709430ab6d5f8ab20158dc096661fc41489070f7dabec8f3d21dc205258",
+        "Contents/CMgr": "c2c1ecb5f374d827d38d1e3c14e246b1ae681f037433a50ff00524e85c89c10c",
+        "Contents/CMgrHdr2": "1245049936840306a2ec8dec3b0bd23299ca08241371e253b369fde578c53649",
+        "Contents/Config-0-ResolvedFeatures": "75ef8fa262dca38d3e6aad8e823b8aea45b78e30ac5060e880cdd817953e7423",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "eaffb9fb5603b7ae65a94ddd13a435a64f461e69197f1c60428a6f43063a13fa",
+        "swXmlContents/KeyWords": "46c8785fed5671ea1c636525d828ef0536a4dbd535ec633fe0cb385f8e286b3c"
+      },
+      "strict_read": {
+        "status": "failed",
+        "exception": "SldprtFormat",
+        "message": "SLDPRT contains no readable Parasolid payload"
+      },
+      "semantic_direction_depth_match": false
+    },
+    {
+      "case": "holdoutStepForward",
+      "cohort": "sealed_parameter_holdout",
+      "semantic_input": {
+        "polygon_mm": [
+          [
+            -8.5,
+            -6.25
+          ],
+          [
+            26.75,
+            -6.25
+          ],
+          [
+            26.75,
+            18.125
+          ],
+          [
+            7.375,
+            18.125
+          ],
+          [
+            7.375,
+            2.5
+          ],
+          [
+            -8.5,
+            2.5
+          ]
+        ],
+        "depth_mm": 13.375,
+        "reversed": false
+      },
+      "sha256": "911f9a94fdd51e9746a363e7e1591d00c0d404073408ff5645366b13f7641837",
+      "bytes": 8176,
+      "expected_geometry": {
+        "volume_mm3": 8174.423828125,
+        "centroid_mm": [
+          13.056715773999745,
+          4.161886424645277,
+          6.6875
+        ]
+      },
+      "derived_members": {
+        "moEndSpec_c.f8c": 0,
+        "moFromEndSpec_c.t": 0
+      },
+      "stream_hashes": {
+        "Header2": "4cca5fd7cbc4ebeb441452e002cfa7a1fce94a64d44d0ef2c79a87e43fdc1262",
+        "Contents/Config-0-ModelHeader": "68eb0a182dc7e7a67a7af2b6b31aa5694a722e281aefa5bb6f7f0788869c9612",
+        "Contents/Config-0": "39e32544612a5c9a2a63472f7e0c9f08d21c1293bb187488f104ae9dafc7bc1e",
+        "Contents/CMgr": "c2c1ecb5f374d827d38d1e3c14e246b1ae681f037433a50ff00524e85c89c10c",
+        "Contents/CMgrHdr2": "1245049936840306a2ec8dec3b0bd23299ca08241371e253b369fde578c53649",
+        "Contents/Config-0-ResolvedFeatures": "22f68d9bc5e38637f76d6c196c35d952a3065e96208a7b4bc2f74f7cffb0bdc8",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "eaffb9fb5603b7ae65a94ddd13a435a64f461e69197f1c60428a6f43063a13fa",
+        "swXmlContents/KeyWords": "f7310695a4bf032465cdd08c7167c4391dc9dd58fd2a5df15b94273b2f747436"
+      },
+      "strict_read": {
+        "status": "failed",
+        "exception": "AttributeError",
+        "message": "'CadDocument' object has no attribute 'bounding_box'"
+      },
+      "semantic_direction_depth_match": false
+    },
+    {
+      "case": "holdoutStepReverse",
+      "cohort": "sealed_parameter_holdout",
+      "semantic_input": {
+        "polygon_mm": [
+          [
+            -8.5,
+            -6.25
+          ],
+          [
+            26.75,
+            -6.25
+          ],
+          [
+            26.75,
+            18.125
+          ],
+          [
+            7.375,
+            18.125
+          ],
+          [
+            7.375,
+            2.5
+          ],
+          [
+            -8.5,
+            2.5
+          ]
+        ],
+        "depth_mm": 13.375,
+        "reversed": true
+      },
+      "sha256": "f08a0e7149e7e2b2de523305027139e22cd599acd69e6ee7f9c447ba36b02eed",
+      "bytes": 8152,
+      "expected_geometry": {
+        "volume_mm3": 8174.423828125,
+        "centroid_mm": [
+          13.056715773999745,
+          4.161886424645277,
+          -6.6875
+        ]
+      },
+      "derived_members": {
+        "moEndSpec_c.f8c": 1,
+        "moFromEndSpec_c.t": 0
+      },
+      "stream_hashes": {
+        "Header2": "039d44dc2874af1f7803315299c6c050a9f4f59bb45c26fc9c9d83a864c2ac02",
+        "Contents/Config-0-ModelHeader": "860a8d9f8095b9ce594cdc39b9ccf7c5adbd7aa8137a27eb9bbb08c4f84a49c6",
+        "Contents/Config-0": "5840e3a5882c72fcb8fb9293bc60b6cbea877f3f54aa2e29520d985284427e92",
+        "Contents/CMgr": "c2c1ecb5f374d827d38d1e3c14e246b1ae681f037433a50ff00524e85c89c10c",
+        "Contents/CMgrHdr2": "1245049936840306a2ec8dec3b0bd23299ca08241371e253b369fde578c53649",
+        "Contents/Config-0-ResolvedFeatures": "d3f76f1bd48b615e7f9aff24dc10c4be1b68eaa6b6c4853729856bf03979ff8b",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "eaffb9fb5603b7ae65a94ddd13a435a64f461e69197f1c60428a6f43063a13fa",
+        "swXmlContents/KeyWords": "cb73d806411cc8a4bf785cb7636d6456ed0853fae2d9dc8f6593dee34b06b3fd"
+      },
+      "strict_read": {
+        "status": "failed",
+        "exception": "SldprtFormat",
+        "message": "SLDPRT contains no readable Parasolid payload"
+      },
+      "semantic_direction_depth_match": false
+    },
+    {
+      "case": "holdoutQuadForward",
+      "cohort": "sealed_parameter_holdout",
+      "semantic_input": {
+        "polygon_mm": [
+          [
+            -17.25,
+            3.125
+          ],
+          [
+            2.625,
+            -8.75
+          ],
+          [
+            19.5,
+            7.25
+          ],
+          [
+            0.375,
+            25.5
+          ]
+        ],
+        "depth_mm": 23.125,
+        "reversed": false
+      },
+      "sha256": "322692bd32ef271c1e74e49650cc92ead8f3c994ae9dece443e21095c2b8f151",
+      "bytes": 8141,
+      "expected_geometry": {
+        "volume_mm3": 14660.888671875,
+        "centroid_mm": [
+          1.181626617375231,
+          7.290794824399261,
+          11.5625
+        ]
+      },
+      "derived_members": {
+        "moEndSpec_c.f8c": 0,
+        "moFromEndSpec_c.t": 0
+      },
+      "stream_hashes": {
+        "Header2": "89ed0226ded98ad7fc2b7a81c72e9dcef61d4f6a055760a1bcc9632730cdf962",
+        "Contents/Config-0-ModelHeader": "23c82333ae909e0232f9264dc0c1cde5d54041338d4479fc6cc7daeff799d327",
+        "Contents/Config-0": "8e1c78409ead9ef4d25a07bf4219ce85eda6d930b16c2bd60c110527d113884a",
+        "Contents/CMgr": "c2c1ecb5f374d827d38d1e3c14e246b1ae681f037433a50ff00524e85c89c10c",
+        "Contents/CMgrHdr2": "1245049936840306a2ec8dec3b0bd23299ca08241371e253b369fde578c53649",
+        "Contents/Config-0-ResolvedFeatures": "6aebb0f879f5347cedb5399241d86c52c9e531a4117a32785729827d66af5817",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "eaffb9fb5603b7ae65a94ddd13a435a64f461e69197f1c60428a6f43063a13fa",
+        "swXmlContents/KeyWords": "2983f92d8f4d0a60758e2f8354283035e66870387d2ef86c4f9e774cc9924ef8"
+      },
+      "strict_read": {
+        "status": "failed",
+        "exception": "AttributeError",
+        "message": "'CadDocument' object has no attribute 'bounding_box'"
+      },
+      "semantic_direction_depth_match": false
+    },
+    {
+      "case": "holdoutQuadReverse",
+      "cohort": "sealed_parameter_holdout",
+      "semantic_input": {
+        "polygon_mm": [
+          [
+            -17.25,
+            3.125
+          ],
+          [
+            2.625,
+            -8.75
+          ],
+          [
+            19.5,
+            7.25
+          ],
+          [
+            0.375,
+            25.5
+          ]
+        ],
+        "depth_mm": 23.125,
+        "reversed": true
+      },
+      "sha256": "c79169da7ae31244ce930653c6047bbe17f76e7864f2a959d0ef228236ea8bca",
+      "bytes": 8122,
+      "expected_geometry": {
+        "volume_mm3": 14660.888671875,
+        "centroid_mm": [
+          1.181626617375231,
+          7.290794824399261,
+          -11.5625
+        ]
+      },
+      "derived_members": {
+        "moEndSpec_c.f8c": 1,
+        "moFromEndSpec_c.t": 0
+      },
+      "stream_hashes": {
+        "Header2": "d708f9457947a0bfee95883213fbb5faec5c4c8e195232f6244d76dfff796b83",
+        "Contents/Config-0-ModelHeader": "62db8ed9e860cec4779b6924e6758f93082f9849f752f53d5aa9a2acb5d23e46",
+        "Contents/Config-0": "26956236d84db43ec1a633dc52d59d0fbd177603ca66380ecfc5e29811b7d43d",
+        "Contents/CMgr": "c2c1ecb5f374d827d38d1e3c14e246b1ae681f037433a50ff00524e85c89c10c",
+        "Contents/CMgrHdr2": "1245049936840306a2ec8dec3b0bd23299ca08241371e253b369fde578c53649",
+        "Contents/Config-0-ResolvedFeatures": "ca4a6d28f42f51dfac187d4b7600b41fdd6d7801d202832fadf95af7afb9138f",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "eaffb9fb5603b7ae65a94ddd13a435a64f461e69197f1c60428a6f43063a13fa",
+        "swXmlContents/KeyWords": "5193ff90b5a9fd61363d3d1817ae49cf3ae24681478540e890800c24c5a52179"
+      },
+      "strict_read": {
+        "status": "failed",
+        "exception": "SldprtFormat",
+        "message": "SLDPRT contains no readable Parasolid payload"
+      },
+      "semantic_direction_depth_match": false
+    }
+  ],
+  "unresolved": [
+    "native edit/restore/rebuild/save/fresh-process reopen",
+    "modern saved cap-field provenance including reverse CapEnd[1]",
+    "typed forward-only reader rejection and complete reversed cold prism if refused",
+    "native confirmation of regenerated display/configuration defaults"
+  ]
+}

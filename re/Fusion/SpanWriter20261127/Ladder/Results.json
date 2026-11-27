@@ -1,0 +1,227 @@
+{
+  "generator_sha256": "e42791858648b5e1f1ef7412ee065c5b894cb7513976b25c0dbb5584e57fbe82",
+  "sdk_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "models": false,
+  "native_acceptance": "not_run_transport_unavailable",
+  "files": 13,
+  "passed": 13,
+  "cases": [
+    {
+      "case": "baseline",
+      "values_mm": [
+        13.0,
+        17.0,
+        29.0,
+        7.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "d85399f091974e92940f7bceb29d1ea20eaad19756db5c150b4589c8a2512642",
+      "bytes": 85736,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis0-7.1",
+      "values_mm": [
+        7.1,
+        17.0,
+        29.0,
+        7.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "a72ad24df27c581b573638b17522cf983929a03206ebb296e70e161cbb614086",
+      "bytes": 85736,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis0-19.7",
+      "values_mm": [
+        19.7,
+        17.0,
+        29.0,
+        7.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "f7bf0003789f1671688001dc6840a5fe921ce4e6cecfe2245a7dd256e80305f0",
+      "bytes": 85736,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis1-3.7",
+      "values_mm": [
+        13.0,
+        3.7,
+        29.0,
+        7.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "d7d058819fe1e436b9627fcf51c84d64fd04274d1a18014290d0f33951c71d22",
+      "bytes": 85734,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis1-61.3",
+      "values_mm": [
+        13.0,
+        61.3,
+        29.0,
+        7.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "e4462e64b9e717d73191a121ca34ccf30112cd6845d397c5157ccf9bb3dfbf82",
+      "bytes": 85736,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis2-5.9",
+      "values_mm": [
+        13.0,
+        17.0,
+        5.9,
+        7.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "9eaf71510a43952569ee5dfe670f2069f5828976aa6b0606dba002c68b7ab22b",
+      "bytes": 85734,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis2-53.1",
+      "values_mm": [
+        13.0,
+        17.0,
+        53.1,
+        7.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "5e0f45bc764095bc2eace8b2244c41a43d7751b790942fdc281ffe142b4b4ec7",
+      "bytes": 85736,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis3--41.9",
+      "values_mm": [
+        13.0,
+        17.0,
+        29.0,
+        -41.9
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "56dae452fda66f4779cddeb31cea16e0173ee81541c16876db6b3ea21c790c34",
+      "bytes": 85740,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis3-0.0",
+      "values_mm": [
+        13.0,
+        17.0,
+        29.0,
+        0.0
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "e6a8003e75c1cbe1d70331a3e4e195e938e36b50358ee3614d8346f6d68d34b9",
+      "bytes": 85736,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "values_mm": [
+        13.0,
+        17.0,
+        29.0,
+        1e-06
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "f34115a5b1d914d7576b3950e897503e0d17aaad8c810547e9c0b0f9eb3a8290",
+      "bytes": 85740,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "axis3-83.7",
+      "values_mm": [
+        13.0,
+        17.0,
+        29.0,
+        83.7
+      ],
+      "holdout": false,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "07fd5a4960cee6cb7a9b812f556d96f729f2629551062083bdbab410a6427826",
+      "bytes": 85738,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "holdout_a",
+      "values_mm": [
+        11.3,
+        23.9,
+        37.7,
+        -13.1
+      ],
+      "holdout": true,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "f3ccf552d88dffb5a1734f8d265d5b12c45507adef575d2ee35a2cacb83a36dd",
+      "bytes": 85740,
+      "typed_roundtrip": true
+    },
+    {
+      "case": "holdout_b",
+      "values_mm": [
+        29.3,
+        13.7,
+        47.9,
+        61.1
+      ],
+      "holdout": true,
+      "vendor_loadable": false,
+      "application_usable": false,
+      "sha256": "9e2f72ad09f1b342f8a60041e22b32a52018fccad7b0cfed0da734b67f1c6ef7",
+      "bytes": 85738,
+      "typed_roundtrip": true
+    }
+  ],
+  "writer_reads": [
+    {
+      "path": "Python314/utf_16_le.cpython-314.pyc",
+      "sha256": "57d6e57a794dda741555842b60804d7d3bccdd2b002529ca6f67b7530a137843"
+    },
+    {
+      "path": "src/convert/Formats/Fusion/ContainerCodec/Assembly/ActClasses.json",
+      "sha256": "0c9f907572cc011f81d12fbab7af7b7d1e1a0e6231580606ea4ce53733aeb738"
+    },
+    {
+      "path": "src/convert/Formats/Fusion/ContainerCodec/Browser/BrowserClasses.json",
+      "sha256": "d4bc057abbfd691c19c21a2a9f86d2ccf0f4c955d72c62f59089b41aec00d10b"
+    },
+    {
+      "path": "src/convert/Formats/Fusion/DocumentCodec/Materials/Vocabulary/MaterialSchemas.json",
+      "sha256": "20a665a9ea4250d2a6d9b416dc8bc280a7d858bfc105377599be71305a8a80ff"
+    },
+    {
+      "path": "src/convert/Formats/Fusion/DocumentCodec/Vocabulary/DesignClasses.json",
+      "sha256": "67e5e8667e736985ee2b25b556b7ea67f691980b61ad6f3d6112823fd8830dd1"
+    }
+  ]
+}

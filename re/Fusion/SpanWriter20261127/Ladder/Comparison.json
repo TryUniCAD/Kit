@@ -1,0 +1,724 @@
+{
+  "reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+  "models": false,
+  "native_acceptance": "not_run_transport_unavailable",
+  "passed": 104,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "baseline",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "field": "ProfileOffset",
+      "expected": 7.0,
+      "actual": 7.0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "field": "volume",
+      "expected": 24.42274128900705,
+      "actual": 24.42274128900705,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "field": "area",
+      "expected": 48.19203130606742,
+      "actual": 48.19203130606742,
+      "passed": true
+    },
+    {
+      "case": "baseline",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "ProfileOffset",
+      "expected": 7.0,
+      "actual": 7.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "volume",
+      "expected": 7.284913540703226,
+      "actual": 7.284913540703226,
+      "passed": true
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "area",
+      "expected": 23.688236926597753,
+      "actual": 23.688236926597753,
+      "passed": true
+    },
+    {
+      "case": "axis0-7.1",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "ProfileOffset",
+      "expected": 7.0,
+      "actual": 7.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "volume",
+      "expected": 56.08415187485648,
+      "actual": 56.08415187485648,
+      "passed": true
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "area",
+      "expected": 81.32263911229465,
+      "actual": 81.32263911229465,
+      "passed": true
+    },
+    {
+      "case": "axis0-19.7",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "AlongDistance",
+      "expected": 3.7,
+      "actual": 3.7,
+      "passed": true
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "ProfileOffset",
+      "expected": 7.0,
+      "actual": 7.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "volume",
+      "expected": 17.361383481533277,
+      "actual": 17.361383481533277,
+      "passed": true
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "area",
+      "expected": 37.32840390995393,
+      "actual": 37.32840390995393,
+      "passed": true
+    },
+    {
+      "case": "axis1-3.7",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "AlongDistance",
+      "expected": 61.3,
+      "actual": 61.3,
+      "passed": true
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "ProfileOffset",
+      "expected": 7.0,
+      "actual": 7.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "volume",
+      "expected": 47.94290300863776,
+      "actual": 47.94290300863776,
+      "passed": true
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "area",
+      "expected": 84.37689549011466,
+      "actual": 84.37689549011466,
+      "passed": true
+    },
+    {
+      "case": "axis1-61.3",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "AgainstDistance",
+      "expected": 5.9,
+      "actual": 5.9,
+      "passed": true
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "ProfileOffset",
+      "expected": 7.0,
+      "actual": 7.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "volume",
+      "expected": 12.15827772865786,
+      "actual": 12.15827772865786,
+      "passed": true
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "area",
+      "expected": 29.323625828607128,
+      "actual": 29.323625828607128,
+      "passed": true
+    },
+    {
+      "case": "axis2-5.9",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "AgainstDistance",
+      "expected": 53.1,
+      "actual": 53.10000000000001,
+      "passed": true
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "ProfileOffset",
+      "expected": 7.0,
+      "actual": 7.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "volume",
+      "expected": 37.21813400781292,
+      "actual": 37.21813400781292,
+      "passed": true
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "area",
+      "expected": 67.87725087346108,
+      "actual": 67.87725087346108,
+      "passed": true
+    },
+    {
+      "case": "axis2-53.1",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "ProfileOffset",
+      "expected": -41.9,
+      "actual": -41.89999999999999,
+      "passed": true
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "volume",
+      "expected": 24.42274128900705,
+      "actual": 24.42274128900705,
+      "passed": true
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "area",
+      "expected": 48.19203130606742,
+      "actual": 48.19203130606742,
+      "passed": true
+    },
+    {
+      "case": "axis3--41.9",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "ProfileOffset",
+      "expected": 0.0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "volume",
+      "expected": 24.42274128900705,
+      "actual": 24.42274128900705,
+      "passed": true
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "area",
+      "expected": 48.19203130606742,
+      "actual": 48.19203130606742,
+      "passed": true
+    },
+    {
+      "case": "axis3-0.0",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "ProfileOffset",
+      "expected": 1e-06,
+      "actual": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "volume",
+      "expected": 24.42274128900705,
+      "actual": 24.42274128900705,
+      "passed": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "area",
+      "expected": 48.19203130606742,
+      "actual": 48.19203130606742,
+      "passed": true
+    },
+    {
+      "case": "axis3-1e-06",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "AlongDistance",
+      "expected": 17.0,
+      "actual": 17.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "AgainstDistance",
+      "expected": 29.0,
+      "actual": 29.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "ProfileOffset",
+      "expected": 83.7,
+      "actual": 83.70000000000002,
+      "passed": true
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "volume",
+      "expected": 24.42274128900705,
+      "actual": 24.42274128900705,
+      "passed": true
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "area",
+      "expected": 48.19203130606742,
+      "actual": 48.19203130606742,
+      "passed": true
+    },
+    {
+      "case": "axis3-83.7",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "holdout_a",
+      "field": "AlongDistance",
+      "expected": 23.9,
+      "actual": 23.9,
+      "passed": true
+    },
+    {
+      "case": "holdout_a",
+      "field": "AgainstDistance",
+      "expected": 37.7,
+      "actual": 37.7,
+      "passed": true
+    },
+    {
+      "case": "holdout_a",
+      "field": "ProfileOffset",
+      "expected": -13.1,
+      "actual": -13.100000000000001,
+      "passed": true
+    },
+    {
+      "case": "holdout_a",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "holdout_a",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "holdout_a",
+      "field": "volume",
+      "expected": 24.71083790171185,
+      "actual": 24.71083790171185,
+      "passed": true
+    },
+    {
+      "case": "holdout_a",
+      "field": "area",
+      "expected": 51.758995604953284,
+      "actual": 51.758995604953284,
+      "passed": true
+    },
+    {
+      "case": "holdout_a",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    },
+    {
+      "case": "holdout_b",
+      "field": "AlongDistance",
+      "expected": 13.7,
+      "actual": 13.7,
+      "passed": true
+    },
+    {
+      "case": "holdout_b",
+      "field": "AgainstDistance",
+      "expected": 47.9,
+      "actual": 47.9,
+      "passed": true
+    },
+    {
+      "case": "holdout_b",
+      "field": "ProfileOffset",
+      "expected": 61.1,
+      "actual": 61.1,
+      "passed": true
+    },
+    {
+      "case": "holdout_b",
+      "field": "TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "holdout_b",
+      "field": "Side2TaperAngle",
+      "expected": 0,
+      "actual": 0.0,
+      "passed": true
+    },
+    {
+      "case": "holdout_b",
+      "field": "volume",
+      "expected": 166.13679403430658,
+      "actual": 166.13679403430658,
+      "passed": true
+    },
+    {
+      "case": "holdout_b",
+      "field": "area",
+      "expected": 167.34447251582895,
+      "actual": 167.34447251582895,
+      "passed": true
+    },
+    {
+      "case": "holdout_b",
+      "field": "strict_boundary",
+      "passed": true,
+      "reason": "Native Fusion state is outside the qualified authored feature profile"
+    }
+  ]
+}

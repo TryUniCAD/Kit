@@ -1,0 +1,138 @@
+{
+  "task": "A11-GeneratedOffsetSpan20261127",
+  "sdk_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+  "native_acceptance": false,
+  "files": [
+    {
+      "path": "CheckGenerated.py",
+      "sha256": "cecea2e8e5f66d844ab659406f742809ebfa1514b26130b84a075f6ba2df2cec",
+      "bytes": 3478
+    },
+    {
+      "path": "Evidence/FailedAttempts.json",
+      "sha256": "0e81e3ac0787424c4e524e10ff49c7ea5cc09147562a2aed78acc4f553c5f13a",
+      "bytes": 1021
+    },
+    {
+      "path": "Generate.py",
+      "sha256": "e42791858648b5e1f1ef7412ee065c5b894cb7513976b25c0dbb5584e57fbe82",
+      "bytes": 7274
+    },
+    {
+      "path": "Initial/Comparison.json",
+      "sha256": "15bbcc328fd17762616ac3f9a30ce968acee864fa3dbbd588136a32393adf022",
+      "bytes": 3728
+    },
+    {
+      "path": "Initial/Results.json",
+      "sha256": "b0fac36001ccea1ba043e46a2a4286b77147fc612f34b14f1e52054e4cf7c8d1",
+      "bytes": 1294
+    },
+    {
+      "path": "Initial/baseline.f3d",
+      "sha256": "26a16dd84775a1830b04b01f3eef76d48ac3ac5dc72723e47949b64c4802930b",
+      "bytes": 85736
+    },
+    {
+      "path": "Initial/holdout.f3d",
+      "sha256": "48ed7e8759279d52b0913b58ce43a379925d86f9c48fa799d82cd72b81a43c74",
+      "bytes": 85734
+    },
+    {
+      "path": "Initial/negative.f3d",
+      "sha256": "882b16ff9f3d210b78722ab78d4ce3e0ee2ab4752b02f711b236eb3833283304",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/Comparison.json",
+      "sha256": "7ce820377827ee1b07d65340cc66fe2de1488e8fcdf45e55a23a5a8836a7912f",
+      "bytes": 15717
+    },
+    {
+      "path": "Ladder/Results.json",
+      "sha256": "1eeedc72002edb88eff35d62ac03324bb09005eb8b2cbff1013a4bc14c1c8c31",
+      "bytes": 5766
+    },
+    {
+      "path": "Ladder/axis0-19.7.f3d",
+      "sha256": "f7bf0003789f1671688001dc6840a5fe921ce4e6cecfe2245a7dd256e80305f0",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis0-7.1.f3d",
+      "sha256": "a72ad24df27c581b573638b17522cf983929a03206ebb296e70e161cbb614086",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis1-3.7.f3d",
+      "sha256": "d7d058819fe1e436b9627fcf51c84d64fd04274d1a18014290d0f33951c71d22",
+      "bytes": 85734
+    },
+    {
+      "path": "Ladder/axis1-61.3.f3d",
+      "sha256": "e4462e64b9e717d73191a121ca34ccf30112cd6845d397c5157ccf9bb3dfbf82",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis2-5.9.f3d",
+      "sha256": "9eaf71510a43952569ee5dfe670f2069f5828976aa6b0606dba002c68b7ab22b",
+      "bytes": 85734
+    },
+    {
+      "path": "Ladder/axis2-53.1.f3d",
+      "sha256": "5e0f45bc764095bc2eace8b2244c41a43d7751b790942fdc281ffe142b4b4ec7",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis3--41.9.f3d",
+      "sha256": "56dae452fda66f4779cddeb31cea16e0173ee81541c16876db6b3ea21c790c34",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/axis3-0.0.f3d",
+      "sha256": "e6a8003e75c1cbe1d70331a3e4e195e938e36b50358ee3614d8346f6d68d34b9",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis3-1e-06.f3d",
+      "sha256": "f34115a5b1d914d7576b3950e897503e0d17aaad8c810547e9c0b0f9eb3a8290",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/axis3-83.7.f3d",
+      "sha256": "07fd5a4960cee6cb7a9b812f556d96f729f2629551062083bdbab410a6427826",
+      "bytes": 85738
+    },
+    {
+      "path": "Ladder/baseline.f3d",
+      "sha256": "d85399f091974e92940f7bceb29d1ea20eaad19756db5c150b4589c8a2512642",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/holdout_a.f3d",
+      "sha256": "f3ccf552d88dffb5a1734f8d265d5b12c45507adef575d2ee35a2cacb83a36dd",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/holdout_b.f3d",
+      "sha256": "9e2f72ad09f1b342f8a60041e22b32a52018fccad7b0cfed0da734b67f1c6ef7",
+      "bytes": 85738
+    },
+    {
+      "path": "README.md",
+      "sha256": "f07f0c26fb662578ec5a1b1f8d27f70a9c536d809ac679480b9eea4be7432de9",
+      "bytes": 5044
+    },
+    {
+      "path": "RunLadder.py",
+      "sha256": "0925b3a3fb8fc654ab4490830678f585178165364bbe3abe73a6148ec87690ae",
+      "bytes": 2261
+    },
+    {
+      "path": "__pycache__/Generate.cpython-314.pyc",
+      "sha256": "118fac0269c0316d5a80718b385e067f7d01f419d040e0b96a488d33f1b24c5d",
+      "bytes": 13143
+    }
+  ]
+}

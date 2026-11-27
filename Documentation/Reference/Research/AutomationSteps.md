@@ -996,3 +996,24 @@ No shared decoder, worker or production support boundary changes.
 Exit requires sealed native hashes, independent edit/restore/rebuild/save/reopen measurements with healthy controls, deterministic committed-file comparisons and current-head CI and review.
 Full support-provider semantics, general reconstruction, independently edited axis/profile drivers and editable cross-format acceptance remain unfinished.
 This child does not close B02–B05 or infer unsupported grammar from absent public projection.
+
+## A16-DecodedReadWrite20261127
+
+Codex owns the user-requested full decoded SOLIDWORKS/Fusion SDK and CLI read/write programme on `feat/decoded-cad-read-write-20261127`, from fresh main `91a73de348894a5791a51b977cd6fe0fe677a617`.
+Status is active; full implementation and native acceptance remain unfinished.
+Dependencies are the existing A04/A05/A11/A12/A13/A14 contracts, recorded native sources, proven grammar, shared research controller and licensed exclusive oracles.
+The claim and coordination are recorded on PRs #94, #121 and #299; existing PRs #244/#297/#299/#303/#396 retain their delivery scopes.
+Planning PR #392 remains separate and unmerged; retain the existing claim until stable register linking is available.
+
+| Child                              | Decided scope                                                                                      | Owner                   | Status | Exit                                                                                                                                                |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A11-GeneratedOffsetSpan20261127    | Source-free XY circular two-sided signed-offset generation and SDK/CLI admission                   | Codex root              | active | Complete generated field rules, native held-out edits/restoration/rebuild/save/fresh reopen, strict public reads/writes and shared-suite acceptance |
+| A11-CircularStatePromotion20261127 | Complete typed-state preservation and candidate qualification for existing circular extent readers | Codex Fusion worker     | active | Exact generated candidates pass native lifecycle and source preservation; neutral-distance generation remains distinct                              |
+| A12-ReverseBlindBoss20261127       | Generative reverse blind line-loop boss direction and coupled reader/body proof                    | Codex SOLIDWORKS worker | active | Native source-admitted direction/body grammar and held-out editable generated candidates pass public SDK/CLI and native acceptance                  |
+
+The [change entry](../../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links both complete family inventories and revision-bound prototype evidence.
+Thirteen source-free Fusion span candidates pass typed equality and 104 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
+SOLIDWORKS reverse candidates and genuine saved controls retain their explicit typed-grammar, geometry and native-acceptance gaps.
+No production support flag or public qualification guard was broadened by this delivery.
+The native API status request timed out before any job submission; native candidate validation is waiting for transport recovery while offline implementation continues.
+Exit for the full task requires every evidenced decoded family to have complete semantic reading and donor-free generative writing through the shared SDK/CLI, with independent target acceptance and current-head CI/review.

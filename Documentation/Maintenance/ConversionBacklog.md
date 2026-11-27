@@ -765,3 +765,11 @@ The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusionunequalax
 The [package](../../re/Fusion/UnequalAxis20261127/README.md) retains native source controls, explicit refusals and deterministic reader receipts.
 Publication uses [PR #393](https://github.com/TryUniCAD/Kit/pull/393); B02–B05 and the production snapshot remain unchanged.
 Planning-register linkage follows stable availability of that separate work.
+
+## A16-DecodedReadWrite20261127
+
+Codex owns the user-requested full decoded SOLIDWORKS/Fusion SDK and CLI read/write implementation on `feat/decoded-cad-read-write-20261127`.
+The [owning register](../Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127) records three decided active child scopes, dependencies and explicit exit conditions.
+The [change entry](../Changes/Research/Encoder/DecodedFeatureWriterPromotion.md) links the per-family inventories, new generative prototypes, retained refusals and remaining acceptance gaps.
+Existing separate PR ownership is preserved; this work does not establish broad native writer or conversion acceptance.
+Native verification is waiting for the tailnet CAD API, which timed out before any job dispatch.
