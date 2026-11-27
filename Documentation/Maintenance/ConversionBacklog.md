@@ -752,5 +752,5 @@ Representative-user evaluation and the broader B11 exit remain open.
 Codex owns independently drafted two-sided circular Fusion extrusion evidence on `feat/fusion-two-sided-draft-20261127`.
 The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusiontwosideddraft20261127) records dependencies, native-resource ownership and exit requirements.
 The [package](../../re/Fusion/TwoSidedDraft20261127/README.md) preserves native sources, signed parameter roles, strict refusals and separate fresh-process witnesses.
-Delivery uses its own PR. B02–B05 and the supported production boundary remain unchanged.
+Delivery: [PR #394](https://github.com/TryUniCAD/Kit/pull/394). B02–B05 and the supported production boundary remain unchanged.
 The existing child claim is retained while the Planning register remains a separate unmerged delivery.

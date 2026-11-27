@@ -953,7 +953,7 @@ The bounded width repair now has 22 passing complete-model/native comparisons, s
 
 Codex owns this bounded campaign on `feat/fusion-two-sided-draft-20261127`, based on fresh main `18b41b98c96fd123a11d1ae0d1cda29b9d9746ed`.
 It depends on A03, A05a, A08h, the existing catalogue and native script workers, and the licensed THY-PC Fusion resource.
-The child claim and progress are recorded on PR #94. A separate normal delivery PR follows, as explicitly requested.
+The child claim and progress are recorded on PR #94. Delivery: [PR #394](https://github.com/TryUniCAD/Kit/pull/394).
 The [package](../../../re/Fusion/TwoSidedDraft20261127/README.md) retains unequal two-side circular extrusions with independent signed draft angles.
 Discovery varies each distance and draft, radius, placement and frame, with swapped-side counterexamples and two parameter holdouts.
 
@@ -965,7 +965,7 @@ The original script-size refusals remain retained. Revised template generations 
 
 Eleven distinct fresh processes passed all 198 lifecycle, process and control comparisons.
 The oracle was released idle with no recovery marker.
-Status is checking for publication; current-head CI and configured review remain required.
+Status is checking on PR #394; current-head CI and configured review remain required.
 Exit requires sealed committed inputs, complete source/lifecycle observations, retained strict refusals and counterexamples, current-head CI and configured review.
 No model, shared decoder, catalogue-builder or worker change is claimed. B02–B05 and editable target conversion remain unfinished.
 The [change entry](../../Changes/Research/Campaigns/FusionIndependentTwoSidedDrafts.md) records the evidence boundary.
