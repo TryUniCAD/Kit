@@ -954,7 +954,8 @@ The bounded width repair now has 22 passing complete-model/native comparisons, s
 Codex owns this bounded research campaign on `feat/fusion-unequal-revolve-20261127`, based on fresh main `331ef8ce95f7e46814c5086110be9a23478ca8a8`.
 The [package](../../../re/Fusion/UnequalAxis20261127/README.md) retains unequal two-sided solid NewBody revolutions about explicit TwoPoints construction axes.
 Dependencies are A03, A05a, A08h, the existing catalogue and native API workers, and the licensed private Fusion oracle.
-The child claim and progress are recorded on PR #94; delivery uses its own scoped PR as explicitly requested.
+The child claim and progress are recorded on PR #94.
+Delivery is [PR #393](https://github.com/TryUniCAD/Kit/pull/393), a separate scoped PR as explicitly requested.
 Planning is absent from this task's fetched main; retain this child for later linking to its stable register.
 
 The source checkpoint `233985bac73d454f6df22e44dd3cad06bb92f7da` contains 46 native archives and 57 matching API observations.

@@ -752,5 +752,5 @@ Representative-user evaluation and the broader B11 exit remain open.
 Codex owns a bounded unequal two-sided Fusion revolution campaign on `feat/fusion-unequal-revolve-20261127`.
 The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusionunequalaxis20261127) records dependencies, evidence and exit requirements.
 The [package](../../re/Fusion/UnequalAxis20261127/README.md) retains native source controls, explicit refusals and deterministic reader receipts.
-Publication uses a separate scoped PR; B02–B05 and the production snapshot remain unchanged.
+Publication uses [PR #393](https://github.com/TryUniCAD/Kit/pull/393); B02–B05 and the production snapshot remain unchanged.
 Planning-register linkage follows stable availability of that separate work.
