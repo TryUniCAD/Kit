@@ -16,7 +16,18 @@ It does not prove vendor acceptance for a particular file.
 
 ## Procedure
 
-1. Read the registered adapter metadata in your Python application.
+1. Read the installed reader and writer catalogue.
+
+   ```sh
+   kit formats
+   kit formats --json
+   ```
+
+   In a repository environment, use `uv run --frozen --no-default-groups kit formats`.
+   The CLI reports reading and writing separately.
+   An input suffix does not necessarily identify an available output suffix.
+
+2. Read the registered adapter metadata when integrating through Python.
 
    ```python
    from convert import available_adapters as ListAdapters
@@ -25,10 +36,10 @@ It does not prove vendor acceptance for a particular file.
        print(AdapterData.format_id, AdapterData.aliases, AdapterData.extensions)
    ```
 
-2. Match the input to a registered reader format.
-3. Match the destination to a registered writer format.
-4. Read the format-specific limitations.
-5. Record the chosen identifiers with the conversion request.
+3. Match the input to a registered reader format.
+4. Match the destination to a registered writer format.
+5. Read the format-specific limitations.
+6. Record the chosen identifiers with the conversion request.
 
 Expected result: the request identifies the intended source and destination formats.
 If more than one writer matches a stream, supply `destination_format` explicitly.
@@ -45,6 +56,9 @@ If more than one writer matches a stream, supply `destination_format` explicitly
 | `interchange.json`  | `.json`                   | [JSON adapter](../Reference/Adapters/Json.md)                                |
 
 The discovery result from the installed revision takes precedence over this table.
+`AdapterInfo.version` identifies the adapter implementation version, not a supported vendor file-version range.
+Capability categories do not establish complete feature semantics or editable conversion acceptance.
+Use the format reference and revision-bound evidence for those claims.
 Each catalogue entry has one primary `format_id` and can have additional `aliases`.
 The SOLIDWORKS entry uses `solidworks.sldprt` as its primary identifier.
 Its `aliases` field contains `solidworks.sldasm` for assemblies.
