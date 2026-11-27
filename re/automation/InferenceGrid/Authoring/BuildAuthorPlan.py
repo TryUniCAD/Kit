@@ -1,11 +1,12 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import KSolidBatchCases
 from InferenceGrid.Authoring.ReadCases import KRecipeModes, MakeCase, ReadOverrides
 from InferenceGrid.Authoring.RecipeGrid import ExpandCaseGrid
 from Records import digest
@@ -64,4 +65,8 @@ def BuildAuthorPlan(
     }
     if GridValue != "baseline":
         ResultValue["parameter_grid"] = GridValue
+    if "solidworks" in Catalogues:
+        ResultValue["solidworks_batch_version"] = 1
+        ResultValue["solidworks_batch_size"] = KSolidBatchCases
+        ResultValue["solidworks_capture_attempts"] = 3
     return ResultValue

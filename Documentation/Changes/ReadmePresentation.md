@@ -2,10 +2,9 @@
 
 ## Change
 
-The [README](../../README.md) places a GitHub wiki link and the review-service badge below the project introduction.
-It removes the legacy Parashell banner and adds a linked star history graph for `TryUniCAD/Kit`.
-
-The badge uses the review service's hosted SVG and links to its website with the supplied open-source badge campaign parameters.
+The [README](../../README.md) places a GitHub wiki link below the project introduction.
+It removes the legacy banner and adds a linked star history graph for `TryUniCAD/Kit`.
+The review-service badge was removed in the later README update.
 
 The graph uses the hosted Star History SVG endpoint in date mode.
 Select the graph to open the interactive chart.

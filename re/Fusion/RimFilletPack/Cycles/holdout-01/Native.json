@@ -1,0 +1,11 @@
+{
+  "tool_sha256": "00433b57c49865b433726737130a2381ea22932b4d655ef1b4e1b81ec8680c06",
+  "source_sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+  "status": "passed",
+  "contract": "typed same-document reconstruction, not neutral conversion",
+  "read": "passed",
+  "typed_json": "passed",
+  "model_equal": true,
+  "byte_equal": false,
+  "output_sha256": "f7c9d7872f4863ff57b1bfeb91d2aedb9d461041096e68aa199ad56e06d46429"
+}

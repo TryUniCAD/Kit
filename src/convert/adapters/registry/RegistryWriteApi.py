@@ -16,11 +16,6 @@ from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
 from convert.adapters.registry.NativeHistory import CheckHistory
 from convert.adapters.registry.NativeReadOnly import CheckReadOnly
-from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.PatReadData import (
-    IsPatRead,
-)
-from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
-from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.registry.RegistrySelect import SelectWriter
@@ -117,6 +112,14 @@ class WriteApi(WriteLookup):
         TargetData: KTargetType,
         **NamedValues: object,
     ) -> WriteResult:
+        from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.PatReadData import (
+            IsPatRead,
+        )
+        from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
+            IsColdRead,
+        )
+        from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+
         FormatId, OptionsData = GetWriteArgs(NamedValues)
         AdapterData = (
             self.GetWriter(FormatId)

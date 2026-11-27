@@ -1,0 +1,38 @@
+{
+  "schema": "kit.sw2026.encoder-vendor-source-admission.v1",
+  "sdk_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+  "adapter_revision": "973b04f512849906b5ab110266abf2d8d14527ed",
+  "python_version": "3.14.6",
+  "source_authoring_build": "34.4.1.1011",
+  "source_authoring_record_sha256": "b22e7dfd0159270358fdfb27bfaa39ae536f15dc168d9d3b81da93a8089df97a",
+  "method": "Strict public SDK open of each independently vendor-authored part, followed by generate_candidate without an edit.",
+  "native_processes_launched_during_admission": 0,
+  "cases": [
+    {
+      "source": "BaselineSource.SLDPRT",
+      "source_sha256": "02cc9e0ea4b2cebe3b99d908180b409f1ceeffd5cbef13d2a9685caaf4d8ca7d",
+      "strict_read": "passed",
+      "feature_rows": 26,
+      "body_count": 1,
+      "driving_parameters": ["D1"],
+      "brep_present": true,
+      "brep_payloads": 2,
+      "diagnostics": ["part properties require an empty compatible native manager"],
+      "generation": "refused",
+      "reason": "SOLIDWORKS source requires a complete ordinary cold part readback"
+    },
+    {
+      "source": "HeldOutSource.SLDPRT",
+      "source_sha256": "c3e2dbd133fbb35c897178a9650e60b9db000b8ebbd4b301eac05599a3f5c25f",
+      "strict_read": "passed",
+      "feature_rows": 26,
+      "body_count": 1,
+      "driving_parameters": ["D1"],
+      "brep_present": true,
+      "brep_payloads": 2,
+      "diagnostics": ["part properties require an empty compatible native manager"],
+      "generation": "refused",
+      "reason": "SOLIDWORKS source requires a complete ordinary cold part readback"
+    }
+  ]
+}

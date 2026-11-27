@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -9,7 +9,14 @@
 from json import dumps as EncodeJson
 from pathlib import Path as FilePath
 from subprocess import Popen as StartProcess
-from sys import argv as ArgValues, executable as PythonExe
+from sys import (
+    argv as ArgValues,
+    executable as PythonExe,
+    path as ImportPaths,
+    platform as PlatformName,
+)
+from importlib import import_module as ImportModule
+from typing import cast as CastValue
 from time import sleep as SleepTime
 
 
@@ -21,7 +28,20 @@ def MainChild() -> int:
         return 0
     if ModeName in {"descendant", "parentexit"}:
         ChildProc = StartProcess([PythonExe, "-B", str(FilePath(__file__)), "wait"])
-        print(EncodeJson({"child_pid": ChildProc.pid}), flush=True)
+        ChildStart = None
+        if PlatformName == "win32":
+            ImportPaths.insert(
+                0, str(FilePath(__file__).resolve().parents[5] / "re/automation")
+            )
+            ChildStart = CastValue(
+                str | None,
+                ImportModule("Processes").process_start(ChildProc.pid, live=True),
+            )
+            assert isinstance(ChildStart, str)
+        print(
+            EncodeJson({"child_pid": ChildProc.pid, "child_start": ChildStart}),
+            flush=True,
+        )
         if ModeName == "parentexit":
             return 0
     if ModeName == "overflow":

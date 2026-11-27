@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -27,6 +27,8 @@ def VerifyBatchJobs(Report: dict[str, object], PlanValue: dict[str, object]) -> 
     SeenSamples: set[str] = set()
     SeenRoles: set[tuple[str, str]] = set()
     Samples = ReadObject(PlanValue["samples"])
+    BatchLimit = PlanValue.get("solidworks_batch_size", 3)
+    assert isinstance(BatchLimit, int)
     for Value in ReadValues(Report["submissions"]):
         Submission = ReadObject(Value)
         SampleIds = ReadValues(Submission["samples"])
@@ -45,5 +47,13 @@ def VerifyBatchJobs(Report: dict[str, object], PlanValue: dict[str, object]) -> 
         CaptureId = ReadText(Capture["id"])
         assert (CaptureId, ArtifactRole) not in SeenRoles
         SeenRoles.add((CaptureId, ArtifactRole))
-        VerifyCaseJob(Identity, Selection, Capture, Selector, Records)
+        VerifyCaseJob(
+            Identity,
+            Selection,
+            Capture,
+            Selector,
+            Records,
+            PlanValue.get("solidworks_batch_version") == 1,
+            BatchLimit,
+        )
     assert SeenSamples == set(Samples)
