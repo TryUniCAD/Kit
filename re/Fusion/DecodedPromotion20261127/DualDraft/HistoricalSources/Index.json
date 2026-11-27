@@ -1,0 +1,66 @@
+{
+  "src/convert/Geometry/Extrude/Circular/DualSide/BuildDualSide.py": {
+    "retained_path": "src/convert/Geometry/Extrude/Circular/DualSide/BuildDualSide.py",
+    "sha256": "d42b2b69a14b7023f795f7c70cea7ad7762628dad9bf12b9572f89864eaae08c"
+  },
+  "src/convert/Geometry/Extrude/Circular/DualSide/DualFrame.py": {
+    "retained_path": "src/convert/Geometry/Extrude/Circular/DualSide/DualFrame.py",
+    "sha256": "f8d16de0c378abbe8419971da1fdc458ab6bec79390b9e62a44a7f995dab3d77"
+  },
+  "src/convert/Geometry/Extrude/Circular/DualSide/DualMeasure.py": {
+    "retained_path": "src/convert/Geometry/Extrude/Circular/DualSide/DualMeasure.py",
+    "sha256": "76416f2eefd4ba3b9931ece56f3ad07613e16b7cb3f2a8787700f2b5ccfb316c"
+  },
+  "src/convert/Geometry/Extrude/Circular/DualSide/DualMeridian.py": {
+    "retained_path": "src/convert/Geometry/Extrude/Circular/DualSide/DualMeridian.py",
+    "sha256": "3eac86d2e3a488d101c14b58f51519b578b34bd7df911071cac75f058420e623"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/CheckDualCaps.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/CheckDualCaps.py",
+    "sha256": "f719643e913ab38ebfa54c3d31a2ce22d0fbb1ed3838c228a958e1f7da93c9b4"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/CheckDualCones.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/CheckDualCones.py",
+    "sha256": "a40bcf4cdcd34953673d816cea2d260cf6b3daecf326824312fea049674d4be9"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/CheckDualNative.py": {
+    "retained_path": "re/Fusion/DecodedPromotion20261127/DualDraft/HistoricalSources/CheckDualNative.py",
+    "sha256": "0cb23444e41a109fa7559b09cac4f6520899f34cbeb2c4f79bc3ce45cc5488f1"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/CheckDualRims.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/CheckDualRims.py",
+    "sha256": "4d82a4e5ff50dba9dfced7db38d051ecab0bd97034fb4265cf5b913d938fc060"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/CheckDualRings.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/CheckDualRings.py",
+    "sha256": "694b7307ff393f3e46fc290cdc3ce85e5025c16adaab5066fe8993c9454d73d4"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/DualCase.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/DualCase.py",
+    "sha256": "a5ae9f52698d42529059138db5ef37371231c196210a10a0b85f740863e3a355"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/DualNativeTests.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/DualNativeTests.py",
+    "sha256": "5a46c8c0f29be93af9b9eda2f24324d295ddc4d49869d8ca9182b888ffc9bd5e"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/DualSwapTests.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/DualSwapTests.py",
+    "sha256": "d39a9eec44243bbf707888e0640040864c2fa2e938102d1bc6de702d0cf86e1a"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/ReadDualCase.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/ReadDualCase.py",
+    "sha256": "d7adb35a6e43760f748452ad7896a490d9551ba0a73998824a14fe671673e9c9"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/ReadDualCases.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/ReadDualCases.py",
+    "sha256": "f35eb0f02ebfbe48f4b5fed23e5ffff24fb9ed8dc3f6d221dbc416f731304107"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/ReadDualFaces.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/ReadDualFaces.py",
+    "sha256": "d7e104e113d4e3ca4d0bd792b573602a262a7a13a6dc14552af2c61b6b410e8b"
+  },
+  "tests/Convert/Integration/Fusion/DualSide/ReadDualState.py": {
+    "retained_path": "tests/Convert/Integration/Fusion/DualSide/ReadDualState.py",
+    "sha256": "71d52d858965837ddd573901b7141af1b89a1d3fca947a8b4ba611748d52bcbf"
+  }
+}

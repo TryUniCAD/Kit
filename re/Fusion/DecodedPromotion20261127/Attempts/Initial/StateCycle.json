@@ -1,0 +1,159 @@
+{
+  "models": false,
+  "native_acceptance": "not_established",
+  "revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "rows": [
+    {
+      "case": "Original_HealthyBefore",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Original_DiscSymmetric",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Original_DiscTwoSided",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Original_DiscFlip",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Original_HealthyAfter",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "HeldOut_HealthyBefore",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "HeldOut_DiscSymmetric",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "HeldOut_DiscTwoSided",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "HeldOut_DiscFlip",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "HeldOut_HealthyAfter",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Half_HealthyBefore",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Half_DiscHalf",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Half_HealthyAfter",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Rounding_HealthyBefore",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Rounding_DiscTwoSided",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    },
+    {
+      "case": "Rounding_HealthyAfter",
+      "checks": {
+        "state_model_equality": true,
+        "state_output_hash_equality": true,
+        "state_output_typed_equality": true
+      },
+      "status": "passed"
+    }
+  ],
+  "script_sha256": "0303a54553a0be2d87c5aa48d6371e0c0040e87f1594a193198fe75705d2bc95",
+  "source_receipt_sha256": "beae92477784e42ec1fd40b38472a4ef3f056979b086805501e2e500a2872d70",
+  "summary": {
+    "cases": 16,
+    "checks": 48,
+    "passed": 16,
+    "passing_checks": 48
+  }
+}

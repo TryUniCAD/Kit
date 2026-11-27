@@ -1,0 +1,7 @@
+{
+  "cases": 46,
+  "passed": 43,
+  "failed": 3,
+  "reason": "expected generic qualification diagnostic; actual public CLI preserves the precise policy, selection and mass refusals",
+  "fixture_sha256": "7d4f5dd013da9672702cd584b2243108e41a3d4256f3ba8dd3e39cb39a912a01"
+}

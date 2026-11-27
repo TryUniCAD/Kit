@@ -1,0 +1,24 @@
+{
+  "base_revision": "2d40034aeb57a8b9e25be5439850b54f518c5e16",
+  "script_sha256": "732838593508889b839bb5479560f8fa490871b40e5339a2c8d3a62302a18ab7",
+  "optimized_python": true,
+  "cases": [
+    {
+      "case": "clean",
+      "returncode": 0
+    },
+    {
+      "case": "tracked_change",
+      "returncode": 1,
+      "reason": "pinned SDK checkout has tracked changes"
+    },
+    {
+      "case": "wrong_blob",
+      "returncode": 1,
+      "reason": "pinned corpus Git blob disagrees with its manifest"
+    }
+  ],
+  "sdk_and_manifest_restored": true,
+  "models": false,
+  "native_calls": 0
+}

@@ -1,0 +1,41 @@
+{
+  "original_manifest_sha256": "45755451b0da86a5fa38b2fa98ed84ec530e4516597a589e500e74f3561ba374",
+  "original_seal_sha256": "6290d51de0882bbf92315089f17f8fef3a1d2ed4f47d8d83e5b0bbcc27b32ae2",
+  "archive": {
+    "path": "Discovery/Graphs.tar.gz",
+    "sha256": "ad7e986b95941e26517000f72ebf8cab534a69f5394f621a223a48b03b3920c4",
+    "members": [
+      {
+        "path": "Discovery/Graph01.json",
+        "bytes": 799106,
+        "sha256": "87f437d9c2b8be9caccfd6d17c353e1094dda719a8830bd93e7a8a096331e45c"
+      },
+      {
+        "path": "Discovery/Graph02.json",
+        "bytes": 799130,
+        "sha256": "983070b5301f1912fd18995b6664147e0a1255a69fccde6684343c6f1b564c8e"
+      },
+      {
+        "path": "Discovery/Graph03.json",
+        "bytes": 799010,
+        "sha256": "411bf515bd6a1a2e95cc1629ad62cd5a5069484334397f66e104cfc90b95731e"
+      },
+      {
+        "path": "Discovery/Graph04.json",
+        "bytes": 798962,
+        "sha256": "c82d426a5a6bb08b6bad24d0a85162b8557c375f263a58ff8510a32fb248efb7"
+      },
+      {
+        "path": "Discovery/Graph05.json",
+        "bytes": 799032,
+        "sha256": "dd3bc90ed6b10d967aeb8be3e042bfa4f8f28a03e702a5cf9123a3d322bebd08"
+      },
+      {
+        "path": "Discovery/Graph06.json",
+        "bytes": 799040,
+        "sha256": "bb04485de3da9c49e6c6645b765c0a30c4810ee45b1ebb50d39250b3d74dac96"
+      }
+    ]
+  },
+  "disposition": "lossless archival; original sealed manifest and receipts unchanged; logical member paths resolve within archive"
+}

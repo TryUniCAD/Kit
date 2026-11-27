@@ -1,0 +1,125 @@
+{
+  "task": "A11-DualDraftFrame20261127",
+  "frozen_rule_seal_sha256": "07136b7ea03dd0ca2e86a10a064bd3dca671a0dcbac14744512f5f69f6d889d3",
+  "source_capture_sha256": "2e0e4c68d8bf1aaeedbc0ba7af681698024c3bc5643eb96ec62a7959b95fb2ef",
+  "native_calls": 0,
+  "models": false,
+  "conversion_acceptance": false,
+  "members": [
+    {
+      "path": "Counterexamples/Counterexamples.json",
+      "sha256": "afc964cd593d5fc39218184e4648f23ea7d0029f80aa4ed5691b4e6a2a756b81",
+      "bytes": 2513
+    },
+    {
+      "path": "Counterexamples/body_reflection.f3d",
+      "sha256": "80d7972f6708d1e56d049fdaabd6487ac793fa2a89f6edd060a5371b3420264f",
+      "bytes": 221577
+    },
+    {
+      "path": "Counterexamples/body_rotation.f3d",
+      "sha256": "81cc8ec6f46dec81daad6e6e31ff210f607a670fab3e5892ce5451900ec77e6b",
+      "bytes": 221577
+    },
+    {
+      "path": "Counterexamples/body_translation.f3d",
+      "sha256": "4ad935d7d3100b4423e849e0fa75e3817b93a4a46e2f1802a16cb8ee03ad7b53",
+      "bytes": 221577
+    },
+    {
+      "path": "Counterexamples/profile_normal.f3d",
+      "sha256": "56984425d38d42b58b8bfb678bd8dd7de88793fe8244c21e41c53b89b967be75",
+      "bytes": 221577
+    },
+    {
+      "path": "Counterexamples/shared_transform.f3d",
+      "sha256": "729e66e69c79d75b3fcf5edfad38cdd0ebd6da7f469c1c0e9574ca1b3a4432c5",
+      "bytes": 221577
+    },
+    {
+      "path": "Counterexamples/world_sketch.f3d",
+      "sha256": "dfc887b9d56977e92701dbe1b01c9c7ce2ed52d1d493e50afbe834c43a1a7ae5",
+      "bytes": 221577
+    },
+    {
+      "path": "Evidence/DiscoveryInventory.json",
+      "sha256": "7939f9a72ff3424ab36ac0f3d7fcd691d821455080250a47c1b34dbe1d72fafe",
+      "bytes": 215051
+    },
+    {
+      "path": "Evidence/DiscoveryProof.json",
+      "sha256": "fb4e925e7eb4ac8d1c280c0c3bda6827d4eb4788ad2f7099e137834532df945d",
+      "bytes": 7881
+    },
+    {
+      "path": "Evidence/HoldoutProof.json",
+      "sha256": "98fa49a72f3150f87e3f48de2e60ab190a8c57d8122f78530575bd6f1a620aeb",
+      "bytes": 7903
+    },
+    {
+      "path": "Evidence/ImplementationProof.json",
+      "sha256": "f3f89c01665e2355de73588a3606e7cc51146750677c51668610422d7daa4d13",
+      "bytes": 25664
+    },
+    {
+      "path": "Evidence/ImplementationReceipt.json",
+      "sha256": "85ec878298ae8a56cecb9d31db06c7f394d70a0c05b800920e5a11adf6a74a4f",
+      "bytes": 6225
+    },
+    {
+      "path": "Evidence/InitialCounterexampleAttempt.json",
+      "sha256": "0365257bf8e27d727b9aac08f8f6508d6ea5b4a901ff688c843f749dc1210919",
+      "bytes": 2740
+    },
+    {
+      "path": "Evidence/InitialDiscoveryProof.json",
+      "sha256": "f69cd626d2af100588abe56953c74f70ff6bbfc027544dae7af4c2626d5d153c",
+      "bytes": 7881
+    },
+    {
+      "path": "Evidence/InitialImplementationProof.json",
+      "sha256": "4135cc831039a1dd1080717ad28e082d26f45a74eb093a01e12ebab23ff46370",
+      "bytes": 23986
+    },
+    {
+      "path": "FrameRules.md",
+      "sha256": "407c80924cb5eb0aa19d675fe5f6159a89fbd4c86321f2f38981731b9d827377",
+      "bytes": 4349
+    },
+    {
+      "path": "InspectFrames.py",
+      "sha256": "9eae4e255369d134928c346edc5aea7a66cd347cc04710240b753c91d3974efd",
+      "bytes": 3679
+    },
+    {
+      "path": "MakeFrameCounters.py",
+      "sha256": "f7a7e11bfa67fe21233875964d897be55e3e3509a0f416aec0583ec2f8940ea8",
+      "bytes": 3825
+    },
+    {
+      "path": "ProveFrameRule.py",
+      "sha256": "ba0e49525fa88ffdf2fdc5bc4a2a367b1f14c3e2b9bdd86f57d704052a2023be",
+      "bytes": 10860
+    },
+    {
+      "path": "ProveImplementation.py",
+      "sha256": "a7c71de72eae6b4f8a951859777a2a861f387416c17f51dd50a613ba18924510",
+      "bytes": 2669
+    },
+    {
+      "path": "README.md",
+      "sha256": "963c5760ecb8323897ae6ae95e568f81e179731a818dc9a5498d7e9835672ee1",
+      "bytes": 3206
+    },
+    {
+      "path": "Results.md",
+      "sha256": "d07e964a01ebf57ae5786f6ff480d8caf7826e6d322fc7829307dc2e724e9836",
+      "bytes": 4268
+    },
+    {
+      "path": "RuleSeal.json",
+      "sha256": "07136b7ea03dd0ca2e86a10a064bd3dca671a0dcbac14744512f5f69f6d889d3",
+      "bytes": 1602
+    }
+  ]
+}

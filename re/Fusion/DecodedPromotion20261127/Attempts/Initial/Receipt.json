@@ -1,0 +1,501 @@
+{
+  "cad_runtime": false,
+  "models": false,
+  "python_executable_sha256": "0826ccaa8dd19bd84a5f0ffdbe84558f036e3b7d8ce7725704a7393995392129",
+  "python_version": "3.14.6",
+  "revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "rows": [
+    {
+      "artifacts": {
+        "Candidate.f3d": "f8afa6da309f6a7f952a7d87e402d593684b99d2c926b7b7a9e435ccb4e822bb",
+        "CandidateDocument.json": "33e13e58fa76664130f45719c5cbfaaba053b6a67cedbf467b92a4537a7c8676",
+        "NativeExpected.json": "cf19667d8ada1af06429002d0b63f7e2a953e550741d4233e0b28f460761da6d",
+        "SourceDocument.json": "d3884ec31240436b3bf0826d6e78e226a40c29ed36af81513305df09887af0d5",
+        "TypedModel.json": "55507b856a68011ed945977c11e990d28a8b8f184e3e6b0e242c05248779db45"
+      },
+      "byte_identical": false,
+      "candidate": "Original_HealthyBefore/Candidate.f3d",
+      "candidate_sha256": "f8afa6da309f6a7f952a7d87e402d593684b99d2c926b7b7a9e435ccb4e822bb",
+      "candidate_size": 195583,
+      "case": "Original_HealthyBefore",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "5f42a3244b155a19f4c9139d57b15a442958c68646ebec376fb642310bf3280c",
+      "group": "Original",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyBefore.f3d",
+      "source_sha256": "5f42a3244b155a19f4c9139d57b15a442958c68646ebec376fb642310bf3280c",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "79560723717416025fef43706e507ddd5c204130e561c25d572e3d57b48bd912",
+        "CandidateDocument.json": "ed4c3017e1091dde7f04526d858fa1e6fb6589cf69c820b0fbc877219f40fab9",
+        "NativeExpected.json": "fd10879de74f4d536329dd5a602f417398f7589cf464f59daac55ab606190bd3",
+        "SourceDocument.json": "754f3bf505422172f9855544a54791d5372adcfb0f6f6fd09ce0d9fa2b752d32",
+        "TypedModel.json": "b5c618dcf9f2b4dafcd4af3da7174a4dfad655f3ed05a552dbe139c1f63e1377"
+      },
+      "byte_identical": false,
+      "candidate": "Original_DiscSymmetric/Candidate.f3d",
+      "candidate_sha256": "79560723717416025fef43706e507ddd5c204130e561c25d572e3d57b48bd912",
+      "candidate_size": 286410,
+      "case": "Original_DiscSymmetric",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "6a8b62f1be608491ab806ce244d05cf42ecfff368050f070f26be13177fabccd",
+      "group": "Original",
+      "side_mode": "symmetric_full",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscSymmetric.f3d",
+      "source_sha256": "6a8b62f1be608491ab806ce244d05cf42ecfff368050f070f26be13177fabccd",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "4337c138b4830db43b9b6749538de8e755306c4d5e62b66dc2267d0d3e5ef82a",
+        "CandidateDocument.json": "fe1ded6cdae2b1421216f643d8b4fbb5b7403cb0a913593acfe7d15d1bfa137b",
+        "NativeExpected.json": "3819601487d379baea5e00b4e5968576192a8107065a822e6a5cd6bc5e5ca5f0",
+        "SourceDocument.json": "40968bb1ea3af2b38f9d88f0d8d8383862caa45625b094dd3a0d556e8a433a27",
+        "TypedModel.json": "40c2e115d04f148af724682fd27e0eecc962003145731eae9ae33bf375ea8729"
+      },
+      "byte_identical": false,
+      "candidate": "Original_DiscTwoSided/Candidate.f3d",
+      "candidate_sha256": "4337c138b4830db43b9b6749538de8e755306c4d5e62b66dc2267d0d3e5ef82a",
+      "candidate_size": 294732,
+      "case": "Original_DiscTwoSided",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "2c4f2c65e5d664bff10db3f7b841eba3075c4f3620ba8b68784914e443d8bce1",
+      "group": "Original",
+      "side_mode": "two_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscTwoSided.f3d",
+      "source_sha256": "2c4f2c65e5d664bff10db3f7b841eba3075c4f3620ba8b68784914e443d8bce1",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "c32287a3adfcc3c2ef3055364b05207c565e1e868aea1e94d229fbce73fd93cf",
+        "CandidateDocument.json": "220dfbb2bd1c8bcb46799472db71fe4f7ad5b526ab6615b8a49a675e04782c4b",
+        "NativeExpected.json": "b1370564d9f27b84bfcbcb0fc8e0bd167279b7ee8533b15ac456aab50f4aade6",
+        "SourceDocument.json": "cc741dbaf204264c3774ffa61ed0a3e1ce344bd7378d83f270dfff5666e1b720",
+        "TypedModel.json": "d544be21420c34b17fe76899e02872bca8916948010176a965a2b32da92a0820"
+      },
+      "byte_identical": false,
+      "candidate": "Original_DiscFlip/Candidate.f3d",
+      "candidate_sha256": "c32287a3adfcc3c2ef3055364b05207c565e1e868aea1e94d229fbce73fd93cf",
+      "candidate_size": 286751,
+      "case": "Original_DiscFlip",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "c00cb518a622646f9bf1ce659b1ba5ef0a70b94f757feab9eb638d65012a418b",
+      "group": "Original",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscFlip.f3d",
+      "source_sha256": "c00cb518a622646f9bf1ce659b1ba5ef0a70b94f757feab9eb638d65012a418b",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "0e863d8f41020bfd96a3feea85ebafd93fff0efaf20e94dece060cd6c47eee74",
+        "CandidateDocument.json": "a39d316fc80e4b0a3a84651e785137f9e0cb4898a3481183f5cbcb015817ed06",
+        "NativeExpected.json": "cf19667d8ada1af06429002d0b63f7e2a953e550741d4233e0b28f460761da6d",
+        "SourceDocument.json": "7bb319b2b40dbc17584f10049c2d62534f203f3072637f38be9e43f760e6d525",
+        "TypedModel.json": "2c9c3f8e15c2760ad13164baec881432e2bcd06f3a137f4c7c25d6d3775bf66c"
+      },
+      "byte_identical": false,
+      "candidate": "Original_HealthyAfter/Candidate.f3d",
+      "candidate_sha256": "0e863d8f41020bfd96a3feea85ebafd93fff0efaf20e94dece060cd6c47eee74",
+      "candidate_size": 195583,
+      "case": "Original_HealthyAfter",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "fc7535cd906a7017ada4b1b9493106bebab4c57b071b6f644a2be3de71d73bf8",
+      "group": "Original",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyAfter.f3d",
+      "source_sha256": "fc7535cd906a7017ada4b1b9493106bebab4c57b071b6f644a2be3de71d73bf8",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "ab012fd287edf0ffeb8fe054dbd249ba1551604e5163435bb91e90c17dc38851",
+        "CandidateDocument.json": "12e9383bff25e6a4441c71768d95e37611c6ee1d42415634bb690ef2193dafed",
+        "NativeExpected.json": "7dd5853ce071c2c888978fb8db4b7478ad99310d1730e02edeaf463ea5e7c62e",
+        "SourceDocument.json": "70cba2a7df433935e05aa45b8ac187a380a2c59e6b2b1f6ed9768c15f1d5245f",
+        "TypedModel.json": "347afb065ca5c8a4f217182fd2c7995dedd4d94510b6a1f4b018ac78dae91bcb"
+      },
+      "byte_identical": false,
+      "candidate": "HeldOut_HealthyBefore/Candidate.f3d",
+      "candidate_sha256": "ab012fd287edf0ffeb8fe054dbd249ba1551604e5163435bb91e90c17dc38851",
+      "candidate_size": 198288,
+      "case": "HeldOut_HealthyBefore",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "76d8aab9daedad4b51e90abb4fd8a6d42af48c87e6a36a08d1a6233e4671337c",
+      "group": "HeldOut",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyBefore.f3d",
+      "source_sha256": "76d8aab9daedad4b51e90abb4fd8a6d42af48c87e6a36a08d1a6233e4671337c",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "d0c4d7274974c9416734c1c19bb1342bccd62ae7b909de2bae36a8be7c766094",
+        "CandidateDocument.json": "acc9128fb42a005aad0927d94af884fb304e5ae46c4f1a9ef9e99c894691e715",
+        "NativeExpected.json": "88e58b9ef56dafdb441e0c61e5159ea102c60ed03107235a0c91ab4f3a444c81",
+        "SourceDocument.json": "0d99331f6234b2e943e5458972f7317e81353682461ba4881dae6edf6dc23691",
+        "TypedModel.json": "ea212b533f07c8840008faae40b422cd0fe5c79fd3495ed245304ffd2611c092"
+      },
+      "byte_identical": false,
+      "candidate": "HeldOut_DiscSymmetric/Candidate.f3d",
+      "candidate_sha256": "d0c4d7274974c9416734c1c19bb1342bccd62ae7b909de2bae36a8be7c766094",
+      "candidate_size": 297543,
+      "case": "HeldOut_DiscSymmetric",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "a1284ae38787691a17f1380ba8ccd9179408413ec1803bb828edaad0190e0273",
+      "group": "HeldOut",
+      "side_mode": "symmetric_full",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscSymmetric.f3d",
+      "source_sha256": "a1284ae38787691a17f1380ba8ccd9179408413ec1803bb828edaad0190e0273",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "30b8207e4edbe6394cd61eff563dcd74160405d240bda6da11e3d3079d6f4c24",
+        "CandidateDocument.json": "5c2299e83f5108b37b27c4b6c221e9a544a850831b444ab7a6ba951db4bb43b2",
+        "NativeExpected.json": "dfb32f2a3bbbe353931a3570459d89b6dbd8f36536767ed49d46009275def9d1",
+        "SourceDocument.json": "d25c0db845da34e56e32364e8e92a610ee26af728d3ebad79b216567246105e3",
+        "TypedModel.json": "4b3e9396f26bc7187c536b3bdb16439dd7fc1bc84b401222109ceebc33949a6e"
+      },
+      "byte_identical": false,
+      "candidate": "HeldOut_DiscTwoSided/Candidate.f3d",
+      "candidate_sha256": "30b8207e4edbe6394cd61eff563dcd74160405d240bda6da11e3d3079d6f4c24",
+      "candidate_size": 297610,
+      "case": "HeldOut_DiscTwoSided",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "ec048ee1af28a24850cfc67b615dbebdd621cba992be88d3fde307b51f15f7ac",
+      "group": "HeldOut",
+      "side_mode": "two_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscTwoSided.f3d",
+      "source_sha256": "ec048ee1af28a24850cfc67b615dbebdd621cba992be88d3fde307b51f15f7ac",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "2045b9f5bcf854f2b530e8f1faf8b5a8bb5a41e2b67c0093a240edc6ac873a76",
+        "CandidateDocument.json": "6318b0bc4bdb67885d4f19376463716bf21406b8fea60a797321b61ddc6ad4ee",
+        "NativeExpected.json": "526343bbeca8203b69c9b2a3d8b9a153abdfbab4271a3a46b6611c9dfafe89a8",
+        "SourceDocument.json": "bc79229c05ea4e920edccb45c28dae6288da0226067cc4203f28395045ff5769",
+        "TypedModel.json": "6a4c29b4a5c16a3f2d25459a1bd3ad59a08d09f3aa73f51eee40dd81282bc3c9"
+      },
+      "byte_identical": false,
+      "candidate": "HeldOut_DiscFlip/Candidate.f3d",
+      "candidate_sha256": "2045b9f5bcf854f2b530e8f1faf8b5a8bb5a41e2b67c0093a240edc6ac873a76",
+      "candidate_size": 297683,
+      "case": "HeldOut_DiscFlip",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "da42534361b137723b75e6d010d2c23a384bc5edd0ac1531401dc2ff908634aa",
+      "group": "HeldOut",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscFlip.f3d",
+      "source_sha256": "da42534361b137723b75e6d010d2c23a384bc5edd0ac1531401dc2ff908634aa",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "4a4c814f50472aa337f77dc4ab60dea9d95fb3381126a201db88b7852d7d9a8f",
+        "CandidateDocument.json": "b4c547a87bad558137482eb5b48cd904f82a390e3c0299ab2d9e287a1fb871cc",
+        "NativeExpected.json": "7dd5853ce071c2c888978fb8db4b7478ad99310d1730e02edeaf463ea5e7c62e",
+        "SourceDocument.json": "b4828de202982058acd569898c43ec32ff33a93c013122b32d5271d20130e436",
+        "TypedModel.json": "28fe802c8f143f7667b68c0010c0579a4a6552d295a8a11a994ff757c57787fc"
+      },
+      "byte_identical": false,
+      "candidate": "HeldOut_HealthyAfter/Candidate.f3d",
+      "candidate_sha256": "4a4c814f50472aa337f77dc4ab60dea9d95fb3381126a201db88b7852d7d9a8f",
+      "candidate_size": 198288,
+      "case": "HeldOut_HealthyAfter",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "be8856d90b4c88ef152ec82b01523fa6328133a69bb74d3058c1b77cd5184a48",
+      "group": "HeldOut",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyAfter.f3d",
+      "source_sha256": "be8856d90b4c88ef152ec82b01523fa6328133a69bb74d3058c1b77cd5184a48",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "781a24ae89ff99cacecee7ab070c6c121b964c77564a8e94bdee6beba4069322",
+        "CandidateDocument.json": "19a2a4c5aad89a7b6ab379037c279bd166f4ee201c6bd5261b82bf2ad897ec72",
+        "NativeExpected.json": "cf19667d8ada1af06429002d0b63f7e2a953e550741d4233e0b28f460761da6d",
+        "SourceDocument.json": "64e72454f3af931dd403ad90995155064e5136eb15992e50014ecb2bc2070ac0",
+        "TypedModel.json": "5115c9413b18a8769bd7b4f82f18dd0a7177089a28e52185edfca6899f5e4d1e"
+      },
+      "byte_identical": false,
+      "candidate": "Half_HealthyBefore/Candidate.f3d",
+      "candidate_sha256": "781a24ae89ff99cacecee7ab070c6c121b964c77564a8e94bdee6beba4069322",
+      "candidate_size": 195583,
+      "case": "Half_HealthyBefore",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "320496c0c575840fb70b2f0bf6b00a1f57d38b8c3d5444374f6cc756facc7e6e",
+      "group": "Half",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyBefore.f3d",
+      "source_sha256": "320496c0c575840fb70b2f0bf6b00a1f57d38b8c3d5444374f6cc756facc7e6e",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "68fd135844561e35078554b16b37ccbbef28c15bddd6e2238dc71933e8c7e45b",
+        "CandidateDocument.json": "aff08bdf0ec016056835a648c5e908871b790ed6875473b83870ae2271867e98",
+        "NativeExpected.json": "e9b1f69f410c49ba7583a870d08c5e70a7440655af88b3413d8085fcb6fee455",
+        "SourceDocument.json": "6be72461ab9ae37a62384202df6a349756378efb9770d2ae654a64b742b4f544",
+        "TypedModel.json": "eab9bfdc98b98b4165045594b60d95ca3940cf82fa7686724933c5e70cbad410"
+      },
+      "byte_identical": false,
+      "candidate": "Half_DiscHalf/Candidate.f3d",
+      "candidate_sha256": "68fd135844561e35078554b16b37ccbbef28c15bddd6e2238dc71933e8c7e45b",
+      "candidate_size": 301068,
+      "case": "Half_DiscHalf",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "706ee7d995e5bee9bfb82ec8427466faf8b2d6510e5b718129081d67ea31ca43",
+      "group": "Half",
+      "side_mode": "symmetric_half",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/DiscHalf.f3d",
+      "source_sha256": "706ee7d995e5bee9bfb82ec8427466faf8b2d6510e5b718129081d67ea31ca43",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "d16254740eb00f1f923f24b91d7b7c3c51eccc09fe577f89bf0691d419830ec5",
+        "CandidateDocument.json": "1b340e5deab82c37798de9770dc7a3f833e6d005fc5572b9e0f983f779276c3c",
+        "NativeExpected.json": "cf19667d8ada1af06429002d0b63f7e2a953e550741d4233e0b28f460761da6d",
+        "SourceDocument.json": "3df84d0ac5737aa6fe4975edea47e739d394694c2db6d44aee6c6746690e57d1",
+        "TypedModel.json": "18a71618e5998dcdc936b6fd30059065e1246d8c4b06ecb9e476d60234082968"
+      },
+      "byte_identical": false,
+      "candidate": "Half_HealthyAfter/Candidate.f3d",
+      "candidate_sha256": "d16254740eb00f1f923f24b91d7b7c3c51eccc09fe577f89bf0691d419830ec5",
+      "candidate_size": 195583,
+      "case": "Half_HealthyAfter",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "2379abd9d2960d7c49d824240165b5062a69920e6e94185ed650ddee0a12e516",
+      "group": "Half",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyAfter.f3d",
+      "source_sha256": "2379abd9d2960d7c49d824240165b5062a69920e6e94185ed650ddee0a12e516",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "eb4985bed7a8055353a777f58d850160cd775292de61710655769950ce9f914f",
+        "CandidateDocument.json": "a588012f63b648de304d4597d284bc74ff4ab58064c5efee25f3332fe0c2af16",
+        "NativeExpected.json": "cf19667d8ada1af06429002d0b63f7e2a953e550741d4233e0b28f460761da6d",
+        "SourceDocument.json": "8371943bfdde9c869c2934c880339e30d02b37f8ec4c1883239507dcf7c5ac2b",
+        "TypedModel.json": "0aa83f9a2df2ae7e29b9395f29e0de880c95f1494402ce2e169a6e058076b25d"
+      },
+      "byte_identical": false,
+      "candidate": "Rounding_HealthyBefore/Candidate.f3d",
+      "candidate_sha256": "eb4985bed7a8055353a777f58d850160cd775292de61710655769950ce9f914f",
+      "candidate_size": 195583,
+      "case": "Rounding_HealthyBefore",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "b3cbc4d798ae5812698ee46f87f1a67832ad899a41f0a9829510b46087ed5266",
+      "group": "Rounding",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyBefore.f3d",
+      "source_sha256": "b3cbc4d798ae5812698ee46f87f1a67832ad899a41f0a9829510b46087ed5266",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "e788a75b3cf59d0a8f0a2dbbd593bbcdce71a0bd4ccc47827e78114679af4671",
+        "CandidateDocument.json": "f4c8766242ba802061e607649d88ebdd1a58c0490c7f8a8b1bcf8aa39e037bc6",
+        "NativeExpected.json": "97af1354313e2f34bed9a36aef4520f094bf36b5d1aa7aa06e45b3ce256ff7f5",
+        "SourceDocument.json": "afdf6b4ec3f66b0468eb622be29438542bc47b08c987aadbd7ca17fabfcdeff2",
+        "TypedModel.json": "0dec3bb093283ebefe501c688e347b412a436f5fec41f2469ed374dfa9e1d234"
+      },
+      "byte_identical": false,
+      "candidate": "Rounding_DiscTwoSided/Candidate.f3d",
+      "candidate_sha256": "e788a75b3cf59d0a8f0a2dbbd593bbcdce71a0bd4ccc47827e78114679af4671",
+      "candidate_size": 292365,
+      "case": "Rounding_DiscTwoSided",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "df2872e467e2f9d2adfb665ca1bb0fcaeba8a7b8afb2a8ff80a418c9e7a359ba",
+      "group": "Rounding",
+      "side_mode": "two_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/DiscTwoSided.f3d",
+      "source_sha256": "df2872e467e2f9d2adfb665ca1bb0fcaeba8a7b8afb2a8ff80a418c9e7a359ba",
+      "status": "prepared"
+    },
+    {
+      "artifacts": {
+        "Candidate.f3d": "d84bbe439747d3d380685356fc915652b6e0242e5456c14b95c19decbf565375",
+        "CandidateDocument.json": "1e5259a2795495772cd7e5c82312fb6ea87d26e0e036bad486832d0bce83404d",
+        "NativeExpected.json": "cf19667d8ada1af06429002d0b63f7e2a953e550741d4233e0b28f460761da6d",
+        "SourceDocument.json": "09d1b830c3d258793df4b8b40399b047a41299f310e18c366aa9d51bb21d3d26",
+        "TypedModel.json": "1e7ccecaae60710952eaa9613d15daffd15cc5a89078c281c8217e8bb71f7b81"
+      },
+      "byte_identical": false,
+      "candidate": "Rounding_HealthyAfter/Candidate.f3d",
+      "candidate_sha256": "d84bbe439747d3d380685356fc915652b6e0242e5456c14b95c19decbf565375",
+      "candidate_size": 195583,
+      "case": "Rounding_HealthyAfter",
+      "checks": {
+        "area": true,
+        "both_documents_valid": true,
+        "bounds": true,
+        "committed_hash": true,
+        "complete_neutral_equality": true,
+        "complete_typed_equality": true,
+        "topology_counts": true,
+        "volume": true
+      },
+      "expected_source_sha256": "1a0d3ad644fafd278cce0f86f52e06c25bfa4f5f73d32e991de4e04b0aae794b",
+      "group": "Rounding",
+      "side_mode": "one_sided",
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyAfter.f3d",
+      "source_sha256": "1a0d3ad644fafd278cce0f86f52e06c25bfa4f5f73d32e991de4e04b0aae794b",
+      "status": "prepared"
+    }
+  ],
+  "scope": "same-document typed reconstruction qualification preparation; native acceptance not established",
+  "script_sha256": "764794a107cf467ba0345771e85bda511ba9266b76c7cc2f06d25c663a2cfa62",
+  "source_manifest": "re/Fusion/Reconstruction/CircularSpans/Manifest.json",
+  "source_manifest_sha256": "b96644df5b71462453736e2c5b1ba7487ca11b0394f5aeabaaebd6f1cac77f9f",
+  "summary": {
+    "byte_identical": 0,
+    "cases": 16,
+    "checks": 128,
+    "failed": 0,
+    "passing_checks": 128,
+    "prepared": 16
+  }
+}

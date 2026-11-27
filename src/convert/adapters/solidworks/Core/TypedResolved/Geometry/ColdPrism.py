@@ -19,6 +19,9 @@ def ColdPrism(ModelValue: NativeModel, BodyId: str) -> BrepModel | None:
         or Operation.kind != "join"
         or Operation.profile_id != SketchValue.object_id
         or DepthValue is None
+        or type(Operation.direction_code) is not int
+        or Operation.direction_code not in (0, 1)
+        or Operation.termination_code != 0
     ):
         return None
     Segments = tuple(LoopValue.LinesValue[Index] for Index in LoopValue.OrderValue)
@@ -30,7 +33,13 @@ def ColdPrism(ModelValue: NativeModel, BodyId: str) -> BrepModel | None:
         for Segment in Segments
     )
     try:
-        Model, _, _, _ = BuildPrism(BodyId, FrameValue, Profile, 0.0, DepthValue)
+        Model, _, _, _ = BuildPrism(
+            BodyId,
+            FrameValue,
+            Profile,
+            -DepthValue if Operation.direction_code == 1 else 0.0,
+            0.0 if Operation.direction_code == 1 else DepthValue,
+        )
     except (ValueError, OverflowError):
         return None
     return Model

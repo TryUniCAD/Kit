@@ -1,0 +1,4392 @@
+{
+  "source_revision": "466dcb172dfa3803463e07ccde963ba01671d200",
+  "sdk_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "source_evidence_program_sha256": "52a32b2df7dbfe9db53ca5014b11801fdadf8eec69cbf9bac9edff534f698ae7",
+  "native_calls": 0,
+  "rows": [
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-baseline-a.SLDPRT",
+      "source_sha256": "db1390476325f5817e6f80fb4067a3c6df5cc063315604c133ccbeaafdeac357",
+      "measurement_sha256": "87b5e4aef7c23a7a228cbdeca23c7f8b86eb439b199f113a06214b75aab03dad",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          20,
+          10,
+          5
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-baseline-a.Part",
+                "name": "width_mm",
+                "system_value": 0.04
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-baseline-a.Part",
+                "name": "height_mm",
+                "system_value": 0.02
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-baseline-a.Part",
+                "name": "depth_mm",
+                "system_value": 0.01
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.01,
+              "end_condition": 0,
+              "reverse_direction": false
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      40,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      20,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 800,
+            "section_center_world_mm": [
+              20.000000000000004,
+              10.000000000000002,
+              0
+            ],
+            "support_name": "Front Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 5,
+        "volume_mm3": 8000.000000000001
+      },
+      "packaged_direction_reverse": false,
+      "end_interval_sha256": "7ba2391c526db530a669f8f5f870687d4e35968b5d26a5b4532ce12876141309",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    },
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-baseline-b.SLDPRT",
+      "source_sha256": "21624e4c194c8c7efd93df680fde35819e605fd9d26a710384accea24b62f5a5",
+      "measurement_sha256": "8e7e9d2bac7ba37e2db48b996afd51e417e4701d9a4210f20ffa991cb341718e",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          20,
+          10,
+          5
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-baseline-b.Part",
+                "name": "width_mm",
+                "system_value": 0.04
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-baseline-b.Part",
+                "name": "height_mm",
+                "system_value": 0.02
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-baseline-b.Part",
+                "name": "depth_mm",
+                "system_value": 0.01
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.01,
+              "end_condition": 0,
+              "reverse_direction": false
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      40,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      20,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 800,
+            "section_center_world_mm": [
+              20.000000000000004,
+              10.000000000000002,
+              0
+            ],
+            "support_name": "Front Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 5,
+        "volume_mm3": 8000.000000000001
+      },
+      "packaged_direction_reverse": false,
+      "end_interval_sha256": "0585dd0f349d531fe4656ece1608c6f9122af43ee02f2ab626e78a686491c7ff",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    },
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-edit-width_mm-41.SLDPRT",
+      "source_sha256": "282cb1feca699fc8d51a638b474624ed9ef935ddbb56f257f33a1069fc492abd",
+      "measurement_sha256": "826f6d6a0fbf0ebcd099afdc87cf8ece7780e4d4a37d3892ce78907909ce6867",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          20.5,
+          9.999999999999998,
+          4.999999999999999
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-edit-width_mm-41.Part",
+                "name": "width_mm",
+                "system_value": 0.041
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-edit-width_mm-41.Part",
+                "name": "height_mm",
+                "system_value": 0.02
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-edit-width_mm-41.Part",
+                "name": "depth_mm",
+                "system_value": 0.01
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.01,
+              "end_condition": 0,
+              "reverse_direction": false
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  41,
+                  0,
+                  0
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 41,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  41,
+                  20,
+                  0
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 41,
+                "start_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  41,
+                  20,
+                  0
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  41,
+                  0,
+                  0
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      41,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      20,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 820.0000000000001,
+            "section_center_world_mm": [
+              20.5,
+              10,
+              0
+            ],
+            "support_name": "Front Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 5,
+        "volume_mm3": 8200.000000000002
+      },
+      "packaged_direction_reverse": false,
+      "end_interval_sha256": "c13f2f96e70e4242a92f2b681b7c9befb88c1ecab60191988ce6089b14660150",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    },
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-edit-height_mm-23.SLDPRT",
+      "source_sha256": "b2b06e6d22b4cd1da5f354a63306b5990c4ffd97dc59353696d90e48ec9a6c3e",
+      "measurement_sha256": "59e5e4b6c48b5a50ee768dddfbaaafdf905a71fe354818fb1ee11f256a911395",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          20,
+          11.500000000000002,
+          5
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-edit-height_mm-23.Part",
+                "name": "width_mm",
+                "system_value": 0.04
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-edit-height_mm-23.Part",
+                "name": "height_mm",
+                "system_value": 0.023
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-edit-height_mm-23.Part",
+                "name": "depth_mm",
+                "system_value": 0.01
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.01,
+              "end_condition": 0,
+              "reverse_direction": false
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  23,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 23,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  23,
+                  0
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  23,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  23,
+                  0
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 23,
+                "start_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      40,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      23,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 920,
+            "section_center_world_mm": [
+              19.999999999999996,
+              11.500000000000002,
+              0
+            ],
+            "support_name": "Front Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 5,
+        "volume_mm3": 9200
+      },
+      "packaged_direction_reverse": false,
+      "end_interval_sha256": "38dc69883d1407f0f06ca377dc12a0820fe7295331960bb4924d3181666c79b6",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    },
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-edit-depth_mm-12.SLDPRT",
+      "source_sha256": "fbb7e64901270cb4e7e9e6906590d94cba12d0d94c13fbe3c25426513ae1df43",
+      "measurement_sha256": "5aa1024b24922a70de9a957c3b6978cf1103fec8abae5b09d1bedae5615fc907",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          20,
+          10,
+          6
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-edit-depth_mm-12.Part",
+                "name": "width_mm",
+                "system_value": 0.04
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-edit-depth_mm-12.Part",
+                "name": "height_mm",
+                "system_value": 0.02
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-edit-depth_mm-12.Part",
+                "name": "depth_mm",
+                "system_value": 0.012
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.012,
+              "end_condition": 0,
+              "reverse_direction": false
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      40,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      20,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 800,
+            "section_center_world_mm": [
+              20.000000000000004,
+              10.000000000000002,
+              0
+            ],
+            "support_name": "Front Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 5,
+        "volume_mm3": 9600.000000000002
+      },
+      "packaged_direction_reverse": false,
+      "end_interval_sha256": "3236bb084567f34138e35aa2f88c56976f9b84207f71a4e53b0095b28d42072e",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    },
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-units-inch.SLDPRT",
+      "source_sha256": "91c38fef2d7140a42604d5800c04279c59eed18fb0e5f113a5a0832f21088c84",
+      "measurement_sha256": "b0f1889fdfd70cd631d211fcd88e013c0d89be4a356f6ded0b47b9f7c6b180fd",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          20,
+          10,
+          5
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-units-inch.Part",
+                "name": "width_mm",
+                "system_value": 0.04
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-units-inch.Part",
+                "name": "height_mm",
+                "system_value": 0.02
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-units-inch.Part",
+                "name": "depth_mm",
+                "system_value": 0.01
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.01,
+              "end_condition": 0,
+              "reverse_direction": false
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      40,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      20,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 800,
+            "section_center_world_mm": [
+              20.000000000000004,
+              10.000000000000002,
+              0
+            ],
+            "support_name": "Front Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 3,
+        "volume_mm3": 8000.000000000001
+      },
+      "packaged_direction_reverse": false,
+      "end_interval_sha256": "0052a751f02b3378818da89fab12e818cc81e856b517e45586074bc890b3a3f3",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    },
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-plane-yz.SLDPRT",
+      "source_sha256": "ef0140048ad24a48cb35749083548625513064840a9b38829a3f94f1415af4c5",
+      "measurement_sha256": "64cce76ee2530ac04a736a29db0414d6e0d09ee0d53e0b8c5ef1d4eb15718cec",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          5,
+          20,
+          10
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-plane-yz.Part",
+                "name": "width_mm",
+                "system_value": 0.04
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-plane-yz.Part",
+                "name": "height_mm",
+                "system_value": 0.02
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-plane-yz.Part",
+                "name": "depth_mm",
+                "system_value": 0.01
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.01,
+              "end_condition": 0,
+              "reverse_direction": false
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  0,
+                  20
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  40,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  40,
+                  20
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  40,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  40,
+                  20
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  20
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      40,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      -20,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 800,
+            "section_center_world_mm": [
+              0,
+              20.000000000000004,
+              10.000000000000002
+            ],
+            "support_name": "Right Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 5,
+        "volume_mm3": 8000.000000000001
+      },
+      "packaged_direction_reverse": false,
+      "end_interval_sha256": "7ba2391c526db530a669f8f5f870687d4e35968b5d26a5b4532ce12876141309",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    },
+    {
+      "source_path": "re/automation/PairedCaptures/P03/solidworks-db1390476325/P03-solidworks-direction-negative.SLDPRT",
+      "source_sha256": "188872f26f80a71cf784db2622255c57540f02c7db60f85c3e08d6e005491112",
+      "measurement_sha256": "6c78b976a5ff01a35f231bdd29853aff34d26a013fa79887af6d55ac9dbdb400",
+      "measured_observation": {
+        "body_count": 1,
+        "center_of_mass_mm": [
+          20,
+          10,
+          -5
+        ],
+        "configuration": "Default",
+        "equations": [],
+        "feature_tree": [
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Comments",
+            "operation": null,
+            "suppressed": false,
+            "type": "CommentsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Favorites",
+            "operation": null,
+            "suppressed": false,
+            "type": "FavoriteFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "History",
+            "operation": null,
+            "suppressed": false,
+            "type": "HistoryFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Selection Sets",
+            "operation": null,
+            "suppressed": false,
+            "type": "SelectionSetFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Sensors",
+            "operation": null,
+            "suppressed": false,
+            "type": "SensorFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Design Binder",
+            "operation": null,
+            "suppressed": false,
+            "type": "DocsFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Annotations",
+            "operation": null,
+            "suppressed": false,
+            "type": "DetailCabinet",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Notes1___EndTag___",
+            "operation": null,
+            "suppressed": false,
+            "type": "NotesAreaFtrFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Surface Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SurfaceBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Solid Bodies",
+            "operation": null,
+            "suppressed": false,
+            "type": "SolidBodyFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Lights and Cameras",
+            "operation": null,
+            "suppressed": false,
+            "type": "EnvFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Ambient",
+            "operation": null,
+            "suppressed": false,
+            "type": "AmbientLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional1",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional2",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Directional3",
+            "operation": null,
+            "suppressed": false,
+            "type": "DirectionLight",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Markups",
+            "operation": null,
+            "suppressed": false,
+            "type": "InkMarkupFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Equations",
+            "operation": null,
+            "suppressed": false,
+            "type": "EqnFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Material <not specified>",
+            "operation": null,
+            "suppressed": false,
+            "type": "MaterialFolder",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Front Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Top Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Right Plane",
+            "operation": null,
+            "suppressed": false,
+            "type": "RefPlane",
+            "warning": false
+          },
+          {
+            "dimensions": [],
+            "error_code": 0,
+            "name": "Origin",
+            "operation": null,
+            "suppressed": false,
+            "type": "OriginProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "width_mm@RectangleSketch@P03-solidworks-direction-negative.Part",
+                "name": "width_mm",
+                "system_value": 0.04
+              },
+              {
+                "driven_state": 2,
+                "full_name": "height_mm@RectangleSketch@P03-solidworks-direction-negative.Part",
+                "name": "height_mm",
+                "system_value": 0.02
+              }
+            ],
+            "error_code": 0,
+            "name": "RectangleSketch",
+            "operation": null,
+            "suppressed": false,
+            "type": "ProfileFeature",
+            "warning": false
+          },
+          {
+            "dimensions": [
+              {
+                "driven_state": 2,
+                "full_name": "depth_mm@BlindBoss@P03-solidworks-direction-negative.Part",
+                "name": "depth_mm",
+                "system_value": 0.01
+              }
+            ],
+            "error_code": 0,
+            "name": "BlindBoss",
+            "operation": {
+              "both_directions": false,
+              "depth_m": 0.01,
+              "end_condition": 0,
+              "reverse_direction": true
+            },
+            "suppressed": false,
+            "type": "Extrusion",
+            "warning": false
+          }
+        ],
+        "label": "reopened and rebuilt",
+        "open_status": {
+          "errors": 0,
+          "warnings": 0
+        },
+        "sketches": [
+          {
+            "constraint_status": 3,
+            "entities": [
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "id": [
+                  1,
+                  1
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "id": [
+                  2,
+                  2
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  0,
+                  0,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  3,
+                  3
+                ],
+                "length_mm": 40,
+                "start_world_mm": [
+                  0,
+                  20,
+                  0
+                ],
+                "type": 0
+              },
+              {
+                "construction": false,
+                "end_world_mm": [
+                  40,
+                  20,
+                  0
+                ],
+                "id": [
+                  4,
+                  4
+                ],
+                "length_mm": 20,
+                "start_world_mm": [
+                  40,
+                  0,
+                  0
+                ],
+                "type": 0
+              }
+            ],
+            "fully_defined": true,
+            "model_to_sketch_transform": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "name": "RectangleSketch",
+            "region_count": 1,
+            "relations": [
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      5
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 9
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      2,
+                      2
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      1,
+                      1
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      4,
+                      4
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 5
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      3,
+                      3
+                    ],
+                    "segment_type": 0
+                  }
+                ],
+                "entity_types": [
+                  3
+                ],
+                "type": 4
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      3,
+                      4
+                    ],
+                    "point_local_mm": [
+                      40,
+                      0,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              },
+              {
+                "entities": [
+                  {
+                    "id": [
+                      0,
+                      1
+                    ],
+                    "point_local_mm": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "id": [
+                      2,
+                      3
+                    ],
+                    "point_local_mm": [
+                      0,
+                      20,
+                      0
+                    ]
+                  }
+                ],
+                "entity_types": [
+                  2,
+                  2
+                ],
+                "type": 1
+              }
+            ],
+            "section_area_mm2": 800,
+            "section_center_world_mm": [
+              20.000000000000004,
+              10.000000000000002,
+              0
+            ],
+            "support_name": "Front Plane",
+            "support_type": 4
+          }
+        ],
+        "units_code": 5,
+        "volume_mm3": 8000.000000000001
+      },
+      "packaged_direction_reverse": true,
+      "end_interval_sha256": "dec3f9017d4cdc9f2b32a6f4af57f00b04c962530701c1f1a6e22d4be040931e",
+      "main_typed_link": {
+        "status": "refused",
+        "exception": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "P03-solidworks-baseline-a.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  },
+  {
+    "file": "P03-solidworks-baseline-b.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  },
+  {
+    "file": "P03-solidworks-direction-negative.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  },
+  {
+    "file": "P03-solidworks-edit-depth_mm-12.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  },
+  {
+    "file": "P03-solidworks-edit-height_mm-23.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  },
+  {
+    "file": "P03-solidworks-edit-width_mm-41.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  },
+  {
+    "file": "P03-solidworks-plane-yz.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  },
+  {
+    "file": "P03-solidworks-units-inch.SLDPRT",
+    "error_type": "BodyUnsupported",
+    "error": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390"
+  }
+]

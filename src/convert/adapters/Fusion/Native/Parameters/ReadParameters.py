@@ -24,6 +24,7 @@ def ReadParameters(
     Rectangle: RectSketchProof | None = None,
     Reverse: bool = False,
     PlainReverse: bool = False,
+    AllowBothTaper: bool = False,
 ) -> tuple[Parameter, ...]:
     Table = ResolveField(Graph, Context.Component, "rParameterTable", "ParameterTable")
     Nodes = LinkedNodes(Graph, Table, "children")
@@ -51,7 +52,7 @@ def ReadParameters(
             Against.Fields["unit"] != "mm"
             or NumberValue(Against.Fields["value"]) <= 0
             or SecondTaper.Fields["unit"] != "deg"
-            or NumberValue(SecondTaper.Fields["value"]) != 0
+            or (not AllowBothTaper and NumberValue(SecondTaper.Fields["value"]) != 0)
         ):
             raise ValueError("Unsupported native second side distance or taper")
     SketchBindings = Rectangle.Bindings if Rectangle else ()

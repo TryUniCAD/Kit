@@ -1,0 +1,264 @@
+{
+  "task": "A12-ReverseBlindBoss20261127",
+  "base_revision": "93b24ed0feeb033be95fe91622fb615f519dcd65",
+  "binding": "exact working-source hashes; subsequent committed-file replay binds accepted checkpoint",
+  "models": false,
+  "native_calls": 0,
+  "native_acceptance": false,
+  "sources": [
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Blind/BlindEndInput.py",
+      "sha256": "e7b2b30098af0178c632ced9546ee26ab4be0a3804a23dcf7f274a1fefc4aada",
+      "bytes": 1357
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/FinishBlindMut.py",
+      "sha256": "13668bc80af0b29343b8fbf75d40b3ffb470e56275f6e5d90796d1eee4de98df",
+      "bytes": 3052
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/BlindPlan.py",
+      "sha256": "9e6a0372f26b3954f818bad7079353444aa1c7def61626f3a8d26b522c712f5a",
+      "bytes": 543
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectBlind.py",
+      "sha256": "dead910b7b7bf0f1f4be691fbbb810671ceb19a3fcf9562b8496d334910fc9b4",
+      "bytes": 2529
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequireBossDef.py",
+      "sha256": "79392aea90e4b39df7110b393cae92ebf23592505c991b0c2e6268fc5e024d3d",
+      "bytes": 2224
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadExtrude.py",
+      "sha256": "91714704e1e201ea02d82aac8dfda8a15ed1a6de104e8661a85932334db326cc",
+      "bytes": 2556
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdPrism.py",
+      "sha256": "c51632b46ec18134a0212e6445a57b2d91f2c23448bebd7ffea8bb13407571bd",
+      "bytes": 1802
+    },
+    {
+      "path": "tests/Convert/Solidworks/PlainWriting/ReversePrep/ColdPrepTests.py",
+      "sha256": "fb26d8a338f50c876807597f4c339ca10d22ebef73b872db926228b34fd7fdbe",
+      "bytes": 1389
+    },
+    {
+      "path": "tests/Convert/Solidworks/PlainWriting/ReversePrep/MakePrepDoc.py",
+      "sha256": "29f9e2307b94afe22777b26baf72d29ceaf2d2fbec9be2d5952df5e2f03f3b0a",
+      "bytes": 908
+    },
+    {
+      "path": "tests/Convert/Solidworks/PlainWriting/ReversePrep/PrepCase.py",
+      "sha256": "a85df6123a6e5e2607c8794681704a051ae70589de9165b97108b926c928fe32",
+      "bytes": 380
+    },
+    {
+      "path": "tests/Convert/Solidworks/PlainWriting/ReversePrep/PrepCliTests.py",
+      "sha256": "7a5ebca3cc8fd6782e00f399d4d9154eccafd376934654ef806fe0cdd9104899",
+      "bytes": 1601
+    },
+    {
+      "path": "tests/Convert/Solidworks/PlainWriting/ReversePrep/ReadPrepCases.py",
+      "sha256": "82d9b8fabbc1777ff7d454d0460fe2484b8137a17434eb873847bb1a382fc209",
+      "bytes": 1125
+    },
+    {
+      "path": "tests/Convert/Solidworks/PlainWriting/ReversePrep/ReverseGateTests.py",
+      "sha256": "239916223f078786b4c5d893cb8935d9e56378a63fffc6d34bb7b9bd6d8c1bd5",
+      "bytes": 3675
+    },
+    {
+      "path": "tests/Convert/Solidworks/PlainWriting/ReversePrep/ReversePrepTests.py",
+      "sha256": "1d60e09b4803a5049d6a88fc640089000084f42b241ce66ae69b37a29b1f2de7",
+      "bytes": 3130
+    }
+  ],
+  "cases": [
+    {
+      "case": "discoveryTriangleForward",
+      "reversed": false,
+      "sha256": "64681c0990f65daf7b828a529e8f5faf1c13731be6bc5fbd20e2e606fb021b10",
+      "bytes": 8133,
+      "cold_json_regeneration_equal": true,
+      "native_acceptance": false
+    },
+    {
+      "case": "discoveryTriangleReverse",
+      "reversed": true,
+      "sha256": "1dfc4ba8ee778fa931000f226065c55adf564dfd0eeeed005ab77eea44eb45b6",
+      "bytes": 8109,
+      "cold_json_regeneration_equal": true,
+      "native_acceptance": false
+    },
+    {
+      "case": "holdoutStepForward",
+      "reversed": false,
+      "sha256": "911f9a94fdd51e9746a363e7e1591d00c0d404073408ff5645366b13f7641837",
+      "bytes": 8176,
+      "cold_json_regeneration_equal": true,
+      "native_acceptance": false
+    },
+    {
+      "case": "holdoutStepReverse",
+      "reversed": true,
+      "sha256": "f08a0e7149e7e2b2de523305027139e22cd599acd69e6ee7f9c447ba36b02eed",
+      "bytes": 8152,
+      "cold_json_regeneration_equal": true,
+      "native_acceptance": false
+    },
+    {
+      "case": "holdoutQuadForward",
+      "reversed": false,
+      "sha256": "322692bd32ef271c1e74e49650cc92ead8f3c994ae9dece443e21095c2b8f151",
+      "bytes": 8141,
+      "cold_json_regeneration_equal": true,
+      "native_acceptance": false
+    },
+    {
+      "case": "holdoutQuadReverse",
+      "reversed": true,
+      "sha256": "c79169da7ae31244ce930653c6047bbe17f76e7864f2a959d0ef228236ea8bca",
+      "bytes": 8122,
+      "cold_json_regeneration_equal": true,
+      "native_acceptance": false
+    }
+  ],
+  "verification": {
+    "runtime": "CPython 3.14.6; pytest 9.1.1",
+    "integration_passed": 59,
+    "command": "python -m pytest tests/Convert/Solidworks/PlainWriting tests/Convert/Integration/Solidworks/Reverse -q --tb=short",
+    "duration_seconds": 29.88,
+    "independent_review": "no actionable production defect; complete direction flow and unchanged exact publication gate independently inspected",
+    "black": "26.10.1 passed for all changed files",
+    "steering": "23 files passed against existing baseline",
+    "mypy": "locked 2.4.1 with pytest 9.1.1 passed for 23 files",
+    "ruff": "locked 0.17.5 unavailable in offline cache; deferred to remote CI",
+    "pyright": "locked 1.1.414 unavailable in offline cache; deferred to remote CI",
+    "path_policy": "full tree 19193 paths passed"
+  },
+  "retained_attempts": [
+    {
+      "failure": "six initial test assertions expected topology.valid true",
+      "resolution": "preserved existing unknown native validity None; verified complete solid topology and Document.AssertValid instead"
+    },
+    {
+      "failure": "three fresh CLI processes imported stale installed SDK with relative PYTHONPATH",
+      "resolution": "absolute checkout source paths bound through scoped environment fixture; native receipt refusal then verified"
+    },
+    {
+      "failure": "combined test collection found duplicate ReverseCliTests basenames",
+      "resolution": "renamed preparation test to PrepCliTests; all 59 archive and process cases pass together"
+    },
+    {
+      "failure": "optional feature length rejected by Mypy",
+      "resolution": "assert actual recovered length before measurement comparison"
+    }
+  ],
+  "remaining": [
+    "generated reversed native lifecycle and independent native holdouts unavailable while CAD API down",
+    "source saved cap-field provenance",
+    "separately owned saved ghost-body grammar",
+    "unresolved native source features prevent full cross-format conversion"
+  ],
+  "documents": {
+    "archive": "Documents.tar.gz",
+    "sha256": "cb3c34bcc37632feb7762cabeddfeb73746dd3dd49f664bf54de94247bfea106",
+    "bytes": 162670,
+    "members": [
+      {
+        "path": "discoveryTriangleForward/Decoded.json",
+        "sha256": "af2387eebea83bfe6a5cc4a783f578a334b32115900191856705f8171ef72ee9",
+        "bytes": 120019
+      },
+      {
+        "path": "discoveryTriangleForward/Neutral.json",
+        "sha256": "f729262908e0e80c9f220e602999229267f3fc1feccfa7ba0c9e111af97ac50d",
+        "bytes": 7617
+      },
+      {
+        "path": "discoveryTriangleForward/discoveryTriangleForward.SLDPRT",
+        "sha256": "64681c0990f65daf7b828a529e8f5faf1c13731be6bc5fbd20e2e606fb021b10",
+        "bytes": 8133
+      },
+      {
+        "path": "discoveryTriangleReverse/Decoded.json",
+        "sha256": "089935c00460736b379872d5aade1baa4f2b3363133d391103f17d17715e9801",
+        "bytes": 120014
+      },
+      {
+        "path": "discoveryTriangleReverse/Neutral.json",
+        "sha256": "b1c4645d6312bde0a498c591929001978931a5823a6e13d0f3dc649ac667c3d2",
+        "bytes": 7616
+      },
+      {
+        "path": "discoveryTriangleReverse/discoveryTriangleReverse.SLDPRT",
+        "sha256": "1dfc4ba8ee778fa931000f226065c55adf564dfd0eeeed005ab77eea44eb45b6",
+        "bytes": 8109
+      },
+      {
+        "path": "holdoutQuadForward/Decoded.json",
+        "sha256": "aafc63ed7ef5b86fc852d587704db0b248ade8fc4af5cd3dcb56636f86c1d88e",
+        "bytes": 133036
+      },
+      {
+        "path": "holdoutQuadForward/Neutral.json",
+        "sha256": "6672588177e3f06d063157bed567ad34b9c815e6494d5f2e9e6f9be438eef23e",
+        "bytes": 8350
+      },
+      {
+        "path": "holdoutQuadForward/holdoutQuadForward.SLDPRT",
+        "sha256": "322692bd32ef271c1e74e49650cc92ead8f3c994ae9dece443e21095c2b8f151",
+        "bytes": 8141
+      },
+      {
+        "path": "holdoutQuadReverse/Decoded.json",
+        "sha256": "a530ebe5856703f4818970ffd2c86ce127f91d678829dce2e55c4faa5fb1de4c",
+        "bytes": 133055
+      },
+      {
+        "path": "holdoutQuadReverse/Neutral.json",
+        "sha256": "ad3291274aee638f6f34412d9040e0ffd657742e2a641449cd37844aee197ba5",
+        "bytes": 8349
+      },
+      {
+        "path": "holdoutQuadReverse/holdoutQuadReverse.SLDPRT",
+        "sha256": "c79169da7ae31244ce930653c6047bbe17f76e7864f2a959d0ef228236ea8bca",
+        "bytes": 8122
+      },
+      {
+        "path": "holdoutStepForward/Decoded.json",
+        "sha256": "e4dc1cec9cd492075eb310468660fe5f32c4cb29b57c61e9d40459fd03c9a1d8",
+        "bytes": 158175
+      },
+      {
+        "path": "holdoutStepForward/Neutral.json",
+        "sha256": "c287d6e8e3622fac13b0f0d187fd7c6e6934b69fa2b6af79aea0379e162bf385",
+        "bytes": 9824
+      },
+      {
+        "path": "holdoutStepForward/holdoutStepForward.SLDPRT",
+        "sha256": "911f9a94fdd51e9746a363e7e1591d00c0d404073408ff5645366b13f7641837",
+        "bytes": 8176
+      },
+      {
+        "path": "holdoutStepReverse/Decoded.json",
+        "sha256": "827fb252eff0adfe76065c34f30f72e223a7241184ab6516864738bc7ddb8e1f",
+        "bytes": 158206
+      },
+      {
+        "path": "holdoutStepReverse/Neutral.json",
+        "sha256": "dd3c6649c426d0675a39859bcc0060c3308ea7b7626eacc25ff32bd941b730f7",
+        "bytes": 9823
+      },
+      {
+        "path": "holdoutStepReverse/holdoutStepReverse.SLDPRT",
+        "sha256": "f08a0e7149e7e2b2de523305027139e22cd599acd69e6ee7f9c447ba36b02eed",
+        "bytes": 8152
+      }
+    ]
+  }
+}

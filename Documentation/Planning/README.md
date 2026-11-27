@@ -5,6 +5,11 @@ Open the [organization scope board](https://github.com/orgs/TryUniCAD/projects/1
 Use this page before selecting or handing off repository work. It joins the existing
 planning sources without transferring their ownership or changing acceptance criteria.
 
+The [decoded promotion links](DecodedPromotion.md) join the existing A16 programme
+and its eight decided children to this register. All remain active at bounded scope.
+Their [project synchronization record](DecodedPromotionSync.json) retains the pending
+remote update; no new dates, feature ownership or native acceptance are assigned.
+
 ## Read the current views
 
 Read [the agent workflow](AgentWorkflow.md) for the required start, update and handoff checklist.

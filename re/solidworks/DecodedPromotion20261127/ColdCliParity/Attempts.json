@@ -1,0 +1,28 @@
+{
+  "base_revision": "6087ed24cb75ad8fb10626b556192c0351d989d7",
+  "attempts": [
+    {
+      "stage": "partial native-feature-only exception",
+      "result": "two measured CLI controls still refused RetainedMetadata",
+      "lesson": "writer qualification must prove the complete source, rather than stripping individual source fields"
+    },
+    {
+      "stage": "new positive SDK assertion fixture",
+      "result": "two fixture failures: nonexistent ConversionResult.write_result",
+      "repair": "use existing public vendor_loadable/application_usable properties"
+    },
+    {
+      "stage": "earlier reversed CLI refusal assertions",
+      "result": "three old NativeFeature diagnostic assertions failed after delegation",
+      "repair": "require unchanged offline native measurement publication refusal and preserved target"
+    }
+  ],
+  "final": {
+    "archive_process_tests": 12,
+    "passed": 12,
+    "seconds": 22.56,
+    "native_calls": 0,
+    "models": false
+  },
+  "prior_inventory_proof_sha256": "3cdab8e439d3f97cdf4c5efc16d2f28834b4864945f698280cacf23f6daf838d"
+}

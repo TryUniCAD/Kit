@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 1,
   "ObservedOn": "2026-11-27",
-  "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
+  "MainRevision": "c090f4f4c62944575d70d79247a3fd18b98d2752",
   "ScopeLinks": [
     {
       "ScopeId": "sw:family:sketchconics:circle",
@@ -278,6 +278,149 @@
           "Revision": ""
         }
       }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "A12-ReverseBlindBoss20261127",
+      "Boundary": "Bounded reversed cold line loop blind boss reader and generative preparation; broader grammar and measured reverse output publication remain unfinished",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "A12-ColdCliParity20261127",
+      "Boundary": "Exact existing measured cold part SDK/CLI route parity; no new feature family or native acceptance",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-GeneratedOffsetSpan20261127",
+      "Boundary": "Only source free XY circular unequal two sided signed offset prototypes; native generated edit and reopen qualification remains unfinished",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-CircularStatePromotion20261127",
+      "Boundary": "Only recorded circular typed state preservation and reconstruction candidates; neutral generation remains separate",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "write": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-DualDraftGeometry20261127",
+      "Boundary": "Only independently drafted circular side analytic geometry and full measured mass proof; this link is not whole extrusion support",
+      "Stages": {
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-DualDraftRead20261127",
+      "Boundary": "Only recorded independent XY circular NewBody two sided drafts with full source gates; inspection only",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "A11-DualDraftFrame20261127",
+      "Boundary": "Only source selected principal XZ extension of the bounded circular draft reader; arbitrary frames and offsets remain separate",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.FilletFeature",
+      "TaskId": "A11-RimFilletRead20261127",
+      "Boundary": "Only one constant top circular rim on canonical XY blind extrusion across 22 measured sources; source remains read only",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ConstantRadiusFilletEdgeSet",
+      "TaskId": "A11-RimFilletRead20261127",
+      "Boundary": "Only recorded constant radius unit tangency and rolling ball chain mode with actual selected predecessor rim; other modes unverified",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        },
+        "semantics": {
+          "Status": "active",
+          "Evidence": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+          "Revision": ""
+        }
+      }
     }
   ],
   "Schedules": [],
@@ -386,6 +529,185 @@
       "Source": "Documentation/Planning/README.md",
       "Area": "UI/UX",
       "Exit": "Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client"
+    },
+    {
+      "Id": "A16-DecodedReadWrite20261127",
+      "Name": "Decoded SOLIDWORKS and Fusion SDK/CLI read write programme",
+      "Status": "active",
+      "Owner": "Codex root",
+      "Dependencies": ["A04", "A05", "A11", "A12", "A13", "A14"],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Every evidenced decoded family has complete semantic reads and donor free generative writes through SDK and CLI with independent target acceptance; full writing and native acceptance remain unfinished",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a16-decodedreadwrite20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker"
+    },
+    {
+      "Id": "A11-GeneratedOffsetSpan20261127",
+      "Name": "Source free circular offset span generation",
+      "Status": "active",
+      "Owner": "Codex root",
+      "Dependencies": [],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Complete generated field rules and native held out edit restore rebuild save and fresh reopen acceptance; current typed candidates and offline checks do not qualify native writing",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a11-generatedoffsetspan20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "Complete generative circular field rules, existing controller and circular codec, independent generated native edits and lifecycle evidence"
+    },
+    {
+      "Id": "A11-CircularStatePromotion20261127",
+      "Name": "Circular typed state preservation and candidate qualification",
+      "Status": "active",
+      "Owner": "Codex Fusion worker",
+      "Dependencies": [],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Exact generated candidates pass native lifecycle and full source preservation; neutral distance generation remains distinct and unfinished",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a11-circularstatepromotion20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "Recorded circular native sources, complete typed state preservation and exact candidate measurement receipts"
+    },
+    {
+      "Id": "A12-ReverseBlindBoss20261127",
+      "Name": "Reversed cold blind boss reading and guarded preparation",
+      "Status": "active",
+      "Owner": "Codex SOLIDWORKS worker",
+      "Dependencies": [],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Independent saved source grammar and editable generated native acceptance pass SDK and CLI; ghost body grammar cap provenance and native generated reverse acceptance remain unfinished",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a12-reverseblindboss20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "Existing generative boss constructor, actual direction start extent body ownership grammar, independently saved controls and native output acceptance"
+    },
+    {
+      "Id": "A11-DualDraftGeometry20261127",
+      "Name": "Independent circular draft geometry and complete mass proof",
+      "Status": "active",
+      "Owner": "Codex Fusion worker",
+      "Dependencies": [],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Analytic independent side geometry complete mass tensors and archive counterexamples pass while complete source identity snapshot material and scene gates remain mandatory",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a11-dualdraftgeometry20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "Committed circular two sided journals and actual API observations with complete mass tensor evidence"
+    },
+    {
+      "Id": "A11-DualDraftRead20261127",
+      "Name": "Bounded independent XY circular draft SDK/CLI reads",
+      "Status": "active",
+      "Owner": "Codex root",
+      "Dependencies": ["A11-DualDraftGeometry20261127"],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Full bounded parameter identity live history snapshots auxiliary checks and source backed SDK/CLI proof; writing and native acceptance remain unfinished",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a11-dualdraftread20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "Complete bounded analytic geometry and mass proof, graph parameter identity snapshot material and scene contracts, separately owned offset work in PR396"
+    },
+    {
+      "Id": "A11-DualDraftFrame20261127",
+      "Name": "Source selected principal XZ circular draft reading",
+      "Status": "active",
+      "Owner": "Codex root",
+      "Dependencies": ["A11-DualDraftRead20261127"],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Actual frame ownership world geometry mass strict SDK/CLI reads preserved XY controls and encoded counterexamples; arbitrary frames writing and target acceptance remain unfinished",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a11-dualdraftframe20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "Bounded XY reader, actual source API transforms and complete world live and snapshot correspondence"
+    },
+    {
+      "Id": "A12-ColdCliParity20261127",
+      "Name": "Exact measured SOLIDWORKS cold read SDK/CLI parity",
+      "Status": "active",
+      "Owner": "Codex root",
+      "Dependencies": [],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Archive process parity exact measured hashes stale and missing receipt refusals unchanged destinations and current head checks; no new native acceptance",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a12-coldcliparity20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "IsColdRead, complete CheckColdRead regenerated equality and unchanged exact native measurement publication"
+    },
+    {
+      "Id": "A11-RimFilletRead20261127",
+      "Name": "Bounded constant top circular rim fillet reading",
+      "Status": "active",
+      "Owner": "Codex root",
+      "Dependencies": [],
+      "Source": "Documentation/Reference/Research/AutomationSteps.md#a16-decodedreadwrite20261127",
+      "Exit": "Full 22 source graph parameter physical selection live snapshot mass material and scene proof plus SDK/CLI and malformed neutral refusal checks; writer generation and new native lifecycle acceptance remain unfinished",
+      "Area": "SDK",
+      "Branch": "feat/decoded-cad-read-write-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/397",
+      "ParentTask": "A16-DecodedReadWrite20261127",
+      "Agent": "Codex root with the existing scoped evidence workers",
+      "ExternalResource": "Native CAD API unavailable; no new oracle lease; models off",
+      "Evidence": "re/DecodedReadWrite20261127/README.md",
+      "AcceptedRevision": "",
+      "PlanningNotes": "Documentation/Planning/DecodedPromotion.md#a11-rimfilletread20261127",
+      "RemainingParentRequirements": "Full decoded family writing and independent native generated output qualification remain unfinished; inspect the exact child exit rather than applying this parent gap as a new child blocker",
+      "SourceDependencies": "Merged PR301 typed and measured 22 source corpus, actual radius and selected physical rim, complete graph live snapshot mass material scene and history preservation"
     }
   ],
   "Dependencies": {

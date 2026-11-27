@@ -1,0 +1,53 @@
+[
+  {
+    "case": "baseline",
+    "values_mm": [
+      13.0,
+      17.0,
+      29.0,
+      7.0
+    ],
+    "models": false,
+    "vendor_loadable": false,
+    "application_usable": false,
+    "sha256": "26a16dd84775a1830b04b01f3eef76d48ac3ac5dc72723e47949b64c4802930b",
+    "size": 85736,
+    "typed_roundtrip": true,
+    "strict": "rejected",
+    "reason": "Native Fusion state is outside the qualified authored feature profile"
+  },
+  {
+    "case": "negative",
+    "values_mm": [
+      7.1,
+      31.7,
+      14.3,
+      -11.0
+    ],
+    "models": false,
+    "vendor_loadable": false,
+    "application_usable": false,
+    "sha256": "882b16ff9f3d210b78722ab78d4ce3e0ee2ab4752b02f711b236eb3833283304",
+    "size": 85740,
+    "typed_roundtrip": true,
+    "strict": "rejected",
+    "reason": "Native Fusion state is outside the qualified authored feature profile"
+  },
+  {
+    "case": "holdout",
+    "values_mm": [
+      19.7,
+      9.3,
+      43.1,
+      2.7
+    ],
+    "models": false,
+    "vendor_loadable": false,
+    "application_usable": false,
+    "sha256": "48ed7e8759279d52b0913b58ce43a379925d86f9c48fa799d82cd72b81a43c74",
+    "size": 85734,
+    "typed_roundtrip": true,
+    "strict": "rejected",
+    "reason": "Native Fusion state is outside the qualified authored feature profile"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "archive_process_cases": 79,
+  "passed": 73,
+  "failed": 6,
+  "seconds": 68.88,
+  "reason": "new negative fixture assertions expected internal error aliases instead of observed public names; all six operations refused",
+  "guard_source_sha256": "92df1d63631d7f02148352d4451896233b2208dadb02fc26f87b5f4cfca7db0c",
+  "raw_junit_sha256": "bf1dca51e9ee2b1141e2752e94841b479ae841671f4ce5d6bc5f529b81ca4702",
+  "published_junit_normalization": "hostname replaced for privacy; all failures and counts retained",
+  "published_junit_sha256": "610999ed69770cf78392618bc1d5ef946fc13df576cc2e76c52e9f5d0a046a46",
+  "archive_sha256": "2ef7e96291ba76fe7e9ef8d24ddca7232be57cf1bbafa458fa809543daa8ff57",
+  "guard_source_capture": "source observed after the failed run; final fixed helpers are separately source-bound"
+}

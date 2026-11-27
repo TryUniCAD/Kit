@@ -1,0 +1,49 @@
+{
+  "jobs": [
+    {
+      "id": "fusion-strict",
+      "kind": "pinned.decode",
+      "inputs": {},
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+      "rule_version": "decoded-promotion@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "format": "fusion",
+        "manifest": "/private/tmp/KitDecodedReadWrite20261127/FusionCorpus.json",
+        "partial": false
+      }
+    },
+    {
+      "id": "fusion-partial",
+      "kind": "pinned.decode",
+      "inputs": {},
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+      "rule_version": "decoded-promotion@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "format": "fusion",
+        "manifest": "/private/tmp/KitDecodedReadWrite20261127/FusionCorpus.json",
+        "partial": true
+      }
+    },
+    {
+      "id": "solidworks-strict",
+      "kind": "pinned.decode",
+      "inputs": {},
+      "tool_version": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+      "rule_version": "decoded-promotion@1",
+      "max_attempts": 1,
+      "timeout_seconds": 1500,
+      "lease_seconds": 120,
+      "options": {
+        "format": "solidworks",
+        "manifest": "/private/tmp/KitDecodedReadWrite20261127/SolidworksCorpus.json",
+        "partial": false
+      }
+    }
+  ]
+}

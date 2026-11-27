@@ -1,0 +1,7 @@
+# Reserved-input representation failure, retained
+
+The original frozen software passes six discovery files but only one of sixteen reserved cases in full. All sixteen pass source ownership and full prior/current geometric topology. Twelve then stop because the software accessed `SnapshotModel.TagSet`, while the complete native reader preserved their snapshots as generic `GeometryState`. This refutes the software assumption that every source chooses the same optimized snapshot model; it does not refute the frozen raw snapshot geometry rule or demonstrate unknown grammar.
+
+An additive research implementation now reads the actual saved snapshot geometry in every case and resolves its complete physical side/cap/rim tag owners from that geometry. It then performs the same original full canonical prior/snapshot comparison and disjoint sheet coverage. The original frozen software, freeze hashes, failures and all reserved first-run outcomes are retained. Revised runs are post-exposure validation, not a newly sealed holdout.
+
+Separately, three cases already using the optimized snapshot passed complete source/live/snapshot attribution and diagonal inertia but failed the established absolute near-zero offdiagonal tolerance in `RotaryMass.CacheNumbers`. The additive runner retains all numerical fields and API comparisons while keeping those mass dispositions as failures. It does not widen a tolerance or mark those sources fully qualified. Analytic formulas, selected-edge/body rule and raw snapshot correspondence are unchanged.

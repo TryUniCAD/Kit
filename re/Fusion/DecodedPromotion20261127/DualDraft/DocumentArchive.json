@@ -1,0 +1,1018 @@
+{
+  "archive": "Documents.tar.gz",
+  "members": [
+    {
+      "bytes": 15118,
+      "member": "Geometry/baseline_baseline.json",
+      "sha256": "ab39856d2b9cec9dce391bf9aac3a83afcf271b5bfd6c2d5dc983879d1b1c958"
+    },
+    {
+      "bytes": 15757,
+      "member": "Geometry/baseline_edit_draft_first.json",
+      "sha256": "53cc4a9fd2687507d1b7978c7156c47057d40b25cda53fe9c3fadc1195989cdb"
+    },
+    {
+      "bytes": 15840,
+      "member": "Geometry/baseline_edit_draft_second.json",
+      "sha256": "6a8fdc319441b498f58861d07e45acaaabed0fcc0f6c691df01206cee2d33687"
+    },
+    {
+      "bytes": 15277,
+      "member": "Geometry/baseline_edit_first.json",
+      "sha256": "f53f8e312c8c50ee1d9b30b119ab7a899c55deae06ce4630e2c95308c9eb7bb2"
+    },
+    {
+      "bytes": 15303,
+      "member": "Geometry/baseline_edit_second.json",
+      "sha256": "1b7353cceaa873b38aa7de35d8ec2af020209011b75325dd7941ef04589668bf"
+    },
+    {
+      "bytes": 15998,
+      "member": "Geometry/baseline_restore_draft_first.json",
+      "sha256": "3a5d7dd4dd4e76e6447eefe4c0fad9a1b0a406386d10e6f23d2fc91889e96f18"
+    },
+    {
+      "bytes": 16078,
+      "member": "Geometry/baseline_restore_draft_second.json",
+      "sha256": "704e3c0aec02ad576ace5065e48656eb0343d7e1b9760a7de1b2df32de51de97"
+    },
+    {
+      "bytes": 15518,
+      "member": "Geometry/baseline_restore_first.json",
+      "sha256": "75197d15349734caa9c84ab4743f66cf1183a9370163402364424869a725cf99"
+    },
+    {
+      "bytes": 15598,
+      "member": "Geometry/baseline_restore_second.json",
+      "sha256": "4d573e0e267bff493fdfea807b4d72ee7ffffc6c33992373c25bdeac997acd9f"
+    },
+    {
+      "bytes": 11470,
+      "member": "Geometry/control_after_baseline.json",
+      "sha256": "5ad3dd4e6d1a4ed846735890d0b2c652c41f65aec156ea1491b96f140abb9481"
+    },
+    {
+      "bytes": 11528,
+      "member": "Geometry/control_before_baseline.json",
+      "sha256": "a739c635f94cd4c697cc54cc43bd8187d0b8370348b2e47a2a09ae1b26400986"
+    },
+    {
+      "bytes": 15351,
+      "member": "Geometry/draft_first_baseline.json",
+      "sha256": "3c9b488d5ed42db831bb7268cbdd9324e94d8bb81bbf695155a870ecea57d3ff"
+    },
+    {
+      "bytes": 15995,
+      "member": "Geometry/draft_first_edit_draft_first.json",
+      "sha256": "35acd6d263ff37178aef6f005f14bf9d090d7123bfd23b96807d8bc7faac1bb9"
+    },
+    {
+      "bytes": 16073,
+      "member": "Geometry/draft_first_edit_draft_second.json",
+      "sha256": "44b0f8dcf8186832a5c10fb831f4f13c8f31857dabf6551539b02dee07aa739d"
+    },
+    {
+      "bytes": 15513,
+      "member": "Geometry/draft_first_edit_first.json",
+      "sha256": "e7bebd4d92f5650aa39205ec6e101db39bc14e1e7c32121fea5ef6a6ba78699a"
+    },
+    {
+      "bytes": 15536,
+      "member": "Geometry/draft_first_edit_second.json",
+      "sha256": "1eb01720b6a829c9aff14ffc4c0ff03255f7566563e1c45753dbfd43424c3d70"
+    },
+    {
+      "bytes": 16231,
+      "member": "Geometry/draft_first_restore_draft_first.json",
+      "sha256": "791e4c3591d81ee59eaeb09e95ca62aa4662c9716bb5b9da8f44515d7abb8e1e"
+    },
+    {
+      "bytes": 16311,
+      "member": "Geometry/draft_first_restore_draft_second.json",
+      "sha256": "65d413bc3bd5f9de96ac9e16aa5b572cd553c00964742e1f8be84c07708b3554"
+    },
+    {
+      "bytes": 15751,
+      "member": "Geometry/draft_first_restore_first.json",
+      "sha256": "ffc60b59bb59781b6a41ef24f4c42e5cbbe198cb6fc22d27e2e9de0e9d782961"
+    },
+    {
+      "bytes": 15831,
+      "member": "Geometry/draft_first_restore_second.json",
+      "sha256": "3d3e72fa7a4b7eaeb79b47dd144e59b1c8eb4a2afaccdc34240a14d1b3598e78"
+    },
+    {
+      "bytes": 15437,
+      "member": "Geometry/draft_second_baseline.json",
+      "sha256": "1fb80d8ae50dcb2cc10799d577624ff29c549d5e70f911224e37b8afca67672d"
+    },
+    {
+      "bytes": 16076,
+      "member": "Geometry/draft_second_edit_draft_first.json",
+      "sha256": "9d4ee3305017be8ba06205244c89e1a77c9a42369cae6e565090af9cbc572d24"
+    },
+    {
+      "bytes": 16154,
+      "member": "Geometry/draft_second_edit_draft_second.json",
+      "sha256": "1518375b2e1bca14878ad4a0c1f6211314730c58b2dfb8a505d5d9efead2112c"
+    },
+    {
+      "bytes": 15596,
+      "member": "Geometry/draft_second_edit_first.json",
+      "sha256": "e3fddf66598b34dade800e4b3281b38dc3dcc6631db8515e66eda34374b5543a"
+    },
+    {
+      "bytes": 15618,
+      "member": "Geometry/draft_second_edit_second.json",
+      "sha256": "5325b263ead9cf5cddd25a7b2d9ac347944cad11a8c6f0ceedc7de701e6e687a"
+    },
+    {
+      "bytes": 16317,
+      "member": "Geometry/draft_second_restore_draft_first.json",
+      "sha256": "a27137174998d074df24ba6db95847aad10735eb693052d285da90033b95c3c3"
+    },
+    {
+      "bytes": 16397,
+      "member": "Geometry/draft_second_restore_draft_second.json",
+      "sha256": "fda7020634bcfcd5e59bf91e7b6b2c5c508e451c063c4b965356f0f75695082d"
+    },
+    {
+      "bytes": 15837,
+      "member": "Geometry/draft_second_restore_first.json",
+      "sha256": "818e36f29b7fae6856f5458465b5d12dfde2b900acb00631adca2e43efadc4c9"
+    },
+    {
+      "bytes": 15917,
+      "member": "Geometry/draft_second_restore_second.json",
+      "sha256": "28c2fe46f8d1edd89860f1ddec39e5ec32ef625619ab56be9d08873e759aa44c"
+    },
+    {
+      "bytes": 14920,
+      "member": "Geometry/first_baseline.json",
+      "sha256": "57687b9e30da0171639304a878483e5e47f1a76feebbe378f2895fcccbcfe8f9"
+    },
+    {
+      "bytes": 15559,
+      "member": "Geometry/first_edit_draft_first.json",
+      "sha256": "10090aea25de8a0febf5357d520535f3e692edd8b24064f2c18f10b5d6871da1"
+    },
+    {
+      "bytes": 15642,
+      "member": "Geometry/first_edit_draft_second.json",
+      "sha256": "49c106d6a3027e55f8ead314958511dcb4a5e286058e11ab144fde77de8dfc56"
+    },
+    {
+      "bytes": 15036,
+      "member": "Geometry/first_edit_first.json",
+      "sha256": "46d0f1d7bf4f5a24b0113e9d0f7924c93386614f3f1625387c90eb1830bb6645"
+    },
+    {
+      "bytes": 15105,
+      "member": "Geometry/first_edit_second.json",
+      "sha256": "a92b87ecb1a1f419de870fdb7e3240eafdb32d97b36f94c0571f8364ec674cd0"
+    },
+    {
+      "bytes": 15800,
+      "member": "Geometry/first_restore_draft_first.json",
+      "sha256": "719375342896e885a77818087e63364b498b8097932941efbf540ab0a96cda34"
+    },
+    {
+      "bytes": 15880,
+      "member": "Geometry/first_restore_draft_second.json",
+      "sha256": "fdd9f0b94eac5879ca8f6b060282abeb630040c3ab87eb3ebb6ac65c688777c2"
+    },
+    {
+      "bytes": 15320,
+      "member": "Geometry/first_restore_first.json",
+      "sha256": "951af82cb078b8e918fb2a397ccdfafdb61cb10b9f8f0e680e09c3882c6033a4"
+    },
+    {
+      "bytes": 15400,
+      "member": "Geometry/first_restore_second.json",
+      "sha256": "593680a65c5847cf6c950b4cd0071560a0742575fe9e1cced4693d7634ada0a0"
+    },
+    {
+      "bytes": 14868,
+      "member": "Geometry/frame_baseline.json",
+      "sha256": "7d9eca40ce0a5ea3180ef7547c0a4184fc06e13397b5d687860a3386564dc697"
+    },
+    {
+      "bytes": 15507,
+      "member": "Geometry/frame_edit_draft_first.json",
+      "sha256": "fa38149b5b34f2fa107cda4530cfdfdc2f0752bd0febaa49b58cb2524bcc8992"
+    },
+    {
+      "bytes": 15590,
+      "member": "Geometry/frame_edit_draft_second.json",
+      "sha256": "05dff62921d824037b7d27b463b155b0d627c10a854d44edff93d1a21d0b2c8d"
+    },
+    {
+      "bytes": 15027,
+      "member": "Geometry/frame_edit_first.json",
+      "sha256": "8c88924e2377f8abea050b55ba021439e43821fbb24f335db22c3fabe9868e88"
+    },
+    {
+      "bytes": 15053,
+      "member": "Geometry/frame_edit_second.json",
+      "sha256": "e15d9b4664f3317dc51fbdc4aba36ab59ea7a5a5f6c61ec2c94cc56fe010bf01"
+    },
+    {
+      "bytes": 15748,
+      "member": "Geometry/frame_restore_draft_first.json",
+      "sha256": "f5ccd513cf141f5adc90ea0044b4aba0254a2cfd1290e6bb7cfbf12da4f74f2b"
+    },
+    {
+      "bytes": 15828,
+      "member": "Geometry/frame_restore_draft_second.json",
+      "sha256": "914b7f27c90ad4734368231f846b0351192a6f973ecfc2ec438c7b9ae05b3ff4"
+    },
+    {
+      "bytes": 15268,
+      "member": "Geometry/frame_restore_first.json",
+      "sha256": "774549b68ca22a30419f61b0e4c0563822759b2cd54d825db41f52c300c1e966"
+    },
+    {
+      "bytes": 15348,
+      "member": "Geometry/frame_restore_second.json",
+      "sha256": "647c9f00df91cc8f2aa4455eccb491fd3af582ded5ccfe169e964f78e3066a51"
+    },
+    {
+      "bytes": 15138,
+      "member": "Geometry/holdout_a_baseline.json",
+      "sha256": "e921d0d0987d7f24827177b6b25ef92e14a3901387e8345ba56930fab0f2f600"
+    },
+    {
+      "bytes": 15779,
+      "member": "Geometry/holdout_a_edit_draft_first.json",
+      "sha256": "aacdce46fb0b67bad44bd0de38470b002bd6d3a62459b6689935e5f28bfcc03d"
+    },
+    {
+      "bytes": 15858,
+      "member": "Geometry/holdout_a_edit_draft_second.json",
+      "sha256": "881f8eb829396a01e01a5c8fef0a4c787b5fa48537368165234e93a375ed877b"
+    },
+    {
+      "bytes": 15340,
+      "member": "Geometry/holdout_a_edit_first.json",
+      "sha256": "19bc6eb342a1ee4f8ed647b59ac07921abc99e37110d4dae8358d70e2b328cdb"
+    },
+    {
+      "bytes": 15378,
+      "member": "Geometry/holdout_a_edit_second.json",
+      "sha256": "34af16fa16b6ece8f8bd8c27e827e0b0f94e9c1355c96972982152e9e4eb0a03"
+    },
+    {
+      "bytes": 16018,
+      "member": "Geometry/holdout_a_restore_draft_first.json",
+      "sha256": "8d736ee10c66c3fa58d1c8d9af27e43bee1bb3bc0a53f48cee8b54b57edf691c"
+    },
+    {
+      "bytes": 16098,
+      "member": "Geometry/holdout_a_restore_draft_second.json",
+      "sha256": "973c0d471fe3200f9a12f6f14709ae99faa2f4856b30df100cb89ed22e77ba7c"
+    },
+    {
+      "bytes": 15538,
+      "member": "Geometry/holdout_a_restore_first.json",
+      "sha256": "eea4d047657cff34546e2c539d24a6cfe2ab6f039124997678b3295f03d9b5fb"
+    },
+    {
+      "bytes": 15618,
+      "member": "Geometry/holdout_a_restore_second.json",
+      "sha256": "2e550ba1a4fe185a513f4efe95c810903317a7b9908facdfe586072954810a3a"
+    },
+    {
+      "bytes": 15144,
+      "member": "Geometry/holdout_b_baseline.json",
+      "sha256": "d26e0e806cccf7130fe7d779a5d3f2f697fa186d6f6c3a9d2707fbf5c04da792"
+    },
+    {
+      "bytes": 15784,
+      "member": "Geometry/holdout_b_edit_draft_first.json",
+      "sha256": "e3c657d5e07e002bc63ea1dfdae3985842016327d691d1f066ff2b513bfa07af"
+    },
+    {
+      "bytes": 15861,
+      "member": "Geometry/holdout_b_edit_draft_second.json",
+      "sha256": "7d67e94fe596a1154123ad1d7c62e7a1bc8b534ac5a107bb7f4dc7c908d8ed85"
+    },
+    {
+      "bytes": 15304,
+      "member": "Geometry/holdout_b_edit_first.json",
+      "sha256": "31f38955ffc528df52821b4cd0e0a53f71febf921cd871b5626a5ffc1fb391ba"
+    },
+    {
+      "bytes": 15440,
+      "member": "Geometry/holdout_b_edit_second.json",
+      "sha256": "ced90261e5ca00819657bef722e2e1e67d210ca8fcb7672f54dff48d0abab7e3"
+    },
+    {
+      "bytes": 16024,
+      "member": "Geometry/holdout_b_restore_draft_first.json",
+      "sha256": "b4b2946f0744fe198f2e1c8e542852540a35e7fe397e0bd909633175e2f2bd86"
+    },
+    {
+      "bytes": 16104,
+      "member": "Geometry/holdout_b_restore_draft_second.json",
+      "sha256": "bfed9b6360df98593161b180d8d2bc07cd2b417cbc8c310b7290c87b03919c1d"
+    },
+    {
+      "bytes": 15544,
+      "member": "Geometry/holdout_b_restore_first.json",
+      "sha256": "066b1b4849f08db8da472aecc694bd14c36f563f37760e155972fe887e737df9"
+    },
+    {
+      "bytes": 15624,
+      "member": "Geometry/holdout_b_restore_second.json",
+      "sha256": "144c0c13e1c1865c299bc17c0fb8ebf7364e074d3e931a3bbee9f966b578e758"
+    },
+    {
+      "bytes": 15204,
+      "member": "Geometry/placement_baseline.json",
+      "sha256": "6ae265d052e60e9461f99826c08f8fc738d1fb10549b74fa151c30e099aeca4d"
+    },
+    {
+      "bytes": 15843,
+      "member": "Geometry/placement_edit_draft_first.json",
+      "sha256": "e213234dbd5df20f0217bf0155f13b220e1cf7e3f0f5e90d36e78be5f12400f9"
+    },
+    {
+      "bytes": 15924,
+      "member": "Geometry/placement_edit_draft_second.json",
+      "sha256": "919b4d9cc7118b5bf4f7ee3a5b631195d53b833ffbbb65a45474f8f9dfcab32a"
+    },
+    {
+      "bytes": 15363,
+      "member": "Geometry/placement_edit_first.json",
+      "sha256": "d879c5db553812e7511fc91d626f61afa85399093593b2dec42728b44b30bfda"
+    },
+    {
+      "bytes": 15389,
+      "member": "Geometry/placement_edit_second.json",
+      "sha256": "0e20698f932d0768f0a26d90287d74e61a491622afe651c83966f48dddb2a07f"
+    },
+    {
+      "bytes": 16084,
+      "member": "Geometry/placement_restore_draft_first.json",
+      "sha256": "c221232767c780ac8244695f449c3c05b6c74625ec8b357a418c8dee9dce0e4a"
+    },
+    {
+      "bytes": 16164,
+      "member": "Geometry/placement_restore_draft_second.json",
+      "sha256": "67db8ffa633c7241cf2a9717ae953a73e7b0c372cbd53147833b470df387b46d"
+    },
+    {
+      "bytes": 15604,
+      "member": "Geometry/placement_restore_first.json",
+      "sha256": "6212cccc7173e0d1c65f296b100a9d9638a01b9cda264125a143bcceffdd88b7"
+    },
+    {
+      "bytes": 15684,
+      "member": "Geometry/placement_restore_second.json",
+      "sha256": "393ee32e1c2af85227e7bf8c7a2c306a560cc645538d0b3f00762c5d9ad25f35"
+    },
+    {
+      "bytes": 14958,
+      "member": "Geometry/radius_baseline.json",
+      "sha256": "9c225d86144a89ba1993ee9cb399d101d0dac105d1bb2cc91f3de37093c9044b"
+    },
+    {
+      "bytes": 15597,
+      "member": "Geometry/radius_edit_draft_first.json",
+      "sha256": "516050993a1c6098dee8bd2c2f93ba47880e0e3eef4c8388060c73337aaca5e9"
+    },
+    {
+      "bytes": 15680,
+      "member": "Geometry/radius_edit_draft_second.json",
+      "sha256": "bcfddfeb536ad20514edadef09a73a1837065ee96992b07ea74d0a4106c86876"
+    },
+    {
+      "bytes": 15117,
+      "member": "Geometry/radius_edit_first.json",
+      "sha256": "fe52caa702388e19b2b93bc79b2e6772658289760bbbf7c6067efd20392ad78d"
+    },
+    {
+      "bytes": 15143,
+      "member": "Geometry/radius_edit_second.json",
+      "sha256": "09e16e5982c3ebd4f82081eb3857a83b5f43b2cb467aaa2a597a79c5be1b35d1"
+    },
+    {
+      "bytes": 15838,
+      "member": "Geometry/radius_restore_draft_first.json",
+      "sha256": "73917dde9e28ef1c7f75d3f32e3f367b64e00caacc0473e3092ac36950160acf"
+    },
+    {
+      "bytes": 15918,
+      "member": "Geometry/radius_restore_draft_second.json",
+      "sha256": "03cd2c865ef23dde245023bd32bcce6bd8e27682fbbbf2bd60e2b91b30fa4aec"
+    },
+    {
+      "bytes": 15358,
+      "member": "Geometry/radius_restore_first.json",
+      "sha256": "fe7a9d0fbeadfa9fb420ae0bdc503398700c5718e5f0b12fafc1a0c6fc81e374"
+    },
+    {
+      "bytes": 15438,
+      "member": "Geometry/radius_restore_second.json",
+      "sha256": "4b10245da327bf12997646cf31e4b6c3cff0da657bf7696e09c9f178ed997b54"
+    },
+    {
+      "bytes": 14904,
+      "member": "Geometry/second_baseline.json",
+      "sha256": "1f40b25fa0892b2e683c7f02051851a9e809305bd1d934502ead87587bf68911"
+    },
+    {
+      "bytes": 15543,
+      "member": "Geometry/second_edit_draft_first.json",
+      "sha256": "04d2d71bca6c8eccb6c67b82a6431bbdbe83ee58d12a07a50cb10093cff23d19"
+    },
+    {
+      "bytes": 15625,
+      "member": "Geometry/second_edit_draft_second.json",
+      "sha256": "8d543346f3dc85592f0e985e41e53f6d4b96fe578e118746bc240c748595b425"
+    },
+    {
+      "bytes": 15063,
+      "member": "Geometry/second_edit_first.json",
+      "sha256": "9b11f1fadb72a9b1442d20f7e8451bfffcb941d0fa2f635ec235a698f69c5353"
+    },
+    {
+      "bytes": 15142,
+      "member": "Geometry/second_edit_second.json",
+      "sha256": "83fc4053111e27fc42d5c94ee0786d30a0c1dede7582a9917fbb0c3c7caa7365"
+    },
+    {
+      "bytes": 15784,
+      "member": "Geometry/second_restore_draft_first.json",
+      "sha256": "b2d58af38850764a305c284586a1211e17ffe784b489502064f9bcd86778fbce"
+    },
+    {
+      "bytes": 15864,
+      "member": "Geometry/second_restore_draft_second.json",
+      "sha256": "7c67747a7f8a120b1744d24b1d32928eaae550197ea4bbe2891077c2c21d6a26"
+    },
+    {
+      "bytes": 15304,
+      "member": "Geometry/second_restore_first.json",
+      "sha256": "d2a710018d069b192be4660df92f64632ad2fbda221dc15d5b32b6fd5aa8f4be"
+    },
+    {
+      "bytes": 15384,
+      "member": "Geometry/second_restore_second.json",
+      "sha256": "5a43e6991a0a34ff97b6dee9739291f263da46fbff1553cef8de515c6ac2b097"
+    },
+    {
+      "bytes": 15018,
+      "member": "Geometry/swapped_baseline.json",
+      "sha256": "55e208307965d9076ab8435ff095dee0a6b6c16b3f86c204374aababd74eaa5a"
+    },
+    {
+      "bytes": 15660,
+      "member": "Geometry/swapped_edit_draft_first.json",
+      "sha256": "fc74656d00a619b390f3c343fe4eb9c3d73f5be3a1160b124f6efffbc5aa6849"
+    },
+    {
+      "bytes": 15737,
+      "member": "Geometry/swapped_edit_draft_second.json",
+      "sha256": "5c86fe8cc795cea1cb7aa6c7f1b98c08cba98e51d1373f4e6db0f3d845fd8a6d"
+    },
+    {
+      "bytes": 15137,
+      "member": "Geometry/swapped_edit_first.json",
+      "sha256": "99bb6d2e57f1ed727944ca268ad21d2901d2f81809b224853679241ca60b673f"
+    },
+    {
+      "bytes": 15257,
+      "member": "Geometry/swapped_edit_second.json",
+      "sha256": "9e4e5fed96365606006c72841cda4efec4b37bb2bde6daafb59eb1015d093a4d"
+    },
+    {
+      "bytes": 15898,
+      "member": "Geometry/swapped_restore_draft_first.json",
+      "sha256": "05aff7466c968b0b1237fae0b0626e54edc0008d05b9204fd51690f142e95d1d"
+    },
+    {
+      "bytes": 15978,
+      "member": "Geometry/swapped_restore_draft_second.json",
+      "sha256": "7ab8fb2a5484abc520e02dfd2f155e3c1a9dbe308cdde0470b95c79b356936a4"
+    },
+    {
+      "bytes": 15418,
+      "member": "Geometry/swapped_restore_first.json",
+      "sha256": "96db2d02b3f5c7c928700ecb8b068d0c5521c7b5d2fffab412a2d9cc8c6445ab"
+    },
+    {
+      "bytes": 15498,
+      "member": "Geometry/swapped_restore_second.json",
+      "sha256": "6e86cc6b5288081ab0ff62636aa8738cbaa0a4f4fc9ac360cc0ce71fbeb4c792"
+    },
+    {
+      "bytes": 15118,
+      "member": "MassRevision/Geometry/baseline_baseline.json",
+      "sha256": "ab39856d2b9cec9dce391bf9aac3a83afcf271b5bfd6c2d5dc983879d1b1c958"
+    },
+    {
+      "bytes": 15757,
+      "member": "MassRevision/Geometry/baseline_edit_draft_first.json",
+      "sha256": "53cc4a9fd2687507d1b7978c7156c47057d40b25cda53fe9c3fadc1195989cdb"
+    },
+    {
+      "bytes": 15840,
+      "member": "MassRevision/Geometry/baseline_edit_draft_second.json",
+      "sha256": "6a8fdc319441b498f58861d07e45acaaabed0fcc0f6c691df01206cee2d33687"
+    },
+    {
+      "bytes": 15277,
+      "member": "MassRevision/Geometry/baseline_edit_first.json",
+      "sha256": "f53f8e312c8c50ee1d9b30b119ab7a899c55deae06ce4630e2c95308c9eb7bb2"
+    },
+    {
+      "bytes": 15303,
+      "member": "MassRevision/Geometry/baseline_edit_second.json",
+      "sha256": "1b7353cceaa873b38aa7de35d8ec2af020209011b75325dd7941ef04589668bf"
+    },
+    {
+      "bytes": 15998,
+      "member": "MassRevision/Geometry/baseline_restore_draft_first.json",
+      "sha256": "3a5d7dd4dd4e76e6447eefe4c0fad9a1b0a406386d10e6f23d2fc91889e96f18"
+    },
+    {
+      "bytes": 16078,
+      "member": "MassRevision/Geometry/baseline_restore_draft_second.json",
+      "sha256": "704e3c0aec02ad576ace5065e48656eb0343d7e1b9760a7de1b2df32de51de97"
+    },
+    {
+      "bytes": 15518,
+      "member": "MassRevision/Geometry/baseline_restore_first.json",
+      "sha256": "75197d15349734caa9c84ab4743f66cf1183a9370163402364424869a725cf99"
+    },
+    {
+      "bytes": 15598,
+      "member": "MassRevision/Geometry/baseline_restore_second.json",
+      "sha256": "4d573e0e267bff493fdfea807b4d72ee7ffffc6c33992373c25bdeac997acd9f"
+    },
+    {
+      "bytes": 11470,
+      "member": "MassRevision/Geometry/control_after_baseline.json",
+      "sha256": "5ad3dd4e6d1a4ed846735890d0b2c652c41f65aec156ea1491b96f140abb9481"
+    },
+    {
+      "bytes": 11528,
+      "member": "MassRevision/Geometry/control_before_baseline.json",
+      "sha256": "a739c635f94cd4c697cc54cc43bd8187d0b8370348b2e47a2a09ae1b26400986"
+    },
+    {
+      "bytes": 15351,
+      "member": "MassRevision/Geometry/draft_first_baseline.json",
+      "sha256": "3c9b488d5ed42db831bb7268cbdd9324e94d8bb81bbf695155a870ecea57d3ff"
+    },
+    {
+      "bytes": 15995,
+      "member": "MassRevision/Geometry/draft_first_edit_draft_first.json",
+      "sha256": "35acd6d263ff37178aef6f005f14bf9d090d7123bfd23b96807d8bc7faac1bb9"
+    },
+    {
+      "bytes": 16073,
+      "member": "MassRevision/Geometry/draft_first_edit_draft_second.json",
+      "sha256": "44b0f8dcf8186832a5c10fb831f4f13c8f31857dabf6551539b02dee07aa739d"
+    },
+    {
+      "bytes": 15513,
+      "member": "MassRevision/Geometry/draft_first_edit_first.json",
+      "sha256": "e7bebd4d92f5650aa39205ec6e101db39bc14e1e7c32121fea5ef6a6ba78699a"
+    },
+    {
+      "bytes": 15536,
+      "member": "MassRevision/Geometry/draft_first_edit_second.json",
+      "sha256": "1eb01720b6a829c9aff14ffc4c0ff03255f7566563e1c45753dbfd43424c3d70"
+    },
+    {
+      "bytes": 16231,
+      "member": "MassRevision/Geometry/draft_first_restore_draft_first.json",
+      "sha256": "791e4c3591d81ee59eaeb09e95ca62aa4662c9716bb5b9da8f44515d7abb8e1e"
+    },
+    {
+      "bytes": 16311,
+      "member": "MassRevision/Geometry/draft_first_restore_draft_second.json",
+      "sha256": "65d413bc3bd5f9de96ac9e16aa5b572cd553c00964742e1f8be84c07708b3554"
+    },
+    {
+      "bytes": 15751,
+      "member": "MassRevision/Geometry/draft_first_restore_first.json",
+      "sha256": "ffc60b59bb59781b6a41ef24f4c42e5cbbe198cb6fc22d27e2e9de0e9d782961"
+    },
+    {
+      "bytes": 15831,
+      "member": "MassRevision/Geometry/draft_first_restore_second.json",
+      "sha256": "3d3e72fa7a4b7eaeb79b47dd144e59b1c8eb4a2afaccdc34240a14d1b3598e78"
+    },
+    {
+      "bytes": 15437,
+      "member": "MassRevision/Geometry/draft_second_baseline.json",
+      "sha256": "1fb80d8ae50dcb2cc10799d577624ff29c549d5e70f911224e37b8afca67672d"
+    },
+    {
+      "bytes": 16076,
+      "member": "MassRevision/Geometry/draft_second_edit_draft_first.json",
+      "sha256": "9d4ee3305017be8ba06205244c89e1a77c9a42369cae6e565090af9cbc572d24"
+    },
+    {
+      "bytes": 16154,
+      "member": "MassRevision/Geometry/draft_second_edit_draft_second.json",
+      "sha256": "1518375b2e1bca14878ad4a0c1f6211314730c58b2dfb8a505d5d9efead2112c"
+    },
+    {
+      "bytes": 15596,
+      "member": "MassRevision/Geometry/draft_second_edit_first.json",
+      "sha256": "e3fddf66598b34dade800e4b3281b38dc3dcc6631db8515e66eda34374b5543a"
+    },
+    {
+      "bytes": 15618,
+      "member": "MassRevision/Geometry/draft_second_edit_second.json",
+      "sha256": "5325b263ead9cf5cddd25a7b2d9ac347944cad11a8c6f0ceedc7de701e6e687a"
+    },
+    {
+      "bytes": 16317,
+      "member": "MassRevision/Geometry/draft_second_restore_draft_first.json",
+      "sha256": "a27137174998d074df24ba6db95847aad10735eb693052d285da90033b95c3c3"
+    },
+    {
+      "bytes": 16397,
+      "member": "MassRevision/Geometry/draft_second_restore_draft_second.json",
+      "sha256": "fda7020634bcfcd5e59bf91e7b6b2c5c508e451c063c4b965356f0f75695082d"
+    },
+    {
+      "bytes": 15837,
+      "member": "MassRevision/Geometry/draft_second_restore_first.json",
+      "sha256": "818e36f29b7fae6856f5458465b5d12dfde2b900acb00631adca2e43efadc4c9"
+    },
+    {
+      "bytes": 15917,
+      "member": "MassRevision/Geometry/draft_second_restore_second.json",
+      "sha256": "28c2fe46f8d1edd89860f1ddec39e5ec32ef625619ab56be9d08873e759aa44c"
+    },
+    {
+      "bytes": 14920,
+      "member": "MassRevision/Geometry/first_baseline.json",
+      "sha256": "57687b9e30da0171639304a878483e5e47f1a76feebbe378f2895fcccbcfe8f9"
+    },
+    {
+      "bytes": 15559,
+      "member": "MassRevision/Geometry/first_edit_draft_first.json",
+      "sha256": "10090aea25de8a0febf5357d520535f3e692edd8b24064f2c18f10b5d6871da1"
+    },
+    {
+      "bytes": 15642,
+      "member": "MassRevision/Geometry/first_edit_draft_second.json",
+      "sha256": "49c106d6a3027e55f8ead314958511dcb4a5e286058e11ab144fde77de8dfc56"
+    },
+    {
+      "bytes": 15036,
+      "member": "MassRevision/Geometry/first_edit_first.json",
+      "sha256": "46d0f1d7bf4f5a24b0113e9d0f7924c93386614f3f1625387c90eb1830bb6645"
+    },
+    {
+      "bytes": 15105,
+      "member": "MassRevision/Geometry/first_edit_second.json",
+      "sha256": "a92b87ecb1a1f419de870fdb7e3240eafdb32d97b36f94c0571f8364ec674cd0"
+    },
+    {
+      "bytes": 15800,
+      "member": "MassRevision/Geometry/first_restore_draft_first.json",
+      "sha256": "719375342896e885a77818087e63364b498b8097932941efbf540ab0a96cda34"
+    },
+    {
+      "bytes": 15880,
+      "member": "MassRevision/Geometry/first_restore_draft_second.json",
+      "sha256": "fdd9f0b94eac5879ca8f6b060282abeb630040c3ab87eb3ebb6ac65c688777c2"
+    },
+    {
+      "bytes": 15320,
+      "member": "MassRevision/Geometry/first_restore_first.json",
+      "sha256": "951af82cb078b8e918fb2a397ccdfafdb61cb10b9f8f0e680e09c3882c6033a4"
+    },
+    {
+      "bytes": 15400,
+      "member": "MassRevision/Geometry/first_restore_second.json",
+      "sha256": "593680a65c5847cf6c950b4cd0071560a0742575fe9e1cced4693d7634ada0a0"
+    },
+    {
+      "bytes": 14868,
+      "member": "MassRevision/Geometry/frame_baseline.json",
+      "sha256": "7d9eca40ce0a5ea3180ef7547c0a4184fc06e13397b5d687860a3386564dc697"
+    },
+    {
+      "bytes": 15507,
+      "member": "MassRevision/Geometry/frame_edit_draft_first.json",
+      "sha256": "fa38149b5b34f2fa107cda4530cfdfdc2f0752bd0febaa49b58cb2524bcc8992"
+    },
+    {
+      "bytes": 15590,
+      "member": "MassRevision/Geometry/frame_edit_draft_second.json",
+      "sha256": "05dff62921d824037b7d27b463b155b0d627c10a854d44edff93d1a21d0b2c8d"
+    },
+    {
+      "bytes": 15027,
+      "member": "MassRevision/Geometry/frame_edit_first.json",
+      "sha256": "8c88924e2377f8abea050b55ba021439e43821fbb24f335db22c3fabe9868e88"
+    },
+    {
+      "bytes": 15053,
+      "member": "MassRevision/Geometry/frame_edit_second.json",
+      "sha256": "e15d9b4664f3317dc51fbdc4aba36ab59ea7a5a5f6c61ec2c94cc56fe010bf01"
+    },
+    {
+      "bytes": 15748,
+      "member": "MassRevision/Geometry/frame_restore_draft_first.json",
+      "sha256": "f5ccd513cf141f5adc90ea0044b4aba0254a2cfd1290e6bb7cfbf12da4f74f2b"
+    },
+    {
+      "bytes": 15828,
+      "member": "MassRevision/Geometry/frame_restore_draft_second.json",
+      "sha256": "914b7f27c90ad4734368231f846b0351192a6f973ecfc2ec438c7b9ae05b3ff4"
+    },
+    {
+      "bytes": 15268,
+      "member": "MassRevision/Geometry/frame_restore_first.json",
+      "sha256": "774549b68ca22a30419f61b0e4c0563822759b2cd54d825db41f52c300c1e966"
+    },
+    {
+      "bytes": 15348,
+      "member": "MassRevision/Geometry/frame_restore_second.json",
+      "sha256": "647c9f00df91cc8f2aa4455eccb491fd3af582ded5ccfe169e964f78e3066a51"
+    },
+    {
+      "bytes": 15138,
+      "member": "MassRevision/Geometry/holdout_a_baseline.json",
+      "sha256": "e921d0d0987d7f24827177b6b25ef92e14a3901387e8345ba56930fab0f2f600"
+    },
+    {
+      "bytes": 15779,
+      "member": "MassRevision/Geometry/holdout_a_edit_draft_first.json",
+      "sha256": "aacdce46fb0b67bad44bd0de38470b002bd6d3a62459b6689935e5f28bfcc03d"
+    },
+    {
+      "bytes": 15858,
+      "member": "MassRevision/Geometry/holdout_a_edit_draft_second.json",
+      "sha256": "881f8eb829396a01e01a5c8fef0a4c787b5fa48537368165234e93a375ed877b"
+    },
+    {
+      "bytes": 15340,
+      "member": "MassRevision/Geometry/holdout_a_edit_first.json",
+      "sha256": "19bc6eb342a1ee4f8ed647b59ac07921abc99e37110d4dae8358d70e2b328cdb"
+    },
+    {
+      "bytes": 15378,
+      "member": "MassRevision/Geometry/holdout_a_edit_second.json",
+      "sha256": "34af16fa16b6ece8f8bd8c27e827e0b0f94e9c1355c96972982152e9e4eb0a03"
+    },
+    {
+      "bytes": 16018,
+      "member": "MassRevision/Geometry/holdout_a_restore_draft_first.json",
+      "sha256": "8d736ee10c66c3fa58d1c8d9af27e43bee1bb3bc0a53f48cee8b54b57edf691c"
+    },
+    {
+      "bytes": 16098,
+      "member": "MassRevision/Geometry/holdout_a_restore_draft_second.json",
+      "sha256": "973c0d471fe3200f9a12f6f14709ae99faa2f4856b30df100cb89ed22e77ba7c"
+    },
+    {
+      "bytes": 15538,
+      "member": "MassRevision/Geometry/holdout_a_restore_first.json",
+      "sha256": "eea4d047657cff34546e2c539d24a6cfe2ab6f039124997678b3295f03d9b5fb"
+    },
+    {
+      "bytes": 15618,
+      "member": "MassRevision/Geometry/holdout_a_restore_second.json",
+      "sha256": "2e550ba1a4fe185a513f4efe95c810903317a7b9908facdfe586072954810a3a"
+    },
+    {
+      "bytes": 15144,
+      "member": "MassRevision/Geometry/holdout_b_baseline.json",
+      "sha256": "d26e0e806cccf7130fe7d779a5d3f2f697fa186d6f6c3a9d2707fbf5c04da792"
+    },
+    {
+      "bytes": 15784,
+      "member": "MassRevision/Geometry/holdout_b_edit_draft_first.json",
+      "sha256": "e3c657d5e07e002bc63ea1dfdae3985842016327d691d1f066ff2b513bfa07af"
+    },
+    {
+      "bytes": 15861,
+      "member": "MassRevision/Geometry/holdout_b_edit_draft_second.json",
+      "sha256": "7d67e94fe596a1154123ad1d7c62e7a1bc8b534ac5a107bb7f4dc7c908d8ed85"
+    },
+    {
+      "bytes": 15304,
+      "member": "MassRevision/Geometry/holdout_b_edit_first.json",
+      "sha256": "31f38955ffc528df52821b4cd0e0a53f71febf921cd871b5626a5ffc1fb391ba"
+    },
+    {
+      "bytes": 15440,
+      "member": "MassRevision/Geometry/holdout_b_edit_second.json",
+      "sha256": "ced90261e5ca00819657bef722e2e1e67d210ca8fcb7672f54dff48d0abab7e3"
+    },
+    {
+      "bytes": 16024,
+      "member": "MassRevision/Geometry/holdout_b_restore_draft_first.json",
+      "sha256": "b4b2946f0744fe198f2e1c8e542852540a35e7fe397e0bd909633175e2f2bd86"
+    },
+    {
+      "bytes": 16104,
+      "member": "MassRevision/Geometry/holdout_b_restore_draft_second.json",
+      "sha256": "bfed9b6360df98593161b180d8d2bc07cd2b417cbc8c310b7290c87b03919c1d"
+    },
+    {
+      "bytes": 15544,
+      "member": "MassRevision/Geometry/holdout_b_restore_first.json",
+      "sha256": "066b1b4849f08db8da472aecc694bd14c36f563f37760e155972fe887e737df9"
+    },
+    {
+      "bytes": 15624,
+      "member": "MassRevision/Geometry/holdout_b_restore_second.json",
+      "sha256": "144c0c13e1c1865c299bc17c0fb8ebf7364e074d3e931a3bbee9f966b578e758"
+    },
+    {
+      "bytes": 15204,
+      "member": "MassRevision/Geometry/placement_baseline.json",
+      "sha256": "6ae265d052e60e9461f99826c08f8fc738d1fb10549b74fa151c30e099aeca4d"
+    },
+    {
+      "bytes": 15843,
+      "member": "MassRevision/Geometry/placement_edit_draft_first.json",
+      "sha256": "e213234dbd5df20f0217bf0155f13b220e1cf7e3f0f5e90d36e78be5f12400f9"
+    },
+    {
+      "bytes": 15924,
+      "member": "MassRevision/Geometry/placement_edit_draft_second.json",
+      "sha256": "919b4d9cc7118b5bf4f7ee3a5b631195d53b833ffbbb65a45474f8f9dfcab32a"
+    },
+    {
+      "bytes": 15363,
+      "member": "MassRevision/Geometry/placement_edit_first.json",
+      "sha256": "d879c5db553812e7511fc91d626f61afa85399093593b2dec42728b44b30bfda"
+    },
+    {
+      "bytes": 15389,
+      "member": "MassRevision/Geometry/placement_edit_second.json",
+      "sha256": "0e20698f932d0768f0a26d90287d74e61a491622afe651c83966f48dddb2a07f"
+    },
+    {
+      "bytes": 16084,
+      "member": "MassRevision/Geometry/placement_restore_draft_first.json",
+      "sha256": "c221232767c780ac8244695f449c3c05b6c74625ec8b357a418c8dee9dce0e4a"
+    },
+    {
+      "bytes": 16164,
+      "member": "MassRevision/Geometry/placement_restore_draft_second.json",
+      "sha256": "67db8ffa633c7241cf2a9717ae953a73e7b0c372cbd53147833b470df387b46d"
+    },
+    {
+      "bytes": 15604,
+      "member": "MassRevision/Geometry/placement_restore_first.json",
+      "sha256": "6212cccc7173e0d1c65f296b100a9d9638a01b9cda264125a143bcceffdd88b7"
+    },
+    {
+      "bytes": 15684,
+      "member": "MassRevision/Geometry/placement_restore_second.json",
+      "sha256": "393ee32e1c2af85227e7bf8c7a2c306a560cc645538d0b3f00762c5d9ad25f35"
+    },
+    {
+      "bytes": 14958,
+      "member": "MassRevision/Geometry/radius_baseline.json",
+      "sha256": "9c225d86144a89ba1993ee9cb399d101d0dac105d1bb2cc91f3de37093c9044b"
+    },
+    {
+      "bytes": 15597,
+      "member": "MassRevision/Geometry/radius_edit_draft_first.json",
+      "sha256": "516050993a1c6098dee8bd2c2f93ba47880e0e3eef4c8388060c73337aaca5e9"
+    },
+    {
+      "bytes": 15680,
+      "member": "MassRevision/Geometry/radius_edit_draft_second.json",
+      "sha256": "bcfddfeb536ad20514edadef09a73a1837065ee96992b07ea74d0a4106c86876"
+    },
+    {
+      "bytes": 15117,
+      "member": "MassRevision/Geometry/radius_edit_first.json",
+      "sha256": "fe52caa702388e19b2b93bc79b2e6772658289760bbbf7c6067efd20392ad78d"
+    },
+    {
+      "bytes": 15143,
+      "member": "MassRevision/Geometry/radius_edit_second.json",
+      "sha256": "09e16e5982c3ebd4f82081eb3857a83b5f43b2cb467aaa2a597a79c5be1b35d1"
+    },
+    {
+      "bytes": 15838,
+      "member": "MassRevision/Geometry/radius_restore_draft_first.json",
+      "sha256": "73917dde9e28ef1c7f75d3f32e3f367b64e00caacc0473e3092ac36950160acf"
+    },
+    {
+      "bytes": 15918,
+      "member": "MassRevision/Geometry/radius_restore_draft_second.json",
+      "sha256": "03cd2c865ef23dde245023bd32bcce6bd8e27682fbbbf2bd60e2b91b30fa4aec"
+    },
+    {
+      "bytes": 15358,
+      "member": "MassRevision/Geometry/radius_restore_first.json",
+      "sha256": "fe7a9d0fbeadfa9fb420ae0bdc503398700c5718e5f0b12fafc1a0c6fc81e374"
+    },
+    {
+      "bytes": 15438,
+      "member": "MassRevision/Geometry/radius_restore_second.json",
+      "sha256": "4b10245da327bf12997646cf31e4b6c3cff0da657bf7696e09c9f178ed997b54"
+    },
+    {
+      "bytes": 14904,
+      "member": "MassRevision/Geometry/second_baseline.json",
+      "sha256": "1f40b25fa0892b2e683c7f02051851a9e809305bd1d934502ead87587bf68911"
+    },
+    {
+      "bytes": 15543,
+      "member": "MassRevision/Geometry/second_edit_draft_first.json",
+      "sha256": "04d2d71bca6c8eccb6c67b82a6431bbdbe83ee58d12a07a50cb10093cff23d19"
+    },
+    {
+      "bytes": 15625,
+      "member": "MassRevision/Geometry/second_edit_draft_second.json",
+      "sha256": "8d543346f3dc85592f0e985e41e53f6d4b96fe578e118746bc240c748595b425"
+    },
+    {
+      "bytes": 15063,
+      "member": "MassRevision/Geometry/second_edit_first.json",
+      "sha256": "9b11f1fadb72a9b1442d20f7e8451bfffcb941d0fa2f635ec235a698f69c5353"
+    },
+    {
+      "bytes": 15142,
+      "member": "MassRevision/Geometry/second_edit_second.json",
+      "sha256": "83fc4053111e27fc42d5c94ee0786d30a0c1dede7582a9917fbb0c3c7caa7365"
+    },
+    {
+      "bytes": 15784,
+      "member": "MassRevision/Geometry/second_restore_draft_first.json",
+      "sha256": "b2d58af38850764a305c284586a1211e17ffe784b489502064f9bcd86778fbce"
+    },
+    {
+      "bytes": 15864,
+      "member": "MassRevision/Geometry/second_restore_draft_second.json",
+      "sha256": "7c67747a7f8a120b1744d24b1d32928eaae550197ea4bbe2891077c2c21d6a26"
+    },
+    {
+      "bytes": 15304,
+      "member": "MassRevision/Geometry/second_restore_first.json",
+      "sha256": "d2a710018d069b192be4660df92f64632ad2fbda221dc15d5b32b6fd5aa8f4be"
+    },
+    {
+      "bytes": 15384,
+      "member": "MassRevision/Geometry/second_restore_second.json",
+      "sha256": "5a43e6991a0a34ff97b6dee9739291f263da46fbff1553cef8de515c6ac2b097"
+    },
+    {
+      "bytes": 15018,
+      "member": "MassRevision/Geometry/swapped_baseline.json",
+      "sha256": "55e208307965d9076ab8435ff095dee0a6b6c16b3f86c204374aababd74eaa5a"
+    },
+    {
+      "bytes": 15660,
+      "member": "MassRevision/Geometry/swapped_edit_draft_first.json",
+      "sha256": "fc74656d00a619b390f3c343fe4eb9c3d73f5be3a1160b124f6efffbc5aa6849"
+    },
+    {
+      "bytes": 15737,
+      "member": "MassRevision/Geometry/swapped_edit_draft_second.json",
+      "sha256": "5c86fe8cc795cea1cb7aa6c7f1b98c08cba98e51d1373f4e6db0f3d845fd8a6d"
+    },
+    {
+      "bytes": 15137,
+      "member": "MassRevision/Geometry/swapped_edit_first.json",
+      "sha256": "99bb6d2e57f1ed727944ca268ad21d2901d2f81809b224853679241ca60b673f"
+    },
+    {
+      "bytes": 15257,
+      "member": "MassRevision/Geometry/swapped_edit_second.json",
+      "sha256": "9e4e5fed96365606006c72841cda4efec4b37bb2bde6daafb59eb1015d093a4d"
+    },
+    {
+      "bytes": 15898,
+      "member": "MassRevision/Geometry/swapped_restore_draft_first.json",
+      "sha256": "05aff7466c968b0b1237fae0b0626e54edc0008d05b9204fd51690f142e95d1d"
+    },
+    {
+      "bytes": 15978,
+      "member": "MassRevision/Geometry/swapped_restore_draft_second.json",
+      "sha256": "7ab8fb2a5484abc520e02dfd2f155e3c1a9dbe308cdde0470b95c79b356936a4"
+    },
+    {
+      "bytes": 15418,
+      "member": "MassRevision/Geometry/swapped_restore_first.json",
+      "sha256": "96db2d02b3f5c7c928700ecb8b068d0c5521c7b5d2fffab412a2d9cc8c6445ab"
+    },
+    {
+      "bytes": 15498,
+      "member": "MassRevision/Geometry/swapped_restore_second.json",
+      "sha256": "6e86cc6b5288081ab0ff62636aa8738cbaa0a4f4fc9ac360cc0ce71fbeb4c792"
+    }
+  ],
+  "script_sha256": "186a7d09e6db63b54d4e10b5e8f0bf01c1427ff99cc6100ff2eca825d8ee6c95",
+  "sha256": "380a829f76e171a52d20047f27e4d7b35999c48b7f4a7d9e8f292aac4e975df4",
+  "verified_exact_original_bytes": true
+}

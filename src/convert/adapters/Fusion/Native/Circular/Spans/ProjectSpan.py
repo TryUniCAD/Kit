@@ -1,4 +1,5 @@
 from interchange.Features.FeatureDistExt import DistanceExtrude
+from convert.adapters.Fusion.Native.Circular.DualSides.ProjectDual import ProjectDual
 from convert.adapters.Fusion.Native.Circular.ProjectCircle import CircleSketch
 from convert.adapters.Fusion.Native.Circular.ReadCircle import ReadCircle
 from convert.adapters.Fusion.Native.Circular.RotaryMass import RotaryMass
@@ -6,6 +7,8 @@ from convert.adapters.Fusion.Native.Circular.Spans.CheckSpanHist import (
     CheckSpanHist,
 )
 from convert.adapters.Fusion.Native.Graph.GraphValues import NumberValue, TextValue
+from convert.adapters.Fusion.Native.Graph.GraphChecks import ResolveField
+from convert.adapters.Fusion.Native.Graph.ReadExtentMode import ReadExtentMode
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Parameters.ReadParameters import ReadParameters
@@ -32,6 +35,15 @@ from interchange.Records.RecordTopology import TopologyCounts
 def ProjectSpan(
     Model: DocumentModel, Source: CadSource, Graph: NativeGraph, Context: ExtrudeContext
 ) -> CadDocument:
+    if ReadExtentMode(Context.Extrude) == "two_sided":
+        SecondTaper = ResolveField(
+            Graph, Context.Extrude, "side2TaperAngle", "DcDoubleParameter"
+        )
+        if (
+            NumberValue(Context.Taper.Fields["value"]) != 0
+            or NumberValue(SecondTaper.Fields["value"]) != 0
+        ):
+            return ProjectDual(Model, Source, Graph, Context)
     CheckGraph(Graph, Context)
     CheckScopes(Graph, Context, Model.Asset.AssetId)
     Shape = ReadCircle(Graph, Context)

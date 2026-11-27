@@ -4,11 +4,13 @@ Observed 2026-11-27; contacts are PR authors, not inferred owners. Refresh live 
 
 | PR | Scope | Contact | Head → base |
 | --- | --- | --- | --- |
+| [#397](https://github.com/TryUniCAD/Kit/pull/397) | feat(cad): qualify Fusion draft reads and measured SOLIDWORKS CLI parity | jdharcourt | feat/decoded-cad-read-write-20261127 → main |
+| [#396](https://github.com/TryUniCAD/Kit/pull/396) | feat(fusion): read owned offset-start circular extrusions through sdk and cli | jdharcourt | feat/fusion-offset-sdk-reader-20261127 → main |
 | [#395](https://github.com/TryUniCAD/Kit/pull/395) | feat(research): decode signed offset starts on unequal two-sided extrusions | jdharcourt | feat/fusion-offset-start-20261127 → main |
 | [#394](https://github.com/TryUniCAD/Kit/pull/394) | feat(research): record independent two-sided Fusion drafts | jdharcourt | feat/fusion-two-sided-draft-20261127 → main |
 | [#393](https://github.com/TryUniCAD/Kit/pull/393) | feat(research): record unequal construction-axis Fusion revolutions | jdharcourt | feat/fusion-unequal-revolve-20261127 → main |
 | [#392](https://github.com/TryUniCAD/Kit/pull/392) | feat(planning): add scheduled scope board and organization project | jdharcourt | feat/project-todo-review-20261127 → main |
-| [#391](https://github.com/TryUniCAD/Kit/pull/391) | fix(tests): cache Windows fixture assembly across processes | app/usehoplite | codex/windows-fixture-cache → main |
+| [#391](https://github.com/TryUniCAD/Kit/pull/391) | fix(tests): cache Windows fixture assembly across processes | usehoplite | codex/windows-fixture-cache → main |
 | [#385](https://github.com/TryUniCAD/Kit/pull/385) | fix(ci): fail queue CI Agg as soon as a candidate job fails | app/usehoplite | hoplite/sybaris-29ba7c65 → main |
 | [#384](https://github.com/TryUniCAD/Kit/pull/384) | refactor(solidworks): share proven archive field rules | app/usehoplite | codex/sw-header-bounds → main |
 | [#383](https://github.com/TryUniCAD/Kit/pull/383) | docs: audit solidworks later-phase coverage | app/usehoplite | hoplite/tegea-f1d4ae13--later-phases → main |

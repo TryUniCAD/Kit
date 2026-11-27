@@ -1,0 +1,234 @@
+{
+  "sdk_revision": "08df1da93f202a88170c774ea2060baca85cc16b",
+  "corpus_revision": "08df1da93f202a88170c774ea2060baca85cc16b",
+  "sdk_clean": true,
+  "models": false,
+  "native_calls": 0,
+  "accepted": 6,
+  "refused": 0,
+  "qualified_conversion": false,
+  "outcomes": [
+    {
+      "asset": "re/solidworks/DecodedPromotion20261127/Evidence/discoveryTriangleForward.SLDPRT",
+      "exit_code": 0,
+      "counts": {
+        "fields": 1614,
+        "records": 194,
+        "unresolved": 40
+      },
+      "validation": "model_and_reconstruction_passed",
+      "unresolved_reasons": [
+        "direction_frame_operation_require_independent_evidence",
+        "independent_source_inventory_and_native_acceptance_unavailable",
+        "native_only_record",
+        "reader_diagnostic",
+        "retained_bytes_are_not_portable_semantics"
+      ]
+    },
+    {
+      "asset": "re/solidworks/DecodedPromotion20261127/Evidence/discoveryTriangleReverse.SLDPRT",
+      "exit_code": 0,
+      "counts": {
+        "fields": 1614,
+        "records": 194,
+        "unresolved": 40
+      },
+      "validation": "model_and_reconstruction_passed",
+      "unresolved_reasons": [
+        "direction_frame_operation_require_independent_evidence",
+        "independent_source_inventory_and_native_acceptance_unavailable",
+        "native_only_record",
+        "reader_diagnostic",
+        "retained_bytes_are_not_portable_semantics"
+      ]
+    },
+    {
+      "asset": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutQuadForward.SLDPRT",
+      "exit_code": 0,
+      "counts": {
+        "fields": 1858,
+        "records": 227,
+        "unresolved": 40
+      },
+      "validation": "model_and_reconstruction_passed",
+      "unresolved_reasons": [
+        "direction_frame_operation_require_independent_evidence",
+        "independent_source_inventory_and_native_acceptance_unavailable",
+        "native_only_record",
+        "reader_diagnostic",
+        "retained_bytes_are_not_portable_semantics"
+      ]
+    },
+    {
+      "asset": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutQuadReverse.SLDPRT",
+      "exit_code": 0,
+      "counts": {
+        "fields": 1858,
+        "records": 227,
+        "unresolved": 40
+      },
+      "validation": "model_and_reconstruction_passed",
+      "unresolved_reasons": [
+        "direction_frame_operation_require_independent_evidence",
+        "independent_source_inventory_and_native_acceptance_unavailable",
+        "native_only_record",
+        "reader_diagnostic",
+        "retained_bytes_are_not_portable_semantics"
+      ]
+    },
+    {
+      "asset": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutStepForward.SLDPRT",
+      "exit_code": 0,
+      "counts": {
+        "fields": 2346,
+        "records": 293,
+        "unresolved": 40
+      },
+      "validation": "model_and_reconstruction_passed",
+      "unresolved_reasons": [
+        "direction_frame_operation_require_independent_evidence",
+        "independent_source_inventory_and_native_acceptance_unavailable",
+        "native_only_record",
+        "reader_diagnostic",
+        "retained_bytes_are_not_portable_semantics"
+      ]
+    },
+    {
+      "asset": "re/solidworks/DecodedPromotion20261127/Evidence/holdoutStepReverse.SLDPRT",
+      "exit_code": 0,
+      "counts": {
+        "fields": 2346,
+        "records": 293,
+        "unresolved": 40
+      },
+      "validation": "model_and_reconstruction_passed",
+      "unresolved_reasons": [
+        "direction_frame_operation_require_independent_evidence",
+        "independent_source_inventory_and_native_acceptance_unavailable",
+        "native_only_record",
+        "reader_diagnostic",
+        "retained_bytes_are_not_portable_semantics"
+      ]
+    }
+  ],
+  "supervisor_summary": {
+    "finished": {
+      "completed": 1
+    },
+    "orphans": 0,
+    "stale": 0,
+    "started": 1
+  },
+  "worker_receipt_sha256": "adc5b387e22a6458e83a4935e5e67103fde90e9c9f5e72022474d6d50507ce7c",
+  "failed_attempt": {
+    "job": "solidworks-reader08df",
+    "state": "failed",
+    "reason": "session setup failed: OSError: process identity unavailable before runner release",
+    "result_sha256": "fdb084cb00915bbf1301b4375bac186f767ddac2860bf3f27a74b74f4eff3bac",
+    "worker_started": false,
+    "resolution": "separate job after approved host execution; original failed controller job retained"
+  },
+  "archive": {
+    "path": "Readers.tar.gz",
+    "sha256": "90c8712938874975a3e0ecd7ada72facaa1d919c95d2c7eb392a1106d14f6e8a",
+    "members": [
+      {
+        "path": "Decode0/document.json",
+        "sha256": "87c008b97a755806374c752d01b2e2349c566b554fd1ba8d6a0e83f5bdf5fd3e",
+        "bytes": 76946
+      },
+      {
+        "path": "Decode0/receipt.json",
+        "sha256": "0c97abed29e810ff1f8d3f9e63e9385663198dbc93d57c3ef5a858be64aa3161",
+        "bytes": 508211
+      },
+      {
+        "path": "Decode1/document.json",
+        "sha256": "fd2efdc58c177e34d5766725fecb7d638a1108b92c4cdac796ab42f4d86b4d02",
+        "bytes": 76941
+      },
+      {
+        "path": "Decode1/receipt.json",
+        "sha256": "92f30d2ae85d2eb8393e1a76fff928321d5f15a36977a66bf4549f2bb9d8c3d0",
+        "bytes": 508211
+      },
+      {
+        "path": "Decode2/document.json",
+        "sha256": "8389b012376d77d46d72e1c9ab26fccfddae96423e34278a2bdb15af61b9bbea",
+        "bytes": 83937
+      },
+      {
+        "path": "Decode2/receipt.json",
+        "sha256": "4e2a41cfd1df1dd9205be485bf711d722c32f1410f291397ac236305f6e35b1a",
+        "bytes": 573982
+      },
+      {
+        "path": "Decode3/document.json",
+        "sha256": "bc6fae32e352cb6c4978699945bdcbd5465a934c3c6d72a6ee0cc6bc6b3a52e9",
+        "bytes": 83956
+      },
+      {
+        "path": "Decode3/receipt.json",
+        "sha256": "cdccc1c12c5e37fd6889915f4052e3d8d1506f2512947a8b83b55ed6d4f02322",
+        "bytes": 573982
+      },
+      {
+        "path": "Decode4/document.json",
+        "sha256": "46851eb3626872d6aa4542919da8f0f2f6f4ab6f9ae0f47b9ade372abe205819",
+        "bytes": 97000
+      },
+      {
+        "path": "Decode4/receipt.json",
+        "sha256": "fc267ec97d2b70af462f17a4f4d6f8396ff7de0c423b5be54dcbf471f3d95cd6",
+        "bytes": 705606
+      },
+      {
+        "path": "Decode5/document.json",
+        "sha256": "6a08c30a48635508b722625fba8fb1e6b742863608d8e25cc951c7a680a4cd1a",
+        "bytes": 97031
+      },
+      {
+        "path": "Decode5/receipt.json",
+        "sha256": "3ece91baa5eef1ea19cb2e81857abd660b8fed0d79cefb064500b7a56046a87f",
+        "bytes": 705606
+      },
+      {
+        "path": "Reader0.log",
+        "sha256": "2ac78842e6e67745a6cfe97999da3662f7ecc6cc3dbbb09e917c5bb84163ccef",
+        "bytes": 441
+      },
+      {
+        "path": "Reader1.log",
+        "sha256": "ddf480ff1378b1a223c758bd196599e4be5c12d8c67a93ab46090053c66239f9",
+        "bytes": 441
+      },
+      {
+        "path": "Reader2.log",
+        "sha256": "1eee1c5a39af3dd155a9a4d991a8349aae159ba6994da58d41290dc7b1ec2070",
+        "bytes": 441
+      },
+      {
+        "path": "Reader3.log",
+        "sha256": "8911e40d9f347caf9101dcacabfcd1a16d4e024e9027aa34287f50bd630609e5",
+        "bytes": 441
+      },
+      {
+        "path": "Reader4.log",
+        "sha256": "c2fca05ce6c8eac5ffa6187e32af149f1c949789005b68deb458cc32bc78cc1c",
+        "bytes": 441
+      },
+      {
+        "path": "Reader5.log",
+        "sha256": "36738a2fe32a9a0632ceb2c6cf94684ad30d571fe02e95b7a0c18db9bfcdae93",
+        "bytes": 441
+      }
+    ]
+  },
+  "remaining": [
+    "all six receipts retain forty unresolved items",
+    "retained native record bytes are not portable semantics",
+    "direction frame operation independent source acceptance remains unqualified",
+    "generated reversed native lifecycle and holdouts unavailable"
+  ],
+  "retention_script_sha256": "c345039cc0216f0630ee82d75788e6518f4b49ae0d460747e20259ec37482dbe"
+}

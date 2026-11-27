@@ -1,0 +1,73 @@
+{
+  "bodies": [
+    {
+      "area_cm2": 20.734511513692635,
+      "edges": 2,
+      "faces": 3,
+      "max_cm": [
+        3.0,
+        2.5,
+        1.4999999999999998
+      ],
+      "min_cm": [
+        1.0,
+        0.5,
+        -0.8
+      ],
+      "name": "Body1",
+      "solid": true,
+      "surface_types": [
+        0,
+        0,
+        1
+      ],
+      "vertices": 2,
+      "volume_cm3": 7.225663103256215
+    }
+  ],
+  "parameters": [
+    {
+      "expression": "15 mm",
+      "name": "d1",
+      "role": "AlongDistance",
+      "unit": "mm",
+      "value": 1.5
+    },
+    {
+      "expression": "0.0 deg",
+      "name": "d2",
+      "role": "TaperAngle",
+      "unit": "deg",
+      "value": 0.0
+    },
+    {
+      "expression": "8 mm",
+      "name": "d3",
+      "role": "AgainstDistance",
+      "unit": "mm",
+      "value": 0.8
+    },
+    {
+      "expression": "0.0 deg",
+      "name": "d4",
+      "role": "Side2TaperAngle",
+      "unit": "deg",
+      "value": 0.0
+    }
+  ],
+  "profiles": [
+    1
+  ],
+  "timeline": [
+    {
+      "health": 0,
+      "message": "",
+      "name": "Disc sketch"
+    },
+    {
+      "health": 0,
+      "message": "",
+      "name": "Disc extrude"
+    }
+  ]
+}

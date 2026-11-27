@@ -1,0 +1,72 @@
+{
+  "archive_member_hash_receipt": "DocumentArchive.json",
+  "archive_members": 202,
+  "archive_sha256": "380a829f76e171a52d20047f27e4d7b35999c48b7f4a7d9e8f292aac4e975df4",
+  "black": "21 files check clean",
+  "entry": {
+    "path": "Documentation/Changes/Fusion/Geometry/FusionIndependentSideGeometry.md",
+    "sha256": "e1e1b507a405eecd0fed4b03509154067fbdd31ff7b82e4b666cc0779bded6e1"
+  },
+  "geometry_summary": {
+    "comparisons": 1313,
+    "errors": 0,
+    "failed": 0,
+    "native_archive_passes": 68,
+    "native_archives": 68,
+    "observations": 101
+  },
+  "gotcha": {
+    "path": "Documentation/Gotchas/Conversion/Fusion/Geometry/Drafting/IndependentCircularDraftSides.md",
+    "sha256": "daff71b6ff1f260502b8200696d278a506ce06292dc5139ab3c23093843b703c"
+  },
+  "integration": {
+    "cases": 80,
+    "failed": 0,
+    "passed": 80,
+    "seconds": 8.44
+  },
+  "markdown_formatter": "Prettier 3.6.2 cached pinned formatter passed",
+  "mass_summary": {
+    "archives": 68,
+    "comparisons": 748,
+    "counterexample_passes": 11,
+    "counterexamples": 11,
+    "errors": 0,
+    "failed": 0
+  },
+  "models": false,
+  "mypy": "2.4.1 passes all 21 files",
+  "native_api_calls": 0,
+  "pyright": "remote pending",
+  "receipts": {
+    "DocumentArchive.json": "181fed12bea46f0d77d486f676d6a59b921a6c7910c9e99c104f947b8dbf7542",
+    "MassInitial/Receipt.json": "8c04681880cbe4eea4b396be372969edfd2d4f340a400cc7684a513eaa7220ce",
+    "MassRevision/Receipt.json": "94daefcc2ab0e7b6283dc1fe1bc8df276f57fa772c527011b171809f61d82c0d",
+    "Receipt.json": "5f2a053764ceb9bc1fbc1e6c00822f8cf6ab10c4d79ecc6e17b93fe7c23e07a7"
+  },
+  "scope": "offline native archive full mass and geometry only",
+  "source_files": {
+    "src/convert/Geometry/Extrude/Circular/DualSide/BuildDualSide.py": "d42b2b69a14b7023f795f7c70cea7ad7762628dad9bf12b9572f89864eaae08c",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualFrame.py": "f8d16de0c378abbe8419971da1fdc458ab6bec79390b9e62a44a7f995dab3d77",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualMeasure.py": "76416f2eefd4ba3b9931ece56f3ad07613e16b7cb3f2a8787700f2b5ccfb316c",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualMeridian.py": "3eac86d2e3a488d101c14b58f51519b578b34bd7df911071cac75f058420e623",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualMoments.py": "0e2f0ee09a60e95d467fedf64030736e583d263af403107b1ff4d4a76a32e14f",
+    "src/convert/Geometry/Extrude/Circular/DualSide/MeasureDualMass.py": "2000eac3f45be2dab97b0db2b61e83d06ff79535f61e93ca860b8685b1e054c9",
+    "tests/Convert/Integration/Fusion/DualSide/ChangeDualMass.py": "71c5ddc9b3c406afdfc672d4554254ddaf072214a996fe04788dc81b216ef34f",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualCaps.py": "f719643e913ab38ebfa54c3d31a2ce22d0fbb1ed3838c228a958e1f7da93c9b4",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualCones.py": "a40bcf4cdcd34953673d816cea2d260cf6b3daecf326824312fea049674d4be9",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualMass.py": "569d697d69480e75848f651f57a45addb07fcbb3f46a46464c6c2f7e4e40d81d",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualNative.py": "68eace6340c783de939d178ac44b0e916523b0ebb024321ae8c97c5a0eac1eae",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualRims.py": "4d82a4e5ff50dba9dfced7db38d051ecab0bd97034fb4265cf5b913d938fc060",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualRings.py": "694b7307ff393f3e46fc290cdc3ce85e5025c16adaab5066fe8993c9454d73d4",
+    "tests/Convert/Integration/Fusion/DualSide/DualCase.py": "a5ae9f52698d42529059138db5ef37371231c196210a10a0b85f740863e3a355",
+    "tests/Convert/Integration/Fusion/DualSide/DualMassTests.py": "54960759de9e23884873e4430cc58fee0f7218ade1f57d4f38250db70ea34f31",
+    "tests/Convert/Integration/Fusion/DualSide/DualNativeTests.py": "5a46c8c0f29be93af9b9eda2f24324d295ddc4d49869d8ca9182b888ffc9bd5e",
+    "tests/Convert/Integration/Fusion/DualSide/DualSwapTests.py": "d39a9eec44243bbf707888e0640040864c2fa2e938102d1bc6de702d0cf86e1a",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualCase.py": "d7adb35a6e43760f748452ad7896a490d9551ba0a73998824a14fe671673e9c9",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualCases.py": "f35eb0f02ebfbe48f4b5fed23e5ffff24fb9ed8dc3f6d221dbc416f731304107",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualFaces.py": "d7e104e113d4e3ca4d0bd792b573602a262a7a13a6dc14552af2c61b6b410e8b",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualState.py": "71d52d858965837ddd573901b7141af1b89a1d3fca947a8b4ba611748d52bcbf"
+  },
+  "steering": "21 files pass with existing baseline"
+}

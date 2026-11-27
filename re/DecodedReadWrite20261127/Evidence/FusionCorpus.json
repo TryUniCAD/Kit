@@ -1,0 +1,267 @@
+{
+  "manifest_version": 1,
+  "source_revision": "4a29c48fc8eccb5a1b093e45d0251882ebe790f2",
+  "assets": [
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis0-19.7.f3d",
+      "git_blob": "437263dab553b06507b7714d448d4ebc7d5a578f",
+      "sha256": "bd8ab9e473dda3ee531e4f18d9a2cf84b97f01f8525de0c486af76f174fcfad1",
+      "size_bytes": 85422,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis0-7.1.f3d",
+      "git_blob": "f8af2e52e2c685f9ef474f06ee7e2dbceb99162d",
+      "sha256": "6f26aa33d237a2d241e972adb368d43c953d506ba9403b0627085772a04e6d5d",
+      "size_bytes": 85422,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis1-3.7.f3d",
+      "git_blob": "ba22504f44cca67184bfbfd75d4255a2e16186c2",
+      "sha256": "e66d7aedc74571aa48538a130fb8f776cb090f3b4d991943e3cc870ec620ccc2",
+      "size_bytes": 85420,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis1-61.3.f3d",
+      "git_blob": "dd3aaf2c900eb939837f5c979b3d2fe5539f4c79",
+      "sha256": "530f40c4ec29f4d307e9c7458cfc364e5fd8f966c63192091b6752925cd00625",
+      "size_bytes": 85422,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis2-5.9.f3d",
+      "git_blob": "c844d05bb53812d266492c1a4ede37ec7984bada",
+      "sha256": "76a00df828f135aca4aa8334c68bf42d693690028a149b3eb68d14e9890e6034",
+      "size_bytes": 85420,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis2-53.1.f3d",
+      "git_blob": "06398fe2f54f539a9d46e4d26ea664d18fbc4d2a",
+      "sha256": "341d8c9c81db6f831f9e17faa88642e87ed504299215b4ffff4f56b7e9c44944",
+      "size_bytes": 85422,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis3--41.9.f3d",
+      "git_blob": "5caef7faf26cf0bf3d22b03627aa7038694653b6",
+      "sha256": "28d516613503c7b033847e6afc4ce71985538e61a46c4fba27b479b3f2738edb",
+      "size_bytes": 85426,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis3-0.0.f3d",
+      "git_blob": "37aa6fc4ae857142380f1e6289516f40a4f85d2d",
+      "sha256": "ace7277189736fe7b0557af6d751c2aa2305646b6ecb7ce1f00e0ad99a4a8ac8",
+      "size_bytes": 85422,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis3-1e-06.f3d",
+      "git_blob": "03cea7c8af22400e94e07f63f8a67b4ae1a95d8c",
+      "sha256": "fceae9f75141235046148b85c036299742c9842a3490f1dd082486c442c42fae",
+      "size_bytes": 85426,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/axis3-83.7.f3d",
+      "git_blob": "300cfd6743337746b5cbe5f9499a3bf7650bf50d",
+      "sha256": "4120b4ef4287dca7f5e9ee93cc5761b3e863a688d64e458a6071e30827ac64c0",
+      "size_bytes": 85424,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/baseline.f3d",
+      "git_blob": "6d825fb5f1b2ef4f3ce2ed8a60aa5902ea5cbc9f",
+      "sha256": "7d3ed33b0c0adf373126d8caa67a12eb992c6ea31a673ffef02947bf9344363a",
+      "size_bytes": 85422,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/holdout_a.f3d",
+      "git_blob": "f19f2156f2848d4ad487e99bb562ba84fde514b5",
+      "sha256": "0292804e5896a799ccadb42b0cf1cc5987819a2160fac2a3bfa67afdf9bdf4cf",
+      "size_bytes": 85426,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/SpanWriter20261127/Corrected/holdout_b.f3d",
+      "git_blob": "2c0db7c6cb61ca8a097f9c5078e1d2487f2aa1cb",
+      "sha256": "4af494805df42217f6afbd10a5b61dd47cf78fa2e366cf0e40f5d61dbf78b0bb",
+      "size_bytes": 85424,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Half_DiscHalf/Candidate.f3d",
+      "git_blob": "0d89d160a461e26d7098dca49e9a0b0f5117f8a7",
+      "sha256": "68fd135844561e35078554b16b37ccbbef28c15bddd6e2238dc71933e8c7e45b",
+      "size_bytes": 301068,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Half_HealthyAfter/Candidate.f3d",
+      "git_blob": "73a0a1223eeab93714d528424612bac8f457d40f",
+      "sha256": "d16254740eb00f1f923f24b91d7b7c3c51eccc09fe577f89bf0691d419830ec5",
+      "size_bytes": 195583,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Half_HealthyBefore/Candidate.f3d",
+      "git_blob": "5dd3bc0daffded8a068d01914f964edd253fa0d9",
+      "sha256": "781a24ae89ff99cacecee7ab070c6c121b964c77564a8e94bdee6beba4069322",
+      "size_bytes": 195583,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/HeldOut_DiscFlip/Candidate.f3d",
+      "git_blob": "8f76f779d04e0802a4b68a0ad3103929617c6298",
+      "sha256": "2045b9f5bcf854f2b530e8f1faf8b5a8bb5a41e2b67c0093a240edc6ac873a76",
+      "size_bytes": 297683,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/HeldOut_DiscSymmetric/Candidate.f3d",
+      "git_blob": "048981a6c49aff62eb94f9c0786af87eea1baf71",
+      "sha256": "d0c4d7274974c9416734c1c19bb1342bccd62ae7b909de2bae36a8be7c766094",
+      "size_bytes": 297543,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/HeldOut_DiscTwoSided/Candidate.f3d",
+      "git_blob": "909f607f6fb33c3ed51c17314fa888f5c2660177",
+      "sha256": "30b8207e4edbe6394cd61eff563dcd74160405d240bda6da11e3d3079d6f4c24",
+      "size_bytes": 297610,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/HeldOut_HealthyAfter/Candidate.f3d",
+      "git_blob": "993915aa92f3ea19b8044279b790678678d1f44d",
+      "sha256": "4a4c814f50472aa337f77dc4ab60dea9d95fb3381126a201db88b7852d7d9a8f",
+      "size_bytes": 198288,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/HeldOut_HealthyBefore/Candidate.f3d",
+      "git_blob": "229f7000e2ef6169070330f53736a17e957d2ece",
+      "sha256": "ab012fd287edf0ffeb8fe054dbd249ba1551604e5163435bb91e90c17dc38851",
+      "size_bytes": 198288,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Original_DiscFlip/Candidate.f3d",
+      "git_blob": "f574c6b56e030234a53be6bee72f3725466c55b2",
+      "sha256": "c32287a3adfcc3c2ef3055364b05207c565e1e868aea1e94d229fbce73fd93cf",
+      "size_bytes": 286751,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Original_DiscSymmetric/Candidate.f3d",
+      "git_blob": "fd1a7e547b908da30fcad21e08f892792a69a26b",
+      "sha256": "79560723717416025fef43706e507ddd5c204130e561c25d572e3d57b48bd912",
+      "size_bytes": 286410,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Original_DiscTwoSided/Candidate.f3d",
+      "git_blob": "0a243bd9c4ce27dce1f05c7009d2fd0b2bffdfc5",
+      "sha256": "4337c138b4830db43b9b6749538de8e755306c4d5e62b66dc2267d0d3e5ef82a",
+      "size_bytes": 294732,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Original_HealthyAfter/Candidate.f3d",
+      "git_blob": "aaa74bb4b35d323ed99fb6b27c5c7d9b47c34953",
+      "sha256": "0e863d8f41020bfd96a3feea85ebafd93fff0efaf20e94dece060cd6c47eee74",
+      "size_bytes": 195583,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Original_HealthyBefore/Candidate.f3d",
+      "git_blob": "489fc58f0f8ba412efda5c8a06bd7ef4aa851e39",
+      "sha256": "f8afa6da309f6a7f952a7d87e402d593684b99d2c926b7b7a9e435ccb4e822bb",
+      "size_bytes": 195583,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Rounding_DiscTwoSided/Candidate.f3d",
+      "git_blob": "78c372894b48c0a0b278f83ec81c239599d5f5b1",
+      "sha256": "e788a75b3cf59d0a8f0a2dbbd593bbcdce71a0bd4ccc47827e78114679af4671",
+      "size_bytes": 292365,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Rounding_HealthyAfter/Candidate.f3d",
+      "git_blob": "ed76d60c1da96bdeeadcdda0057a63ff7c44fcd3",
+      "sha256": "d84bbe439747d3d380685356fc915652b6e0242e5456c14b95c19decbf565375",
+      "size_bytes": 195583,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    },
+    {
+      "path": "re/Fusion/DecodedPromotion20261127/Attempts/Initial/Rounding_HealthyBefore/Candidate.f3d",
+      "git_blob": "f9f00b475acc918f2504f1200872a9be2abbad07",
+      "sha256": "eb4985bed7a8055353a777f58d850160cd775292de61710655769950ce9f914f",
+      "size_bytes": 195583,
+      "prefix_hex": "504b03040a0000080000000021000000",
+      "kind": "native",
+      "format": "f3d"
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "task": "A11-GeneratedOffsetSpan20261127",
+  "sdk_revision": "91a73de348894a5791a51b977cd6fe0fe677a617",
+  "reader_revision": "7ce58d3962f89c5c184e1fd993126e4927f9d73d",
+  "native_acceptance": false,
+  "files": [
+    {
+      "path": "CheckGenerated.py",
+      "sha256": "b4daa6eee4e27ac0a6a8e5b58051d6069dff467772b4674eaf268975d8d901da",
+      "bytes": 4290
+    },
+    {
+      "path": "Corrected/Comparison.json",
+      "sha256": "950279ace35dca8d2100c057adebe24afefb8fc2ada3979efa003e631b3237b0",
+      "bytes": 16959
+    },
+    {
+      "path": "Corrected/Results.json",
+      "sha256": "f5630bcf0c93d6a74418ace79464659c1cb5af97a605868815d75f07c33718da",
+      "bytes": 6060
+    },
+    {
+      "path": "Corrected/axis0-19.7.f3d",
+      "sha256": "bd8ab9e473dda3ee531e4f18d9a2cf84b97f01f8525de0c486af76f174fcfad1",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis0-7.1.f3d",
+      "sha256": "6f26aa33d237a2d241e972adb368d43c953d506ba9403b0627085772a04e6d5d",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis1-3.7.f3d",
+      "sha256": "e66d7aedc74571aa48538a130fb8f776cb090f3b4d991943e3cc870ec620ccc2",
+      "bytes": 85420
+    },
+    {
+      "path": "Corrected/axis1-61.3.f3d",
+      "sha256": "530f40c4ec29f4d307e9c7458cfc364e5fd8f966c63192091b6752925cd00625",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis2-5.9.f3d",
+      "sha256": "76a00df828f135aca4aa8334c68bf42d693690028a149b3eb68d14e9890e6034",
+      "bytes": 85420
+    },
+    {
+      "path": "Corrected/axis2-53.1.f3d",
+      "sha256": "341d8c9c81db6f831f9e17faa88642e87ed504299215b4ffff4f56b7e9c44944",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis3--41.9.f3d",
+      "sha256": "28d516613503c7b033847e6afc4ce71985538e61a46c4fba27b479b3f2738edb",
+      "bytes": 85426
+    },
+    {
+      "path": "Corrected/axis3-0.0.f3d",
+      "sha256": "ace7277189736fe7b0557af6d751c2aa2305646b6ecb7ce1f00e0ad99a4a8ac8",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/axis3-1e-06.f3d",
+      "sha256": "fceae9f75141235046148b85c036299742c9842a3490f1dd082486c442c42fae",
+      "bytes": 85426
+    },
+    {
+      "path": "Corrected/axis3-83.7.f3d",
+      "sha256": "4120b4ef4287dca7f5e9ee93cc5761b3e863a688d64e458a6071e30827ac64c0",
+      "bytes": 85424
+    },
+    {
+      "path": "Corrected/baseline.f3d",
+      "sha256": "7d3ed33b0c0adf373126d8caa67a12eb992c6ea31a673ffef02947bf9344363a",
+      "bytes": 85422
+    },
+    {
+      "path": "Corrected/holdout_a.f3d",
+      "sha256": "0292804e5896a799ccadb42b0cf1cc5987819a2160fac2a3bfa67afdf9bdf4cf",
+      "bytes": 85426
+    },
+    {
+      "path": "Corrected/holdout_b.f3d",
+      "sha256": "4af494805df42217f6afbd10a5b61dd47cf78fa2e366cf0e40f5d61dbf78b0bb",
+      "bytes": 85424
+    },
+    {
+      "path": "Evidence/FailedAttempts.json",
+      "sha256": "5720744659d95a5100725031fe8c7833455419f091f50d764ddba4443898f572",
+      "bytes": 2157
+    },
+    {
+      "path": "Generate.py",
+      "sha256": "b08114e235d45ce1170b30926332bfae4b0db5ee0a50b819c4917985936d1482",
+      "bytes": 7253
+    },
+    {
+      "path": "Initial/Comparison.json",
+      "sha256": "15bbcc328fd17762616ac3f9a30ce968acee864fa3dbbd588136a32393adf022",
+      "bytes": 3728
+    },
+    {
+      "path": "Initial/Results.json",
+      "sha256": "b0fac36001ccea1ba043e46a2a4286b77147fc612f34b14f1e52054e4cf7c8d1",
+      "bytes": 1294
+    },
+    {
+      "path": "Initial/baseline.f3d",
+      "sha256": "26a16dd84775a1830b04b01f3eef76d48ac3ac5dc72723e47949b64c4802930b",
+      "bytes": 85736
+    },
+    {
+      "path": "Initial/holdout.f3d",
+      "sha256": "48ed7e8759279d52b0913b58ce43a379925d86f9c48fa799d82cd72b81a43c74",
+      "bytes": 85734
+    },
+    {
+      "path": "Initial/negative.f3d",
+      "sha256": "882b16ff9f3d210b78722ab78d4ce3e0ee2ab4752b02f711b236eb3833283304",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/Comparison.json",
+      "sha256": "7ce820377827ee1b07d65340cc66fe2de1488e8fcdf45e55a23a5a8836a7912f",
+      "bytes": 15717
+    },
+    {
+      "path": "Ladder/Results.json",
+      "sha256": "1eeedc72002edb88eff35d62ac03324bb09005eb8b2cbff1013a4bc14c1c8c31",
+      "bytes": 5766
+    },
+    {
+      "path": "Ladder/axis0-19.7.f3d",
+      "sha256": "f7bf0003789f1671688001dc6840a5fe921ce4e6cecfe2245a7dd256e80305f0",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis0-7.1.f3d",
+      "sha256": "a72ad24df27c581b573638b17522cf983929a03206ebb296e70e161cbb614086",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis1-3.7.f3d",
+      "sha256": "d7d058819fe1e436b9627fcf51c84d64fd04274d1a18014290d0f33951c71d22",
+      "bytes": 85734
+    },
+    {
+      "path": "Ladder/axis1-61.3.f3d",
+      "sha256": "e4462e64b9e717d73191a121ca34ccf30112cd6845d397c5157ccf9bb3dfbf82",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis2-5.9.f3d",
+      "sha256": "9eaf71510a43952569ee5dfe670f2069f5828976aa6b0606dba002c68b7ab22b",
+      "bytes": 85734
+    },
+    {
+      "path": "Ladder/axis2-53.1.f3d",
+      "sha256": "5e0f45bc764095bc2eace8b2244c41a43d7751b790942fdc281ffe142b4b4ec7",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis3--41.9.f3d",
+      "sha256": "56dae452fda66f4779cddeb31cea16e0173ee81541c16876db6b3ea21c790c34",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/axis3-0.0.f3d",
+      "sha256": "e6a8003e75c1cbe1d70331a3e4e195e938e36b50358ee3614d8346f6d68d34b9",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/axis3-1e-06.f3d",
+      "sha256": "f34115a5b1d914d7576b3950e897503e0d17aaad8c810547e9c0b0f9eb3a8290",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/axis3-83.7.f3d",
+      "sha256": "07fd5a4960cee6cb7a9b812f556d96f729f2629551062083bdbab410a6427826",
+      "bytes": 85738
+    },
+    {
+      "path": "Ladder/baseline.f3d",
+      "sha256": "d85399f091974e92940f7bceb29d1ea20eaad19756db5c150b4589c8a2512642",
+      "bytes": 85736
+    },
+    {
+      "path": "Ladder/holdout_a.f3d",
+      "sha256": "f3ccf552d88dffb5a1734f8d265d5b12c45507adef575d2ee35a2cacb83a36dd",
+      "bytes": 85740
+    },
+    {
+      "path": "Ladder/holdout_b.f3d",
+      "sha256": "9e2f72ad09f1b342f8a60041e22b32a52018fccad7b0cfed0da734b67f1c6ef7",
+      "bytes": 85738
+    },
+    {
+      "path": "README.md",
+      "sha256": "42013e1677ec41f23dd2628162d68235d638b499af8542924c205e41ce8310eb",
+      "bytes": 6547
+    },
+    {
+      "path": "RunLadder.py",
+      "sha256": "0925b3a3fb8fc654ab4490830678f585178165364bbe3abe73a6148ec87690ae",
+      "bytes": 2261
+    },
+    {
+      "path": "SpanHistory.py",
+      "sha256": "ecc622efe2e28612be95b9255effe3e5acca540b7263a792a28dfbe9e4ec63fd",
+      "bytes": 1566
+    }
+  ],
+  "maintenance": {
+    "removed_untracked_runtime_cache_entries": true,
+    "unused_import_removed": true,
+    "historical_comparison_receipts_unchanged": true
+  }
+}

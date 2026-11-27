@@ -1,0 +1,6 @@
+{
+  "source": "re/Fusion/DecodedPromotion20261127/ProveRimPublic.py",
+  "sha256": "4c983b06f77ab5b80fe7a4fe3a73e900a2afd4e031647074764ca24e2ac6abcc",
+  "retained_path": "re/Fusion/DecodedPromotion20261127/RimPublic/HistoricalSources/PublicProofInitial.py",
+  "reason": "remove unused research-only imports; original complete 22/43 proof retained"
+}

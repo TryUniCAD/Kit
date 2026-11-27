@@ -1,0 +1,32 @@
+{
+  "attempts": [
+    {
+      "attempt": "Run",
+      "classification": "invocation error, no CAD grammar or compatibility conclusion",
+      "result": "136 retained worker errors from invalid SDK format identifier fusion; canonical ID is fusion.f3d",
+      "script": "HistoricalSources/InvalidFormat.py"
+    },
+    {
+      "attempt": "ProbeV2",
+      "classification": "probe invocation error",
+      "result": "placeholder expected hash 01 rejected by source custody assertion before SDK import",
+      "script": "HistoricalSources/NonePath.py"
+    },
+    {
+      "attempt": "ProbeCorrect",
+      "classification": "receipt helper error",
+      "result": "strict SDK read returned successfully; export helper incorrectly required None instead of actual empty virtual source path",
+      "script": "HistoricalSources/NonePath.py"
+    },
+    {
+      "attempt": "Final",
+      "classification": "receipt export error; originals retained and excluded from final accepted counts",
+      "result": "136 document JSON exports succeeded; optional receipt metadata referenced features instead of feature_timeline",
+      "script": "HistoricalSources/FeatureCounter.py"
+    }
+  ],
+  "final_custody_audit": "Audit.json",
+  "models": false,
+  "native_calls": 0,
+  "successful_final_run": "Verified"
+}

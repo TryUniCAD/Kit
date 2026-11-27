@@ -1,0 +1,411 @@
+{
+  "disposition": "additive post-exposure completeness checks; no new holdout claim",
+  "models": false,
+  "native_calls": 0,
+  "rows": [
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-discovery-01",
+      "passed": true,
+      "sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-01/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-discovery-02",
+      "passed": true,
+      "sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-02/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-discovery-03",
+      "passed": true,
+      "sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-03/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-discovery-04",
+      "passed": true,
+      "sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-04/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-discovery-05",
+      "passed": true,
+      "sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-05/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-discovery-06",
+      "passed": true,
+      "sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "source": "re/Fusion/RimFilletPack/Sources/discovery-06/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-holdout-01",
+      "passed": true,
+      "sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-01/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-holdout-02",
+      "passed": true,
+      "sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-02/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-holdout-03",
+      "passed": true,
+      "sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-03/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-holdout-04",
+      "passed": true,
+      "sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-04/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-holdout-05",
+      "passed": true,
+      "sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-05/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "source-holdout-06",
+      "passed": true,
+      "sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-06/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "depth-holdout-01",
+      "passed": true,
+      "sha256": "bad4d6c0ee8a14ab3cd5a34f6dc6bb47b1554d4402d7add6f37dea6871e01155",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-01/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 32,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "depth-holdout-02",
+      "passed": true,
+      "sha256": "2102ee4232041164554c0de440ae72763c285154f7951a788139345f9b284222",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-02/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "depth-holdout-03",
+      "passed": true,
+      "sha256": "c5f6958e0024001f2e0f8174e4137908011479cbf5b67f108214e6b1f416cb48",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-03/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "depth-holdout-04",
+      "passed": true,
+      "sha256": "50a8217a08b705f1d73d633345d41b01d45e2a3d1cc9c7576fad21fa4400c2cd",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-04/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "depth-holdout-05",
+      "passed": true,
+      "sha256": "e411dd935b5012380a338a05f2c07b509f0bbed368d5ffc39b04415f5c210dc8",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-05/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "depth-holdout-06",
+      "passed": true,
+      "sha256": "2ac34319d4d8d58b66daf75ffb3b8be9285228fce485f491d8d2f7c8bd68b4b0",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-06/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "fresh-01",
+      "passed": true,
+      "sha256": "e76d95e1f7893ee07061bc41a9c261aab8c6d29942add8fd19a3a95f27e51a96",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-01/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "fresh-02",
+      "passed": true,
+      "sha256": "aeab2b02af0746b595fb22877dc555120584752e262f8c9cb291e6cba4e6b41b",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-02/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "fresh-03",
+      "passed": true,
+      "sha256": "c1d83697087f94c914e56996e728a1c50cba217a1f82c191b2edd968962943ec",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-03/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    },
+    {
+      "api_build": "2706.1.17",
+      "dimensions_match_requested": true,
+      "healthy_source_controls": true,
+      "id": "fresh-04",
+      "passed": true,
+      "sha256": "608c77123d4a5d70d170c43318b97e56eee27ea1f1ea5277e62207fd82844af3",
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-04/Native.f3d",
+      "witness": {
+        "adjacent_faces": [
+          24,
+          25
+        ],
+        "full_tag_groups": 3,
+        "seam_vertex": 31,
+        "selected_edge": 21
+      }
+    }
+  ],
+  "sources": {
+    "CheckBindings.py": "2ecf2716a65c4304e09a44476b53ceeba31ba69b33c2f6c8a7b27c317f274ed7",
+    "RimRecipe.py": "ca9248c34ac1de5591cf76f969d9d79d148589447ad2a04e3f38d583ed588a4d"
+  },
+  "summary": {
+    "passed": 22,
+    "sources": 22
+  }
+}

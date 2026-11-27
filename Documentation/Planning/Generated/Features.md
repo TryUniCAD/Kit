@@ -135,7 +135,7 @@ Inventory declarations are research obligations, not qualified support. No autom
 | SOLIDWORKS | Sketch patterns and blocks / solid | sw:family:sketchpattern:sketch-block-instance | Sketch block instance | Unmapped — check current claims |
 | SOLIDWORKS | Sketch patterns and blocks / solid | sw:family:sketchpattern:sketch-text | Sketch text | Unmapped — check current claims |
 | SOLIDWORKS | Sketch patterns and blocks / solid | sw:family:sketchpattern:sketch-picture | Sketch picture | Unmapped — check current claims |
-| SOLIDWORKS | Extrusion family / alpha | sw:family:extrude:boss-base-extrude | Boss base extrude | PR366, PR314 |
+| SOLIDWORKS | Extrusion family / alpha | sw:family:extrude:boss-base-extrude | Boss base extrude | PR366, PR314, A12-ReverseBlindBoss20261127, A12-ColdCliParity20261127 |
 | SOLIDWORKS | Extrusion family / alpha | sw:family:extrude:cut-extrude | Cut extrude | Unmapped — check current claims |
 | SOLIDWORKS | Extrusion family / alpha | sw:family:extrude:thin-extrude | Thin extrude | Unmapped — check current claims |
 | SOLIDWORKS | Extrusion family / alpha | sw:family:extrude:surface-extrude | Surface extrude | Unmapped — check current claims |
@@ -1715,7 +1715,7 @@ Inventory declarations are research obligations, not qualified support. No autom
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConfigurationTopTable | ConfigurationTopTable | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConfigurationVisibilityCell | ConfigurationVisibilityCell | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConfigurationVisibilityColumn | ConfigurationVisibilityColumn | Unmapped — check current claims |
-| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConstantRadiusFilletEdgeSet | ConstantRadiusFilletEdgeSet | Unmapped — check current claims |
+| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConstantRadiusFilletEdgeSet | ConstantRadiusFilletEdgeSet | A11-RimFilletRead20261127 |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConstantRadiusFilletEdgeSetInput | ConstantRadiusFilletEdgeSetInput | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConstructionAxes | ConstructionAxes | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ConstructionAxis | ConstructionAxis | Unmapped — check current claims |
@@ -1874,7 +1874,7 @@ Inventory declarations are research obligations, not qualified support. No autom
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtendFeatures | ExtendFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtentDefinition | ExtentDefinition | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtentDirections | ExtentDirections | Unmapped — check current claims |
-| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeature | ExtrudeFeature | PR299, PR303, PR339, PR394 |
+| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeature | ExtrudeFeature | PR299, PR303, PR339, PR394, A11-GeneratedOffsetSpan20261127, A11-CircularStatePromotion20261127, A11-DualDraftGeometry20261127, A11-DualDraftRead20261127, A11-DualDraftFrame20261127 |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeatureInput | ExtrudeFeatureInput | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.ExtrudeFeatures | ExtrudeFeatures | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FaceGroup | FaceGroup | Unmapped — check current claims |
@@ -1891,7 +1891,7 @@ Inventory declarations are research obligations, not qualified support. No autom
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletEdgeSetInput | FilletEdgeSetInput | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletEdgeSetInputs | FilletEdgeSetInputs | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletEdgeSets | FilletEdgeSets | Unmapped — check current claims |
-| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletFeature | FilletFeature | Unmapped — check current claims |
+| Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletFeature | FilletFeature | A11-RimFilletRead20261127 |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletFeatureInput | FilletFeatureInput | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletFeatureTypes | FilletFeatureTypes | Unmapped — check current claims |
 | Fusion | API type declarations / unmapped | fusion:api:adsk.fusion.FilletFeatures | FilletFeatures | Unmapped — check current claims |

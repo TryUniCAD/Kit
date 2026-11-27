@@ -1,0 +1,120 @@
+{
+  "previous_sdk": "08df1da93f202a88170c774ea2060baca85cc16b",
+  "models": false,
+  "native_calls": 0,
+  "rows": [
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyBefore.f3d",
+      "source_sha256": "5f42a3244b155a19f4c9139d57b15a442958c68646ebec376fb642310bf3280c",
+      "previous_document": "d3884ec31240436b3bf0826d6e78e226a40c29ed36af81513305df09887af0d5",
+      "current_document": "d3884ec31240436b3bf0826d6e78e226a40c29ed36af81513305df09887af0d5",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscSymmetric.f3d",
+      "source_sha256": "6a8b62f1be608491ab806ce244d05cf42ecfff368050f070f26be13177fabccd",
+      "previous_document": "754f3bf505422172f9855544a54791d5372adcfb0f6f6fd09ce0d9fa2b752d32",
+      "current_document": "754f3bf505422172f9855544a54791d5372adcfb0f6f6fd09ce0d9fa2b752d32",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscTwoSided.f3d",
+      "source_sha256": "2c4f2c65e5d664bff10db3f7b841eba3075c4f3620ba8b68784914e443d8bce1",
+      "previous_document": "40968bb1ea3af2b38f9d88f0d8d8383862caa45625b094dd3a0d556e8a433a27",
+      "current_document": "40968bb1ea3af2b38f9d88f0d8d8383862caa45625b094dd3a0d556e8a433a27",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscFlip.f3d",
+      "source_sha256": "c00cb518a622646f9bf1ce659b1ba5ef0a70b94f757feab9eb638d65012a418b",
+      "previous_document": "cc741dbaf204264c3774ffa61ed0a3e1ce344bd7378d83f270dfff5666e1b720",
+      "current_document": "cc741dbaf204264c3774ffa61ed0a3e1ce344bd7378d83f270dfff5666e1b720",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyAfter.f3d",
+      "source_sha256": "fc7535cd906a7017ada4b1b9493106bebab4c57b071b6f644a2be3de71d73bf8",
+      "previous_document": "7bb319b2b40dbc17584f10049c2d62534f203f3072637f38be9e43f760e6d525",
+      "current_document": "7bb319b2b40dbc17584f10049c2d62534f203f3072637f38be9e43f760e6d525",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyBefore.f3d",
+      "source_sha256": "76d8aab9daedad4b51e90abb4fd8a6d42af48c87e6a36a08d1a6233e4671337c",
+      "previous_document": "70cba2a7df433935e05aa45b8ac187a380a2c59e6b2b1f6ed9768c15f1d5245f",
+      "current_document": "70cba2a7df433935e05aa45b8ac187a380a2c59e6b2b1f6ed9768c15f1d5245f",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscSymmetric.f3d",
+      "source_sha256": "a1284ae38787691a17f1380ba8ccd9179408413ec1803bb828edaad0190e0273",
+      "previous_document": "0d99331f6234b2e943e5458972f7317e81353682461ba4881dae6edf6dc23691",
+      "current_document": "0d99331f6234b2e943e5458972f7317e81353682461ba4881dae6edf6dc23691",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscTwoSided.f3d",
+      "source_sha256": "ec048ee1af28a24850cfc67b615dbebdd621cba992be88d3fde307b51f15f7ac",
+      "previous_document": "d25c0db845da34e56e32364e8e92a610ee26af728d3ebad79b216567246105e3",
+      "current_document": "d25c0db845da34e56e32364e8e92a610ee26af728d3ebad79b216567246105e3",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscFlip.f3d",
+      "source_sha256": "da42534361b137723b75e6d010d2c23a384bc5edd0ac1531401dc2ff908634aa",
+      "previous_document": "bc79229c05ea4e920edccb45c28dae6288da0226067cc4203f28395045ff5769",
+      "current_document": "bc79229c05ea4e920edccb45c28dae6288da0226067cc4203f28395045ff5769",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyAfter.f3d",
+      "source_sha256": "be8856d90b4c88ef152ec82b01523fa6328133a69bb74d3058c1b77cd5184a48",
+      "previous_document": "b4828de202982058acd569898c43ec32ff33a93c013122b32d5271d20130e436",
+      "current_document": "b4828de202982058acd569898c43ec32ff33a93c013122b32d5271d20130e436",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyBefore.f3d",
+      "source_sha256": "320496c0c575840fb70b2f0bf6b00a1f57d38b8c3d5444374f6cc756facc7e6e",
+      "previous_document": "64e72454f3af931dd403ad90995155064e5136eb15992e50014ecb2bc2070ac0",
+      "current_document": "64e72454f3af931dd403ad90995155064e5136eb15992e50014ecb2bc2070ac0",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/DiscHalf.f3d",
+      "source_sha256": "706ee7d995e5bee9bfb82ec8427466faf8b2d6510e5b718129081d67ea31ca43",
+      "previous_document": "6be72461ab9ae37a62384202df6a349756378efb9770d2ae654a64b742b4f544",
+      "current_document": "6be72461ab9ae37a62384202df6a349756378efb9770d2ae654a64b742b4f544",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyAfter.f3d",
+      "source_sha256": "2379abd9d2960d7c49d824240165b5062a69920e6e94185ed650ddee0a12e516",
+      "previous_document": "3df84d0ac5737aa6fe4975edea47e739d394694c2db6d44aee6c6746690e57d1",
+      "current_document": "3df84d0ac5737aa6fe4975edea47e739d394694c2db6d44aee6c6746690e57d1",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyBefore.f3d",
+      "source_sha256": "b3cbc4d798ae5812698ee46f87f1a67832ad899a41f0a9829510b46087ed5266",
+      "previous_document": "8371943bfdde9c869c2934c880339e30d02b37f8ec4c1883239507dcf7c5ac2b",
+      "current_document": "8371943bfdde9c869c2934c880339e30d02b37f8ec4c1883239507dcf7c5ac2b",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/DiscTwoSided.f3d",
+      "source_sha256": "df2872e467e2f9d2adfb665ca1bb0fcaeba8a7b8afb2a8ff80a418c9e7a359ba",
+      "previous_document": "afdf6b4ec3f66b0468eb622be29438542bc47b08c987aadbd7ca17fabfcdeff2",
+      "current_document": "afdf6b4ec3f66b0468eb622be29438542bc47b08c987aadbd7ca17fabfcdeff2",
+      "equal": true
+    },
+    {
+      "source": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyAfter.f3d",
+      "source_sha256": "1a0d3ad644fafd278cce0f86f52e06c25bfa4f5f73d32e991de4e04b0aae794b",
+      "previous_document": "09d1b830c3d258793df4b8b40399b047a41299f310e18c366aa9d51bb21d3d26",
+      "current_document": "09d1b830c3d258793df4b8b40399b047a41299f310e18c366aa9d51bb21d3d26",
+      "equal": true
+    }
+  ],
+  "passed": 16
+}

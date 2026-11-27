@@ -1,0 +1,31 @@
+{
+  "files": {
+    "DocumentArchive.json": "b32933dc44c3db61c854cf8d091591f051c22f48671b95c8f496c2c39cd18e5a",
+    "Documents.tar.gz": "4e718a3aeacd97e38ffb5f9319313fe7fbbda91c5d0ea315b0e72ab2364ca705",
+    "Failures.json": "76c01ff0cfaa7b482a1023c4749449601f0458aa36d9e06b75be65df30903684",
+    "InspectTags.py": "7ca4e591ae97e1497ab575dd0af6adc7c19864dafcca63452f819c8383ee8555",
+    "PackTags.py": "be1420eca78b565b24a09c976b9ca556a1eb9b02e9b374a68b4c5c76bba018d9",
+    "Proof/Counterexamples/allocator_owner.f3d": "bcbf731dab0913f336f1387f9d4d0073a2ed58b30bf16139fbda3660c9f03578",
+    "Proof/Counterexamples/attribute_chain.f3d": "01b6163f3175b8e5cbe9cc995aa64d3806432428c6664ff3cc45e114d78e4259",
+    "Proof/Counterexamples/body_operation.f3d": "4440a8834ec50c92209648f13c80dde8f4138f307cc12a4191466914cbd2717b",
+    "Proof/Counterexamples/body_secondary.f3d": "a1703397c4ea506573a6307ba4649b97ea3fe8892961ecbf58a18d271afa197b",
+    "Proof/Counterexamples/body_uuid.f3d": "c4402debab036db51e89e95bc63f3694ff0bc33b5a0fff382ff2e117473bb126",
+    "Proof/Counterexamples/cap_label.f3d": "78d176d491d0da9669056eda3059795ca6dde426f21ef4f9dfb262953d953f2d",
+    "Proof/Counterexamples/extended_tag.f3d": "88e206a37a896a1177c6f5a79db3619f9c80c5b9293284eddbb9806a36a3c535",
+    "Proof/Counterexamples/history_end.f3d": "1616eddda5b9c3b685dcf1bd8d2fa26ebda1b14671329c522f5a2d5af99250ef",
+    "Proof/Counterexamples/joint_label.f3d": "783464f552ce319febe6774c47af2ba4be4b4604a78a570936c80854e7486c86",
+    "Proof/Counterexamples/joint_missing.f3d": "3b09fa3c1d07cc5a6fa3b480266ba958ce10036fe639aa5a58d8aa514ce4ef98",
+    "Proof/Counterexamples/joint_reversed.f3d": "560f0f3f51600ea8be2aff68b090119e86cc7f79f6e0b6445120537f4236b876",
+    "Proof/Counterexamples/rim_label.f3d": "56f60e991d6d491bdf873af6053689e095c2dcb3a3c5e8c152dc071e8ff04cc4",
+    "Proof/Counterexamples/side_operation.f3d": "8fe64ba6effa6624026804f996889b4fedd8b45a7067593178d74ce7d7bc4420",
+    "Proof/Counterexamples/sketch_circle.f3d": "5334065b7fc8eac7c05118692e1606e2961c5ad023477e1767cd498aea4cad5d",
+    "Proof/Counterexamples/sketch_owner.f3d": "9035644c523203ca30df9aad8ddc869b3caddd3363385b91dce862007811be52",
+    "Proof/Counterexamples/time_value.f3d": "5fa871deeb1c825b38975d368476f0f4d93cf602bf1ad58ea91f839ab18fc3bd",
+    "Proof/Receipt.json": "3bda3d67e39097f02088ba0a9210cd3ecc5c2dcad4c475645aedc21879d44468",
+    "ProveTags.py": "47c53245928be08055003b8b4341a9306056a8735102a2c00fc2f36c74980338",
+    "README.md": "7a234b1b511ce5b4f10772dd0f9683b923b9b7c6aaef5bf975d8ea65d526f4c9",
+    "Rules.md": "aae5c8b00a66c82ca5d7b5a9e243065cdb76165c7c47a6653c66ecac62185b02",
+    "Validation.json": "b33eaaee2c42f2138a93a32b304b2220936f5ecab445c12283b15c2efcf515c6"
+  },
+  "scope": "offline live identity qualification evidence no target acceptance"
+}

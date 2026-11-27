@@ -1,0 +1,122 @@
+{
+  "base_revision": "93b24ed0feeb033be95fe91622fb615f519dcd65",
+  "binding": "working file hashes before parent publication; parent must map this receipt to final accepted commit",
+  "sdk_source_hashes": [
+    {
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadExtrude.py",
+      "sha256": "91714704e1e201ea02d82aac8dfda8a15ed1a6de104e8661a85932334db326cc",
+      "bytes": 2556
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdPrism.py",
+      "sha256": "c51632b46ec18134a0212e6445a57b2d91f2c23448bebd7ffea8bb13407571bd",
+      "bytes": 1802
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/CheckCliRefuse.py",
+      "sha256": "c50ba386e8714e56f7c1bf75246c85482c7cd71bea176db6a38b64678cb84def",
+      "bytes": 912
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/CheckSignedBody.py",
+      "sha256": "fa14a1b0784035cd1507965b04944282b201c91d917553b97a65217bec0ee15c",
+      "bytes": 1343
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/LoadReverse.py",
+      "sha256": "30799a34b0a91d206e0ef02948d70a0c3c94658ebe4aac1170b43559077d4507",
+      "bytes": 1314
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/MakeBadReverse.py",
+      "sha256": "2dae65550c5cc023d05a99967ac73db2c5caadd11f91c8e96d19ab3091fcb594",
+      "bytes": 2317
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseCase.py",
+      "sha256": "906b36c629013a23b7d661254a2d71b3a8ed90604b07d5804117c3379a2b2593",
+      "bytes": 367
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseCliTests.py",
+      "sha256": "22a123871e1879b8377e772d07ac2846e46b24b74d5b93dc6322f6fe6ed7c006",
+      "bytes": 2917
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseGuardTests.py",
+      "sha256": "f9e90045f90d83981447ae263cae2efd5ae78adba8271061186a228cbc883e1b",
+      "bytes": 726
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/ReverseReadTests.py",
+      "sha256": "5b14b38384dd8098d75afdaaaf26bb3d7f2c0e590effb711ea61901be156bb0c",
+      "bytes": 2309
+    },
+    {
+      "path": "tests/Convert/Integration/Solidworks/Reverse/SourceGuardTests.py",
+      "sha256": "778eb37f28e0004f93ef01a1ca7b640e6efb10a65ed1b5fd72120ee4351eebcf",
+      "bytes": 1469
+    },
+    {
+      "path": "Documentation/Changes/Solidworks/Inspection/Parts/SolidworksReverseColdBoss.md",
+      "sha256": "17b3257f758be65ba90c156b88b72279420ed787d54413c5cf1efc251687c6cd",
+      "bytes": 2346
+    }
+  ],
+  "verification": {
+    "runtime": "CPython 3.14.6 with pytest 9.1.1",
+    "command": "PYTHONPATH=src:Cli python -m pytest tests/Convert/Integration/Solidworks/Reverse tests/Convert/Solidworks/PlainWriting/PlainReadTests.py -q --tb=short",
+    "passed": 26,
+    "duration_seconds": 23.47,
+    "new_integration_cases": 23,
+    "existing_measured_forward_cases": 3,
+    "black": "nine new test files plus two source files through stdin checked unchanged; repository force exclusion matches Core directory",
+    "mypy": "2.4.1 locked offline with pytest9.1.1; all eleven source files passed",
+    "steering": "eleven python files passed against existing baseline",
+    "pyright": "1.1.414 unavailable in offline cache; not executed",
+    "markdown_format": "Prettier 3.6.2 cached pinned formatter passed",
+    "diff_whitespace": "passed"
+  },
+  "coverage": {
+    "strict_sdk_archive_reads": 6,
+    "fresh_cli_decode_processes": 6,
+    "serialized_invalid_direction_depth_owner_support_cases": 3,
+    "genuine_source_missing_schema_refusals": 8,
+    "direct_unmeasured_reverse_sdk_receipt_refusals": 3,
+    "cli_native_feature_conversion_refusals": 3,
+    "existing_measured_forward_read_write_and_scope_cases": 3
+  },
+  "negative_evidence": {
+    "direction_two": "complete archive serialization followed by strict public SDK refusal",
+    "depth_owner": "angular display substituted for active depth display; complete archive refuses",
+    "support_axis": "reference axis mismatches canonical datum; complete archive refuses",
+    "boolean": "integer wire representation does not retain Python boolean identity; exact type guard kept without isolated test or invented encoding"
+  },
+  "retained_attempts": [
+    {
+      "status": "collection_failure",
+      "cause": "initial nonexistent Container.Errors import; repaired to actual Container.SldprtFormat before scoped run"
+    },
+    {
+      "status": "fixture_resolution_failure",
+      "cause": "initial root parent index six; corrected to actual index five"
+    },
+    {
+      "status": "stale_support_assertion_failure",
+      "cause": "root concurrently enabled reverse preparation; supports reports preparability, so assertion was replaced by actual complete write refusal at unchanged native measurement gate"
+    },
+    {
+      "status": "steering_split_failure",
+      "cause": "scoped integration declaration exceeded thirty logical lines; split geometry and CLI refusal checks without changing coverage"
+    }
+  ],
+  "remaining_gaps": [
+    "native generated reverse edit restore rebuild save fresh process reopen and independent heldouts remain unexecuted because API unavailable",
+    "full genuine saved source moGhostBodyObject_c.FUN_4bf05390 grammar remains separately owned by PR121",
+    "CLI retained NativeFeature source semantics prevent conversion",
+    "source saved cap field provenance remains distinct from generated constructor defaults"
+  ],
+  "native_calls": 0,
+  "models": "disabled",
+  "conversion_acceptance": false
+}

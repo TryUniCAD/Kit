@@ -1,0 +1,15 @@
+{
+  "candidate": "CoherentWrongAdjacentFace.f3d",
+  "candidate_sha256": "7e9ffbf03a6221bea49bfc500b822234c65798220b6bb816480fc5d194f4701b",
+  "case": "coherent selection and duplicate progenitor recipe point top-edge adjacent face to bottomcap",
+  "complete_recipe_witness_refused": true,
+  "emitted": true,
+  "full_geometry_passed": true,
+  "models": false,
+  "native_calls": 0,
+  "recipe_sha256": "ca9248c34ac1de5591cf76f969d9d79d148589447ad2a04e3f38d583ed588a4d",
+  "script_sha256": "b184a475ccb27b377e679a4e0b842dd1a103859bcb913a8f5833a59ca8aa387a",
+  "source_primary_edge_binding_passed": true,
+  "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+  "typed_reparsed": true
+}

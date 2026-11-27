@@ -1,0 +1,37 @@
+{
+  "attempts": [
+    {
+      "attempt": "a",
+      "status": "guard_refusal",
+      "reason": "stdlib xml.parsers.expat lazy import attempted code-file open under zero-external-access guard; no candidate published"
+    },
+    {
+      "attempt": "b",
+      "status": "runtime_refusal",
+      "reason": "homebrew Python3.14.6 pyexpat linked against system libexpat missing XML_SetAllocTrackerActivationThreshold; no guard loosening"
+    },
+    {
+      "attempt": "c",
+      "status": "harness_field_error_preserved",
+      "report": "FirstReportHarnessFailure.json",
+      "reason": "forward public reads returned but reporting requested nonexistent document.bounding_box; reversed strict refusal unchanged"
+    },
+    {
+      "attempt": "d",
+      "status": "corrected_body_topology_reporting",
+      "reason": "six candidates generated; three forward reads pass, three reverse reads reject"
+    },
+    {
+      "attempt": "e",
+      "status": "final",
+      "report": "Report.json"
+    },
+    {
+      "attempt": "f",
+      "status": "independent_fresh_process_replay",
+      "report": "RepeatReport.json",
+      "all_six_archive_hashes_equal": true
+    }
+  ],
+  "runtime": "CPython3.14.6 macOS with DYLD_LIBRARY_PATH=/opt/homebrew/opt/expat/lib; no vendor library"
+}

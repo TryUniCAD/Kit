@@ -1,0 +1,71 @@
+{
+  "program_sha256": "2853382d38abfbb0d14003c04e11a00f971e59b69472a3742ba3d2dddd362c1b",
+  "source": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d",
+  "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134",
+  "rule_seal_sha256": "07136b7ea03dd0ca2e86a10a064bd3dca671a0dcbac14744512f5f69f6d889d3",
+  "native_calls": 0,
+  "models": false,
+  "counterexamples": [
+    {
+      "mode": "body_rotation",
+      "file": "body_rotation.f3d",
+      "sha256": "81cc8ec6f46dec81daad6e6e31ff210f607a670fab3e5892ce5451900ec77e6b",
+      "bytes": 221577,
+      "decoded_snapshot": "GeometryState",
+      "status": "refused",
+      "exception": "AssertionError",
+      "message": "BODY transform is not exactly identity"
+    },
+    {
+      "mode": "body_translation",
+      "file": "body_translation.f3d",
+      "sha256": "4ad935d7d3100b4423e849e0fa75e3817b93a4a46e2f1802a16cb8ee03ad7b53",
+      "bytes": 221577,
+      "decoded_snapshot": "GeometryState",
+      "status": "refused",
+      "exception": "AssertionError",
+      "message": "BODY transform is not exactly identity"
+    },
+    {
+      "mode": "body_reflection",
+      "file": "body_reflection.f3d",
+      "sha256": "80d7972f6708d1e56d049fdaabd6487ac793fa2a89f6edd060a5371b3420264f",
+      "bytes": 221577,
+      "decoded_snapshot": "GeometryState",
+      "status": "refused",
+      "exception": "AssertionError",
+      "message": "BODY transform is not exactly identity"
+    },
+    {
+      "mode": "shared_transform",
+      "file": "shared_transform.f3d",
+      "sha256": "729e66e69c79d75b3fcf5edfad38cdd0ebd6da7f469c1c0e9574ca1b3a4432c5",
+      "bytes": 221577,
+      "decoded_snapshot": "GeometryState",
+      "status": "refused",
+      "exception": "AssertionError",
+      "message": ""
+    },
+    {
+      "mode": "profile_normal",
+      "file": "profile_normal.f3d",
+      "sha256": "56984425d38d42b58b8bfb678bd8dd7de88793fe8244c21e41c53b89b967be75",
+      "bytes": 221577,
+      "decoded_snapshot": "GeometryState",
+      "status": "refused",
+      "exception": "ValueError",
+      "message": "Native Fusion saved geometry or parameter values disagree"
+    },
+    {
+      "mode": "world_sketch",
+      "file": "world_sketch.f3d",
+      "sha256": "dfc887b9d56977e92701dbe1b01c9c7ce2ed52d1d493e50afbe834c43a1a7ae5",
+      "bytes": 221577,
+      "decoded_snapshot": "GeometryState",
+      "status": "refused",
+      "exception": "ValueError",
+      "message": "Native Fusion saved geometry or parameter values disagree"
+    }
+  ],
+  "retention_note": "initial prototype used literal values when corrupting the local sketch plane; corrected to derive those wrong replacement values from the existing world profile plane without changing any acceptance rule"
+}

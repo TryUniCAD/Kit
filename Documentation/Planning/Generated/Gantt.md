@@ -102,6 +102,23 @@ flowchart LR
   AgentDispatch["AgentDispatch: Direct local and Hoplite agent dispatch"]
   A03 --> AgentDispatch
   UiPlanning --> AgentDispatch
+  A16-DecodedReadWrite20261127["A16-DecodedReadWrite20261127: Decoded SOLIDWORKS and Fusion SDK/CLI read write programme"]
+  A04 --> A16-DecodedReadWrite20261127
+  A05 --> A16-DecodedReadWrite20261127
+  A11 --> A16-DecodedReadWrite20261127
+  A12 --> A16-DecodedReadWrite20261127
+  A13 --> A16-DecodedReadWrite20261127
+  A14 --> A16-DecodedReadWrite20261127
+  A11-GeneratedOffsetSpan20261127["A11-GeneratedOffsetSpan20261127: Source free circular offset span generation"]
+  A11-CircularStatePromotion20261127["A11-CircularStatePromotion20261127: Circular typed state preservation and candidate qualification"]
+  A12-ReverseBlindBoss20261127["A12-ReverseBlindBoss20261127: Reversed cold blind boss reading and guarded preparation"]
+  A11-DualDraftGeometry20261127["A11-DualDraftGeometry20261127: Independent circular draft geometry and complete mass proof"]
+  A11-DualDraftRead20261127["A11-DualDraftRead20261127: Bounded independent XY circular draft SDK/CLI reads"]
+  A11-DualDraftGeometry20261127 --> A11-DualDraftRead20261127
+  A11-DualDraftFrame20261127["A11-DualDraftFrame20261127: Source selected principal XZ circular draft reading"]
+  A11-DualDraftRead20261127 --> A11-DualDraftFrame20261127
+  A12-ColdCliParity20261127["A12-ColdCliParity20261127: Exact measured SOLIDWORKS cold read SDK/CLI parity"]
+  A11-RimFilletRead20261127["A11-RimFilletRead20261127: Bounded constant top circular rim fillet reading"]
 ```
 
 Source gates and detailed child prerequisites remain binding.

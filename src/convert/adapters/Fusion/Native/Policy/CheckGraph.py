@@ -21,6 +21,7 @@ from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
+from interchange.geometry.Models.Transform import Transform
 
 
 # invalid base input must fail here so public document claims remain grounded in native records
@@ -30,11 +31,12 @@ def CheckBase(
     Dimension: NativeNode | None = None,
     Rectangle: RectSketchProof | None = None,
     YzDatum: bool = False,
+    FrameValue: Transform | None = None,
 ) -> None:
     CheckClasses(Graph, Dimension, Rectangle)
     CheckAssembly(Graph, Context)
     CheckContainers(Graph, Context)
-    CheckPlacement(Graph, Context, Dimension, Rectangle, YzDatum)
+    CheckPlacement(Graph, Context, Dimension, Rectangle, YzDatum, FrameValue=FrameValue)
     CheckFeature(Graph, Context.SketchFeature)
     Overrides = ObjectFields(Context.Component.Fields["massProperties"])
     if any(Value != -1.0 for Value in Overrides.values()):
@@ -47,10 +49,13 @@ def CheckGraph(
     Context: ExtrudeContext,
     Rectangle: RectSketchProof | None = None,
     YzDatum: bool = False,
+    FrameValue: Transform | None = None,
 ) -> None:
-    CheckBase(Graph, Context, Rectangle=Rectangle, YzDatum=YzDatum)
+    CheckBase(
+        Graph, Context, Rectangle=Rectangle, YzDatum=YzDatum, FrameValue=FrameValue
+    )
     CheckFeature(Graph, Context.Extrude)
-    CheckExtrusion(Graph, Context, YzDatum)
+    CheckExtrusion(Graph, Context, YzDatum, FrameValue=FrameValue)
     Overrides = ObjectFields(Context.BodyNode.Fields["massProperties"])
     if any(Value != -1.0 for Value in Overrides.values()):
         raise ValueError("Native body mass-property overrides are not qualified")

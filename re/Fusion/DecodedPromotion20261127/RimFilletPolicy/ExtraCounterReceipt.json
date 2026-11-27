@@ -1,0 +1,26 @@
+{
+  "native_calls": 0,
+  "models": false,
+  "post_exposure": true,
+  "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+  "program_sha256": "50189c5690e934a78c1d4406483c907114bc6f143ebf24e2bc3bc0becf6dbd1b",
+  "rows": [
+    {
+      "mode": "cache_distribution",
+      "sha256": "ae6f801f332328d28a7f71f9816646f4b455096103c991087b5af0c8e61881c2",
+      "encoded": true,
+      "status": "refused",
+      "error": "ValueError: Native rim matrix caches require one distinct source owner each"
+    },
+    {
+      "mode": "orphan_data",
+      "status": "refused",
+      "error": "ValueError: Fusion segment record disagrees with class registry"
+    },
+    {
+      "mode": "foreign_segment",
+      "status": "refused",
+      "error": "ValueError: Fusion segment record disagrees with class registry"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "source_capture_sha256": "2e0e4c68d8bf1aaeedbc0ba7af681698024c3bc5643eb96ec62a7959b95fb2ef",
+  "native_calls": 0,
+  "models": false,
+  "conversion_acceptance": false,
+  "members": [
+    {
+      "path": "Counterexamples/Counterexamples.json",
+      "sha256": "7b661e3c7d7e2b566e88e8a8e2dadb78c65d554c6a7ba71e7ba331df346b3912",
+      "bytes": 1957
+    },
+    {
+      "path": "Counterexamples/body.f3d",
+      "sha256": "6f61ed7e527afc8bee9c7f030c1d063382242c20eb78e81d817a46933b805f97",
+      "bytes": 301146
+    },
+    {
+      "path": "Counterexamples/feature.f3d",
+      "sha256": "f1bc178f93bac266e8cd48f529cdf1fc415ab03615df148d339c49b40cbee12f",
+      "bytes": 301148
+    },
+    {
+      "path": "Counterexamples/geometry.f3d",
+      "sha256": "a59521e985a50ab17bf39e2ab7e8a4e5822334a97fce9b341c07a37e5ac731fc",
+      "bytes": 301146
+    },
+    {
+      "path": "Counterexamples/identity.f3d",
+      "sha256": "1ba52d4cc718e56fe53b4b8c0e3539c0d01f62306c82490c8b01182ff557c0c4",
+      "bytes": 301146
+    },
+    {
+      "path": "Counterexamples/sketch.f3d",
+      "sha256": "ab7bbdf9b8c14ff9f6568267bc145f4f5311b54db96b43aaf779898a4d9c831d",
+      "bytes": 301146
+    },
+    {
+      "path": "Evidence/FinalValidator.json",
+      "sha256": "ac5051725d5fcbe71493b9d12611170ef47f5a0a0c16104b6bc41b2fb2a4ee57",
+      "bytes": 21291
+    },
+    {
+      "path": "Evidence/InitialValidator.json",
+      "sha256": "bed051ff378ef34dc82e8d751917940feb5d2a409141ed3a2b1aa9d007841127",
+      "bytes": 21345
+    },
+    {
+      "path": "Evidence/ScopeValidator.json",
+      "sha256": "70f2b98eb1c44d30d0b38b6cc0e2c8a006d92aa76414205afe8922051df502fb",
+      "bytes": 21345
+    },
+    {
+      "path": "Evidence/SourceCorrespondence.json",
+      "sha256": "acc824b747a8274c2c93fe81e8fb8669fd463d30b2bbfb04a4081b90a7cbc656",
+      "bytes": 26843
+    },
+    {
+      "path": "Evidence/Verification.json",
+      "sha256": "4148f2b2a4b4210eef7c580233dacca7085eac6d1006648d176fcc06d92e6e3c",
+      "bytes": 4108
+    },
+    {
+      "path": "InspectCorrespondence.py",
+      "sha256": "67c3c79fdfd17c7800fe87420b581fd2be9c37f691b897276d3f3091beb08b4b",
+      "bytes": 2731
+    },
+    {
+      "path": "PackSnapshots.py",
+      "sha256": "a990d622930960598b8ae49525ec524f4b4b214d1e061f95a22f5dc96366c65c",
+      "bytes": 1609
+    },
+    {
+      "path": "README.md",
+      "sha256": "a6e4b81b455e140a91db17e02a911ad72266ac95bc6470355934a94af0c14646",
+      "bytes": 2851
+    },
+    {
+      "path": "Rules.md",
+      "sha256": "1ad1f3c2a3d07d22cd13be98f81b1ae38ef11b0247443227946bb050bd73bbef",
+      "bytes": 4763
+    },
+    {
+      "path": "VerifySnapshots.py",
+      "sha256": "2641cc238f9eaaa87c6e44add799809bc3caede104b2910311a70e0bd9f2b25c",
+      "bytes": 2287
+    }
+  ]
+}

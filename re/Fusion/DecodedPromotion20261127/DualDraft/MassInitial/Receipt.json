@@ -1,0 +1,5775 @@
+{
+  "absolute_tolerance": 1e-08,
+  "counterexamples": [
+    {
+      "axis": "",
+      "field": "volume",
+      "file": "Counterexamples/volume_scalar.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "bd8d7794cc3cb6bda818a038098e404c60b2e7d7f11b5bfe09403e89d8e61512"
+    },
+    {
+      "axis": "",
+      "field": "area",
+      "file": "Counterexamples/area_scalar.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "ff8b45bdcce75724258c36373871d274fb878d226cbdbfca2eb7cb9d98bf4649"
+    },
+    {
+      "axis": "x",
+      "field": "cog",
+      "file": "Counterexamples/cog_x.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "d3280b3adcd1a00d670af0d455cc96b9df16fed193eae18c3a11d8b25b0be5ed"
+    },
+    {
+      "axis": "y",
+      "field": "cog",
+      "file": "Counterexamples/cog_y.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "d2c6f61ce410df491b51f131457ccc2b35f16fad8cfcd5f831b15eb75b1347a7"
+    },
+    {
+      "axis": "z",
+      "field": "cog",
+      "file": "Counterexamples/cog_z.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "75f499688bf2e014cd82eddd48e4b9e33fde3d0455c289b40c8bdf6ff1f7a4f0"
+    },
+    {
+      "axis": "x",
+      "field": "moi",
+      "file": "Counterexamples/moi_x.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "8e79be5ac941ca7fa78282868470dd3b0f33445059fd708eb531ce7febd6d3d1"
+    },
+    {
+      "axis": "y",
+      "field": "moi",
+      "file": "Counterexamples/moi_y.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "67f8711b2148a3426a8bae9bb53ada5277d723946a45ea7252a45fca6fe0f634"
+    },
+    {
+      "axis": "z",
+      "field": "moi",
+      "file": "Counterexamples/moi_z.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "6e55500865652567c46552293c2dd7bcd9f09d407edc55ef98532f7a6b1114b1"
+    },
+    {
+      "axis": "x",
+      "field": "moiOffDiag",
+      "file": "Counterexamples/moiOffDiag_x.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "9612ddcd65938c95bed07d660d29f69017c405843f552e28aaecd290c83f382c"
+    },
+    {
+      "axis": "y",
+      "field": "moiOffDiag",
+      "file": "Counterexamples/moiOffDiag_y.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "2e2b1cdab10911b5224a86459df951f5450258e99bf1b6a8af4fa48e862cbec3"
+    },
+    {
+      "axis": "z",
+      "field": "moiOffDiag",
+      "file": "Counterexamples/moiOffDiag_z.f3d",
+      "passed": true,
+      "reason": "Native circular mass cache disagrees with analytic geometry",
+      "sha256": "498abe13eeefa4318e993cb81ce56481b00a441f332947f411b8077390201ebe"
+    }
+  ],
+  "models": false,
+  "native_api_calls": 0,
+  "relative_tolerance": 1e-06,
+  "rows": [
+    {
+      "checks": [
+        {
+          "actual": 24.422741289006016,
+          "component": 0,
+          "expected": 24.422741289007053,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 48.19203130606743,
+          "component": 0,
+          "expected": 48.19203130606743,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997281232,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.5999999999999999,
+          "component": 2,
+          "expected": -0.6000000000000003,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 91.72774649093569,
+          "component": 0,
+          "expected": 91.72774582462901,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 74.14337008831302,
+          "component": 1,
+          "expected": 74.14337209654393,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.155875238603215,
+          "component": 2,
+          "expected": 62.15587658052296,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.80551078523066,
+          "component": 0,
+          "expected": 18.805510792535433,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 10.257551337398539,
+          "component": 1,
+          "expected": 10.257551341382968,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -16.119009250744,
+          "component": 2,
+          "expected": -16.119009250744664,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "356062f447418b49479a99a2b1b1493057b450bc3695c80bf38896f49fb1a0e6",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/control_before.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411779,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997290033,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.36077460432033553,
+          "component": 2,
+          "expected": -0.3607746043203357,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 83.28009927478926,
+          "component": 0,
+          "expected": 83.28009862781118,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.23580024531634,
+          "component": 1,
+          "expected": 66.23580219524565,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 60.28203204299948,
+          "component": 2,
+          "expected": 60.28203334594679,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.227928122213967,
+          "component": 0,
+          "expected": 18.22792812927148,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 5.978339597012322,
+          "component": 1,
+          "expected": 5.978339598561303,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -9.394533654881627,
+          "component": 2,
+          "expected": -9.394533654882048,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "266af08c723ec7dbc67e97c3cddae7fff701c9342faf73da12edacce85ef89ea",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 25.870779218171172,
+          "component": 0,
+          "expected": 25.87077921817227,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 51.1935959520702,
+          "component": 0,
+          "expected": 51.19359595207019,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997248895,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999994,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.17283072375502004,
+          "component": 2,
+          "expected": -0.17283072375501995,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 94.77123694596511,
+          "component": 0,
+          "expected": 94.7712362162082,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 76.1442729798738,
+          "component": 1,
+          "expected": 76.14427517912416,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.58274809132358,
+          "component": 2,
+          "expected": 66.5827495608126,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 19.920499990162767,
+          "component": 0,
+          "expected": 19.920499997992653,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 3.1298858472194695,
+          "component": 1,
+          "expected": 3.1298858474681284,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -4.918392046021154,
+          "component": 2,
+          "expected": -4.918392046021344,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "7f1aebc85754f9cfcc20e887d2fcd9f381019af0c529935bbdbf183be639592c",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.785704016862987,
+          "component": 0,
+          "expected": 24.78570401686404,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.85010347328318,
+          "component": 0,
+          "expected": 49.85010347328317,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997309662,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.48149830992585724,
+          "component": 2,
+          "expected": -0.48149830992585707,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 95.31171943595874,
+          "component": 0,
+          "expected": 95.31171876775717,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 77.46600986165977,
+          "component": 1,
+          "expected": 77.46601187561507,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.83160290956651,
+          "component": 2,
+          "expected": 62.83160425531568,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 19.084992085649475,
+          "component": 0,
+          "expected": 19.084992092985313,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 8.353992213789482,
+          "component": 1,
+          "expected": 8.353992216109793,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -13.127702053886281,
+          "component": 2,
+          "expected": -13.127702053886818,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "e23fc7a737ed8237a4e5f1aa0fe58d28625cb6e22c0363422da7f8678d169d3c",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.144316131807013,
+          "component": 0,
+          "expected": 24.14431613180804,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 48.92670957177855,
+          "component": 0,
+          "expected": 48.926709571778545,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997253402,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.3312836186048273,
+          "component": 2,
+          "expected": -0.3312836186048276,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 85.05189459041662,
+          "component": 0,
+          "expected": 85.0518939108549,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 67.66798424797008,
+          "component": 1,
+          "expected": 67.66798629595311,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.09308389849002,
+          "component": 2,
+          "expected": 62.09308526690738,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.59112341419678,
+          "component": 0,
+          "expected": 18.59112342149219,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 5.599031490521725,
+          "component": 1,
+          "expected": 5.599031491818996,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -8.798478058572357,
+          "component": 2,
+          "expected": -8.798478058572709,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "845ec04bc9a575807b4a5dc65af7f76bd86652d9629cb409762ee8d574c63fee",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.78124780671849,
+          "component": 0,
+          "expected": 24.781247806719552,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.55758590101196,
+          "component": 0,
+          "expected": 49.55758590101196,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.699999999724285,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.43021043942376813,
+          "component": 2,
+          "expected": -0.43021043942376885,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 90.00366107646389,
+          "component": 0,
+          "expected": 90.00366037787532,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 72.16115985169131,
+          "component": 1,
+          "expected": 72.16116195703725,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 63.765181133722905,
+          "component": 2,
+          "expected": 63.765182540476005,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 19.08156080365741,
+          "component": 0,
+          "expected": 19.08156081117405,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 7.462806053539879,
+          "component": 1,
+          "expected": 7.462806055878685,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -11.72726665923743,
+          "component": 2,
+          "expected": -11.727266659237934,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "8c7cfc079f393a853907038aa39908dd41ae8ad52ad2b0bf660f5bc46574aaa8",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411779,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997290033,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.36077460432033553,
+          "component": 2,
+          "expected": -0.3607746043203357,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 83.28009927478926,
+          "component": 0,
+          "expected": 83.28009862781118,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.23580024531634,
+          "component": 1,
+          "expected": 66.23580219524565,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 60.28203204299948,
+          "component": 2,
+          "expected": 60.28203334594679,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.227928122213967,
+          "component": 0,
+          "expected": 18.22792812927148,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 5.978339597012322,
+          "component": 1,
+          "expected": 5.978339598561303,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -9.394533654881627,
+          "component": 2,
+          "expected": -9.394533654882048,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "cd5a69c54be406e3498768c25ed3029c2d3723a1a4d28532fd343fccdbac78a2",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/baseline_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 28.176238054698253,
+          "component": 0,
+          "expected": 28.176238054699454,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 54.52575543029364,
+          "component": 0,
+          "expected": 54.525755430293636,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997206343,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.01732615297707422,
+          "component": 2,
+          "expected": 0.017326152977074367,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 109.65693642085215,
+          "component": 0,
+          "expected": 109.6569356000376,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 89.37004172717235,
+          "component": 1,
+          "expected": 89.370044200654,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 73.3223188536201,
+          "component": 2,
+          "expected": 73.32232050628183,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 21.695703293459047,
+          "component": 0,
+          "expected": 21.695703302118584,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -0.3417300662236471,
+          "component": 1,
+          "expected": -0.34173006759793295,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 0.5370043919395755,
+          "component": 2,
+          "expected": 0.5370043919396089,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "985e3dfcd78b03ae015516babda3c3ea36859fb8d5fa9e3c6271dd089c0dff12",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 30.591568035054895,
+          "component": 0,
+          "expected": 30.591568035056195,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 57.93639467640986,
+          "component": 0,
+          "expected": 57.93639467640985,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.699999999716256,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.20948658152704383,
+          "component": 2,
+          "expected": 0.2094865815270437,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 128.6569771073355,
+          "component": 0,
+          "expected": 128.65697618657828,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 106.63104442689317,
+          "component": 1,
+          "expected": 106.63104720133781,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 80.5238628619623,
+          "component": 2,
+          "expected": 80.52386471564324,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 23.555507377444073,
+          "component": 0,
+          "expected": 23.555507386993273,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -4.485966104493997,
+          "component": 1,
+          "expected": -4.485966107851129,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 7.049375312337133,
+          "component": 2,
+          "expected": 7.049375312337489,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "c859b5bafaa0db73850fac002504dd2b033d20decf12e3528bb7aa54110d18c4",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 29.28930813744345,
+          "component": 0,
+          "expected": 29.2893081374447,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 56.43594266183729,
+          "component": 0,
+          "expected": 56.435942661837274,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997226133,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.09920356019170919,
+          "component": 2,
+          "expected": -0.09920356019170927,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 121.6885565820215,
+          "component": 0,
+          "expected": 121.68855573998358,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 100.6002513435157,
+          "component": 1,
+          "expected": 100.60025388102339,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 75.87188972018716,
+          "component": 2,
+          "expected": 75.87189141565071,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 22.552767256894526,
+          "component": 0,
+          "expected": 22.552767265832415,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 2.0339225505534557,
+          "component": 1,
+          "expected": 2.0339225499505567,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -3.1961640070650503,
+          "component": 2,
+          "expected": -3.1961640070651605,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "f5c432616f7884277b9c72e42e5c357e6e134340fa0b737d6b941cea174c1b63",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 29.072898552624828,
+          "component": 0,
+          "expected": 29.072898552626064,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 56.06312559117627,
+          "component": 0,
+          "expected": 56.06312559117627,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997145482,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.06492332964393538,
+          "component": 2,
+          "expected": 0.06492332964393564,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 114.21893672562533,
+          "component": 0,
+          "expected": 114.21893583778945,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 93.28644620475374,
+          "component": 1,
+          "expected": 93.28644887989867,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 76.92245797437782,
+          "component": 2,
+          "expected": 76.92245976168121,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 22.38613187639234,
+          "component": 0,
+          "expected": 22.386131885522072,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -1.3212565614531968,
+          "component": 1,
+          "expected": -1.3212565635057871,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 2.076260314080457,
+          "component": 2,
+          "expected": 2.0762603140805225,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "a552b0d4d752b98be503969400a7b95815391f5a92cf19bf47711f53e2870163",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 29.284851927298952,
+          "component": 0,
+          "expected": 29.28485192730021,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 56.143425089566065,
+          "component": 0,
+          "expected": 56.143425089566065,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997169585,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.05574488000809111,
+          "component": 2,
+          "expected": -0.055744880008091545,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 116.38049822252671,
+          "component": 0,
+          "expected": 116.38049735010173,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 95.29540133354729,
+          "component": 1,
+          "expected": 95.29540396244559,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 76.80546794434349,
+          "component": 2,
+          "expected": 76.80546970081105,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 22.54933597490249,
+          "component": 0,
+          "expected": 22.549335984021155,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 1.1427363903038952,
+          "component": 1,
+          "expected": 1.142736389719449,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -1.795728612416184,
+          "component": 2,
+          "expected": -1.7957286124162768,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "4a0d58f5217d4088d0ef1452d1cdb56395dfa349a6899fa48c10e167bd25bcd0",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/first_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 28.176238054698253,
+          "component": 0,
+          "expected": 28.176238054699454,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 54.52575543029364,
+          "component": 0,
+          "expected": 54.525755430293636,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997206343,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.01732615297707422,
+          "component": 2,
+          "expected": 0.017326152977074367,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 109.65693642085215,
+          "component": 0,
+          "expected": 109.6569356000376,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 89.37004172717235,
+          "component": 1,
+          "expected": 89.370044200654,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 73.3223188536201,
+          "component": 2,
+          "expected": 73.32232050628183,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 21.695703293459047,
+          "component": 0,
+          "expected": 21.695703302118584,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -0.3417300662236471,
+          "component": 1,
+          "expected": -0.34173006759793295,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 0.5370043919395755,
+          "component": 2,
+          "expected": 0.5370043919396089,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "af7f343d7e9cc2fae1a92f6f19bdd80911a25a1fc21f8ae548e8f65aca57784b",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/first_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 19.64439214505889,
+          "component": 0,
+          "expected": 19.644392145059726,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 41.30631219201448,
+          "component": 0,
+          "expected": 41.306312192014474,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997220177,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.05527491643869171,
+          "component": 2,
+          "expected": 0.05527491643869174,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 53.77353294557266,
+          "component": 0,
+          "expected": 53.77353238208208,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 39.629568339513604,
+          "component": 1,
+          "expected": 39.629570037639084,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 50.84817455536252,
+          "component": 2,
+          "expected": 50.848175689995585,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 15.126181945688451,
+          "component": 0,
+          "expected": 15.12618195169599,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -0.7600894932877793,
+          "component": 1,
+          "expected": -0.7600894940149502,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 1.1944263477377248,
+          "component": 2,
+          "expected": 1.1944263477377788,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "9a375267a74824dc3b150d279b1916a349344268a4addc5a4eb6c4d79e64c5a9",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 21.84253742911227,
+          "component": 0,
+          "expected": 21.8425374291132,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 44.55999190234514,
+          "component": 0,
+          "expected": 44.55999190234514,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997178483,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.23601020693936783,
+          "component": 2,
+          "expected": 0.23601020693936756,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 65.26467061674842,
+          "component": 0,
+          "expected": 65.26466997047912,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 49.538041074070996,
+          "component": 1,
+          "expected": 49.53804302151761,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 57.14889060368659,
+          "component": 2,
+          "expected": 57.14889190486141,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 16.818753813637272,
+          "component": 0,
+          "expected": 16.818753820417168,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -3.6085432430806605,
+          "component": 1,
+          "expected": -3.6085432451081254,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 5.670567956598276,
+          "component": 2,
+          "expected": 5.670567956598482,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "0133b5e69a799ad198da9ec96a7802db7cf8aab51a1b5accc2149b7a77d1109f",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 20.905310548088522,
+          "component": 0,
+          "expected": 20.90531054808941,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 43.33941324413331,
+          "component": 0,
+          "expected": 43.339413244133304,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997241935,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.07165151468982593,
+          "component": 2,
+          "expected": -0.07165151468982627,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 61.024807228966864,
+          "component": 0,
+          "expected": 61.0248066382405,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 45.97298126335478,
+          "component": 1,
+          "expected": 45.97298304361612,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 53.83530448811463,
+          "component": 2,
+          "expected": 53.835305677647234,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 16.097089115685755,
+          "component": 0,
+          "expected": 16.097089122028848,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 1.0485280161844628,
+          "component": 1,
+          "expected": 1.048528016082268,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -1.6476868824149165,
+          "component": 2,
+          "expected": -1.6476868824149924,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "7d1a6372384c1b3fcf48f434b0ace13882dc7703d9c4cdcb09e3f3e0927412b1",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 20.116074342748114,
+          "component": 0,
+          "expected": 20.116074342748966,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 42.2931055220535,
+          "component": 0,
+          "expected": 42.29310552205348,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997177844,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.08091592974308999,
+          "component": 2,
+          "expected": 0.08091592974308995,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 55.54532826119997,
+          "component": 0,
+          "expected": 55.545327665125804,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 41.06175234216733,
+          "component": 1,
+          "expected": 41.06175413834655,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 52.659226410853044,
+          "component": 2,
+          "expected": 52.65922761095619,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 15.489377237671256,
+          "component": 0,
+          "expected": 15.489377243916705,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -1.1393975997783485,
+          "component": 1,
+          "expected": -1.1393976007572568,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 1.7904819440470305,
+          "component": 2,
+          "expected": 1.7904819440471178,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "aa0c34996b9a75563f33772ae6d9a4684d11c7776cb5a0852a5bc4a7c18ffbe7",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 20.134140774632318,
+          "component": 0,
+          "expected": 20.134140774633178,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 42.17822867729612,
+          "component": 0,
+          "expected": 42.17822867729611,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.699999999719362,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.023326943964585407,
+          "component": 2,
+          "expected": 0.0233269439645852,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 55.61378847960937,
+          "component": 0,
+          "expected": 55.61378789202125,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 41.117204763601436,
+          "component": 1,
+          "expected": 41.11720653428536,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 52.42710787243277,
+          "component": 2,
+          "expected": 52.42710905552662,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 15.503288390251427,
+          "component": 0,
+          "expected": 15.503288396467548,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -0.3287675810472521,
+          "component": 1,
+          "expected": -0.3287675815374567,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 0.516634770987416,
+          "component": 2,
+          "expected": 0.5166347709874319,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "04376faab2efc317c437ca53688325ae061df7cfd41bc232f5561c28853f7c51",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/second_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 19.64439214505889,
+          "component": 0,
+          "expected": 19.644392145059726,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 41.30631219201448,
+          "component": 0,
+          "expected": 41.306312192014474,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997220177,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.05527491643869171,
+          "component": 2,
+          "expected": 0.05527491643869174,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 53.77353294557266,
+          "component": 0,
+          "expected": 53.77353238208208,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 39.629568339513604,
+          "component": 1,
+          "expected": 39.629570037639084,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 50.84817455536252,
+          "component": 2,
+          "expected": 50.848175689995585,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 15.126181945688451,
+          "component": 0,
+          "expected": 15.12618195169599,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -0.7600894932877793,
+          "component": 1,
+          "expected": -0.7600894940149502,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 1.1944263477377248,
+          "component": 2,
+          "expected": 1.1944263477377788,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "28989c9c555bcbf25913940e19074afecea026646ab9f2ca8d551661496d31b3",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/second_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 20.962141278268938,
+          "component": 0,
+          "expected": 20.962141278269833,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 42.62843760736605,
+          "component": 0,
+          "expected": 42.62843760736605,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997472951,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.554109112279074,
+          "component": 2,
+          "expected": -0.5541091122790737,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 73.72642961276868,
+          "component": 0,
+          "expected": 73.7264291176236,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 58.63368590440587,
+          "component": 1,
+          "expected": 58.63368739726932,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 50.97155346065045,
+          "component": 2,
+          "expected": 50.97155445836531,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 16.140848778440123,
+          "component": 0,
+          "expected": 16.14084878426777,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 8.130719443800004,
+          "component": 1,
+          "expected": 8.130719446619434,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -12.776844844687133,
+          "component": 2,
+          "expected": -12.776844844687684,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "fadf438974577a26f486bc73bf96de8125e06fee625cf11e96d76f875f948328",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 22.114169112800333,
+          "component": 0,
+          "expected": 22.114169112801275,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 44.50481314998977,
+          "component": 0,
+          "expected": 44.50481314998976,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997484134,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.42894239769501563,
+          "component": 2,
+          "expected": -0.428942397695016,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 79.41789891167882,
+          "component": 0,
+          "expected": 79.4178983937952,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 63.4956950711251,
+          "component": 1,
+          "expected": 63.49569663257826,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 53.63427617969373,
+          "component": 2,
+          "expected": 53.634277223259325,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 17.02791021073628,
+          "component": 0,
+          "expected": 17.027910216856988,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 6.639993303267545,
+          "component": 1,
+          "expected": 6.639993305594631,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -10.434275194505418,
+          "component": 2,
+          "expected": -10.43427519450585,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "8cccd20c63a3c69bbffb929cee4dc6220643dcb65a69174f65d9084786552c03",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 22.075211361014134,
+          "component": 0,
+          "expected": 22.07521136101508,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 44.5386248389097,
+          "component": 0,
+          "expected": 44.53862483890969,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997485766,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.6799075534704719,
+          "component": 2,
+          "expected": -0.6799075534704718,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 85.75804977393803,
+          "component": 0,
+          "expected": 85.75804925756957,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 69.86389552074925,
+          "component": 1,
+          "expected": 69.86389707763873,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 53.52112432721741,
+          "component": 2,
+          "expected": 53.5211253677342,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 16.997912741875652,
+          "component": 0,
+          "expected": 16.997912747981605,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 10.506372060577164,
+          "component": 1,
+          "expected": 10.506372064167925,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -16.510013243691702,
+          "component": 2,
+          "expected": -16.510013243692455,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "114ee93fa88ee3aa48b9075ff470eff43ee19fbb0af07e0057838cfca5320831",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 21.345661362771047,
+          "component": 0,
+          "expected": 21.345661362771956,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 43.341513440869505,
+          "component": 0,
+          "expected": 43.341513440869505,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997450608,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.524000868013824,
+          "component": 2,
+          "expected": -0.5240008680138243,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 75.01282621095115,
+          "component": 0,
+          "expected": 75.01282569789952,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 59.643947969917775,
+          "component": 1,
+          "expected": 59.6439495167037,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 52.17814882685588,
+          "component": 2,
+          "expected": 52.17814986058652,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 16.436159243347674,
+          "component": 0,
+          "expected": 16.436159249334406,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 7.829601555036234,
+          "component": 1,
+          "expected": 7.8296015576951605,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -12.303659590663287,
+          "component": 2,
+          "expected": -12.303659590663823,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "4fe6aee4dee9c97766f10f5ba1c778b4f01472c6f9709e961613e8518abd6d12",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 22.070755150869637,
+          "component": 0,
+          "expected": 22.07075515087059,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 44.24610726663848,
+          "component": 0,
+          "expected": 44.24610726663848,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997410784,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.6223611185422023,
+          "component": 2,
+          "expected": -0.6223611185422021,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 80.44999141444329,
+          "component": 0,
+          "expected": 80.44999086768776,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 64.55904551078086,
+          "component": 1,
+          "expected": 64.55904715906092,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 54.45470255137381,
+          "component": 2,
+          "expected": 54.45470365289454,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 16.994481459883573,
+          "component": 0,
+          "expected": 16.99448146617035,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.61518590032756,
+          "component": 1,
+          "expected": 9.615185903936817,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -15.109577849042893,
+          "component": 2,
+          "expected": -15.109577849043571,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "f00adf6a8ddf46794ca4e5fdfc38fc589e1123b5956683f59deb389ce24b45b1",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 20.962141278268938,
+          "component": 0,
+          "expected": 20.962141278269833,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 42.62843760736605,
+          "component": 0,
+          "expected": 42.62843760736605,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997472951,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.554109112279074,
+          "component": 2,
+          "expected": -0.5541091122790737,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 73.72642961276868,
+          "component": 0,
+          "expected": 73.7264291176236,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 58.63368590440587,
+          "component": 1,
+          "expected": 58.63368739726932,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 50.97155346065045,
+          "component": 2,
+          "expected": 50.97155445836531,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 16.140848778440123,
+          "component": 0,
+          "expected": 16.14084878426777,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 8.130719443800004,
+          "component": 1,
+          "expected": 8.130719446619434,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -12.776844844687133,
+          "component": 2,
+          "expected": -12.776844844687684,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "0634fb64bb7a2b4be9610367949d94b95c43bf018bf6893dec527a7c4124fe90",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_first_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 32.03025254156449,
+          "component": 0,
+          "expected": 32.03025254156585,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 60.20791926833567,
+          "component": 0,
+          "expected": 60.207919268335665,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996851712,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.7749923460756047,
+          "component": 2,
+          "expected": -0.7749923460756046,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 137.23541166443306,
+          "component": 0,
+          "expected": 137.2354104837546,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 114.17362509765198,
+          "component": 1,
+          "expected": 114.17362865382718,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 91.02001344256834,
+          "component": 2,
+          "expected": 91.02001581805837,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 24.663294445912214,
+          "component": 0,
+          "expected": 24.663294457005705,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 17.376240385043943,
+          "component": 1,
+          "expected": 17.376240393807546,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -27.305520618839353,
+          "component": 2,
+          "expected": -27.30552061884043,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "a8f63633821d778c5e8b818220492e9fdfbb0012ef84e308655b8a2ad729d1cf",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 34.22839782561787,
+          "component": 0,
+          "expected": 34.22839782561933,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 63.46159897866633,
+          "component": 0,
+          "expected": 63.46159897866632,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996848768,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.6063380770521903,
+          "component": 2,
+          "expected": -0.6063380770521904,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 148.7265493356088,
+          "component": 0,
+          "expected": 148.72654807215162,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 124.08209783220941,
+          "component": 1,
+          "expected": 124.08210163770569,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 97.32072949089243,
+          "component": 2,
+          "expected": 97.32073203292417,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 26.355866313860957,
+          "component": 0,
+          "expected": 26.355866325726875,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 14.527786635251061,
+          "component": 1,
+          "expected": 14.527786642714371,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -22.829379009978794,
+          "component": 2,
+          "expected": -22.829379009979725,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "7719af50d1d28a7c3c8591684eb3906338c04725535036f82de80220a2c8ea7f",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 35.02689446863327,
+          "component": 0,
+          "expected": 35.02689446863475,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 64.14315936722734,
+          "component": 0,
+          "expected": 64.14315936722733,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996801983,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.9697391517612018,
+          "component": 2,
+          "expected": -0.9697391517612018,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 171.16698651499235,
+          "component": 0,
+          "expected": 171.16698518046553,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 145.947617143758,
+          "component": 1,
+          "expected": 145.94762116304852,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 100.87939714282669,
+          "component": 2,
+          "expected": 100.87939982758141,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 26.97070872852578,
+          "component": 0,
+          "expected": 26.970708740848764,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 23.776865639415348,
+          "component": 1,
+          "expected": 23.776865651590104,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -37.36364602392575,
+          "component": 2,
+          "expected": -37.3636460239273,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "ea7bcba6de5767aecf18964e95f874a9c183d0e39a68751324db213bbc8caca6",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 32.50193473925371,
+          "component": 0,
+          "expected": 32.5019347392551,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 61.19471259837469,
+          "component": 0,
+          "expected": 61.19471259837468,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.699999999683086,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.7470734291192271,
+          "component": 2,
+          "expected": -0.7470734291192273,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 139.0072069800604,
+          "component": 0,
+          "expected": 139.0072057667983,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 115.60580910030576,
+          "component": 1,
+          "expected": 115.60581275453463,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 92.8310652980589,
+          "component": 2,
+          "expected": 92.83106773901896,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 25.02648973789499,
+          "component": 0,
+          "expected": 25.02648974922642,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 16.99693227855336,
+          "component": 1,
+          "expected": 16.99693228706524,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -26.709465022530026,
+          "component": 2,
+          "expected": -26.70946502253109,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "32adfd6b0ffc758b0298950c4fc5cd1fe49d29f27686d632ee758900115f300e",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 33.59091390122637,
+          "component": 0,
+          "expected": 33.590913901227815,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 62.53915357560456,
+          "component": 0,
+          "expected": 62.53915357560456,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996757479,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.8311430350005329,
+          "component": 2,
+          "expected": -0.8311430350005337,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 148.09515413796106,
+          "component": 0,
+          "expected": 148.0951528193528,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 123.90969083937068,
+          "component": 1,
+          "expected": 123.90969481046874,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 97.94517006121788,
+          "component": 2,
+          "expected": 97.94517271370016,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 25.865003691963167,
+          "component": 0,
+          "expected": 25.865003703945415,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 19.543197879410968,
+          "component": 1,
+          "expected": 19.543197889815673,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -30.710739541137627,
+          "component": 2,
+          "expected": -30.710739541138913,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "f84baf998356eac387d2e4c22432885c4aafabb7a700a0c93f805fd42034b9fd",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 32.03025254156449,
+          "component": 0,
+          "expected": 32.03025254156585,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 60.20791926833567,
+          "component": 0,
+          "expected": 60.207919268335665,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996851712,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.7749923460756047,
+          "component": 2,
+          "expected": -0.7749923460756046,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 137.23541166443306,
+          "component": 0,
+          "expected": 137.2354104837546,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 114.17362509765198,
+          "component": 1,
+          "expected": 114.17362865382718,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 91.02001344256834,
+          "component": 2,
+          "expected": 91.02001581805837,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 24.663294445912214,
+          "component": 0,
+          "expected": 24.663294457005705,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 17.376240385043943,
+          "component": 1,
+          "expected": 17.376240393807546,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -27.305520618839353,
+          "component": 2,
+          "expected": -27.30552061884043,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "bfce5b25790bda812c03e70049fda1ef17c0fcdb980ca2378146482332e9472e",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/draft_second_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 40.721130988627124,
+          "component": 0,
+          "expected": 40.721130988628865,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 67.10562748756895,
+          "component": 0,
+          "expected": 67.10562748756894,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996464066,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.4177516611408902,
+          "component": 2,
+          "expected": -0.41775166114089,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 157.49031080210392,
+          "component": 0,
+          "expected": 157.490308913846,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 128.1710889170757,
+          "component": 1,
+          "expected": 128.17109460203324,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 127.70994506450282,
+          "component": 2,
+          "expected": 127.70994886119571,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 31.355270845404306,
+          "component": 0,
+          "expected": 31.355270861244225,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 11.90792407512734,
+          "component": 1,
+          "expected": 11.907924079824847,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -18.71245212543829,
+          "component": 2,
+          "expected": -18.712452125439043,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "a080186a4eefa66316042804c2332514769cc2313160c02ab04d78d767f737e3",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/radius.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 44.22151777705379,
+          "component": 0,
+          "expected": 44.22151777705569,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 71.2115290876407,
+          "component": 0,
+          "expected": 71.2115290876407,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.699999999642491,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.23817046283419288,
+          "component": 2,
+          "expected": -0.23817046283419302,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 176.99501102016575,
+          "component": 0,
+          "expected": 176.99500892201021,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 145.15550980590092,
+          "component": 1,
+          "expected": 145.15551612253012,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 140.16165704950765,
+          "component": 2,
+          "expected": 140.16166126797341,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 34.05056867094086,
+          "component": 0,
+          "expected": 34.05056868833289,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 7.372581547249098,
+          "component": 1,
+          "expected": 7.372581549334301,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -11.585485291810414,
+          "component": 2,
+          "expected": -11.585485291811047,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "518abc77411e510062dc43e2dd060e1e13b1bb49f4aedb247dbb89d9a15d10c1",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 42.804367525703015,
+          "component": 0,
+          "expected": 42.80436752570485,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 69.71891452966581,
+          "component": 0,
+          "expected": 69.7189145296658,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996484829,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000005,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.5458256523133758,
+          "component": 2,
+          "expected": -0.5458256523133753,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 180.54825798301317,
+          "component": 0,
+          "expected": 180.54825602041473,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 149.72910549301798,
+          "component": 1,
+          "expected": 149.72911140190723,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 133.55397473779965,
+          "component": 2,
+          "expected": 133.55397868408227,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 32.95936297824025,
+          "component": 0,
+          "expected": 32.959362994792734,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 16.35460527193291,
+          "component": 1,
+          "expected": 16.354605278605522,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -25.700094009236153,
+          "component": 2,
+          "expected": -25.700094009237247,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "7af3af07f6cbdc514e6cded43645fd420a7925175928453abdab904951362566",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 41.322100595842926,
+          "component": 0,
+          "expected": 41.32210059584469,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 68.26569550009528,
+          "component": 0,
+          "expected": 68.26569550009528,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996430583,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999996,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.39501684144688676,
+          "component": 2,
+          "expected": -0.39501684144688687,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 160.14255966136056,
+          "component": 0,
+          "expected": 160.14255770583057,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 130.39063938955653,
+          "component": 1,
+          "expected": 130.3906452768224,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 130.81517631991798,
+          "component": 2,
+          "expected": 130.815180251647,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 31.818017442574558,
+          "component": 0,
+          "expected": 31.818017458800412,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 11.426047957233436,
+          "component": 1,
+          "expected": 11.426047961524777,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -17.955218225252395,
+          "component": 2,
+          "expected": -17.95521822525322,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "5edd3b9e2fc2bf62761571e651687b6ce7631f5b36eb5911b1e32adee5dc8513",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 42.1996998388113,
+          "component": 0,
+          "expected": 42.19969983881311,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 68.96508340939118,
+          "component": 0,
+          "expected": 68.96508340939118,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996412125,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.47031691806897713,
+          "component": 2,
+          "expected": -0.4703169180689776,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 167.31109569718737,
+          "component": 0,
+          "expected": 167.31109368668106,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 136.92730374999206,
+          "component": 1,
+          "expected": 136.9273098027356,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 134.0098511136995,
+          "component": 2,
+          "expected": 134.00985515592936,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 32.4937688592299,
+          "component": 0,
+          "expected": 32.49376887588609,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 13.893062934029274,
+          "component": 1,
+          "expected": 13.89306294013855,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -21.831956048788243,
+          "component": 2,
+          "expected": -21.83195604878915,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "3cda7411bac4a8db361464d5654630e708000c9b5090666b42a0efbfe7b2a220",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/radius_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 40.721130988627124,
+          "component": 0,
+          "expected": 40.721130988628865,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 67.10562748756895,
+          "component": 0,
+          "expected": 67.10562748756894,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999996464066,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.4177516611408902,
+          "component": 2,
+          "expected": -0.41775166114089,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 157.49031080210392,
+          "component": 0,
+          "expected": 157.490308913846,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 128.1710889170757,
+          "component": 1,
+          "expected": 128.17109460203324,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 127.70994506450282,
+          "component": 2,
+          "expected": 127.70994886119571,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 31.355270845404306,
+          "component": 0,
+          "expected": 31.355270861244225,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 11.90792407512734,
+          "component": 1,
+          "expected": 11.907924079824847,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -18.71245212543829,
+          "component": 2,
+          "expected": -18.712452125439043,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "a439b67fae8e632afd715b7f5e08c9f8056a84e5c616d8e65f8abf4a81e20de1",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/radius_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411779,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -1.400000000270996,
+          "component": 0,
+          "expected": -1.4,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 2.0999999999999996,
+          "component": 1,
+          "expected": 2.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.36077460432033553,
+          "component": 2,
+          "expected": -0.3607746043203357,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 159.0325278639662,
+          "component": 0,
+          "expected": 159.03252721699133,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 101.03457215541333,
+          "component": 1,
+          "expected": 101.03457407840028,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 170.83323254227344,
+          "component": 2,
+          "expected": 170.8332338182816,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 69.5975437797782,
+          "component": 0,
+          "expected": 69.59754376630927,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -11.956679198670827,
+          "component": 1,
+          "expected": -11.956679197122606,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 17.93501879568315,
+          "component": 2,
+          "expected": 17.93501879568391,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "b122487b3e2f6d945b12cce5acbf19835940b194c397894c8fc6f01898361108",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/placement.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 25.870779218171165,
+          "component": 0,
+          "expected": 25.87077921817227,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 51.1935959520702,
+          "component": 0,
+          "expected": 51.19359595207019,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -1.4000000002751098,
+          "component": 0,
+          "expected": -1.4,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 2.0999999999999996,
+          "component": 1,
+          "expected": 2.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.17283072375501954,
+          "component": 2,
+          "expected": -0.17283072375501995,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 177.55773044411285,
+          "component": 0,
+          "expected": 177.55772971435948,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 114.1743184604781,
+          "component": 1,
+          "expected": 114.1743206298374,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 187.39928707007562,
+          "component": 2,
+          "expected": 187.39928850967712,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 76.0600909163696,
+          "component": 0,
+          "expected": 76.06009090142649,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -6.259771695184455,
+          "component": 1,
+          "expected": -6.259771694936257,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.389657542403995,
+          "component": 2,
+          "expected": 9.389657542404384,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "e8fb2276add1ebaad0c2c575a98434dd4e6d63edb30bb8a96a7684b4a4c3bb14",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.785704016862987,
+          "component": 0,
+          "expected": 24.78570401686404,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.85010347328318,
+          "component": 0,
+          "expected": 49.85010347328317,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -1.4000000002690332,
+          "component": 0,
+          "expected": -1.4,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 2.0999999999999996,
+          "component": 1,
+          "expected": 2.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.48149830992585724,
+          "component": 2,
+          "expected": -0.48149830992585707,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 174.6259722899203,
+          "component": 0,
+          "expected": 174.6259716217221,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 113.90099479445476,
+          "component": 1,
+          "expected": 113.90099678040521,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 178.58084069632292,
+          "component": 2,
+          "expected": 178.58084201407075,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 72.86996982358033,
+          "component": 0,
+          "expected": 72.86996980958028,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -16.707984434538815,
+          "component": 1,
+          "expected": -16.707984432219586,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 25.061976648328354,
+          "component": 2,
+          "expected": 25.06197664832938,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "0725057e8e4773036997dd84376ccce7e22901f51f471d8179d6a12f75573031",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.144316131807006,
+          "component": 0,
+          "expected": 24.14431613180804,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 48.92670957177855,
+          "component": 0,
+          "expected": 48.926709571778545,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -1.4000000002746598,
+          "component": 0,
+          "expected": -1.4,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 2.1,
+          "component": 1,
+          "expected": 2.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.3312836186048274,
+          "component": 2,
+          "expected": -0.3312836186048276,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 162.313706212199,
+          "component": 0,
+          "expected": 162.31370553264063,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 103.1601289895786,
+          "component": 1,
+          "expected": 103.16013100971094,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 174.84704026188092,
+          "component": 2,
+          "expected": 174.8470416024509,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 70.98428944143865,
+          "component": 0,
+          "expected": 70.98428942751563,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -11.198062984934538,
+          "component": 1,
+          "expected": -11.198062983637993,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 16.797094475456248,
+          "component": 2,
+          "expected": 16.797094475456987,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "ff7799b0997efcf7426b8c85a9297dd78353634fde4454f62850c4374fa8b87e",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.781247806718486,
+          "component": 0,
+          "expected": 24.781247806719552,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.55758590101196,
+          "component": 0,
+          "expected": 49.55758590101196,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -1.400000000275715,
+          "component": 0,
+          "expected": -1.4,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 2.1,
+          "component": 1,
+          "expected": 2.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.4302104394237682,
+          "component": 2,
+          "expected": -0.43021043942376885,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 169.303654057963,
+          "component": 0,
+          "expected": 169.3036533593779,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 108.58959415626416,
+          "component": 1,
+          "expected": 108.589596232915,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 179.4936084197949,
+          "component": 2,
+          "expected": 179.4936097978563,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 72.85686856610073,
+          "component": 0,
+          "expected": 72.85686855175547,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -14.925612114095173,
+          "component": 1,
+          "expected": -14.92561211175737,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 22.388418167635095,
+          "component": 2,
+          "expected": 22.388418167636054,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "05ca73b8d2cdfad08b217d2d67f7efeae1308f2964b76cc808b8d9286c56a23c",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/placement_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411779,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -1.400000000270996,
+          "component": 0,
+          "expected": -1.4,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 2.0999999999999996,
+          "component": 1,
+          "expected": 2.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.36077460432033553,
+          "component": 2,
+          "expected": -0.3607746043203357,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 159.0325278639662,
+          "component": 0,
+          "expected": 159.03252721699133,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 101.03457215541333,
+          "component": 1,
+          "expected": 101.03457407840028,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 170.83323254227344,
+          "component": 2,
+          "expected": 170.8332338182816,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 69.5975437797782,
+          "component": 0,
+          "expected": 69.59754376630927,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -11.956679198670827,
+          "component": 1,
+          "expected": -11.956679197122606,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 17.93501879568315,
+          "component": 2,
+          "expected": 17.93501879568391,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "36b34f28a6bf086d6bfe1228158e06089ad8b461ddeea1f59786412cd08ef4e4",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/placement_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411982,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.7000000001354981,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.3607746043203358,
+          "component": 1,
+          "expected": -0.3607746043203357,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 1.1,
+          "component": 2,
+          "expected": 1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 83.2800966771899,
+          "component": 0,
+          "expected": 83.28009862781118,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 60.282032046797184,
+          "component": 1,
+          "expected": 60.28203334594679,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.23580284672113,
+          "component": 2,
+          "expected": 66.23580219524565,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 5.978339599335925,
+          "component": 0,
+          "expected": 5.978339598561303,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -18.22792813280062,
+          "component": 1,
+          "expected": -18.22792812927148,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.394533654882466,
+          "component": 2,
+          "expected": 9.394533654882048,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 25.87077921817339,
+          "component": 0,
+          "expected": 25.87077921817227,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 51.1935959520702,
+          "component": 0,
+          "expected": 51.19359595207019,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.700000000137555,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.1728307237550195,
+          "component": 1,
+          "expected": -0.17283072375501995,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 1.0999999999999999,
+          "component": 2,
+          "expected": 1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 94.77123401592812,
+          "component": 0,
+          "expected": 94.7712362162082,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.58274809527472,
+          "component": 1,
+          "expected": 66.5827495608126,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 76.14427591387081,
+          "component": 2,
+          "expected": 76.14427517912416,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 3.129885847592547,
+          "component": 0,
+          "expected": 3.1298858474681284,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -19.920500001908025,
+          "component": 1,
+          "expected": -19.920499997992653,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 4.918392046021523,
+          "component": 2,
+          "expected": 4.918392046021344,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "daca180af5a5ae874bf19084894a73e835b6a78760d9a3adacf70471b0abda65",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.78570401686511,
+          "component": 0,
+          "expected": 24.78570401686404,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.85010347328318,
+          "component": 0,
+          "expected": 49.85010347328317,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.7000000001345168,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.4814983099258567,
+          "component": 1,
+          "expected": -0.48149830992585707,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 1.1,
+          "component": 2,
+          "expected": 1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 95.31171675308326,
+          "component": 0,
+          "expected": 95.31171876775717,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.83160291351393,
+          "component": 1,
+          "expected": 62.83160425531568,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 77.46601254849193,
+          "component": 2,
+          "expected": 77.46601187561507,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 8.35399221727016,
+          "component": 0,
+          "expected": 8.353992216109793,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -19.084992096653636,
+          "component": 1,
+          "expected": -19.084992092985313,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 13.12770205388739,
+          "component": 2,
+          "expected": 13.127702053886818,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "0dca70e11c2e4d4db2965991818866b591312076f7b807ff0d7210ae9025d3bb",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.144316131809084,
+          "component": 0,
+          "expected": 24.14431613180804,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 48.92670957177856,
+          "component": 0,
+          "expected": 48.926709571778545,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.7000000001373297,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.33128361860482713,
+          "component": 1,
+          "expected": -0.3312836186048276,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 1.1,
+          "component": 2,
+          "expected": 1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 85.05189186175514,
+          "component": 0,
+          "expected": 85.0518939108549,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.093083902014335,
+          "component": 1,
+          "expected": 62.09308526690738,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 67.66798698016366,
+          "component": 2,
+          "expected": 67.66798629595311,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 5.599031492467731,
+          "component": 0,
+          "expected": 5.599031491818996,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -18.591123425140303,
+          "component": 1,
+          "expected": -18.59112342149219,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 8.798478058573096,
+          "component": 2,
+          "expected": 8.798478058572709,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "770505f9683fc285e6ccd8fbbc321c24dc3810b54f6a074a9dea249b5eb8871f",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.781247806720618,
+          "component": 0,
+          "expected": 24.781247806719552,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.55758590101196,
+          "component": 0,
+          "expected": 49.55758590101196,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.7000000001378573,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.43021043942376874,
+          "component": 1,
+          "expected": -0.43021043942376885,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 1.0999999999999999,
+          "component": 2,
+          "expected": 1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 90.00365827179257,
+          "component": 0,
+          "expected": 90.00366037787532,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 63.76518113776758,
+          "component": 1,
+          "expected": 63.765182540476005,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 72.16116266041593,
+          "component": 2,
+          "expected": 72.16116195703725,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 7.46280605704824,
+          "component": 0,
+          "expected": 7.462806055878685,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -19.08156081493277,
+          "component": 1,
+          "expected": -19.08156081117405,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 11.727266659238438,
+          "component": 2,
+          "expected": 11.727266659237934,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "fdeb76d346da9c5fc171106dd727802a98f9572f9057438c0e2d8b3cf52fd6a8",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411982,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.7000000001354981,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.3607746043203358,
+          "component": 1,
+          "expected": -0.3607746043203357,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 1.1,
+          "component": 2,
+          "expected": 1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 83.2800966771899,
+          "component": 0,
+          "expected": 83.28009862781118,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 60.282032046797184,
+          "component": 1,
+          "expected": 60.28203334594679,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.23580284672113,
+          "component": 2,
+          "expected": 66.23580219524565,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 5.978339599335925,
+          "component": 0,
+          "expected": 5.978339598561303,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -18.22792813280062,
+          "component": 1,
+          "expected": -18.22792812927148,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.394533654882466,
+          "component": 2,
+          "expected": 9.394533654882048,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "a25e0c4064bd27085911597e8f532cd5953eccea0cbbd3f99836977014d3058c",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411779,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997290033,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.3607746043203358,
+          "component": 2,
+          "expected": 0.36077460432033587,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 83.2800992747893,
+          "component": 0,
+          "expected": 83.28009862781117,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.23580024531637,
+          "component": 1,
+          "expected": 66.23580219524564,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 60.28203204299948,
+          "component": 2,
+          "expected": 60.28203334594679,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.227928122213967,
+          "component": 0,
+          "expected": 18.22792812927148,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -5.9783395970123365,
+          "component": 1,
+          "expected": -5.978339598561305,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.394533654881641,
+          "component": 2,
+          "expected": 9.394533654882048,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "8fe4c0bb443ff62781e60d5062855425f51bb4976cb09f69b11d8ca937331946",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/swapped.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.785704016862987,
+          "component": 0,
+          "expected": 24.78570401686404,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.850103473283184,
+          "component": 0,
+          "expected": 49.85010347328317,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997309662,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.48149830992585724,
+          "component": 2,
+          "expected": 0.4814983099258572,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 95.31171943595871,
+          "component": 0,
+          "expected": 95.3117187677572,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 77.46600986165974,
+          "component": 1,
+          "expected": 77.46601187561508,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.83160290956651,
+          "component": 2,
+          "expected": 62.83160425531568,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 19.084992085649475,
+          "component": 0,
+          "expected": 19.084992092985313,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -8.353992213789482,
+          "component": 1,
+          "expected": -8.353992216109795,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 13.127702053886267,
+          "component": 2,
+          "expected": 13.127702053886821,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "8693dc9263f5d52157884e036585b4d1443bfe293cd23b189aa7b0c04f83f7ee",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 25.870779218171172,
+          "component": 0,
+          "expected": 25.870779218172274,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 51.193595952070204,
+          "component": 0,
+          "expected": 51.19359595207019,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997248895,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999994,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.1728307237550198,
+          "component": 2,
+          "expected": 0.17283072375501993,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 94.77123694596509,
+          "component": 0,
+          "expected": 94.7712362162082,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 76.14427297987378,
+          "component": 1,
+          "expected": 76.14427517912416,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.58274809132358,
+          "component": 2,
+          "expected": 66.5827495608126,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 19.920499990162767,
+          "component": 0,
+          "expected": 19.920499997992653,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -3.1298858472194695,
+          "component": 1,
+          "expected": -3.12988584746813,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 4.918392046021154,
+          "component": 2,
+          "expected": 4.918392046021347,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "2a3e68b8c7b9640b04e53b7bfb993361893578c66caf64c2ac2f3b102eccdf26",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.78124780671849,
+          "component": 0,
+          "expected": 24.781247806719552,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 49.55758590101196,
+          "component": 0,
+          "expected": 49.55758590101196,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.699999999724285,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.4302104394237687,
+          "component": 2,
+          "expected": 0.43021043942376896,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 90.00366107646396,
+          "component": 0,
+          "expected": 90.00366037787535,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 72.16115985169138,
+          "component": 1,
+          "expected": 72.16116195703727,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 63.765181133722905,
+          "component": 2,
+          "expected": 63.765182540476005,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 19.08156080365741,
+          "component": 0,
+          "expected": 19.08156081117405,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -7.462806053539893,
+          "component": 1,
+          "expected": -7.462806055878686,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 11.7272666592374,
+          "component": 2,
+          "expected": 11.727266659237936,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "362c5a031eae114fea8b5aebc0fd8b7059a068c86af37d08d0d79e8df1a9c5b4",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.144316131807013,
+          "component": 0,
+          "expected": 24.14431613180804,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 48.92670957177855,
+          "component": 0,
+          "expected": 48.926709571778545,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997253402,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.1000000000000003,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.3312836186048276,
+          "component": 2,
+          "expected": 0.3312836186048277,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 85.05189459041664,
+          "component": 0,
+          "expected": 85.05189391085489,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 67.6679842479701,
+          "component": 1,
+          "expected": 67.6679862959531,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.09308389849002,
+          "component": 2,
+          "expected": 62.09308526690738,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.59112341419678,
+          "component": 0,
+          "expected": 18.59112342149219,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -5.599031490521739,
+          "component": 1,
+          "expected": -5.599031491818998,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 8.798478058572343,
+          "component": 2,
+          "expected": 8.798478058572712,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "ee949ca93910881c500d5a1e3867785845c8e685a74c93d53982d2838014f2a6",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/swapped_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 23.67263393411779,
+          "component": 0,
+          "expected": 23.6726339341188,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 47.93991624173953,
+          "component": 0,
+          "expected": 47.93991624173953,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997290033,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.3607746043203358,
+          "component": 2,
+          "expected": 0.36077460432033587,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 83.2800992747893,
+          "component": 0,
+          "expected": 83.28009862781117,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 66.23580024531637,
+          "component": 1,
+          "expected": 66.23580219524564,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 60.28203204299948,
+          "component": 2,
+          "expected": 60.28203334594679,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.227928122213967,
+          "component": 0,
+          "expected": 18.22792812927148,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -5.9783395970123365,
+          "component": 1,
+          "expected": -5.978339598561305,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.394533654881641,
+          "component": 2,
+          "expected": 9.394533654882048,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "6ddc45827c32823fed2f5d218b2208d091b24f0d2519f1e14e567abcfca74cb3",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/swapped_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 30.87126292429223,
+          "component": 0,
+          "expected": 30.871262924292232,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 55.67425097107927,
+          "component": 0,
+          "expected": 55.674250971079275,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 1.8999999999999997,
+          "component": 0,
+          "expected": 1.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.6004828089968007,
+          "component": 1,
+          "expected": 0.6004828089968004,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.5000000000000007,
+          "component": 2,
+          "expected": -0.5,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 71.19063921651855,
+          "component": 0,
+          "expected": 71.19063921651946,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 165.65926436146958,
+          "component": 1,
+          "expected": 165.65926436147078,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 174.91808264214103,
+          "component": 2,
+          "expected": 174.91808264214137,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -35.22155908830982,
+          "component": 0,
+          "expected": -35.22155908830978,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 29.327699778077587,
+          "component": 1,
+          "expected": 29.327699778077616,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.268831339028864,
+          "component": 2,
+          "expected": 9.26883133902889,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "5523335a3ac6e3a04758251c00bc053be8979cdc3548737b24b60e6bb8dc87ca",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 34.78358401910525,
+          "component": 0,
+          "expected": 34.78358401910525,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 60.33293773733631,
+          "component": 0,
+          "expected": 60.33293773733631,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 1.8999999999999995,
+          "component": 0,
+          "expected": 1.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.7861749885546292,
+          "component": 1,
+          "expected": 0.7861749885546302,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.5000000000000007,
+          "component": 2,
+          "expected": -0.5,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 96.09060206490983,
+          "component": 0,
+          "expected": 96.09060206491083,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 188.8832621899944,
+          "component": 1,
+          "expected": 188.88326218999586,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 212.96344436910414,
+          "component": 2,
+          "expected": 212.96344436910442,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -51.95736915940728,
+          "component": 0,
+          "expected": -51.95736915940724,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 33.044404818149985,
+          "component": 1,
+          "expected": 33.044404818149985,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 13.672991884054483,
+          "component": 2,
+          "expected": 13.672991884054538,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "e3bdf6916128e4c73265a8562fa192d3e69b06b685cb48a50e97d9e07fcb0bd9",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 32.70868622208165,
+          "component": 0,
+          "expected": 32.70868622208166,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 57.96204394600242,
+          "component": 0,
+          "expected": 57.9620439460024,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 1.9000000000000004,
+          "component": 0,
+          "expected": 1.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.4853809431156188,
+          "component": 1,
+          "expected": 0.4853809431156183,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.49999999999999933,
+          "component": 2,
+          "expected": -0.5,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 76.41473121343992,
+          "component": 0,
+          "expected": 76.4147312134411,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 174.54335225145854,
+          "component": 1,
+          "expected": 174.54335225146002,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 186.3159169196351,
+          "component": 2,
+          "expected": 186.31591691963547,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -30.16472863643898,
+          "component": 0,
+          "expected": -30.16472863643898,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 31.073251910977604,
+          "component": 1,
+          "expected": 31.07325191097758,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 7.9380864832735085,
+          "component": 2,
+          "expected": 7.938086483273416,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "4ea5780f17b168763a470482e6d9f38773bb109c457e80b996490055294c60cb",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 31.830572352389503,
+          "component": 0,
+          "expected": 31.830572352389485,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 57.358966586183385,
+          "component": 0,
+          "expected": 57.35896658618337,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 1.8999999999999997,
+          "component": 0,
+          "expected": 1.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.6254059652578428,
+          "component": 1,
+          "expected": 0.6254059652578426,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.500000000000001,
+          "component": 2,
+          "expected": -0.5,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 75.35555654718198,
+          "component": 0,
+          "expected": 75.35555654718294,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 172.84910101851074,
+          "component": 1,
+          "expected": 172.8491010185121,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 182.30627965121127,
+          "component": 2,
+          "expected": 182.30627965121164,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -37.82335667083595,
+          "component": 0,
+          "expected": -37.82335667083593,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 30.239043734770007,
+          "component": 1,
+          "expected": 30.23904373477001,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.953514913377902,
+          "component": 2,
+          "expected": 9.953514913377877,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "47f9e7efd56b2710f74f252ad1a8ff53b6d623e31c818a22eb93ae34e04e09c2",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 31.15226497467341,
+          "component": 0,
+          "expected": 31.152264974673415,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 56.22710990329508,
+          "component": 0,
+          "expected": 56.22710990329508,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 1.8999999999999995,
+          "component": 0,
+          "expected": 1.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.5873183599523577,
+          "component": 1,
+          "expected": 0.5873183599523576,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.5000000000000006,
+          "component": 2,
+          "expected": -0.5,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 71.80900450201766,
+          "component": 0,
+          "expected": 71.80900450201864,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 167.37203752732148,
+          "component": 1,
+          "expected": 167.37203752732268,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 176.48061481692105,
+          "component": 2,
+          "expected": 176.48061481692127,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -34.762964630080305,
+          "component": 0,
+          "expected": -34.76296463008028,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 29.594651725939713,
+          "component": 1,
+          "expected": 29.594651725939737,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.148148586863186,
+          "component": 2,
+          "expected": 9.148148586863233,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "bd6515a9f80776ffd1d7a6223651e1b6ad9723242e8320d9c7db483a7f9d49f5",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 30.87126292429223,
+          "component": 0,
+          "expected": 30.871262924292232,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 55.67425097107927,
+          "component": 0,
+          "expected": 55.674250971079275,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 1.8999999999999997,
+          "component": 0,
+          "expected": 1.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.6004828089968007,
+          "component": 1,
+          "expected": 0.6004828089968004,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.5000000000000007,
+          "component": 2,
+          "expected": -0.5,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 71.19063921651855,
+          "component": 0,
+          "expected": 71.19063921651946,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 165.65926436146958,
+          "component": 1,
+          "expected": 165.65926436147078,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 174.91808264214103,
+          "component": 2,
+          "expected": 174.91808264214137,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -35.22155908830982,
+          "component": 0,
+          "expected": -35.22155908830978,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 29.327699778077587,
+          "component": 1,
+          "expected": 29.327699778077616,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 9.268831339028864,
+          "component": 2,
+          "expected": 9.26883133902889,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "2474eb7de2666e044e2f1c34f84aae8d6cb800e18304436a529bca0cd7cf505e",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 39.97268106867641,
+          "component": 0,
+          "expected": 39.97268106867812,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 64.89994127064637,
+          "component": 0,
+          "expected": 64.89994127064637,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -0.9000000003696094,
+          "component": 0,
+          "expected": -0.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.7,
+          "component": 1,
+          "expected": -1.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.7556133205886189,
+          "component": 2,
+          "expected": 0.7556133205886189,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 225.9297334963683,
+          "component": 0,
+          "expected": 225.92973146179182,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 142.78654876177,
+          "component": 1,
+          "expected": 142.78655483894133,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 210.91487027852733,
+          "component": 2,
+          "expected": 210.91487432111532,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -61.158202060191286,
+          "component": 0,
+          "expected": -61.158202035077515,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 27.18350125708787,
+          "component": 1,
+          "expected": 27.183501247620313,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 51.346613467725064,
+          "component": 2,
+          "expected": 51.34661346772726,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "1e54a7442f938c2ec4cd05cc5d9d77899b74e638369bf2a23d9ef8b681747ae0",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 41.78139706930388,
+          "component": 0,
+          "expected": 41.78139706930567,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 67.1300619300725,
+          "component": 0,
+          "expected": 67.1300619300725,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -0.9000000003661521,
+          "component": 0,
+          "expected": -0.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.699999999999999,
+          "component": 1,
+          "expected": -1.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.8635210424558428,
+          "component": 2,
+          "expected": 0.863521042455843,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 251.12301105541968,
+          "component": 0,
+          "expected": 251.1230089647866,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 164.21769681622877,
+          "component": 1,
+          "expected": 164.21770306063084,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 219.3433599310578,
+          "component": 2,
+          "expected": 219.3433640848184,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -63.92553754204215,
+          "component": 0,
+          "expected": -63.92553751603767,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 32.47120400846276,
+          "component": 1,
+          "expected": 32.47120399729349,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 61.33449643932954,
+          "component": 2,
+          "expected": 61.33449643933215,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "3eeb4ff65e7d3d19bdc52f6a9554b392a2f29d7e8729016cc12c4bd8e6318dc1",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 43.778018438017995,
+          "component": 0,
+          "expected": 43.77801843801986,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 69.033333257564,
+          "component": 0,
+          "expected": 69.033333257564,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -0.9000000003740103,
+          "component": 0,
+          "expected": -0.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.7000000000000002,
+          "component": 1,
+          "expected": -1.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.5812216772198533,
+          "component": 2,
+          "expected": 0.5812216772198535,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 246.74906679802055,
+          "component": 0,
+          "expected": 246.74906451539692,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 155.69077934587878,
+          "component": 1,
+          "expected": 155.6907861643156,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 232.67724786755326,
+          "component": 2,
+          "expected": 232.67725240335912,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -66.98036823800226,
+          "component": 0,
+          "expected": -66.9803682101704,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 22.900259979184,
+          "component": 1,
+          "expected": 22.900259971716803,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 43.25604661324098,
+          "component": 2,
+          "expected": 43.25604661324286,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "de2e00cdc88e9488bba7aa9874bef8fa773a4521427ff92b6e5940e47c03a7cc",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 41.70250389574372,
+          "component": 0,
+          "expected": 41.70250389574549,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 66.8383901859661,
+          "component": 0,
+          "expected": 66.8383901859661,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -0.9000000003753102,
+          "component": 0,
+          "expected": -0.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.7,
+          "component": 1,
+          "expected": -1.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.8080614990530057,
+          "component": 2,
+          "expected": 0.8080614990530062,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 241.2100366107506,
+          "component": 0,
+          "expected": 241.21003442963064,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 154.4688198112551,
+          "component": 1,
+          "expected": 154.46882632648,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 221.85402918704656,
+          "component": 2,
+          "expected": 221.85403352114412,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -63.80483098709533,
+          "component": 0,
+          "expected": -63.8048309604906,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 30.32836904223109,
+          "component": 1,
+          "expected": 30.328369031033937,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 57.28691928083941,
+          "component": 2,
+          "expected": 57.28691928084187,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "31d535e3b270ad0c4b86bcbe8cdfea6854f2acca5b2364597db7cabc85b0741b",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_first.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 40.23795107467424,
+          "component": 0,
+          "expected": 40.23795107467596,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 65.57651701914762,
+          "component": 0,
+          "expected": 65.57651701914762,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -0.900000000371262,
+          "component": 0,
+          "expected": -0.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.7,
+          "component": 1,
+          "expected": -1.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.7457738249183677,
+          "component": 2,
+          "expected": 0.7457738249183683,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 227.37688428078854,
+          "component": 0,
+          "expected": 227.37688221271225,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 143.68193780001246,
+          "component": 1,
+          "expected": 143.68194397738625,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 212.93392999396707,
+          "component": 2,
+          "expected": 212.93393410325785,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -61.56406516964756,
+          "component": 0,
+          "expected": -61.56406514425421,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 27.007569621200957,
+          "component": 1,
+          "expected": 27.007569611855327,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 51.01429815572453,
+          "component": 2,
+          "expected": 51.01429815572673,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "ccf307916134c2465d60cc9ee2475e26605f9c7bbb4636a7029c14d2e7846fec",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_edit_draft_second.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 39.97268106867641,
+          "component": 0,
+          "expected": 39.97268106867812,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 64.89994127064637,
+          "component": 0,
+          "expected": 64.89994127064637,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": -0.9000000003696094,
+          "component": 0,
+          "expected": -0.9,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.7,
+          "component": 1,
+          "expected": -1.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 0.7556133205886189,
+          "component": 2,
+          "expected": 0.7556133205886189,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 225.9297334963683,
+          "component": 0,
+          "expected": 225.92973146179182,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 142.78654876177,
+          "component": 1,
+          "expected": 142.78655483894133,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 210.91487027852733,
+          "component": 2,
+          "expected": 210.91487432111532,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": -61.158202060191286,
+          "component": 0,
+          "expected": -61.158202035077515,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 27.18350125708787,
+          "component": 1,
+          "expected": 27.183501247620313,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 51.346613467725064,
+          "component": 2,
+          "expected": 51.34661346772726,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "404d8a3bcd8340485a3e942ac6b328403e633c92c8c9b681b2de656f99977da5",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_b_restored.f3d"
+    },
+    {
+      "checks": [
+        {
+          "actual": 24.422741289006016,
+          "component": 0,
+          "expected": 24.422741289007053,
+          "field": "volume",
+          "passed": true
+        },
+        {
+          "actual": 48.19203130606743,
+          "component": 0,
+          "expected": 48.19203130606743,
+          "field": "area",
+          "passed": true
+        },
+        {
+          "actual": 0.6999999997281232,
+          "component": 0,
+          "expected": 0.7,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -1.0999999999999999,
+          "component": 1,
+          "expected": -1.1,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": -0.5999999999999999,
+          "component": 2,
+          "expected": -0.6000000000000003,
+          "field": "cog",
+          "passed": true
+        },
+        {
+          "actual": 91.72774649093569,
+          "component": 0,
+          "expected": 91.72774582462901,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 74.14337008831302,
+          "component": 1,
+          "expected": 74.14337209654393,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 62.155875238603215,
+          "component": 2,
+          "expected": 62.15587658052296,
+          "field": "moi",
+          "passed": true
+        },
+        {
+          "actual": 18.80551078523066,
+          "component": 0,
+          "expected": 18.805510792535433,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": 10.257551337398539,
+          "component": 1,
+          "expected": 10.257551341382968,
+          "field": "moiOffDiag",
+          "passed": true
+        },
+        {
+          "actual": -16.119009250744,
+          "component": 2,
+          "expected": -16.119009250744664,
+          "field": "moiOffDiag",
+          "passed": true
+        }
+      ],
+      "sha256": "4c5d13be6cce51821c63407a086206cf6b411b82742a4abe2654bfa532137397",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/control_after.f3d"
+    }
+  ],
+  "sdk_base": "93b24ed0feeb033be95fe91622fb615f519dcd65",
+  "source_files": {
+    "src/convert/Geometry/Extrude/Circular/DualSide/BuildDualSide.py": "d42b2b69a14b7023f795f7c70cea7ad7762628dad9bf12b9572f89864eaae08c",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualFrame.py": "f8d16de0c378abbe8419971da1fdc458ab6bec79390b9e62a44a7f995dab3d77",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualMeasure.py": "76416f2eefd4ba3b9931ece56f3ad07613e16b7cb3f2a8787700f2b5ccfb316c",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualMeridian.py": "3eac86d2e3a488d101c14b58f51519b578b34bd7df911071cac75f058420e623",
+    "src/convert/Geometry/Extrude/Circular/DualSide/DualMoments.py": "0e2f0ee09a60e95d467fedf64030736e583d263af403107b1ff4d4a76a32e14f",
+    "src/convert/Geometry/Extrude/Circular/DualSide/MeasureDualMass.py": "2000eac3f45be2dab97b0db2b61e83d06ff79535f61e93ca860b8685b1e054c9",
+    "tests/Convert/Integration/Fusion/DualSide/ChangeDualMass.py": "71c5ddc9b3c406afdfc672d4554254ddaf072214a996fe04788dc81b216ef34f",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualCaps.py": "f719643e913ab38ebfa54c3d31a2ce22d0fbb1ed3838c228a958e1f7da93c9b4",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualCones.py": "a40bcf4cdcd34953673d816cea2d260cf6b3daecf326824312fea049674d4be9",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualMass.py": "569d697d69480e75848f651f57a45addb07fcbb3f46a46464c6c2f7e4e40d81d",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualNative.py": "68eace6340c783de939d178ac44b0e916523b0ebb024321ae8c97c5a0eac1eae",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualRims.py": "4d82a4e5ff50dba9dfced7db38d051ecab0bd97034fb4265cf5b913d938fc060",
+    "tests/Convert/Integration/Fusion/DualSide/CheckDualRings.py": "694b7307ff393f3e46fc290cdc3ce85e5025c16adaab5066fe8993c9454d73d4",
+    "tests/Convert/Integration/Fusion/DualSide/DualCase.py": "a5ae9f52698d42529059138db5ef37371231c196210a10a0b85f740863e3a355",
+    "tests/Convert/Integration/Fusion/DualSide/DualMassTests.py": "54960759de9e23884873e4430cc58fee0f7218ade1f57d4f38250db70ea34f31",
+    "tests/Convert/Integration/Fusion/DualSide/DualNativeTests.py": "5a46c8c0f29be93af9b9eda2f24324d295ddc4d49869d8ca9182b888ffc9bd5e",
+    "tests/Convert/Integration/Fusion/DualSide/DualSwapTests.py": "d39a9eec44243bbf707888e0640040864c2fa2e938102d1bc6de702d0cf86e1a",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualCase.py": "d7adb35a6e43760f748452ad7896a490d9551ba0a73998824a14fe671673e9c9",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualCases.py": "f35eb0f02ebfbe48f4b5fed23e5ffff24fb9ed8dc3f6d221dbc416f731304107",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualFaces.py": "d7e104e113d4e3ca4d0bd792b573602a262a7a13a6dc14552af2c61b6b410e8b",
+    "tests/Convert/Integration/Fusion/DualSide/ReadDualState.py": "71d52d858965837ddd573901b7141af1b89a1d3fca947a8b4ba611748d52bcbf"
+  },
+  "summary": {
+    "archives": 68,
+    "comparisons": 748,
+    "counterexample_passes": 11,
+    "counterexamples": 11,
+    "errors": 0,
+    "failed": 0
+  },
+  "tensor_units": "cm5 native volume inertia about world origin no density"
+}

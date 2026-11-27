@@ -1,0 +1,62 @@
+{
+  "bodies": [
+    {
+      "area_cm2": 52.0,
+      "edges": 12,
+      "faces": 6,
+      "max_cm": [
+        4.0,
+        3.0,
+        2.0
+      ],
+      "min_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "Body1",
+      "solid": true,
+      "surface_types": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vertices": 8,
+      "volume_cm3": 24.0
+    }
+  ],
+  "parameters": [
+    {
+      "expression": "20 mm",
+      "name": "d1",
+      "role": "AlongDistance",
+      "unit": "mm",
+      "value": 2.0
+    },
+    {
+      "expression": "0.0 deg",
+      "name": "d2",
+      "role": "TaperAngle",
+      "unit": "deg",
+      "value": 0.0
+    }
+  ],
+  "profiles": [
+    1
+  ],
+  "timeline": [
+    {
+      "health": 0,
+      "message": "",
+      "name": "Base sketch"
+    },
+    {
+      "health": 0,
+      "message": "",
+      "name": "Base extrude"
+    }
+  ]
+}

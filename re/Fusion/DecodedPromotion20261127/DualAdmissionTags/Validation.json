@@ -1,0 +1,55 @@
+{
+  "archive": {
+    "member_hash_receipt": "DocumentArchive.json",
+    "members": 56,
+    "sha256": "4e718a3aeacd97e38ffb5f9319313fe7fbbda91c5d0ea315b0e72ab2364ca705"
+  },
+  "black": "17 files check clean",
+  "entry": {
+    "path": "Documentation/Changes/Fusion/Reading/FusionDualLiveIdentity.md",
+    "sha256": "48bc0ec840d766bc91bc94f5c4bac564a629983aa57ef0868a489e7711706ef6"
+  },
+  "integration": {
+    "cases": 84,
+    "failed": 0,
+    "passed": 84,
+    "seconds": 10.67
+  },
+  "models": false,
+  "mypy": "2.4.1 passes all 17 files",
+  "native_api_calls": 0,
+  "proof_sha256": "3bda3d67e39097f02088ba0a9210cd3ecc5c2dcad4c475645aedc21879d44468",
+  "pyright": "parent composed check owns final report",
+  "python_steering": "17 files pass with existing baseline",
+  "rules_sha256": "aae5c8b00a66c82ca5d7b5a9e243065cdb76165c7c47a6653c66ecac62185b02",
+  "scope": "XY dual side live history geometry and attribution only",
+  "source_files": {
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualCover.py": "bae41ca91814feba4b02faa0c8432e85507b4c961d37cd0b0110f130150e7e1e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualGeo.py": "a27455956acd4fdb1be77e8222fc5de6265c5473054fbfe6b97aae991cc57505",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLinks.py": "a94ceb54faa6dfde096b9bb4190a6032ea05bf9ba2fa85098cc8e1c73c20b3e1",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLive.py": "a9a94800cd4a553b19cebfea61eae6240056cb1e8e2c92b2452c5696ffbbd931",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualRims.py": "f979fffdfde710966819a6b1f82e5364c2438549ced8a407dc182930458e7804",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualTags.py": "acc6c3808fee236654e57d4081ee697ada0a89ff423166f3d0d967137ff11444",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualLabel.py": "ed112aa7047c970caf9538de4e01f3f64996b2a2acefe8e552a0c0b1bddf365f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualLive.py": "2c4af1e249d262baab039479669c7c7fac9a0809094e9d68ee325b55ae59a948",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualOwners.py": "ceba304dde69e710fdf16690479fddd2af5771f7c46ed7fd545289b330048120",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/ChangeTagGraph.py": "174a87b73cd110f481e21d8712d483039d831e28c0e6ea6ef8951a876d8acdd1",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/ChangeTagModel.py": "c90673dce300035838962a8daf863b23e6a17ceb759bff6cb4533cfe45058bcf",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/ChangeTagNode.py": "80bd5e1baf4a0aa1394fd62c9a8f424e1153c8923b6c447a51a63b989f4c6ade",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/DualTagBadTests.py": "b27e144ceaacc36dd34129a510434c454a0eb944be0cc915162c479413a2e047",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/DualTagTests.py": "7ca840110d4d0239f98c158aba91c67051284f5bd15c23cb2b8f63dcc14e09fa",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/ExtendTagModel.py": "00ec06c1c69de742875eb5474d5ab130fd7b9e466b0b099bdadbdc004fd72b60",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/FindTagRecord.py": "7bc62ced34955041f16c18a9b115454a01d772f9fa24ef3cb08b83ab7b8b1900",
+    "tests/Convert/Integration/Fusion/DualSide/Tags/ReadTagSample.py": "4cbb7b030a58be0d7b2103dc6f8e82c76194367670dfbc6d05b2cbc9b275ec6b"
+  },
+  "source_summary": {
+    "counterexample_passes": 16,
+    "counterexamples": 16,
+    "drafted_xy_accepts": 54,
+    "healthy_controls": 2,
+    "serialized_counterexamples": 16,
+    "source_passes": 68,
+    "sources": 68,
+    "xz_refusals": 12
+  }
+}

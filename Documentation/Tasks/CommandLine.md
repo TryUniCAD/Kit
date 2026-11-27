@@ -80,6 +80,7 @@ kit convert model.f3d model.json --from fusion.f3d --to interchange.json --json
 The SOLIDWORKS entry includes bounded `.SLDPRT` writing. `.SLDASM` remains read-only.
 For eligible part output, supply the matching offline measurement with `--native-measurement RECEIPT`.
 See the [measured part publication requirements](../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md).
+The [measured cold-read part route](../Changes/Commands/Parts/SolidworksColdReadParity.md) also accepts eligible `.SLDPRT` sources through complete independent regeneration, source-document equality and exact output receipt matching. Its source-native records remain subject to that writer qualification; other routes retain the generic portable guards below.
 Format registration does not establish complete feature coverage.
 
 Expected result: the output file and a conversion report, or a nonzero exit with an error.
@@ -105,6 +106,11 @@ Final generators and their transitive feature dependencies must remain active; s
 Creation requires validated controls and an active declared profile reference; modifiers require generated inputs, and boolean combine requires two distinct generated operands.
 Creator contours currently support one finite positive-radius circle or a simple closed three/four-sided straight ring; member tags must match geometry, and more complex profiles remain inspection-only.
 Body and B-rep conversion also requires Python 3.14 and a matching SDK Fusion authoring/native-state regeneration contract; generic typed histories remain inspection-only.
+Strict `kit decode` also reads the bounded independently drafted two-sided circular XY family.
+The source-qualified principal XZ frame is also supported after independent live and mixed-space snapshot checks.
+Both taper controls, parameter owners and analytic solids remain available in its neutral inspection document.
+`kit convert` still refuses this read-only family before replacing a destination.
+[Source boundary and verification](../Changes/Fusion/Readers/FusionIndependentDraftReader.md)
 Meshes are refused because their model has no typed ownership link to a generator; provenance and free-form ownership tags do not establish one.
 Use `kit decode` or the pinned research readers to inspect those unsupported semantics.
 It does not expose an option to bypass the output policy.
@@ -128,6 +134,7 @@ Run `kit convert --help` for the complete option list.
 Supply a real source named `part.SLDPRT` before these examples.
 The neutral view works with registered readers and emits a development report.
 Its `document` field contains the SDK document JSON.
+The [bounded circular rim-fillet reader](../Changes/Fusion/Readers/FusionCircularRimReader.md) exposes the same strict source inspection through SDK and ordinary CLI, retaining read-only conversion refusal.
 The report records `kind: "kit.decode"`, `layer`, and the explicit `partial` selection.
 It is not an interchange document accepted by `kit convert`.
 

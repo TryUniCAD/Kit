@@ -1,0 +1,50 @@
+{
+  "base_revision": "5daa5ec6c396d6422afc53be79a6b5c5f5cf24bd",
+  "black": {
+    "files": 16,
+    "passed": true,
+    "version": "26.10.1"
+  },
+  "integration": {
+    "command": "python3 -m pytest tests/Convert/Integration/Fusion/DualFrameLive tests/Convert/Integration/Fusion/DualSide/Tags -q --maxfail=1",
+    "failed": 0,
+    "passed": 112,
+    "seconds": 14.69
+  },
+  "models": false,
+  "mypy": {
+    "files": 16,
+    "passed": true,
+    "version": "2.4.1"
+  },
+  "native_calls": 0,
+  "python_executable_sha256": "0826ccaa8dd19bd84a5f0ffdbe84558f036e3b7d8ce7725704a7393995392129",
+  "python_version": "Python 3.14.6",
+  "remaining": [
+    "parent public SDK/CLI composition and committed-reader replay",
+    "current-head CI and configured approval",
+    "native target application acceptance and generative writer qualification"
+  ],
+  "sources": {
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameOwn.py": "06679a22fd8e4d814834e316f8c8490967e523f25d7ba80789d95d0531e1e596",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameRef.py": "0d950706f781216de6e96e33b965a47c19f50b22d87f43c2b2d8408e123f727e",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/DualBodyView.py": "08461e56e92c8983b0e68f99108fe050d76dc911ac633cbefdb9bad0f9533d1a",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualEntity.py": "5fce82a61a9e902775824a99026644b2d9ab37fabbd3c8f69e4865485c50a973",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualVector.py": "023810c8b7701b1c1169a537370facc444d02276a937501649d602e5301dc470",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualView.py": "3c7c7223c0bb200ef3fc4c8511ed863b33420f57bfa0c93feeb6a7fe7964bf38",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadDualFrame.py": "9f8bdb3740d3fa0a025dc365f5298e569ddb55c560873a42d31f6c7d83f83f0d",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadFrameBasis.py": "51f1cac10b684c8e1ef4d3bc901bbe1aa061e8cd9f421e7358dca8e45982c63a",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualCover.py": "c56b72450386e2f7a37b0c3daa41f8cd86858ca4ca2eb2815ffe3e0995d7e8fb",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualGeo.py": "3a435d808cf05210eb47a254d8f9f655f22daceb2f7465178847530fbe86846e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLive.py": "ea82da236aa3135958450de44bcb55f5a21f50b4a868ff66d53c078ef4aa17de",
+    "tests/Convert/Integration/Fusion/DualFrameLive/ChangeBodyFrame.py": "7791ac6ec8a2c54c83b90100a363fc4f59f2ac4f0155934a63afafbed9b4cb6e",
+    "tests/Convert/Integration/Fusion/DualFrameLive/ChangeFrameDoc.py": "218164a4fc6551836b7238f4167da0f01bf1f10c416c99e138902207a4437ca8",
+    "tests/Convert/Integration/Fusion/DualFrameLive/DualFrameBadTests.py": "b7fe6fed518961c718ea4906f4dde5fd78b2014f686d5adc3de8ab7a41b2961d",
+    "tests/Convert/Integration/Fusion/DualFrameLive/DualFrameTests.py": "af238d5e3364e79a1a664f753164b4cfc51dbbb6ff41760a653d6d7da1baa47e",
+    "tests/Convert/Integration/Fusion/DualFrameLive/FrameFormTests.py": "deea3ffaaaee424329a6b8e37b0f939ec078d4148401bd72e1ec4a4b224d9b58"
+  },
+  "steering": {
+    "files": 16,
+    "passed": true
+  }
+}

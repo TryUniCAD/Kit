@@ -1,0 +1,87 @@
+{
+  "source_base_revision": "9c5ff325bdd9de89074821bcf7181f4056f20d8e",
+  "binding": "exact working source hashes; committed checkpoint replay follows",
+  "source_application": "2706.1.17",
+  "source_executable_sha256": "2cbbbc14ab4dd4dd40c21ba85861317d2d6f532abbc1b71c37835e22e7090abc",
+  "models": false,
+  "native_calls": 0,
+  "conversion_acceptance": false,
+  "sdk_decoded": 56,
+  "placement_refused": 12,
+  "eligible_xy_drafted": 54,
+  "public_encoded_counterexamples": 42,
+  "unchanged_control_documents": 16,
+  "integration": {
+    "passed": 371,
+    "seconds": 84.58,
+    "runtime": "CPython3.14.6 pytest9.1.1",
+    "command": "python -m pytest tests/Convert/Integration/Fusion/DualSide tests/Convert/Integration/Fusion/DualSnapshots tests/Convert/Integration/Fusion/NativeReadOnlyTests.py -q --tb=short"
+  },
+  "static": {
+    "pyright": "1.1.414 zero errors and warnings",
+    "mypy": "2.4.1 65 source files passed",
+    "black": "26.10.1 65 files clean",
+    "steering": "65 files pass existing baseline"
+  },
+  "independent_composition_review": "no actionable defect; full guards roles units mass and read-only refusals retained",
+  "attempts": [
+    {
+      "passed": 113,
+      "failed": 5,
+      "reason": "two malformed material references rejected by fixture emitter before files existed; three positive checks selected XZ holdout_a",
+      "repair": "emit malformed typed container streams without weakening production checks; choose actual XY holdout_b/restored and retain XZ refusals"
+    },
+    {
+      "passed": 354,
+      "failed": 1,
+      "reason": "allocator-owner corruption used class-incompatible reference; emitter rejected before archive",
+      "repair": "typed nullable wrong-owner reference now emits; actual strict refusal tested"
+    },
+    {
+      "reason": "long test identifiers rejected by naming policy",
+      "repair": "shorten declarations; no assertion changes"
+    },
+    {
+      "reason": "four unused live-validator result bindings found by Pyright",
+      "repair": "explicit discards; no call or assertion changes"
+    }
+  ],
+  "sources": {
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ProjectSpan.py": "b9479bfc0be8a0f4b49e9c78b2c6f6b4cdca174d7ff8b4a13a4521a3e2867890",
+    "src/convert/adapters/Fusion/Native/Parameters/ReadParameters.py": "081e198171da2a6b4b44c53df2577cc9c59070bd3d87f1fcccbcfb0e311d1f9b",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualCover.py": "bae41ca91814feba4b02faa0c8432e85507b4c961d37cd0b0110f130150e7e1e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualGeo.py": "a27455956acd4fdb1be77e8222fc5de6265c5473054fbfe6b97aae991cc57505",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLinks.py": "a94ceb54faa6dfde096b9bb4190a6032ea05bf9ba2fa85098cc8e1c73c20b3e1",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLive.py": "a9a94800cd4a553b19cebfea61eae6240056cb1e8e2c92b2452c5696ffbbd931",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualMass.py": "3bbc8587fc4e9a70e740cd0d360afdd0476cd987bd0741d345b7831724d40d0b",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualRims.py": "f979fffdfde710966819a6b1f82e5364c2438549ced8a407dc182930458e7804",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualTags.py": "acc6c3808fee236654e57d4081ee697ada0a89ff423166f3d0d967137ff11444",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ProjectDual.py": "ab65b0e525f063f56daee47711869eb1dbc0d9b643cf799f2f31951a1cd430f7",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ProjectDualBody.py": "f3dc53f168d2b52982205469c540e08351d9ce179114a67f2856d096966e35be",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualLabel.py": "ed112aa7047c970caf9538de4e01f3f64996b2a2acefe8e552a0c0b1bddf365f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualLive.py": "2c4af1e249d262baab039479669c7c7fac9a0809094e9d68ee325b55ae59a948",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualOwners.py": "ceba304dde69e710fdf16690479fddd2af5771f7c46ed7fd545289b330048120",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualParams.py": "217589679e2c8109f2259277d746349ef48fdf0e1666ec89e30781630d80b92a",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/BodyClosure.py": "f89b2b4a9856809d2234b6c5cf261c402b3b587213441499bc16fe26640e3456",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CanonicalBody.py": "1fdc4aa0f09045e9f511dbe7400177e11d0ece78da3295bf1a462ea63c022327",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckDualSnaps.py": "42e4045a4f5e23d06dbfe19f5c3d1e984d235142bafa9913fe4b4c7ef03361ea",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSheetBody.py": "9a38d12f91ffb46840a03942df4f6a252a42c75526cdc694f45ceca6393d9e64",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapHead.py": "7fa68e66cef56a8332e2eeb0f65651e698049ebff8b2ae75e2905d53a28a69a6",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapLinks.py": "269bd5a6a7cafe57c86891f0ed95e0cda6a016912018bbce29e0577643107d0f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadCacheId.py": "3bbc289d24c3135a278c04fc58a76751460b03f19e5abc23824490d804850db2",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadSnapRoles.py": "c873a802d45cdb79d9f0ef709fece31ca883cf893fdf1fb7c3982d56f583bc26",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/ChangeDualAux.py": "50303e637e8aef1f204ea83dbd35292699e674e48b73c156ebf6ec21f1ed19bf",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/ChangeDualParam.py": "a6900daf37700e5d7fe665d543c188c36e0361ab32368a1ee5dab1ee8f4231ed",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/CheckAdmitDoc.py": "68995aff291b0891a8720027d292252b49bb7f08cccca6755e61ac10f2a9f6d1",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualAuxTests.py": "2e97e739daece25885e99143d4ac437cfeb3d714198e673f33a625687ef2941f",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualCliRejectTests.py": "9f01a5dbb4a54c1cd8674483d3843c467ba8f5a3f43147425a8e4c7b55d238d0",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualCliTests.py": "d10c57f13cd595801e70d657d35b819e302ce51ca64db1b6cfc36657fa359ada",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualMassReadTests.py": "4e16b9a5458c8f632a5bcf6b00892ab524035777b1783fe9ab871224f314f68d",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualParamTests.py": "e005eb8c247971d90ba7f2bef35c218113187b8db2c9fce0db1dd6b3577ee947",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualSdkTests.py": "396ea9e58385ffb3c3c3b942069eb8564ce67474844c271e7fbc878b82737cdc",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualSnapReadTests.py": "e6ae3f10a2e2077167ef210d2f3f2cb32b166a16ad90230950fd96906e8c22ff",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualTagReadTests.py": "d8059abf838ab0fc355ea1f3e7f833448fdae108910aec9287d83f7368332fcc",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/DualWriteTests.py": "a61cc39f0ad5bc17104da251b4ebd2b494ae3a8d447a25a1ff221a16b5d6bbcf",
+    "tests/Convert/Integration/Fusion/DualSide/Admission/ReadAdmitCases.py": "f621009c1e2da560e4038d503bede7fa9364ae3f80945597a7d87e5d10f877e8"
+  }
+}

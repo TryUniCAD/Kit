@@ -1,0 +1,14 @@
+{
+  "phase": "post exposure additive preservation rule",
+  "native_calls": 0,
+  "models": false,
+  "prior_seal_sha256": "95beaf3f7af24672d4bd20a22b8ca70838d3066e8ce80a573a1f77c38c634f59",
+  "files": {
+    "Policy.py": "1d8a17bf43ac7f73965a2672f28a802083c55693046efda37ec270729297dd39",
+    "RoleChecks.py": "3bc740ea8b8b3499e80ceef73ec71be0e7c5028407a2da1bffbebce3d480cd93",
+    "GraphProof.py": "2708d43a2ead71c8d290d57a0a6f796f2cc2ece4272cbffda1264467c052e772",
+    "RunPolicy.py": "e7838c88cbc185519846a4d256cc356a51ded6ccbeec3d5eae8f076336a5ae8b",
+    "RulesV2.md": "07484b54857bc055958efec755955d29cde0f79c21ba3020c84c3c51c0ca5968",
+    "MakeCounters.py": "f7779a78ed4151765789b3be32849404effa784a081c624a17e8a0920e5350b3"
+  }
+}

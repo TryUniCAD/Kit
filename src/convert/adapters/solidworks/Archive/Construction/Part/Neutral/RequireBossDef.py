@@ -1,9 +1,11 @@
+from typing import cast as CastValue
+
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.Features.FeatureStep import FeatureStep
 
 
-# only the complete ordinary forward blind create operation is proven by the first part construction profile
+# blind preparation must retain explicit direction while publication separately requires exact native measurement
 def RequireBossDef(FeatureValue: FeatureStep) -> ExtrudeFeature:
     Definition = FeatureValue.definition
     if (
@@ -24,10 +26,12 @@ def RequireBossDef(FeatureValue: FeatureStep) -> ExtrudeFeature:
         )
     if (
         Definition.end_condition != ExtrudeEnd.KBlind
-        or Definition.reversed
+        or type(CastValue(object, Definition.reversed)) is not bool
         or Definition.symmetric
     ):
-        raise ValueError("plain boss requires a single forward blind termination")
+        raise ValueError(
+            "plain boss requires a single blind termination and boolean direction"
+        )
     if Definition.direction is not None and (
         Definition.direction.x,
         Definition.direction.y,

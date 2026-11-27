@@ -1,0 +1,2376 @@
+{
+  "base_revision": "6087ed24cb75ad8fb10626b556192c0351d989d7",
+  "mode": "holdout",
+  "models": false,
+  "native_calls": 0,
+  "rows": [
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0003910401523372909,
+        "volumePrec": 0.0003910401523372909
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.27,
+        2.7100000000000004,
+        0.09000000000000001
+      ],
+      "documents": {
+        "Documents/source-holdout-01_CleanedPrior.json": "82be4d150443f4445f5c1dffaf7b1d49b267d43fbe3281a19f8b1124b056dbd5",
+        "Documents/source-holdout-01_Current.json": "060a48e125570e9ee909336b0fa78e1ba9f520947f7ba06e88010625977947a1",
+        "Documents/source-holdout-01_Prior.json": "b65715b25959e01a07c04f7a90cd1a26eab72f33708d70e3c401911d6199da5e",
+        "Documents/source-holdout-01_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/source-holdout-01_Snapshot.json": "c527cc6e1cd48879ee136ffc592ff535e21ad2f248427b48ee6db22648c74918"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "source-holdout-01",
+      "inertia_errors": [
+        3.456684396496712e-07,
+        -1.0370114154056864e-06,
+        -6.913403893804571e-07
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            13.71812143079358,
+            31.44714498132661
+          ],
+          "expected": [
+            13.718121430794154,
+            31.447144981326613
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -2.5703725863618614e-10,
+            0.0,
+            1.3536717434257197
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.3536717434257175
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            39.043394234870476,
+            39.04339285219062,
+            11.052649216202902
+          ],
+          "expected": [
+            39.04339388920204,
+            39.04339388920204,
+            11.052649907543291
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -0.0,
+            4.61915306004812e-09,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": true
+        }
+      ],
+      "metrics": {
+        "area": 31.447144981326613,
+        "centroid": [
+          0.0,
+          0.0,
+          1.3536717434257175
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.27,
+          -1.27,
+          0.0
+        ],
+        "moi": [
+          39.04339388920204,
+          39.04339388920204,
+          11.052649907543291
+        ],
+        "upper": [
+          1.27,
+          1.27,
+          2.7100000000000004
+        ],
+        "volume": 13.718121430794154
+      },
+      "passed": true,
+      "prior_entities": 36,
+      "sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-01/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0005024914963627757,
+        "volumePrec": 0.0005024914963627757
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.49,
+        3.3100000000000005,
+        0.13
+      ],
+      "documents": {
+        "Documents/source-holdout-02_CleanedPrior.json": "86b7754e3e104d76c35ee64df722b44898c70b4f2f153ed125efc1b7ba8e26a5",
+        "Documents/source-holdout-02_Current.json": "313b63be2205f2b7d39567c323971e09db1a4f0804c9f7d377eee3db63e1dfbc",
+        "Documents/source-holdout-02_Prior.json": "0b7519529b71a466f75f8f50437bfecb8391fa5b445a7660f6db7cc23ad6288d",
+        "Documents/source-holdout-02_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/source-holdout-02_Snapshot.json": "2980b459fa002db3d8f9da61207bf830e0e08bfc973f0b4318d7f96d549422bb"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "source-holdout-02",
+      "inertia_errors": [
+        7.949057589939912e-07,
+        -2.3847320420600226e-06,
+        -1.5898199379194011e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            23.05279907393303,
+            44.40746013459663
+          ],
+          "expected": [
+            23.052799073933983,
+            44.40746013459664
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -2.9980646229984125e-10,
+            0.0,
+            1.6526521960011948
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.6526521960011922
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            96.73062781333493,
+            96.73062463369713,
+            25.555596076575505
+          ],
+          "expected": [
+            96.73062701842917,
+            96.73062701842917,
+            25.555597666395443
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -1.4210854715202004e-14,
+            1.0989090526436485e-08,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 44.40746013459664,
+        "centroid": [
+          0.0,
+          0.0,
+          1.6526521960011922
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.49,
+          -1.49,
+          0.0
+        ],
+        "moi": [
+          96.73062701842917,
+          96.73062701842917,
+          25.555597666395443
+        ],
+        "upper": [
+          1.49,
+          1.49,
+          3.3100000000000005
+        ],
+        "volume": 23.052799073933983
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-02/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0006422332876770374,
+        "volumePrec": 0.0006422332876770374
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.9300000000000002,
+        3.7700000000000005,
+        0.29
+      ],
+      "documents": {
+        "Documents/source-holdout-03_CleanedPrior.json": "9d250e97c327876f245122c11b6ea5fe2beb12c486a13a22c780fea4556ff937",
+        "Documents/source-holdout-03_Current.json": "b9ca2795a15103c6c250c507972334aa40a2cebb79f29e418dbbab7216ac5a3f",
+        "Documents/source-holdout-03_Prior.json": "b9dddb7ed414806ecd4e662cfd7728a0a4e375b1e00fe96dd1955d16adc14723",
+        "Documents/source-holdout-03_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/source-holdout-03_Snapshot.json": "ccd86cdfa7852ed2e0a95dd4473957a243405d12002a8e169ddb57a39b66097f"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "source-holdout-03",
+      "inertia_errors": [
+        -4.149376934492466e-06,
+        1.3831353840032534e-06,
+        -2.7662543828910202e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            43.905472159420185,
+            67.57453161108461
+          ],
+          "expected": [
+            43.90547215941883,
+            67.57453161108461
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            1.244239924631288e-10,
+            3.236693290440558e-16,
+            1.8762355719084551
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.876235571908455
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            246.82109388704444,
+            246.82109941955676,
+            81.42795014412161
+          ],
+          "expected": [
+            246.82109803642138,
+            246.82109803642138,
+            81.42795291037599
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            2.842170943040401e-14,
+            -1.0297554808857967e-08,
+            -2.842170943040401e-14
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 67.57453161108461,
+        "centroid": [
+          0.0,
+          0.0,
+          1.876235571908455
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.9300000000000002,
+          -1.9300000000000002,
+          0.0
+        ],
+        "moi": [
+          246.82109803642138,
+          246.82109803642138,
+          81.42795291037599
+        ],
+        "upper": [
+          1.9300000000000002,
+          1.9300000000000002,
+          3.7700000000000005
+        ],
+        "volume": 43.90547215941883
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-03/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.000893620315433395,
+        "volumePrec": 0.000893620315433395
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        2.3899999999999997,
+        4.13,
+        0.31000000000000005
+      ],
+      "documents": {
+        "Documents/source-holdout-04_CleanedPrior.json": "de8312a1dd801d0c671b45dc4e1568b2ec4f1ac1c363f5ab2682dac26c094ae0",
+        "Documents/source-holdout-04_Current.json": "5072bf53ddb3442468abb20250a0ca0798388b077b5721a3163d9d62a35ba236",
+        "Documents/source-holdout-04_Prior.json": "aa8087070057e4929c59e4f622b1e05f642d50ee6d2a55b933402be3145976a5",
+        "Documents/source-holdout-04_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/source-holdout-04_Snapshot.json": "14b1f3461d5be01a44cea7c47b1967e99702b5b456a38e0767d002b29ba599b5"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "source-holdout-04",
+      "inertia_errors": [
+        -1.1761689620470861e-05,
+        3.920584731531562e-06,
+        -7.841131861141548e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            73.81250480317081,
+            95.86883809639167
+          ],
+          "expected": [
+            73.81250480316841,
+            95.86883809639168
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            1.6540865859265476e-10,
+            3.8505276993638996e-16,
+            2.056872495256222
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            2.0568724952562216
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            521.4470513281804,
+            521.4470670104547,
+            210.04838850896988
+          ],
+          "expected": [
+            521.44706308987,
+            521.44706308987,
+            210.04839635010174
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            5.684341886080802e-14,
+            -2.5211988941009622e-08,
+            5.684341886080802e-14
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 95.86883809639168,
+        "centroid": [
+          0.0,
+          0.0,
+          2.0568724952562216
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -2.3899999999999997,
+          -2.3899999999999997,
+          0.0
+        ],
+        "moi": [
+          521.44706308987,
+          521.44706308987,
+          210.04839635010174
+        ],
+        "upper": [
+          2.3899999999999997,
+          2.3899999999999997,
+          4.13
+        ],
+        "volume": 73.81250480316841
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-04/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0005746966544262639,
+        "volumePrec": 0.0005746966544262639
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.67,
+        3.59,
+        0.19
+      ],
+      "documents": {
+        "Documents/source-holdout-05_CleanedPrior.json": "ebbaec4e9e9db79b294fbe606dce7637a5582cabc0e1344634436c3417afa0fe",
+        "Documents/source-holdout-05_Current.json": "2e35800c8fe5ca2c9c7340d1063bf6283de1d93ee9f61e911f28cff8a3ecd3db",
+        "Documents/source-holdout-05_Prior.json": "1a92e7490cf25fb84679768d397dc58f54576edb5592b141265472325a528aff",
+        "Documents/source-holdout-05_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/source-holdout-05_Snapshot.json": "8db584220ae12f4d2eb3d56e423b191d06d50b4a21e58767a0a348b190a084de"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "source-holdout-05",
+      "inertia_errors": [
+        1.3411840882326942e-06,
+        -4.023575456812978e-06,
+        -2.682381541774248e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            31.374875887605477,
+            54.32101422136085
+          ],
+          "expected": [
+            31.374875887606752,
+            54.321014221360855
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -3.3160769997457794e-10,
+            2.2646870008521606e-16,
+            1.7905758001279073
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.7905758001279042
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            155.95647449980942,
+            155.95646913504987,
+            43.65100674606752
+          ],
+          "expected": [
+            155.95647315862533,
+            155.95647315862533,
+            43.651009428449065
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            1.4210854715202004e-14,
+            1.7687071363070572e-08,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 54.321014221360855,
+        "centroid": [
+          0.0,
+          0.0,
+          1.7905758001279042
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.67,
+          -1.67,
+          0.0
+        ],
+        "moi": [
+          155.95647315862533,
+          155.95647315862533,
+          43.651009428449065
+        ],
+        "upper": [
+          1.67,
+          1.67,
+          3.59
+        ],
+        "volume": 31.374875887606752
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-05/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0007639436078004184,
+        "volumePrec": 0.0007639436078004184
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        2.1100000000000003,
+        4.37,
+        0.37000000000000005
+      ],
+      "documents": {
+        "Documents/source-holdout-06_CleanedPrior.json": "f9f18973406a628fb4c55fe67da8668ab384511f25185d4bc7fe095d77da0dc9",
+        "Documents/source-holdout-06_Current.json": "1312f54c260db91bd5e90e00291acac9375b761389d30b1c858f0c91d5a6833a",
+        "Documents/source-holdout-06_Prior.json": "dcd32757d8250cd2ab0bcbe3c8c40180f19203b952031603effbea542f5ac7be",
+        "Documents/source-holdout-06_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/source-holdout-06_Snapshot.json": "a3afba40ba641b29f95a64af7d8126e29a5719159f95ace1d5a5d8abc9e56c88"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "source-holdout-06",
+      "inertia_errors": [
+        4.020995902465074e-06,
+        -1.2063048927757336e-05,
+        -8.042027531018903e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            60.74757528995369,
+            83.7424739456255
+          ],
+          "expected": [
+            60.74757528995609,
+            83.7424739456255
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -4.0640315581506914e-10,
+            0.0,
+            2.172057011499124
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            2.1720570114991165
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            449.4610584924971,
+            449.4610424084523,
+            134.51668639079054
+          ],
+          "expected": [
+            449.4610544715012,
+            449.4610544715012,
+            134.51669443281807
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -5.684341886080802e-14,
+            4.937595576848253e-08,
+            -5.684341886080802e-14
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 83.7424739456255,
+        "centroid": [
+          0.0,
+          0.0,
+          2.1720570114991165
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -2.1100000000000003,
+          -2.1100000000000003,
+          0.0
+        ],
+        "moi": [
+          449.4610544715012,
+          449.4610544715012,
+          134.51669443281807
+        ],
+        "upper": [
+          2.1100000000000003,
+          2.1100000000000003,
+          4.37
+        ],
+        "volume": 60.74757528995609
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Sources/holdout-06/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.00041709144619124863,
+        "volumePrec": 0.00041709144619124863
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.27,
+        3.04875,
+        0.09000000000000001
+      ],
+      "documents": {
+        "Documents/depth-holdout-01_CleanedPrior.json": "a2f59229743b2db82f28a43e7aa911a6d76a419e361a1ebdf895c67ce4a1215c",
+        "Documents/depth-holdout-01_Current.json": "0f9edd61a169a1aa8960033c00fb4d42f85b2d906ced3775992b5c830607ae5a",
+        "Documents/depth-holdout-01_Prior.json": "8b2faadc80ee9a5c7aa566e2ba4c19f6602f3b9c0b9ae04286373248b380a171",
+        "Documents/depth-holdout-01_RemovedTracker.json": "4699a17f08a2f5ad0be336f2c5c3e786698433dd8eddd34139820a3e7544dd86",
+        "Documents/depth-holdout-01_Snapshot.json": "dfe1da5643f55b39edbffa0ba4df6d20a324f533c4206e140669d4a2988b0ae8"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "depth-holdout-01",
+      "inertia_errors": [
+        3.9036083165910895e-07,
+        -1.1710910925444296e-06,
+        -7.807264932324642e-07
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            15.434593016236281,
+            34.1502498402916
+          ],
+          "expected": [
+            15.434593016236924,
+            34.15024984029161
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -2.579899777631178e-10,
+            0.0,
+            1.52304465290955
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.523044652909548
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            53.956412432655014,
+            53.95641087120309,
+            12.436897636897122
+          ],
+          "expected": [
+            53.95641204229418,
+            53.95641204229418,
+            12.436898417623615
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -0.0,
+            5.890825605092687e-09,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": true
+        }
+      ],
+      "metrics": {
+        "area": 34.15024984029161,
+        "centroid": [
+          0.0,
+          0.0,
+          1.523044652909548
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.27,
+          -1.27,
+          0.0
+        ],
+        "moi": [
+          53.95641204229418,
+          53.95641204229418,
+          12.436898417623615
+        ],
+        "upper": [
+          1.27,
+          1.27,
+          3.04875
+        ],
+        "volume": 15.434593016236924
+      },
+      "passed": true,
+      "prior_entities": 36,
+      "sha256": "bad4d6c0ee8a14ab3cd5a34f6dc6bb47b1554d4402d7add6f37dea6871e01155",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-01/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 1.754382791122871e-21,
+        "inertiaPrec": 0.0005365221113418038,
+        "volumePrec": 0.0005365221113418038
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.49,
+        3.723750000000001,
+        0.13
+      ],
+      "documents": {
+        "Documents/depth-holdout-02_CleanedPrior.json": "c1ab83628c0a0dc280506de8884f5476e50a831f84cbf4c05532a4ac0557ccae",
+        "Documents/depth-holdout-02_Current.json": "451101e95e84a11ef94d7f189e7c7fc686288719c69aa833889f461c569d2687",
+        "Documents/depth-holdout-02_Prior.json": "a58c2b2f060123f0dc8706f51cf080d54c6bc0aac7036f30f089ff5de72d8b8a",
+        "Documents/depth-holdout-02_RemovedTracker.json": "4699a17f08a2f5ad0be336f2c5c3e786698433dd8eddd34139820a3e7544dd86",
+        "Documents/depth-holdout-02_Snapshot.json": "ba260ae02bdf83e7329a78435268b4a86855652a6424ff53d269a4881b703746"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "depth-holdout-02",
+      "inertia_errors": [
+        8.983299437659298e-07,
+        -2.69501074967593e-06,
+        -1.7966715439854397e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            25.938560449467516,
+            48.28096533665651
+          ],
+          "expected": [
+            25.938560449468596,
+            48.280965336656514
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -3.0111974087188835e-10,
+            0.0,
+            1.859522875561253
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.85952287556125
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            133.9696642808556,
+            133.9696606875149,
+            28.758935284636095
+          ],
+          "expected": [
+            133.96966338252565,
+            133.96966338252565,
+            28.75893708130764
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -0.0,
+            1.4034682749297644e-08,
+            -1.4210854715202004e-14
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 48.280965336656514,
+        "centroid": [
+          0.0,
+          0.0,
+          1.85952287556125
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.49,
+          -1.49,
+          0.0
+        ],
+        "moi": [
+          133.96966338252565,
+          133.96966338252565,
+          28.75893708130764
+        ],
+        "upper": [
+          1.49,
+          1.49,
+          3.723750000000001
+        ],
+        "volume": 25.938560449468596
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "2102ee4232041164554c0de440ae72763c285154f7951a788139345f9b284222",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-02/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.000705542218742744,
+        "volumePrec": 0.000705542218742744
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.9300000000000002,
+        4.24125,
+        0.29
+      ],
+      "documents": {
+        "Documents/depth-holdout-03_CleanedPrior.json": "d14dec9c34777d3167893f8445a6ddcea710f64546d0d05033daa0efa49deff7",
+        "Documents/depth-holdout-03_Current.json": "c5335677b5b2f271b943d0ed1c7544779e1dcfefb898759935240c94ef3acefb",
+        "Documents/depth-holdout-03_Prior.json": "f229443dd0c228267a65b1e608385e66a66c589661f8536201b77e2836820daa",
+        "Documents/depth-holdout-03_RemovedTracker.json": "4699a17f08a2f5ad0be336f2c5c3e786698433dd8eddd34139820a3e7544dd86",
+        "Documents/depth-holdout-03_Snapshot.json": "2fe501339b18c3ad3b98d3a158fc0f430ac73676124f07ae3b54e06b982e7c91"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "depth-holdout-03",
+      "inertia_errors": [
+        2.7804002229459e-06,
+        -8.341249326804245e-06,
+        -5.560828455486444e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            49.420095490928645,
+            73.28916718778078
+          ],
+          "expected": [
+            49.42009549093063,
+            73.28916718778078
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -3.7764310134659033e-10,
+            0.0,
+            2.111830106918849
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            2.1118301069188434
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            339.7553857937155,
+            339.75537467206595,
+            91.6986575733217
+          ],
+          "expected": [
+            339.7553830133153,
+            339.7553830133153,
+            91.69866313415015
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            2.842170943040401e-14,
+            3.687139837893483e-08,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 73.28916718778078,
+        "centroid": [
+          0.0,
+          0.0,
+          2.1118301069188434
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.9300000000000002,
+          -1.9300000000000002,
+          0.0
+        ],
+        "moi": [
+          339.7553830133153,
+          339.7553830133153,
+          91.69866313415015
+        ],
+        "upper": [
+          1.9300000000000002,
+          1.9300000000000002,
+          4.24125
+        ],
+        "volume": 49.42009549093063
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "c5f6958e0024001f2e0f8174e4137908011479cbf5b67f108214e6b1f416cb48",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-03/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0009473986065031246,
+        "volumePrec": 0.0009473986065031246
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        2.3899999999999997,
+        4.64625,
+        0.31000000000000005
+      ],
+      "documents": {
+        "Documents/depth-holdout-04_CleanedPrior.json": "2818bdda66e2750e80436a3d1e866392480177eb855fd0208ff2311c2db7f9ec",
+        "Documents/depth-holdout-04_Current.json": "2d5d9c15c965307c9f8dcd0364b614f59e4ae77a1c56d1edfe107e3c735e36f1",
+        "Documents/depth-holdout-04_Prior.json": "7683d2c2f0cff16f1037aba12f5b2cdc3f95e1db67f7460af56590389c046e5d",
+        "Documents/depth-holdout-04_RemovedTracker.json": "4699a17f08a2f5ad0be336f2c5c3e786698433dd8eddd34139820a3e7544dd86",
+        "Documents/depth-holdout-04_Snapshot.json": "076b9e74df365f45bea6473e354ef75c816a75be0c4427e89dafc0e39c1d144f"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "depth-holdout-04",
+      "inertia_errors": [
+        -1.3231896218712791e-05,
+        4.4106623136030976e-06,
+        -8.82127346812922e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            83.07665823665052,
+            103.62126774783887
+          ],
+          "expected": [
+            83.0766582366478,
+            103.62126774783887
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            1.6533424251037844e-10,
+            3.421142596930475e-16,
+            2.3149694538437617
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            2.3149694538437613
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            711.9287276799498,
+            711.9287453225083,
+            236.50727294251703
+          ],
+          "expected": [
+            711.928740911846,
+            711.928740911846,
+            236.5072817637905
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            5.684341886080802e-14,
+            -3.190911002093344e-08,
+            -5.684341886080802e-14
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 103.62126774783887,
+        "centroid": [
+          0.0,
+          0.0,
+          2.3149694538437613
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -2.3899999999999997,
+          -2.3899999999999997,
+          0.0
+        ],
+        "moi": [
+          711.928740911846,
+          711.928740911846,
+          236.5072817637905
+        ],
+        "upper": [
+          2.3899999999999997,
+          2.3899999999999997,
+          4.64625
+        ],
+        "volume": 83.0766582366478
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "50a8217a08b705f1d73d633345d41b01d45e2a3d1cc9c7576fad21fa4400c2cd",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-04/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0006150713430412139,
+        "volumePrec": 0.0006150713430412139
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.67,
+        4.038749999999999,
+        0.19
+      ],
+      "documents": {
+        "Documents/depth-holdout-05_CleanedPrior.json": "92439c9c3023a718cd70868d2d3f26e16e8d7ad051c8f7e95be8baf21757c37e",
+        "Documents/depth-holdout-05_Current.json": "6e26540df235bcfcd09cc2c0aaf15c61e369e33c3ffa1f6c6f20db8bff9d276a",
+        "Documents/depth-holdout-05_Prior.json": "aebb28cf7d9b5ff2d7c421e0564b67914f507fe51b9c6c9f3ee7d451f59be120",
+        "Documents/depth-holdout-05_RemovedTracker.json": "4699a17f08a2f5ad0be336f2c5c3e786698433dd8eddd34139820a3e7544dd86",
+        "Documents/depth-holdout-05_Snapshot.json": "ff347f420b7fefc9164db7108c56fefb03f6259127af731216360a1d37df0f0e"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "depth-holdout-05",
+      "inertia_errors": [
+        1.518199155725597e-06,
+        -4.554629782660413e-06,
+        -3.0364164302909558e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            35.306638391134264,
+            59.029711830377565
+          ],
+          "expected": [
+            35.306638391135714,
+            59.029711830377565
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -3.3357331548141374e-10,
+            0.0,
+            2.0149400085769456
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            2.0149400085769416
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            215.70062046228782,
+            215.70061438945888,
+            49.13365261507859
+          ],
+          "expected": [
+            215.70061894408866,
+            215.70061894408866,
+            49.13365565149502
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -2.842170943040401e-14,
+            2.2664011112283333e-08,
+            -1.4210854715202004e-14
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 59.029711830377565,
+        "centroid": [
+          0.0,
+          0.0,
+          2.0149400085769416
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.67,
+          -1.67,
+          0.0
+        ],
+        "moi": [
+          215.70061894408866,
+          215.70061894408866,
+          49.13365565149502
+        ],
+        "upper": [
+          1.67,
+          1.67,
+          4.038749999999999
+        ],
+        "volume": 35.306638391135714
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "e411dd935b5012380a338a05f2c07b509f0bbed368d5ffc39b04415f5c210dc8",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-05/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0008222456586851896,
+        "volumePrec": 0.0008222456586851896
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        2.1100000000000003,
+        4.916250000000001,
+        0.37000000000000005
+      ],
+      "documents": {
+        "Documents/depth-holdout-06_CleanedPrior.json": "762451549920a5a329d184dc151220d7c83a6216894fab0766f702601b14be54",
+        "Documents/depth-holdout-06_Current.json": "e618cab025ed2adea9e7311a7cb55a12480b144ba396b01e4236838bf77b8bc4",
+        "Documents/depth-holdout-06_Prior.json": "dc65550358b8d15dcd8586dbbabb80f40b8ed615f86d172ed45698894250aaf4",
+        "Documents/depth-holdout-06_RemovedTracker.json": "4699a17f08a2f5ad0be336f2c5c3e786698433dd8eddd34139820a3e7544dd86",
+        "Documents/depth-holdout-06_Snapshot.json": "90721deafe28663a71b921166a6bf5d0b1fe46ff86a1cbda95aaabf5e13fc1bc"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "depth-holdout-06",
+      "inertia_errors": [
+        4.57010878562869e-06,
+        -1.3710413327316928e-05,
+        -9.140266911344952e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            68.38780178168035,
+            90.98439479086437
+          ],
+          "expected": [
+            68.3878017816831,
+            90.98439479086437
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -4.102994103142828e-10,
+            -4.1559618367522356e-16,
+            2.445133376806372
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            2.4451333768063646
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            621.0034667270315,
+            621.0034484465094,
+            151.52421147446006
+          ],
+          "expected": [
+            621.0034621569228,
+            621.0034621569228,
+            151.52422061472697
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -1.7053025658242404e-13,
+            6.378263606166001e-08,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 90.98439479086437,
+        "centroid": [
+          0.0,
+          0.0,
+          2.4451333768063646
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -2.1100000000000003,
+          -2.1100000000000003,
+          0.0
+        ],
+        "moi": [
+          621.0034621569228,
+          621.0034621569228,
+          151.52422061472697
+        ],
+        "upper": [
+          2.1100000000000003,
+          2.1100000000000003,
+          4.916250000000001
+        ],
+        "volume": 68.3878017816831
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "2ac34319d4d8d58b66daf75ffb3b8be9285228fce485f491d8d2f7c8bd68b4b0",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/depth-holdout-06/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0003349118425860084,
+        "volumePrec": 0.0003349118425860084
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.17,
+        2.6300000000000003,
+        0.19
+      ],
+      "documents": {
+        "Documents/fresh-01_CleanedPrior.json": "52520cf8f9a403a912709bc9e3f12bb2885e6d13eecac07c490da857a2e5d05d",
+        "Documents/fresh-01_Current.json": "d69c64a0b82dbab3f32b03ac368059ca9888c40e294f22aec6b3f4817fc1ee01",
+        "Documents/fresh-01_Prior.json": "4f3e5639677d53c47789c8fc25a631d579dd4d4720c68f38efe3cf10f6a8636f",
+        "Documents/fresh-01_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/fresh-01_Snapshot.json": "607e6187182e5b27cb6c8af86cd34abbd1ce54b0b7ba0ef97d9f5896306756a0"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "fresh-01",
+      "inertia_errors": [
+        2.318871956674684e-07,
+        -6.956657969681146e-07,
+        -4.637768080684168e-07
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            11.255498037051913,
+            27.319492512015007
+          ],
+          "expected": [
+            11.25549803705236,
+            27.31949251201501
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -2.2811894706877503e-10,
+            0.0,
+            1.3087977719245991
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.3087977719245953
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            29.545931719082144,
+            29.545930791529152,
+            7.671403635339534
+          ],
+          "expected": [
+            29.54593148719495,
+            29.54593148719495,
+            7.671404099116342
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            1.7763568394002505e-15,
+            3.132459625021511e-09,
+            -3.552713678800501e-15
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": true
+        }
+      ],
+      "metrics": {
+        "area": 27.31949251201501,
+        "centroid": [
+          0.0,
+          0.0,
+          1.3087977719245953
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.17,
+          -1.17,
+          0.0
+        ],
+        "moi": [
+          29.54593148719495,
+          29.54593148719495,
+          7.671404099116342
+        ],
+        "upper": [
+          1.17,
+          1.17,
+          2.6300000000000003
+        ],
+        "volume": 11.25549803705236
+      },
+      "passed": true,
+      "prior_entities": 36,
+      "sha256": "e76d95e1f7893ee07061bc41a9c261aab8c6d29942add8fd19a3a95f27e51a96",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-01/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 1.4430647565224686e-21,
+        "inertiaPrec": 0.0005800751829311719,
+        "volumePrec": 0.0005800751829311719
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.81,
+        3.4700000000000006,
+        0.27
+      ],
+      "documents": {
+        "Documents/fresh-02_CleanedPrior.json": "6943856bf8b7b84471e8c09600aeb3ed4104969292fc1bf7cafb30d0c296d69e",
+        "Documents/fresh-02_Current.json": "4eb6c98beb94ac3330daa0e8a8906b006755bb40143d99dc88b283c1ed7416fc",
+        "Documents/fresh-02_Prior.json": "e6deb02d34c4549e3a348c6ad8f65aa355774856c396656a3d8c4c20f3f1504a",
+        "Documents/fresh-02_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/fresh-02_Snapshot.json": "575138e5ecb9b5ab94acc78bb069c9a00caa7fc9313701e824775936b059c201"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "fresh-02",
+      "inertia_errors": [
+        -2.969467146840543e-06,
+        9.89829175068735e-07,
+        -1.9796468819777147e-06
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            35.541846205468,
+            58.696807847729595
+          ],
+          "expected": [
+            35.54184620546689,
+            58.69680784772959
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            1.1713870067792895e-10,
+            0.0,
+            1.7269002207739474
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.7269002207739466
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            170.32985868980836,
+            170.32986264910468,
+            57.97320536536219
+          ],
+          "expected": [
+            170.3298616592755,
+            170.3298616592755,
+            57.97320734500907
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            2.842170943040401e-14,
+            -7.223363240882463e-09,
+            -1.4210854715202004e-14
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": true
+        }
+      ],
+      "metrics": {
+        "area": 58.69680784772959,
+        "centroid": [
+          0.0,
+          0.0,
+          1.7269002207739466
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.81,
+          -1.81,
+          0.0
+        ],
+        "moi": [
+          170.3298616592755,
+          170.3298616592755,
+          57.97320734500907
+        ],
+        "upper": [
+          1.81,
+          1.81,
+          3.4700000000000006
+        ],
+        "volume": 35.54184620546689
+      },
+      "passed": true,
+      "prior_entities": 36,
+      "sha256": "aeab2b02af0746b595fb22877dc555120584752e262f8c9cb291e6cba4e6b41b",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-02/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 2.48710334624825e-21,
+        "inertiaPrec": 0.0008655977159558125,
+        "volumePrec": 0.0008655977159558125
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        2.23,
+        4.79,
+        0.33
+      ],
+      "documents": {
+        "Documents/fresh-03_CleanedPrior.json": "f073418f5fdf131a1e25dcd95e644469dfd606d109877c3e2382dc702d398405",
+        "Documents/fresh-03_Current.json": "a90ff97da5be9e12b1ce442cb78efe6b8ddee3368ebed907ad872f88a05db828",
+        "Documents/fresh-03_Prior.json": "4d8b394d61cb2c14dbf4ed81b4d90f9df396aee8886c6a2c74881a87f33bd680",
+        "Documents/fresh-03_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/fresh-03_Snapshot.json": "3f500f648d2cfb7de8ccbf4b20f0e637f04c6fa590c565f57f93075aad661b5a"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "fresh-03",
+      "inertia_errors": [
+        5.5936844773896155e-06,
+        -1.678114699643629e-05,
+        -1.1187423211822534e-05
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            74.51670996571154,
+            96.32776085407745
+          ],
+          "expected": [
+            74.51670996571453,
+            96.32776085407745
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -4.3608806407807707e-10,
+            0.0,
+            2.385141109293705
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            2.3851411092936994
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            657.5836839460927,
+            657.5836615712612,
+            184.5935551124557
+          ],
+          "expected": [
+            657.5836783524082,
+            657.5836783524082,
+            184.59356629987892
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            5.684341886080802e-14,
+            7.24658093531616e-08,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": false
+        }
+      ],
+      "metrics": {
+        "area": 96.32776085407745,
+        "centroid": [
+          0.0,
+          0.0,
+          2.3851411092936994
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -2.23,
+          -2.23,
+          0.0
+        ],
+        "moi": [
+          657.5836783524082,
+          657.5836783524082,
+          184.59356629987892
+        ],
+        "upper": [
+          2.23,
+          2.23,
+          4.79
+        ],
+        "volume": 74.51670996571453
+      },
+      "passed": false,
+      "prior_entities": 36,
+      "sha256": "c1d83697087f94c914e56996e728a1c50cba217a1f82c191b2edd968962943ec",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-03/Native.f3d"
+    },
+    {
+      "api_build": "2706.1.17",
+      "attributes": {
+        "current": {
+          "attributes": 9,
+          "operation": 301,
+          "tag_owners": 6
+        },
+        "prior": {
+          "attributes": 10,
+          "operation": 301,
+          "tag_owners": 6
+        }
+      },
+      "cache_precision": {
+        "areaPrec": 0.0,
+        "inertiaPrec": 0.0003531734940841459,
+        "volumePrec": 0.0003531734940841459
+      },
+      "checks": [
+        "complete_source_radius_parameter_edge_body_state_binding",
+        "complete_prior_and_current_geometric_topology",
+        "all_live_attribute_chains_and_physical_tag_operations",
+        "exact_predecessor_snapshot_canonical_body_after_owned_tracker_removal",
+        "all_saved_snapshot_sheets_and_disjoint_record_coverage",
+        "saved_mass_volume_area",
+        "saved_mass_centroid",
+        "saved_mass_inertia",
+        "saved_mass_cross",
+        "actual_api_volume_area",
+        "actual_api_centroid",
+        "actual_api_lower",
+        "actual_api_upper",
+        "actual_api_topology",
+        "existing_source_free_round_builder_independent_masses"
+      ],
+      "current_entities": 45,
+      "dimensions_cm": [
+        1.1300000000000001,
+        2.89,
+        0.13
+      ],
+      "documents": {
+        "Documents/fresh-04_CleanedPrior.json": "6160b9ac4a408d854edca2596182eba680d192f656a649d621888f89e0693623",
+        "Documents/fresh-04_Current.json": "1ecf7411b7e41b64964b6b0a9f749a320deb476d16648b0b7cd57062dd252661",
+        "Documents/fresh-04_Prior.json": "bae93d69fd30cfca479aba729f10b1964e7728e47a678397c2e0f248d4fa5a7f",
+        "Documents/fresh-04_RemovedTracker.json": "1b209d52bc558c4d349dbfc901902df1916886c505bf3a34bb77a17674bd4f89",
+        "Documents/fresh-04_Snapshot.json": "f486aa355b4efa665dc42146601dcbf561acffb2b84a6e3a8483f4ea3e6dcba3"
+      },
+      "geometry_snapshot_source_passed": true,
+      "id": "fresh-04",
+      "inertia_errors": [
+        2.2822633383157154e-07,
+        -6.846844016195064e-07,
+        -4.5645566437713114e-07
+      ],
+      "mass_comparisons": [
+        {
+          "actual": [
+            11.568145648053273,
+            28.138325052823248
+          ],
+          "expected": [
+            11.568145648053747,
+            28.13832505282325
+          ],
+          "field": "volume_area",
+          "passed": true
+        },
+        {
+          "actual": [
+            -2.2618244371668206e-10,
+            1.5355588470648118e-16,
+            1.4419298265286844
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            1.4419298265286817
+          ],
+          "field": "centroid",
+          "passed": true
+        },
+        {
+          "actual": [
+            35.756252718620374,
+            35.75625180570964,
+            7.371245361115037
+          ],
+          "expected": [
+            35.75625249039404,
+            35.75625249039404,
+            7.371245817570701
+          ],
+          "field": "inertia",
+          "passed": true
+        },
+        {
+          "actual": [
+            -3.552713678800501e-15,
+            3.610786336594174e-09,
+            -0.0
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "field": "cross",
+          "passed": true
+        }
+      ],
+      "metrics": {
+        "area": 28.13832505282325,
+        "centroid": [
+          0.0,
+          0.0,
+          1.4419298265286817
+        ],
+        "cross": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lower": [
+          -1.1300000000000001,
+          -1.1300000000000001,
+          0.0
+        ],
+        "moi": [
+          35.75625249039404,
+          35.75625249039404,
+          7.371245817570701
+        ],
+        "upper": [
+          1.1300000000000001,
+          1.1300000000000001,
+          2.89
+        ],
+        "volume": 11.568145648053747
+      },
+      "passed": true,
+      "prior_entities": 36,
+      "sha256": "608c77123d4a5d70d170c43318b97e56eee27ea1f1ea5277e62207fd82844af3",
+      "snapshot_entities": 59,
+      "source": "re/Fusion/RimFilletPack/Qualification/Archives/fresh-04/Native.f3d"
+    }
+  ],
+  "rules_sha256": "f4a0e6e61fb69e850ee8d79e97f0e9c33fb9e1ee8e7f6a7db37fe263170fac8c",
+  "scripts": {
+    "InspectDiscovery.py": "67d78f21c8f76227feba6e3265d27fa80f54a48a2d6b8c54b675ff371d498f86",
+    "ProveRim.py": "9833db67a8671e1cdd0cdda46c5bd094bbde324f97a0f82ed0f4594319d6b473",
+    "RimAttributes.py": "e1666ebd9770e1cb8847149de2f1055ad0920bbe514177441fe92e08020732fd",
+    "RimMath.py": "ade32ebd4e4b290bbcf0ccba0876f82fb1091c08097f3148337aa0fc1107fe06",
+    "RimSnapshot.py": "4109c8dbc19afe07b3dda0fc4af2023eb3694d91d8198317dd74331027b96f79",
+    "RimSource.py": "055d395d895f57d4947739e8b51bc73155427744afed47d563ad16a7a608c39e",
+    "RimState.py": "a3d544a312edc130b984caf3dde7883d760da086e5eddb5a77d203d36debab4d"
+  },
+  "summary": {
+    "checks": 240,
+    "failed": 11,
+    "files": 16,
+    "passed": 5
+  }
+}

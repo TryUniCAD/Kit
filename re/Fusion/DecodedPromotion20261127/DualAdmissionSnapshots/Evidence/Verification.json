@@ -1,0 +1,63 @@
+{
+  "producer_source_hashes": {
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/BodyClosure.py": "f89b2b4a9856809d2234b6c5cf261c402b3b587213441499bc16fe26640e3456",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CanonicalBody.py": "1fdc4aa0f09045e9f511dbe7400177e11d0ece78da3295bf1a462ea63c022327",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckDualSnaps.py": "42e4045a4f5e23d06dbfe19f5c3d1e984d235142bafa9913fe4b4c7ef03361ea",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSheetBody.py": "9a38d12f91ffb46840a03942df4f6a252a42c75526cdc694f45ceca6393d9e64",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapHead.py": "7fa68e66cef56a8332e2eeb0f65651e698049ebff8b2ae75e2905d53a28a69a6",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapLinks.py": "269bd5a6a7cafe57c86891f0ed95e0cda6a016912018bbce29e0577643107d0f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadCacheId.py": "3bbc289d24c3135a278c04fc58a76751460b03f19e5abc23824490d804850db2",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadSnapRoles.py": "c873a802d45cdb79d9f0ef709fece31ca883cf893fdf1fb7c3982d56f583bc26",
+    "tests/Convert/Integration/Fusion/DualSnapshots/CheckSavedSnap.py": "0fe0b82c58889471794189ecccef1c75019cd76881d31f428b42f5e38ec3e67b",
+    "tests/Convert/Integration/Fusion/DualSnapshots/MakeBadSnap.py": "a13f7e803870ee6c3c6e90c3705a5ec3683b14ddc35862011c5731bb431e1523",
+    "tests/Convert/Integration/Fusion/DualSnapshots/MutateSnapNode.py": "15dd23d5bb2ea95300a2b06309e65f3a43bb4eefabe9f711be032ee2de537357",
+    "tests/Convert/Integration/Fusion/DualSnapshots/SavedSnapTests.py": "40950b31611782b509a995ce0c9fbdfbc4c99c5a8421931d39e5b50002546b51",
+    "tests/Convert/Integration/Fusion/DualSnapshots/SnapGuardTests.py": "25642339b9f0c89fa866eca494ef2be1289a8d417dd8c7151c28bdefebc3b639",
+    "tests/Convert/Integration/Fusion/DualSnapshots/SwapSnapBodies.py": "a5e9970adbd1210baf12759eda9017ef4046cf017e7b0eeb11a2bc4f0de10fce",
+    "Documentation/Gotchas/Conversion/Fusion/Geometry/Snapshots/PassiveSnapshotBodyRoles.md": "cb5d04f93c7907bde3e50514c0da2f46492014411281020f7e2034383333b375"
+  },
+  "source_campaign": "re/Fusion/TwoSidedDraft20261127/Capture.json",
+  "source_capture_sha256": "2e0e4c68d8bf1aaeedbc0ba7af681698024c3bc5643eb96ec62a7959b95fb2ef",
+  "verification": {
+    "native_archive_inputs": 68,
+    "xy_accepted": 56,
+    "xy_drafted": 54,
+    "xy_controls": 2,
+    "xy_holdout_states": 6,
+    "xz_refused": 12,
+    "encoded_counterexamples_refused": 5,
+    "pytest_cases": 73,
+    "pytest_duration_seconds": 6.93,
+    "mypy": "locked2.4.1 withpytest9.1.1 passes14files",
+    "black": "all14pythonfilescheckedunchanged",
+    "steering": "passes14pythonfiles",
+    "pyright": "parent running composed check",
+    "gotcha_format": "cachedprettier3.6.2formatted",
+    "xy_holdout_models": 1,
+    "xy_holdout_model": "holdout_b",
+    "xz_holdout_models": 1,
+    "xz_holdout_model": "holdout_a"
+  },
+  "confidence": "bounded complete saved correspondence confirmed on discovery and six parameter holdout states; generated native conversion acceptance not established",
+  "native_calls": 0,
+  "models": false,
+  "retained_attempts": [
+    {
+      "status": "inspection_harness_failure",
+      "field": "initial DocumentSnap.PartName lookup corrected to existing Name field"
+    },
+    {
+      "status": "refuted_naive_comparison",
+      "finding": "raw live and snapshot root walks differ because live BODY metadata has two additional attributed records; known separate body bookkeeping normalized without changing topology or other attributes"
+    },
+    {
+      "status": "static_type_failure",
+      "field": "SheetFaces needed explicit FaceNode collection annotation; corrected"
+    },
+    {
+      "status": "naming_policy_failure",
+      "field": "four-letter role and face variables renamed to full scoped names; no validation weakened"
+    }
+  ],
+  "publication_binding": "parent must map these exact working file hashes to final accepted revision"
+}

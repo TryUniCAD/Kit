@@ -1,0 +1,11 @@
+{
+  "files": [
+    {
+      "change": "replace private home prefix in failed Python traceback only; native bytes unchanged",
+      "path": "DiscoveryProofV2/Receipt.json",
+      "published_sha256": "ce3cab820ac069f14768d7efc0de6668f49687acd59cb16882b1e8c48c04a9b4",
+      "raw_private_sha256": "f57de52875ca21f7da9baa7b1f233ce032e5974abc38d6c3abd1847f2ac602df"
+    }
+  ],
+  "native_files_modified": false
+}
