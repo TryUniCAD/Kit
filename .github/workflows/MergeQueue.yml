@@ -425,6 +425,7 @@ jobs:
         ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
         ^tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests\.py::TestBoxWinPath$
+        ^tests/Convert/Solidworks/ImportWriting/(ConcaveWinTests|MeasuredConcaveTests)\.py::TestConcaveWin$
     defaults:
       run:
         shell: bash
@@ -483,6 +484,15 @@ jobs:
                 fi
                 continue
                 ;;
+              '^tests/Convert/Solidworks/ImportWriting/(ConcaveWinTests|MeasuredConcaveTests)\.py::TestConcaveWin$')
+                test "$AuditEvent" = workflow_dispatch
+                if git grep -q '^def TestConcaveWin(' "$AuditSha" -- \
+                  tests/Convert/Solidworks/ImportWriting/ConcaveWinTests.py \
+                  tests/Convert/Solidworks/ImportWriting/MeasuredConcaveTests.py; then
+                  exit 1
+                fi
+                continue
+                ;;
               *) exit 1 ;;
             esac
             test "$AuditEvent" = workflow_dispatch
@@ -505,7 +515,10 @@ jobs:
               --index "$ShardIndex" --count "$ShardCount" --output "$Selected"
           fi
           test -s "$Selected"
-          if grep -Fqx 'tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests.py::TestBoxWinPath' "$Selected"; then
+          if grep -Fqx \
+            -e 'tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests.py::TestBoxWinPath' \
+            -e 'tests/Convert/Solidworks/ImportWriting/MeasuredConcaveTests.py::TestConcaveWin' \
+            -e 'tests/Convert/Solidworks/ImportWriting/ConcaveWinTests.py::TestConcaveWin' "$Selected"; then
             printf '%s\n' 'measured_windows_part=true' >> "$GITHUB_OUTPUT"
           fi
 
@@ -534,14 +547,21 @@ jobs:
           jq --slurp --exit-status \
             --rawfile Selected "${RUNNER_TEMP}/PlatformReport/Selected.txt" \
             --argjson ShardCount "$ShardCount" \
+            --arg MeasuredBox 'tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests.py::TestBoxWinPath' \
+            --arg MeasuredConcave 'tests/Convert/Solidworks/ImportWriting/ConcaveWinTests.py::TestConcaveWin' \
+            --arg PriorConcave 'tests/Convert/Solidworks/ImportWriting/MeasuredConcaveTests.py::TestConcaveWin' \
             --rawfile Native "${RUNNER_TEMP}/PlatformReport/Native.txt" '
-            ($Selected | split("\n") | map(select(length > 0))) as $Expected
+            . as $Reports
+            | ($Selected | split("\n") | map(select(length > 0))) as $Expected
             | ($Native | split("\n") | map(select(length > 0))) as $NativeIds
             | any(.[]; .["$report_type"] == "SessionFinish" and .exitstatus == 0)
               and all(.[]; .outcome != "failed")
               and ([.[] | select(.["$report_type"] == "TestReport")
                     | select(.when == "call" or (.when == "setup" and .outcome == "skipped"))
                     | .nodeid] | sort) == ($Expected | sort)
+              and all($Expected[] | select(. == $MeasuredBox or . == $MeasuredConcave or . == $PriorConcave);
+                    . as $Id | any($Reports[]; .["$report_type"] == "TestReport" and .when == "call"
+                                  and .outcome == "passed" and .nodeid == $Id))
               and ($ShardCount > 1 or any(.[]; .["$report_type"] == "TestReport" and .when == "call"
                     and .outcome == "passed" and (.nodeid as $Id | $NativeIds | index($Id) != null)))
             ' "${RUNNER_TEMP}/PlatformReport/Report.jsonl"

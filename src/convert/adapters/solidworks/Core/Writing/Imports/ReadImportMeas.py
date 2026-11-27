@@ -1,12 +1,11 @@
 from hashlib import sha256 as CalcSha
-from json import dumps as JsonDumps
-from json import loads as JsonLoads
+from json import dumps as JsonDumps, loads as JsonLoads
 
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.solidworks.Core.Writing.Imports.CheckImportLife import (
-    CheckImportLife,
-)
 from convert.adapters.solidworks.Core.Writing.Imports.ImportMeasure import ImportMeasure
+from convert.adapters.solidworks.Core.Writing.Imports.ReadImportCase import (
+    ReadImportCase,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
     ReadMeasInput,
 )
@@ -14,12 +13,17 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMe
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
 
-# only this disclosed native report already measures the exact standalone archive
+# only this disclosed native report already measures the exact standalone archives
 KImportReceiptSha = "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4"
 
+# each geometry profile has its own native lifecycle comparison
+KImportCases = (("RectangularBare", 116), ("ConcaveOwned", 164))
 
-# hashes authorize this one native measurement without supplying any archive data
-def ReadImportMeas(SettingsValue: WriteOptions) -> ImportMeasure:
+
+# native eligibility is computed from the identical bytes authenticated for each case
+def ReadImportMeas(
+    SettingsValue: WriteOptions,
+) -> tuple[int, tuple[ImportMeasure, ...]]:
     EpochValue, Receipt = ReadMeasInput(SettingsValue)
     try:
         Evidence = (
@@ -51,16 +55,14 @@ def ReadImportMeas(SettingsValue: WriteOptions) -> ImportMeasure:
         Controls.get("ControlAfter")
     ):
         raise ValueError("local solid measurement needs separate controls")
-    CaseValue = ReadMeasMap(ReadMeasMap(Receipt.get("cases")).get("RectangularBare"))
-    SizeValue = CaseValue.get("generated_bytes")
-    if type(SizeValue) is not int or SizeValue < 1:
-        raise ValueError("local solid measurement lacks a complete archive size")
-    RebuildSha, ReopenSha = CheckImportLife(CaseValue)
-    return ImportMeasure(
-        EpochValue,
-        SizeValue,
-        ReadMeasSha(CaseValue.get("native_input_sha256")),
-        ReadMeasSha(Receipt.get("native_raw_sha256")),
-        RebuildSha,
-        ReopenSha,
+    CasesValue = ReadMeasMap(Receipt.get("cases"))
+    ResultSha = ReadMeasSha(Receipt.get("native_raw_sha256"))
+    return EpochValue, tuple(
+        ReadImportCase(
+            ReadMeasMap(CasesValue.get(RoleValue)),
+            EpochValue,
+            ResultSha,
+            NumericChecks,
+        )
+        for RoleValue, NumericChecks in KImportCases
     )

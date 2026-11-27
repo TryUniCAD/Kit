@@ -33,9 +33,10 @@ Registration, same-format reconstruction and retained native bytes do not establ
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md) define the writer's supported geometry and measurement gate.
 
-The B04 [measured rectangular import slice](Documentation/Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md)
-adds a bounded geometry-only fallback on its isolated delivery branch.
-Its accepted native artifact retains the rectangular solid and reports
+The B04 [measured rectangular](Documentation/Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md)
+and [measured concave](Documentation/Changes/Solidworks/Construction/Parts/SolidworksMeasuredConcaveImport.md)
+import slices add bounded geometry-only fallback on isolated delivery
+branches. Their accepted native artifacts retain the two solids and report
 unavailable editable history. Broader geometry and editable-source
 conversion remain in the conversion backlog.
 

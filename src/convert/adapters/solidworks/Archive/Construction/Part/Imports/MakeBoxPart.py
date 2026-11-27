@@ -50,7 +50,14 @@ from convert.adapters.solidworks.Archive.Partition.ImportHistory.MakeImportHist 
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.EncodeLocalBody import (
     EncodeLocalBody,
 )
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.LocalBodyOwner import (
+    LocalBodyOwner,
+)
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
+    FieldInt,
+    ReadNodeName,
+)
 from convert.adapters.solidworks.Container.Container import BuildSldprt
 from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
@@ -64,6 +71,8 @@ def MakeBoxPart(
     LabelsValue: PartLabels,
     NodesValue: tuple[XmtNode, ...],
     AmbientValue: LightInput,
+    *,
+    OwnedBody: bool = False,
 ) -> ImportCandidate:
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, LabelsValue, Allocator)
@@ -81,7 +90,7 @@ def MakeBoxPart(
     BindImportScene(SystemValue, (AmbientValue,), TargetValue, Allocator)
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
-    _ = LogImportMut(FeatureValue, HeadersValue, InputValue.HeaderValue)
+    BodyStamp = LogImportMut(FeatureValue, HeadersValue, InputValue.HeaderValue)
     FinishImportMut(SystemValue, FeatureValue, HeadersValue, InputValue)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)
     KeywordsValue = MakeImportKeys(
@@ -96,9 +105,21 @@ def MakeBoxPart(
         KeywordsValue,
         BodyMapFields={"n": 0, "fcd8": []},
     )
+    OwnerValue = (
+        LocalBodyOwner(
+            ReadNodeName(FeatureValue),
+            FieldInt(FeatureValue.FieldsValue, "f08"),
+            AtomId,
+            BodyStamp,
+        )
+        if OwnedBody
+        else None
+    )
     StreamsValue.update(
         {
-            KLocalBodyStream: EncodeLocalBody(LabelsValue.FeatureName, NodesValue),
+            KLocalBodyStream: EncodeLocalBody(
+                LabelsValue.FeatureName, NodesValue, OwnerValue=OwnerValue
+            ),
             KPartitionStream: HistoryValue.BytesValue,
         }
     )

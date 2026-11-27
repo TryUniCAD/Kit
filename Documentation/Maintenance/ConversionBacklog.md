@@ -87,9 +87,13 @@ The PR #121 takeover owns a main-based rectangular fallback in
 geometry reader and the completed SOLIDWORKS 2026 SP05.2 receipt. The
 bounded exit is exact public SDK publication of the disclosed one-solid
 model, strict geometry readback and explicit history accounting.
-The guarded host comparison passes for this slot. Separate native
-filesystem transport and general source fallback need their own evidence.
-[Change entry](../Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md)
+The guarded host comparison passes for this slot. The isolated follow-up
+`codex/solidworks-measured-concave-import` uses the same completed native
+batch to qualify exact SDK stream publication and strict readback for its
+`ConcaveOwned` slot. Separate native filesystem transport and general
+source fallback need their own evidence.
+[Rectangular change](../Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md) ·
+[Concave change](../Changes/Solidworks/Construction/Parts/SolidworksMeasuredConcaveImport.md)
 
 ### B10-RunDefaults
 

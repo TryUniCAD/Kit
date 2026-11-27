@@ -44,5 +44,9 @@ def PrepareImport(
     RecipeValue = ReplaceValue(RecipeValue, OutputValue=OutputValue)
     CheckPartInput(DocumentValue, RecipeValue, PlanValue)
     return MakeBoxPart(
-        RecipeValue, PlanValue, PlanValue.NodesValue, MakeImportLight(WrittenAt)
+        RecipeValue,
+        PlanValue,
+        PlanValue.NodesValue,
+        MakeImportLight(WrittenAt),
+        OwnedBody=PlanValue.OwnedBody,
     )

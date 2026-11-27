@@ -1,0 +1,78 @@
+{
+  "archive": {
+    "bytes": 10890,
+    "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+  },
+  "exact_publications": 2,
+  "exact_streams": 12,
+  "heldout_cases": 0,
+  "native_processes_started": 0,
+  "native_receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "passed": true,
+  "readback": {
+    "area_mm2": 2068.0,
+    "body_attributes": {
+      "ATOM_ID_2001": 101,
+      "BODY_RECIPE_2001": null,
+      "ENT_TIME_STAMP_2001": 102,
+      "LAST_BODY_MODIFYING_FEATURE_ID": 18,
+      "SWIMPLICITBODYNAME_ID_U": "Imported geometry"
+    },
+    "body_index": 1,
+    "centroid_mm": [
+      17.441860465116278,
+      -4.3023255813953485,
+      3.5
+    ],
+    "design_only_body_name": "Body 1",
+    "kernel_nodes": 146,
+    "topology": [
+      1,
+      1,
+      8,
+      18,
+      12
+    ],
+    "volume_mm3": 5160.0
+  },
+  "refusals": {
+    "changed_epoch": "no exact native measurement",
+    "changed_locator": "no exact native measurement",
+    "changed_receipt": "requires its exact controlled native receipt",
+    "different_receipt_slot": "no exact native measurement",
+    "extra_metadata": "does not support the destination",
+    "no_receipt": "requires an offline native measurement",
+    "nonempty_direct_sink": "standalone",
+    "nonempty_registry_sink": "standalone",
+    "oblique_boundary": "does not support the destination",
+    "varied_section": "no exact native measurement"
+  },
+  "rejected_paths_preserved": true,
+  "runtime_external_events": 0,
+  "varied_readback": {
+    "area_mm2": 2068.0,
+    "body_attributes": {
+      "ATOM_ID_2001": 101,
+      "BODY_RECIPE_2001": null,
+      "ENT_TIME_STAMP_2001": 102,
+      "LAST_BODY_MODIFYING_FEATURE_ID": 18,
+      "SWIMPLICITBODYNAME_ID_U": "Imported geometry"
+    },
+    "body_index": 1,
+    "centroid_mm": [
+      22.941860465116278,
+      -7.3023255813953485,
+      3.5
+    ],
+    "design_only_body_name": "Body 1",
+    "kernel_nodes": 146,
+    "topology": [
+      1,
+      1,
+      8,
+      18,
+      12
+    ],
+    "volume_mm3": 5160.0
+  }
+}
