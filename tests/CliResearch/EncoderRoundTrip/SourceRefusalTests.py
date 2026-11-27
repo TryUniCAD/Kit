@@ -21,6 +21,8 @@ def CheckBadSource(TmpPath: FilePath, Application: str, Extension: str) -> None:
     assert Manifest["source"]["status"] == "rejected"
     assert Manifest["reconstruction"]["status"] == "blocked"
     assert Manifest["edited"]["status"] == "blocked"
+    assert Manifest["timings"]["decode_ns"] == Manifest["source"]["elapsed_ns"] > 0
+    assert Manifest["timings"]["generation_ns"] == 0
     assert Manifest["models_used"] is False
     assert Manifest["vendor_loadable"] is False
     assert Manifest["application_usable"] is False

@@ -188,3 +188,8 @@ Do not remove source evidence or increase tolerances merely to obtain equality.
 - [Reader sidecar and path gotcha](../Gotchas/Research/Comparison/DecodedExportPairing.md)
 - [CAD acceptance criteria](../Reference/Operations/CadSuccessCriteria.md)
 - [Historyless unified exports](../Gotchas/Research/Comparison/HistorylessUnifiedExports.md)
+
+For performance measurements, use `summary.json`. Each pair has an `elapsed_ns`
+value that includes evaluation and writing the pair report. `timings.comparison_ns`
+sums the pair times; `timings.elapsed_ns` is batch wall time before summary publication.
+See [offline research timings](../Changes/Research/Offline/OfflineResearchTimings.md).

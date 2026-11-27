@@ -18,9 +18,10 @@ from tests.Research.Inference.InferenceHost import PrepareWorker
 from tests.Research.SupervisorClient import FixtureJob
 
 
-# settlement must preserve the parked evidence because a provider suggestion cannot resolve a gap
+# the same real stall must settle without reaching the fake advisor unless explicitly enabled
+@MarkValue.parametrize("EnableAdvice", (False, True))
 @MarkValue.skipif(PlatformName != "posix", reason="Codex account runner requires POSIX")
-def CheckGapAdvice(TmpPath: FilePath) -> None:
+def CheckGapAdvice(TmpPath: FilePath, EnableAdvice: bool) -> None:
     Harness = PrepareWorker(TmpPath)
     SetProviderMut(Harness.Environment, TmpPath)
     Harness.BindBytes(
@@ -39,9 +40,15 @@ def CheckGapAdvice(TmpPath: FilePath) -> None:
             )
         ]
     )
-    _ = Harness.RunCli("run", "--idle-seconds", "1", "--codex-on-stall")
-    VerifyReceipt(Harness, "advice-gap", "waiting_evidence")
-    assert (TmpPath / "Calls").read_text().splitlines() == ["called"]
+    AdvisorArgs = ("--codex-on-stall",) if EnableAdvice else ()
+    _ = Harness.RunCli("run", "--idle-seconds", "1", *AdvisorArgs)
+    assert Harness.ReadJob("advice-gap")["state"] == "waiting_evidence"
+    if EnableAdvice:
+        VerifyReceipt(Harness, "advice-gap", "waiting_evidence")
+        assert (TmpPath / "Calls").read_text().splitlines() == ["called"]
+    else:
+        assert not (TmpPath / "Calls").exists()
+        assert not (Harness.RootPath / "SupervisorState/decoder-advice").exists()
 
 
 # both field outcomes settle as completed so only an inconclusive assessment should consume a provider call
