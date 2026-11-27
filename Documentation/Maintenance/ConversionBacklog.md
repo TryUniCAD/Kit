@@ -722,7 +722,8 @@ The seven original snapshot-width refusals are retained; a width-preserving repa
 Codex owns `feat/project-next-steps-20261127`, based on main `1619f00bf532caad262d1557bd69281179e5c497`.
 Scope: the [project-wide support matrix](../Reference/Operations/SupportMatrix.md), reusing existing catalogues and acceptance records.
 Dependencies: current public contracts, production source, automation ownership and PR #368's separately owned SOLIDWORKS census.
-Delivery: a separate scoped PR is being prepared on this branch.
+Delivery: [PR #375](https://github.com/TryUniCAD/Kit/pull/375).
+The scoped snapshot is published for checking; unresolved version/type choices remain follow-up work.
 Exit: every roadmap family and directional route has an explicit status, source evidence or named gap, plus current-head CI and configured approval.
 Unresolved vendor-version promises remain open; B12 acceptance and native conversion work are not completed by this register.
 See the [change entry](../Changes/Planning/SupportMatrix.md).
@@ -732,7 +733,7 @@ See the [change entry](../Changes/Planning/SupportMatrix.md).
 Codex CLI worker owns `feat/b10-cli-usability-20261127`.
 Scope: `kit formats [FORMAT]` lookup by primary identifier or alias, visible text aliases and unknown-format recovery.
 Dependencies: existing registry discovery and its unchanged JSON list schema.
-Delivery: a separate scoped PR is being prepared.
+Delivery: [PR #376](https://github.com/TryUniCAD/Kit/pull/376).
 Exit: real-process discovery/refusal coverage, current-head CI and configured approval.
 Representative-user workflow evaluation and the broader B10 exit remain open.
 
@@ -741,6 +742,7 @@ Representative-user workflow evaluation and the broader B10 exit remain open.
 Codex documentation worker owns `feat/b11-documentation-usability-20261127`.
 Scope: installation, first use, format selection and result recovery guidance.
 Dependencies: current public metadata/API and the B10 CLI contract.
-Delivery: a separate scoped PR is being prepared.
+Delivery: [PR #377](https://github.com/TryUniCAD/Kit/pull/377).
+See the [first-use change entry](https://github.com/TryUniCAD/Kit/blob/8c2a2affc/Documentation/Changes/Guides/FirstUseWorkflow.md) on that delivery branch.
 Exit: source-backed corrections, link/render evidence where available, current-head CI and configured approval.
 Representative-user evaluation and the broader B11 exit remain open.
