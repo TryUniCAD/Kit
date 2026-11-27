@@ -2790,7 +2790,11 @@ def SketchPlaneRef(
         else OwnerCache[0]
     )
     if OwnerValue is None:
-        return None
+        return (
+            ReadPlaneHandle(DataValue, Start, EndValue, Planes)
+            if Planes and not HasVendorPrincipal(Planes)
+            else None
+        )
     for Record in Classes:
         if Record.name != SketchChainClass or not Start <= Record.offset < EndValue:
             continue
@@ -2815,6 +2819,13 @@ def SketchPlaneRef(
         if Scanned is not None:
             return Scanned
     return None
+
+
+# vendor numbered principal planes keep the owner validated reference contract
+def HasVendorPrincipal(Planes: Mapping[int, NativePlane]) -> bool:
+    return any(
+        Plane.principal and Plane.object_id in (2, 3, 4) for Plane in Planes.values()
+    )
 
 
 # the handle is authoritative when its axis and frame agree with the owned plane
