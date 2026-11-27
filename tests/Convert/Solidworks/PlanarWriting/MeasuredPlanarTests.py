@@ -107,6 +107,11 @@ def VerifyDeferred(TargetValue: FilePath) -> None:
     assert Deferred.assembly is not None and not Deferred.assembly.documents
     assert len(Deferred.assembly.instances) == 2
     assert not Deferred.assembly.mates
+    assert Deferred.metadata["solidworks.typed_mates_semantics"] == {
+        "status": "deferred",
+        "full_selected_mate_graph": False,
+        "public_writer_qualified": False,
+    }
     assert any(
         Value.format_id == "solidworks.mates" for Value in Deferred.brep_payloads
     )
