@@ -33,6 +33,9 @@ from Runners import Registry
 from Sessions import Session, read_bounded, write_private
 from SingleClaim import clear_claim_stages
 
+# installed launchers must recognize graceful console cancellation before admitting windows supervisor commands
+KWindowsCliProtocol = 1
+
 CONFIG_KEYS = {
     "state",
     "controller",
@@ -1016,12 +1019,17 @@ class Supervisor:
                     )
                     continue
                 self.running[name] = session
+                launch_monotonic_ns = time.monotonic_ns()
                 self.budget.adaptive.started(pool)
                 self.counts["started"] += 1
                 self.report(
                     "started",
                     session,
-                    {"pid": session.pid, "group_size": len(group) if group else 1},
+                    {
+                        "pid": session.pid,
+                        "group_size": len(group) if group else 1,
+                        "launch_monotonic_ns": launch_monotonic_ns,
+                    },
                 )
             else:
                 self.capacity.block(pool, "pool_full")
@@ -1073,6 +1081,8 @@ class Supervisor:
     def run_sessions(self, idle_seconds, max_seconds):
         signal.signal(signal.SIGTERM, self.shutdown)
         signal.signal(signal.SIGINT, self.shutdown)
+        if sys.platform == "win32" and KWindowsCliProtocol == 1:
+            signal.signal(signal.SIGBREAK, self.shutdown)
         self.acquire()
         self.capacity = CapacitySnapshot(
             self.config, self.registry.configuration_sha256

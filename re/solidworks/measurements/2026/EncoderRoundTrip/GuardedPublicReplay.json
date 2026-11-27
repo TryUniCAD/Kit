@@ -1,0 +1,42 @@
+{
+  "evidence_scope": "strict_cold_json_public_sdk",
+  "guarded_public_calls": 32,
+  "method_sha256": "cb8874e35cdbba332de1844c700200d97a7840a8da9e7ef95ec46a38c015b2fb",
+  "native_launches": 0,
+  "results": [
+    {
+      "accepted": 2,
+      "oversized_measurement_refused": 4,
+      "role": "BaselineReconstruction",
+      "unknown_identity_refused": 2
+    },
+    {
+      "accepted": 2,
+      "oversized_measurement_refused": 4,
+      "role": "BaselineEdited",
+      "unknown_identity_refused": 2
+    },
+    {
+      "accepted": 2,
+      "oversized_measurement_refused": 4,
+      "role": "HeldOutReconstruction",
+      "unknown_identity_refused": 2
+    },
+    {
+      "accepted": 2,
+      "oversized_measurement_refused": 4,
+      "role": "HeldOutEdited",
+      "unknown_identity_refused": 2
+    }
+  ],
+  "runtime_external_accesses": 0,
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "a9cd9140f5996dffbc30460c5e6aaf822e624eb58a8514c2d43231b62c8267c3",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/CheckColdRead.py": "4f60f47ad3df37f656a61a854f777d4ddb4195d8112bd983d386f8f921a7f947",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "7114e5960fb5ea696fe985fe9c460f9815df0f96aa01fde930fcb8e1b61429ca",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MeasState.py": "dcea36f63693a4b09b67a253a0f6faac905a52ba765250936a7f2e494b49cce3",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasNum.py": "54df093b308fabc5ae34000b8df0c9fac8adc681475e9d29691351a1923b267a",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadPartMeas.py": "aa73069c59e223a8c5646c5aad1ee8876f710b80bd1e0014f6368dbca1957314"
+  },
+  "zlib_runtime": "1.3.1.zlib-ng"
+}

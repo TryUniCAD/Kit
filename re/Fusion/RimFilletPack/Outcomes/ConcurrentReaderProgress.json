@@ -1,0 +1,968 @@
+{
+  "pid": 51236,
+  "started": 1795647452.482559,
+  "updated": 1795648682.04456,
+  "state": "settled",
+  "events": [
+    {
+      "input": "discovery-01-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-01-generated/neutral.json"
+      ],
+      "start": 1795647452.484976,
+      "source_sha256": "bd1f469def222d301b5f1ef345646b9634648ac45d92d85855f8c04ca863f252",
+      "pid": 51237,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647454.029258
+    },
+    {
+      "input": "discovery-01-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-01/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-01-generated/native.json"
+      ],
+      "start": 1795647454.029675,
+      "source_sha256": "bd1f469def222d301b5f1ef345646b9634648ac45d92d85855f8c04ca863f252",
+      "pid": 51346,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647454.975498
+    },
+    {
+      "input": "discovery-01-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-01-source/neutral.json"
+      ],
+      "start": 1795647454.976632,
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "pid": 51370,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647455.864484
+    },
+    {
+      "input": "discovery-01-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-01/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-01-source/native.json"
+      ],
+      "start": 1795647455.8647392,
+      "source_sha256": "760540537811f32b585173844dea909d99d291bdd6ef7c8bc815da5bbbfde562",
+      "pid": 51384,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647456.808295
+    },
+    {
+      "input": "discovery-02-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-02/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-02-generated/neutral.json"
+      ],
+      "start": 1795647456.8092859,
+      "source_sha256": "8a5af491ecba35f6afd6bb953a3d24fa24768c0cf10550e9a6619ab9041d259e",
+      "pid": 51388,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647457.7615738
+    },
+    {
+      "input": "discovery-02-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-02/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-02-generated/native.json"
+      ],
+      "start": 1795647457.761817,
+      "source_sha256": "8a5af491ecba35f6afd6bb953a3d24fa24768c0cf10550e9a6619ab9041d259e",
+      "pid": 51504,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647458.718273
+    },
+    {
+      "input": "discovery-02-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-02-source/neutral.json"
+      ],
+      "start": 1795647458.72249,
+      "source_sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "pid": 51509,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647459.6095989
+    },
+    {
+      "input": "discovery-02-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-02/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-02-source/native.json"
+      ],
+      "start": 1795647459.610158,
+      "source_sha256": "8960a342bd4af110da9aeb85906d047e5059a1f7a62988ea2cf611146cc81e17",
+      "pid": 52040,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647460.672682
+    },
+    {
+      "input": "discovery-03-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-03/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-03-generated/neutral.json"
+      ],
+      "start": 1795647460.673415,
+      "source_sha256": "f25baecb89a394248b48b2595fffa0e24dbda8a50ea6a664f3f11cd6b4b07c2a",
+      "pid": 52438,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647461.75374
+    },
+    {
+      "input": "discovery-03-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-03/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-03-generated/native.json"
+      ],
+      "start": 1795647461.7539918,
+      "source_sha256": "f25baecb89a394248b48b2595fffa0e24dbda8a50ea6a664f3f11cd6b4b07c2a",
+      "pid": 53071,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647462.740819
+    },
+    {
+      "input": "discovery-03-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-03-source/neutral.json"
+      ],
+      "start": 1795647462.742379,
+      "source_sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "pid": 53356,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647463.846564
+    },
+    {
+      "input": "discovery-03-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-03/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-03-source/native.json"
+      ],
+      "start": 1795647463.8468401,
+      "source_sha256": "d1f52bea1f851f999881c597520f5810288be34ea4bf592ce02a82b8b4c757e1",
+      "pid": 53951,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647464.833206
+    },
+    {
+      "input": "discovery-04-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-04/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-04-generated/neutral.json"
+      ],
+      "start": 1795647464.834187,
+      "source_sha256": "ce8091271b630fa7a75e3d015a65c013d833d3073873bc505bd49d6eda179a21",
+      "pid": 54012,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647465.727614
+    },
+    {
+      "input": "discovery-04-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-04/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-04-generated/native.json"
+      ],
+      "start": 1795647465.727989,
+      "source_sha256": "ce8091271b630fa7a75e3d015a65c013d833d3073873bc505bd49d6eda179a21",
+      "pid": 54016,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647466.718378
+    },
+    {
+      "input": "discovery-04-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-04-source/neutral.json"
+      ],
+      "start": 1795647466.721781,
+      "source_sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "pid": 54019,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647467.665045
+    },
+    {
+      "input": "discovery-04-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-04/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-04-source/native.json"
+      ],
+      "start": 1795647467.66538,
+      "source_sha256": "a10fcbe99bce710ac1546115fca940b15aa9288da3aa91816c372554b8f7598e",
+      "pid": 54132,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647468.658184
+    },
+    {
+      "input": "discovery-05-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-05/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-05-generated/neutral.json"
+      ],
+      "start": 1795647468.659437,
+      "source_sha256": "ff56de6b7d5413c88950742711a60b0cc5642c40e2a2dc3d5eca8cf2296943dc",
+      "pid": 54137,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647469.5514848
+    },
+    {
+      "input": "discovery-05-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-05/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-05-generated/native.json"
+      ],
+      "start": 1795647469.5518222,
+      "source_sha256": "ff56de6b7d5413c88950742711a60b0cc5642c40e2a2dc3d5eca8cf2296943dc",
+      "pid": 54180,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647470.474828
+    },
+    {
+      "input": "discovery-05-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-05-source/neutral.json"
+      ],
+      "start": 1795647470.476984,
+      "source_sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "pid": 54202,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647471.374932
+    },
+    {
+      "input": "discovery-05-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-05/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-05-source/native.json"
+      ],
+      "start": 1795647471.3752892,
+      "source_sha256": "8c6262f46633c9ab431661bb5ec83da4f7e0195be3a2a567e4571fc435db75b8",
+      "pid": 54293,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647472.3415308
+    },
+    {
+      "input": "discovery-06-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-06/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-06-generated/neutral.json"
+      ],
+      "start": 1795647472.34304,
+      "source_sha256": "382ae1393082b4bab3e7ae52e4021ec58c04b7b867b82eb42f183a3da80dbb71",
+      "pid": 54296,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647473.194329
+    },
+    {
+      "input": "discovery-06-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/discovery-06/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-06-generated/native.json"
+      ],
+      "start": 1795647473.1946769,
+      "source_sha256": "382ae1393082b4bab3e7ae52e4021ec58c04b7b867b82eb42f183a3da80dbb71",
+      "pid": 54298,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647474.1414568
+    },
+    {
+      "input": "discovery-06-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-06-source/neutral.json"
+      ],
+      "start": 1795647474.143251,
+      "source_sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "pid": 54363,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647475.049719
+    },
+    {
+      "input": "discovery-06-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/discovery-06/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/discovery-06-source/native.json"
+      ],
+      "start": 1795647475.050035,
+      "source_sha256": "559c3b67428f87302e31a4431c474f212890673b8301bed8cedcec44a88d0901",
+      "pid": 54424,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647476.008346
+    },
+    {
+      "input": "holdout-01-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-01/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-01-generated/neutral.json"
+      ],
+      "start": 1795647476.0107021,
+      "source_sha256": "6ec1598c1e8bc6a38eff6a9fb55d24857908d9231afda0cb666d1813fbfad82c",
+      "pid": 54425,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647476.8581738
+    },
+    {
+      "input": "holdout-01-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-01/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-01-generated/native.json"
+      ],
+      "start": 1795647476.858571,
+      "source_sha256": "6ec1598c1e8bc6a38eff6a9fb55d24857908d9231afda0cb666d1813fbfad82c",
+      "pid": 54426,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647477.772465
+    },
+    {
+      "input": "holdout-01-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-01-source/neutral.json"
+      ],
+      "start": 1795647477.774409,
+      "source_sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "pid": 54517,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647478.665091
+    },
+    {
+      "input": "holdout-01-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-01/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-01-source/native.json"
+      ],
+      "start": 1795647478.66626,
+      "source_sha256": "16fc7e543b74b964a9b3f760dc5982591233852ed75e388828122de636e5c598",
+      "pid": 54541,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647479.6011121
+    },
+    {
+      "input": "holdout-02-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-02/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-02-generated/neutral.json"
+      ],
+      "start": 1795647479.602998,
+      "source_sha256": "eb512bcbeecc8692fdc36ec37de3af71ec95b785ddc6e82e0bed8196b439d0e4",
+      "pid": 54543,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647480.448826
+    },
+    {
+      "input": "holdout-02-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-02/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-02-generated/native.json"
+      ],
+      "start": 1795647480.449118,
+      "source_sha256": "eb512bcbeecc8692fdc36ec37de3af71ec95b785ddc6e82e0bed8196b439d0e4",
+      "pid": 54544,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647481.641512
+    },
+    {
+      "input": "holdout-02-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-02-source/neutral.json"
+      ],
+      "start": 1795647481.6432,
+      "source_sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "pid": 54663,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647482.574838
+    },
+    {
+      "input": "holdout-02-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-02/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-02-source/native.json"
+      ],
+      "start": 1795647482.57527,
+      "source_sha256": "15c41098d994a395c631b6ab510af52a033dcd862526213b4846214aa0b05bc1",
+      "pid": 54667,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647483.5263412
+    },
+    {
+      "input": "holdout-03-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-03/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-03-generated/neutral.json"
+      ],
+      "start": 1795647483.527529,
+      "source_sha256": "0bbe6f2c0e4ae7d790d946cd6fc025809d7eca86591476970227c18981c4fb94",
+      "pid": 54669,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647484.4346712
+    },
+    {
+      "input": "holdout-03-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-03/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-03-generated/native.json"
+      ],
+      "start": 1795647484.4353302,
+      "source_sha256": "0bbe6f2c0e4ae7d790d946cd6fc025809d7eca86591476970227c18981c4fb94",
+      "pid": 54733,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647485.4562528
+    },
+    {
+      "input": "holdout-03-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-03-source/neutral.json"
+      ],
+      "start": 1795647485.4579709,
+      "source_sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "pid": 54798,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647486.358173
+    },
+    {
+      "input": "holdout-03-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-03/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-03-source/native.json"
+      ],
+      "start": 1795647486.358687,
+      "source_sha256": "8694d4a900708d7d392560f1177ec277ac1f96ce1748479ee011257ffe528411",
+      "pid": 54799,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647487.326894
+    },
+    {
+      "input": "holdout-04-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-04/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-04-generated/neutral.json"
+      ],
+      "start": 1795647487.3282251,
+      "source_sha256": "7ff6b9a5a3074f01ffedd7e9719d810238d08c53fb1c7d0ea34fb4b94ea21b8c",
+      "pid": 54800,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647488.2368991
+    },
+    {
+      "input": "holdout-04-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-04/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-04-generated/native.json"
+      ],
+      "start": 1795647488.2372859,
+      "source_sha256": "7ff6b9a5a3074f01ffedd7e9719d810238d08c53fb1c7d0ea34fb4b94ea21b8c",
+      "pid": 54911,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647489.189286
+    },
+    {
+      "input": "holdout-05-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-05/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-05-generated/neutral.json"
+      ],
+      "start": 1795647489.190259,
+      "source_sha256": "d25c2c2d4cec506b7efaf52ddc6f4c7e3a8773899928015b0d2d5079130b2247",
+      "pid": 54917,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647490.072691
+    },
+    {
+      "input": "holdout-05-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-05/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-05-generated/native.json"
+      ],
+      "start": 1795647490.073044,
+      "source_sha256": "d25c2c2d4cec506b7efaf52ddc6f4c7e3a8773899928015b0d2d5079130b2247",
+      "pid": 54918,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647490.97027
+    },
+    {
+      "input": "holdout-06-generated",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-06/Generated.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-06-generated/neutral.json"
+      ],
+      "start": 1795647490.971256,
+      "source_sha256": "ff74f183bdd20d91a5caeb76bb0bf46e146175d37f7526e1a814c9dac81b0180",
+      "pid": 54923,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647491.858041
+    },
+    {
+      "input": "holdout-06-generated",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Candidates/holdout-06/Generated.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-06-generated/native.json"
+      ],
+      "start": 1795647491.858499,
+      "source_sha256": "ff74f183bdd20d91a5caeb76bb0bf46e146175d37f7526e1a814c9dac81b0180",
+      "pid": 55035,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647492.837467
+    },
+    {
+      "input": "holdout-04-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-04/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-04-source/neutral.json"
+      ],
+      "start": 1795647522.892639,
+      "source_sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "pid": 56183,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647524.323075
+    },
+    {
+      "input": "holdout-04-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-04/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-04-source/native.json"
+      ],
+      "start": 1795647524.32345,
+      "source_sha256": "68e0d47dc19c7583c46c885c22d809450eb798714759db36e27b4873eeb0006a",
+      "pid": 56188,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647525.31408
+    },
+    {
+      "input": "holdout-05-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-05/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-05-source/neutral.json"
+      ],
+      "start": 1795647655.538327,
+      "source_sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "pid": 61025,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647656.955971
+    },
+    {
+      "input": "holdout-05-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-05/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-05-source/native.json"
+      ],
+      "start": 1795647656.956495,
+      "source_sha256": "56e0cfcf0c6a3584a74510750a034749c1f1cfc15ef8dff6285274b3ce7f7d23",
+      "pid": 61026,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647657.95223
+    },
+    {
+      "input": "holdout-06-source",
+      "layer": "neutral",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-06/author/Restored.f3d",
+        "--layer",
+        "neutral",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-06-source/neutral.json"
+      ],
+      "start": 1795647798.175395,
+      "source_sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "pid": 67970,
+      "exit_code": 1,
+      "source_unchanged": true,
+      "end": 1795647799.589161
+    },
+    {
+      "input": "holdout-06-source",
+      "layer": "native",
+      "command": [
+        "sh",
+        "<owner-home>/.kit/remote-cad/kit-launcher",
+        "decode",
+        "<campaign-output>/Native/holdout-06/author/Restored.f3d",
+        "--layer",
+        "native",
+        "--output",
+        "<campaign-output>/ConcurrentReaders/holdout-06-source/native.json"
+      ],
+      "start": 1795647799.589623,
+      "source_sha256": "30c1dfb7fee922b72a8eddef9d4470be6ba824329436d2132d11e3b959422daa",
+      "pid": 67972,
+      "exit_code": 0,
+      "source_unchanged": true,
+      "end": 1795647800.600009
+    }
+  ]
+}

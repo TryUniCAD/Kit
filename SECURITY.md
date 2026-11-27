@@ -10,7 +10,7 @@ Older tags do not receive security backports.
 Do not open a public issue for suspected vulnerabilities.
 
 Report privately through GitHub's vulnerability reporting for this repository:
-`https://github.com/TryParashell/Kit/security/advisories/new`
+`https://github.com/TryUniCAD/Kit/security/advisories/new`
 
 Include a description, affected version or commit, reproduction steps, and any
 proof-of-concept material. Reports receive an initial triage response within
@@ -22,7 +22,7 @@ In scope: code in `src/`, `tools/`, `.github/` (workflows and scripts), and the
 locked dependency set in `uv.lock`.
 
 Out of scope: vendor tooling under `re/`, compatibility workspaces under
-`Parashell/` and `modules/`, and anything requiring a local CAD installation.
+`modules/`, and anything requiring a local CAD installation.
 
 ## Automated monitoring
 

@@ -1,12 +1,10 @@
 from dataclasses import replace as ReplaceData
 
-from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
 from convert.adapters.Fusion.Native.Projection.ProjectVendor import ProjectVendor
 from convert.adapters.Fusion.Projection.CompareNative import CompareNative
 from convert.adapters.Fusion.Projection.NativeIndex import MakeIndex
 from convert.adapters.Fusion.Projection.NativeProfile import NativeProfile
 from convert.adapters.Fusion.State.EncodeState import EncodeState
-from convert.Formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.Formats.Fusion.DocumentCodec.ReadDocument import ReadDocument
 from interchange.document.Models.DocumentModel import CadDocument
@@ -24,6 +22,9 @@ def ProjectNative(ModelValue: DocumentModel, Source: CadSource) -> CadDocument:
     ):
         return ProjectVendor(ModelValue, Source)
     SpecValue = NativeProfile(MakeIndex(ModelValue), ModelValue)
+    from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
+    from convert.Formats.Fusion.DocumentCodec.EmitDocument import EmitDocument
+
     Expected = ReadDocument(EmitDocument(SpecValue))
     CompareNative(ModelValue, Expected)
     Document = MakeFusionDoc(SpecValue)

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -51,7 +51,7 @@ def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath):
         HostValue = read_record(HostPath)
         if not {"interop_assembly", "executable"} <= set(HostValue) or set(
             HostValue
-        ) - {"interop_assembly", "executable", "phase_seconds", "native_environment"}:
+        ) - {"interop_assembly", "executable", "phase_seconds", "native_environment", "verification_mode"}:
             raise ValueError("SOLIDWORKS host requires interop_assembly and executable")
         for NameValue in ("interop_assembly", "executable"):
             FileValue = Path(HostValue[NameValue])
@@ -64,6 +64,11 @@ def AuthorConfig(Directory, SourceRoot, Workers, Native, HostPath):
             if "native_environment" in HostValue
             else CaptureNative()
         )
+        Mode = HostValue.setdefault("verification_mode", "document_reopen")
+        if Mode not in {"document_reopen", "fresh_process"}:
+            raise ValueError("unknown SOLIDWORKS verification mode")
+        if Mode == "document_reopen":
+            HostValue["routine_queue"] = str(Directory / "SolidWorksQueue")
         HostFile = WriteRecord(Directory / "SolidWorksHost.json", HostValue)
         AddSolidRunners(ConfigValue, SourceRoot, SchemaPath, HostFile)
         Resources["solidworks"] = "application:solidworks:catalogue"

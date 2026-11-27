@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -117,7 +117,10 @@ def refusal(operation, expected, error_type=ValueError):
     try:
         operation()
     except error_type as error:
-        require(str(error) == expected, f"Unexpected refusal: {error}")
+        require(
+            str(error) in expected if isinstance(expected, tuple) else str(error) == expected,
+            f"Unexpected refusal: {error}",
+        )
         return str(error)
     raise ValueError(f"Expected refusal: {expected}")
 

@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "source_base_revision": "cb3730cb92338c9291e754092409e3df00041494",
+  "change": "plain reverse literal mode is explicitly selected only by rectangle projection; circular spans retain their established wrapped reverse contract",
+  "candidate_sources": {
+    "src/convert/adapters/Fusion/Native/Parameters/ReadParameters.py": "a935b28e83c4b6628c567b4c3e3e57ac8eb9f4f14750a883ef5838a3eafbb246",
+    "src/convert/adapters/Fusion/Native/Projection/ProjectPrism.py": "a487e90a10fb87250d58aac5efa1d80479bbc5551007505ea4a2f34e570de2bb"
+  },
+  "process_cases_passed": 17,
+  "rectangle_process": {
+    "holdouts": 8,
+    "refusals": 14,
+    "drafted_compatibility_controls": 4
+  },
+  "circular_span_native_controls": 16,
+  "circular_checks": [
+    "strict public CLI",
+    "source hashes",
+    "body count",
+    "native volume",
+    "native area",
+    "native bounding box",
+    "timeline and parameter roles",
+    "no diagnostics"
+  ],
+  "junit_sha256": "69b829ba31678d5c1ce41b8fab122089ba74f806d4e870b7a2b2cf5f11bcf667",
+  "full_semantics_verified": false,
+  "native_conversion_acceptance": false
+}
