@@ -1,5 +1,11 @@
 from collections import Counter
 
+from convert.adapters.Fusion.Native.Circular.DualSnapshots.SnapBodyFaces import (
+    SnapBodyFaces,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Geometry.TransformNode import (
+    TransformNode,
+)
 from convert.adapters.Fusion.Native.Circular.DualSnapshots.BodyClosure import (
     BodyClosure,
 )
@@ -29,6 +35,8 @@ from convert.Formats.Fusion.BrepCodec.Models.SketchLink import SketchLink
 
 # complete sheet correspondence must retain source attribution without accepting unused or unexpected records
 def CheckSheetBody(State: GeometryState, RootId: int, CircleId: int) -> tuple[int, ...]:
+    BodyValue = SnapEntity(State, RootId, BodyNode)
+    _ = SnapBodyFaces(State, BodyValue)
     Closure = BodyClosure(State, RootId)
     Expected: dict[type[object], int] = {
         ClassType: 1
@@ -47,6 +55,8 @@ def CheckSheetBody(State: GeometryState, RootId: int, CircleId: int) -> tuple[in
         )
     }
     Expected[SketchAttrib] = 2
+    if BodyValue.TransformRef != -1:
+        Expected[TransformNode] = 1
     if Counter(type(State.Entities[Identity]) for Identity in Closure) != Expected:
         raise ValueError("Dual snapshot sheet has unexpected topology or attributes")
     for Identity in Closure:

@@ -53,3 +53,11 @@ The later `A11-DualDraftRead20261127` child implements the missing public inspec
 The source cohort has 54 eligible XY drafted states, two healthy untapered controls and twelve XZ refusals. The six held-out XY states belong to `holdout_b`; `holdout_a` is the separate XZ holdout and remains refused. Both taper controls remain separate feature parameter IDs. Every native mass tensor component, effective material and scene reference is validated before the public document is returned.
 
 `ProveDualRead.py CHECKOUT UNUSED_OUTPUT` records complete public SDK documents and source-bound outcomes with models and native calls disabled. Ordinary CLI decode and atomic conversion refusal use the existing shared process suite. Source `fusion.read_only` and research qualification markers remain intact. Native generation, coherent edits, broader families and target acceptance remain unfinished.
+
+## Qualified principal XZ frame extension
+
+The subsequent `A11-DualDraftFrame20261127` child derives frame ownership from the actual selected UCS, reciprocal DRMatrix, origin datum, feature/update owners and source scopes. `DualFrameLive/Rules.md` and `DualFrameSnapshots/FrameRules.md` were frozen before the six `holdout_a` files were opened. The six discovery and six held-out source states pass the unchanged frame and exact world-state correspondence rules. These are existing native captures, not a new generator lineage or new API run.
+
+The origin datum's axes differ from the saved sketch basis. Explicit identity BODY transforms do not apply the selected sketch matrix again. The public reader keeps the solid and profile in world coordinates, the sketch sheet in local coordinates, and accounts for every original record. Direct component validators still default to identity XY; public XZ admission supplies the independently qualified frame explicitly.
+
+`ProveWorldRead.py CHECKOUT UNUSED_OUTPUT` records all 68 public source reads, including the twelve formerly refused XZ states. `CompareWorldReads.py CHECKOUT PREVIOUS_PINNED_SDK OUTPUT_JSON` compares all 56 earlier XY document hashes. Native writer construction, arbitrary frames, other feature families and editable target acceptance remain unfinished.

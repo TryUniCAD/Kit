@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Circular.DualFrames.DualBodyView import DualBodyView
 from collections import Counter as CountTypes
 
 from convert.adapters.Fusion.Native.Circular.Snapshots.CheckCoverage import (
@@ -36,11 +37,13 @@ def CheckDualCover(State: GeometryState) -> None:
         "SketchAttrib": 2,
         "TimeAttrib": 1,
     }
+    BodyValue, _ = ReadSpanBody(State)
+    if BodyValue.TransformRef != -1:
+        Expected["TransformNode"] = 1
     if CountTypes(type(Entity).__name__ for Entity in State.Entities) != Expected:
         raise ValueError("Native dual side live state contains unaccounted entities")
     CheckCoverage(State)
-    BodyValue, _ = ReadSpanBody(State)
-    Faces = BodyFaces(State, BodyValue)
+    Faces = BodyFaces(State, DualBodyView(State, BodyValue))
     if {State.Entities.index(FaceValue) for FaceValue in Faces} != {
         Index
         for Index, Entity in enumerate(State.Entities)

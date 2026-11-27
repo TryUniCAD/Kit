@@ -16,6 +16,8 @@ from convert.adapters.Fusion.Native.DatumPrism.ReadDatumFrame import KYzMatrix
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
 from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
+from convert.adapters.Fusion.Native.Policy.CheckFrameValue import CheckFrameValue
+from interchange.geometry.Models.Transform import KTransformIdentity, Transform
 
 
 # invalid placement input must fail here so public document claims remain grounded in native records
@@ -26,7 +28,14 @@ def CheckPlacement(
     Rectangle: RectSketchProof | None = None,
     YzDatum: bool = False,
     Scoped: bool = False,
+    FrameValue: Transform | None = None,
 ) -> None:
+    if FrameValue is not None and (
+        YzDatum or Scoped or Rectangle is not None or Dimension is not None
+    ):
+        raise ValueError(
+            "Qualified circular frames cannot mix other placement policies"
+        )
     Instance = Graph.OneClass("ComponentInstance")
     if Graph.Resolve(Instance.Fields["rTargetComponent"]) != Context.Component:
         raise ValueError("Native root instance targets another component")
@@ -45,7 +54,9 @@ def CheckPlacement(
             "subType": 0,
         },
     )
-    if YzDatum:
+    if FrameValue is not None:
+        CheckFrameValue(Context.Plane.Fields["transform"], FrameValue)
+    elif YzDatum:
         RequireFields(Context.Plane, {"transform": KYzMatrix})
     else:
         CheckIdentity(Context.Plane.Fields["transform"])
@@ -71,7 +82,7 @@ def CheckPlacement(
     )
     if Graph.Resolve(Context.Sketch.Fields["rDcNode"]) != Context.SketchFeature:
         raise ValueError("Native sketch feature link is not reciprocal")
-    CheckMatrix(Graph, Context, YzDatum, Scoped)
+    CheckMatrix(Graph, Context, YzDatum, Scoped, FrameValue)
 
 
 # the constrained rectangle may carry only the rules and bindings already proved against its geometry
@@ -101,11 +112,14 @@ def CheckMatrix(
     Context: KSketchContexts,
     YzDatum: bool = False,
     Scoped: bool = False,
+    FrameValue: Transform | None = None,
 ) -> None:
     Matrix = ResolveField(
         Graph, Context.SketchFeature, "rSketchPlaneMatrix", "DRMatrix"
     )
-    if YzDatum:
+    if FrameValue is not None:
+        CheckFrameValue(Matrix.Fields["matrix3d"], FrameValue)
+    elif YzDatum:
         RequireFields(Matrix, {"matrix3d": KYzMatrix})
     else:
         CheckIdentity(Matrix.Fields["matrix3d"])
@@ -139,9 +153,17 @@ def CheckMatrix(
     SameNumbers(PointCoords(PlaneFields["origin"]), (0.0, 0.0, 0.0))
     SameNumbers(
         PointCoords(PlaneFields["uAxis"]),
-        (0.0, 1.0, 0.0) if YzDatum else (1.0, 0.0, 0.0),
+        (
+            (0.0, 0.0, 1.0)
+            if FrameValue is not None and FrameValue != KTransformIdentity
+            else (0.0, 1.0, 0.0) if YzDatum else (1.0, 0.0, 0.0)
+        ),
     )
     SameNumbers(
         PointCoords(PlaneFields["vAxis"]),
-        (0.0, 0.0, 1.0) if YzDatum else (0.0, 1.0, 0.0),
+        (
+            (1.0, 0.0, 0.0)
+            if FrameValue is not None and FrameValue != KTransformIdentity
+            else (0.0, 0.0, 1.0) if YzDatum else (0.0, 1.0, 0.0)
+        ),
     )

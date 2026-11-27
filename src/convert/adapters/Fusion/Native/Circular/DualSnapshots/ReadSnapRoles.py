@@ -1,4 +1,6 @@
-from convert.adapters.Fusion.Native.Circular.Snapshots.SnapFaces import BodyFaces
+from convert.adapters.Fusion.Native.Circular.DualSnapshots.SnapBodyFaces import (
+    SnapBodyFaces,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.BodyNode import BodyNode
 from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
     GeometryState,
@@ -13,7 +15,7 @@ def ReadSnapRoles(State: GeometryState) -> tuple[tuple[int, str], ...]:
             continue
         if Entity.Prefix.Attribute != -1 or Entity.Prefix.EntityTag != -1:
             raise ValueError("Dual snapshot body has unsupported saved metadata")
-        Faces = BodyFaces(State, Entity)
+        Faces = SnapBodyFaces(State, Entity)
         if len(Faces) in (3, 4) and not any(
             FaceValue.DoubleSided for FaceValue in Faces
         ):

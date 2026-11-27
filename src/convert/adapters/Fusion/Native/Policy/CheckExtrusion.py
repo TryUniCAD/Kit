@@ -8,6 +8,7 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
 from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
+from interchange.geometry.Models.Transform import Transform
 
 
 # invalid extrusion input must fail here so public document claims remain grounded in native records
@@ -16,6 +17,7 @@ def CheckExtrusion(
     Context: ExtrudeContext,
     YzDatum: bool = False,
     Operation: int = 4,
+    FrameValue: Transform | None = None,
 ) -> None:
     if Operation not in (2, 4):
         raise ValueError("Unsupported native modifying extrusion operation")
@@ -92,7 +94,11 @@ def CheckExtrusion(
         EmptyFields(Feature, ("targetDataRefs",))
     SameNumbers(
         PointCoords(Feature.Fields["profileNormal"]),
-        (1.0, 0.0, 0.0) if YzDatum else (0.0, 0.0, 1.0),
+        (
+            (FrameValue.z_axis.x, FrameValue.z_axis.y, FrameValue.z_axis.z)
+            if FrameValue is not None
+            else (1.0, 0.0, 0.0) if YzDatum else (0.0, 0.0, 1.0)
+        ),
     )
     ToolBody = ResolveField(Graph, Feature, "rExtrudeToolBody", "DcExtrudeToolBody")
     if Graph.Resolve(ToolBody.Fields["rExtrudeFeature"]) != Feature:

@@ -1,0 +1,89 @@
+{
+  "base_revision": "5daa5ec6c396d6422afc53be79a6b5c5f5cf24bd",
+  "binding": "exact source hashes; committed replay follows",
+  "models": false,
+  "native_calls": 0,
+  "native_acceptance": false,
+  "public_strict_reads": 68,
+  "additional_xz_reads": 12,
+  "unchanged_xy_document_hashes": 56,
+  "public_frame_counterexamples": 20,
+  "integration": {
+    "passed": 442,
+    "seconds": 76.36,
+    "runtime": "CPython3.14.6 pytest9.1.1"
+  },
+  "static": {
+    "pyright": "1.1.414 zero errors/warnings",
+    "mypy": "2.4.1 93files pass",
+    "black": "26.10.1 87files check clean",
+    "steering": "scoped checks pass"
+  },
+  "sources": {
+    "src/convert/adapters/Fusion/Native/Parameters/ReadParameters.py": "081e198171da2a6b4b44c53df2577cc9c59070bd3d87f1fcccbcfb0e311d1f9b",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ProjectSpan.py": "b9479bfc0be8a0f4b49e9c78b2c6f6b4cdca174d7ff8b4a13a4521a3e2867890",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameOwn.py": "06679a22fd8e4d814834e316f8c8490967e523f25d7ba80789d95d0531e1e596",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameRef.py": "0d950706f781216de6e96e33b965a47c19f50b22d87f43c2b2d8408e123f727e",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/DualBodyView.py": "08461e56e92c8983b0e68f99108fe050d76dc911ac633cbefdb9bad0f9533d1a",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualEntity.py": "5fce82a61a9e902775824a99026644b2d9ab37fabbd3c8f69e4865485c50a973",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualVector.py": "023810c8b7701b1c1169a537370facc444d02276a937501649d602e5301dc470",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualView.py": "3c7c7223c0bb200ef3fc4c8511ed863b33420f57bfa0c93feeb6a7fe7964bf38",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadDualFrame.py": "9f8bdb3740d3fa0a025dc365f5298e569ddb55c560873a42d31f6c7d83f83f0d",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadFrameBasis.py": "3c29f1b8b65974610a8fbb01995547af5663ebabbe0b9442afc8daadb1e07c8a",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualCover.py": "c56b72450386e2f7a37b0c3daa41f8cd86858ca4ca2eb2815ffe3e0995d7e8fb",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualGeo.py": "3a435d808cf05210eb47a254d8f9f655f22daceb2f7465178847530fbe86846e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLinks.py": "a94ceb54faa6dfde096b9bb4190a6032ea05bf9ba2fa85098cc8e1c73c20b3e1",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLive.py": "ea82da236aa3135958450de44bcb55f5a21f50b4a868ff66d53c078ef4aa17de",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualMass.py": "f72f7fd6ae690fe855a918f0538a61a356e2703f8ee2012daa2b1dd05ff54baf",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualRims.py": "f979fffdfde710966819a6b1f82e5364c2438549ced8a407dc182930458e7804",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualTags.py": "acc6c3808fee236654e57d4081ee697ada0a89ff423166f3d0d967137ff11444",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ProjectDual.py": "5434e7d0dd1f0741f1f89aed9036425e149a6c26e277e95d9923d26e231ac3fd",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ProjectDualBody.py": "93c878df3ff3e88eb6d7c12eaf4e7fb16e9fe96dcaee1b0f58229ca70d66e7f9",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualLabel.py": "ed112aa7047c970caf9538de4e01f3f64996b2a2acefe8e552a0c0b1bddf365f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualLive.py": "2c4af1e249d262baab039479669c7c7fac9a0809094e9d68ee325b55ae59a948",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualOwners.py": "ceba304dde69e710fdf16690479fddd2af5771f7c46ed7fd545289b330048120",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualParams.py": "217589679e2c8109f2259277d746349ef48fdf0e1666ec89e30781630d80b92a",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/BodyClosure.py": "f89b2b4a9856809d2234b6c5cf261c402b3b587213441499bc16fe26640e3456",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CanonicalBody.py": "1fdc4aa0f09045e9f511dbe7400177e11d0ece78da3295bf1a462ea63c022327",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckDualSnaps.py": "7f3860f7af68e045a7ecb210651992303ece584672bc3a8f149e759204392c7c",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckPlaneFrame.py": "247963b7adbc561db2055f0a011c1c84163c66dcfaecfe482001ae4ee67b7c73",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckRimFrame.py": "492f62fa4be34a2eb06f5cec3d3fc6169ee75bbfe056a864a7d10fadac3e5b5e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSheetBody.py": "27856094164895eed94884d1b15ee97c83dd7bfb95052bd47c28c4233506a804",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSheetFrame.py": "0e09b172d6299a30ff45d06a45352fa9af9827fd486e5a622d0bb82a3a3b532e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapFrame.py": "c3da41f314af7ea4398d6b7cc6313d37bfb6a612b5c698e305ef290d60f7740a",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapHead.py": "7fa68e66cef56a8332e2eeb0f65651e698049ebff8b2ae75e2905d53a28a69a6",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapLinks.py": "269bd5a6a7cafe57c86891f0ed95e0cda6a016912018bbce29e0577643107d0f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadCacheId.py": "3bbc289d24c3135a278c04fc58a76751460b03f19e5abc23824490d804850db2",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadSnapRoles.py": "3a49d37106c6feb53a33664c32bf81b8821806c751d338b295a13247b1c7e43f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/SnapBodyFaces.py": "296a1a9044e2bbef320e9a152ddcf87d6131420a74f6adeb0f8de91511ff26ad",
+    "src/convert/adapters/Fusion/Native/Policy/CheckGraph.py": "51cc4f2471c56eb556327266f04f71561d50a38ec739ab8336a76e7fb40be5ef",
+    "src/convert/adapters/Fusion/Native/Policy/CheckPlacement.py": "18354c27fdd2ff217d04a547923d7c3ca881fa83d80d143d2814a3c081841b65",
+    "src/convert/adapters/Fusion/Native/Policy/CheckExtrusion.py": "b14541d5dc7e0a69cf3e3505ba20233df87c0560055f6f7876eb0414df29c282",
+    "src/convert/adapters/Fusion/Native/Policy/CheckFrameValue.py": "92a5a77bdcda2da209f933a03ad5adee6a24c08cbdaed9f19803d92c581da6d1"
+  },
+  "attempts": [
+    {
+      "reason": "strict MatrixValue identity representation equality rejected equivalent XY spellings",
+      "repair": "validate legal identity spellings independently; raw nonidentity frame equality stays exact"
+    },
+    {
+      "reason": "old56 decoded document hash comparison found signed zero drift in baseline eight output paths",
+      "repair": "return canonical identity after complete XY source validation; all56 hashes now identical",
+      "old_source": "DualFrameLive/HistoricalSources/PreCanonicalBasis.py"
+    },
+    {
+      "reason": "source frame fixture occurrence_matrix initially retained identity and was not corrupt",
+      "repair": "encode actual nonidentity occurrence; keep original failing attempt"
+    },
+    {
+      "reason": "unused imported CheckIdentity during incomplete compatibility edit and unused SnapBodyFaces result",
+      "repair": "finish compatibility branch and explicitly discard validated return; no assertion removed"
+    }
+  ],
+  "remaining": [
+    "native generated output lifecycle/acceptance",
+    "other profiles operations and arbitrary frames",
+    "full donor-free writing and coherent neutral edits"
+  ],
+  "canonical_identity_regression": "final complete suite repeated after canonical identity repair"
+}

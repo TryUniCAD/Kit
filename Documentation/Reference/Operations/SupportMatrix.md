@@ -72,6 +72,8 @@ SOLIDWORKS **B** covers only the receipt-bound part profile above; `.SLDASM` out
 Fusion **B** covers the public contract's reconstructed graphs, not all `.f3d` documents.
 The [independent circular draft reader](../../Changes/Fusion/Readers/FusionIndependentDraftReader.md)
 adds read-only XY two-sided source inspection with separate taper controls and complete live/snapshot validation.
+The [qualified XZ extension](../../Changes/Fusion/Readers/FusionDraftFrameReader.md)
+adds source-owned principal XZ placement, preserving the world solid and separate local sketch sheet.
 Its SDK and CLI write paths remain refused; native conversion acceptance is not added.
 Both bounded contracts include neutral JSON transport of admitted state.
 This does not qualify arbitrary JSON-to-native graphs or complete native-to-neutral semantics.

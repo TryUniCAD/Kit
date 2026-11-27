@@ -7,6 +7,9 @@ from convert.adapters.Fusion.Native.Circular.DualSides.ProjectDualBody import (
 from convert.adapters.Fusion.Native.Circular.DualSides.ReadDualParams import (
     ReadDualParams,
 )
+from convert.adapters.Fusion.Native.Circular.DualFrames.ReadDualFrame import (
+    ReadDualFrame,
+)
 from convert.adapters.Fusion.Native.Circular.DualSnapshots.CheckDualSnaps import (
     CheckDualSnaps,
 )
@@ -25,7 +28,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.DistanceValues import GetDistValues
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.geometry.Models.SupportPlane import SupportPlane
-from interchange.geometry.Models.Transform import Transform
+from interchange.geometry.Models.Transform import KTransformIdentity
 from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordSource import CadSource
 
@@ -34,8 +37,9 @@ from interchange.Records.RecordSource import CadSource
 def ProjectDual(
     Model: DocumentModel, Source: CadSource, Graph: NativeGraph, Context: ExtrudeContext
 ) -> CadDocument:
-    CheckGraph(Graph, Context)
     CheckScopes(Graph, Context, Model.Asset.AssetId)
+    Frame = ReadDualFrame(Graph, Context)
+    CheckGraph(Graph, Context, FrameValue=Frame)
     Shape = ReadCircle(Graph, Context)
     Parameters = ReadDualParams(Graph, Context)
     CheckRegion(Graph, Context, (Shape.CurveNode,), Model.Asset.AssetId)
@@ -60,17 +64,26 @@ def ProjectDual(
         -Values.LowerMm,
         Values.TaperRadians,
         Values.SecondTaperRadians,
+        Frame,
     )
-    CheckDualSnaps(Model, Graph, Context, Shape, State)
+    CheckDualSnaps(Model, Graph, Context, Shape, State, Frame)
     CheckSceneRefs(Graph, Model.Graphics)
     Material = ReadMaterial(Graph, Context, Model)
-    Geometry, BodyValue = ProjectDualBody(Context, Shape.Geometry, Values, Material.id)
+    Geometry, BodyValue = ProjectDualBody(
+        Context, Shape.Geometry, Values, Material.id, Frame
+    )
     Title = dict(Model.Asset.Properties).get("documentName", "")
     Document = CadDocument(
         Source,
         (Configuration("default", Title, True),),
         Parameters,
-        (SupportPlane(Context.Plane.Identity, "XY", Transform()),),
+        (
+            SupportPlane(
+                Context.Plane.Identity,
+                "XY" if Frame == KTransformIdentity else "XZ",
+                Frame,
+            ),
+        ),
         (CircleSketch(Context, Shape),),
         (),
         Features,

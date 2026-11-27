@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Circular.DualFrames.DualBodyView import DualBodyView
 from math import cos as Cosine, sin as SineValue
 
 from convert.adapters.Fusion.Native.Circular.CircleShape import CircleShape
@@ -33,7 +34,7 @@ def CheckDualGeo(
     BodyValue, _ = ReadSpanBody(State)
     Center = (Shape.Geometry.center.x / 10, Shape.Geometry.center.y / 10)
     Radius = Shape.Geometry.radius / 10
-    for FaceValue in BodyFaces(State, BodyValue):
+    for FaceValue in BodyFaces(State, DualBodyView(State, BodyValue)):
         RoleName = ReadDualLabel(
             State, State.Entities.index(FaceValue), FirstMm, SecondMm
         )

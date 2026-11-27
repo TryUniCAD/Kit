@@ -1,0 +1,261 @@
+{
+  "base_revision": "5daa5ec6c396d6422afc53be79a6b5c5f5cf24bd",
+  "models": false,
+  "native_calls": 0,
+  "negative": [
+    {
+      "candidate": "Candidates/body_transform.f3d",
+      "emitted": true,
+      "mode": "body_transform",
+      "passed": true,
+      "refusal": "Native dual body placement must be a complete identity",
+      "reparsed": true,
+      "sha256": "ed12fb9afb5ad4f9eff372bc2a895c7aee701962ef7636b213b2ff0b7bd7d6bd",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/ucs_matrix.f3d",
+      "emitted": true,
+      "mode": "ucs_matrix",
+      "passed": true,
+      "refusal": "Native dual frame coordinate and definition matrices disagree",
+      "reparsed": true,
+      "sha256": "ce09fcbda857c6f896389671bd3a10b151eb42ee07536a8c38c1852202c30eca",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/definition_matrix.f3d",
+      "emitted": true,
+      "mode": "definition_matrix",
+      "passed": true,
+      "refusal": "Native dual frame coordinate and definition matrices disagree",
+      "reparsed": true,
+      "sha256": "3b47d6c7dd085db9dbb842e38892a0ef2626b6ac4463d8018757f670c9270b9c",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/occurrence_matrix.f3d",
+      "emitted": true,
+      "mode": "occurrence_matrix",
+      "passed": true,
+      "refusal": "Native Fusion profile requires identity placement",
+      "reparsed": true,
+      "sha256": "30cec1aabe9e5ae3080166114a89919a932271b84d2b05861138ed2f431a3dfa",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/datum_name.f3d",
+      "emitted": true,
+      "mode": "datum_name",
+      "passed": true,
+      "refusal": "Native dual frame datum has an unsupported principal basis",
+      "reparsed": true,
+      "sha256": "45921d061066bc5dda1318d600e5e23abf3da0c207f976e6b049a31b0b0ce592",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/datum_origin.f3d",
+      "emitted": true,
+      "mode": "datum_origin",
+      "passed": true,
+      "refusal": "Unsupported native Fusion WorkPlane.isOrigin",
+      "reparsed": true,
+      "sha256": "06f187e01bd622590f084e5aed03f3f9158a410c6e93cb752a5af31b464f009a",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/datum_owner.f3d",
+      "emitted": true,
+      "mode": "datum_owner",
+      "passed": true,
+      "refusal": "Native dual frame does not select the owned origin datum",
+      "reparsed": true,
+      "sha256": "9df1f12c1d6a9b42034f6f0d65cf1a2f6510d9f37401f4240443b3a8be0128aa",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/definition_owner.f3d",
+      "emitted": true,
+      "mode": "definition_owner",
+      "passed": true,
+      "refusal": "Native Fusion semantic link requires an entity reference",
+      "reparsed": true,
+      "sha256": "0f87c01adf26cf8d7f03a52444f7911e0c55e02c6c79f15aea9b21511fb80e12",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/definition_active.f3d",
+      "emitted": true,
+      "mode": "definition_active",
+      "passed": true,
+      "refusal": "Unsupported native Fusion DRMatrix.isActive",
+      "reparsed": true,
+      "sha256": "ba9b3929c1a14b727ea3758dfa35df408a5909fae63ab0c60deadad22a4f3f86",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/definition_inferred.f3d",
+      "emitted": true,
+      "mode": "definition_inferred",
+      "passed": true,
+      "refusal": "Unsupported native Fusion DRMatrix.isInferredXAxis",
+      "reparsed": true,
+      "sha256": "8923802f2af9a7ac9b7059712b234456b1d61ebd3932cceee821dde104fbb8ff",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/reference_scope.f3d",
+      "emitted": true,
+      "mode": "reference_scope",
+      "passed": true,
+      "refusal": "Native Fusion semantic field requires a value object",
+      "reparsed": true,
+      "sha256": "453197fc7a9800a6039c83058808ce1877d6c1493310db00227d73c8f5088185",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/update_owner.f3d",
+      "emitted": true,
+      "mode": "update_owner",
+      "passed": true,
+      "refusal": "Native Fusion semantic link requires an entity reference",
+      "reparsed": true,
+      "sha256": "878fbbb4f417923997cae54d3a51600b4cb6c89f608a59a77631f3a4310649d4",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/update_health.f3d",
+      "emitted": true,
+      "mode": "update_health",
+      "passed": true,
+      "refusal": "Unsupported native Fusion DynamicUpdateData.isBodyOK",
+      "reparsed": true,
+      "sha256": "903fb28d9af1c1cfe90efc3b61b72629acf4470e2bd96bd9b9ae5e03dabf846e",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    },
+    {
+      "candidate": "Candidates/instance_owner.f3d",
+      "emitted": true,
+      "mode": "instance_owner",
+      "passed": true,
+      "refusal": "Native Fusion semantic link requires an entity reference",
+      "reparsed": true,
+      "sha256": "25d8baccdb4787c0ff7e1d7e65f31d0305bc7249eccdffa00419c3b7c8bd19f5",
+      "source_sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134"
+    }
+  ],
+  "positive": [
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "frame",
+      "passed": false,
+      "sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "frame_edit_first",
+      "passed": false,
+      "sha256": "daca180af5a5ae874bf19084894a73e835b6a78760d9a3adacf70471b0abda65",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_first.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "frame_edit_second",
+      "passed": false,
+      "sha256": "0dca70e11c2e4d4db2965991818866b591312076f7b807ff0d7210ae9025d3bb",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "frame_edit_draft_first",
+      "passed": false,
+      "sha256": "770505f9683fc285e6ccd8fbbc321c24dc3810b54f6a074a9dea249b5eb8871f",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_first.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "frame_edit_draft_second",
+      "passed": false,
+      "sha256": "fdeb76d346da9c5fc171106dd727802a98f9572f9057438c0e2d8b3cf52fd6a8",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_second.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "frame_restored",
+      "passed": false,
+      "sha256": "a25e0c4064bd27085911597e8f532cd5953eccea0cbbd3f99836977014d3058c",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_restored.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "holdout_a",
+      "passed": false,
+      "sha256": "5523335a3ac6e3a04758251c00bc053be8979cdc3548737b24b60e6bb8dc87ca",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "holdout_a_edit_first",
+      "passed": false,
+      "sha256": "e3bdf6916128e4c73265a8562fa192d3e69b06b685cb48a50e97d9e07fcb0bd9",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_first.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "holdout_a_edit_second",
+      "passed": false,
+      "sha256": "4ea5780f17b168763a470482e6d9f38773bb109c457e80b996490055294c60cb",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_second.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "holdout_a_edit_draft_first",
+      "passed": false,
+      "sha256": "47f9e7efd56b2710f74f252ad1a8ff53b6d623e31c818a22eb93ae34e04e09c2",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_first.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "holdout_a_edit_draft_second",
+      "passed": false,
+      "sha256": "bd6515a9f80776ffd1d7a6223651e1b6ad9723242e8320d9c7db483a7f9d49f5",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_edit_draft_second.f3d"
+    },
+    {
+      "error": "Traceback (most recent call last):\n  File \"<checkout>/re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py\", line 31, in <module>\n    row.update(passed=frame==sample.Frame and state==ReadDualLive(model.Bodies[0].History,context.Extrude.Fields['endModelHS']) and len(state.Entities)==len(local.Entities)==48,world_entities=len(state.Entities),local_entities=len(local.Entities),frame=EncodeState(frame))\n                                                                                                                                                                                                                                                             ~~~~~~~~~~~^^^^^^^\n  File \"<checkout>/src/convert/adapters/Fusion/State/EncodeState.py\", line 68, in EncodeState\n    raise ValueError(\"Unsupported Fusion semantic-state value\")\nValueError: Unsupported Fusion semantic-state value\n",
+      "identity": "holdout_a_restored",
+      "passed": false,
+      "sha256": "2474eb7de2666e044e2f1c34f84aae8d6cb800e18304436a529bca0cd7cf505e",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/holdout_a_restored.f3d"
+    }
+  ],
+  "rule_sha256": "d858b9eed42681041f20dbf089ac5625295f18e9eb50030847040f81b269fd7c",
+  "sources": {
+    "re/Fusion/DecodedPromotion20261127/DualFrameLive/ProveProduction.py": "49d137878de08c015b68a0f557c42608a1eddd7fbc10aeffedec40b36a751433",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameOwn.py": "06679a22fd8e4d814834e316f8c8490967e523f25d7ba80789d95d0531e1e596",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameRef.py": "0d950706f781216de6e96e33b965a47c19f50b22d87f43c2b2d8408e123f727e",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/DualBodyView.py": "08461e56e92c8983b0e68f99108fe050d76dc911ac633cbefdb9bad0f9533d1a",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualEntity.py": "5fce82a61a9e902775824a99026644b2d9ab37fabbd3c8f69e4865485c50a973",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualVector.py": "023810c8b7701b1c1169a537370facc444d02276a937501649d602e5301dc470",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualView.py": "3c7c7223c0bb200ef3fc4c8511ed863b33420f57bfa0c93feeb6a7fe7964bf38",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadDualFrame.py": "9f8bdb3740d3fa0a025dc365f5298e569ddb55c560873a42d31f6c7d83f83f0d",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadFrameBasis.py": "2348d1af8c7c88102709381ccda6cfff25662d38ce8e00e7ae778ef5acc03ee4",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualCover.py": "c56b72450386e2f7a37b0c3daa41f8cd86858ca4ca2eb2815ffe3e0995d7e8fb",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualGeo.py": "3a435d808cf05210eb47a254d8f9f655f22daceb2f7465178847530fbe86846e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLive.py": "ea82da236aa3135958450de44bcb55f5a21f50b4a868ff66d53c078ef4aa17de",
+    "tests/Convert/Integration/Fusion/DualFrameLive/ChangeBodyFrame.py": "7791ac6ec8a2c54c83b90100a363fc4f59f2ac4f0155934a63afafbed9b4cb6e",
+    "tests/Convert/Integration/Fusion/DualFrameLive/ChangeFrameDoc.py": "218164a4fc6551836b7238f4167da0f01bf1f10c416c99e138902207a4437ca8",
+    "tests/Convert/Integration/Fusion/DualFrameLive/DualFrameBadTests.py": "b7fe6fed518961c718ea4906f4dde5fd78b2014f686d5adc3de8ab7a41b2961d",
+    "tests/Convert/Integration/Fusion/DualFrameLive/DualFrameTests.py": "af238d5e3364e79a1a664f753164b4cfc51dbbb6ff41760a653d6d7da1baa47e",
+    "tests/Convert/Integration/Fusion/DualFrameLive/FrameFormTests.py": "deea3ffaaaee424329a6b8e37b0f939ec078d4148401bd72e1ec4a4b224d9b58"
+  },
+  "summary": {
+    "actual_archive_emissions": 14,
+    "actual_archive_reparses": 14,
+    "negative_passed": 14,
+    "negatives": 14,
+    "positive_passed": 0,
+    "positives": 12
+  }
+}

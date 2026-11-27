@@ -1,6 +1,6 @@
 from hashlib import sha256 as HashBytes
 
-from pytest import mark as MarkTests, raises as RaisesError
+from pytest import mark as MarkTests
 
 from convert import open_document as OpenDocument
 from interchange.geometry.Models.Transform import Transform
@@ -12,6 +12,9 @@ from tests.Convert.Integration.Fusion.DualSide.Admission.ReadAdmitCases import (
 )
 from tests.Convert.Integration.Fusion.DualSide.DualCase import DualCase
 from tests.Convert.Integration.Fusion.DualSide.ReadDualCases import ReadDualCases
+from tests.Convert.Integration.Fusion.DualSide.Admission.CheckWorldDoc import (
+    CheckWorldDoc,
+)
 
 
 # every committed independent edit restoration and held out xy state crosses the public sdk boundary
@@ -24,10 +27,11 @@ def CheckDualAdmit(Sample: DualCase) -> None:
     CheckAdmitDoc(Document, Sample)
 
 
-# solved geometry in a different frame cannot bypass existing native placement qualification
+# independently qualified source frames must retain their actual support and world solid geometry
 @MarkTests.parametrize(
     "Sample", tuple(Value for Value in ReadDualCases() if Value.Frame != Transform())
 )
 def CheckDualFrame(Sample: DualCase) -> None:
-    with RaisesError(ValueError):
-        _ = OpenDocument(Sample.Source, strict=True)
+    Document = OpenDocument(Sample.Source, strict=True)
+    CheckAdmitDoc(Document, Sample)
+    CheckWorldDoc(Document, Sample)

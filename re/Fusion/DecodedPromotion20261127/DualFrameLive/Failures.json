@@ -1,0 +1,34 @@
+[
+  {
+    "attempt": "FrameArchiveNegativesV1",
+    "result": "2 passed, 1 failed",
+    "case": "occurrence_matrix",
+    "reason": "Fixture replaced actual identity occurrence transform with equivalent implicit identity; no source corruption occurred. Corrected to actual nonidentity principal XZ matrix."
+  },
+  {
+    "attempt": "StaticV1",
+    "result": "steering 3 and mypy 2 errors",
+    "reason": "Two long function names,32-line helper,unrefined native history/end-slot types. Corrected names and narrowed actual native types."
+  },
+  {
+    "attempt": "FrameArchiveNegativesV2",
+    "result": "11 passed,1 failed",
+    "case": "update_health",
+    "reason": "Fixture helper refactor omitted update_health dispatch before emission; corrected combined owner/health branch. No production rule failed."
+  },
+  {
+    "attempt": "BodyTransformNegativeV1",
+    "result": "fixture error before emission",
+    "reason": "MakeLiveTable.Records is a stable-slot tuple, not a mapping; corrected to select only actual live slots."
+  },
+  {
+    "attempt": "ProductionProofV1",
+    "result": "0/12 positive proof exports,14/14 encoded negatives",
+    "reason": "Existing EncodeState accepts Fusion semantic nodes, not neutral Transform; all live validators passed before exporter rejected frame metadata. Changed metadata to explicit mathematical origin/axes. Original receipt, candidates and exact script retained."
+  },
+  {
+    "attempt": "MixedIdentityFormsV1",
+    "result": "2/2 rejected unexpectedly",
+    "reason": "Initial compatibility text replacement missed the formatted equality condition, leaving exact typed equality and an unused import. Stronger fixtures set opposite implicit/explicit identities and exposed the error. Added actual XY CheckIdentity branch; retained old source by exact proof hash."
+  }
+]

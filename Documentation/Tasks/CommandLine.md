@@ -106,6 +106,7 @@ Creation requires validated controls and an active declared profile reference; m
 Creator contours currently support one finite positive-radius circle or a simple closed three/four-sided straight ring; member tags must match geometry, and more complex profiles remain inspection-only.
 Body and B-rep conversion also requires Python 3.14 and a matching SDK Fusion authoring/native-state regeneration contract; generic typed histories remain inspection-only.
 Strict `kit decode` also reads the bounded independently drafted two-sided circular XY family.
+The source-qualified principal XZ frame is also supported after independent live and mixed-space snapshot checks.
 Both taper controls, parameter owners and analytic solids remain available in its neutral inspection document.
 `kit convert` still refuses this read-only family before replacing a destination.
 [Source boundary and verification](../Changes/Fusion/Readers/FusionIndependentDraftReader.md)

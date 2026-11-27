@@ -1,0 +1,330 @@
+{
+  "split": "discovery",
+  "rule_pins": {
+    "re/Fusion/DecodedPromotion20261127/DualFrameSnapshots/FrameRules.md": "407c80924cb5eb0aa19d675fe5f6159a89fbd4c86321f2f38981731b9d827377",
+    "re/Fusion/DecodedPromotion20261127/DualFrameSnapshots/ProveFrameRule.py": "44c00a175130716f9eca9d24f442583b781c10306db6e8693dce8a28a31f0557",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/BodyClosure.py": "f89b2b4a9856809d2234b6c5cf261c402b3b587213441499bc16fe26640e3456",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CanonicalBody.py": "1fdc4aa0f09045e9f511dbe7400177e11d0ece78da3295bf1a462ea63c022327",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckDualSnaps.py": "42e4045a4f5e23d06dbfe19f5c3d1e984d235142bafa9913fe4b4c7ef03361ea",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSheetBody.py": "9a38d12f91ffb46840a03942df4f6a252a42c75526cdc694f45ceca6393d9e64",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapHead.py": "7fa68e66cef56a8332e2eeb0f65651e698049ebff8b2ae75e2905d53a28a69a6",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapLinks.py": "269bd5a6a7cafe57c86891f0ed95e0cda6a016912018bbce29e0577643107d0f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadCacheId.py": "3bbc289d24c3135a278c04fc58a76751460b03f19e5abc23824490d804850db2",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadSnapRoles.py": "c873a802d45cdb79d9f0ef709fece31ca883cf893fdf1fb7c3982d56f583bc26"
+  },
+  "capture_sha256": "2e0e4c68d8bf1aaeedbc0ba7af681698024c3bc5643eb96ec62a7959b95fb2ef",
+  "native_calls": 0,
+  "models": false,
+  "sources": [
+    {
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d",
+      "sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134",
+      "stage": "baseline",
+      "status": "passed",
+      "solid_correspondence": true,
+      "source_frame": {
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "x_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "y_axis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        },
+        "z_axis": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "body_roles": [
+        [
+          1,
+          "solid"
+        ],
+        [
+          2,
+          "profile"
+        ],
+        [
+          3,
+          "sketch"
+        ]
+      ],
+      "closure_sizes": [
+        45,
+        14,
+        13
+      ],
+      "snapshot_records": 73,
+      "sheet_correspondence": true,
+      "all_records_accounted": true
+    },
+    {
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_first.f3d",
+      "sha256": "daca180af5a5ae874bf19084894a73e835b6a78760d9a3adacf70471b0abda65",
+      "stage": "edit_first",
+      "status": "passed",
+      "solid_correspondence": true,
+      "source_frame": {
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "x_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "y_axis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        },
+        "z_axis": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "body_roles": [
+        [
+          1,
+          "solid"
+        ],
+        [
+          2,
+          "profile"
+        ],
+        [
+          3,
+          "sketch"
+        ]
+      ],
+      "closure_sizes": [
+        45,
+        14,
+        13
+      ],
+      "snapshot_records": 73,
+      "sheet_correspondence": true,
+      "all_records_accounted": true
+    },
+    {
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d",
+      "sha256": "0dca70e11c2e4d4db2965991818866b591312076f7b807ff0d7210ae9025d3bb",
+      "stage": "edit_second",
+      "status": "passed",
+      "solid_correspondence": true,
+      "source_frame": {
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "x_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "y_axis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        },
+        "z_axis": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "body_roles": [
+        [
+          1,
+          "solid"
+        ],
+        [
+          2,
+          "profile"
+        ],
+        [
+          3,
+          "sketch"
+        ]
+      ],
+      "closure_sizes": [
+        45,
+        14,
+        13
+      ],
+      "snapshot_records": 73,
+      "sheet_correspondence": true,
+      "all_records_accounted": true
+    },
+    {
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_first.f3d",
+      "sha256": "770505f9683fc285e6ccd8fbbc321c24dc3810b54f6a074a9dea249b5eb8871f",
+      "stage": "edit_draft_first",
+      "status": "passed",
+      "solid_correspondence": true,
+      "source_frame": {
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "x_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "y_axis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        },
+        "z_axis": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "body_roles": [
+        [
+          1,
+          "solid"
+        ],
+        [
+          2,
+          "profile"
+        ],
+        [
+          3,
+          "sketch"
+        ]
+      ],
+      "closure_sizes": [
+        45,
+        14,
+        13
+      ],
+      "snapshot_records": 73,
+      "sheet_correspondence": true,
+      "all_records_accounted": true
+    },
+    {
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_second.f3d",
+      "sha256": "fdeb76d346da9c5fc171106dd727802a98f9572f9057438c0e2d8b3cf52fd6a8",
+      "stage": "edit_draft_second",
+      "status": "passed",
+      "solid_correspondence": true,
+      "source_frame": {
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "x_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "y_axis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        },
+        "z_axis": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "body_roles": [
+        [
+          1,
+          "solid"
+        ],
+        [
+          2,
+          "profile"
+        ],
+        [
+          3,
+          "sketch"
+        ]
+      ],
+      "closure_sizes": [
+        45,
+        14,
+        13
+      ],
+      "snapshot_records": 73,
+      "sheet_correspondence": true,
+      "all_records_accounted": true
+    },
+    {
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_restored.f3d",
+      "sha256": "a25e0c4064bd27085911597e8f532cd5953eccea0cbbd3f99836977014d3058c",
+      "stage": "restore_draft_second",
+      "status": "passed",
+      "solid_correspondence": true,
+      "source_frame": {
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "x_axis": {
+          "x": 1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "y_axis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        },
+        "z_axis": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "body_roles": [
+        [
+          1,
+          "solid"
+        ],
+        [
+          2,
+          "profile"
+        ],
+        [
+          3,
+          "sketch"
+        ]
+      ],
+      "closure_sizes": [
+        45,
+        14,
+        13
+      ],
+      "snapshot_records": 73,
+      "sheet_correspondence": true,
+      "all_records_accounted": true
+    }
+  ],
+  "summary": {
+    "sources": 6,
+    "passed": 6
+  }
+}

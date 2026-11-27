@@ -1,0 +1,8 @@
+{
+  "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadFrameBasis.py": {
+    "historical_sha256": "51f1cac10b684c8e1ef4d3bc901bbe1aa061e8cd9f421e7358dca8e45982c63a",
+    "historical_source": "re/Fusion/DecodedPromotion20261127/DualFrameLive/HistoricalSources/PreCanonicalBasis.py",
+    "current_sha256": "3c29f1b8b65974610a8fbb01995547af5663ebabbe0b9442afc8daadb1e07c8a",
+    "reason": "canonical identity compatibility restoration after complete source checks"
+  }
+}

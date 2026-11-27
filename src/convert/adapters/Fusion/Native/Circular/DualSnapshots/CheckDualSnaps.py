@@ -2,7 +2,6 @@ from convert.adapters.Fusion.Native.Circular.CircleShape import CircleShape
 from convert.adapters.Fusion.Native.Circular.DualSnapshots.CheckSnapHead import (
     CheckSnapHead,
 )
-from convert.adapters.Fusion.Native.Graph.GraphValues import CheckIdentity
 from convert.adapters.Fusion.Native.Circular.DualSnapshots.BodyClosure import (
     BodyClosure,
 )
@@ -18,9 +17,17 @@ from convert.adapters.Fusion.Native.Circular.DualSnapshots.CheckSnapLinks import
 from convert.adapters.Fusion.Native.Circular.DualSnapshots.ReadSnapRoles import (
     ReadSnapRoles,
 )
-from convert.adapters.Fusion.Native.Circular.Snapshots.CheckSheets import CheckSheets
+from convert.adapters.Fusion.Native.Circular.DualSnapshots.CheckSheetFrame import (
+    CheckSheetFrame,
+)
+from convert.adapters.Fusion.Native.Circular.DualSnapshots.CheckSnapFrame import (
+    CheckSnapFrame,
+)
+from convert.adapters.Fusion.Native.Circular.DualSnapshots.SnapBodyFaces import (
+    SnapBodyFaces,
+)
+from interchange.geometry.Models.Transform import KTransformIdentity, Transform
 from convert.adapters.Fusion.Native.Circular.Snapshots.SnapAccess import SnapEntity
-from convert.adapters.Fusion.Native.Circular.Snapshots.SnapFaces import BodyFaces
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Rectangle.CurveTags import CurveTag
@@ -39,14 +46,14 @@ def CheckDualSnaps(
     Context: ExtrudeContext,
     Shape: CircleShape,
     LiveState: GeometryState,
+    Frame: Transform = KTransformIdentity,
 ) -> None:
     if len(Model.Snapshots) != 1 or not isinstance(
         Model.Snapshots[0].Snapshot, GeometryState
     ):
         raise ValueError("Dual extrusion requires one complete typed saved snapshot")
     State = Model.Snapshots[0].Snapshot
-    CheckIdentity(Context.Plane.Fields["transform"])
-    CheckIdentity(Context.Sketch.Fields["occurrenceTransform"])
+    CheckSnapFrame(Graph, Context, Frame)
     CheckSnapHead(State, LiveState)
     Roles = ReadSnapRoles(State)
     CheckSnapLinks(Model, Graph, Context, tuple(RoleName for _, RoleName in Roles))
@@ -66,8 +73,9 @@ def CheckDualSnaps(
         if RoleName == "solid":
             continue
         Closures.append(CheckSheetBody(State, Identity, CurveTag(Shape.CurveNode)))
-        SheetFaces.extend(BodyFaces(State, SnapEntity(State, Identity, BodyNode)))
-    CheckSheets(State, tuple(SheetFaces), Shape)
+        SheetFaces.extend(SnapBodyFaces(State, SnapEntity(State, Identity, BodyNode)))
+    for FaceValue in SheetFaces:
+        CheckSheetFrame(State, FaceValue, Shape, Frame)
     if sum(len(Closure) for Closure in Closures) != len(
         State.Entities
     ) - 1 or set().union(*map(set, Closures)) != set(range(1, len(State.Entities))):

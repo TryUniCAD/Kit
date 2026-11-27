@@ -5,6 +5,7 @@ The bounded source family requires identity XY placement, a full unconstrained c
 Both acute taper controls remain independent parameter identities, including equal numeric values.
 Collapsed end radii and merged side slopes remain outside this drafted route.
 Existing untapered controls retain their existing reader path.
+The later [source-qualified XZ extension](FusionDraftFrameReader.md) adds the principal XZ placement after separate frame and snapshot proofs.
 
 Use `open_document(path, strict=True)` or `kit decode source.f3d --output document.json`.
 The output retains the source sketch, support, feature/body identities, parameter expressions, exact analytic BRep and effective material.

@@ -8,7 +8,7 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import (
 from convert.Geometry.Extrude.Circular.DualSide.MeasureDualMass import MeasureDualMass
 from interchange.Features.DistanceValues import DistExtValues
 from interchange.geometry.Models.GeometryCurves import CircleGeometry
-from interchange.geometry.Models.Transform import Transform
+from interchange.geometry.Models.Transform import KTransformIdentity, Transform
 from interchange.geometry.Models.VectorSpace import SpaceVector
 
 
@@ -20,11 +20,12 @@ def CheckDualMass(
     Volume: float,
     AreaValue: float,
     Center: SpaceVector,
+    FrameValue: Transform = KTransformIdentity,
 ) -> None:
     if Values.SecondTaperRadians is None:
         raise ValueError("Native circular sides require an independent second taper")
     Diagonal, CrossTerms = MeasureDualMass(
-        Transform(),
+        FrameValue,
         Profile,
         Values.UpperMm,
         -Values.LowerMm,

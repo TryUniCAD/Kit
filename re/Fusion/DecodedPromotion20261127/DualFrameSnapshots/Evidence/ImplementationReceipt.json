@@ -1,0 +1,73 @@
+{
+  "source_hashes": {
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/BodyClosure.py": "f89b2b4a9856809d2234b6c5cf261c402b3b587213441499bc16fe26640e3456",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CanonicalBody.py": "1fdc4aa0f09045e9f511dbe7400177e11d0ece78da3295bf1a462ea63c022327",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckDualSnaps.py": "7f3860f7af68e045a7ecb210651992303ece584672bc3a8f149e759204392c7c",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckPlaneFrame.py": "247963b7adbc561db2055f0a011c1c84163c66dcfaecfe482001ae4ee67b7c73",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckRimFrame.py": "492f62fa4be34a2eb06f5cec3d3fc6169ee75bbfe056a864a7d10fadac3e5b5e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSheetBody.py": "27856094164895eed94884d1b15ee97c83dd7bfb95052bd47c28c4233506a804",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSheetFrame.py": "0e09b172d6299a30ff45d06a45352fa9af9827fd486e5a622d0bb82a3a3b532e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapFrame.py": "c3da41f314af7ea4398d6b7cc6313d37bfb6a612b5c698e305ef290d60f7740a",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapHead.py": "7fa68e66cef56a8332e2eeb0f65651e698049ebff8b2ae75e2905d53a28a69a6",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/CheckSnapLinks.py": "269bd5a6a7cafe57c86891f0ed95e0cda6a016912018bbce29e0577643107d0f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadCacheId.py": "3bbc289d24c3135a278c04fc58a76751460b03f19e5abc23824490d804850db2",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/ReadSnapRoles.py": "3a49d37106c6feb53a33664c32bf81b8821806c751d338b295a13247b1c7e43f",
+    "src/convert/adapters/Fusion/Native/Circular/DualSnapshots/SnapBodyFaces.py": "296a1a9044e2bbef320e9a152ddcf87d6131420a74f6adeb0f8de91511ff26ad",
+    "tests/Convert/Integration/Fusion/DualFrameSnapshots/CheckFramedSnap.py": "136f2b292b10c0ca7cf2945703dd96141d479130d57c689a28696c5d8816b388",
+    "tests/Convert/Integration/Fusion/DualFrameSnapshots/FrameGuardTests.py": "da59bc6c49ee3e5680dd2969443e160c3ee4b0d1f2d067eabfffaa4c9652cc0a",
+    "tests/Convert/Integration/Fusion/DualFrameSnapshots/FrameSnapTests.py": "113b1aad1be9d64d5184257c5229515490f4dae6a9c883821d7c170465323265",
+    "tests/Convert/Integration/Fusion/DualFrameSnapshots/MatrixFormTests.py": "246201dfd9aefd7fe02ab563f3950dd1202111881eff4b0ee1c5157e2022c3af",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameOwn.py": "06679a22fd8e4d814834e316f8c8490967e523f25d7ba80789d95d0531e1e596",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/CheckFrameRef.py": "0d950706f781216de6e96e33b965a47c19f50b22d87f43c2b2d8408e123f727e",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/DualBodyView.py": "08461e56e92c8983b0e68f99108fe050d76dc911ac633cbefdb9bad0f9533d1a",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualEntity.py": "5fce82a61a9e902775824a99026644b2d9ab37fabbd3c8f69e4865485c50a973",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualVector.py": "023810c8b7701b1c1169a537370facc444d02276a937501649d602e5301dc470",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/LocalDualView.py": "3c7c7223c0bb200ef3fc4c8511ed863b33420f57bfa0c93feeb6a7fe7964bf38",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadDualFrame.py": "9f8bdb3740d3fa0a025dc365f5298e569ddb55c560873a42d31f6c7d83f83f0d",
+    "src/convert/adapters/Fusion/Native/Circular/DualFrames/ReadFrameBasis.py": "51f1cac10b684c8e1ef4d3bc901bbe1aa061e8cd9f421e7358dca8e45982c63a",
+    "Documentation/Gotchas/Conversion/Fusion/Geometry/Snapshots/IdentityBodyTransformIsNotSketchFrame.md": "0bb4e33730834df955483c84165f092dd0d9ca7fc4cdcc13b6c71b39e3edb70d"
+  },
+  "publication_binding": "parent must bind these exact working file hashes and frozen historical hashes to accepted publication revisions",
+  "frozen_rule_seal_sha256": "07136b7ea03dd0ca2e86a10a064bd3dca671a0dcbac14744512f5f69f6d889d3",
+  "frozen_proof_precedes_source_implementation": true,
+  "native_calls": 0,
+  "models": false,
+  "conversion_acceptance": false,
+  "verification": {
+    "archive_integration_cases": 93,
+    "duration_seconds": 9.09,
+    "qualified_source_passes": 68,
+    "default_xy_passes": 56,
+    "default_xz_refusals": 12,
+    "encoded_counterexample_refusals": 6,
+    "equivalent_identity_form_regressions": 2,
+    "mypy": "pinned2.4.1 withpytest9.1.1 finalpasses17ownfiles after explicit return consumption",
+    "steering": "passes17ownfiles",
+    "black": "17ownfilescheckedunchanged",
+    "pyright": "parent composing check; unused SnapBodyFaces return explicitly consumed after parent finding",
+    "gotcha_format": "cachedprettier3.6.2formatted"
+  },
+  "dependencies": {
+    "identity_body_comparison": "shared DualFrames/DualBodyView complete identity certificate; original records remain in closures",
+    "selected_frame": "shared DualFrames/ReadDualFrame source-selected plane recipe ownership and proper basis guard; test compares its output with recorded API frame"
+  },
+  "retained_attempts": [
+    {
+      "kind": "ambient_runtime_failure",
+      "detail": "one ad hoc counterexample recheck used Homebrew Python3.14.6 with broken system Expat linkage; repeated using locked Python environment in ProveImplementation and all six counterexamples refused"
+    },
+    {
+      "kind": "static_return_failure",
+      "detail": "parent Pyright found unused SnapBodyFaces result in structural sheet validator; explicitly consumed with no behavior change"
+    },
+    {
+      "kind": "refuted_inference",
+      "detail": "datum plane tangent basis cannot be inferred directly from selected sketch UCS columns; qualified selected basis used instead"
+    }
+  ],
+  "remaining_gaps": [
+    "no native generated-file acceptance or target conversion",
+    "public SDK/CLI combined evidence and historical document-hash comparison owned by parent",
+    "broader arbitrary frames remain unqualified; current source-selected reader admits only its proven principal plane rules"
+  ]
+}

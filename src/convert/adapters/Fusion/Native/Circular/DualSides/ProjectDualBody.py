@@ -8,7 +8,7 @@ from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.Features.DistanceValues import DistExtValues
 from interchange.Features.FeatureBody import DesignBody
 from interchange.geometry.Models.GeometryCurves import CircleGeometry
-from interchange.geometry.Models.Transform import Transform
+from interchange.geometry.Models.Transform import KTransformIdentity, Transform
 from interchange.Records.RecordTopology import TopologyCounts
 
 
@@ -18,19 +18,20 @@ def ProjectDualBody(
     Profile: CircleGeometry,
     Values: DistExtValues,
     MaterialId: str,
+    FrameValue: Transform = KTransformIdentity,
 ) -> tuple[BrepModel, DesignBody]:
     if Values.SecondTaperRadians is None or Values.OffsetMm != 0:
         raise ValueError("Native circular draft sides require a profile plane start")
     Geometry, Volume, AreaValue, Center, Bounds = BuildDualSide(
         Context.BodyNode.Identity,
-        Transform(),
+        FrameValue,
         Profile,
         Values.UpperMm,
         -Values.LowerMm,
         Values.TaperRadians,
         Values.SecondTaperRadians,
     )
-    CheckDualMass(Context, Profile, Values, Volume, AreaValue, Center)
+    CheckDualMass(Context, Profile, Values, Volume, AreaValue, Center, FrameValue)
     Counts = TopologyCounts(
         1,
         len(Geometry.shells),

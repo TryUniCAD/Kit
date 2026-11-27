@@ -18,7 +18,13 @@ from convert.adapters.Fusion.Native.Circular.DualSides.ReadDualOwners import (
 )
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.GraphChecks import RequireFields
-from convert.adapters.Fusion.Native.Graph.GraphValues import CheckIdentity
+from convert.adapters.Fusion.Native.Circular.DualFrames.ReadDualFrame import (
+    ReadDualFrame,
+)
+from convert.adapters.Fusion.Native.Circular.DualFrames.LocalDualView import (
+    LocalDualView,
+)
+from interchange.geometry.Models.Transform import KTransformIdentity, Transform
 from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.Formats.Fusion.BrepCodec.Journal.JournalModel import JournalModel
@@ -39,8 +45,10 @@ def CheckDualLive(
     SecondMm: float,
     FirstTaper: float,
     SecondTaper: float,
+    FrameValue: Transform = KTransformIdentity,
 ) -> GeometryState:
-    CheckIdentity(Context.Plane.Fields["transform"])
+    if ReadDualFrame(Graph, Context) != FrameValue:
+        raise ValueError("Native dual live frame must match its qualified source")
     RequireFields(
         Context.Extrude,
         {
@@ -66,10 +74,11 @@ def CheckDualLive(
     if not isinstance(History, JournalModel):
         raise ValueError("Native dual sides require typed journal history")
     State = ReadDualLive(History, IntegerValue(Context.Extrude.Fields["endModelHS"]))
-    CheckDualCover(State)
-    CheckDualGeo(State, Shape, FirstMm, SecondMm, FirstTaper, SecondTaper)
-    CheckDualRims(State, Shape, FirstMm, SecondMm, FirstTaper, SecondTaper)
-    Operations, Primary = ReadDualOwners(Graph, Context, Model, Shape, State)
-    CheckDualTags(State, Shape, Operations, Primary, FirstMm, SecondMm)
-    CheckDualLinks(State, Shape, FirstMm, SecondMm)
+    Local = LocalDualView(State, FrameValue)
+    CheckDualCover(Local)
+    CheckDualGeo(Local, Shape, FirstMm, SecondMm, FirstTaper, SecondTaper)
+    CheckDualRims(Local, Shape, FirstMm, SecondMm, FirstTaper, SecondTaper)
+    Operations, Primary = ReadDualOwners(Graph, Context, Model, Shape, Local)
+    CheckDualTags(Local, Shape, Operations, Primary, FirstMm, SecondMm)
+    CheckDualLinks(Local, Shape, FirstMm, SecondMm)
     return State

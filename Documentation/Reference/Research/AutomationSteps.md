@@ -1029,6 +1029,10 @@ It investigates the twelve stored XZ circular draft sources, deriving frame rule
 Dependencies are the completed bounded XY reader, source API transforms and complete live/snapshot correspondence.
 Exit requires actual frame/axis ownership, world-space geometry and mass, strict SDK/CLI reads, preserved XY controls and encoded frame counterexamples.
 No shared decoder change is authorized until the frame rule and ownership are recorded; native writing and acceptance remain separate.
+The recorded source-selected rule now passes six discovery and six reserved XZ states without refitting.
+The composed public reader admits all 68 source files, including the twelve earlier placement refusals, with world geometry and mixed-space snapshots preserved.
+The original 56 XY document hashes remain identical against pinned SDK `2d40034ae` after canonical identity compatibility was restored.
+The [frame source receipt](../../../re/Fusion/DecodedPromotion20261127/DualFramePublic/Verification.json) retains encoded counterexamples, historical source versions and exact verification.
 Thirteen source-free Fusion span candidates pass typed equality and 117 role/cache comparisons; sixteen separate reconstruction candidates pass 128 graph checks and 48 state cycles.
 SOLIDWORKS reverse candidates and genuine saved controls retain their explicit typed-grammar, geometry and native-acceptance gaps.
 The subsequent offline phase adds bounded reversed cold-part reading and carries neutral reversal through the existing generative preparation pipeline.

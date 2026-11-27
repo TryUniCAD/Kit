@@ -1,0 +1,1294 @@
+{
+  "base_revision": "5daa5ec6c396d6422afc53be79a6b5c5f5cf24bd",
+  "capture_sha256": "2e0e4c68d8bf1aaeedbc0ba7af681698024c3bc5643eb96ec62a7959b95fb2ef",
+  "case": "frame",
+  "frame_proof_sha256": "d33453a3a1a5f199d183d5a7f245558068ebe873a49deebf5f15c00ae7b17fbe",
+  "models": false,
+  "native_api_calls": 0,
+  "rows": [
+    {
+      "checks": [
+        {
+          "field": "unique_reference",
+          "passed": true
+        },
+        {
+          "field": "selected_origin_member",
+          "passed": true
+        },
+        {
+          "field": "datum_component_parent",
+          "passed": true
+        },
+        {
+          "field": "ucs_component_parent",
+          "passed": true
+        },
+        {
+          "field": "sketch_ucs",
+          "passed": true
+        },
+        {
+          "field": "reciprocal_sketch_feature",
+          "passed": true
+        },
+        {
+          "field": "original_xz_datum",
+          "passed": true
+        },
+        {
+          "field": "datum_normal_sense",
+          "passed": true
+        },
+        {
+          "field": "datum_origin",
+          "passed": true
+        },
+        {
+          "field": "datum_uAxis",
+          "passed": true
+        },
+        {
+          "field": "datum_vAxis",
+          "passed": true
+        },
+        {
+          "field": "no_extra_frame_controls",
+          "passed": true
+        },
+        {
+          "field": "DRMatrix_owner",
+          "passed": true
+        },
+        {
+          "field": "EntityDataRef_owner",
+          "passed": true
+        },
+        {
+          "field": "explicit_ucs_matrix",
+          "passed": true
+        },
+        {
+          "field": "ucs_matrix_agreement",
+          "passed": true
+        },
+        {
+          "field": "default_xz_principal_basis",
+          "passed": true
+        },
+        {
+          "field": "extrusion_normal",
+          "passed": true
+        },
+        {
+          "field": "root_instance_owner",
+          "passed": true
+        },
+        {
+          "field": "identity_occurrences",
+          "passed": true
+        },
+        {
+          "field": "all_passive_scopes",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_0",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_1",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_2",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_3",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_4",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_5",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_6",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_7",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_8",
+          "passed": true
+        },
+        {
+          "actual": -1.0,
+          "expected": -1.0,
+          "field": "api_matrix_9",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_10",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_11",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_12",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_13",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_14",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_15",
+          "passed": true
+        },
+        {
+          "field": "all_local_live_geometry_tags_and_attributes",
+          "passed": true
+        },
+        {
+          "field": "complete_typed_world_state_restoration",
+          "passed": true
+        },
+        {
+          "field": "original_world_state_retained",
+          "passed": true
+        }
+      ],
+      "documents": {
+        "Documents/frame_Local.json": "01e2bf2836b184ce0c53086f12de08d5b99b0fb0d273cfe049fccd69ebe141dc",
+        "Documents/frame_Placement.json": "451913c7d4f166ba26c8a4a02a4a38d7fb1e927db0126a2a1abfe3d111642771",
+        "Documents/frame_Restored.json": "002f15d3b534be74f5a0014e5987b09843dbd107d5319c30802477a37075a133",
+        "Documents/frame_World.json": "82124ad8096cf69f6a130045cb67501bc3009cc244431cafae204f5759f40660"
+      },
+      "local_entities": 47,
+      "operations": [
+        301,
+        302
+      ],
+      "passed": true,
+      "sha256": "4b9168126d0e749de6ef97146810c7bf90b1da3d0a5c53089a4db833ba8aa134",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame.f3d",
+      "world_entities": 48
+    },
+    {
+      "checks": [
+        {
+          "field": "unique_reference",
+          "passed": true
+        },
+        {
+          "field": "selected_origin_member",
+          "passed": true
+        },
+        {
+          "field": "datum_component_parent",
+          "passed": true
+        },
+        {
+          "field": "ucs_component_parent",
+          "passed": true
+        },
+        {
+          "field": "sketch_ucs",
+          "passed": true
+        },
+        {
+          "field": "reciprocal_sketch_feature",
+          "passed": true
+        },
+        {
+          "field": "original_xz_datum",
+          "passed": true
+        },
+        {
+          "field": "datum_normal_sense",
+          "passed": true
+        },
+        {
+          "field": "datum_origin",
+          "passed": true
+        },
+        {
+          "field": "datum_uAxis",
+          "passed": true
+        },
+        {
+          "field": "datum_vAxis",
+          "passed": true
+        },
+        {
+          "field": "no_extra_frame_controls",
+          "passed": true
+        },
+        {
+          "field": "DRMatrix_owner",
+          "passed": true
+        },
+        {
+          "field": "EntityDataRef_owner",
+          "passed": true
+        },
+        {
+          "field": "explicit_ucs_matrix",
+          "passed": true
+        },
+        {
+          "field": "ucs_matrix_agreement",
+          "passed": true
+        },
+        {
+          "field": "default_xz_principal_basis",
+          "passed": true
+        },
+        {
+          "field": "extrusion_normal",
+          "passed": true
+        },
+        {
+          "field": "root_instance_owner",
+          "passed": true
+        },
+        {
+          "field": "identity_occurrences",
+          "passed": true
+        },
+        {
+          "field": "all_passive_scopes",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_0",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_1",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_2",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_3",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_4",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_5",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_6",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_7",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_8",
+          "passed": true
+        },
+        {
+          "actual": -1.0,
+          "expected": -1.0,
+          "field": "api_matrix_9",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_10",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_11",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_12",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_13",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_14",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_15",
+          "passed": true
+        },
+        {
+          "field": "all_local_live_geometry_tags_and_attributes",
+          "passed": true
+        },
+        {
+          "field": "complete_typed_world_state_restoration",
+          "passed": true
+        },
+        {
+          "field": "original_world_state_retained",
+          "passed": true
+        }
+      ],
+      "documents": {
+        "Documents/frame_edit_first_Local.json": "be362d4d1b470e43abcf862eda2eea16b8803c728b1da4de90251a029076b51d",
+        "Documents/frame_edit_first_Placement.json": "451913c7d4f166ba26c8a4a02a4a38d7fb1e927db0126a2a1abfe3d111642771",
+        "Documents/frame_edit_first_Restored.json": "7ed6d06f632535d60d9fab09cd7292ce4dd1e5f1592df6d615e0449da2499a1a",
+        "Documents/frame_edit_first_World.json": "a687b53548dd7b4d9ab8a593bcf0331dafabeb62a9f3756e1a504f808da67a13"
+      },
+      "local_entities": 47,
+      "operations": [
+        301,
+        302
+      ],
+      "passed": true,
+      "sha256": "daca180af5a5ae874bf19084894a73e835b6a78760d9a3adacf70471b0abda65",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_first.f3d",
+      "world_entities": 48
+    },
+    {
+      "checks": [
+        {
+          "field": "unique_reference",
+          "passed": true
+        },
+        {
+          "field": "selected_origin_member",
+          "passed": true
+        },
+        {
+          "field": "datum_component_parent",
+          "passed": true
+        },
+        {
+          "field": "ucs_component_parent",
+          "passed": true
+        },
+        {
+          "field": "sketch_ucs",
+          "passed": true
+        },
+        {
+          "field": "reciprocal_sketch_feature",
+          "passed": true
+        },
+        {
+          "field": "original_xz_datum",
+          "passed": true
+        },
+        {
+          "field": "datum_normal_sense",
+          "passed": true
+        },
+        {
+          "field": "datum_origin",
+          "passed": true
+        },
+        {
+          "field": "datum_uAxis",
+          "passed": true
+        },
+        {
+          "field": "datum_vAxis",
+          "passed": true
+        },
+        {
+          "field": "no_extra_frame_controls",
+          "passed": true
+        },
+        {
+          "field": "DRMatrix_owner",
+          "passed": true
+        },
+        {
+          "field": "EntityDataRef_owner",
+          "passed": true
+        },
+        {
+          "field": "explicit_ucs_matrix",
+          "passed": true
+        },
+        {
+          "field": "ucs_matrix_agreement",
+          "passed": true
+        },
+        {
+          "field": "default_xz_principal_basis",
+          "passed": true
+        },
+        {
+          "field": "extrusion_normal",
+          "passed": true
+        },
+        {
+          "field": "root_instance_owner",
+          "passed": true
+        },
+        {
+          "field": "identity_occurrences",
+          "passed": true
+        },
+        {
+          "field": "all_passive_scopes",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_0",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_1",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_2",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_3",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_4",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_5",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_6",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_7",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_8",
+          "passed": true
+        },
+        {
+          "actual": -1.0,
+          "expected": -1.0,
+          "field": "api_matrix_9",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_10",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_11",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_12",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_13",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_14",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_15",
+          "passed": true
+        },
+        {
+          "field": "all_local_live_geometry_tags_and_attributes",
+          "passed": true
+        },
+        {
+          "field": "complete_typed_world_state_restoration",
+          "passed": true
+        },
+        {
+          "field": "original_world_state_retained",
+          "passed": true
+        }
+      ],
+      "documents": {
+        "Documents/frame_edit_second_Local.json": "93ad52f9dbb86f45eb481e85aa0dd84f32e5a8955b199a0af95015f2e2941098",
+        "Documents/frame_edit_second_Placement.json": "451913c7d4f166ba26c8a4a02a4a38d7fb1e927db0126a2a1abfe3d111642771",
+        "Documents/frame_edit_second_Restored.json": "1e69de576806d993fa2300cfb6cd372f65b04e6df5347581e98d14badde25d1c",
+        "Documents/frame_edit_second_World.json": "02cb3a7d4e787940e5cafbca66573569c8091595d0e0e432943b20d6c8df1960"
+      },
+      "local_entities": 47,
+      "operations": [
+        301,
+        302
+      ],
+      "passed": true,
+      "sha256": "0dca70e11c2e4d4db2965991818866b591312076f7b807ff0d7210ae9025d3bb",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_second.f3d",
+      "world_entities": 48
+    },
+    {
+      "checks": [
+        {
+          "field": "unique_reference",
+          "passed": true
+        },
+        {
+          "field": "selected_origin_member",
+          "passed": true
+        },
+        {
+          "field": "datum_component_parent",
+          "passed": true
+        },
+        {
+          "field": "ucs_component_parent",
+          "passed": true
+        },
+        {
+          "field": "sketch_ucs",
+          "passed": true
+        },
+        {
+          "field": "reciprocal_sketch_feature",
+          "passed": true
+        },
+        {
+          "field": "original_xz_datum",
+          "passed": true
+        },
+        {
+          "field": "datum_normal_sense",
+          "passed": true
+        },
+        {
+          "field": "datum_origin",
+          "passed": true
+        },
+        {
+          "field": "datum_uAxis",
+          "passed": true
+        },
+        {
+          "field": "datum_vAxis",
+          "passed": true
+        },
+        {
+          "field": "no_extra_frame_controls",
+          "passed": true
+        },
+        {
+          "field": "DRMatrix_owner",
+          "passed": true
+        },
+        {
+          "field": "EntityDataRef_owner",
+          "passed": true
+        },
+        {
+          "field": "explicit_ucs_matrix",
+          "passed": true
+        },
+        {
+          "field": "ucs_matrix_agreement",
+          "passed": true
+        },
+        {
+          "field": "default_xz_principal_basis",
+          "passed": true
+        },
+        {
+          "field": "extrusion_normal",
+          "passed": true
+        },
+        {
+          "field": "root_instance_owner",
+          "passed": true
+        },
+        {
+          "field": "identity_occurrences",
+          "passed": true
+        },
+        {
+          "field": "all_passive_scopes",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_0",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_1",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_2",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_3",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_4",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_5",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_6",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_7",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_8",
+          "passed": true
+        },
+        {
+          "actual": -1.0,
+          "expected": -1.0,
+          "field": "api_matrix_9",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_10",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_11",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_12",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_13",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_14",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_15",
+          "passed": true
+        },
+        {
+          "field": "all_local_live_geometry_tags_and_attributes",
+          "passed": true
+        },
+        {
+          "field": "complete_typed_world_state_restoration",
+          "passed": true
+        },
+        {
+          "field": "original_world_state_retained",
+          "passed": true
+        }
+      ],
+      "documents": {
+        "Documents/frame_edit_draft_first_Local.json": "707894f6d41eae5ddcbb7f7a73f1e0f7f8c4eded174badb8fe4efc1f77a51db7",
+        "Documents/frame_edit_draft_first_Placement.json": "451913c7d4f166ba26c8a4a02a4a38d7fb1e927db0126a2a1abfe3d111642771",
+        "Documents/frame_edit_draft_first_Restored.json": "31bfa4ff20a3560c90ee90c92d2028afde0d80e71f27f0047250c6cf12c51b4b",
+        "Documents/frame_edit_draft_first_World.json": "c393a53a417e9f2efc0a5b614214aad1b305a43c32b43122db34f2e6abae47f2"
+      },
+      "local_entities": 47,
+      "operations": [
+        301,
+        302
+      ],
+      "passed": true,
+      "sha256": "770505f9683fc285e6ccd8fbbc321c24dc3810b54f6a074a9dea249b5eb8871f",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_first.f3d",
+      "world_entities": 48
+    },
+    {
+      "checks": [
+        {
+          "field": "unique_reference",
+          "passed": true
+        },
+        {
+          "field": "selected_origin_member",
+          "passed": true
+        },
+        {
+          "field": "datum_component_parent",
+          "passed": true
+        },
+        {
+          "field": "ucs_component_parent",
+          "passed": true
+        },
+        {
+          "field": "sketch_ucs",
+          "passed": true
+        },
+        {
+          "field": "reciprocal_sketch_feature",
+          "passed": true
+        },
+        {
+          "field": "original_xz_datum",
+          "passed": true
+        },
+        {
+          "field": "datum_normal_sense",
+          "passed": true
+        },
+        {
+          "field": "datum_origin",
+          "passed": true
+        },
+        {
+          "field": "datum_uAxis",
+          "passed": true
+        },
+        {
+          "field": "datum_vAxis",
+          "passed": true
+        },
+        {
+          "field": "no_extra_frame_controls",
+          "passed": true
+        },
+        {
+          "field": "DRMatrix_owner",
+          "passed": true
+        },
+        {
+          "field": "EntityDataRef_owner",
+          "passed": true
+        },
+        {
+          "field": "explicit_ucs_matrix",
+          "passed": true
+        },
+        {
+          "field": "ucs_matrix_agreement",
+          "passed": true
+        },
+        {
+          "field": "default_xz_principal_basis",
+          "passed": true
+        },
+        {
+          "field": "extrusion_normal",
+          "passed": true
+        },
+        {
+          "field": "root_instance_owner",
+          "passed": true
+        },
+        {
+          "field": "identity_occurrences",
+          "passed": true
+        },
+        {
+          "field": "all_passive_scopes",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_0",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_1",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_2",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_3",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_4",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_5",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_6",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_7",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_8",
+          "passed": true
+        },
+        {
+          "actual": -1.0,
+          "expected": -1.0,
+          "field": "api_matrix_9",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_10",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_11",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_12",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_13",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_14",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_15",
+          "passed": true
+        },
+        {
+          "field": "all_local_live_geometry_tags_and_attributes",
+          "passed": true
+        },
+        {
+          "field": "complete_typed_world_state_restoration",
+          "passed": true
+        },
+        {
+          "field": "original_world_state_retained",
+          "passed": true
+        }
+      ],
+      "documents": {
+        "Documents/frame_edit_draft_second_Local.json": "fd0f140e0cccacbe5b5c10107c9b17fbd1b380a6ab1dd957e3161f2fc2c19ca2",
+        "Documents/frame_edit_draft_second_Placement.json": "451913c7d4f166ba26c8a4a02a4a38d7fb1e927db0126a2a1abfe3d111642771",
+        "Documents/frame_edit_draft_second_Restored.json": "208d288b476735b3fe098efbdc1a75b69c31cfda6edda992d02a716c42fe339d",
+        "Documents/frame_edit_draft_second_World.json": "c924fefacc3b09412cdf853c6906e0c8223083d3e57c44d691441bd9ab238551"
+      },
+      "local_entities": 47,
+      "operations": [
+        301,
+        302
+      ],
+      "passed": true,
+      "sha256": "fdeb76d346da9c5fc171106dd727802a98f9572f9057438c0e2d8b3cf52fd6a8",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_edit_draft_second.f3d",
+      "world_entities": 48
+    },
+    {
+      "checks": [
+        {
+          "field": "unique_reference",
+          "passed": true
+        },
+        {
+          "field": "selected_origin_member",
+          "passed": true
+        },
+        {
+          "field": "datum_component_parent",
+          "passed": true
+        },
+        {
+          "field": "ucs_component_parent",
+          "passed": true
+        },
+        {
+          "field": "sketch_ucs",
+          "passed": true
+        },
+        {
+          "field": "reciprocal_sketch_feature",
+          "passed": true
+        },
+        {
+          "field": "original_xz_datum",
+          "passed": true
+        },
+        {
+          "field": "datum_normal_sense",
+          "passed": true
+        },
+        {
+          "field": "datum_origin",
+          "passed": true
+        },
+        {
+          "field": "datum_uAxis",
+          "passed": true
+        },
+        {
+          "field": "datum_vAxis",
+          "passed": true
+        },
+        {
+          "field": "no_extra_frame_controls",
+          "passed": true
+        },
+        {
+          "field": "DRMatrix_owner",
+          "passed": true
+        },
+        {
+          "field": "EntityDataRef_owner",
+          "passed": true
+        },
+        {
+          "field": "explicit_ucs_matrix",
+          "passed": true
+        },
+        {
+          "field": "ucs_matrix_agreement",
+          "passed": true
+        },
+        {
+          "field": "default_xz_principal_basis",
+          "passed": true
+        },
+        {
+          "field": "extrusion_normal",
+          "passed": true
+        },
+        {
+          "field": "root_instance_owner",
+          "passed": true
+        },
+        {
+          "field": "identity_occurrences",
+          "passed": true
+        },
+        {
+          "field": "all_passive_scopes",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_0",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_1",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_2",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_3",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_4",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_5",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_6",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_7",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_8",
+          "passed": true
+        },
+        {
+          "actual": -1.0,
+          "expected": -1.0,
+          "field": "api_matrix_9",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_10",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_11",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_12",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_13",
+          "passed": true
+        },
+        {
+          "actual": 0.0,
+          "expected": 0.0,
+          "field": "api_matrix_14",
+          "passed": true
+        },
+        {
+          "actual": 1.0,
+          "expected": 1.0,
+          "field": "api_matrix_15",
+          "passed": true
+        },
+        {
+          "field": "all_local_live_geometry_tags_and_attributes",
+          "passed": true
+        },
+        {
+          "field": "complete_typed_world_state_restoration",
+          "passed": true
+        },
+        {
+          "field": "original_world_state_retained",
+          "passed": true
+        }
+      ],
+      "documents": {
+        "Documents/frame_restored_Local.json": "b47416f5c256c979888df8d714d137ef7d7cd96ffc019b525b8f09ec93e7d865",
+        "Documents/frame_restored_Placement.json": "451913c7d4f166ba26c8a4a02a4a38d7fb1e927db0126a2a1abfe3d111642771",
+        "Documents/frame_restored_Restored.json": "4055c4103f0af810ebc874ae1526622bd0b316c05a35a8138b731d1bdc46af29",
+        "Documents/frame_restored_World.json": "a657897df4c4ce73fa26982f8f0096606df32f3f2e57808e7ccab68fa090603d"
+      },
+      "local_entities": 47,
+      "operations": [
+        301,
+        302
+      ],
+      "passed": true,
+      "sha256": "a25e0c4064bd27085911597e8f532cd5953eccea0cbbd3f99836977014d3058c",
+      "source": "re/Fusion/TwoSidedDraft20261127/Native/frame_restored.f3d",
+      "world_entities": 48
+    }
+  ],
+  "rules_sha256": "d858b9eed42681041f20dbf089ac5625295f18e9eb50030847040f81b269fd7c",
+  "script_sha256": "d40e8a4ac2769654b821ef4694ab1159f24829b010e0f7a1cf85ee8c602efda5",
+  "summary": {
+    "comparisons": 240,
+    "errors": 0,
+    "failed": 0,
+    "files": 6,
+    "passed": 6
+  },
+  "validator_hashes": {
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualCover.py": "bae41ca91814feba4b02faa0c8432e85507b4c961d37cd0b0110f130150e7e1e",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualGeo.py": "a27455956acd4fdb1be77e8222fc5de6265c5473054fbfe6b97aae991cc57505",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualLinks.py": "a94ceb54faa6dfde096b9bb4190a6032ea05bf9ba2fa85098cc8e1c73c20b3e1",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualRims.py": "f979fffdfde710966819a6b1f82e5364c2438549ced8a407dc182930458e7804",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/CheckDualTags.py": "acc6c3808fee236654e57d4081ee697ada0a89ff423166f3d0d967137ff11444",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualLive.py": "2c4af1e249d262baab039479669c7c7fac9a0809094e9d68ee325b55ae59a948",
+    "src/convert/adapters/Fusion/Native/Circular/DualSides/ReadDualOwners.py": "ceba304dde69e710fdf16690479fddd2af5771f7c46ed7fd545289b330048120"
+  }
+}
