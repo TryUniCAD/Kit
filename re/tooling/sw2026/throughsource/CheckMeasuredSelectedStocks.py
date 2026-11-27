@@ -122,9 +122,10 @@ def check_json_boundary(model, write_document, reject):
     from interchange.document.Models.DocumentModel import CadDocument
 
     front, right, cut = model.feature_timeline
-    missing_direction = replace(model, feature_timeline=(
-        front, right, replace(cut, definition=replace(cut.definition, direction=None)),
-    ))
+    from interchange.geometry.Models.VectorSpace import SpaceVector
+
+    invalid_directions = (None, SpaceVector(0.0, 0.0, 0.0), SpaceVector(0.0, 0.0, float("inf")),
+                          SpaceVector(float("nan"), 0.0, 1.0))
     report = {}
     for route, action in (
         ("direct", JsonAdapter().write),
@@ -135,10 +136,14 @@ def check_json_boundary(model, write_document, reject):
         raw = target.getvalue()
         need(CadDocument.from_json(raw.decode("utf-8")) == model,
              "interchange JSON lost an explicit selected through cut")
-        empty = BytesIO()
-        reject(lambda: action(missing_direction, empty), ValueError,
-               "depthless extrusion reconstruction is unqualified")
-        need(not empty.getvalue(), "unresolved through direction touched the output")
+        for direction in invalid_directions:
+            changed = replace(model, feature_timeline=(
+                front, right, replace(cut, definition=replace(cut.definition, direction=direction)),
+            ))
+            empty = BytesIO()
+            reject(lambda: action(changed, empty), ValueError,
+                   "depthless extrusion reconstruction is unqualified")
+            need(not empty.getvalue(), "unresolved through direction touched the output")
         report[route] = {"bytes": len(raw), "sha256": digest(raw), "unresolved_direction_refused": True}
     return report
 

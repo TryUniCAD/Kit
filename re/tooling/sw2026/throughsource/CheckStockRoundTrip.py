@@ -54,12 +54,17 @@ def stock_views(data):
 
 
 def check_preserved(data, candidate, receipt, expected_digest, directory):
-    from convert import write_document
+    from convert import extract_brep, write_document
+    from convert.adapters.solidworks.Container.Container import SldprtFormatError
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import PrepStockPart
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 
     views = stock_views(data)
+    extract_dir = directory / "missing-raw-payload"
+    reject(lambda: extract_brep(data, extract_dir, source_format=FORMAT),
+           SldprtFormatError, "SLDPRT contains no readable Parasolid payload")
+    require(not extract_dir.exists(), "empty raw extraction created an output directory")
     root = Path(__file__).resolve().parents[4]
     target = directory / f"{NAME}.SLDPRT"
     values = {"final_destination": LOCATOR, OPTION: {"written_at": EPOCH, "receipt": receipt},

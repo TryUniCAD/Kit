@@ -1,3 +1,5 @@
+from math import isfinite as IsFinite
+
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
@@ -28,6 +30,10 @@ def JsonThroughCut(DocumentValue: CadDocument) -> str | None:
             for SketchValue in DocumentValue.sketches
         )
     ):
+        return None
+    Direction = Definition.direction
+    Components = (Direction.x, Direction.y, Direction.z)
+    if not all(map(IsFinite, Components)) or not any(Components):
         return None
     (SelectionId,) = CutValue.selection_ids
     SelectionValue = next(
