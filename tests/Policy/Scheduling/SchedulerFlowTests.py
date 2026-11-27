@@ -12,6 +12,8 @@ import pytest as Pytest
         "budget-new",
         "budget-audit",
         "budget-previous",
+        "budget-previous-minimum",
+        "budget-live",
         "budget-team",
         "budget-single",
         "budget-team-macos",
@@ -83,10 +85,7 @@ def CheckScheduler(CaseName: str) -> None:
             if CaseName
             in {
                 "budget-legacy",
-                "budget-uncontrolled",
-                "budget-minimum",
-                "budget-wait",
-                "budget-rules-error",
+                "budget-previous-minimum",
             }
             else "1200"
         )
@@ -95,10 +94,7 @@ def CheckScheduler(CaseName: str) -> None:
             if CaseName
             in {
                 "budget-legacy",
-                "budget-uncontrolled",
-                "budget-minimum",
-                "budget-wait",
-                "budget-rules-error",
+                "budget-previous-minimum",
             }
             else "1000"
         )

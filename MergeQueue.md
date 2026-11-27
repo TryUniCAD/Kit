@@ -149,6 +149,9 @@ The plan [reuses verified results](Documentation/Changes/QueueTestReuse.md) of t
 Every other collected test runs in a shard.
 Each shard holds at most 1,200 tests, which is 300 tests for each CPU of its 4-CPU runner.
 Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with a 256-shard runtime budget.
+The trusted Enterprise marker enables this Linux runtime target and a 1,000-test cap independently of live queue batching settings.
+Earlier markers retain their live-settings guard; native platform expansion keeps its separate settings and audit checks.
+See [Enterprise runtime activation](Documentation/Changes/Ci/Scheduling/EnterpriseRuntimeActivation.md).
 The count cap takes precedence if it requires more shards.
 Platform shards use platform-specific duration histories from the shared plan instead of count-based modulo selection.
 See [runtime scheduling](Documentation/Changes/Ci/QueueRuntimeScheduling.md).

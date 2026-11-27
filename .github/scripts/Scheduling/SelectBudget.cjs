@@ -3,6 +3,7 @@ const { ReadAuditRuns } = require("./ReadAuditRuns.cjs");
 
 async function SelectBudget(Github, Context, Logger) {
   let Enabled = false;
+  let Enterprise = false;
   try {
     const Result = await Github.rest.repos.getContent({
       ...Context.repo,
@@ -43,11 +44,13 @@ async function SelectBudget(Github, Context, Logger) {
     )
       throw new Error("Unsupported shared runner budget");
     Enabled = true;
+    Enterprise = Config.Version === 5;
   } catch (ErrorInfo) {
     if (ErrorInfo.status !== 404) throw ErrorInfo;
   }
   const Expanded =
     Enabled && (await ReadExpansion(Github, Context.repo, Logger));
+  const RuntimeEnabled = Enterprise || Expanded;
   const AuditRuns = Expanded && (await ReadAuditRuns(Github, Context.repo));
   const Count = Expanded && !AuditRuns ? 5 : 4;
   Logger.setOutput(
@@ -60,8 +63,8 @@ async function SelectBudget(Github, Context, Logger) {
     ),
   );
   Logger.setOutput("count", String(Count));
-  Logger.setOutput("max-tests", Expanded ? "1000" : "1200");
-  Logger.setOutput("runtime-target", Expanded ? "1200" : "0");
+  Logger.setOutput("max-tests", RuntimeEnabled ? "1000" : "1200");
+  Logger.setOutput("runtime-target", RuntimeEnabled ? "1200" : "0");
   Logger.info(
     `Native shards: ${Count}; GitHub hosted scheduling; trusted budget active: ${Enabled}`,
   );
