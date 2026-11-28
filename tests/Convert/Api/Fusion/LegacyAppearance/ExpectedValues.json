@@ -1,0 +1,81 @@
+{
+  "definition": {
+    "BaseSchema": "GenericSchema",
+    "Hidden": true,
+    "UIName": "Independent asymmetric appearance",
+    "VersionGUID": "research:VersionOrbit",
+    "category": [
+      "authored",
+      "asymmetric"
+    ],
+    "description": "Independent explicit wire values",
+    "keyword": [
+      "north",
+      "south",
+      "west"
+    ],
+    "thumbnail": []
+  },
+  "properties": {
+    "AssetLibID": "research:LibraryNorth",
+    "ExchangeGUID": "",
+    "color_by_object": true,
+    "common_Shared_Asset": 1,
+    "common_Tint_color": [
+      0.125,
+      0.375,
+      0.625,
+      0.875
+    ],
+    "common_Tint_color_colorspace": 1,
+    "common_Tint_toggle": true,
+    "generic_ao_details": false,
+    "generic_ao_distance": 2.375,
+    "generic_ao_on": true,
+    "generic_ao_samples": 11,
+    "generic_backface_cull": true,
+    "generic_bump_amount": 0.09375,
+    "generic_bump_map": [
+      0.0625,
+      0.1875,
+      0.3125,
+      0.4375
+    ],
+    "generic_cutout_opacity": 0.90625,
+    "generic_diffuse": [
+      0.75,
+      0.5,
+      0.25,
+      1.0
+    ],
+    "generic_diffuse_colorspace": 0,
+    "generic_diffuse_image_fade": 0.3125,
+    "generic_glossiness": -0.0,
+    "generic_is_metal": false,
+    "generic_refl_depth": 3,
+    "generic_reflection_glossy_samples": 5,
+    "generic_reflectivity_at_0deg": 0.1875,
+    "generic_reflectivity_at_90deg": 0.9375,
+    "generic_refr_depth": -3,
+    "generic_refraction_glossy_samples": 9,
+    "generic_refraction_index": 1.625,
+    "generic_refraction_translucency_weight": 0.4375,
+    "generic_roundcorners_allow_different_materials": true,
+    "generic_roundcorners_radius": 0.8125,
+    "generic_self_illum_color_temperature": 3250.5,
+    "generic_self_illum_filter_map": [
+      0.875,
+      0.625,
+      0.375,
+      0.125
+    ],
+    "generic_self_illum_filter_map_colorspace": 2,
+    "generic_self_illum_luminance": 8.25,
+    "generic_transparency": 0.5625,
+    "generic_transparency_image_fade": 0.6875,
+    "mode": 9,
+    "revision": 7,
+    "swatch": "",
+    "version": 6
+  }
+}
