@@ -439,8 +439,13 @@ public static class SheetMetalCapture
         Check(((ISketchSegment)leg).Select4(false, null), "Could not select the profile leg for its driving dimension");
         var display = doc.AddDimension2(start.X, start.Y + length / 2, 0) as IDisplayDimension;
         var dimension = display == null ? null : display.GetDimension2(0) as IDimension;
-        Check(dimension != null && Near(dimension.SystemValue, length), "Could not bind a driving profile-leg length");
-        var dimensionName = dimension.FullName.Split('@')[0] + "@KitEdgeProfile";
+        Check(dimension != null && Near(dimension.SystemValue, length) &&
+            dimension.DrivenState == (int)swDimensionDrivenState_e.swDimensionDriving,
+            "Could not bind a driving profile-leg length");
+        const string dimensionName = "KitFlangeLength";
+        dimension.Name = dimensionName;
+        Check(dimension.Name == dimensionName, "Native edge-profile dimension did not retain its authored name");
+        var nameBeforeInsertion = dimension.FullName;
         doc.ClearSelection2(true);
         manager.InsertSketch(true);
         profile.Name = "KitEdgeProfile";
@@ -454,19 +459,53 @@ public static class SheetMetalCapture
         Check(doc.ForceRebuild3(false), "Edge flange could not rebuild");
         witness.Add("feature", Identity(doc, flange));
         witness.Add("profile", Identity(doc, profile));
+        var retained = ReadOwnedLength(flange, dimensionName);
+        Check(Near(retained.SystemValue, length), "The inserted edge-flange profile lost its authored length");
         witness.Add("profile_dimension", dimensionName);
+        witness.Add("profile_dimension_before_insertion", nameBeforeInsertion);
+        witness.Add("profile_dimension_after_insertion", retained.FullName);
         witness.Add("edge_flange2_arguments", new object[] { edgeRef, Identity(doc, profile), 0, angle, radius, bendPosition,
             length, relief, 0, 0, 0, sharp, null });
         return witness;
     }
 
+    static IDimension ReadOwnedLength(IFeature flange, string dimensionName)
+    {
+        var descendants = new List<IFeature>();
+        AddFeature(descendants, flange, 0);
+        var inspected = new List<string>();
+        var found = new Dictionary<string, IDimension>(StringComparer.Ordinal);
+        foreach (var feature in descendants)
+        {
+            if (!(feature.GetSpecificFeature2() is ISketch)) continue;
+            inspected.Add(feature.GetID() + ":" + feature.Name);
+            var dimension = feature.IParameter(dimensionName) as IDimension;
+            if (dimension != null && dimension.Name == dimensionName)
+                found[dimension.FullName] = dimension;
+        }
+        Check(found.Count == 1, "Expected exactly one owned edge-profile dimension " + dimensionName +
+            "; inspected native sketch IDs and names: " + String.Join(", ", inspected) + "; found: " + String.Join(", ", found.Keys));
+        var owned = found.Values.Single();
+        Check(owned.DrivenState == (int)swDimensionDrivenState_e.swDimensionDriving,
+            "Owned edge-profile dimension is not driving: " + owned.FullName);
+        return owned;
+    }
+
+    static IFeature OwnedEdgeFlange(IModelDoc2 doc)
+    {
+        var matches = Features(doc).Where(item => item.Name == "KitEdgeFlange")
+            .GroupBy(item => item.GetID()).Select(items => items.First()).ToArray();
+        Check(matches.Length == 1, "Expected one owned edge flange in the native feature tree");
+        return matches[0];
+    }
+
     static Dictionary<string, object> ReadEdge(IModelDoc2 doc, string dimensionName, string sourceEdge,
         double length, double angle, double radius)
     {
-        var feature = Features(doc).FirstOrDefault(item => item.Name == "KitEdgeFlange");
-        Check(feature != null, "The edge flange feature is missing");
-        var dimension = doc.Parameter(dimensionName) as IDimension;
-        Check(dimension != null && Near(dimension.SystemValue, length), "Edge flange profile dimension differs from the requested length");
+        var feature = OwnedEdgeFlange(doc);
+        var dimension = ReadOwnedLength(feature, dimensionName);
+        Check(Near(dimension.SystemValue, length), "Edge flange profile dimension " + dimension.FullName +
+            " measured " + dimension.SystemValue + " m; expected " + length + " m");
         var data = feature.GetDefinition() as IEdgeFlangeFeatureData;
         Check(data != null, "Missing edge flange definition");
         Check(data.IAccessSelections2((ModelDoc2)doc, null), "Could not access native edge flange selections");
@@ -491,7 +530,8 @@ public static class SheetMetalCapture
                 "edge_owner", Row("name", owner.Name, "persist_reference", Identity(doc, owner)), "endpoints_m", Endpoints(edge),
                 "bend_position", data.PositionType,
                 "radius_m", data.BendRadius, "offset_type", data.OffsetType, "native_offset_distance_m", data.OffsetDistance,
-                "dimension_type", data.OffsetDimType, "profile_length_m", dimension.SystemValue, "position_offset", data.UsePositionOffset,
+                "dimension_type", data.OffsetDimType, "profile_length_m", dimension.SystemValue,
+                "profile_dimension_full_name", dimension.FullName, "position_offset", data.UsePositionOffset,
                 "relief", data.AutoReliefType);
         }
         finally { data.ReleaseSelectionAccess(); }
@@ -499,8 +539,7 @@ public static class SheetMetalCapture
 
     static void EditLength(IModelDoc2 doc, string dimensionName, double length)
     {
-        var dimension = doc.Parameter(dimensionName) as IDimension;
-        Check(dimension != null, "Editable edge-flange dimension could not be found");
+        var dimension = ReadOwnedLength(OwnedEdgeFlange(doc), dimensionName);
         int result = dimension.SetSystemValue3(length, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration, null);
         Check(result == (int)swSetValueReturnStatus_e.swSetValue_Successful &&
             doc.ForceRebuild3(false) && Near(dimension.SystemValue, length),
