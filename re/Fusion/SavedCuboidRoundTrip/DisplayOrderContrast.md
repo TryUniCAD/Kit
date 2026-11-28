@@ -146,7 +146,7 @@ asset through the body's material manager. The [older independent cut
 control](../Reconstruction/BoundaryCuts/Findings.md) carries the same
 reciprocal links. The plain cuboid has an empty face assignment map.
 These observations establish the binding in two sources. The public
-journal reader still refuses this attribute family. The field grammar,
+journal reader at the time refused this attribute family. The field grammar,
 fresh allocation and full graphics role correlation require the
 other controlled face case and a fresh native bracket.
 
@@ -169,9 +169,12 @@ failed unit validation in all three controls.
 
 The two controlled cuboids above and the independent cut each contain one
 622-byte Design `VMBrepRef` v0 group. The plain cuboid has none.
-The current lower codec preserves that group's bytes without interpreting
-its fields, and strict public projection refuses
-`BFB592FE-03DD-4DAA-A4AC-14D02ABB672A`.
+The Design codec now reads the feature reference, typed visual material
+and UTF-16 face tag followed by the existing `BrepRef` lineage. A
+separate `ManagedEntity` continuation supplies the parent reference.
+Both groups re-emitted byte-identically for all three styled archives.
+The four-source verification report SHA-256 is
+`765c0537b5021e23986fe2c5be6cf0bbd906b3d9e3de6896195d063e65d5ad6d`.
 Matching serialized values in the associated typed records establish the
 following observations.
 
@@ -185,8 +188,8 @@ following observations.
 
 The cut separates the immediate feature from the body producer. Both
 coincide in the cuboids. The dependency graph tracks them with separate
-edge roles. Record framing and status fields around the observed links
-remain unqualified. No writer uses these sample offsets or opaque groups.
+edge roles. The inheritance and existing codecs give typed owners to every byte. Compute and dependency joins
+remain required at the strict semantic reader boundary. Generation from a neutral appearance request remains open.
 
 Before implementing further rules, two geometry holdouts received frozen
 style intents. The manifest SHA-256 is
@@ -196,7 +199,7 @@ changing 21.75 to 48.825 mm. The second retains the positive-X face at
 RGBA `108,47,211,255` while changing 29.125 to 15.675 mm. Four
 experimental archives regenerated the journal and typed material and
 scene joins, retaining all written semantic fields on typed reread.
-They remain in private scratch. The unresolved Design reference has
+They remain in private scratch. The typed Design reference still has
 no generative rule and the body-scene baseline stopped during Fusion
 import. Neither result establishes native writer acceptance.
 
@@ -204,10 +207,12 @@ The exact graphics and no-graphics baseline archives have identical
 existing member bytes. The graphics variant adds only
 `OGS.BlobFolder/OGS/DefaultScene/world`. The minimal world has no leaf
 links or mesh records, while the independent native control has 18
-linked, mesh-bearing leaves. A control after the import stall and a
-separate no-graphics comparison before viewport changes are required
-to distinguish a scene import defect from an invalid bracket and to
-measure any regenerated presentation.
+linked, mesh-bearing leaves. The starting control passed and the candidate stalled in archive import.
+The scheduled closing check stopped before opening a control because
+the candidate receipt had no completion field. A fresh independent
+control for the same batch restored and closed successfully, with
+receipt SHA-256 `6d2fd08992dd10295bd71f8d379d73c1fe6de51f57432a97f3cbbae4db3d4831`.
+The candidate published no measured acceptance.
 
 ### Fixed-corner line plane normal
 
@@ -250,3 +255,27 @@ SDK verification SHA-256
 The result establishes readback of these saved geometries. The
 writer still needs native acceptance of exact independently
 generated archives.
+
+### Native scene omission
+
+The frozen same-source request SHA-256 is
+`566d85d4fca7a59b177712fdf8e1f6ec64113395c02d4ac6c1aedca3244c928c`.
+Repacking changes the archive envelope. Omission additionally removes
+only `OGS.BlobFolder/OGS/DefaultScene` and its parent directory entries.
+All retained member contents match the original. Each archive ran in
+its own Fusion 2706.1.17 process with zero documents at entry and exit.
+
+| Variant | Archive SHA-256 prefix | Observation SHA-256 |
+| --- | --- | --- |
+| Original | `ee2a2beef5a5` | `3d3112e6a07f0c68588098d69611bc62f55aeacbe039d564234148ea0cb6f425` |
+| Repacked | `f6f17020a92d` | `b666f6bccc40aad0c5296333dd70ca8f9cbf1cfc3a22079e924909e1de52ce68` |
+| Without OGS | `067f4fb66a23` | `0338a5292446f5d013401f23f869ba3fbc91e5108891a47b45ed09e54aa0c68d` |
+
+The loaded camera, body and sketch visibility, material and all six
+face roles, appearance sources and colors matched both controls.
+The positive-Z face retained its native override and RGBA
+`226,29,41,255`. All three loaded images had SHA-256
+`0c109cf8b810ba254a8bc1073f54a2eaaa0f2d49e464eb562b389af1e681120b`
+before viewport intervention. All three rebuilt successfully. This
+comparison leaves actual viewport picking, archived previews and
+native lifecycle for independently generated archives open.

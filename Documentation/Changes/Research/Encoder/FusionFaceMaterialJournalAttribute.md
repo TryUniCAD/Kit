@@ -20,8 +20,8 @@ through typed JSON. Mutations with a body owner, missing owner or
 non-reciprocal previous link refused. All 17 focused integration cases
 passed on Windows Python 3.14.6.
 
-Public strict decode still refuses the native Design reference class
-`BFB592FE-03DD-4DAA-A4AC-14D02ABB672A`, and public writing remains
-read-only for the saved cuboid route. See the [measured face
+The [Design owner codec](FusionFaceAppearanceOwner.md) reads the
+associated reference. Public strict projection still refuses this
+styled route, and the saved cuboid writer remains disabled. See the [measured face
 relationships](../../../../re/Fusion/SavedCuboidRoundTrip/DisplayOrderContrast.md#face-assignment-observations)
 and [API identity gotcha](../../../Gotchas/Conversion/Fusion/Api/FaceAppearanceSourceIdentity.md).

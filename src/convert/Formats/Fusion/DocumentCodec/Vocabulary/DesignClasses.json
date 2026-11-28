@@ -9859,5 +9859,38 @@
     "IsValue": false,
     "NameValue": "DcAssemblyFeature",
     "ClassSpace": "Fusion"
+  },
+  {
+    "ClassGuid": "BFB592FE-03DD-4DAA-A4AC-14D02ABB672A",
+    "BaseGuid": "5662F619-2281-4AD9-93DC-1FCFDA1062E7",
+    "SchemaVersion": 0,
+    "Members": [
+      {
+        "FieldName": "rFeature",
+        "ValueType": {
+          "KindValue": "ref",
+          "ClassGuid": "A2052F46-21B4-4AAA-9AF1-C371F0AB6CAB"
+        },
+        "IsSaved": true
+      },
+      {
+        "FieldName": "visualMaterial",
+        "ValueType": {
+          "KindValue": "object",
+          "ClassGuid": "EA46307F-1FD6-4B11-9C97-353B74F5E413"
+        },
+        "IsSaved": true
+      },
+      {
+        "FieldName": "visualMaterialTag",
+        "ValueType": {
+          "KindValue": "utf16"
+        },
+        "IsSaved": true
+      }
+    ],
+    "IsValue": false,
+    "NameValue": "VMBrepRef",
+    "ClassSpace": "Fusion"
   }
 ]
