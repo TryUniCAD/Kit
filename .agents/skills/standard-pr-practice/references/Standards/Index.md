@@ -36,8 +36,8 @@ requirements retain their original force and scope. In particular:
 - Follow the main skill's local execution rules, including standing
   authorization for relevant local tests on large PRs. Heavy acceptance runs
   in the native merge queue.
-- [ReviewBot.json](../../ReviewBot.json) defines the only automated reviewer
-  request comment. The main skill defines all-CI follow-up, large-PR review
+- [ReviewBot.json](../../ReviewBot.json) defines automated reviewer identities,
+  native reports and triggers. The main skill defines all-CI follow-up, large-PR review
   timing, and readiness evidence.
 - Only verified repository administrators can explicitly authorize agent merges,
   queue enrollment, auto-merge, or supported overrides under the main skill's

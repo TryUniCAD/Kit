@@ -135,10 +135,13 @@ read its complete standards index and every applicable rule before coding.
   folder that it recorded is unchanged. Every other test executes on the candidate.
 - Read every entry in `Reviewers` from
   [ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json), the sole
-  source of reviewer identities, report names, and exact request comments.
-  When review is due under the skill's timing rules, submit each entry's
-  `Comment` verbatim once per accepted head unless that reviewer already has
-  a request or review for that head. Verify every responding
+  source of reviewer identities, report names, and trigger configuration.
+  For `Trigger: schedule`, follow automatic review after successful PR CI.
+  Use the configured workflow dispatch with CI run input `id` for manual retries.
+  Use configured `AccountReview.MentionCommands` for explicit reassessment after successful current-head CI.
+  Never invoke removed reviewers.
+  For a comment-triggered entry, submit its exact `Comment` once per accepted head.
+  Verify every responding
   account/app and reviewed SHA, and address all findings. Every configured
   reviewer must pass all its native reports and submit an actual `APPROVED`
   review on the current head before the PR is ready. Missing, pending, failed,
