@@ -1,0 +1,207 @@
+{
+  "scope": "native geometry and material lifecycle for generated snapshots without separately regenerated graphics",
+  "producer_revision": "382af3ea57c5fdbe74b8271c9cb6711aa96ec18a",
+  "strict_checkout_revision": "9566030dad95fc7c30a377c0a0f5ee18428f95d9",
+  "sdk_tree": "215a035296cc9a6135276fad370ceaa8dddbc190",
+  "cases": {
+    "baseline": {
+      "batch": "ae1b9e5ee7731848a8055335b2e8f87f3ca05ed70215af3847ae6a3592ec7a44",
+      "manifest": "0a0651e9e302f2c8c8891497821cc5665296e718fa239bfd245adfde7a8511f7",
+      "candidate": "177c4fb5fb1a7e0e6b764b78108e04d2dab7c80cb5df126d4aadcd4722ae03df",
+      "stages": {
+        "ControlBefore": {
+          "sha256": "b81fd8713c9290d6605a683a03e74e2670156a3443bbcb897b1f6b9cf02d144f",
+          "pid": 19932,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "Candidate": {
+          "sha256": "5cc18ee5e1d6dc9bd04d8a4e0b5912ea14d9a558ecfd80c37221c06b62ba4db0",
+          "pid": 23048,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "Reopen": {
+          "sha256": "858047cca941f32d5ff40aac19af33d14c9d3b82179a560de36cc7eb952b2df0",
+          "pid": 8680,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "ControlAfter": {
+          "sha256": "f8efb8bc28576aba0c6c36dbba70fc2e6c375d840d6a3dcb67b0a7117a34f590",
+          "pid": 37788,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        }
+      },
+      "strict_saves": {
+        "VendorUnedited": {
+          "sha256": "336eabe79ad4c3cb02f90b7a8b7132ccb6af5706f83ef96efe98d2942cdab6b2",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        },
+        "VendorEdited": {
+          "sha256": "3bf79dba524425c374200ed0e68d732d7176e7b6eef65c4fb0c314d4c3253ed2",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        },
+        "VendorRestored": {
+          "sha256": "39663502b2d3aaefd3fcd6486b65753588c86e6baa57cc7dbcc5f88dcd760b71",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        }
+      },
+      "volume_cm3": {
+        "rebuilt": 11.243844000000001,
+        "height_edited": 23.053416000000002,
+        "height_restored": 11.243844000000001,
+        "width_edited": 14.147184000000003,
+        "width_restored": 11.243844000000003,
+        "depth_edited": 6.468597000000002,
+        "depth_restored": 11.243844000000003
+      }
+    },
+    "json-height-edit": {
+      "batch": "b838ee275fd1b941f54fef3d2f0e4f3b441fb8d85aa74d891d41ae9a42341c51",
+      "manifest": "e8f81fbea8d881322ee4f793ffa60f7a4412d8cde5820f8a257bfb5b040c78de",
+      "candidate": "92061b2451a4eddafe212fc07afc67556e0dfc3d58e7604d3aae8eadf0f001c0",
+      "stages": {
+        "ControlBefore": {
+          "sha256": "3292d3262300476377f9500bc234f54e54cfdf9f0bc13032f742fc39ae414405",
+          "pid": 31476,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "Candidate": {
+          "sha256": "1ff26486469ba03ad37394fc2701d2efd4b082e5bdaa26c345e5aec73cb56e18",
+          "pid": 22956,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "Reopen": {
+          "sha256": "e3c3a8058b722bd75a2287b0b4fcd42fa22b31565b6251144001e2d5be1ba0b0",
+          "pid": 30860,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "ControlAfter": {
+          "sha256": "2e6bf713382715228316aa570100ff0438fc0e231a53460138f794c34ff2793c",
+          "pid": 3404,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        }
+      },
+      "strict_saves": {
+        "VendorUnedited": {
+          "sha256": "7bb4ccc7edfb7c71838cc9a243c45ef2f8722450ec544212ba83fa77016f67c5",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        },
+        "VendorEdited": {
+          "sha256": "a2c038a6f8795f5cea76a5e49c024df483fa8ba44f0d45d940e2895c0004f08c",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        },
+        "VendorRestored": {
+          "sha256": "41c6ee2f007e3f54c976488dee7e65e694b04427077bd3d64c75ffc28c9bda26",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        }
+      },
+      "volume_cm3": {
+        "rebuilt": 17.466852000000003,
+        "height_edited": 23.053416000000002,
+        "height_restored": 17.466852000000003,
+        "width_edited": 21.977072000000007,
+        "width_restored": 17.466852000000006,
+        "depth_edited": 10.048701000000003,
+        "depth_restored": 17.466852000000006
+      }
+    },
+    "independent-holdout": {
+      "batch": "6f5c696bb58945282a0fc6baa371ac2da08cd353b15b59cc0582e189ffc9ffdb",
+      "manifest": "9cafa48f43b81e17b81e83139bb0218a8e49ae6e88c12bf2a594e60ff07a9765",
+      "candidate": "aa85873d4e83388c15d8e62451f17459edaec85f51d46048496489d0304435ad",
+      "stages": {
+        "ControlBefore": {
+          "sha256": "8bfd18d754920b804715cd2e58b9e96be403b97529110f5efbaea627a660ccc2",
+          "pid": 25288,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "Candidate": {
+          "sha256": "8b1af6c5bf7a8c0608f6fc71fed15e48d85019da3f8ae4a1948a0e7864c1b953",
+          "pid": 22708,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "Reopen": {
+          "sha256": "c7a5da16be60c6b05321be5fe9604ce78064eca020aefd35a7483adbdbad0b78",
+          "pid": 20180,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        },
+        "ControlAfter": {
+          "sha256": "9629afacf557c1eb3e5e55fe72f7f4ec0672b158372288a4e0f215934a4c151a",
+          "pid": 37932,
+          "status": "passed",
+          "documents_before": 0,
+          "documents_after": 0
+        }
+      },
+      "strict_saves": {
+        "VendorUnedited": {
+          "sha256": "42d5f91bd2ec420056cb22f6920f259d442d0c30da3ced14c0a2397e9d7ac1d4",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        },
+        "VendorEdited": {
+          "sha256": "e7fc8a4ea99b1dcdf6d9bb786fd5f360b1d7cb5173ccaecebf201778f2636022",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        },
+        "VendorRestored": {
+          "sha256": "29258cdbe58261a607c0d6f51a45347965c852481da77161be109b45f5c19fe7",
+          "typed_model_equal": true,
+          "neutral_json_equal": true,
+          "native_publishable": false
+        }
+      },
+      "volume_cm3": {
+        "rebuilt": 27.575072000000002,
+        "height_edited": 72.31750400000001,
+        "height_restored": 27.575072000000002,
+        "width_edited": 39.66435200000001,
+        "width_restored": 27.575072000000002,
+        "depth_edited": 21.912334000000005,
+        "depth_restored": 27.575072000000002
+      }
+    }
+  },
+  "limitations": [
+    "separate graphics-bearing cohort is outside this receipt",
+    "viewport, archived previews and face selection unqualified",
+    "public native publication gate remains closed"
+  ],
+  "fusion_build": "2706.1.17",
+  "local_evidence_index_sha256": "985faf595d38eebca0790ebd2d6a6beea9ad882fa4ded0ae7e84b032772dc219"
+}
