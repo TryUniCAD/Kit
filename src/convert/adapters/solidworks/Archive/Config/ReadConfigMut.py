@@ -4,6 +4,7 @@ from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
+from convert.adapters.solidworks.Archive.Config.MakeAsmCfgCtx import MakeAsmCfgCtx
 from convert.adapters.solidworks.Archive.Config.MakeConfigCtx import MakeConfigCtx
 from convert.adapters.solidworks.Archive.Config.ReadCfgBodyMut import ReadCfgBodyMut
 from convert.adapters.solidworks.Archive.Config.RequireConfig import RequireConfig
@@ -21,14 +22,16 @@ def ReadConfigMut(
     HeaderValue: ArchiveNode,
     *,
     UsageValue: BodyUsage | None = None,
+    AssemblyValue: bool = False,
 ) -> ConfigGraph:
-    ContextValue = MakeConfigCtx(VersionValue, HeaderValue, UsageValue)
+    MakeContext = MakeAsmCfgCtx if AssemblyValue else MakeConfigCtx
+    ContextValue = MakeContext(VersionValue, HeaderValue, UsageValue)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),
-        PartialValue(ReadCfgBodyMut, ContextValue),
+        PartialValue(ReadCfgBodyMut, ContextValue, AssemblyValue=AssemblyValue),
     )
-    RootValue = RequireConfig(ReadNodeMut(ReaderValue))
+    RootValue = RequireConfig(ReadNodeMut(ReaderValue), AssemblyValue=AssemblyValue)
     if ReaderValue.Cursor.GetRemaining():
         raise BodyUnsupported(
             f"SOLIDWORKS configuration has {ReaderValue.Cursor.GetRemaining()} trailing bytes"

@@ -1,0 +1,230 @@
+{
+  "native_processes_started": 0,
+  "passed": true,
+  "protected_inputs_read": 0,
+  "results": [
+    {
+      "archive_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+      "area_m2": 0.0016073550000000002,
+      "case": "SdkNestedDimensionedNative01",
+      "centre_m": [
+        -3.552713678800501e-18,
+        -1.7763568394002505e-18,
+        0.003725
+      ],
+      "member": "plate",
+      "packaged_format_schema_reads": 2,
+      "parameters_m": {
+        "D1@Boss-Extrude1": 0.00745,
+        "D1@Sketch1": 0.02865,
+        "D2@Sketch1": 0.016350000000000003
+      },
+      "pid": 78664,
+      "relation_kinds": [
+        "horizontal",
+        "vertical",
+        "horizontal",
+        "vertical",
+        "distance",
+        "distance"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "49d0e9b2102a5b082d06904cd4ea123f4dc656c79a530b9e521562de9c75160d",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0,
+      "topology": [
+        1,
+        1,
+        6,
+        12,
+        8
+      ],
+      "volume_m3": 3.489784875000001e-06
+    },
+    {
+      "archive_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+      "case": "SdkNestedDimensionedNative01",
+      "contrast": "display_slot",
+      "member": "plate",
+      "packaged_format_schema_reads": 0,
+      "pid": 79837,
+      "refusals": [
+        "invalid typed dimensioned cold leaf: typed rectangle display does not own its selected sketch value",
+        "invalid typed dimensioned cold leaf: typed rectangle display does not own its selected sketch value"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "49d0e9b2102a5b082d06904cd4ea123f4dc656c79a530b9e521562de9c75160d",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0
+    },
+    {
+      "archive_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+      "case": "SdkNestedDimensionedNative01",
+      "contrast": "shared_parameter",
+      "member": "plate",
+      "packaged_format_schema_reads": 0,
+      "pid": 79847,
+      "refusals": [
+        "invalid typed dimensioned cold leaf: typed rectangle driving graph has shared or incomplete owners",
+        "invalid typed dimensioned cold leaf: typed rectangle driving graph has shared or incomplete owners"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "49d0e9b2102a5b082d06904cd4ea123f4dc656c79a530b9e521562de9c75160d",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0
+    },
+    {
+      "archive_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+      "case": "SdkNestedDimensionedNative01",
+      "contrast": "point_reference_count",
+      "member": "plate",
+      "packaged_format_schema_reads": 0,
+      "pid": 79848,
+      "refusals": [
+        "invalid typed dimensioned cold leaf: typed line ring has unqualified entity ownership or geometry",
+        "invalid typed dimensioned cold leaf: typed line ring has unqualified entity ownership or geometry"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "49d0e9b2102a5b082d06904cd4ea123f4dc656c79a530b9e521562de9c75160d",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0
+    },
+    {
+      "archive_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+      "case": "SdkNestedDimensionedNative01",
+      "contrast": "axis_role",
+      "member": "plate",
+      "packaged_format_schema_reads": 0,
+      "pid": 79849,
+      "refusals": [
+        "invalid typed dimensioned cold leaf: typed rectangle axes do not cover every owned line",
+        "invalid typed dimensioned cold leaf: typed rectangle axes do not cover every owned line"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "49d0e9b2102a5b082d06904cd4ea123f4dc656c79a530b9e521562de9c75160d",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0
+    },
+    {
+      "archive_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+      "case": "SdkNestedDimensionedNative01",
+      "contrast": "draft",
+      "member": "plate",
+      "packaged_format_schema_reads": 0,
+      "pid": 79850,
+      "refusals": [
+        "invalid typed dimensioned cold leaf: dimensioned cold leaf has unsupported start or end state",
+        "invalid typed dimensioned cold leaf: dimensioned cold leaf has unsupported start or end state"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "49d0e9b2102a5b082d06904cd4ea123f4dc656c79a530b9e521562de9c75160d",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0
+    },
+    {
+      "archive_sha256": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626",
+      "area_m2": 0.0016073550000000002,
+      "case": "SdkRepeatedDimensionedNative01",
+      "centre_m": [
+        -3.552713678800501e-18,
+        -1.7763568394002505e-18,
+        0.003725
+      ],
+      "member": "plate",
+      "packaged_format_schema_reads": 2,
+      "parameters_m": {
+        "D1@Boss-Extrude1": 0.00745,
+        "D1@Sketch1": 0.02865,
+        "D2@Sketch1": 0.016350000000000003
+      },
+      "pid": 80707,
+      "relation_kinds": [
+        "horizontal",
+        "vertical",
+        "horizontal",
+        "vertical",
+        "distance",
+        "distance"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "49d0e9b2102a5b082d06904cd4ea123f4dc656c79a530b9e521562de9c75160d",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0,
+      "topology": [
+        1,
+        1,
+        6,
+        12,
+        8
+      ],
+      "volume_m3": 3.489784875000001e-06
+    },
+    {
+      "archive_sha256": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de",
+      "area_m2": 0.001888555,
+      "case": "SdkRepeatedDimensionedNative01",
+      "centre_m": [
+        0.0,
+        0.0,
+        0.005425
+      ],
+      "member": "gauge",
+      "packaged_format_schema_reads": 2,
+      "parameters_m": {
+        "D1@Boss-Extrude1": 0.01085,
+        "D1@Sketch1": 0.019149999999999997,
+        "D2@Sketch1": 0.024550000000000002
+      },
+      "pid": 81821,
+      "relation_kinds": [
+        "horizontal",
+        "vertical",
+        "horizontal",
+        "vertical",
+        "distance",
+        "distance"
+      ],
+      "resolved_bytes": 17289,
+      "resolved_sha256": "c9791043ae4ad457a5d7499570cf561e5800510b617cc4693260f29a8bf4d174",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0,
+      "topology": [
+        1,
+        1,
+        6,
+        12,
+        8
+      ],
+      "volume_m3": 5.100937624999999e-06
+    },
+    {
+      "archive_sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39",
+      "area_m2": 0.0016073550000000002,
+      "case": "SdkNestedNeutralNative03",
+      "centre_m": [
+        -3.552713678800501e-18,
+        -1.7763568394002505e-18,
+        0.003725
+      ],
+      "member": "plate",
+      "packaged_format_schema_reads": 2,
+      "parameters_m": {
+        "D1@Boss-Extrude1": 0.00745
+      },
+      "pid": 81828,
+      "relation_kinds": [],
+      "resolved_bytes": 13867,
+      "resolved_sha256": "88409bf56d2f46e9e03247cf767202abde4009cfb572c10475d9a711798d5d8b",
+      "runtime_input_file_reads": 0,
+      "runtime_process_or_library_launches": 0,
+      "topology": [
+        1,
+        1,
+        6,
+        12,
+        8
+      ],
+      "volume_m3": 3.489784875000001e-06
+    }
+  ]
+}

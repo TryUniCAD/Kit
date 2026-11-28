@@ -1,0 +1,7 @@
+# Native rigid nested SOLIDWORKS assemblies
+
+The SOLIDWORKS writer generates one native `.SLDASM` or `.SLDPRT` per owned definition in a complete neutral rigid hierarchy. Repeated occurrences retain their independent transforms and share one output definition. Each rectangular Front-plane leaf retains its editable blind depth and, when supplied with the qualified rectangle constraints, its two editable sketch lengths.
+
+Use a fresh `.SLDASM` path matching the neutral root name and provide the actual offline bundle measurement in `values["solidworks_native_measurement"]`. On a mapped host, pass the corresponding absolute Windows path in `values["native_destination"]`. The SDK matches the root and every ordered owned definition to the same native measurement before staging any file. The writer refuses mates, omitted owned documents, suppressed, hidden, fixed or flexible placements, unfamiliar metadata, overwrite and stream output. [Assembly writer guide](../../../../Reference/Adapters/SolidworksAssemblyWriting.md)
+
+Both SDK routes reproduced all 14 files in four disclosed native-tested bundles with eight native transfers and zero runtime input reads. Missing or mismatched evidence caused zero staged writes. A controlled companion publication failure rolled back the verified bundle. [Delivery evidence](../../../../../re/solidworks/records/NestedAssemblyDelivery2026.md#exact-measured-publication)

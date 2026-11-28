@@ -1,0 +1,19 @@
+{
+  "artifacts_written_to_destination": false,
+  "cases": [
+    {
+      "case": "derived",
+      "passed": true
+    },
+    {
+      "case": "explicit",
+      "passed": true
+    },
+    {
+      "case": "foreign",
+      "passed": true
+    }
+  ],
+  "schema": "kit.sw2026.native-assembly-windows-locator.v1",
+  "source_sha256": "c1fc3f17e5abad6778a64e4e9c2a7d9f1693462d71adda35a7dd8c768cfbe6d1"
+}

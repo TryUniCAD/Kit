@@ -10,7 +10,9 @@ from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Resolved.BindRectCtxMut import BindRectCtxMut
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
+from convert.adapters.solidworks.Archive.Resolved.MakeAsmResCtx import MakeAsmResCtx
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
 from convert.adapters.solidworks.Archive.Resolved.WriteMbsMut import WriteMbsMut
@@ -26,8 +28,15 @@ def WriteResolMut(
     LinkContext: Mapping[str, int],
     *,
     UsageValue: BodyUsage | None = None,
+    AssemblyValue: bool = False,
+    RectangleDims: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    MakeContext = MakeAsmResCtx if AssemblyValue else MakeResolvedCtx
+    ContextValue = MakeContext(VersionValue, SeedValue, LinkContext, UsageValue)
+    if RectangleDims:
+        if AssemblyValue:
+            raise ValueError("SOLIDWORKS rectangle dimensions require their part graph")
+        BindRectCtxMut(ContextValue)
     _ = NormalizeCount(len(RootsValue), "")
     WriterValue = BodyWriter(
         ArchiveMaps(SeedValue.CounterValue, SeedValue), ContextValue, WriteBodyMut

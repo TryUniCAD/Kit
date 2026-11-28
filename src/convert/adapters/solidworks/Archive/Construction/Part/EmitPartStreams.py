@@ -55,7 +55,12 @@ def EmitPartStreams(
         "cmgr_f658": CastValue(int, SystemValue.ManagerValue.FieldsValue["f658"]),
     }
     ResolvedBytes, ResolvedValue = WriteResolMut(
-        FeatureValues, None, 19000, ConfigValue.MapValue, ContextValue
+        FeatureValues,
+        None,
+        19000,
+        ConfigValue.MapValue,
+        ContextValue,
+        RectangleDims=bool(SketchDims),
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),

@@ -1,7 +1,11 @@
 from convert.api.ApiContext import GetRegistry
 from convert.api.ApiOpen import OpenDocument
 from convert.api.ApiWrite import WriteDocument
-from convert.adapters.solidworks.Container.Format import KPartFormatId
+from convert.adapters.solidworks.Container.Format import (
+    KAsmFormatId,
+    KAsmSuffix,
+    KPartFormatId,
+)
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.NativeMeasVals import NativeMeasVals
@@ -41,8 +45,26 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         StrictMode=True,
     )
     Writer = Registry.GetWriter(DestFormat)
-    IsPartWriter = Writer.info.FormatId == KPartFormatId
-    CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
+    IsNativeWriter = Writer.info.FormatId == KPartFormatId
+    IsAssemblyTarget = (
+        IsNativeWriter and Options.Destination.suffix.casefold() == KAsmSuffix
+    )
+    if IsAssemblyTarget and Options.DestFormat is None:
+        DestFormat = KAsmFormatId
+    CheckPortable(
+        Document,
+        WriterQualifiedPart=IsNativeWriter,
+        WriterQualifiedAssembly=IsAssemblyTarget,
+    )
+    InputValues = NativeMeasVals(
+        Options.NativeMeasurePath, Options.Destination, IsNativeWriter
+    )
+    if Options.NativeDestination is not None:
+        if not IsAssemblyTarget:
+            raise ValueError(
+                "native destination requires the SOLIDWORKS assembly writer"
+            )
+        InputValues["native_destination"] = Options.NativeDestination
     Result = WriteDocument(
         Document,
         Options.Destination,
@@ -51,9 +73,7 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         Overwrite=Options.Overwrite,
         ValidateData=True,
         AllowCarrier=False,
-        InputValues=NativeMeasVals(
-            Options.NativeMeasurePath, Options.Destination, IsPartWriter
-        ),
+        InputValues=InputValues,
     )
     return {
         "source_format": ResolveFormat(Document, Reader),

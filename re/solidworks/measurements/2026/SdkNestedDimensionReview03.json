@@ -1,0 +1,298 @@
+{
+  "alternate_cold_relation_inventory": {
+    "axis_rows": 0,
+    "input_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+    "kind": "other_relation_inventory",
+    "permissive_diagnostic": true,
+    "runtime_input_file_reads": 0,
+    "semantic_archive_sha256": "eea0a42adb3711c6fec3bf2a07f8c517a9a082554d0c05f127a40460a223c2fd",
+    "strict_refusals": 2,
+    "value_rows": 2
+  },
+  "circular_control": {
+    "body_count": 1,
+    "boss_depth_mm": 31.37,
+    "circle_radius_mm": 7.19,
+    "input_sha256": "9772dfdc9cbbfa6d48277d0466e208aefabbf947bb59d539b96cec33ed772d26",
+    "kind": "circle",
+    "runtime_input_file_reads": 0
+  },
+  "edited_driver_refusals": [
+    {
+      "both_routes_refused": true,
+      "driver": "D1",
+      "edited_m": "0x1.d566cf41f212ep-6",
+      "final_writes": 0,
+      "generated_sha256": "5d161f02469099d1a13d9fde88035e0e249701f6d5e5594e8d686754dd50e960",
+      "original_m": "0x1.d566cf41f212dp-6",
+      "runtime_input_file_reads": 0,
+      "staged_writes": 0
+    },
+    {
+      "both_routes_refused": true,
+      "driver": "D2",
+      "edited_m": "0x1.0be0ded288ce9p-6",
+      "final_writes": 0,
+      "generated_sha256": "3bfd2ecf5a531d232c32d47944cdfacbf2f6b8cce8e446ec9c86a7315d7e49e4",
+      "original_m": "0x1.0be0ded288ce8p-6",
+      "runtime_input_file_reads": 0,
+      "staged_writes": 0
+    }
+  ],
+  "native_processes_started": 0,
+  "passed": true,
+  "protected_inputs_read": 0,
+  "publication_cases": {
+    "SdkNestedDimensionedNative01": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9060,
+          "sha256": "430e8760a87cabd8d8ea326082b2dc99a26c2c64974303e56d2a8ee1119916ff"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 8846,
+          "sha256": "b993654affe7a45730688d865a08657c741fb799c3a7703e8c1a90dba7d85609"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8694,
+          "sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "oracle_terminal_sha256": "84f8131b7a0745421f6e6a5ffd2bf91c9f2ec3d1e71f2a6b7b2358e7965e3340",
+      "runtime_input_reads": 0,
+      "vendor_loadable": true,
+      "written_at": 1794700075
+    },
+    "SdkNestedNeutralNative03": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9047,
+          "sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 8827,
+          "sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8192,
+          "sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "oracle_terminal_sha256": "bcc4e421981553c488cf4638e50342ae74c65544f60cee265493fd464eb016e8",
+      "runtime_input_reads": 0,
+      "vendor_loadable": true,
+      "written_at": 1794700075
+    },
+    "SdkRepeatedDimensionedNative01": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9869,
+          "sha256": "27e24ffbf5423c5d8159b8e990a6638f06670886e8885fbf2ce353fb41f11155"
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "bytes": 8719,
+          "sha256": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 9141,
+          "sha256": "553c5f90bd6a0fbc7fa135ecd37f8df96d54e867a491c902223965abc7e775d6"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8706,
+          "sha256": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "oracle_terminal_sha256": "56488ff40ac32117973029686d57bc7090cb01f136fde4be7407ad386e7d0455",
+      "runtime_input_reads": 0,
+      "vendor_loadable": true,
+      "written_at": 1794700075
+    },
+    "SdkRepeatedNeutralNative03": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9854,
+          "sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10"
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "bytes": 8198,
+          "sha256": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 9125,
+          "sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8203,
+          "sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "oracle_terminal_sha256": "9dfda9928f350c7b4a4e4a8b4455dff1712ab30c34fbb403b75671b080b4d0a1",
+      "runtime_input_reads": 0,
+      "vendor_loadable": true,
+      "written_at": 1794700075
+    }
+  },
+  "real_endpoint_checks": [
+    {
+      "case": "SdkNestedDimensionedNative01",
+      "checked_ordered_endpoint_pairs": [
+        [
+          "sldprt:parameter:18:D1",
+          [
+            [
+              "sldprt:sketch:18:line:1",
+              "start"
+            ],
+            [
+              "sldprt:sketch:18:line:1",
+              "end"
+            ]
+          ]
+        ],
+        [
+          "sldprt:parameter:18:D2",
+          [
+            [
+              "sldprt:sketch:18:line:2",
+              "start"
+            ],
+            [
+              "sldprt:sketch:18:line:2",
+              "end"
+            ]
+          ]
+        ]
+      ],
+      "input_sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c",
+      "kind": "endpoints",
+      "matched_endpoint_lengths_mm": [
+        28.65,
+        16.35
+      ],
+      "member": "plate",
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "SdkRepeatedDimensionedNative01",
+      "checked_ordered_endpoint_pairs": [
+        [
+          "sldprt:parameter:18:D1",
+          [
+            [
+              "sldprt:sketch:18:line:1",
+              "start"
+            ],
+            [
+              "sldprt:sketch:18:line:1",
+              "end"
+            ]
+          ]
+        ],
+        [
+          "sldprt:parameter:18:D2",
+          [
+            [
+              "sldprt:sketch:18:line:2",
+              "start"
+            ],
+            [
+              "sldprt:sketch:18:line:2",
+              "end"
+            ]
+          ]
+        ]
+      ],
+      "input_sha256": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626",
+      "kind": "endpoints",
+      "matched_endpoint_lengths_mm": [
+        28.65,
+        16.35
+      ],
+      "member": "plate",
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "SdkRepeatedDimensionedNative01",
+      "checked_ordered_endpoint_pairs": [
+        [
+          "sldprt:parameter:18:D1",
+          [
+            [
+              "sldprt:sketch:18:line:1",
+              "start"
+            ],
+            [
+              "sldprt:sketch:18:line:1",
+              "end"
+            ]
+          ]
+        ],
+        [
+          "sldprt:parameter:18:D2",
+          [
+            [
+              "sldprt:sketch:18:line:2",
+              "start"
+            ],
+            [
+              "sldprt:sketch:18:line:2",
+              "end"
+            ]
+          ]
+        ]
+      ],
+      "input_sha256": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de",
+      "kind": "endpoints",
+      "matched_endpoint_lengths_mm": [
+        19.15,
+        24.55
+      ],
+      "member": "gauge",
+      "runtime_input_file_reads": 0
+    }
+  ]
+}

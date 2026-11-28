@@ -36,6 +36,7 @@ No replacement percentage is claimed without a complete acceptance matrix.
 Registration, same-format reconstruction and retained native bytes do not establish cross-format editability.
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md) define the writer's supported geometry and measurement gate.
+The [rigid nested assembly publication profile](Documentation/Reference/Adapters/SolidworksAssemblyWriting.md) is tracked separately from that main snapshot.
 
 ## Destination
 

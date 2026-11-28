@@ -1,0 +1,74 @@
+{
+  "audit_sha256": "2b66872092ca0e7ee22129aac94dd6bda7863b61adc34b83f47bf938c9b706e3",
+  "code_lock_sha256": "522640ed6821eda1f2f9f0cd080b10c5fccdfebc147b7ec05afad2bb2b28984f",
+  "code_manifest_sha256": "71f02b4e6ba3cc4671af95010d035ff64c2ee0cabebda3cc6e41605bfa8c6ffc",
+  "disclosed_public_routes_sha256": "2cb15c011cad7cd489a3657c65765192cfb9bd7a08d2c46128375d892f1df41a",
+  "files_compared_per_route": 11,
+  "fresh_guarded_sdk_processes": 4,
+  "host_private_requests_read": 0,
+  "native_or_saved_artifact_files_read": 0,
+  "native_processes_started": 0,
+  "original_native_result_sha256": "48de61872b805bcb2acf3cec9f8d6a491629e3b1a9560f452985c2583b0658de",
+  "original_packet_sha256": "b0cf2bd0b664b7f1c6a3d039ba520360f47c1ab15a5a15b5f629b775aacf71ea",
+  "parity_packet_sha256": "a3c6c51f917e6a28cdcb4a05d7fa3a16695f9961351e9d04ad89c9186c6e500d",
+  "passed": true,
+  "prior_native_acceptance_linked_by_exact_byte_identity": true,
+  "public_route_byte_identity": true,
+  "schema": "kit.sw2026.sealed-public-nested-parity.v3",
+  "sdk_revision": "96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb",
+  "sdk_tree": "4f00d8b078ea956ccfa2883c043093a964ae2237",
+  "sealed_requests_verified_on_guest": 2,
+  "slots": [
+    {
+      "build_lock_sha256": "0b496810eac7cc1c2a8acca79f7e3f6bfeacbd94d3ae20eb599c7f8daf89d6b5",
+      "request_sha256": "2cbb04aa1baf50578ce0a5f6aeb15a1223f4f474300ebba2803dfc60ea87a066",
+      "routes": {
+        "adapter": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 5,
+          "generated_artifact_manifest_sha256": "240fb6e97b68f7c1db144b2517c41158fa967381c2fa8ee9941e8e8a1942edd7",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        },
+        "registry": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 5,
+          "generated_artifact_manifest_sha256": "240fb6e97b68f7c1db144b2517c41158fa967381c2fa8ee9941e8e8a1942edd7",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        }
+      },
+      "slot": 1
+    },
+    {
+      "build_lock_sha256": "77362bbf9f1a6a631c26108153f01ba04ec75d682eecd523678fe8ca4d128f34",
+      "request_sha256": "6d8b3d8bd5878eae24bd788aac2a43652aaa450d76977626fbab04752c17582f",
+      "routes": {
+        "adapter": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 6,
+          "generated_artifact_manifest_sha256": "b143390fb9a0defb56885caa34d4f3ad5235cc5f1cd71ea4ace6e1bdd47ac45b",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        },
+        "registry": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 6,
+          "generated_artifact_manifest_sha256": "b143390fb9a0defb56885caa34d4f3ad5235cc5f1cd71ea4ace6e1bdd47ac45b",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        }
+      },
+      "slot": 2
+    }
+  ],
+  "windows_preflight_sha256": "9faedf17e15a325a9aedb22fcb522ef5df20d0f1c55354010153f2c89e201000"
+}

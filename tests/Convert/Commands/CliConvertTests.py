@@ -21,8 +21,7 @@ def CheckCliCatalog(TmpPath: FilePath) -> None:
     assert Solidworks["read"] is Solidworks["write"] is True
     assert Solidworks["extensions"] == [".sldprt", ".sldasm"]
     assert Solidworks["aliases"] == ["solidworks.sldasm"]
-    assert Solidworks["write_extensions"] == [".sldprt"]
-    assert Solidworks["write_aliases"] == []
+    assert "write_extensions" not in Solidworks and "write_aliases" not in Solidworks
     assert Formats["fusion.f3d"]["write"] is True
     assert Formats["interchange.json"]["write"] is True
     Console = FindProgram("kit")

@@ -14,7 +14,7 @@ from pathlib import Path as FilePath, PureWindowsPath
 import re as RegexLib
 import struct as Struct
 import tempfile as Tempfile
-from typing import Mapping, Sequence
+from typing import Callable, Mapping, Sequence
 
 from convert.adapters.base import (
     AdapterInfo,
@@ -23,6 +23,9 @@ from convert.adapters.base import (
     Source,
     is_binary_destination as IsBinaryTarget,
 )
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WriteResult import WriteResult
 from interchange import (
     ArcEllipseGeometry as ArcEllipseGeom,
     ArcGeometry as ArcGeom,
@@ -61,7 +64,6 @@ from interchange import (
     MateEntityKind,
     MateGroup,
     MateKind,
-    Matrix4 as MatrixFour,
     Mesh as MeshValue,
     MoveBodyFeature,
     NativeFeatureDefinition,
@@ -112,6 +114,11 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     NativeMateList,
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAsm,
+    ExpandItemPaths,
+)
+from convert.adapters.solidworks.Assembly.NestedIndex.AsmMatrix import AsmMatrix
+from convert.adapters.solidworks.Assembly.NestedIndex.WithNestedIndex import (
+    WithNestedIndex,
 )
 from convert.adapters.solidworks.Config.OrdinaryMap import ReadOrdinaryMap
 from convert.adapters.solidworks.Config.RootLayout import KConfigGen
@@ -176,6 +183,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import Co
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.AssemblyReading.AsmReadData import AsmReadData
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -297,6 +305,25 @@ class SldprtAdapter(PairProtocol):
     def read(self, SourceValue: Source, Options: ReadOptions | None = None) -> CadDoc:
         return ReadAction(self, SourceValue, Options)
 
+    # direct callers need the same capability checks and bundle transaction as the public registry
+    def write(
+        self,
+        document: CadDoc,
+        destination: KTargetType,
+        options: WriteOptions | None = None,
+    ) -> WriteResult:
+        from convert.adapters.registry import AdapterRegistry
+        from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+
+        FormatId = options.destination_format if options is not None else None
+        if FormatId is None:
+            FormatId = KAsmFormatId if document.assembly is not None else KFormatId
+        RegistryValue = AdapterRegistry()
+        RegistryValue.RegisterWriter(SldprtWriter())
+        return RegistryValue.WriteDocument(
+            document, destination, FormatId=FormatId, OptionsData=options
+        )
+
 
 # adapter metadata stays isolated so discovery can inspect capabilities without reading documents
 def InfoAction(Instance: SldprtAdapter) -> AdapterInfo:
@@ -363,7 +390,7 @@ def ReadNativePart(
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
     Model = (
-        NativePartModel(Archive, Settings.configuration)
+        NativePartModel(Archive, Settings.configuration, Strict=Settings.strict)
         if ModelValue is None
         else ModelValue
     )
@@ -900,6 +927,8 @@ def AsmDoc(
     DataValue: bytes,
     Label: str,
     Settings: ReadOptions,
+    *,
+    Readback: AsmReadData | None = None,
 ) -> CadDoc:
     Native = DecodeNativeAsm(Archive, include_tessellation=True)
     (
@@ -912,23 +941,44 @@ def AsmDoc(
         TimeValues,
     ) = AsmPartFields(Archive, Settings)
     Meshes, MeshIds = AsmMeshes(Native)
-    Index = ComponentFile(Label, Settings)
+    Index = ComponentFile(Label, Settings) if Readback is None else Readback.IndexValue
     ResolveComponents = Settings.values.get("resolve_components", True) is not False
     Documents, DocIds, ResolvedPaths, DocDiagnostics = AsmDocuments(
-        Adapter, Native, Index if ResolveComponents else {}, Settings
+        Adapter,
+        Native,
+        Index if ResolveComponents else {},
+        Settings,
+        ReadMember=None if Readback is None else Readback.ReadDocument,
     )
+    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     Definitions = AsmDefinitions(
         Native,
         DocIds,
         ResolvedPaths,
-        {DocValue.id: DocValue.document for DocValue in Documents},
+        LinkedDocuments,
         MeshIds,
         Label,
         ResolveComponents=ResolveComponents,
+        RootPath=None if Readback is None else PathValue(Label),
     )
-    Instances = AsmInstances(Native)
+    Definitions, Instances, IndexConflict = WithNestedIndex(
+        Archive,
+        Native,
+        DocIds,
+        LinkedDocuments,
+        Definitions,
+        AsmInstances(Native),
+        Enabled=ResolveComponents,
+        Strict=Settings.strict,
+        SourceKey=KSourceBytesKey,
+    )
     MateSourceValues, SourceDiagnostics = MateSources(
-        Native, Archive, Label, Index, Settings
+        Native,
+        Archive,
+        Label,
+        Index,
+        Settings,
+        ReadArchive=None if Readback is None else Readback.ReadArchive,
     )
     MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
     FlatMateValues = FlattenedMates(Native, Mates)
@@ -936,7 +986,8 @@ def AsmDoc(
     BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
     CompanionPayloads = (
         Companion(Label)
-        if Settings.include_brep
+        if Readback is None
+        and Settings.include_brep
         and Settings.values.get("discover_companions", True) is not False
         else ()
     )
@@ -969,8 +1020,15 @@ def AsmDoc(
         + DocDiagnostics
         + SourceDiagnostics
     )
-    PathRecords = Flattened(Native)
-    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
+    if IndexConflict is not None:
+        Diagnostics += (
+            DiagValue(
+                code="sldasm.nested_index_conflict",
+                message=IndexConflict,
+                severity=Severity.WARNING,
+            ),
+        )
+    PathRecords = Flattened(Native, Definitions)
     LinkedPartDocuments = tuple(
         (
             DocValue
@@ -1183,6 +1241,8 @@ def AsmDocuments(
     Native: NativeAssembly,
     Index: dict[str, tuple[Path, ...]],
     Settings: ReadOptions,
+    *,
+    ReadMember: Callable[[PathValue, ReadOptions], CadDoc] | None = None,
 ) -> tuple[
     tuple[ComponentDoc, ...],
     dict[int, str],
@@ -1192,6 +1252,7 @@ def AsmDocuments(
     if not Index:
         return ((), {}, {}, ())
     DefinitionsByPath, ResolvedPaths, Diagnostics = FindAsmSources(Native, Index)
+    LoadMember = Adapter.read if ReadMember is None else ReadMember
     Documents: list[ComponentDoc] = []
     DocIds: dict[int, str] = {}
 
@@ -1210,7 +1271,7 @@ def AsmDocuments(
             values=FrozenMapping(Values),
         )
         try:
-            DocValue = Adapter.read(Resolved, Options)
+            DocValue = LoadMember(Resolved, Options)
         except (OSError, SldprtFormatError, TypeError, ValueError) as ErrorInfo:
             if Settings.strict:
                 raise
@@ -1347,17 +1408,19 @@ def AsmDefinitions(
     MeshIds: dict[int, str],
     Label: str,
     ResolveComponents: bool = True,
+    *,
+    RootPath: PathValue | None = None,
 ) -> tuple[ComponentDefinition, ...]:
     Result: list[ComponentDefinition] = []
     for Definition in Native.definitions:
         DocId = DocIds.get(Definition.object_id, "")
         DocValue = Documents.get(DocId)
         SourcePath = ResolvedPaths.get(Definition.object_id)
-        if (
-            Definition.object_id == Native.root_definition_id
-            and PathValue(Label).is_file()
-        ):
-            SourcePath = PathValue(Label).resolve()
+        if Definition.object_id == Native.root_definition_id:
+            if RootPath is not None:
+                SourcePath = RootPath
+            elif PathValue(Label).is_file():
+                SourcePath = PathValue(Label).resolve()
         KindValue = (
             ComponentKind.ASSEMBLY
             if Definition.document_type == "ASSEMBLY"
@@ -1488,10 +1551,13 @@ def MateSources(
     Label: str,
     Index: dict[str, tuple[Path, ...]],
     Settings: ReadOptions,
+    *,
+    ReadArchive: Callable[[PathValue], SldprtArchive] | None = None,
 ) -> tuple[
     tuple[tuple[NativeAsm, SldprtArchive, dict[int, int], dict[int, int], str], ...],
     tuple[DiagValue, ...],
 ]:
+    LoadArchive = SldprtArchive.open if ReadArchive is None else ReadArchive
     Sources = [
         (
             RootValue,
@@ -1529,7 +1595,7 @@ def MateSources(
                 )
             )
             continue
-        NestedArchive = SldprtArchive.open(Resolved)
+        NestedArchive = LoadArchive(Resolved)
         Nested = DecodeNativeAsm(NestedArchive, include_tessellation=False)
         try:
             DefinitionMap = NestedMap(RootValue, Nested, Target.object_id)
@@ -1972,16 +2038,31 @@ def MateGroups(
 
 
 # this definition exists because focused behavior needs one stable owner
-def Flattened(Native: NativeAssembly) -> tuple[dict[str, object], ...]:
+def Flattened(
+    Native: NativeAssembly, Definitions: tuple[ComponentDefinition, ...]
+) -> tuple[dict[str, object], ...]:
     Identity = {
         ItemValue.object_id: ItemValue.object_id for ItemValue in Native.occurrences
     }
+    DisplayPaths = Native.occurrence_paths
+    if any(
+        NativeValue.name != Value.name
+        for NativeValue, Value in zip(Native.definitions, Definitions, strict=True)
+    ):
+        DisplayPaths = ExpandItemPaths(
+            Native.root_definition_id,
+            (
+                Replace(NativeValue, name=Value.name)
+                for NativeValue, Value in zip(Native.definitions, Definitions, strict=True)
+            ),
+            Native.occurrences,
+        )
     return tuple(
         (
             {
                 "occurrence_id": AsmInstanceId(ItemValue.occurrence_id),
                 "definition_id": AsmDefinitionId(ItemValue.definition_id),
-                "path": ItemValue.path,
+                "path": DisplayValue.path,
                 "instance_path": tuple(
                     (
                         AsmInstanceId(Value)
@@ -1990,7 +2071,9 @@ def Flattened(Native: NativeAssembly) -> tuple[dict[str, object], ...]:
                 ),
                 "depth": ItemValue.depth,
             }
-            for ItemValue in Native.occurrence_paths
+            for ItemValue, DisplayValue in zip(
+                Native.occurrence_paths, DisplayPaths, strict=True
+            )
         )
     )
 
@@ -2094,30 +2177,6 @@ def Companion(Label: str) -> tuple[BrepPayload, ...]:
 
 
 # this definition exists because focused behavior needs one stable owner
-def AsmMatrix(Values: tuple[float, ...]) -> MatrixFour:
-    return MatrixFour(
-        (
-            Values[0],
-            Values[4],
-            Values[8],
-            Values[12] * 1000.0,
-            Values[1],
-            Values[5],
-            Values[9],
-            Values[13] * 1000.0,
-            Values[2],
-            Values[6],
-            Values[10],
-            Values[14] * 1000.0,
-            Values[3],
-            Values[7],
-            Values[11],
-            Values[15],
-        )
-    )
-
-
-# this definition exists because focused behavior needs one stable owner
 def AsmBoundingBox(
     Values: tuple[float, float, float, float, float, float] | None,
 ) -> BoundingBox | None:
@@ -2207,7 +2266,9 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 
 
 # this definition exists because focused behavior needs one stable owner
-def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+def NativePartModel(
+    Archive: SldprtArchive, Requested: str | None, *, Strict: bool = True
+) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2259,7 +2320,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
     if SelectedStream == KitResolvedStream:
         return Model
 
-    Model = WithTypedNative(Model, Archive)
+    Model = WithTypedNative(Model, Archive, Strict=Strict)
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(
@@ -2800,7 +2861,7 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
     if Sketch.TypedLines is not None:
-        return LineSketch(Sketch)
+        return LineSketch(Sketch, ParamIds)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities

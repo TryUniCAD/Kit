@@ -1,0 +1,167 @@
+{
+  "cases": {
+    "SdkNestedDimensionedNative01": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9060,
+          "sha256": "430e8760a87cabd8d8ea326082b2dc99a26c2c64974303e56d2a8ee1119916ff"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 8846,
+          "sha256": "b993654affe7a45730688d865a08657c741fb799c3a7703e8c1a90dba7d85609"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8694,
+          "sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "packet_sha256": "aed64c337b2410605dea9df94fbdffbd8eb068330895c72bdff71f4f461f1a2c",
+      "qualification": "2026_rigid_nested_assembly",
+      "runtime_input_file_reads": 0,
+      "vendor_loadable": true
+    },
+    "SdkNestedNeutralNative03": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9047,
+          "sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 8827,
+          "sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8192,
+          "sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "packet_sha256": "8190fa54206d6a399ae0f5f7eaab79bd1839f13705622b1811801274261dc4ba",
+      "qualification": "2026_rigid_nested_assembly",
+      "runtime_input_file_reads": 0,
+      "vendor_loadable": true
+    },
+    "SdkRepeatedDimensionedNative01": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9869,
+          "sha256": "27e24ffbf5423c5d8159b8e990a6638f06670886e8885fbf2ce353fb41f11155"
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "bytes": 8719,
+          "sha256": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 9141,
+          "sha256": "553c5f90bd6a0fbc7fa135ecd37f8df96d54e867a491c902223965abc7e775d6"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8706,
+          "sha256": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "packet_sha256": "f869bf0111283bdcac82bf6c4171e6132acda8dfd28c30bb1b8ea166895f3ec0",
+      "qualification": "2026_rigid_nested_assembly",
+      "runtime_input_file_reads": 0,
+      "vendor_loadable": true
+    },
+    "SdkRepeatedNeutralNative03": {
+      "application_usable": true,
+      "files": {
+        "SdkFrame.SLDASM": {
+          "bytes": 9854,
+          "sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10"
+        },
+        "SdkGaugePlate.SLDPRT": {
+          "bytes": 8198,
+          "sha256": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173"
+        },
+        "SdkModule.SLDASM": {
+          "bytes": 9125,
+          "sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490"
+        },
+        "SdkNestedPlate.SLDPRT": {
+          "bytes": 8203,
+          "sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+        }
+      },
+      "native_transfers": [
+        "assemblies",
+        "body_structure",
+        "component_documents",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "packet_sha256": "51bbc71bdf0f675aa63073fbb833b29d4be6f874934a82d5f64f662b2eca1e73",
+      "qualification": "2026_rigid_nested_assembly",
+      "runtime_input_file_reads": 0,
+      "vendor_loadable": true
+    }
+  },
+  "guarded_processes": 13,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "refusals": {
+    "collision": {
+      "output_unchanged": true,
+      "refused": "FileExistsError",
+      "runtime_input_file_reads": 0
+    },
+    "fixed": {
+      "output_unchanged": true,
+      "refused": "AdapterNotFoundError",
+      "runtime_input_file_reads": 0
+    },
+    "stream": {
+      "output_unchanged": true,
+      "refused": "AdapterNotFoundError",
+      "runtime_input_file_reads": 0
+    },
+    "symlink": {
+      "output_unchanged": true,
+      "refused": "AdapterNotFoundError",
+      "runtime_input_file_reads": 0
+    },
+    "unknown_configuration": {
+      "output_unchanged": true,
+      "refused": "ValueError",
+      "runtime_input_file_reads": 0
+    }
+  },
+  "schema": "kit.sw2026.public-nested-writing.v1"
+}

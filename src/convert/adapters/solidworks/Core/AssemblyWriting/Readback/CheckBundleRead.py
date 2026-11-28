@@ -1,0 +1,41 @@
+from pathlib import Path as FilePath, PureWindowsPath
+
+from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
+    TargetDocument,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Readback.ReadBundle import (
+    ReadBundle,
+)
+from interchange.document.Behavior.DocumentIo import ToJson
+from interchange.document.Models.DocumentModel import CadDocument
+
+
+# candidate bytes must reconstruct every original reader field before publication can begin
+def CheckBundleRead(
+    Document: CadDocument,
+    Candidates: tuple[tuple[PureWindowsPath, TargetDocument], ...],
+) -> None:
+    GraphValue = Document.assembly
+    if GraphValue is None:
+        raise ValueError("reopened bundle lacks its source definition graph")
+    SourcePaths = {FilePath(Value.source_path) for Value in GraphValue.definitions}
+    NamesValue = {Value.name.casefold(): Value for Value in SourcePaths}
+    FilesValue = {
+        PathValue.name.casefold(): Payload.BytesValue for PathValue, Payload in Candidates
+    }
+    if (
+        len(SourcePaths) != len(NamesValue)
+        or len(Candidates) != len(FilesValue)
+        or NamesValue.keys() != FilesValue.keys()
+    ):
+        raise ValueError(
+            "reopened bundle source members differ from their regenerated members"
+        )
+    Expected = ReadBundle(
+        {Value: FilesValue[NameValue] for NameValue, Value in NamesValue.items()},
+        FilePath(Document.source.path),
+    )
+    if ToJson(Document, IndentSize=None) != ToJson(Expected, IndentSize=None):
+        raise ValueError(
+            "SOLIDWORKS nested readback differs from its regenerated bundle"
+        )

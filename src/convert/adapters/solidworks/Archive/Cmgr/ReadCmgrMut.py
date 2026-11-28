@@ -6,6 +6,7 @@ from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
+from convert.adapters.solidworks.Archive.Cmgr.MakeAsmMgrCtx import MakeAsmMgrCtx
 from convert.adapters.solidworks.Archive.Cmgr.MakeCmgrContext import MakeCmgrContext
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -23,8 +24,10 @@ def ReadCmgrMut(
     *,
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
+    AssemblyValue: bool = False,
 ) -> CmgrGraph:
-    ContextValue = MakeCmgrContext(VersionValue, UsageValue)
+    MakeContext = MakeAsmMgrCtx if AssemblyValue else MakeCmgrContext
+    ContextValue = MakeContext(VersionValue, UsageValue)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),

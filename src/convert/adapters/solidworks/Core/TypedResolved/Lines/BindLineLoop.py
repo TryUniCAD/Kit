@@ -1,7 +1,8 @@
-from dataclasses import replace as ReplaceValue
-
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.Native import NativeProfile, NativeSketch
+from convert.adapters.solidworks.Core.Native import NativeSketch
+from convert.adapters.solidworks.Core.TypedResolved.Lines.BindReadLoop import (
+    BindReadLoop,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.ReadLineLoop import (
     ReadLineLoop,
 )
@@ -24,20 +25,4 @@ def BindLineLoop(
         )
     except (ValueError, TypeError, KeyError):
         return None
-    return ReplaceValue(
-        Sketch,
-        TypedLines=LoopValue,
-        profiles=(
-            NativeProfile(
-                "line-loop",
-                tuple(
-                    Coordinate
-                    for Point in LoopValue.PointsValue
-                    for Coordinate in Point.PositionValue
-                ),
-                (),
-            ),
-        ),
-        dimensions=(),
-        constraints=(),
-    )
+    return BindReadLoop(Sketch, LoopValue)

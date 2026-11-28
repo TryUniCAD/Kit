@@ -3,19 +3,19 @@ from dataclasses import replace as ReplaceValue
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
+from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeModel
-from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import BindDepth, BindExtrude
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import ReadPrismFrame
-from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
-from convert.adapters.solidworks.Core.TypedResolved.Lines.BindLineLoop import BindLineLoop
-from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
-from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
-from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
-from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
+    BindDepth,
+    BindExtrude,
+)
+from convert.adapters.solidworks.Core.TypedResolved.ReadTypedPrism import ReadTypedPrism
 
 
-# unsupported typed modes must stay explicit while established public readers retain their prior behavior
-def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
+# cold prism refinements must bind their verified dimensions through existing feature and operation identities
+def WithTypedNative(
+    Model: NativeModel, Archive: SldprtArchive, *, Strict: bool = True
+) -> NativeModel:
     if (
         ContainerMo(Archive.streams) != 19000
         or KPartitionStream in Archive.streams
@@ -23,30 +23,29 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
         or len(Model.operations) != 1
     ):
         return Model
-    SketchValue = Model.sketches[0]
-    Operation = Model.operations[0]
     try:
-        LinkValue = ReadNativeLink(Archive, Model.active_configuration_id)
-        NodesValue = IndexFeatures(LinkValue)
-        Profile = RequireNative(NodesValue[SketchValue.object_id], "moProfileFeature_c")
-        Owner = ReadExtrude(LinkValue, NodesValue[Operation.object_id], NodesValue)
-        if Owner.ProfileValue is not Profile:
-            return Model
-        FrameValue = ReadPrismFrame(Profile, LinkValue.ConfigValue.RootValue, NodesValue)
-        Reference = RequireNative(Profile.FieldsValue.get("pd_f78"), "moCompRefPlane_c")
-        PlaneId = NativeRecord(Reference.FieldsValue.get("ff0")).get("f00")
-        if type(PlaneId) is not int or not any(Plane.object_id == PlaneId for Plane in Model.planes):
-            return Model
-        Bound = BindLineLoop(ReplaceValue(SketchValue, support_plane_id=PlaneId), Profile, LinkValue)
-        if Bound is None:
-            return Model
-    except (KeyError, TypeError, ValueError):
+        TypedValue = ReadTypedPrism(Model, Archive)
+    except SldprtFormat as ErrorInfo:
+        if Strict:
+            raise
+        return ReplaceValue(Model, diagnostics=(*Model.diagnostics, str(ErrorInfo)))
+    if TypedValue is None:
         return Model
+    Bound, Owner = TypedValue
+    (Operation,) = Model.operations
     return ReplaceValue(
         Model,
-        sketches=(ReplaceValue(Bound, TypedFrame=FrameValue),),
+        sketches=(Bound,),
         features=tuple(
-            BindDepth(Feature, Owner) if Feature.object_id == Operation.object_id else Feature
+            (
+                BindDepth(Feature, Owner)
+                if Feature.object_id == Operation.object_id
+                else (
+                    ReplaceValue(Feature, dimensions=Bound.dimensions)
+                    if Bound.dimensions and Feature.object_id == Bound.object_id
+                    else Feature
+                )
+            )
             for Feature in Model.features
         ),
         operations=(BindExtrude(Operation, Owner),),

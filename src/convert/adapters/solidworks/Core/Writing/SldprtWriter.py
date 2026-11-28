@@ -6,24 +6,30 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.CanWriteNested import (
+    CanWriteNested,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.EmitNestedMut import (
+    EmitNestedMut,
+)
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
-from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
+from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the bounded native writer reports only the standalone part formats and neutral feature combinations it can synthesize
+# one canonical writer retains the standalone part route and adds owned rigid assembly bundles
 class SldprtWriter(PairProtocol):
     __slots__ = ()
 
-    # independent write metadata binds only the qualified part format while assembly lookup stays with the reader
+    # shared discovery identifies both destinations with their own measured publication gates
     @property
     def info(self) -> AdapterInfo:
-        return KPartWriteInfo
+        return KSldWriteInfo
 
     # measured part evidence belongs to a complete standalone caller stream
     @property
@@ -32,6 +38,8 @@ class SldprtWriter(PairProtocol):
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
+        if DocValue.assembly is not None:
+            return CanWriteNested(DocValue, Target)
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
             if IsColdRead(DocValue):
@@ -59,4 +67,6 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if document.assembly is not None:
+            return EmitNestedMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

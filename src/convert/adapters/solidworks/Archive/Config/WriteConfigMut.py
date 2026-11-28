@@ -1,4 +1,5 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
+from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNodeMut import WriteNodeMut
@@ -20,6 +21,13 @@ def WriteConfigMut(
 ) -> tuple[bytes, ConfigGraph]:
     RootValue = RequireConfig(RootValue)
     ContextValue = MakeConfigCtx(VersionValue, HeaderValue, UsageValue)
+    return WriteCfgDocMut(RootValue, HeaderValue, ContextValue)
+
+
+# the archive root contexts share the same header slot allocation and reporting
+def WriteCfgDocMut(
+    RootValue: ArchiveNode, HeaderValue: ArchiveNode, ContextValue: BodyContext
+) -> tuple[bytes, ConfigGraph]:
     ContextValue.PartRootValue = RootValue
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteCfgBodyMut)
     WriteNodeMut(WriterValue, RootValue)
@@ -30,7 +38,7 @@ def WriteConfigMut(
         WriterValue.MapValue.Snapshot(),
         WriterValue.MapValue.BaseValue,
         GetBodyReport(ContextValue.UsageValue),
-        VersionValue,
+        ContextValue.VersionValue,
         dict(ContextValue.FlagsValue),
     )
     return bytes(WriterValue.OutputValue), GraphValue

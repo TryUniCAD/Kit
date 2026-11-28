@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
 
 
-# the part self record derives handle text from the modeled name and explicit locator
+# the native self record derives handle text and model kind from the validated locator
 def MakeFileDef(
     InputValue: SelfFileInput, NameValue: str, CreatedAt: int
 ) -> dict[str, object]:
@@ -27,7 +27,7 @@ def MakeFileDef(
             RuntimeClass("moCStringHandle_c", 1),
             {"value": CStringValue(NameValue, True)},
         ),
-        "f20": 2,
+        "f20": 3 if InputValue.IsAssembly else 2,
         "f08": 0,
         "f28": CreatedAt,
         "f38": CStringValue("", True),

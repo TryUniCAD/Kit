@@ -25,12 +25,12 @@ def MakeSelfFile(
     ConfigValue: ArchiveNode,
     InputValue: SelfFileInput,
 ) -> ArchiveNode:
-    RequireRootNode(ModelValue, "moPart_c")
     RequireRootNode(HeaderValue, "moHeader_c")
     if type(InputValue) is not SelfFileInput or not HeaderValue.FieldsValue["fec"]:
         raise ValueError(
             "native self identity requires explicit target input and the owning model header"
         )
+    RequireRootNode(ModelValue, "moAssembly_c" if InputValue.IsAssembly else "moPart_c")
     if InputValue.SavedAt < FieldInt(HeaderValue.FieldsValue, "f50"):
         raise ValueError("native save event precedes the modeled modification time")
     NameNode = ArchiveNode.RequireNode(ModelValue.FieldsValue["f18"])

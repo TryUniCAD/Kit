@@ -65,16 +65,21 @@ def AssertCaps(
 # the part writer must retain separate capabilities from the assembly capable native reader
 def AssertSwModes(Registry: AdapterRegistry) -> None:
     Reader = Registry.reader("solidworks.sldprt")
-    Writer = Registry.writer("solidworks.sldprt").info
+    PartWriter = Registry.writer("solidworks.sldprt")
+    Writer = PartWriter.info
     assert Registry.reader("solidworks.sldasm") is Reader
     assert Reader.info.capabilities == frozenset(Capability)
-    assert Writer.extensions == Writer.part_extensions == (".sldprt",)
-    assert Writer.assembly_extensions == Writer.aliases == ()
+    assert Writer.extensions == (".sldprt", ".sldasm")
+    assert Writer.part_extensions == (".sldprt",)
+    assert Writer.assembly_extensions == (".sldasm",)
+    assert Writer.aliases == ("solidworks.sldasm",)
     assert (
         Writer.capabilities
         == Writer.native_capabilities
         == {
             Capability.BODY_STRUCTURE,
+            Capability.ASSEMBLIES,
+            Capability.COMPONENT_DOCUMENTS,
             Capability.CONFIGURATIONS,
             Capability.EDITABLE_SKETCHES,
             Capability.PARAMETERS,
@@ -86,8 +91,7 @@ def AssertSwModes(Registry: AdapterRegistry) -> None:
             Capability.SELECTIONS,
         }
     )
-    with Pytest.raises(AdapterNotFoundError):
-        _ = Registry.writer("solidworks.sldasm")
+    assert Registry.writer("solidworks.sldasm") is PartWriter
     with Pytest.raises(AdapterNotFoundError):
         _ = Registry.writer("solidworks.slddrw")
 
