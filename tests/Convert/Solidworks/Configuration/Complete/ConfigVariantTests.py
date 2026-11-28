@@ -36,6 +36,6 @@ def TestConfigForms() -> None:
         == "705ecba1d36e54c0bc5200a09e3f0624a3aa70ea138b8f34e8f14b4a5e575944"
     )
     Refusals = CastValue(dict[str, str], Result["refusals"])
-    assert "wrong class" in Refusals["wrong_master"]
+    assert "wrong concrete class" in Refusals["wrong_master"]
     assert "nonempty sheet metal master body list" in Refusals["populated_master"]
     assert "requires its modeled field" in Refusals["missing_density_field"]

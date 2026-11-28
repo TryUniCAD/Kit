@@ -224,6 +224,11 @@ declaration for the row count. Signed normalization retains the
 original word with its runtime projection.
 [Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
 
+The standalone ordinary Config-0 sheet-metal master codec reads and
+emits its untagged body with the concrete feature virtuals. The
+current empty-master scope retains the linked part and map ownership.
+[Direct sheet-metal master scope](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigSheetMetalMaster.md)
+
 For the compatible version-19000 part profile, strict reads project
 literal native summary, document custom text and active configuration
 text. Configuration text uses the saved directory and the matching

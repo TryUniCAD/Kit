@@ -1,0 +1,63 @@
+# SOLIDWORKS 2026 SP04.1 per-body sheet-metal serializer observations
+
+## Identity and scope
+
+This note tracks the populated branch reviewed in [PR #225](https://github.com/TryUniCAD/Kit/pull/225#discussion_r4653079004) at `f96619d35c16de454788c5229f40a54580db7330`. It accompanies the [direct master findings](ConfigSheetMetalMaster2026.md). The sole purpose is to record loader evidence and prepare a native comparison. The working codec continues to refuse populated lists.
+
+The inspected external installation reports `34.4.1.1011`. Its `sldsmmu.dll` SHA-256 is `3299f8676485bab354704fb190cff768393bcf9a0ccd225ba6b29271e3b462ea`, and its preferred image base is `0x3d3a0000`. Its `sldmodu.dll` SHA-256 is `2201734ebe0106efde5a93e306067b4b5e2fdb0ba70bf38ce9a59242b283cb99`. These are distinct from the SP05.2 `34.5.2.0604` master evidence. Every address below is an RVA of the identified SP04.1 module. No runtime trace was made. REA 6.7.0 had no available local decompiler provider and its Rizin call was unavailable. The table comes from the PE exports, physical section map, unwind bounds, and a local Capstone 5.0.7 static walk of each registered class factory and serializer. It contains no vendor listing or saved field values.
+
+## Legacy per-body child
+
+The exported `moPerBodySheetMetalData_c` runtime descriptor is at `0x77d998`. Its registered object size is 48 bytes, its schema word is `0x80000001`, and its factory is at `0x3b7590`. The factory's construction path supplies vtable `0x612858`, which has the registered class accessor at slot zero and the archive serializer at slot 5 (`0x3b7b30` to `0x3b7c94`). The runtime descriptor schema word alone does not establish the wire form of a particular native tag.
+
+The ordinary archive branch calls the `su_CObject` base serializer. Its member order agrees in the read and store paths as follows. Object pointer targets are the types named by the respective archive overload, not confirmed concrete object classes or confirmed map aliases.
+
+| Order | Member | Archive data | Exported accessor | Static status |
+| --- | --- | --- | --- | --- |
+| 1 | `+0x08` | `moCompFeature_c` pointer | `getBaseFeature` | Read and store calls observed |
+| 2 | `+0x10` | `moCompSolidBody_c` pointer | `getCompSolidBody` | Read and store calls observed |
+| 3 | `+0x18` | `moCompFeature_c` pointer | `getSheetMetalFeature` | Read and store calls observed |
+| 4 | `+0x20` | `moCompFeature_c` pointer | `getFlatPatternFeature` | Read and store calls observed |
+| 5 | `+0x28` | Signed Windows long | `getIsActive` | Read and store calls observed; domain open |
+| 6 | `+0x2c` | Signed Windows long | `getOldAtomID` | Store call observed; read has an additional helper and version gate |
+
+The first version comparison guards the ordinary branch below `0x1061`. The later legacy read comparison takes the omission branch below `0x1315` and also requires the helper predicate. Native stream comparison must establish that both gates select the observed branch and whether each pointer creates a map slot, aliases an existing feature or body, or can be null. The static table does not provide those decisions.
+
+The pointer operators reach the normal typed archive rather than a private per-body encoding. For the pinned SP04.1 `sldmodu.dll`, `moCompFeature_c` read/store wrappers are at `0xa59710` and `0xa5e1d0`, and the `moCompSolidBody_c` wrappers are at `0xa5a250` and `0xa5eb30`. All four select the ordinary `su_CArchive` typed object dispatch outside the separate database-stream branch. In `sldsmmu.dll`, the legacy per-body object pointer wrappers at `0x3b7950` and `0x3b79d0` pass the class descriptor directly to the same `swccu.dll` archive primitives. Those calls establish reuse of common class registration and object identity rules. They do not establish which concrete references or aliases occur in the actual master.
+
+The [provisional research probe](../../tooling/sw2026/sheetmetal/InspectSheetMetalConfig.py) registers the legacy layout in the research-only reference reader. It consumes the complete Config stream, independently re-emits it, reports the inherited master pointers separately and records each child field's map disposition when present. It needs the pinned reference commit and the independently supplied part SHA-256. The pinned empty `CircularProperties.SLDPRT` control consumed and re-emitted 26,055 bytes at reference revision `b87f3b12b72874f4289b627d56e3740da2ab725b`. Config SHA-256 is `5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7`. Both per-body lists were empty and all four inherited links null. This validates the probe's empty control only.
+
+## Later per-body child is a different record
+
+The exported `moPerBodySheetMetalDataNew_c` descriptor is at `0x77e038`, registers size 152 and schema word `0x80000001`, and creates its object at `0x3ead50`. Its vtable `0x612d60` binds serializer `0x3eafc0` to `0x3eb191`. This serializer visits a virtual subobject at `+0x30` before the scalar and pointer sequence. It stores signed long IDs or state at `+0x08` and `+0x0c`, pointers typed `moSheetMetal_c` and `moFlatPattern_c` at `+0x10` and `+0x18`, and signed longs in order at `+0x28`, `+0x20`, `+0x24`, and `+0x50`. The last three reader branches have helper predicates and version comparisons at `0x1436`, `0x143e`, and `0x144d`, respectively. Member meanings and the subobject read are unresolved. This is the separate `n16f8/f16e8` path identified in [the SP05.2 bridge work](https://github.com/TryUniCAD/Kit/commit/15f9b1006cb3c97154563c36726611f5cd232006). It does not substitute for the legacy `n370/f358` layout.
+
+## Corpus boundary and next measurement
+
+The offline scan opened 748 `.SLDPRT` files from the #225 checkout's `re/solidworks` tree and the retained November 25 retry capture. No `Config-` stream contained the ASCII name of either child or of the untagged master, so the scan supplied no resolved witness of either child. The scan is only a name-presence check. It does not replace a complete typed traversal or establish that there are no sheet-metal features outside that roster.
+
+Use the [native capture handoff](SheetMetalCapture2026.md). Capture two exact-build saves of one fully defined, named sheet-metal base flange; a second disjoint named body with different dimensions; the same body pair authored in reversed order; and a one-body edge flange on a known edge. Reserve a separately authored placement and parameter change as a holdout. For each save record the executable and module digests, the ordered feature tree with persistent identities and parent links, body IDs and feature ownership, fixed-face and edge identities, fold and flat state, dimensions, body mass and bounds, and native rebuild and reopen health between stock controls. Record the actual part configuration and read the complete normalized configuration and resolved streams. Reconcile both per-body arrays, direct master inherited links and allocations independently, then compare the legacy member targets with the measured feature and body graph before extending the codec. The test must also prove that preexisting map entries keep identity when new typed children allocate slots.
+
+## Direct legacy owner and modern configuration mode
+
+In SP04.1 `sldmodu.dll`, the ordinary Config serializer at RVA `0x10f18e0` reaches the part-only archive version gate `0x10ec` at `0x10f3f1b`. It reads or writes signed `f1014` at `0x10f3f42` and `0x10f3f51`. A nonzero flag dispatches the direct `f1018` owner through the sheet-metal bridge at `0x10f3f84`. The paired SP04.1 `sldsmmu.dll` bridge hooks vtable `0x63aa78` slot `+0x2c8` to RVA `0x551ca0`. The call uses the concrete master serializer directly without a wire class tag. Its signed child list enters at archive version `0x1061` in serializer `0x3b7ca0`.
+
+The native legacy authoring helper `addOrUpdateSheetMetalMasterFeature2` at `sldsmmu.dll` RVA `0x3b7f30` exits when `newMBSMArchitectureEnabled` is true. The selector at `0x3dd520` reads the part's configuration manager member `f658` when a manager exists. The legacy branch sets `f1014=1` at `0x3b801a` and copies legacy children into the master. The modern resolved loader separately dispatches `SerializeMBSMDataObjects` at `sldmodu.dll` RVA `0x448b6c` after the feature roots. It checks the part, manager, and active configuration. This confirms why independently authored modern base contrasts can have modern per-body records and an absent direct Config master. It does not establish global mutual exclusion in serialization.
+
+The public manifest-pinned example roster has no credible pre-2013 multibody sheet-metal witness. Its two older keyword occurrences are anonymous master helpers on screw parts. The generation-19000 corpus has 31 measured helpers with the empty direct layout. A legacy witness needs an independently sourced original pre-2013 multibody sheet-metal part with distinct flanges and independently observed flat-pattern relationships. Preserve the original and test a normal SP04.1 save of a private copy. Record migration if the native save enables modern mode. A populated legacy acceptance candidate requires decoded `f658=0`, `f1014=1`, and `n370>0`. [Native 2012 multibody authoring](https://help.solidworks.com/2012/english/SOLIDWORKS/Sldworks/c_multibody_created_with_SM_Commands.htm) · [Native sheet-metal layout history](https://help.solidworks.com/2022/english/SolidWorks/sldworks/c_accessing_sm_bodies.htm)
+
+## Populated direct legacy discovery
+
+The installed SOLIDWORKS 2026 tutorial cover.sldprt is a generation-19000 physical positive. Its source SHA-256 is 0ae11e59dcac0d88e6dacde4ebcfbc666da5df65d974863dce8609e0b62b3fbc and its file size is 166,309 bytes. The [SOLIDWORKS tutorial](https://help.solidworks.com/2021/English/api/sldworksapi/Create_Corner_Relief_Feature_Example_CSharp.htm) identifies the sample under samples/tutorial/sheetmetal/formtools. Keep the source at its installed location. Only the recorded format observations are retained in the repository.
+
+The frozen reference replay consumes and regenerates all 28,839 Config-0 bytes, SHA-256 cdfc9128f13951e1c1a5c2a12c3f4b01c307ead7cddc9e97f43026f737a297f1, with an exact archive map roster. The direct flag is one. The master contains two schema-one legacy children and a nonnull inherited name link at slot 109 to Sheet-Metal Master. The other three inherited links are null. The modern Config list is empty.
+
+| Legacy row slot | Wire record interval | Base, solid, sheet, flat pointer slots | Base, sheet and flat reference IDs |
+| --- | --- | --- | --- |
+| 111 | [26,350, 27,453) | 113, 116, 140, 142 | 34, 27, 33 |
+| 144 | [27,453, 28,061) | 145, 147, 161, 163 | 66, 27, 33 |
+
+All eight pointers allocate concrete typed map objects and preserve incoming map identities. Their nested component owners alias the original part slot 2. Both solid pointers have nonnull typed face references, with different surface-ID class rosters in the two bodies. Each child's last two signed fields are 1 and 101. The numeric feature identifier comes from the nested component feature record. Native identity and topology readback, a second membership witness, and production schema integration remain open.
+
+The independently distributed SOLIDWORKS 2026 tutorial motionstudies/weldingrobot/plate1.sldprt supplies the changed membership control. Its source SHA-256 is abaa90aac3955099d76e20c2e5f1e4cc97e65c6311d019ca1603ec4596f4c3da. Config-0 reproduces all 28,076 bytes, SHA-256 93ec47e33bf5e20ee6b0f6606aabe365943c44f04a7e477d6f6836935660ed53, and closes its map at 146. Its one legacy child occupies slot 111 and has payload interval [26,535, 27,568). The name link is again at slot 109. The allocated base, solid, sheet and flat links are slots 113, 116, 138 and 140. Its candidate base, sheet and flat feature-reference IDs are 35, 30 and 33. Its two trailing signed values are 1 and 101. The direct flag is one and the modern Config list is empty.
+
+The typed configuration manager independently replays with f658=0 in both samples. The cover's configuration map closes at 169 and matches the inherited ResolvedFeatures prefix. The full linked resolved reader reaches an unmodeled moFtrFolder_c virtual at byte 1,514 in the cover. The samples establish a one-row versus two-row direct-master archive contrast with typed, allocated reference bodies. Live ID, geometry, and topology readback is separate pending evidence.

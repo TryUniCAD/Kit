@@ -1,0 +1,7 @@
+# A suppressed flat pattern does not explain a fold-child state change
+
+SOLIDWORKS 34.4.1.1011 reported Sketch Transformation1 as unsuppressed before the A-only save and suppressed on an independent read-only reopen of the same archive. It reported Flat-Pattern1 as suppressed in both sessions. The unchanged geometry and healthy rebuild leave open whether the child state is an inherited getter result or an independently authored choice.
+
+Keep both raw observations, the configuration, the owner and child feature IDs, and their persistent references. A mismatch fails the capture comparison. An inactive owner alone cannot establish identical behavior when the owner is activated.
+
+In two private copies of the same disclosed, folded edge-flange baseline, record each raw getter and the configuration-specific result before and after rebuilding. In the first copy, unsuppress the flat-pattern owner alone. In the second, explicitly unsuppress the owner with its dependent features. Rebuild, save and independently reopen each copy. Keep the archive digests, raw results, feature identity and topology, and any configuration override rows that are tied to the same feature ID. Keep a separate folded copy for the driving-dimension edit and the restoration. Bracket the experiment with healthy stock controls. [Native capture procedure](../../../../../re/solidworks/records/SheetMetalCapture2026.md)

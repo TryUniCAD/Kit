@@ -1,0 +1,9 @@
+# Sheet-metal body research inspection
+
+The [research probe](../../../../../re/tooling/sw2026/sheetmetal/InspectSheetMetalConfig.py) compares a digest-pinned generation-19000 native Config stream with the provisional legacy per-body layout recovered from SOLIDWORKS 2026 SP04.1. Supply a Git repository with the pinned reference revision, a native part path and its independently recorded SHA-256. Run it in a fresh Python 3.14 process with `-I -B`. The [capture procedure](../../../../../re/solidworks/records/SheetMetalCapture2026.md) gives the complete command and the native contrast roster.
+
+The probe isolates imports from the tracked reference tree and checks the consumed Config stream, exact symbolic re-emission, archive class and object slots, and correspondence between observed legacy child slots and the direct master. It reports both empty controls and unresolved populated records explicitly. The newer per-body layout and topology ownership remain under investigation. This change adds no public reader or writer support and establishes no native acceptance.
+
+The pinned `CircularProperties.SLDPRT` empty control consumed and re-emitted all 26,055 Config bytes. Its direct master reported zero legacy children and four null inherited links. [Loader and replay evidence](../../../../../re/solidworks/records/SheetMetalPerBodyStatic2026.md) · [Separate per-body arrays](../../../../Gotchas/Conversion/Solidworks/Archive/SheetMetalBodyArrays.md)
+
+Two independently distributed native SOLIDWORKS samples give exact direct-master replay with one and two legacy bodies. Both decoded configuration managers select the legacy mode. The installed samples remain external to Kit. The [recorded evidence](../../../../../re/solidworks/records/SheetMetalPerBodyStatic2026.md#populated-direct-legacy-discovery) includes the exact hashes, wire ownership, allocation behavior and feature-reference values. Native application readback and production integration remain open.

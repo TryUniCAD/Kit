@@ -315,6 +315,36 @@ Directly owned bodies and whole configuration admission follow
 separately.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
 
+### B04-SW2026-CONFIG-SHEET-METAL
+
+The PR #121 takeover team owns this bounded direct body codec on
+`codex/solidworks-config-sheet-metal` for separate main delivery.
+It depends on the shared feature fields, configuration field modes
+and linked ModelHeader prefix. The physical and authored guarded
+checks are recorded. Exit requires current revision review and queue
+acceptance. Populated sheet-metal owners and complete Config-0
+admission in [PR #183](https://github.com/TryUniCAD/Kit/pull/183)
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSheetMetalMaster.md)
+
+### B04-SW2026-CONFIG-SHEET-METAL-POPULATED
+
+The PR #225 takeover worker owns the populated-master research follow-up on
+`codex/solidworks-config-sheet-metal`. It depends on the bounded empty master,
+exact-build loader evidence, and controlled native body membership and topology
+observations. The [capture handoff](../../re/solidworks/records/SheetMetalCapture2026.md)
+records the remaining native inputs. Exit requires concrete per-body descriptors,
+identity-preserving map admission, independently held-out lifecycle and topology
+verification, and the current revision's review and queue acceptance.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalBodyResearch.md)
+The [paired capture launcher](../../re/automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1)
+now binds the six native saves and the edit and restoration to the owned-process harness.
+Two independently authored base discovery saves now replay their configuration manager and full resolved streams, including one modern per-body record each. Both modern controls lack a direct master in Config-0. The installed cover and plate tutorials supply offline exact direct-master replay with two and one allocated legacy rows, respectively, and a nonnull inherited name link in each. The native feature and topology observations remain pending. The positive-Z file rebuilt in an independent read-only process bracketed by healthy stock controls. Both independent two-body orderings replay exactly and match the native feature IDs. Native edit and restore, clean capture and reopen of the full batch, direct populated master admission and held-out correlation remain pending.
+[Capture recipe change](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalNativeCaptureRecipe.md)
+[Linked manager inspection](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalLinkedManagerInspection.md)
+The legacy plate now replays its complete linked archive with final resolved map count 372. The cover replays three typed folder payloads and the full mode-zero bend-allowance record. The cover consumes the complete resolved stream, including the mitered flange, seven UI bend links and one typed flat-pattern body. Exact cover store remains open at the flat-pattern cache. The current typed encoder does not reproduce its native kernel packet. Raw fold-folder suppression differs on a retained reopen and remains a native acceptance discrepancy.
+[Legacy linked replay](../Changes/Solidworks/Archive/Configuration/SolidworksLegacySheetMetalLinkedReplay.md)
+
 ### B04-SW2026-CONFIG-VIEWS
 
 The PR #121 takeover team owns this bounded `moView_c` reader on

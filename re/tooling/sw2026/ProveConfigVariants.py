@@ -113,7 +113,8 @@ def read_witnesses(wire, header):
                 and state.NodeValue.ClassValue == BLOCK_MANAGER and rule.NameValue == "f30"):
             tag, stop = ReadTag(cursor.BytesValue, cursor.OffsetValue)
             differences["block_link"] = (cursor.OffsetValue, stop, tag)
-        if code is ReadOwnedMut.__code__ and rule.NameValue == "f1018":
+        if (event in ("call", "return") and code is ReadOwnedMut.__code__
+                and rule.NameValue == "f1018"):
             differences["master"].append((event, cursor.OffsetValue, state.ReaderValue.MapValue.CounterValue))
 
     prior = sys.getprofile()
@@ -165,7 +166,7 @@ def check_refusals(graph, density):
     owner = root["f1018"]
     emit = lambda: WriteConfigMut(graph.RootValue, 19000, graph.HeaderValue)
     root["f1018"] = ArchiveNode(LENGTH, {})
-    wrong = rejection(emit, "native directly owned object has the wrong class")
+    wrong = rejection(emit, "SOLIDWORKS directly owned node has the wrong concrete class")
     root["f1018"] = owner
     owner.FieldsValue["f358"] = [{}]
     populated = rejection(emit, "nonempty sheet metal master body list")
