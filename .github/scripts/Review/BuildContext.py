@@ -8,6 +8,7 @@ def BuildContext(
     Evidence: dict[str, object],
     PullData: dict[str, object],
     FileList: list[dict[str, object]],
+    Settings: dict[str, object],
     RequestId: int | None = None,
 ) -> str:
     Context = {
@@ -15,6 +16,10 @@ def BuildContext(
         "title": PullData["title"],
         "body": PullData["body"],
         "mention_comment": RequestId,
+        "review_runtime": {
+            "model": Settings["Model"],
+            "reasoning_effort": Settings["ReasoningEffort"],
+        },
         "files": CollectFiles(FileList, Evidence),
         "policy": {
             FileName: ReadSource(str(Evidence["base_sha"]), FileName)

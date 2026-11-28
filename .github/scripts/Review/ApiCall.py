@@ -5,12 +5,22 @@ from typing import cast
 
 
 # callers need bounded authenticated requests without placing tokens in command arguments
-def ApiCall(Route: str, Payload: dict[str, object] | None = None) -> object:
+def ApiCall(
+    Route: str,
+    Payload: dict[str, object] | None = None,
+    MethodName: str | None = None,
+) -> object:
     if not Route.startswith(("repos/", "orgs/", "apps/", "users/")) or ".." in Route:
         raise ValueError("Unexpected API route")
     Arguments = ["gh", "api", Route, "--hostname", "github.com"]
+    if MethodName is not None:
+        if MethodName not in ("GET", "POST", "DELETE"):
+            raise ValueError("Unexpected API method")
+        Arguments.extend(["--method", MethodName])
     if Payload is not None:
-        Arguments.extend(["--method", "POST", "--input", "-"])
+        if MethodName is None:
+            Arguments.extend(["--method", "POST"])
+        Arguments.extend(["--input", "-"])
     Result = ProcessTools.run(
         Arguments,
         input=None if Payload is None else JsonTools.dumps(Payload),
@@ -22,4 +32,6 @@ def ApiCall(Route: str, Payload: dict[str, object] | None = None) -> object:
     )
     if len(Result.stdout) > 8_000_000:
         raise ValueError("API response exceeded review limit")
-    return cast(object, JsonTools.loads(Result.stdout))
+    return (
+        cast(object, JsonTools.loads(Result.stdout)) if Result.stdout.strip() else None
+    )

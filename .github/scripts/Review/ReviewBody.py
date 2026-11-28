@@ -25,6 +25,10 @@ def ReviewBody(Report: dict[str, object], Context: dict[str, object]) -> str:
     Sections.append(
         f"Reviewed head: {Report['head']}\n\nReviewed base: {Report['base']}"
     )
+    Runtime = ObjectMap(Context["review_runtime"])
+    Sections.append(
+        f"Model: {SafeText(Runtime['model'])}; reasoning: {SafeText(Runtime['reasoning_effort'])}"
+    )
     if Context.get("mention_comment") is not None:
         Sections.append(f"Mention comment: {Context['mention_comment']}")
     Sections.append(f"CI run: {ObjectMap(Context['evidence'])['run_id']}")

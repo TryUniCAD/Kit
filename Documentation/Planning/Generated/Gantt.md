@@ -83,6 +83,9 @@ flowchart LR
   A16["A16: Broader features and additional CAD families"]
   A13 --> A16
   A15 --> A16
+  ReviewerLiveEvidence["ReviewerLiveEvidence: Live review base and mergeability qualification"]
+  ReviewerReactions["ReviewerReactions: Mention review lifecycle reactions"]
+  ReviewerRuntime["ReviewerRuntime: Explicit default review model and reasoning"]
   ReviewerBranding["ReviewerBranding: Organization reviewer app name and logo"]
   ReviewerMentions["ReviewerMentions: Trusted collaborator mention review requests"]
   AccountReviewer["AccountReviewer: Account authenticated review and GitHub App approval"]
