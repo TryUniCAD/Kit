@@ -613,7 +613,7 @@ public static class SheetMetalCapture
             "Capture output requires a plain file or directory name");
         var separators = new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar };
         var expectedParent = Path.GetFullPath(directory);
-        var path = Path.GetFullPath(Path.Combine(expectedParent, name));
+        var path = Path.GetFullPath(expectedParent.TrimEnd(separators) + Path.DirectorySeparatorChar + name);
         var actualParent = Path.GetDirectoryName(path);
         Check(actualParent != null && String.Equals(expectedParent.TrimEnd(separators),
             actualParent.TrimEnd(separators), StringComparison.OrdinalIgnoreCase),
