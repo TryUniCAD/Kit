@@ -383,15 +383,15 @@ Protocol byte identity, an open PR, source training measurements, and green stat
 ### B08-SW2026-PR121-READINESS
 
 Status: blocked on complete configured review. Owner: Codex swarm root, chat `01a22333-c91a-7753-a913-6ea8091aebc5`.
-Scope: resolve PR #121 against current main while preserving both Windows fixture contracts and current roadmap facts.
+Scope: resolve PR #121 against current main, preserve both Windows fixture contracts, and diagnose hosted review connectivity without account credentials.
 Dependencies: PR head `6cf4d8a9ec216fdb82a873f5fffd3f2aa48d586b` and main `68cec987d0b720762ae95f2f92799eb113d23b44`.
 Delivery: [PR #121](https://github.com/TryUniCAD/Kit/pull/121), branch `codex/solidworks-2026-native`.
 Exit: no conflicts, passing affected process regressions, successful current-head PR CI and configured approval.
 Merge repair `3c9743257cb77b508666b7d68ff56a2b5af46e86` is conflict-free and passed 26 affected process cases.
-The current reviewer selects at most 40 changed files; this revision has 9,906 changed paths.
+The current reviewer selects at most 40 changed files. The repair comparison reports 9,906 local diff entries; GitHub reports 9,914 changed files at documentation head `623c9b7dfc627eb76cff74506dd0764fec84ce5b`.
 Its publisher requires complete source coverage, so this parent cannot receive approval under that collector.
 Complete review support or prior delivery integration is required without reducing coverage or hiding files.
-The current account-review service also has connection failures on other inspected heads.
+The current account-review service also has connection failures on other inspected heads. The [credential-free probe](../Changes/Review/ReviewerConnectivityProbe.md) investigates DNS, TLS and HTTP reachability; native review and complete coverage remain required.
 Merge-group acceptance remains deferred. Broader B08 and CAD qualification remain unfinished.
 The [merge record](../Changes/Ci/Testing/SolidworksReadinessFixtureMerge.md) records verification and limitations.
 Native project synchronization is pending because this session has no project mutation connection.

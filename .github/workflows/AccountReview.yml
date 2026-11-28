@@ -7,6 +7,10 @@ on:
     - cron: "3-58/5 * * * *"
   workflow_dispatch:
     inputs:
+      connectivity_probe:
+        description: Probe trusted reviewer container DNS TLS and HTTPS without credentials
+        type: boolean
+        default: false
       id:
         description: Legacy successful PR CI workflow run ID
         required: false
@@ -28,14 +32,40 @@ on:
 permissions: {}
 
 concurrency:
-  group: account-review-auth
+  group: ${{ github.event_name == 'workflow_dispatch' && inputs.connectivity_probe && 'account-review-connectivity' || 'account-review-auth' }}
   cancel-in-progress: false
   queue: max
 
 jobs:
+  connectivity:
+    name: Probe reviewer container connectivity
+    if: github.event_name == 'workflow_dispatch' && inputs.connectivity_probe
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the reviewed probe source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: ProbeSource
+          persist-credentials: false
+      - name: Check out the exact trusted reviewer source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 68cec987d0b720762ae95f2f92799eb113d23b44
+          path: TrustedSource
+          persist-credentials: false
+      - name: Report DNS TLS and HTTP from the trusted image
+        working-directory: TrustedSource
+        run: >-
+          bash ../ProbeSource/.github/scripts/Review/Connectivity/RunConnectivityProbe.sh
+          ../ProbeSource/.github/scripts/Review/Connectivity/ConnectivityProbe.mjs
+
   admit:
     name: Authorize review request
-    if: vars.ACCOUNT_REVIEW_ENABLED == 'true'
+    if: vars.ACCOUNT_REVIEW_ENABLED == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.connectivity_probe)
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:

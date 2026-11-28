@@ -110,6 +110,7 @@ flowchart LR
   A03 --> AgentDispatch
   UiPlanning --> AgentDispatch
   PrReaderWriterReadiness["PrReaderWriterReadiness: SOLIDWORKS PR121 current-main readiness repair"]
+  AccountReviewer --> PrReaderWriterReadiness
 ```
 
 Source gates and detailed child prerequisites remain binding.
