@@ -15,3 +15,18 @@ Static analysis used the installed `sldmodu.dll` SHA-256 `2201734ebe0106efde5a93
 The linked probe consumes all 2,280 CMgr bytes and re-emits them identically with that candidate. The observed class record spans bytes 2,157 through 2,193 inclusive, slot 19, schema 1, with payload `(101, 39, 48)`. The first field matches outer key 101. The other identifiers lack independent API correspondence. The later sheet-metal class name appears at byte 23,538 of the resolved stream. A name occurrence cannot establish its typed bytes or membership.
 
 Use the [capture procedure](SheetMetalCapture2026.md) to obtain a qualified base contrast, an added flange contrast and changed body membership. Run the linked probe separately on the disclosed discoveries and keep the holdout under seal until rules are frozen. The next resolved class and any populated direct master still need native and archive corroboration.
+
+## Cut-list records at the resolved boundary
+
+The SP04.1 `sldmodu.dll` vtable dispatch for `moCutListFolder_c` schema 1 enters RVA `0x10e0fc0`. It calls `moSubWeldFolder_c` at `0x10e97a0`, then `moSubAtomFolder_c` at `0x10e9560` and `moAtomBodyFolder_c` at `0x10d4f70`. The last class calls the already modeled folder serializer and then the same scalar and pointer sequence used by the solid and surface folder readers. The sub-atom layer adds an object list, a signed field, a feature-reference wrapper and two signed fields. The sub-weld layer serializes an inline property list.
+
+At model generation 19000 the cut-list layer adds the component-feature pointer at `+0x498`, signed fields at `+0x4a4` and `+0x4a0`, a byte at `+0x48c`, a plane reference at `+0x468`, doubles at `+0x470` through `+0x480`, and signed fields at `+0x4b0` and `+0x4b4`. Historical layouts fall outside this research decoder.
+
+The sort-options class uses descriptor `0x29adc28`, vtable `0x1f0af08` and serializer `0x10e1320`. Its record is a signed field at `+0x08` followed by the inline `suObArray` at `+0x10`. The observed signed value is 1 and the observed array is empty. The field's meaning and nonempty options remain to be measured.
+
+| Research record | Payload interval | SHA-256 | Map count |
+| --- | --- | --- | --- |
+| Cut-list folder, slot 143 | [2,203, 3,072) | `314c5b217d542bce9036e258938e0421818b530cfbc803615269b4660ac8172c` | 144 → 172 |
+| Sort options, slot 173 | [3,233, 3,239) | `36c159d76b52e03e496363607c5940227f62f4e048df344b050159bc97bba3d7` | 174 → 174 |
+
+Both provisional records re-emit byte for byte from their actual incoming map. The read and write retain identical inherited entries and agree on the resulting class and object roster. The reported full-stream replay remains incomplete. The next unresolved typed class is `moTemplateSheetMetal_c` at byte 9,508.

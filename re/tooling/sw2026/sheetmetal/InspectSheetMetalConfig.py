@@ -10,6 +10,8 @@ from tempfile import TemporaryDirectory
 
 LEGACY = 'moPerBodySheetMetalData_c'
 PAIR = 'moSMAndFPFeatIdPair'
+CUT_LIST = 'moCutListFolder_c'
+CUT_LIST_SORT = 'moCutListSortOptions_c'
 MAX_PART = 128 * 1024 * 1024
 REFERENCE = 'b87f3b12b72874f4289b627d56e3740da2ab725b'
 FIELDS = ('f08', 'f10', 'f18', 'f20')
@@ -120,6 +122,73 @@ def inspect(archive, registry, name, linked=False):
     return result
 
 
+def cut_list_candidate(rules, observations):
+    from Core import ArchiveError
+    from Dsl import base, emb, f64, i32, u8
+    from Schema import Fn
+    from defs.ResolvedCore import concept_vt, obarray, xo
+
+    frames = []
+
+    def begin(reader, fields, owner):
+        if owner.schema != 1:
+            raise ArchiveError('cut-list class is outside the schema-one proposal')
+        frames.append((reader.p, reader.map_state(), dict(reader.ctx)))
+
+    def end(reader, fields, owner):
+        start, seed, context = frames.pop()
+        observations.append((start, reader.p, seed, context, reader.map_state(), fields, owner))
+
+    def noop(*args):
+        return None
+
+    concept_vt(CUT_LIST)
+    rules.provisional(CUT_LIST_SORT, [
+        Fn(begin, noop), i32('f08'), obarray('f10'), Fn(end, noop),
+    ])
+    rules.provisional('moAtomBodyFolder_c', [
+        base('moFolder_c'), i32('f37c'), i32('f380'),
+        xo('f388', 'moMaterialFolder_c'), xo('f3d8', 'moCutListSortOptions_c'),
+    ])
+    rules.provisional('moSubAtomFolder_c', [
+        base('moAtomBodyFolder_c'), xo('f3e0', 'suObList'), i32('f3e8'),
+        xo('f3f0', 'moFeatureRefWrapper_c'), i32('f3fc'), i32('f3ec'),
+    ])
+    rules.provisional('moSubWeldFolder_c', [
+        base('moSubAtomFolder_c'), emb('f450', 'moCustomPropertyList'),
+    ])
+    rules.provisional(CUT_LIST, [
+        Fn(begin, noop), base('moSubWeldFolder_c'), xo('f498', 'moCompFeature_c'),
+        i32('f4a4'), i32('f4a0'), u8('f48c'), xo('f468', 'moPlaneRef_w'),
+        f64('f470'), f64('f478'), f64('f480'), i32('f4b0'), i32('f4b4'), Fn(end, noop),
+    ])
+
+
+def replay_cut_lists(resolved, rules, version, observations):
+    from Core import ArchiveError, Store
+
+    def roster(snapshot):
+        return {entry.IndexValue: entry.EntryValue for entry in snapshot.state.EntriesValue}
+
+    result = []
+    for start, end, seed, context, read_state, fields, owner in observations:
+        writer = Store(seed.count, rules, version, context, seed=seed)
+        rules.run_store(owner.cls, writer, fields, owner)
+        write_state = writer.map_state()
+        inherited, incoming, outgoing = roster(seed), roster(read_state), roster(write_state)
+        if (resolved[start:end] != bytes(writer.out) or read_state.count != write_state.count or
+                incoming.keys() != outgoing.keys() or
+                any(incoming.get(slot) is not value or outgoing.get(slot) is not value
+                    for slot, value in inherited.items()) or
+                any(outgoing.get(slot) is not value and outgoing.get(slot) != value
+                    for slot, value in incoming.items())):
+            raise ArchiveError('cut-list candidate did not reproduce its bytes and map identities')
+        result.append(dict(owner=describe(owner), payload_start=start, payload_end=end,
+                           payload_sha256=image(resolved[start:end]), exact_replay=True,
+                           inherited_count=seed.count, resulting_count=read_state.count))
+    return result
+
+
 def inspect_linked(archive, rules, name, version, configuration):
     from CmgrBridge import load_cmgr, store_cmgr
     from Core import ArchiveError
@@ -161,6 +230,8 @@ def inspect_linked(archive, rules, name, version, configuration):
     if len(resolved) < 4 or resolved_report['recorded_prefix'] != configuration.count:
         raise ArchiveError('resolved archive prefix differs from the measured configuration map')
     seed = configuration.map_state()
+    cut_lists = []
+    cut_list_candidate(rules, cut_lists)
     with rules.track_usage('load', resolved_name, role='linked', sources=archive.streams) as usage:
         try:
             document, reader = load_resolved(resolved, rules, version, archive=archive, name=resolved_name, seed=seed)
@@ -179,6 +250,7 @@ def inspect_linked(archive, rules, name, version, configuration):
         except (ArchiveError, ValueError, KeyError) as error:
             resolved_report.update(error_type=type(error).__name__, diagnostic=str(error)[:350],
                                    boundary=getattr(error, 'details', None), missing_schemas=usage.snapshot()['missing_schemas'])
+    resolved_report['cut_list_candidate_replays'] = replay_cut_lists(resolved, rules, version, cut_lists)
     return result
 
 
