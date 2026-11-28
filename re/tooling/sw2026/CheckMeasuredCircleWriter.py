@@ -217,6 +217,7 @@ def worker(document, directory):
     from interchange.document.Models.DocumentModel import CadDocument
 
     for name in (
+        "convert.api",
         "interchange.document.Behavior.DocumentIo",
         "interchange.document.Models.DocumentProvenance",
         "interchange.document.Validation.DocumentAssemblyValidate",

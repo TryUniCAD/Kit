@@ -7,7 +7,16 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import (
+    KPartOracleBuilds,
+)
+
+# this circle recipe was measured on one shared oracle identity only
+KCircOracle = next(
+    OracleValue
+    for OracleValue in KPartOracleBuilds
+    if OracleValue["build"] == "34.5.2.0604"
+)
 
 
 # the disclosed circular lifecycle has its own measured report contract
@@ -17,8 +26,8 @@ def ReadCircMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
     if (
         Receipt.get("schema") != "kit.sw2026.sdk-circle-native-disclosed.v1"
         or set(OracleValue) != {"version", "exe_sha256"}
-        or OracleValue["version"] != KOraclePart["build"]
-        or OracleValue["exe_sha256"] != KOraclePart["sha256"]
+        or OracleValue["version"] != KCircOracle["build"]
+        or OracleValue["exe_sha256"] != KCircOracle["sha256"]
         or Receipt.get("passed") is not True
         or Receipt.get("disclosed_lifecycle_passed") is not True
         or Receipt.get("initial_bodies_before_explicit_rebuild") is not True

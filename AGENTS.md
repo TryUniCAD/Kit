@@ -21,6 +21,42 @@ then building the writer. Put both documents in every sub-agent brief for CAD wo
 
 For decoding challenges, agents MUST use the research automation pipeline for supported capture, deterministic comparison, inference and evidence tracking. Investigate unresolved findings and implement decoder rules from the recorded evidence. Validate changes through deterministic checks; a detected pattern alone is not a proven rule. Report missing automation capabilities explicitly
 
+## Planning and scope claims
+
+Agents MUST follow the [agent planning workflow](Documentation/Planning/AgentWorkflow.md)
+at task start, at every planning state change and before handoff.
+Set the project's native Status to In Progress before work starts and to Done only
+after the claimed exit has revision-bound evidence. Keep blocked work explicit.
+Completed bounded children do not complete their parent feature or version matrix.
+Update native GitHub Assignees to the verified accounts responsible for claimed
+scopes and delivery PRs. Retain assignees on Done items for ownership history and
+update them explicitly at handoff. Keep the exact runtime/session in Agent and the
+provider in Runner. A related PR author does not own an entire feature family.
+
+Before selecting, claiming, dispatching or handing off work, read
+[the planning procedure](Documentation/Planning/README.md), its generated task,
+feature and delivery indexes, the owning register and the live organization project
+recorded in `Documentation/Planning/Project.json` when available.
+Check current ownership, prerequisites, scheduled window, delivery PR and exclusive
+native resource. An unverified or unmapped catalogue scope is not automatically free.
+Do not duplicate an existing owner or infer readiness from a scheduled forecast.
+
+Keep the owning register and project scope synchronized in the same task whenever
+scope, owner, branch, blocker, schedule, dependency, PR or acceptance evidence changes.
+Use stable scope/task IDs and record exact tested revisions and evidence separately
+for capture, decode, semantic qualification, writing and native acceptance.
+Preserve unfinished requirements, cancelled work and superseded delivery history.
+Update explicit catalogue/task links and engineering windows in
+`Documentation/Planning/Links.json`, refresh the forge snapshot when selecting work,
+and regenerate the views with `uv run --locked python re/automation/Planning/Build.py`.
+Verify freshness with the same command plus `--check`; never edit generated views.
+Every new feature or decoding scope must be represented in the owning register or
+catalogue and linked into planning before implementation. Include product, CLI,
+UI/UX, documentation, infrastructure and release work; label proposals explicitly.
+Project assignment records ownership; it does not launch an agent. Dispatch only
+through a configured supported runtime after live claim and dependency checks.
+If project access is unavailable, update the repo records and report the pending sync.
+
 ## Documentation and gotchas
 
 Read the [completion roadmap](Roadmap.md) and [conversion backlog](Documentation/Maintenance/ConversionBacklog.md)
@@ -99,10 +135,13 @@ read its complete standards index and every applicable rule before coding.
   folder that it recorded is unchanged. Every other test executes on the candidate.
 - Read every entry in `Reviewers` from
   [ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json), the sole
-  source of reviewer identities, report names, and exact request comments.
-  When review is due under the skill's timing rules, submit each entry's
-  `Comment` verbatim once per accepted head unless that reviewer already has
-  a request or review for that head. Verify every responding
+  source of reviewer identities, report names, and trigger configuration.
+  For `Trigger: schedule`, follow automatic review on each proposed head regardless of CI failures or merge conflicts.
+  Use the configured workflow dispatch with PR input `pull` and optional `force` for manual retries.
+  Use configured `AccountReview.MentionCommands` for explicit reassessment on its current proposed head independently of CI status.
+  Never invoke removed reviewers.
+  For a comment-triggered entry, submit its exact `Comment` once per accepted head.
+  Verify every responding
   account/app and reviewed SHA, and address all findings. Every configured
   reviewer must pass all its native reports and submit an actual `APPROVED`
   review on the current head before the PR is ready. Missing, pending, failed,
@@ -110,12 +149,18 @@ read its complete standards index and every applicable rule before coding.
   not substitute for approval. Keep reviewer names and identifiers only in that
   JSON. No human or code-owner approval is required by this workflow. Report
   unavailable review evidence and independently enforced requirements separately.
+- `jdharcourt` and `odinglynn` are repository-policy administrators with merge
+  privileges. Either may explicitly authorize agent queue enrollment, auto-merge,
+  or merging under the existing readiness gates. Verify the requester’s GitHub
+  identity. This designation does not grant GitHub platform permissions or bypass
+  enforced protections. Other administrators require verified current GitHub
+  `admin` permission.
 - Only an explicit merge request from a verified repository administrator
   authorizes an agent to enroll a PR in the queue, enable auto-merge, or merge.
-  Verify the requester's identity and current repository `admin` permission.
+  Verify the requester's identity and authority under the administrator rule above.
   Implementation requests and PR creation alone do not authorize merging.
 - Use Python for backend work, React for frontend work, and `uv` for Python
-  dependencies outside `Parashell/` and `modules/`.
+  dependencies outside `modules/`.
 - Add the mandatory rationale comment above every Python declaration, lambda,
   and module binding. Follow the skill's rationale standard. Other explanatory
   comments and comment-oriented docstrings remain prohibited. Preserve required
@@ -160,8 +205,10 @@ before writer work.
 
 A typed field program is donor data when its values or offsets come from a vendor
 save. Zero opaque bytes proves that each byte has a typed owner. It does not prove
-that Kit generated the value. Kit's SOLIDWORKS writer was built from recorded
-programs of this kind, so it was removed and SOLIDWORKS is a read-only format. CI runs
+that Kit generated the value. Kit removed the SOLIDWORKS writer that used recorded
+programs. The current [bounded part writer](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+generates a part from the supported model and requires exact offline measurement evidence.
+SOLIDWORKS assembly support is read-only. CI runs
 `tools/Donors/CheckReplays.py` on `src` and fails on any recorded field operation or
 recorded payload re-emission call. Do not restore the removed programs or add a
 SOLIDWORKS writer family as a recorded program. Build the generative serializer
@@ -208,7 +255,9 @@ kit research --root /path/to/KitPr94 supervisor --config /path/to/Supervisor.jso
 Configure actual trusted worker programs before using the supervisor; the CLI does not supply a production decode runner or model provider.
 Controller leases, retries, pool controls, and worker dispatch remain owned by PR #94's tools.
 Models remain disabled by default. Model execution retains the plan's explicit authorization requirements.
-The supervisor requires Linux or macOS; Fusion research requires Python 3.14.
+The supervisor supports Linux, macOS, and compatible Windows checkouts.
+Windows supervision requires Windows 10 or later, Python 3.14 or later, the locked `pywin32` development extra, and Windows shutdown protocol 1.
+Fusion research requires Python 3.14.
 Use `kit research --root /path/to/KitPr94 TOOL --help` for tool-specific commands.
 Use `kit decode SOURCE` for working-file inspection and `kit convert SOURCE DESTINATION` for supported conversion.
 Read [the deterministic CLI procedure](Documentation/Tasks/ResearchCommandLine.md) before changing these workflows.

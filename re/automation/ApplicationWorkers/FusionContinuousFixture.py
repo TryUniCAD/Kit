@@ -8,6 +8,7 @@ from pathlib import Path
 import ApplicationProtocol as protocol
 import FusionLifecycleOwner as driver
 from ApplicationProtocol import (
+    STOP_MARGIN_SECONDS,
     HostQueue,
     QueueClient,
     committed_bytes,
@@ -85,7 +86,7 @@ def worker(installation, session):
     job = record(session / "job.json")
     phase = job["job"]["options"]["phase"]
     plan = job["inputs"]["plan"]["sha256"]
-    deadline = min(time.time() + 45, job["stop_at"] - 1)
+    deadline = min(time.time() + 45, job["stop_at"] - STOP_MARGIN_SECONDS)
     if phase == "b":
         source = job["inputs"]["phase-a.accepted"]
         raw = file_bytes(session / source["path"])

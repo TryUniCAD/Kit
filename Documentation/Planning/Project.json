@@ -1,0 +1,28 @@
+{
+  "id": "PVT_kwDOFJcHKs4BtfoK",
+  "number": 1,
+  "url": "https://github.com/orgs/TryUniCAD/projects/1",
+  "Repository": "TryUniCAD/Kit",
+  "CreatedBy": "jdharcourt",
+  "Fields": {
+    "Scope ID": "PVTF_lADOFJcHKs4BtfoKzhro3BI",
+    "Agent": "PVTF_lADOFJcHKs4BtfoKzhro3BM",
+    "Area": "PVTF_lADOFJcHKs4BtfoKzhro3BQ",
+    "Scope type": "PVTF_lADOFJcHKs4BtfoKzhro3Bs",
+    "Recorded status": "PVTF_lADOFJcHKs4BtfoKzhro3CQ",
+    "Start date": "PVTF_lADOFJcHKs4BtfoKzhro3CU",
+    "Target date": "PVTF_lADOFJcHKs4BtfoKzhro3C0",
+    "Dependencies": "PVTF_lADOFJcHKs4BtfoKzhro3DU",
+    "Schedule basis": "PVTF_lADOFJcHKs4BtfoKzhro3DY",
+    "Source": "PVTF_lADOFJcHKs4BtfoKzhro3Dc",
+    "Dispatch": "PVTF_lADOFJcHKs4BtfoKzhro3Dk",
+    "Runner": "PVTSSF_lADOFJcHKs4BtfoKzhrpAp0"
+  },
+  "Views": {
+    "Scheduled roadmap": "PVTV_lADOFJcHKs4BtfoKzgMwf_k",
+    "Current work": "PVTV_lADOFJcHKs4BtfoKzgMwf_w",
+    "All scopes": "PVTV_lADOFJcHKs4BtfoKzgMwf_0",
+    "Unassigned scopes": "PVTV_lADOFJcHKs4BtfoKzgMwf_8",
+    "Scope board": "PVTV_lADOFJcHKs4BtfoKzgMwoLI"
+  }
+}

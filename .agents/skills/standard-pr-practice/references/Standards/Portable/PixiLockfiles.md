@@ -17,9 +17,9 @@ This rule is MANDATORY whenever you touch a `pixi.toml` in this workspace. It ra
 
 Every pixi manifest in the workspace, each with its own lock beside it:
 
-- `Parashell/pixi.toml` — the source build and development environment.
-- `Parashell/package/rattler-build/pixi.toml` — the packaging environment. This is the one whose `default` environment the bundle scripts copy into shipped artifacts, so a dependency only reaches users if it is here.
-- `Parashell/src/3rdParty/pivy/pixi.toml` — the vendored pivy build.
+- `FreeCAD/pixi.toml` — the source build and development environment.
+- `FreeCAD/package/rattler-build/pixi.toml` — the packaging environment. This is the one whose `default` environment the bundle scripts copy into shipped artifacts, so a dependency only reaches users if it is here.
+- `FreeCAD/src/3rdParty/pivy/pixi.toml` — the vendored pivy build.
 
 If you add a manifest, it falls under this rule too.
 
@@ -39,7 +39,7 @@ Do not hand-edit `pixi.lock`, and do not commit a manifest change with an untouc
 
 `pixi lock` must exit zero. Treat a failed solve exactly like a failing formatter or test: keep working until it is clean, or revert the dependency change. Never leave the workspace with a manifest the solver rejects.
 
-Locking resolves every platform the manifest declares, so a dependency that is missing on one platform fails the whole solve. Read the manifest's `platforms` list and confirm the package exists for all of them before adding it — the lists are not identical across manifests. `Parashell/pixi.toml` and `Parashell/package/rattler-build/pixi.toml` both target `linux-64`, `linux-aarch64`, `osx-arm64`, and `win-64`, while `Parashell/src/3rdParty/pivy/pixi.toml` also targets `osx-64`.
+Locking resolves every platform the manifest declares, so a dependency that is missing on one platform fails the whole solve. Read the manifest's `platforms` list and confirm the package exists for all of them before adding it — the lists are not identical across manifests. `FreeCAD/pixi.toml` and `FreeCAD/package/rattler-build/pixi.toml` both target `linux-64`, `linux-aarch64`, `osx-arm64`, and `win-64`, while `FreeCAD/src/3rdParty/pivy/pixi.toml` also targets `osx-64`.
 
 Use `[target.<platform>.dependencies]` for a genuinely platform-specific dependency rather than dropping a platform from the manifest.
 
@@ -57,9 +57,9 @@ When that happens, do NOT loosen or downgrade the conda side to satisfy the PyPI
 
 ## Rule 5: Shipping Requires The Packaging Manifest And The Bundle Scripts
 
-Adding a runtime dependency to `Parashell/pixi.toml` alone does not ship it. For a dependency that must reach users:
+Adding a runtime dependency to `FreeCAD/pixi.toml` alone does not ship it. For a dependency that must reach users:
 
-- Add it to `Parashell/package/rattler-build/pixi.toml`, and to the `run:` requirements in `Parashell/package/rattler-build/recipe.yaml` when it is a conda package.
+- Add it to `FreeCAD/package/rattler-build/pixi.toml`, and to the `run:` requirements in `FreeCAD/package/rattler-build/recipe.yaml` when it is a conda package.
 - Check the bundle scripts. `windows/create_bundle.sh` copies only named executables from `Library/bin` plus `*.dll`, and `linux/create_bundle.sh` and `osx/create_bundle.sh` rebuild `bin/` from an explicit allowlist. A new executable that is not listed is silently dropped from the shipped artifact.
 
 ## Verification

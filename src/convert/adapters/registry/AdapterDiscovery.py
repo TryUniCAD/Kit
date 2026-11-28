@@ -7,6 +7,7 @@ from pkgutil import iter_modules as IterModules
 from pkgutil import walk_packages as WalkPackages
 from types import ModuleType
 from typing import TypeGuard
+from typing import cast as CastValue
 
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
@@ -14,6 +15,16 @@ from convert.adapters.registry.RegistryErrors import DiscoveryError
 
 # internal and research packages stay out of production adapter discovery
 KInternalPackages = frozenset({"base", "registry", "Staging"})
+
+
+# deferred exports must share the audited import boundary without loading discovery before first use
+def LoadExportMod(ModuleName: str) -> ModuleType:
+    NameParts = ModuleName.split(".")
+    if NameParts[0] not in {"convert", "interchange"} or not all(
+        PartName.isidentifier() for PartName in NameParts
+    ):
+        raise ValueError("deferred exports require a production module name")
+    return LoadAdapterMod(ModuleName)
 
 
 # internal filtering applies only to the built in root so third party package names remain unrestricted
@@ -71,11 +82,23 @@ def GetAdapterType(CandidateData: object, PackageName: str) -> type[object] | No
     return CandidateData if IsReader or IsWriter else None
 
 
-# module inspection deduplicates imported symbols while preserving deterministic class ordering
+# third party discovery inspects direct definitions while known facades resolve only their declared exports
 def GetModuleTypes(ModuleData: ModuleType) -> tuple[type[object], ...]:
+    ModuleScope = vars(ModuleData)
+    ModuleValues = list(ModuleScope.values())
+    if ModuleData.__name__ in {
+        "convert.adapters.Fusion",
+        "convert.adapters.solidworks.Core",
+    }:
+        ExportTable = ModuleScope.get("KPublicExports")
+        if isinstance(ExportTable, dict):
+            ModuleValues.extend(
+                getattr(ModuleData, NameValue)
+                for NameValue in CastValue(dict[str, object], ExportTable)
+            )
     AdapterTypes = {
         AdapterType
-        for CandidateData in vars(ModuleData).values()
+        for CandidateData in ModuleValues
         if (AdapterType := GetAdapterType(CandidateData, ModuleData.__name__))
         is not None
     }
@@ -115,11 +138,16 @@ def GetNestedNames(ModuleData: ModuleType) -> tuple[str, ...]:
         ) from ErrorInfo
 
 
+# one audited plugin boundary prevents deferred facades from introducing another dynamic import exception
+def LoadAdapterMod(ModuleName: str) -> ModuleType:
+    # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
+    return ImportModule(ModuleName)
+
+
 # one package group may expose adapter classes from focused nested implementation modules
 def GetPackageTypes(ModuleName: str, IsPackage: bool) -> tuple[type[object], ...]:
     try:
-        # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
-        ModuleData = ImportModule(ModuleName)
+        ModuleData = LoadAdapterMod(ModuleName)
     except Exception as ErrorInfo:
         raise DiscoveryError(
             f"could not import format package {ModuleName}"
@@ -127,9 +155,7 @@ def GetPackageTypes(ModuleName: str, IsPackage: bool) -> tuple[type[object], ...
     ModuleValues = [ModuleData]
     if IsPackage:
         ModuleValues.extend(
-            # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
-            ImportModule(NameValue)
-            for NameValue in GetNestedNames(ModuleData)
+            LoadAdapterMod(NameValue) for NameValue in GetNestedNames(ModuleData)
         )
     AdapterTypes = {
         AdapterType
@@ -149,8 +175,7 @@ def GetPackageTypes(ModuleName: str, IsPackage: bool) -> tuple[type[object], ...
 # top level enumeration validates package shape before any adapter instances are constructed
 def GetPackageItems(PackageName: str) -> tuple[tuple[str, bool], ...]:
     try:
-        # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
-        PackageData = ImportModule(PackageName)
+        PackageData = LoadAdapterMod(PackageName)
     except Exception as ErrorInfo:
         raise DiscoveryError(
             f"could not import adapter package {PackageName}"

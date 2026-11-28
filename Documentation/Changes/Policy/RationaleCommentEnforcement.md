@@ -21,7 +21,7 @@ It cannot reuse a passing PR report to skip the scan.
 The subsequent change-range check still rejects newly added explanatory comments.
 
 The repository-root `re/` tree remains excluded.
-Vendored `Parashell/` and `modules/` trees and externally supplied `examples/` trees retain their existing exclusions.
+Vendored `modules/` trees and externally supplied `examples/` trees retain their existing exclusions.
 The convention applies to Python; it does not introduce a comment convention for other languages.
 
 ## Usage

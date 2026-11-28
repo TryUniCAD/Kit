@@ -7,13 +7,19 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
 from convert.adapters.solidworks.Core.Writing.Stocks.CheckStockLife import (
     CheckStockLife,
 )
 from convert.adapters.solidworks.Core.Writing.Stocks.StockMeasure import (
     StockMeasure,
 )
+
+# stock evidence must match the original measured oracle
+KStockOracle = {
+    "build": "34.5.2.0604",
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+}
 
 # the exact disclosed receipt grants publication only to its independently measured output
 KStockReceiptSha = "d672ec1f8d427844410a7e2d809bfbcf0d130ecaf1df1bb78cefdd1f5f64e187"
@@ -43,8 +49,8 @@ def ReadStockMeas(OptionsValue: WriteOptions) -> StockMeasure:
     Summary = ReadMeasMap(Receipt.get("summary"))
     if (
         Receipt.get("schema") != "kit.sw2026.disclosed-two-stock-native-observation.v1"
-        or Summary.get("oracle_build") != KOraclePart["build"]
-        or Summary.get("oracle_sha256") != KOraclePart["sha256"]
+        or Summary.get("oracle_build") != KStockOracle["build"]
+        or Summary.get("oracle_sha256") != KStockOracle["sha256"]
         or Summary.get("controls_passed") is not True
         or Summary.get("generated_native_lifecycle_passed") is not True
     ):

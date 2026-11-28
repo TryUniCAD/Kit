@@ -1,0 +1,2 @@
+{"counts": {"assets": 1, "decoded": 0, "partial": 0, "reader_error": 0, "rejected": 1, "strict": 0}, "output": "<campaign>/offline-170/Decode", "portable_complete": false}
+kit: offline decoding only; native verification pending; vendor acceptance not established

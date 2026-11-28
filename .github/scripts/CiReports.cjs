@@ -1,7 +1,7 @@
 const Fs = require("node:fs");
 const { CiWorkflows } = require("./CiAllowlist.cjs");
 
-async function ReadReports(Github, Context, Refs, Workflows) {
+async function ReadReports(Github, Context, Refs, Workflows, Gate) {
   const Repository = Context.repo;
   const LatestRuns = new Map();
   const Checks = [];
@@ -13,6 +13,10 @@ async function ReadReports(Github, Context, Refs, Workflows) {
         ...Repository,
         head_sha: Ref,
         per_page: 100,
+      },
+      (Response) => {
+        if (Gate && !Gate.etag) Gate.etag = Response.headers?.etag;
+        return Response.data;
       },
     );
     for (const Run of Runs) {
@@ -149,6 +153,82 @@ async function PullMergeRef(Github, Context) {
   return null;
 }
 
+const QueueShare = 100;
+const QueueReserve = 500;
+
+function RateLimitWait(ErrorInfo) {
+  const Headers = ErrorInfo?.response?.headers ?? {};
+  const Limited =
+    ErrorInfo?.status === 429 ||
+    (ErrorInfo?.status === 403 &&
+      (Headers["x-ratelimit-remaining"] === "0" ||
+        Headers["retry-after"] !== undefined ||
+        /rate limit/i.test(ErrorInfo.message ?? "")));
+  if (!Limited) return null;
+  const After = Number(Headers["retry-after"]);
+  if (Number.isFinite(After) && After > 0) return After * 1000;
+  const Reset = Number(Headers["x-ratelimit-reset"]);
+  if (Number.isFinite(Reset) && Reset > 0)
+    return Math.max(1000, Reset * 1000 - Date.now() + 1000);
+  return 60000;
+}
+
+async function QueueRunsSettled(Github, Context, Workflows, Gate) {
+  let Response;
+  Gate.polls = (Gate.polls ?? 0) + 1;
+  try {
+    Response = await Github.request("GET /repos/{owner}/{repo}/actions/runs", {
+      ...Context.repo,
+      head_sha: Context.sha,
+      per_page: 100,
+      headers: Gate.etag ? { "if-none-match": Gate.etag } : {},
+    });
+  } catch (ErrorInfo) {
+    if (ErrorInfo.status === 304) return false;
+    throw ErrorInfo;
+  }
+  Gate.charged = (Gate.charged ?? 0) + 1;
+  Gate.etag = Response.headers?.etag;
+  const Latest = new Map();
+  for (const Run of Response.data.workflow_runs) {
+    const Workflow = Run.path?.split("@")[0];
+    const Spec = Workflows.get(Workflow);
+    if (
+      !Spec ||
+      Run.id === Context.runId ||
+      Run.head_sha !== Context.sha ||
+      Spec.event !== Run.event
+    )
+      continue;
+    if (!Latest.has(Workflow) || Latest.get(Workflow).id < Run.id)
+      Latest.set(Workflow, Run);
+  }
+  const Runs = [...Latest.values()];
+  return (
+    Runs.some(
+      (Run) => Run.status === "completed" && Run.conclusion !== "success",
+    ) || Runs.every((Run) => Run.status === "completed")
+  );
+}
+
+async function QueueDelay(Github, Context, Core, Gate) {
+  const Limit = (await Github.rest.rateLimit.get()).data.resources.core;
+  const Window = Math.max(0, Limit.reset * 1000 - Date.now());
+  const Spendable = Limit.remaining - QueueReserve;
+  const Paced =
+    Spendable > 0
+      ? Math.ceil(
+          ((Window * QueueShare) / Spendable) *
+            (Gate.polls ? (Gate.charged ?? 0) / Gate.polls : Gate.etag ? 0 : 1),
+        )
+      : Window + 1000;
+  const Delay = Math.max(30000, Paced);
+  Core.info(
+    `API rate limit ${Limit.remaining}/${Limit.limit} remaining; next poll in ${Math.ceil(Delay / 1000)} s`,
+  );
+  return Delay;
+}
+
 async function Aggregate({ github: Github, context: Context, core: Core }) {
   const IsPull = ["pull_request", "pull_request_target"].includes(
     Context.eventName,
@@ -166,45 +246,78 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
     Context.payload.action === "opened",
   );
   const Deadline = Date.now() + 80 * 60000;
+  const Gate = {};
   let Rows;
+  let Pending = [];
   for (;;) {
-    if (IsPull) {
-      const Current = (
-        await Github.rest.pulls.get({
-          ...Context.repo,
-          pull_number: Context.payload.pull_request.number,
-        })
-      ).data;
+    let Wait = null;
+    try {
+      if (IsPull) {
+        const Current = (
+          await Github.rest.pulls.get({
+            ...Context.repo,
+            pull_number: Context.payload.pull_request.number,
+          })
+        ).data;
+        if (
+          Current.state !== "open" ||
+          Current.head.sha !== Context.payload.pull_request.head.sha
+        )
+          throw new Error("The PR head changed during CI aggregation");
+      }
       if (
-        Current.state !== "open" ||
-        Current.head.sha !== Context.payload.pull_request.head.sha
-      )
-        throw new Error("The PR head changed during CI aggregation");
+        IsPull ||
+        !Rows ||
+        (await QueueRunsSettled(Github, Context, Workflows, Gate))
+      ) {
+        Rows = await ReadReports(
+          Github,
+          Context,
+          Refs,
+          Workflows,
+          !IsPull && !Rows ? Gate : null,
+        );
+        const Failed = Rows.filter((Row) => Row.state === "fail");
+        if (Failed.length) {
+          await Core.summary
+            .addHeading("CI failed")
+            .addTable([
+              ["Check", "Conclusion", "Report"],
+              ...Failed.map((Row) => [
+                Row.name,
+                Row.conclusion || "unknown",
+                Row.url,
+              ]),
+            ])
+            .write();
+          throw new Error(
+            `CI failed: ${Failed.map((Row) => Row.name).join(", ")}`,
+          );
+        }
+        Pending = Rows.filter((Row) => Row.state === "pending");
+        if (!Pending.length) break;
+        Core.info(`Waiting for ${Pending.map((Row) => Row.name).join(", ")}`);
+      } else
+        Core.info("No candidate workflow has finished since the last read");
+    } catch (ErrorInfo) {
+      Wait = RateLimitWait(ErrorInfo);
+      if (Wait === null) throw ErrorInfo;
+      Core.info(
+        `GitHub API rate limit reached; retrying in ${Math.ceil(Wait / 1000)} s`,
+      );
     }
-    Rows = await ReadReports(Github, Context, Refs, Workflows);
-    const Failed = Rows.filter((Row) => Row.state === "fail");
-    if (Failed.length) {
-      await Core.summary
-        .addHeading("CI failed")
-        .addTable([
-          ["Check", "Conclusion", "Report"],
-          ...Failed.map((Row) => [
-            Row.name,
-            Row.conclusion || "unknown",
-            Row.url,
-          ]),
-        ])
-        .write();
-      throw new Error(`CI failed: ${Failed.map((Row) => Row.name).join(", ")}`);
-    }
-    const Pending = Rows.filter((Row) => Row.state === "pending");
-    if (!Pending.length) break;
     if (Date.now() >= Deadline)
       throw new Error(
         `CI aggregation timed out waiting for: ${Pending.map((Row) => Row.name).join(", ")}`,
       );
-    Core.info(`Waiting for ${Pending.map((Row) => Row.name).join(", ")}`);
-    await new Promise((Resolve) => setTimeout(Resolve, 30000));
+    const Delay =
+      Wait ?? (IsPull ? 30000 : await QueueDelay(Github, Context, Core, Gate));
+    await new Promise((Resolve) =>
+      setTimeout(
+        Resolve,
+        Math.min(Delay, Math.max(1000, Deadline - Date.now())),
+      ),
+    );
   }
   await Core.summary
     .addHeading("CI passed")
