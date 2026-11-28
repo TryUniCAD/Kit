@@ -202,6 +202,7 @@ public static class SolidOwner
             {"initial_documents",null},{"background_control",false},{"cleanup_errors",new List<string>()}
         };
         var cleanup=(List<string>)record["cleanup_errors"];
+        Exception cleanupFailure=null;
         try {
             application=AttachOwned(process,executable,120);
             record["initial_documents"]=application.GetDocumentCount();
@@ -233,6 +234,9 @@ public static class SolidOwner
                         }
                         record["normal_exit_requested"]=true;
                     }
+                } catch(COMException error) {
+                    cleanupFailure=error;
+                    cleanup.Add(error.ToString());
                 } catch(Exception error) { cleanup.Add(error.ToString()); }
                 try {
                     Marshal.FinalReleaseComObject(application);
@@ -250,6 +254,6 @@ public static class SolidOwner
         }
         if(failure!=null) throw new InvalidOperationException("Configured native phase failed "+failure.Message,failure);
         if(cleanup.Count!=0 || !(bool)record["normal_exit_requested"])
-            throw new InvalidOperationException("Configured native phase cleanup did not complete normally");
+            throw new InvalidOperationException("Configured native phase cleanup did not complete normally",cleanupFailure);
     }
 }

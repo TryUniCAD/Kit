@@ -319,7 +319,11 @@ checkout. Pause/resume keeps the existing native and decoder receipts.
 If the SOLIDWORKS launcher reports an unobserved normal exit, inspect the
 native and owner receipts under `NativeAttempts`. Retain the run directory and
 use a fresh directory to verify a changed worker on the same case parameters.
-See [catalogue capture shutdown](../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md).
+Fresh-process captures retry a lost COM/RPC session once, within the job's
+attempt budget. They retry a shutdown timeout after confirming owned-process
+cleanup. Forced cleanup does not qualify a capture for decoding.
+See [capture recovery](../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureRecovery.md)
+and [catalogue capture shutdown](../Changes/Research/Supervisor/Catalogue/SolidWorksCaptureShutdown.md).
 
 See [catalogue sample authoring](../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md)
 for the case format, native host requirements, limitations, and evidence rules.

@@ -10,12 +10,13 @@ from argparse import ArgumentParser
 from hashlib import sha256
 from json import dumps
 from pathlib import Path
-from sys import path
+from sys import path, stderr
 
 path[:0] = [str(Path(__file__).resolve().parents[2])]
 
 from CaptureTools.Catalogue.SolidWorks.RunSolidBatch import RunSolidBatch
 from CaptureTools.Catalogue.SolidWorks.SolidBatchSize import KSolidBatchCases
+from CaptureTools.Catalogue.SolidWorks.SolidRecovery import SolidRecovery
 from InferenceGrid.Authoring.PackNative import PackNative
 from InferenceGrid.Authoring.NativeAttempt import MakeNativePath
 from InferenceGrid.Authoring.SolidSources import ReadSolidPins
@@ -129,7 +130,11 @@ def MainBatchJob():
     Parser.add_argument("--host", required=True, type=Path)
     Parser.add_argument("session", type=Path)
     Args = Parser.parse_args()
-    RunBatchJob(Args.session.resolve(), Args.host.resolve())
+    try:
+        RunBatchJob(Args.session.resolve(), Args.host.resolve())
+    except SolidRecovery as Fault:
+        print(Fault, file=stderr)
+        raise SystemExit(Fault.status) from None
 
 
 if __name__ == "__main__":

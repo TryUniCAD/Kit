@@ -8,6 +8,7 @@ import sys
 import time
 from pathlib import Path
 
+from CaptureTools.Catalogue.SolidWorks.SolidRecovery import RPC_LOST, SHUTDOWN_TIMEOUT
 from LogCapture import LogCapture
 from LinuxOomProof import verified_oom
 from OutputManifest import InvalidOutput
@@ -251,7 +252,15 @@ class Session:
             outcome, reason = "retry", f"runner ended by signal {receipt['signal']}"
         elif receipt["exit_status"] != 0:
             tail = stderr_tail(self.directory / "stderr.log" if stderr_path is None else stderr_path)
-            outcome, reason = "retry", f"runner exited with status {receipt['exit_status']}"
+            status = receipt["exit_status"]
+            outcome, reason = "retry", f"runner exited with status {status}"
+            if self.spec["kind"] in ("capture.catalogue.solidworks", "capture.catalogue.solidworks.batch"):
+                if status == RPC_LOST:
+                    reason = "SOLIDWORKS COM/RPC session lost; retry in a fresh owned process"
+                    if self.claim["attempt"] >= 2:
+                        outcome, reason = "rejected", "SOLIDWORKS COM/RPC session lost; recovery attempt exhausted"
+                elif status == SHUTDOWN_TIMEOUT:
+                    reason = "SOLIDWORKS native deadline expired; retry after owned process cleanup"
         else:
             try:
                 result = read_bounded(self.directory / "result.json")

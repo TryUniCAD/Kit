@@ -10,7 +10,7 @@ from argparse import ArgumentParser
 from hashlib import sha256
 from json import dumps
 from pathlib import Path
-from sys import path
+from sys import path, stderr
 
 path[:0] = [str(Path(__file__).resolve().parents[2])]
 
@@ -18,6 +18,7 @@ from CaptureTools.Catalogue.SolidWorks.RunSolid import RunSolid
 from InferenceInputs import read_json_input
 from InferenceSession import read_session
 from InferenceGrid.Authoring.SolidSources import ReadSolidPins
+from CaptureTools.Catalogue.SolidWorks.SolidRecovery import SolidRecovery
 from InferenceGrid.Authoring.PackNative import PackNative
 from InferenceGrid.Authoring.NativeAttempt import MakeNativePath
 from Records import digest, read_record
@@ -75,7 +76,11 @@ def MainSolid():
     ParserValue.add_argument("--host", required=True, type=Path)
     ParserValue.add_argument("session", type=Path)
     ArgsValue = ParserValue.parse_args()
-    RunSolidJob(ArgsValue.session.resolve(), ArgsValue.host.resolve())
+    try:
+        RunSolidJob(ArgsValue.session.resolve(), ArgsValue.host.resolve())
+    except SolidRecovery as Fault:
+        print(Fault, file=stderr)
+        raise SystemExit(Fault.status) from None
 
 
 if __name__ == "__main__":
