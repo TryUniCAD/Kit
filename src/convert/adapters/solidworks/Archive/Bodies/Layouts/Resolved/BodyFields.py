@@ -1,5 +1,9 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.LocalBodyBranch import (
+    LocalBodyBranch,
+)
+
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
@@ -31,7 +35,9 @@ KBodyFields = MappingProxyType(
                         "Branch",
                         "",
                         BodyValue=(
-                            NativeField("Fail", "alternate moAtomFeature_c Branch"),
+                            LocalBodyBranch(
+                                NativeField("Embed", "f528", "rf.suObArray"),
+                            ),
                         ),
                         ModeValue="Expression",
                         ExpressionValue=(
@@ -106,8 +112,8 @@ KBodyFields = MappingProxyType(
                                 "f498",
                                 "i32",
                                 BodyValue=(
-                                    NativeField(
-                                        "Fail", "alternate moAtomFeature_c f498"
+                                    LocalBodyBranch(
+                                        NativeField("Scalar", "v", "i32"),
                                     ),
                                 ),
                                 CountValue="n494",
@@ -241,7 +247,12 @@ KBodyFields = MappingProxyType(
                         "Branch",
                         "",
                         BodyValue=(
-                            NativeField("Fail", "alternate moAtomFeature_c Branch"),
+                            LocalBodyBranch(
+                                NativeField("Node", "f3d0", "moPMarkRecord_c"),
+                                NativeField("Scalar", "f3c0", "i32"),
+                                NativeField("Scalar", "f3c8", "i32"),
+                                NativeField("Scalar", "f580", "i32"),
+                            ),
                         ),
                         ModeValue="Expression",
                         ExpressionValue=(

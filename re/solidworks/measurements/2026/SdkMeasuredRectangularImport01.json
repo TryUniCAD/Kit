@@ -1,0 +1,53 @@
+{
+  "archive": {
+    "bytes": 9914,
+    "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+  },
+  "exact_publications": 2,
+  "exact_streams": 12,
+  "heldout_cases": 0,
+  "native_processes_started": 0,
+  "native_receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "passed": true,
+  "path_refusals": {
+    "direct": "actual measured Windows destination",
+    "registry_untouched": true
+  },
+  "previous_plain_sha256": {
+    "Skew": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+    "Step": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+  },
+  "readback": {
+    "area_mm2": 1150.0,
+    "atom_id": 101,
+    "centroid_mm": [
+      -2.5,
+      14.0,
+      8.5
+    ],
+    "design_only_body_name": "Body 1",
+    "feature_id": 18,
+    "topology": [
+      1,
+      1,
+      6,
+      12,
+      8
+    ],
+    "volume_mm3": 2574.0
+  },
+  "refusals": {
+    "altered_receipt": "requires its exact controlled native receipt",
+    "changed_geometry": "no exact native measurement",
+    "declared_history": "does not support the destination",
+    "direct_nonempty_stream": "standalone",
+    "existing_editable_history": "does not support the destination",
+    "missing_receipt": "requires an offline native measurement",
+    "other_epoch": "no exact native measurement",
+    "registry_nonempty_stream": "standalone",
+    "same_counts_trapezoid": "does not support the destination",
+    "source_metadata": "does not support the destination",
+    "wrong_locator": "no exact native measurement"
+  },
+  "runtime_external_events": 0
+}

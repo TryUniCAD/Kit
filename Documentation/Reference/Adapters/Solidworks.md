@@ -333,6 +333,14 @@ reproduce the measured encoded locator.
 [Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 [SP04.1 qualification](../../Changes/Solidworks/Construction/SolidworksEncoderOracleBuild.md)
 
+The standalone writer also admits a measured geometry-only rectangular
+solid with one active configuration. It derives the Parasolid body from
+the supplied planar B-rep and reports that editable parametric history
+is unavailable. The import receipt authorizes one complete regenerated
+archive. A binary stream retains the exact measured self locator, and
+filesystem output uses the actual matching Windows path.
+[Measured rectangular solid](../../Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md)
+
 A strict cold readback of a measured ordinary part can use the same SDK writer
 with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with

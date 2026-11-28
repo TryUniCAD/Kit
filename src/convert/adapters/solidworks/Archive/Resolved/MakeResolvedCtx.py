@@ -1,5 +1,9 @@
 from collections.abc import Mapping
 
+from convert.adapters.solidworks.Archive.Resolved.CheckImpScope import (
+    CheckImpScope,
+)
+
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
@@ -42,7 +46,9 @@ def MakeResolvedCtx(
         raise BodyUnsupported(
             "resolved context does not match the inherited ordinary model"
         )
-    if LinkContext["cmgr_f658"] != 0:
+    if LinkContext["cmgr_f658"] == 1:
+        CheckImpScope(VersionValue, OwnerValue)
+    elif LinkContext["cmgr_f658"] != 0:
         raise BodyUnsupported(
             "ordinary resolved graph has an unsupported manager suffix"
         )
