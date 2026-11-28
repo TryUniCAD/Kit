@@ -1,0 +1,6085 @@
+{
+  "schema": "kit.research.fusion.resaved-cuboid-fixture/1",
+  "archive": "GeneratedResaveEdited.f3d",
+  "archive_sha256": "22128494045f7a9adb1e9eed7e1a95aeab06f067dea371c27981333b72d23968",
+  "archive_bytes": 65320,
+  "writer_request": "GeneratedResaveRequest.json",
+  "writer_request_sha256": "844ecf562c05facbf30b768d940d4bcb9c98b312cc5017f66672cbd98231b65d",
+  "source_candidate_sha256": "40a748922a067f81370e1ffd99049a8cfa19d78340e617e48e5409a6d3c6a5a0",
+  "native_batch_sha256": "d92fefb95a3b12f1a50841954aabe521a861ab9abda9fb15f9f28cf12ba15d6c",
+  "writer_dependency_revision": "bb22f5b434fbb056a7bd0960d5286eefe8c88568",
+  "generation": "#299 GenerateBodySceneContrast.py emitted its scene-free control from the paired authored request",
+  "fusion_version": "2706.1.17",
+  "candidate_dimensions_mm": [
+    24.625,
+    16.375,
+    8.875
+  ],
+  "fixture_dimensions_mm": [
+    24.625,
+    16.375,
+    27.875
+  ],
+  "fixture_volume_mm3": 11240.158203125,
+  "edited_driver": "riseGauge",
+  "writer_admitted": false,
+  "native_evidence_scope": "geometry and feature history lifecycle only",
+  "stage_receipts": {
+    "ControlBefore": {
+      "original_sha256": "7ce37804a000c346f985184b25bd89105ae9123509465d960bd81c40932a83cc",
+      "observations": {
+        "stage": "ControlBefore",
+        "case": "Baseline",
+        "pid": 39760,
+        "fusion_version": "2706.1.17",
+        "started_utc": "2026-11-28T20:59:50.363746+00:00",
+        "documents_before": 0,
+        "status": "passed",
+        "batch_sha256": "d92fefb95a3b12f1a50841954aabe521a861ab9abda9fb15f9f28cf12ba15d6c",
+        "runner_sha256": "4318e4347aceefe21ba637a3a7970525721dade1217a09fccaa5576e1d13ad10",
+        "request_sha256": "ef75f7fef0ee2617193c4b5a1eae9e6ee613486a1d1a98d4875c0c51388b31cd",
+        "candidate_sha256": "40a748922a067f81370e1ffd99049a8cfa19d78340e617e48e5409a6d3c6a5a0",
+        "measurements": {
+          "authored": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "opened": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "rebuilt": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "height_edited": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 11.240158203125,
+                "area_cm2": 30.9221875,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  1.39375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  2.7875
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0155114183203125,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 2.7875,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "height_restored": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          }
+        },
+        "archives": {
+          "VendorControl.f3d": "71c34f57978f6aa2b131441aed96a095f5c548f3b077dd398a9be6ee54dcfbf1"
+        },
+        "presentation_errors": {
+          "authored": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "opened": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "rebuilt": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "height_edited": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "height_restored": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)"
+        },
+        "pending": [
+          "native dialog watch",
+          "strict SDK readback after native save",
+          "viewport and archived previews"
+        ],
+        "control_authoring": {
+          "seed_material_id": "PrismMaterial-018",
+          "seed_material_name": "Steel",
+          "material_id": "PrismMaterial-018",
+          "appearance_id": "Prism-1169",
+          "appearance_uses_material": false,
+          "appearance_source_type": 1,
+          "density_properties": {
+            "structural_Density": {
+              "value": 1380.0,
+              "unit": "KilogramPerCubicMeter"
+            },
+            "thermal_Density": {
+              "value": 1380.0,
+              "unit": "KilogramPerCubicMeter"
+            }
+          },
+          "rgba8": [
+            0,
+            0,
+            255,
+            255
+          ],
+          "body_density_kg_cm3": 0.00138,
+          "body_mass_kg": 0.0049386130078124995,
+          "document_name": "Slate Gauge",
+          "root_component_name": "(Unsaved)"
+        },
+        "last_operation": "height_restored",
+        "documents_after": 0,
+        "ended_utc": "2026-11-28T20:59:54.704092+00:00",
+        "elapsed_ns": 4340314400
+      }
+    },
+    "Candidate": {
+      "original_sha256": "830026fd36557e2a1de2f4dc3285b93ad9f1342f635d0b24708f9fdd5255c25e",
+      "observations": {
+        "stage": "Candidate",
+        "case": "Baseline",
+        "pid": 11620,
+        "fusion_version": "2706.1.17",
+        "started_utc": "2026-11-28T21:00:28.606419+00:00",
+        "documents_before": 0,
+        "status": "passed",
+        "batch_sha256": "d92fefb95a3b12f1a50841954aabe521a861ab9abda9fb15f9f28cf12ba15d6c",
+        "runner_sha256": "4318e4347aceefe21ba637a3a7970525721dade1217a09fccaa5576e1d13ad10",
+        "request_sha256": "ef75f7fef0ee2617193c4b5a1eae9e6ee613486a1d1a98d4875c0c51388b31cd",
+        "candidate_sha256": "40a748922a067f81370e1ffd99049a8cfa19d78340e617e48e5409a6d3c6a5a0",
+        "measurements": {
+          "opened": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078124999,
+                "area_cm2": 15.3421875,
+                "center_cm": [
+                  1.23125,
+                  0.8187499999999999,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.004938613007812499,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "rebuilt": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "rolled_forward": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "height_edited": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 11.240158203125,
+                "area_cm2": 30.9221875,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  1.39375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  2.7875
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0155114183203125,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 2.7875,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "height_restored": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "width_edited": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      3.0375,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      3.0375,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      3.0375,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      3.0375,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 4.414341796875001,
+                "area_cm2": 18.2459375,
+                "center_cm": [
+                  1.51875,
+                  0.8187500000000001,
+                  0.44375000000000003
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  3.0375,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.006091791679687501,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "30.375 mm",
+                "internal_value": 3.0375,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "30.375 mm",
+                "internal_value": 3.0375,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 3.0375,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 3.0375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      3.0375,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.51875,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "width_restored": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625000000000004,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125001,
+                "area_cm2": 15.342187500000003,
+                "center_cm": [
+                  1.2312500000000002,
+                  0.81875,
+                  0.44375000000000003
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625000000000004,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.004938613007812501,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.2312500000000002,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "depth_edited": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      1.125,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625000000000004,
+                      1.125,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.125,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.125,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 2.4586523437500007,
+                "area_cm2": 11.908437500000002,
+                "center_cm": [
+                  1.2312500000000002,
+                  0.5625,
+                  0.44375000000000003
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625000000000004,
+                  1.125,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.003392940234375001,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "11.25 mm",
+                "internal_value": 1.125,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "11.25 mm",
+                "internal_value": 1.125,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.125,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.2312500000000002,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.125,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.125,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.5625,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "depth_restored": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      1.6375000000000002,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625000000000004,
+                      1.6375000000000002,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375000000000002,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375000000000002,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.5787050781250014,
+                "area_cm2": 15.342187500000003,
+                "center_cm": [
+                  1.2312500000000002,
+                  0.81875,
+                  0.4437500000000001
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625000000000004,
+                  1.6375000000000002,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.004938613007812502,
+                "density_kg_per_cm3": 0.0013800000000000002
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625000000000004,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.2312500000000002,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375000000000002,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.8187500000000001,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          }
+        },
+        "archives": {
+          "Candidate.f3d": "40a748922a067f81370e1ffd99049a8cfa19d78340e617e48e5409a6d3c6a5a0",
+          "VendorEdited.f3d": "22128494045f7a9adb1e9eed7e1a95aeab06f067dea371c27981333b72d23968",
+          "VendorRestored.f3d": "05549151be344b9761123b4f6e5623f397cd1db6b13a10e6b2a4d435e8c00bfd"
+        },
+        "presentation_errors": {
+          "opened": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "rebuilt": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "rolled_forward": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "height_edited": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "height_restored": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "width_edited": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "width_restored": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "depth_edited": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "depth_restored": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)"
+        },
+        "pending": [
+          "native dialog watch",
+          "strict SDK readback after native save",
+          "viewport and archived previews"
+        ],
+        "last_operation": "depth_restored",
+        "documents_after": 0,
+        "ended_utc": "2026-11-28T21:00:34.686969+00:00",
+        "elapsed_ns": 6080548900
+      }
+    },
+    "Reopen": {
+      "original_sha256": "b87e560a0c4684c25f8b3ca5215179423299fd88d69c1938bfc7afb24ad0b0b8",
+      "observations": {
+        "stage": "Reopen",
+        "case": "Baseline",
+        "pid": 8948,
+        "fusion_version": "2706.1.17",
+        "started_utc": "2026-11-28T21:01:09.026945+00:00",
+        "documents_before": 0,
+        "status": "passed",
+        "batch_sha256": "d92fefb95a3b12f1a50841954aabe521a861ab9abda9fb15f9f28cf12ba15d6c",
+        "runner_sha256": "4318e4347aceefe21ba637a3a7970525721dade1217a09fccaa5576e1d13ad10",
+        "request_sha256": "ef75f7fef0ee2617193c4b5a1eae9e6ee613486a1d1a98d4875c0c51388b31cd",
+        "candidate_sha256": "40a748922a067f81370e1ffd99049a8cfa19d78340e617e48e5409a6d3c6a5a0",
+        "measurements": {
+          "edited_opened": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 11.240158203125,
+                "area_cm2": 30.9221875,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  1.39375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  2.7875
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0155114183203125,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 2.7875,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "edited_rebuilt": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 11.240158203125,
+                "area_cm2": 30.9221875,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  1.39375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  2.7875
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0155114183203125,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 2.7875,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "restored_opened": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "restored_rebuilt": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "widthModel",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthModel",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "heightModel",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "draftAngle",
+                "expression": "0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "widthModel",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "depthModel",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "heightModel",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "2b95b5b8-d098-5e77-b2a3-5a8b451b9957",
+              "effective_appearance_id": "9f86ca45-7815-57ac-b526-2c5481e456e1",
+              "associated_appearance_id": "bc9a48dd-dfca-5805-9c23-609450a94668",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          }
+        },
+        "archives": {
+          "VendorEdited.f3d": "22128494045f7a9adb1e9eed7e1a95aeab06f067dea371c27981333b72d23968",
+          "VendorRestored.f3d": "05549151be344b9761123b4f6e5623f397cd1db6b13a10e6b2a4d435e8c00bfd"
+        },
+        "presentation_errors": {
+          "edited_opened": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "edited_rebuilt": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "restored_opened": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "restored_rebuilt": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)"
+        },
+        "pending": [
+          "native dialog watch",
+          "strict SDK readback after native save",
+          "viewport and archived previews"
+        ],
+        "last_operation": "restored_rebuilt",
+        "documents_after": 0,
+        "ended_utc": "2026-11-28T21:01:13.863594+00:00",
+        "elapsed_ns": 4836640100
+      }
+    },
+    "ControlAfter": {
+      "original_sha256": "70fde9935549cfac93dde68c508289b1fd476b8410f486db37f8e861afa44825",
+      "observations": {
+        "stage": "ControlAfter",
+        "case": "Baseline",
+        "pid": 1400,
+        "fusion_version": "2706.1.17",
+        "started_utc": "2026-11-28T21:01:46.023286+00:00",
+        "documents_before": 0,
+        "status": "passed",
+        "batch_sha256": "d92fefb95a3b12f1a50841954aabe521a861ab9abda9fb15f9f28cf12ba15d6c",
+        "runner_sha256": "4318e4347aceefe21ba637a3a7970525721dade1217a09fccaa5576e1d13ad10",
+        "request_sha256": "ef75f7fef0ee2617193c4b5a1eae9e6ee613486a1d1a98d4875c0c51388b31cd",
+        "candidate_sha256": "40a748922a067f81370e1ffd99049a8cfa19d78340e617e48e5409a6d3c6a5a0",
+        "measurements": {
+          "opened": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "rebuilt": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "height_edited": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 11.240158203125,
+                "area_cm2": 30.9221875,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  1.39375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  2.7875
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0155114183203125,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "27.875 mm",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 2.7875,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 2.7875,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          },
+          "height_restored": {
+            "parametric": true,
+            "sketches": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "fully_constrained": true,
+                "constraints": [
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::HorizontalConstraint",
+                  "adsk::fusion::VerticalConstraint",
+                  "adsk::fusion::VerticalConstraint"
+                ],
+                "dimensions": [
+                  "depthGauge",
+                  "widthGauge"
+                ],
+                "profiles": 1,
+                "lines_cm": [
+                  [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      2.4625,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ]
+                  ],
+                  [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "bodies": [
+              {
+                "name": "Slate Gauge Solid",
+                "solid": true,
+                "volume_cm3": 3.578705078125,
+                "area_cm2": 15.342187499999998,
+                "center_cm": [
+                  1.23125,
+                  0.81875,
+                  0.44375
+                ],
+                "min_cm": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "max_cm": [
+                  2.4625,
+                  1.6375,
+                  0.8875000000000001
+                ],
+                "topology": [
+                  6,
+                  12,
+                  8
+                ],
+                "material": "Slate Gauge Material",
+                "mass_kg": 0.0049386130078124995,
+                "density_kg_per_cm3": 0.00138
+              }
+            ],
+            "timeline": [
+              {
+                "name": "Slate Gauge Rectangle",
+                "type": "adsk::fusion::Sketch",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              },
+              {
+                "name": "Slate Gauge Extrusion",
+                "type": "adsk::fusion::ExtrudeFeature",
+                "suppressed": false,
+                "health": 0,
+                "message": ""
+              }
+            ],
+            "user_parameters": {
+              "widthGauge": {
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              "depthGauge": {
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              "riseGauge": {
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              }
+            },
+            "model_parameters": [
+              {
+                "name": "widthGauge",
+                "expression": "24.625 mm",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "depthGauge",
+                "expression": "16.375 mm",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "riseGauge",
+                "expression": "8.875 mm",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d4",
+                "expression": "widthGauge",
+                "internal_value": 2.4625000000000004,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d5",
+                "expression": "depthGauge",
+                "internal_value": 1.6375000000000002,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d6",
+                "expression": "riseGauge",
+                "internal_value": 0.8875000000000001,
+                "display_unit": "mm"
+              },
+              {
+                "name": "d7",
+                "expression": "0.0 deg",
+                "internal_value": 0.0,
+                "display_unit": "deg"
+              }
+            ],
+            "origin_planes": [
+              "XY",
+              "XZ",
+              "YZ"
+            ],
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "native_graph": {
+              "anchored_corner_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "distinct_sketch_origin_cm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sketch_dimensions": {
+                "width": {
+                  "parameter": "d4",
+                  "expression": "widthGauge",
+                  "value_cm": 2.4625000000000004,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      2.4625,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    1.23125,
+                    -0.5,
+                    0.0
+                  ],
+                  "orientation": 1
+                },
+                "depth": {
+                  "parameter": "d5",
+                  "expression": "depthGauge",
+                  "value_cm": 1.6375000000000002,
+                  "operands_cm": [
+                    [
+                      0.0,
+                      1.6375,
+                      0.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  ],
+                  "caption_cm": [
+                    -0.5,
+                    0.81875,
+                    0.0
+                  ],
+                  "orientation": 2
+                }
+              },
+              "extrude_extent": {
+                "parameter": "d6",
+                "expression": "riseGauge",
+                "value_cm": 0.8875000000000001,
+                "operation": 3
+              }
+            },
+            "material_bindings": {
+              "physical_id": "PrismMaterial-018",
+              "effective_appearance_id": "Prism-1169",
+              "associated_appearance_id": "PrismMaterial-018_physmat_aspects:Prism-256",
+              "source_type": 1,
+              "rgba8": [
+                0,
+                0,
+                255,
+                255
+              ]
+            }
+          }
+        },
+        "archives": {
+          "VendorControl.f3d": "71c34f57978f6aa2b131441aed96a095f5c548f3b077dd398a9be6ee54dcfbf1"
+        },
+        "presentation_errors": {
+          "opened": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "rebuilt": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "height_edited": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)",
+          "height_restored": "2 : InternalValidationError : Ns::Types::IsUnitValueValid(unit)"
+        },
+        "pending": [
+          "native dialog watch",
+          "strict SDK readback after native save",
+          "viewport and archived previews"
+        ],
+        "last_operation": "height_restored",
+        "bracket_status": "geometry_material_lifecycle_measured",
+        "documents_after": 0,
+        "ended_utc": "2026-11-28T21:01:50.225667+00:00",
+        "elapsed_ns": 4202363700
+      }
+    }
+  }
+}

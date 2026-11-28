@@ -14,3 +14,5 @@ a missing or repeated subject, the wrong rank or another order
 still indicates unqualified state.
 
 [Measured saved copies](../../../../../re/Fusion/SavedCuboidRoundTrip/DisplayOrderContrast.md#generated-cuboid-native-lifecycle-and-observers)
+
+[Committed native fixture custody](../../../../../re/Fusion/LocalOracle/SavedCuboidRoundTrip/Controls/GeneratedResaveCustody.json)

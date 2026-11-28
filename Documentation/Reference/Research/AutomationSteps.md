@@ -463,7 +463,7 @@ admits five additional exact native archives through strict readback.
 The [typed face appearance owner](../../Changes/Research/Encoder/FusionFaceAppearanceOwner.md) preserves exact reference records in three styled saves.
 The same-source scene omission reopened with matching camera, face appearance and pixels. The generated graphics candidate stalled during native import.
 The [fixed cuboid face appearance reader](../../Changes/Fusion/Adapter/FusionSavedCuboidFaceAppearance.md) verifies strict SDK and CLI preservation of the measured styled cases.
-The [resaved parameter observer rule](../../Changes/Fusion/Adapter/FusionFixedCuboidResavedObservers.md) verifies all six native edited and restored archives through strict SDK and CLI JSON.
+The [resaved parameter observer rule](../../Changes/Fusion/Adapter/FusionFixedCuboidResavedObservers.md) verifies all six native edited and restored archives through strict SDK and CLI JSON. The shared integration suite covers the exact native fixture, five malformed observer contrasts and the ordinary authoring process.
 Three exact independently generated scene-free cuboids passed the native geometry lifecycle. Viewport picking, extended presentation, previews and styled candidate acceptance remain open.
 This is partial writer evidence. Saved-scene generation, material and preview preservation, and the held-out writer exit remain open.
 Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).

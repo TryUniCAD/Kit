@@ -21,3 +21,11 @@ generated archives. Presentation, viewport picking, previews and
 generalized public writer admission remain open.
 
 [Exact native and reader evidence](../../../../re/Fusion/SavedCuboidRoundTrip/DisplayOrderContrast.md#generated-cuboid-native-lifecycle-and-observers)
+
+The existing shared integration suite opens the exact
+[native edited fixture](../../../../re/Fusion/LocalOracle/SavedCuboidRoundTrip/Controls/GeneratedResaveEdited.f3d),
+verifies its distinct saved observer order through strict SDK and
+CLI JSON, and rejects five malformed archive contrasts. A fresh
+process exercises the ordinary cuboid constructor alongside the
+saved reader. The [fixture custody](../../../../re/Fusion/LocalOracle/SavedCuboidRoundTrip/Controls/GeneratedResaveCustody.json)
+records the authored input and the four native stages.

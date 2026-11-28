@@ -69,3 +69,20 @@ with the [encoder measurement procedure](../EncoderRoundTrip/README.md).
 Start a new task-owned process for each stage. The first and last stages use
 the same independently authored control archive. This local replay path
 measures the identified research output only.
+
+## Generated and native-resaved observer control
+
+[GeneratedResaveEdited.f3d](Controls/GeneratedResaveEdited.f3d) is
+the actual Fusion 2706.1.17 archive saved from the independently
+generated no-OGS baseline after changing `riseGauge` from `8.875 mm`
+to `27.875 mm`. Its SHA-256 is
+`22128494045f7a9adb1e9eed7e1a95aeab06f067dea371c27981333b72d23968`.
+
+The [authored request](Controls/GeneratedResaveRequest.json)
+and [custody record](Controls/GeneratedResaveCustody.json) bind
+the original source-free candidate, exact native save and fresh
+native reopen. The normal integration suite reads this unchanged
+fixture without a Fusion runtime. It exercises a saved parameter
+observer order that differs from the parameter creation order.
+This fixture is a reader control. Public writer acceptance for
+saved documents retains its independent requirements.
