@@ -44,7 +44,10 @@ The deployed reviewer attempted this repair at `781797694e2d2ebf7a10bc907ec3f290
 Its native check `141055892952` reported `PR exceeds the complete review file limit`.
 The model and review publisher were skipped; this result contains no model code findings or approval.
 The repair therefore has a bootstrap dependency on protected default-branch deployment.
-No approval waiver or merge authorization is established by the dispatcher exception.
+The dispatcher exception did not establish an approval waiver or merge authorization.
+The owner subsequently authorized a one-time bootstrap merge of PR #402, waiving only that failed reviewer check and missing app approval.
+Every other CI check and native merge-queue acceptance must pass before merge.
+The authorization preserves branch protections and does not establish hosted runtime acceptance.
 
 [PR #401](https://github.com/TryUniCAD/Kit/pull/401) is a disposable live fixture at `c9682038719ade0661f43b74bf69943d7a4b70d8`.
 Its uppercase JSON contract fails in the real CLI process before repair.
