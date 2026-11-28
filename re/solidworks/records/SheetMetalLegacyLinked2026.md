@@ -44,3 +44,17 @@ In installed SP04.1 `sldsmmu.dll` SHA-256 `3299f8676485bab354704fb190cff768393bc
 Both embedded payloads consume and re-emit with existing object identities and exact read and store rosters. These runs used rule SHA-256 `3622650d31d86fd4c01ba7719137c9b246cafdfec448ef2f2c56dc64f5fbe76e` and probe SHA-256 `13841e2b68bdd1618181f1adbfab8c28779d68909cfa2e905cf99a1e980517bd`. The cover now refuses at `moSketchBend_c` byte 21,202. The plate still fully replays to map 372. [Bend-allowance field gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/LegacyBendAllowanceSignedFields.md)
 
 The next cover record dispatches to the `moSketchBend_c` descriptor at `0x780170`, vtable `0x618198` and serializer `0x53b3b0` in the same sheet-metal module. Its serializer calls `moOneBend_c` at `0x536070` before any subclass fields. That parent begins with `moSheetMetalCommon_c`, typed sketch, component and dimension objects, signed members, a 16-bit word, a double, and a byte. The next mode-zero lane reads a second typed sketch, with an inline line handle when the sketch is present, and then a typed list. The parent’s remaining records and their axis and handle semantics remain open.
+
+## One-bend and sketch-bend records
+
+In the same SP04.1 sheet-metal module, `moOneBend_c` enters `0x536070` from `moSketchBend_c` at `0x53b3b0`. The verified generation-19000 mode-zero parent reads `moSheetMetalCommon_c` then typed sketch, component and dimension objects, signed fields, a 16-bit word, a double and a byte. The mode-zero second sketch is followed by an inline line handle only when present. In the matching `sldmodu.dll`, the concrete handle constructor at `0x1497eb0` uses vtable `0x208b4f8` and the typed `sgEntHandle::Serialize` entry at `0x14458a0`. Its first cover handle has index 2, signed member −1 and zero second member, and adds no object slot. The following tagged `suObList` adds two slots. The parent has two nontrivial typed transforms. The four body-cache owner fields are zero in this witness and are guarded as unsupported when nonzero.
+
+The subclass refuses the mode-seven inline feature and raw body lane. Its bounded suffix reads the tagged sketch, three typed handles, curve link and signed member in the loader order. The cover observes a point handle followed by two line handles, a null curve and zero signed member. The measurement establishes the structure of this disclosed branch while leaving its feature semantics unresolved.
+
+| Disclosed cover payload | Incoming and outgoing map count | SHA-256 |
+| --- | --- | --- |
+| [21202, 31690) | 343 → 388 | `d0c27113639d48bdcb9862c5825e4ae2293fe72748ae343bee25becdd13bec53` |
+| [31692, 40318) | 389 → 427 | `e5b42f86fc68251fab2e419007dc25b35b0c57141ec57e77dcfe55d37c844875` |
+| [40320, 48946) | 428 → 466 | `65bfa54fb3b38f6f25d7aa563996c7ee1f4e1acfeebe7bc0cf7dadab4ad2a6a2` |
+
+The two fresh process runs used rule SHA-256 `611e9356f07d59def3d87aff4d09645a65892b934002986d088d3c40c8eef731` and probe SHA-256 `19f48a7770fd92146604e6f715844115cb167bbaf5051e379411dbe10766d87a`. Each sketch-bend payload reproduced its source bytes, incoming identities and map roster. The cover's first remaining refusal in this revision is `moSMMiteredFlange_c` at byte 57,224. The plate still fully replays at map 372, and does not exercise this branch.

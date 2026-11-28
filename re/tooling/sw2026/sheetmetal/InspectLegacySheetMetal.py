@@ -54,6 +54,7 @@ def inspect_legacy(source, probe, legacy):
         rules = registry()
         legacy.install_legacy_resolved_rules(rules, probe.record_boundary(observations))
         legacy.install_legacy_bend_rules(rules, probe.record_boundary(bend_observations))
+        legacy.install_legacy_sketch_bend_rules(rules, probe.record_boundary(observations))
         configured.append(rules)
         return rules
 

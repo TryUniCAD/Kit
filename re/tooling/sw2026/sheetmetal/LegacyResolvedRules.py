@@ -1,4 +1,4 @@
-"""Provisional typed folder rules for the version-19000 legacy linked archive."""
+"""Provisional typed rules for the version-19000 legacy linked archive."""
 
 
 def install_legacy_resolved_rules(rules, boundary):
@@ -21,6 +21,7 @@ def install_legacy_resolved_rules(rules, boundary):
     # SP04.1 sldmodu vtable 0x1f31ab0: GetDummyFolder returns zero.
     # The Notes-derived object retains its separate true callback.
     vt(0xA40, plain, False)
+
     def only_plain(operation):
         def load(reader, fields, owner):
             if owner.cls == plain:
@@ -113,3 +114,57 @@ def replay_legacy_bend(resolved, rules, version, observations):
             exact_replay=True, signed_members={key: fields[key] for key in ('f30', 'f34')},
         ))
     return records
+
+
+def install_legacy_sketch_bend_rules(rules, boundary):
+    from Core import ArchiveError
+    from Dsl import base, emb, f64, i32, u8, u16
+    from Schema import Fn, If
+    from defs.ResolvedCore import concept_vt, xo
+    from defs.ResolvedSketch import HANDLE
+
+    begin, end = boundary
+
+    def profile(ar, fields, owner):
+        if (owner.schema != 1 or ar.version != 19000 or
+                ar.ctx.get('model_is_part') != 1 or ar.ctx.get('cmgr_f658') != 0):
+            raise ArchiveError('OneBend is outside the mode-zero version-19000 schema-one proposal')
+
+    def require_supported_sketch_body(ar, fields, owner):
+        if fields['fad0'] == 7:
+            raise ArchiveError('unsupported SketchBend mode-seven inline feature and raw body lane')
+
+    def empty_body(field):
+        def check(ar, fields, owner):
+            if fields[field] != 0:
+                raise ArchiveError(f'unsupported OneBend nonempty raw body owner {field} ({fields[field]})')
+        return Fn(check, check)
+
+    concept_vt('moOneBend_c')
+    concept_vt('moSketchBend_c')
+    rules.provisional('moOneBend_c', [
+        Fn(profile, profile), base('moSheetMetalCommon_c'),
+        xo('f880_sketch', 'sgSketch'), xo('f868', 'moCompBEntRef_c'),
+        xo('f870', 'moDisplayAngularDim_c'), xo('f878', 'moDisplayDim_c'),
+        u16('f860'), i32('f900'), f64('f8c0'), i32('f8c8'), i32('f8d0'),
+        i32('f8d4'), i32('f8cc'), i32('f8d8'), xo('f8e0', 'moDisplayDim_c'),
+        xo('f8e8', 'moDisplayDim_c'), i32('f8f0'), u8('fa18'),
+        xo('f888_sketch', 'sgSketch'),
+        If(lambda fields, ar: fields['f888_sketch'] is not None, [emb('f888_handle', HANDLE)]),
+        xo('f890', 'suObList'),
+        xo('fa98'), xo('faa8', 'moCompFeature_c'), xo('fab0', 'moCompFeature_c'),
+        i32('fad0'), xo('fad8', 'moConicBendData_c'),
+        emb('f908', 'mgXform_c.restore'), emb('f990', 'mgXform_c.restore'),
+        i32('fae0'), i32('fae4'), i32('fa38'), i32('fb6c'), i32('fa3c'),
+        xo('faa0'), xo('fab8', 'moCompFeature_c'), xo('fac0', 'moCompFeature_c'),
+        If(lambda fields, ar: fields['f880_sketch'] is not None, [emb('f880_handle', HANDLE)]),
+        i32('naf8'), empty_body('naf8'), i32('nb18'), empty_body('nb18'),
+        i32('fb48'), empty_body('fb48'), i32('fb58'), empty_body('fb58'),
+        i32('fa90'), i32('fa60'), i32('fa64'), i32('fd5c'),
+    ])
+    rules.provisional('moSketchBend_c', [
+        begin, base('moOneBend_c'), Fn(require_supported_sketch_body, require_supported_sketch_body),
+        xo('fdf8_sketch', 'sgSketch'),
+        xo('fdf8_handle', 'sgEntHandle'), xo('fe20', 'sgEntHandle'), xo('fe48', 'sgEntHandle'),
+        xo('fde8', 'moCurveRef_w'), i32('fe78'), end,
+    ])
