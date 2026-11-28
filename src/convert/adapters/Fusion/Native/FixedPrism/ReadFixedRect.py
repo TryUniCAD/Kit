@@ -2,6 +2,7 @@ from convert.adapters.Fusion.Native.FixedPrism.ReadFixAnchor import ReadFixAncho
 from convert.adapters.Fusion.Native.FixedPrism.ReadFixedDims import ReadFixedDims
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Graph.GraphChecks import LinkedNodes, SameNodes
+from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Rectangle.OrderLines import OrderLines
 from convert.adapters.Fusion.Native.Rectangle.ReadRectAxes import ReadRectAxes
@@ -25,6 +26,10 @@ def ReadFixedRect(Graph: NativeGraph, Context: ExtrudeContext) -> RectSketchProo
     Bindings, Params, SizeRules = ReadFixedDims(
         Graph, Context, Dimensions, Lines, Anchor
     )
+    Normals = {PointCoords(LineValue.Fields["planeNormal"]) for LineValue in Lines}
+    if Normals not in ({(0.0, 0.0, -1.0)}, {(0.0, 0.0, 1.0)}):
+        raise ValueError("Native fixed rectangle requires a uniform XY line normal")
+    Normal = Normals.pop()
     return RectSketchProof(
         Rules,
         Dimensions,
@@ -34,4 +39,5 @@ def ReadFixedRect(Graph: NativeGraph, Context: ExtrudeContext) -> RectSketchProo
         Origin,
         (*AxisRules, *SizeRules),
         DisplayUnit,
+        Normal,
     )

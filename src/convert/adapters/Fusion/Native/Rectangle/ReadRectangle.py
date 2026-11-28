@@ -37,7 +37,11 @@ def ReadRectangle(
         if Rectangle and Rectangle.Anchor.Fields["isFixed"] is True
         else None
     )
-    Normal = (0.0, 0.0, 1.0 if Rectangle and Fixed is None else -1.0)
+    Normal = (
+        Rectangle.LineNormal
+        if Rectangle and Rectangle.LineNormal is not None
+        else (0.0, 0.0, 1.0 if Rectangle and Fixed is None else -1.0)
+    )
     Geometry = tuple(ReadLine(Graph, NodeValue, Normal) for NodeValue in LineNodes)
     if (
         sum(

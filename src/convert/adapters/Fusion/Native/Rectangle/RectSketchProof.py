@@ -24,3 +24,4 @@ class RectSketchProof:
     Origin: NativeNode
     Relations: tuple[SketchRelation, ...]
     DisplayUnit: UnitSystem
+    LineNormal: tuple[float, float, float] | None = None

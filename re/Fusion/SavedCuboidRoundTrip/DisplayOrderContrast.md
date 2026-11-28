@@ -208,3 +208,45 @@ linked, mesh-bearing leaves. A control after the import stall and a
 separate no-graphics comparison before viewport changes are required
 to distinguish a scene import defect from an invalid bracket and to
 measure any regenerated presentation.
+
+### Fixed-corner line plane normal
+
+The native holdout capture completed on Fusion 2706.1.17 with
+healthy controls before and after. Capture receipt SHA-256
+`3b11510fe94c7138428c2ca2f3f9597f3b18d224731818c41687bdf232393a24`.
+The original frozen probe, at `bccdb7562b`, recovered matching
+history and graphics order in both edited saves. The two initial
+saves have no unique graphics world linked to the live body. This
+qualification refusal remains. The report SHA-256 is
+`461e9c4ae2de644f41b351e97e7733716e9f52245c98027e97142b85ddc79041`.
+
+The unchanged reader refused all five newly captured archives before
+it reached the qualifying geometry. They store positive Z on every
+line. The existing `BaselineRestored.f3d` stores negative Z.
+All cases have identity support and sketch matrices, no matrix Z
+inversion, strictly counterclockwise signed area and saved endpoints
+in the XY plane. Each carrier normal is perpendicular to its own
+saved tangent. The [plane sense evidence](../../../Documentation/Gotchas/Conversion/Fusion/Sketch/FixedRectangleLineNormalSense.md)
+keeps Z sense distinct from the sketch support and ordered profile.
+Basis comparison SHA-256
+`3cb5e8caca05ecee83f7d7114931f07c296d50e7a1ae2a045f46730ee21e3357`.
+
+After the scoped reader change, all five native saves retain complete
+typed state through strict SDK JSON. Volumes match the native
+measurements within the declared reader tolerance.
+
+| Native case | Archive SHA-256 prefix | Native volume in mm³ |
+| --- | --- | ---: |
+| Independent control | `efe3f8e0` | 4736 |
+| A initial | `017fe8bc` | 10190.473125 |
+| A edited | `67117fef` | 22875.8551875 |
+| B initial | `f7b3c04f` | 14557.94921875 |
+| B edited | `1802ab75` | 7835.05078125 |
+
+Changing one normal to the opposite sign or every normal to a
+different axis refused before a neutral result for every source.
+SDK verification SHA-256
+`3472c925059f5732f391def16d13cb1121c5884fd49d638e2a2c50fad69e10ef`.
+The result establishes readback of these saved geometries. The
+writer still needs native acceptance of exact independently
+generated archives.
