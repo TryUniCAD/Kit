@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1698" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1732" role="img" aria-labelledby="title desc">
 <title id="title">Kit scope and status</title>
 <desc id="desc">Calendar Gantt of explicitly supplied windows; undated work has no duration assumption. Current open deliveries and detailed scopes are available in the scheduling board.</desc>
-<rect width="1200" height="1698" fill="#faf9f6"/><g font-family="sans-serif" font-size="12" fill="#262522">
+<rect width="1200" height="1732" fill="#faf9f6"/><g font-family="sans-serif" font-size="12" fill="#262522">
 <text x="16" y="26" font-size="18">Repository scope and status</text>
 <text x="16" y="48">Only explicit windows are dated · source prerequisites still bind · no assumed duration or delivery commitment</text>
 <text x="16" y="104">B01 · Supported version, feature and route matrix</text>
@@ -64,38 +64,40 @@
 <text x="610" y="1056" fill="#615c54">planned · no date asserted</text>
 <text x="16" y="1090">A16 · Broader features and additional CAD families</text>
 <text x="610" y="1090" fill="#615c54">blocked · no date asserted</text>
-<text x="16" y="1124">ReviewerContinuous · Review each proposed revision independently of approval ga</text>
+<text x="16" y="1124">ReviewerHosted · Hosted reviewer runtime and message lifecycle acceptance</text>
 <text x="610" y="1124" fill="#615c54">active · no date asserted</text>
-<text x="16" y="1158">ReviewerLiveEvidence · Live review base and mergeability qualification</text>
+<text x="16" y="1158">ReviewerContinuous · Review each proposed revision independently of approval ga</text>
 <text x="610" y="1158" fill="#615c54">active · no date asserted</text>
-<text x="16" y="1192">ReviewerReactions · Mention review lifecycle reactions</text>
+<text x="16" y="1192">ReviewerLiveEvidence · Live review base and mergeability qualification</text>
 <text x="610" y="1192" fill="#615c54">active · no date asserted</text>
-<text x="16" y="1226">ReviewerRuntime · Explicit default review model and reasoning</text>
+<text x="16" y="1226">ReviewerReactions · Mention review lifecycle reactions</text>
 <text x="610" y="1226" fill="#615c54">active · no date asserted</text>
-<text x="16" y="1260">ReviewerBranding · Organization reviewer app name and logo</text>
-<text x="610" y="1260" fill="#615c54">complete · no date asserted</text>
-<text x="16" y="1294">ReviewerMentions · Trusted collaborator mention review requests</text>
-<text x="610" y="1294" fill="#615c54">active · no date asserted</text>
-<text x="16" y="1328">AccountReviewer · Account authenticated review and GitHub App approval</text>
+<text x="16" y="1260">ReviewerRuntime · Explicit default review model and reasoning</text>
+<text x="610" y="1260" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1294">ReviewerBranding · Organization reviewer app name and logo</text>
+<text x="610" y="1294" fill="#615c54">complete · no date asserted</text>
+<text x="16" y="1328">ReviewerMentions · Trusted collaborator mention review requests</text>
 <text x="610" y="1328" fill="#615c54">active · no date asserted</text>
-<text x="16" y="1362">PlanningViews · Repository planning register and dependency Gantt</text>
+<text x="16" y="1362">AccountReviewer · Account authenticated review and GitHub App approval</text>
 <text x="610" y="1362" fill="#615c54">active · no date asserted</text>
-<text x="16" y="1396">FusionRevolveContrast · Unequal two-sided construction-axis revolve contrasts</text>
-<text x="610" y="1396" fill="#615c54">checking · no date asserted</text>
-<text x="16" y="1430">UiInspector · Local decoded-document and evidence inspector</text>
-<text x="610" y="1430" fill="#615c54">proposed · no date asserted</text>
-<text x="16" y="1464">UiConversion · Conversion setup and route eligibility interface</text>
+<text x="16" y="1396">PlanningViews · Repository planning register and dependency Gantt</text>
+<text x="610" y="1396" fill="#615c54">active · no date asserted</text>
+<text x="16" y="1430">FusionRevolveContrast · Unequal two-sided construction-axis revolve contrasts</text>
+<text x="610" y="1430" fill="#615c54">checking · no date asserted</text>
+<text x="16" y="1464">UiInspector · Local decoded-document and evidence inspector</text>
 <text x="610" y="1464" fill="#615c54">proposed · no date asserted</text>
-<text x="16" y="1498">UiPreservation · Preservation differences and refusal explanation interface</text>
+<text x="16" y="1498">UiConversion · Conversion setup and route eligibility interface</text>
 <text x="610" y="1498" fill="#615c54">proposed · no date asserted</text>
-<text x="16" y="1532">UiResearch · Research queue and blocked-work interface</text>
+<text x="16" y="1532">UiPreservation · Preservation differences and refusal explanation interface</text>
 <text x="610" y="1532" fill="#615c54">proposed · no date asserted</text>
-<text x="16" y="1566">UxAccessibility · Keyboard navigation and accessible status reporting</text>
+<text x="16" y="1566">UiResearch · Research queue and blocked-work interface</text>
 <text x="610" y="1566" fill="#615c54">proposed · no date asserted</text>
-<text x="16" y="1600">UxCli · CLI workflow and recovery improvements</text>
+<text x="16" y="1600">UxAccessibility · Keyboard navigation and accessible status reporting</text>
 <text x="610" y="1600" fill="#615c54">proposed · no date asserted</text>
-<text x="16" y="1634">UiPlanning · Planning board schedule editing and scope discovery</text>
-<text x="610" y="1634" fill="#615c54">checking · no date asserted</text>
-<text x="16" y="1668">AgentDispatch · Direct local and Hoplite agent dispatch</text>
-<text x="610" y="1668" fill="#615c54">proposed · no date asserted</text>
+<text x="16" y="1634">UxCli · CLI workflow and recovery improvements</text>
+<text x="610" y="1634" fill="#615c54">proposed · no date asserted</text>
+<text x="16" y="1668">UiPlanning · Planning board schedule editing and scope discovery</text>
+<text x="610" y="1668" fill="#615c54">checking · no date asserted</text>
+<text x="16" y="1702">AgentDispatch · Direct local and Hoplite agent dispatch</text>
+<text x="610" y="1702" fill="#615c54">proposed · no date asserted</text>
 </g></svg>
