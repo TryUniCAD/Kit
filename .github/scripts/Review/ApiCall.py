@@ -1,5 +1,6 @@
 import json as JsonTools
 import os as OsTools
+import re as RegexTools
 import subprocess as ProcessTools
 from typing import cast
 
@@ -10,7 +11,13 @@ def ApiCall(
     Payload: dict[str, object] | None = None,
     MethodName: str | None = None,
 ) -> object:
-    if not Route.startswith(("repos/", "orgs/", "apps/", "users/")) or ".." in Route:
+    CheckedRoute = RegexTools.sub(
+        r"/compare/[0-9a-f]{40}\.\.\.[0-9a-f]{40}(?=\?|$)", "/compare/revisions", Route
+    )
+    if (
+        not Route.startswith(("repos/", "orgs/", "apps/", "users/"))
+        or ".." in CheckedRoute
+    ):
         raise ValueError("Unexpected API route")
     Arguments = ["gh", "api", Route, "--hostname", "github.com"]
     if MethodName is not None:

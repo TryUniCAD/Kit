@@ -1,43 +1,28 @@
-import subprocess as ProcessTools
-
-
-# git object reads avoid checking out or executing proposed repository code
-def ReadSource(Revision: str, FileName: str) -> str:
-    if len(Revision) != 40 or any(
-        Letter not in "0123456789abcdef" for Letter in Revision
-    ):
-        raise ValueError("Invalid source revision")
-    Result = ProcessTools.run(
-        ["git", "show", f"{Revision}:{FileName}"],
-        capture_output=True,
-        check=True,
-        timeout=30,
-    )
-    if len(Result.stdout) > 160000 or b"\0" in Result.stdout:
-        raise ValueError(
-            "Changed content requires a separate binary or large file review"
-        )
-    return Result.stdout.decode("utf-8")
+from Input.ReadSource import ReadSource
+from Input.ReadTarget import ReadTarget
 
 
 # complete changed sources and their previous versions expose more than truncated patch snippets
 def CollectFiles(
     Files: list[dict[str, object]], Evidence: dict[str, object]
 ) -> list[dict[str, object]]:
-    if len(Files) > 40:
-        raise ValueError("PR exceeds the complete review file limit")
     Sources: list[dict[str, object]] = []
-    for Entry in Files:
+    for Entry in Files[:40]:
         FileName = str(Entry["filename"])
-        Sources.append(
-            {
+        try:
+            Source = {
                 "path": FileName,
-                "patch": Entry.get("patch"),
+                "status": Entry["status"],
+                "patch": (
+                    Entry.get("patch")
+                    if len(str(Entry.get("patch", ""))) <= 40000
+                    else None
+                ),
                 "before": (
                     ""
                     if Entry["status"] == "added"
                     else ReadSource(
-                        str(Evidence["base_sha"]),
+                        str(Evidence["merge_base_sha"]),
                         str(Entry.get("previous_filename", FileName)),
                     )
                 ),
@@ -46,6 +31,27 @@ def CollectFiles(
                     if Entry["status"] == "removed"
                     else ReadSource(str(Evidence["head_sha"]), FileName)
                 ),
+                "target": ReadTarget(
+                    str(Evidence["base_sha"]),
+                    str(Entry.get("previous_filename", FileName)),
+                ),
             }
-        )
+        except (ValueError, ProcessTools.CalledProcessError) as ErrorInfo:
+            Source = {
+                "path": FileName,
+                "status": Entry["status"],
+                "before": None,
+                "after": None,
+                "target": None,
+                "patch": (
+                    Entry.get("patch")
+                    if len(str(Entry.get("patch", ""))) <= 40000
+                    else None
+                ),
+                "omitted": str(ErrorInfo),
+            }
+        Sources.append(Source)
     return Sources
+
+
+import subprocess as ProcessTools

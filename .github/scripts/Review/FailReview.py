@@ -22,14 +22,14 @@ def FailReview() -> None:
     )
     if Context.get("mention_comment") is not None:
         Summary += f"\n\nMention comment: {Context['mention_comment']}"
-    Summary += f"\n\nCI run: {Evidence['run_id']}"
+    Summary += f"\n\nReview snapshot: {Evidence['review_id']}"
     CheckData = ObjectMap(
         ApiCall(
             f"repos/{OsTools.environ['GITHUB_REPOSITORY']}/check-runs",
             {
                 "name": Settings["CheckName"],
                 "head_sha": Evidence["head_sha"],
-                "external_id": str(Evidence["run_id"]),
+                "external_id": str(Evidence["review_id"]),
                 "status": "completed",
                 "conclusion": "failure",
                 "output": {"title": "Review workflow failed", "summary": Summary},

@@ -24,21 +24,21 @@ def IsContextReady(
             {
                 "name": Settings["CheckName"],
                 "head_sha": Evidence["head_sha"],
-                "external_id": str(Evidence["run_id"]),
+                "external_id": str(Evidence["review_id"]),
                 "status": "completed",
                 "conclusion": "failure",
                 "output": {
                     "title": "Review input exceeds supported bounds",
                     "summary": str(ErrorInfo)
                     + (
-                        f"\n\nMention comment: {RequestId}\n\nCI run: {Evidence['run_id']}"
+                        f"\n\nMention comment: {RequestId}"
                         if RequestId is not None
                         else ""
-                    ),
+                    )
+                    + f"\n\nReview snapshot: {Evidence['review_id']}",
                 },
             },
         )
         return False
-    Path("ReviewInput").mkdir()
     Path("ReviewInput/Context.json").write_text(Content)
     return True

@@ -1,14 +1,29 @@
 name: Account review
 
 on:
+  push:
+    branches: [main]
   schedule:
     - cron: "3-58/5 * * * *"
   workflow_dispatch:
     inputs:
       id:
-        description: Successful PR CI workflow run ID
-        required: true
+        description: Legacy successful PR CI workflow run ID
+        required: false
         type: string
+      pull:
+        description: Pull request number to review independently of CI
+        required: false
+        type: string
+      comment:
+        description: Authorized PR conversation comment to process
+        required: false
+        type: string
+      force:
+        description: Reassess an already reported snapshot
+        required: false
+        default: false
+        type: boolean
 
 permissions: {}
 
@@ -63,6 +78,7 @@ jobs:
     environment: AccountReview
     outputs:
       ready: ${{ steps.input.outputs.ready }}
+      selected: ${{ steps.input.outputs.selected }}
       mention: ${{ needs.admit.outputs.mention }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
@@ -90,20 +106,8 @@ jobs:
         with:
           name: ReviewRequest
           path: ReviewRequest
-      - name: Prepare complete revision bound input
-        id: input
-        env:
-          GH_TOKEN: ${{ steps.input-token.outputs.token }}
-        run: python .github/scripts/Review/Prepare.py
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        if: steps.input.outputs.ready == 'true'
-        with:
-          name: ReviewInput
-          path: ReviewInput/Context.json
-          if-no-files-found: error
-          retention-days: 1
       - name: Obtain mention reaction token
-        if: steps.input.outputs.ready == 'true' && needs.admit.outputs.mention == 'true'
+        if: needs.admit.outputs.mention == 'true'
         id: reaction-token
         uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
         with:
@@ -112,10 +116,22 @@ jobs:
           repositories: ${{ github.event.repository.name }}
           permission-issues: write
       - name: Acknowledge review in progress
-        if: steps.input.outputs.ready == 'true' && needs.admit.outputs.mention == 'true'
+        if: needs.admit.outputs.mention == 'true'
         env:
           GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
         run: python .github/scripts/Review/ReactMention.py started
+      - name: Prepare revision bound review input
+        id: input
+        env:
+          GH_TOKEN: ${{ steps.input-token.outputs.token }}
+        run: python .github/scripts/Review/Prepare.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always() && steps.input.outputs.selected == 'true'
+        with:
+          name: ReviewInput
+          path: ReviewInput/Context.json
+          if-no-files-found: error
+          retention-days: 1
 
   review:
     name: Review with isolated account runtime
@@ -205,7 +221,7 @@ jobs:
   react:
     name: Complete review outcome
     needs: [prepare, review, publish]
-    if: always() && needs.prepare.outputs.ready == 'true'
+    if: always() && needs.prepare.outputs.selected == 'true'
     environment: AccountReview
     runs-on: ubuntu-24.04
     timeout-minutes: 5
@@ -231,7 +247,7 @@ jobs:
           permission-pull-requests: read
           permission-checks: write
       - name: Publish failed native report when the workflow did not complete
-        if: needs.publish.result != 'success'
+        if: needs.prepare.result != 'success' || (needs.prepare.outputs.ready == 'true' && needs.publish.result != 'success')
         env:
           GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
         run: python .github/scripts/Review/FailReview.py

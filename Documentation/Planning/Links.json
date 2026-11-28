@@ -283,6 +283,21 @@
   "Schedules": [],
   "ExtraTasks": [
     {
+      "Id": "ReviewerContinuous",
+      "Name": "Review each proposed revision independently of approval gates",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session fix/reviewer-review-on-change-20261128",
+      "Runner": "OpenAI",
+      "Parent": "AccountReviewer",
+      "Dependencies": [],
+      "Source": "Documentation/Tasks/AccountReviewer.md",
+      "Exit": "Commit changes dispatch a new current-head model review even with failed CI or conflicts; app approval remains gated by current successful CI and mergeability; mentions acknowledge processing and use current trusted policy",
+      "Branch": "fix/reviewer-review-on-change-20261128",
+      "Blocker": "First hosted run reached protected app input selection but failed on policy documents missing from an old stacked base; implementation and hosted acceptance pending",
+      "Evidence": "https://github.com/TryUniCAD/Kit/actions/runs/46163285662"
+    },
+    {
       "Id": "ReviewerLiveEvidence",
       "Name": "Live review base and mergeability qualification",
       "Status": "active",
@@ -292,10 +307,12 @@
       "Parent": "AccountReviewer",
       "Dependencies": [],
       "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
-      "Exit": "Review selection and publication compare ci evidence against the live target branch ref and refuse conflicting or indeterminate mergeability",
+      "Exit": "Review snapshots bind live head and target revision; approval alone additionally requires successful matching CI and mergeability",
       "Branch": "feat/reviewer-model-reactions-20261128",
       "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
-      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400"
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400",
+      "PreviousExit": "Review selection and publication compare ci evidence against the live target branch ref and refuse conflicting or indeterminate mergeability",
+      "ScopeChange": "Owner explicitly requested reviews during failed CI and merge conflicts and automatic rereview after each commit"
     },
     {
       "Id": "ReviewerReactions",
@@ -434,7 +451,9 @@
       "Name": "Local decoded-document and evidence inspector",
       "Status": "proposed",
       "Owner": "Unassigned",
-      "Dependencies": ["B01"],
+      "Dependencies": [
+        "B01"
+      ],
       "Source": "Documentation/Planning/README.md",
       "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
       "Area": "UI/UX"
@@ -444,7 +463,10 @@
       "Name": "Conversion setup and route eligibility interface",
       "Status": "proposed",
       "Owner": "Unassigned",
-      "Dependencies": ["B01", "B12"],
+      "Dependencies": [
+        "B01",
+        "B12"
+      ],
       "Source": "Documentation/Planning/README.md",
       "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
       "Area": "UI/UX"
@@ -454,7 +476,9 @@
       "Name": "Preservation differences and refusal explanation interface",
       "Status": "proposed",
       "Owner": "Unassigned",
-      "Dependencies": ["B12"],
+      "Dependencies": [
+        "B12"
+      ],
       "Source": "Documentation/Planning/README.md",
       "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
       "Area": "UI/UX"
@@ -464,7 +488,9 @@
       "Name": "Research queue and blocked-work interface",
       "Status": "proposed",
       "Owner": "Unassigned",
-      "Dependencies": ["A03"],
+      "Dependencies": [
+        "A03"
+      ],
       "Source": "Documentation/Planning/README.md",
       "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
       "Area": "UI/UX"
@@ -474,7 +500,9 @@
       "Name": "Keyboard navigation and accessible status reporting",
       "Status": "proposed",
       "Owner": "Unassigned",
-      "Dependencies": ["UiInspector"],
+      "Dependencies": [
+        "UiInspector"
+      ],
       "Source": "Documentation/Planning/README.md",
       "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
       "Area": "UI/UX"
@@ -484,7 +512,9 @@
       "Name": "CLI workflow and recovery improvements",
       "Status": "proposed",
       "Owner": "Unassigned",
-      "Dependencies": ["B10"],
+      "Dependencies": [
+        "B10"
+      ],
       "Source": "Documentation/Planning/README.md",
       "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
       "Area": "UI/UX"
@@ -506,7 +536,10 @@
       "Name": "Direct local and Hoplite agent dispatch",
       "Status": "proposed",
       "Owner": "Unassigned",
-      "Dependencies": ["A03", "UiPlanning"],
+      "Dependencies": [
+        "A03",
+        "UiPlanning"
+      ],
       "Source": "Documentation/Planning/README.md",
       "Area": "UI/UX",
       "Exit": "Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client"
@@ -515,34 +548,102 @@
   "Dependencies": {
     "B01": [],
     "B02": [],
-    "B03": ["B02"],
-    "B04": ["B03"],
-    "B05": ["B02", "B03", "B04"],
-    "B06": ["B05"],
-    "B07": ["B06"],
+    "B03": [
+      "B02"
+    ],
+    "B04": [
+      "B03"
+    ],
+    "B05": [
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "B06": [
+      "B05"
+    ],
+    "B07": [
+      "B06"
+    ],
     "B08": [],
-    "B09": ["B01", "B05"],
+    "B09": [
+      "B01",
+      "B05"
+    ],
     "B10": [],
     "B11": [],
-    "B12": ["B01"],
-    "B13": ["A07", "A08", "A14"],
-    "B14": ["B10", "B11", "B12"],
+    "B12": [
+      "B01"
+    ],
+    "B13": [
+      "A07",
+      "A08",
+      "A14"
+    ],
+    "B14": [
+      "B10",
+      "B11",
+      "B12"
+    ],
     "A01": [],
-    "A02": ["A01"],
-    "A03": ["A01"],
-    "A04": ["A01"],
-    "A05": ["A01"],
-    "A06": ["A04", "A05"],
-    "A07": ["A03", "A06"],
+    "A02": [
+      "A01"
+    ],
+    "A03": [
+      "A01"
+    ],
+    "A04": [
+      "A01"
+    ],
+    "A05": [
+      "A01"
+    ],
+    "A06": [
+      "A04",
+      "A05"
+    ],
+    "A07": [
+      "A03",
+      "A06"
+    ],
     "A08": [],
-    "A09": ["A07"],
-    "A10": ["A07", "A08", "A09"],
-    "A11": ["A01", "A06", "A09"],
-    "A12": ["A01", "A06", "A09"],
-    "A13": ["A04", "A05", "A08", "A11", "A12"],
-    "A14": ["A03"],
-    "A15": ["A07", "A08", "A14"],
-    "A16": ["A13", "A15"]
+    "A09": [
+      "A07"
+    ],
+    "A10": [
+      "A07",
+      "A08",
+      "A09"
+    ],
+    "A11": [
+      "A01",
+      "A06",
+      "A09"
+    ],
+    "A12": [
+      "A01",
+      "A06",
+      "A09"
+    ],
+    "A13": [
+      "A04",
+      "A05",
+      "A08",
+      "A11",
+      "A12"
+    ],
+    "A14": [
+      "A03"
+    ],
+    "A15": [
+      "A07",
+      "A08",
+      "A14"
+    ],
+    "A16": [
+      "A13",
+      "A15"
+    ]
   },
   "DependencyPolicy": "These are parent-level prerequisite edges only; all detailed source dependency cells and external/native gates remain binding. A missing graph edge never makes a task runnable. B12 and B14 may qualify narrow subsets before all routes are complete.",
   "SchedulePolicy": {

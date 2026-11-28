@@ -11,11 +11,12 @@ def MentionStatus(RepoName: str, Context: dict[str, object], UserIdent: object) 
             Review["commit_id"] == Evidence["head_sha"]
             and ObjectMap(Review["user"])["id"] == UserIdent
             and str(Review["body"]).endswith(
-                f"\n\nMention comment: {Context['mention_comment']}\n\nCI run: {Evidence['run_id']}"
+                f"\n\nMention comment: {Context['mention_comment']}\n\nReview snapshot: {Evidence['review_id']}"
             )
         ):
             return {
                 "APPROVED": "+1",
                 "CHANGES_REQUESTED": "-1",
+                "COMMENTED": "hooray",
             }.get(str(Review["state"]), "confused")
     return "confused"

@@ -35,7 +35,7 @@ def ReadMention(
         return None
     PullData = ObjectMap(ApiCall(f"repos/{RepoName}/pulls/{PullNumber}"))
     HeadData = ObjectMap(PullData["head"])
-    if PullData["draft"] or ObjectMap(HeadData["repo"])["full_name"] != RepoName:
+    if ObjectMap(HeadData["repo"])["full_name"] != RepoName:
         return None
     if HasMention(RepoName, str(HeadData["sha"]), Comment["id"], Settings):
         return None
