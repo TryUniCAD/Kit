@@ -110,6 +110,8 @@ flowchart LR
   AgentDispatch["AgentDispatch: Direct local and Hoplite agent dispatch"]
   A03 --> AgentDispatch
   UiPlanning --> AgentDispatch
+  ReviewerPatchBudget["ReviewerPatchBudget: Complete source snapshots within the unchanged review budget"]
+  ReviewerHosted --> ReviewerPatchBudget
 ```
 
 Source gates and detailed child prerequisites remain binding.
