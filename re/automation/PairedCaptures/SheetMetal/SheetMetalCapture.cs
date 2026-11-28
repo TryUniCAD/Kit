@@ -197,8 +197,19 @@ public static class SheetMetalCapture
         allowance.KFactor = .5;
         int noRelief = (int)swSheetMetalReliefTypes_e.swSheetMetalReliefNone;
         const bool thickenTowardPositiveZ = true;
-        var flange = doc.FeatureManager.InsertSheetMetalBaseFlange2(thickness, thickenTowardPositiveZ, radius, .02, .01, false,
-            0, 0, 1, allowance, false, noRelief, 0, 0, .5, false, false, true, true);
+        var manager = doc.FeatureManager;
+        var typed = manager.CreateDefinition((int)swFeatureNameID_e.swFmBaseFlange) as IBaseFlangeFeatureData;
+        Check(typed != null, "Could not create a typed sheet-metal base-flange definition");
+        typed.Initialize(false, true, allowance, true, noRelief, false, 0, 0, 0);
+        typed.OverrideDefaultSheetMetalParameters = true;
+        typed.Thickness = thickness;
+        typed.BendRadius = radius;
+        typed.ReverseThickness = thickenTowardPositiveZ;
+        Check(typed.OverrideDefaultSheetMetalParameters && !typed.UseMaterialSheetMetalParameters &&
+            Near(typed.Thickness, thickness) && Near(typed.BendRadius, radius) &&
+            typed.ReverseThickness == thickenTowardPositiveZ,
+            "The pending base-flange definition did not retain the explicitly initialized parameters");
+        var flange = manager.CreateFeature(typed);
         Check(flange != null, "Base flange returned no feature for " + id);
         flange.Name = "Base-" + id;
         Check(doc.ForceRebuild3(false), "Base flange could not rebuild for " + id);
@@ -220,8 +231,11 @@ public static class SheetMetalCapture
                 "Base flange did not report the requested thickness and radius for " + id);
             return Row("id", id, "body", BodyRow(doc, solid), "feature", Identity(doc, flange),
                 "direction_evidence", evidence,
-                "base_flange2_arguments", new object[] { thickness, thickenTowardPositiveZ, radius, .02, .01, false, 0, 0, 1,
-                    Row("type", allowance.Type, "k_factor", allowance.KFactor), false, noRelief, 0, 0, .5, false, false, true, true },
+                "base_flange_authoring", Row("factory", "CreateDefinition(swFmBaseFlange)/CreateFeature",
+                    "initialize_arguments", new object[] { false, true,
+                        Row("type", allowance.Type, "k_factor", allowance.KFactor), true, noRelief, false, 0, 0, 0 },
+                    "override_default_parameters", true, "thickness_m", thickness, "radius_m", radius,
+                    "reverse_thickness", thickenTowardPositiveZ),
                 "base_readback", Row("thickness_m", definition.Thickness, "bend_radius_m", definition.BendRadius,
                     "reverse_thickness", definition.ReverseThickness),
                 "sketch_constraint_status", status);
@@ -445,7 +459,7 @@ public static class SheetMetalCapture
             return WithDocument(app, app.NewDocument(template, 0, 0, 0) as IModelDoc2, doc =>
             {
                 var arguments = ids.Select(body => AddBase(app, doc, body, Object(definitions[body]))).ToArray();
-                Check(Bodies(doc).Length == ids.Length, "Explicit no-merge controls did not retain the authored body membership");
+                Check(Bodies(doc).Length == ids.Length, "Disjoint base-flange controls did not retain the authored body membership");
                 var folder = Features(doc).FirstOrDefault(feature => feature.GetTypeName2() == "SolidBodyFolder");
                 var bodyFolder = folder == null ? null : folder.GetSpecificFeature2() as IBodyFolder;
                 Check(bodyFolder != null, "Native solid body folder is missing");
