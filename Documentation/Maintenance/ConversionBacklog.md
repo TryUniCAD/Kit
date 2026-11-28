@@ -339,7 +339,7 @@ verification, and the current revision's review and queue acceptance.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalBodyResearch.md)
 The [paired capture launcher](../../re/automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1)
 now binds the six native saves and the edit and restoration to the owned-process harness.
-Two independently authored base discovery saves now replay their configuration manager and full resolved streams, including one modern per-body record each. Both lack a direct master in Config-0. Native edit and reopen evidence, changed membership, direct populated master admission and held-out correlation are pending.
+Two independently authored base discovery saves now replay their configuration manager and full resolved streams, including one modern per-body record each. Both lack a direct master in Config-0. The positive-Z file rebuilt in an independent read-only process bracketed by healthy stock controls. Native edit and restore, changed membership, direct populated master admission and held-out correlation remain pending.
 [Capture recipe change](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalNativeCaptureRecipe.md)
 [Linked manager inspection](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalLinkedManagerInspection.md)
 
