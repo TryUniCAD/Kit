@@ -717,6 +717,22 @@ The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-c
 The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
 The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.
 
+## A08h-FusionOffsetStart20261127 research evidence
+
+Codex owns signed OffsetStart and independent unequal two-sided circular extrusion evidence on `feat/fusion-offset-start-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusionoffsetstart20261127) records dependencies, exclusive native-resource coordination and exit conditions.
+The [package](../../re/Fusion/OffsetStart20261127/README.md) retains native sources, first/second/offset roles, strict refusals and fresh-process observations.
+Delivery is [PR #395](https://github.com/TryUniCAD/Kit/pull/395); B02–B05 and the supported production boundary remain unchanged.
+Keep the existing child claim until Planning PR #392 is integrated and its stable scope links can be regenerated.
+
+## A08h-FusionTwoSidedDraft20261127 research evidence
+
+Codex owns independently drafted two-sided circular Fusion extrusion evidence on `feat/fusion-two-sided-draft-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusiontwosideddraft20261127) records dependencies, native-resource ownership and exit requirements.
+The [package](../../re/Fusion/TwoSidedDraft20261127/README.md) preserves native sources, signed parameter roles, strict refusals and separate fresh-process witnesses.
+Delivery: [PR #394](https://github.com/TryUniCAD/Kit/pull/394). B02–B05 and the supported production boundary remain unchanged.
+The existing child claim is retained while the Planning register remains a separate unmerged delivery.
+
 ## B01-SupportMatrix: consolidate existing support evidence
 
 Codex owns `feat/project-next-steps-20261127`, based on main `1619f00bf532caad262d1557bd69281179e5c497`.
@@ -735,6 +751,9 @@ Scope: `kit formats [FORMAT]` lookup by primary identifier or alias, visible tex
 Dependencies: existing registry discovery and its unchanged JSON list schema.
 Delivery: [PR #376](https://github.com/TryUniCAD/Kit/pull/376).
 Exit: real-process discovery/refusal coverage, current-head CI and configured approval.
+Queue repair: preserve the intended text reminder and update directional CLI coverage to assert all three lines and directional aliases.
+The directional-format file and focused CLI process cases pass locally under explicit repair authorization.
+Remote PR checks and merge-group acceptance remain distinct evidence.
 Representative-user workflow evaluation and the broader B10 exit remain open.
 
 ## B11-FirstUseGuides: installation and recovery guidance
@@ -746,3 +765,11 @@ Delivery: [PR #377](https://github.com/TryUniCAD/Kit/pull/377).
 See the [first-use change entry](https://github.com/TryUniCAD/Kit/blob/8c2a2affc/Documentation/Changes/Guides/FirstUseWorkflow.md) on that delivery branch.
 Exit: source-backed corrections, link/render evidence where available, current-head CI and configured approval.
 Representative-user evaluation and the broader B11 exit remain open.
+
+## A08h-FusionUnequalAxis20261127 research evidence
+
+Codex owns a bounded unequal two-sided Fusion revolution campaign on `feat/fusion-unequal-revolve-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusionunequalaxis20261127) records dependencies, evidence and exit requirements.
+The [package](../../re/Fusion/UnequalAxis20261127/README.md) retains native source controls, explicit refusals and deterministic reader receipts.
+Publication uses [PR #393](https://github.com/TryUniCAD/Kit/pull/393); B02–B05 and the production snapshot remain unchanged.
+Planning-register linkage follows stable availability of that separate work.

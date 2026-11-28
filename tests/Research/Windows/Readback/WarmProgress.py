@@ -8,34 +8,43 @@
 
 from functools import cache as OncePerProcess
 from pathlib import Path as FilePath
-from subprocess import run as RunProcess
+from subprocess import TimeoutExpired as ProcessTimeout, run as RunProcess
+from time import perf_counter as ClockTime
 
 from tests.Research.SupervisorClient import KRepoRoot
 
-# a cold first compile on a fresh runner exceeded the fifteen second fixture budget that warm runs fit within
-KColdCompileSeconds = 120
+# cold runner startup needs headroom beyond the observed censored warmup while later processes load the same assembly
+KColdCompileSeconds = 360
 
 
 # the first managed compiler start of a runner must not consume a fixture deadline meant for warm runs
 @OncePerProcess
 def WarmProgress() -> None:
-    Result = RunProcess(
-        [
-            "powershell.exe",
-            "-NoProfile",
-            "-NonInteractive",
-            "-File",
-            str(FilePath(__file__).with_name("ProgressFixture.ps1")),
-            "-Source",
-            str(
-                KRepoRoot
-                / "re/automation/CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs"
-            ),
-            "-CompileOnly",
-        ],
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=KColdCompileSeconds,
-    )
+    Started = ClockTime()
+    try:
+        Result = RunProcess(
+            [
+                "powershell.exe",
+                "-NoProfile",
+                "-NonInteractive",
+                "-File",
+                str(FilePath(__file__).with_name("ProgressFixture.ps1")),
+                "-Source",
+                str(
+                    KRepoRoot
+                    / "re/automation/CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs"
+                ),
+                "-CompileOnly",
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=KColdCompileSeconds,
+        )
+    except ProcessTimeout as Failure:
+        print(Failure.stderr)
+        raise
+    finally:
+        print(f"readback warmup process seconds: {ClockTime() - Started:.3f}")
     assert Result.returncode == 0, Result.stdout + Result.stderr
+    print(Result.stderr, end="")

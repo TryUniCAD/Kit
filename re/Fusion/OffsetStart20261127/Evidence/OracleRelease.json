@@ -1,0 +1,10 @@
+{
+  "busy": false,
+  "recovery_required": false,
+  "application": {
+    "status": "available",
+    "installed": true,
+    "addin_ready": true,
+    "running": false
+  }
+}

@@ -8,17 +8,22 @@ Every Fusion BRep member starts with `ASM BinaryFile8`. Its header and integer t
 
 The older example files hold 78 BRep members that start with `ASM BinaryFile4`. All other corpus members start with `ASM BinaryFile8`. Both kinds hold ASM version 23200.
 
-| Member | Header | First header number | Members |
-| --- | --- | --- | --- |
-| `.smbh` | `ASM BinaryFile8` | 50 | 1,456 |
-| `.smb` | `ASM BinaryFile8` | 10 | 1,375 |
-| `.smb` | `ASM BinaryFile4` | 10 | 41 |
-| `.smbh` | `ASM BinaryFile4` | 40 | 35 |
-| `.smbh` | `ASM BinaryFile4` | 30 | 2 |
+| Member  | Header            | First header number | Members |
+| ------- | ----------------- | ------------------- | ------- |
+| `.smbh` | `ASM BinaryFile8` | 50                  | 1,456   |
+| `.smb`  | `ASM BinaryFile8` | 10                  | 1,375   |
+| `.smb`  | `ASM BinaryFile4` | 10                  | 41      |
+| `.smbh` | `ASM BinaryFile4` | 40                  | 35      |
+| `.smbh` | `ASM BinaryFile4` | 30                  | 2       |
 
 The digit is the integer width. The four header integers have that width. Tags 4, 12, 21 and 23 hold integers of that width, and tag 18 has a length of that width. Every other token is the same at both widths. With this rule every narrow member tokenizes to its exact end.
 
 The example journals also exceed the old quotas. The largest has 9,258,923 bytes, 5,139 entities and a `delta_state` record of 321,648 tokens.
+
+The [current unequal-axis campaign](../../../../../re/Fusion/UnequalAxis20261127/README.md) also saved 92 narrow members on Fusion `2706.1.17` for Windows.
+All 92 initial tables parse with the existing production width-aware reader.
+The separate research `asm_records.py` helper still requires `ASM BinaryFile8` and refuses these files.
+That helper limitation does not establish an unknown ASM grammar or complete native geometry qualification.
 
 ## Workaround
 

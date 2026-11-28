@@ -1,12 +1,7 @@
-# The first owner parent query on a runner can exceed its deadline
+# Windows owner parent observations use native snapshots
 
-Expected: `ReadParent.ps1` returns a process's parent PID well within the 15-second limit that `ReadParent` applies to each owner observation.
+Expected: `ReadParent` returns a process parent without starting a management shell. Linux retains its existing `ps` subprocess timeout; Windows performs the native snapshot call directly, without a subprocess deadline.
 
-Observed: [`OwnerRestartTests::CheckOwnerBoot[claim]`](https://github.com/TryUniCAD/Kit/actions/runs/45185561672/job/137731359842) timed out after 15 seconds on its first query.
-`OwnerRestartTests` is the only caller of `ReadParent` in a platform shard, so its first query is the runner's first `Get-CimInstance Win32_Process` call from PowerShell.
-In 46 shard reports the test usually took about 10 s, with a tail of 14.1, 17.5 and 26.2 s.
-Only the 26.2 s run failed.
-This is the same first-use cost as the [cold readback compile](ReadbackFixtureStartupTimeout.md): PowerShell, the CIM client and the WMI provider host all start cold.
+Observed: the prior Windows implementation started PowerShell and queried `Win32_Process` through CIM/WMI. Its first runner query exceeded the per-observation deadline, so a per-process warm-up repeated that cold dependency with a separate 120-second failure bound. The historical failure was [`OwnerRestartTests::CheckOwnerBoot[claim]`](https://github.com/TryUniCAD/Kit/actions/runs/45185561672/job/137731359842); across 46 shard reports the test usually took about 10 seconds, with a tail of 14.1, 17.5 and 26.2 seconds. Only the 26.2-second run failed.
 
-Workaround: `WarmParent` runs the same `ReadParent.ps1` query once per pytest process, for the test's own PID, with a 120-second bound that fails the test if exceeded.
-Each observation keeps its 15-second limit and its assertions.
+Workaround: Windows observations now enumerate a fresh Toolhelp process snapshot in the caller process. The snapshot is never cached, so each owner check sees current process ownership. Normal enumeration completion returns `None` for a missing process; other native failures raise. Linux retains its `ps` implementation. Native Windows execution remains to be verified by the merge-queue platform shard.

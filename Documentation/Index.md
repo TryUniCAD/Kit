@@ -82,6 +82,8 @@ Use the result procedure before making a product acceptance claim.
 
 ## Maintenance
 
+- [Planning board, schedules and agent scope claims](Planning/README.md)
+
 - [Conversion completion roadmap](../Roadmap.md)
 - [Conversion backlog and PR ownership](Maintenance/ConversionBacklog.md)
 - [Information plan](Maintenance/InformationPlan.md)

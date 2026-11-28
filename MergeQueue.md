@@ -55,6 +55,10 @@ It also checks every registered workflow outcome. Unexpected failures,
 cancellations, timeouts, and skipped required jobs fail the aggregate.
 Jobs assigned to the other phase are explicitly deferred.
 
+Queue aggregation [polls conditionally from startup](Documentation/Changes/Ci/Scheduling/QueueEarlyPolling.md), without the former eight-minute idle.
+The startup inventory seeds its ETag; unchanged polls use the 30-second interval without primary API charges.
+The existing 100-candidate budget brake and rate-limit waits can extend detection latency.
+
 The Gitleaks job classifies one reviewed standards SHA-256 as public data only at its exact workflow path.
 Real scanner probes require detection for that value in another file and for an unknown value at the allowed path.
 The complete history scan and upstream detector rules remain enabled.
@@ -101,7 +105,10 @@ ancestor candidate before reusing module outcomes.
 
 On merge groups, `Merge queue acceptance` requires every direct heavy job to
 succeed. `CI Agg` also requires the queue-only workflows and completed acceptance.
-Acceptance does not wait on the aggregate. Both contexts remain required by the
+Acceptance does not wait on the aggregate or the redundant complete-suite compatibility job.
+That job remains required by aggregation and runs in parallel after the same completeness report.
+See [parallel queue gates](Documentation/Changes/Ci/Scheduling/ParallelQueueGates.md).
+Both contexts remain required by the
 live ruleset. The aggregate's 80-minute wait remains within its 90-minute limit.
 
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
@@ -148,7 +155,10 @@ The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedT
 The plan [reuses verified results](Documentation/Changes/QueueTestReuse.md) of test modules whose recorded files and folders did not change since an accepted ancestor candidate.
 Every other collected test runs in a shard.
 Each shard holds at most 1,200 tests, which is 300 tests for each CPU of its 4-CPU runner.
-Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with a 256-shard runtime budget.
+Measured Linux durations can request additional shards with a 256-shard runtime budget.
+The trusted Enterprise marker enables a 1,200-test-second runtime target and a 1,000-test cap independently of live queue batching settings.
+Earlier markers retain their live-settings guard; native platform expansion keeps its separate settings and audit checks.
+See [Enterprise runtime activation](Documentation/Changes/Ci/Scheduling/EnterpriseRuntimeActivation.md).
 The count cap takes precedence if it requires more shards.
 Platform shards use platform-specific duration histories from the shared plan instead of count-based modulo selection.
 See [runtime scheduling](Documentation/Changes/Ci/QueueRuntimeScheduling.md).
