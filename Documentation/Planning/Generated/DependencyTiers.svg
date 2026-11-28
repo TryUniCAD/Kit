@@ -172,6 +172,6 @@
 <text x="16" y="1878" fill="#66615b" font-size="10">proposed · Unassigned</text>
 <rect x="750.0" y="1853" width="62.0" height="22" rx="2" fill="#77716a"><title>AgentDispatch: Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client</title></rect>
 <text x="16" y="1900">ReviewerPatchBudget · Complete source snapshots within the unchanged review…</text>
-<text x="16" y="1914" fill="#66615b" font-size="10">active · Codex swarm root 01a22333-c91a-7753-a913-6ea8091aebc5</text>
-<rect x="680.0" y="1889" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerPatchBudget: Retain every before/head/target source byte when dropping redundant patches can satisfy the existing 900000-byte context budget; preserve file, per-source, trust and approval gates; real Git/context process checks and exact PR225 replay pass; current CI and configured approval pass</title></rect>
+<text x="16" y="1914" fill="#66615b" font-size="10">checking · Codex swarm root 01a22333-c91a-7753-a913-6ea8091aebc5</text>
+<rect x="680.0" y="1889" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerPatchBudget: Six real Git and production CLI scenarios passed in 29.92 seconds; actual PR225 input at 9f2f570a retains 120 source snapshots within 789581 bytes, with its two out of limit files still blocking completeness. Current CI, configured approval and remote project synchronization remain pending; source limits and trust gates stay unchanged</title></rect>
 </g></svg>
