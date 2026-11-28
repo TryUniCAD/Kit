@@ -39,6 +39,7 @@ def ConfigureApp(AppSlug: str) -> None:
         "actions": "read",
         "contents": "read",
         "environments": "write",
+        "issues": "write",
     }.items():
         if Permissions.get(PermName) != Access:
             raise ValueError(f"App permission must be {PermName}: {Access}")

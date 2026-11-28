@@ -36,6 +36,7 @@ Do not place account credentials in chat, source control, artifacts, or logs.
 | Actions       | Read   | Verify successful aggregate CI evidence                 |
 | Contents      | Read   | Read repository identity and metadata                   |
 | Environments  | Write  | Persist the refreshed CI login as an environment secret |
+| Issues        | Write  | React to an admitted PR comment as the installed app    |
 
 6. Register the app and install it on Kit only.
 7. Generate a private key and store it outside repository checkouts.
@@ -83,6 +84,12 @@ They search the 100 most recent successful PR CI runs.
 If current successful CI is unavailable, no model job starts; scheduled review can follow after CI succeeds.
 Mentions inside quotes, longer comments, edited comments, bot comments, and ordinary issue comments are ignored.
 Public comment admission runs without app or account credentials.
+After complete input is prepared, the app adds an eyes reaction to an admitted mention.
+When publication finishes, that reaction is replaced with thumbs up for a verified approval or thumbs down for verified requested changes.
+Runtime or publication failure receives a confused reaction instead.
+Reactions describe request progress; only the native report and review establish the result.
+If GitHub cancels the entire workflow or reaction publication fails, the progress reaction can remain until a successful retry.
+The starting and completion reaction steps use separate app tokens that never enter the model container.
 Polling inspects the latest 100 repository comments and rotates through at most ten matching commands per invocation.
 The workflow run number advances the start position so completed requests do not permanently block older requests in that window.
 The app's native report marks a handled mention for the inspected head, preventing repeated requests from one unchanged comment.
@@ -100,6 +107,8 @@ Registration, installation, configuration, and activation are separate from impl
 Approval requires a complete review, matching scope, a score of at least four, and zero unresolved findings at every priority.
 The score alone never authorizes approval.
 Malformed output, missing evidence, fork PRs, drafts, changed revisions, and untrusted authors stop publication.
+CI evidence must match the live target branch ref, and GitHub must report the PR as mergeable.
+An old `base.sha` in PR metadata does not establish the current target branch revision.
 Changed binaries and sources over 160,000 bytes require a separate review.
 The input limit is 40 changed files and 900,000 encoded bytes.
 These limits refuse reviews instead of silently truncating them.
@@ -108,6 +117,14 @@ The model must report incomplete review when surrounding context is insufficient
 Review is separate from native CAD acceptance, CI health, and merge authorization.
 Existing merge-queue acceptance remains mandatory.
 No model score guarantees that a change cannot introduce a defect.
+
+## Review runtime
+
+`AccountReview.Model` and `AccountReview.ReasoningEffort` in the reviewer registry define the default runtime for every review trigger.
+The runner passes both values explicitly to Codex instead of using the CLI default.
+The requested default is `gpt-6.1-terra` with `medium` reasoning.
+Unsupported model or reasoning settings fail the job without selecting another model.
+The published review records the selected model and reasoning alongside its revision evidence.
 
 ## If the task fails
 

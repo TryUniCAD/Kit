@@ -63,6 +63,7 @@ jobs:
     environment: AccountReview
     outputs:
       ready: ${{ steps.input.outputs.ready }}
+      mention: ${{ needs.admit.outputs.mention }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
@@ -101,6 +102,20 @@ jobs:
           path: ReviewInput/Context.json
           if-no-files-found: error
           retention-days: 1
+      - name: Obtain mention reaction token
+        if: steps.input.outputs.ready == 'true' && needs.admit.outputs.mention == 'true'
+        id: reaction-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-issues: write
+      - name: Acknowledge review in progress
+        if: steps.input.outputs.ready == 'true' && needs.admit.outputs.mention == 'true'
+        env:
+          GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
+        run: python .github/scripts/Review/ReactMention.py started
 
   review:
     name: Review with isolated account runtime
@@ -186,3 +201,36 @@ jobs:
           GH_TOKEN: ${{ steps.review-token.outputs.token }}
           REVIEW_APP_ID: ${{ vars.REVIEW_APP_ID }}
         run: python .github/scripts/Review/Publish.py
+
+  react:
+    name: Complete mention reaction
+    needs: [prepare, review, publish]
+    if: always() && needs.prepare.outputs.ready == 'true' && needs.prepare.outputs.mention == 'true'
+    environment: AccountReview
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewInput
+          path: ReviewInput
+      - name: Obtain terminal reaction token
+        id: reaction-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-issues: write
+          permission-pull-requests: read
+      - name: Replace progress reaction with verified outcome
+        env:
+          GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
+          REVIEW_SUCCEEDED: ${{ needs.publish.result == 'success' }}
+        run: python .github/scripts/Review/ReactMention.py complete

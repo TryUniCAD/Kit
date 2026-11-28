@@ -17,7 +17,7 @@ def IsContextReady(
     if len(FileList) != PullData["changed_files"]:
         raise ValueError("Changed file inventory is incomplete")
     try:
-        Content = BuildContext(Evidence, PullData, FileList, RequestId)
+        Content = BuildContext(Evidence, PullData, FileList, Settings, RequestId)
     except ValueError as ErrorInfo:
         ApiCall(
             f"repos/{RepoName}/check-runs",

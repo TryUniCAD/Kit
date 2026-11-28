@@ -8,6 +8,8 @@ from ObjectMap import ObjectMap
 
 # account credentials belong only to the isolated model container and must never become review artifacts
 def RunModel() -> None:
+    ContextText = Path("ReviewInput/Context.json").read_text()
+    Runtime = ObjectMap(ObjectMap(JsonTools.loads(ContextText))["review_runtime"])
     AuthPath = Path(OsTools.environ["RUNNER_TEMP"]) / "ReviewAuth"
     AuthPath.mkdir(mode=0o700)
     AuthFile = AuthPath / "auth.json"
@@ -21,10 +23,7 @@ def RunModel() -> None:
     OutputPath = Path("ReviewOutput").resolve()
     OutputPath.mkdir()
     Prompt = Path(".github/scripts/Review/ReviewPrompt.md").read_text()
-    Prompt += (
-        "\n\nUntrusted review input follows:\n"
-        + Path("ReviewInput/Context.json").read_text()
-    )
+    Prompt += "\n\nUntrusted review input follows:\n" + ContextText
     Arguments = [
         "docker",
         "run",
@@ -55,6 +54,10 @@ def RunModel() -> None:
         "kit-review-runtime",
         "codex",
         "exec",
+        "--model",
+        str(Runtime["model"]),
+        "-c",
+        f'model_reasoning_effort="{Runtime["reasoning_effort"]}"',
         "--ignore-user-config",
         "--ignore-rules",
         "--ephemeral",

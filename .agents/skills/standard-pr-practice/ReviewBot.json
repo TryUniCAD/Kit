@@ -4,9 +4,9 @@
       "Trigger": "schedule",
       "Workflow": ".github/workflows/AccountReview.yml",
       "AppId": 5966452,
-      "AppSlug": "unicad",
+      "AppSlug": "unifiedcad",
       "UserId": 362345322,
-      "UserLogin": "unicad[bot]",
+      "UserLogin": "unifiedcad[bot]",
       "Checks": ["Account review result"],
       "Statuses": [],
       "Documentation": "Documentation/Tasks/AccountReviewer.md"
@@ -15,9 +15,11 @@
   "ExcludedReports": [],
   "AccountReview": {
     "AppId": 5966452,
-    "MentionCommands": ["@unicad", "@unicad review"],
+    "MentionCommands": ["@unifiedcad", "@unifiedcad review"],
     "CheckName": "Account review result",
     "MinimumScore": 4,
-    "Workflow": ".github/workflows/AccountReview.yml"
+    "Workflow": ".github/workflows/AccountReview.yml",
+    "Model": "gpt-6.1-terra",
+    "ReasoningEffort": "medium"
   }
 }
