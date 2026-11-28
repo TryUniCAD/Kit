@@ -199,7 +199,7 @@ def WriteFieldPlan(
     ):
         Identity = f"sample-{Index}"
         StoredValue = 6.25 if Refute and Split == "holdout" else Value
-        StoredValues = (StoredValue,)
+        StoredValues: tuple[float, ...] = (StoredValue,)
         if HoldoutValues is not None:
             StoredValues = HoldoutValues if Split == "holdout" else (Value, Value)
         Content = PackValue(f"<{len(StoredValues)}d", *StoredValues)
