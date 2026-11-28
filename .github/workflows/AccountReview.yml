@@ -1,6 +1,8 @@
 name: Account review
 
 on:
+  issue_comment:
+    types: [created]
   schedule:
     - cron: "3-58/5 * * * *"
   workflow_dispatch:
@@ -12,15 +14,36 @@ on:
 
 permissions: {}
 
-concurrency:
-  group: account-review-auth
-  cancel-in-progress: false
-  queue: max
-
 jobs:
+  admit:
+    name: Authorize review request
+    if: >-
+      vars.ACCOUNT_REVIEW_ENABLED == 'true' &&
+      (github.event_name != 'issue_comment' ||
+       (github.event.issue.pull_request &&
+        github.event.comment.user.type == 'User' &&
+        contains(github.event.comment.body, '@')))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      allowed: ${{ steps.admission.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify comment command and live collaborator permission
+        id: admission
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/Review/Admit.py
+
   prepare:
     name: Select verified PR input
-    if: vars.ACCOUNT_REVIEW_ENABLED == 'true'
+    needs: admit
+    if: needs.admit.outputs.allowed == 'true'
     environment: AccountReview
     outputs:
       ready: ${{ steps.input.outputs.ready }}
@@ -62,6 +85,10 @@ jobs:
     needs: prepare
     if: needs.prepare.outputs.ready == 'true'
     environment: AccountReview
+    concurrency:
+      group: account-review-auth
+      cancel-in-progress: false
+      queue: max
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     permissions:

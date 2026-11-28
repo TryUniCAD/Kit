@@ -15,6 +15,7 @@
   "ExcludedReports": [],
   "AccountReview": {
     "AppId": 5966452,
+    "MentionCommands": ["@jibiti-review", "@jibiti-review review"],
     "CheckName": "Account review result",
     "MinimumScore": 4,
     "Workflow": ".github/workflows/AccountReview.yml"

@@ -83,6 +83,7 @@ flowchart LR
   A16["A16: Broader features and additional CAD families"]
   A13 --> A16
   A15 --> A16
+  ReviewerMentions["ReviewerMentions: Trusted collaborator mention review requests"]
   AccountReviewer["AccountReviewer: Account authenticated review and GitHub App approval"]
   PlanningViews["PlanningViews: Repository planning register and dependency Gantt"]
   FusionRevolveContrast["FusionRevolveContrast: Unequal two-sided construction-axis revolve contrasts"]

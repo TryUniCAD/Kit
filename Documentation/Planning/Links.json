@@ -283,6 +283,21 @@
   "Schedules": [],
   "ExtraTasks": [
     {
+      "Id": "ReviewerMentions",
+      "Name": "Trusted collaborator mention review requests",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/codex-reviewer-20261128-setup",
+      "Runner": "OpenAI",
+      "Dependencies": [],
+      "Parent": "AccountReviewer",
+      "Source": "Documentation/Changes/Review/ReviewerMentions.md",
+      "Exit": "Live authorized mentions select the commented PR with current successful CI while rejected public comments never reach protected app or account credential jobs",
+      "Branch": "feat/codex-reviewer-20261128-setup",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
+      "Blocker": "Hosted admission and authorized mention acceptance require initial default branch workflow deployment and activation; native project synchronization requires unavailable project scopes"
+    },
+    {
       "Id": "AccountReviewer",
       "Name": "Account authenticated review and GitHub App approval",
       "Status": "active",

@@ -138,7 +138,8 @@ read its complete standards index and every applicable rule before coding.
   source of reviewer identities, report names, and trigger configuration.
   For `Trigger: schedule`, follow automatic review after successful PR CI.
   Use the configured workflow dispatch with CI run input `id` for manual retries.
-  Do not post comment triggers for workflow-triggered reviewers or invoke removed reviewers.
+  Use configured `AccountReview.MentionCommands` for explicit reassessment after successful current-head CI.
+  Never invoke removed reviewers.
   For a comment-triggered entry, submit its exact `Comment` once per accepted head.
   Verify every responding
   account/app and reviewed SHA, and address all findings. Every configured

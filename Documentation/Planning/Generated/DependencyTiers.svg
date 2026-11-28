@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1571" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1607" role="img" aria-labelledby="title description">
 <title id="title">Kit dependency Gantt</title>
 <desc id="description">Ordinal dependency tiers, not elapsed time or promised delivery dates. Every bar is one task, not a duration. Status and ownership are dated register observations.</desc>
-<rect width="1200" height="1571" fill="#faf9f6"/>
+<rect width="1200" height="1607" fill="#faf9f6"/>
 <g font-family="sans-serif" font-size="12" fill="#242321">
 <text x="16" y="24" font-size="17">Dependency Gantt — no calendar estimates assigned</text>
 <text x="16" y="45">Register observations; source gates and evidence still apply · red blocked · ochre active/checking · green recorded complete</text>
 <text x="610.0" y="70">Tier 0</text>
-<path d="M610.0 80V1571" stroke="#dedbd5"/>
+<path d="M610.0 80V1607" stroke="#dedbd5"/>
 <text x="680.0" y="70">Tier 1</text>
-<path d="M680.0 80V1571" stroke="#dedbd5"/>
+<path d="M680.0 80V1607" stroke="#dedbd5"/>
 <text x="750.0" y="70">Tier 2</text>
-<path d="M750.0 80V1571" stroke="#dedbd5"/>
+<path d="M750.0 80V1607" stroke="#dedbd5"/>
 <text x="820.0" y="70">Tier 3</text>
-<path d="M820.0 80V1571" stroke="#dedbd5"/>
+<path d="M820.0 80V1607" stroke="#dedbd5"/>
 <text x="890.0" y="70">Tier 4</text>
-<path d="M890.0 80V1571" stroke="#dedbd5"/>
+<path d="M890.0 80V1607" stroke="#dedbd5"/>
 <text x="960.0" y="70">Tier 5</text>
-<path d="M960.0 80V1571" stroke="#dedbd5"/>
+<path d="M960.0 80V1607" stroke="#dedbd5"/>
 <text x="1030.0" y="70">Tier 6</text>
-<path d="M1030.0 80V1571" stroke="#dedbd5"/>
+<path d="M1030.0 80V1607" stroke="#dedbd5"/>
 <text x="1100.0" y="70">Tier 7</text>
-<path d="M1100.0 80V1571" stroke="#dedbd5"/>
+<path d="M1100.0 80V1607" stroke="#dedbd5"/>
 <text x="16" y="100">B01 · Supported version, feature and route matrix</text>
 <text x="16" y="114" fill="#66615b" font-size="10">active · Codex B01 matrix worker; scoped delivery below</text>
 <rect x="610.0" y="89" width="62.0" height="22" rx="2" fill="#9b773f"><title>B01: Every intended family has explicit file types, vendor versions, feature scope and directional routes, with evidence or named gaps.</title></rect>
@@ -111,37 +111,40 @@
 <text x="16" y="1144">A16 · Broader features and additional CAD families</text>
 <text x="16" y="1158" fill="#66615b" font-size="10">blocked · jdharcourt</text>
 <rect x="1100.0" y="1133" width="62.0" height="22" rx="2" fill="#8b554e"><title>A16: Each scoped feature/version/route has independent native acceptance; FreeCAD and CATIA use the same contract</title></rect>
-<text x="16" y="1180">AccountReviewer · Account authenticated review and GitHub App approval</text>
+<text x="16" y="1180">ReviewerMentions · Trusted collaborator mention review requests</text>
 <text x="16" y="1194" fill="#66615b" font-size="10">active · jdharcourt</text>
-<rect x="610.0" y="1169" width="62.0" height="22" rx="2" fill="#9b773f"><title>AccountReviewer: Revision bound end to end review posts priority findings and a five point score and approves only complete clean current head reviews after verified PR CI</title></rect>
-<text x="16" y="1216">PlanningViews · Repository planning register and dependency Gantt</text>
-<text x="16" y="1230" fill="#66615b" font-size="10">active · Codex planning agent</text>
-<rect x="610.0" y="1205" width="62.0" height="22" rx="2" fill="#9b773f"><title>PlanningViews: Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR</title></rect>
-<text x="16" y="1252">FusionRevolveContrast · Unequal two-sided construction-axis revolve contrasts</text>
-<text x="16" y="1266" fill="#66615b" font-size="10">checking · jdharcourt</text>
-<rect x="610.0" y="1241" width="62.0" height="22" rx="2" fill="#9b773f"><title>FusionRevolveContrast: Bounded A08h-FusionUnequalAxis20261127 evidence and unresolved findings are recorded in PR393; strict reads, general constraints, complete reconstruction and editable conversion remain open</title></rect>
-<text x="16" y="1288">UiInspector · Local decoded-document and evidence inspector</text>
-<text x="16" y="1302" fill="#66615b" font-size="10">proposed · Unassigned</text>
-<rect x="680.0" y="1277" width="62.0" height="22" rx="2" fill="#77716a"><title>UiInspector: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
-<text x="16" y="1324">UiConversion · Conversion setup and route eligibility interface</text>
+<rect x="610.0" y="1169" width="62.0" height="22" rx="2" fill="#9b773f"><title>ReviewerMentions: Live authorized mentions select the commented PR with current successful CI while rejected public comments never reach protected app or account credential jobs</title></rect>
+<text x="16" y="1216">AccountReviewer · Account authenticated review and GitHub App approval</text>
+<text x="16" y="1230" fill="#66615b" font-size="10">active · jdharcourt</text>
+<rect x="610.0" y="1205" width="62.0" height="22" rx="2" fill="#9b773f"><title>AccountReviewer: Revision bound end to end review posts priority findings and a five point score and approves only complete clean current head reviews after verified PR CI</title></rect>
+<text x="16" y="1252">PlanningViews · Repository planning register and dependency Gantt</text>
+<text x="16" y="1266" fill="#66615b" font-size="10">active · Codex planning agent</text>
+<rect x="610.0" y="1241" width="62.0" height="22" rx="2" fill="#9b773f"><title>PlanningViews: Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR</title></rect>
+<text x="16" y="1288">FusionRevolveContrast · Unequal two-sided construction-axis revolve contrasts</text>
+<text x="16" y="1302" fill="#66615b" font-size="10">checking · jdharcourt</text>
+<rect x="610.0" y="1277" width="62.0" height="22" rx="2" fill="#9b773f"><title>FusionRevolveContrast: Bounded A08h-FusionUnequalAxis20261127 evidence and unresolved findings are recorded in PR393; strict reads, general constraints, complete reconstruction and editable conversion remain open</title></rect>
+<text x="16" y="1324">UiInspector · Local decoded-document and evidence inspector</text>
 <text x="16" y="1338" fill="#66615b" font-size="10">proposed · Unassigned</text>
-<rect x="750.0" y="1313" width="62.0" height="22" rx="2" fill="#77716a"><title>UiConversion: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
-<text x="16" y="1360">UiPreservation · Preservation differences and refusal explanation interface</text>
+<rect x="680.0" y="1313" width="62.0" height="22" rx="2" fill="#77716a"><title>UiInspector: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1360">UiConversion · Conversion setup and route eligibility interface</text>
 <text x="16" y="1374" fill="#66615b" font-size="10">proposed · Unassigned</text>
-<rect x="750.0" y="1349" width="62.0" height="22" rx="2" fill="#77716a"><title>UiPreservation: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
-<text x="16" y="1396">UiResearch · Research queue and blocked-work interface</text>
+<rect x="750.0" y="1349" width="62.0" height="22" rx="2" fill="#77716a"><title>UiConversion: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1396">UiPreservation · Preservation differences and refusal explanation interface</text>
 <text x="16" y="1410" fill="#66615b" font-size="10">proposed · Unassigned</text>
-<rect x="750.0" y="1385" width="62.0" height="22" rx="2" fill="#77716a"><title>UiResearch: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
-<text x="16" y="1432">UxAccessibility · Keyboard navigation and accessible status reporting</text>
+<rect x="750.0" y="1385" width="62.0" height="22" rx="2" fill="#77716a"><title>UiPreservation: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1432">UiResearch · Research queue and blocked-work interface</text>
 <text x="16" y="1446" fill="#66615b" font-size="10">proposed · Unassigned</text>
-<rect x="750.0" y="1421" width="62.0" height="22" rx="2" fill="#77716a"><title>UxAccessibility: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
-<text x="16" y="1468">UxCli · CLI workflow and recovery improvements</text>
+<rect x="750.0" y="1421" width="62.0" height="22" rx="2" fill="#77716a"><title>UiResearch: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1468">UxAccessibility · Keyboard navigation and accessible status reporting</text>
 <text x="16" y="1482" fill="#66615b" font-size="10">proposed · Unassigned</text>
-<rect x="680.0" y="1457" width="62.0" height="22" rx="2" fill="#77716a"><title>UxCli: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
-<text x="16" y="1504">UiPlanning · Planning board schedule editing and scope discovery</text>
-<text x="16" y="1518" fill="#66615b" font-size="10">checking · jdharcourt</text>
-<rect x="610.0" y="1493" width="62.0" height="22" rx="2" fill="#9b773f"><title>UiPlanning: React scope discovery, status filters, prompt copying and optional schedule exports are implemented in PR392; source generation and bundle build pass, configured review and queue acceptance remain pending</title></rect>
-<text x="16" y="1540">AgentDispatch · Direct local and Hoplite agent dispatch</text>
-<text x="16" y="1554" fill="#66615b" font-size="10">proposed · Unassigned</text>
-<rect x="750.0" y="1529" width="62.0" height="22" rx="2" fill="#77716a"><title>AgentDispatch: Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client</title></rect>
+<rect x="750.0" y="1457" width="62.0" height="22" rx="2" fill="#77716a"><title>UxAccessibility: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1504">UxCli · CLI workflow and recovery improvements</text>
+<text x="16" y="1518" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="680.0" y="1493" width="62.0" height="22" rx="2" fill="#77716a"><title>UxCli: Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks</title></rect>
+<text x="16" y="1540">UiPlanning · Planning board schedule editing and scope discovery</text>
+<text x="16" y="1554" fill="#66615b" font-size="10">checking · jdharcourt</text>
+<rect x="610.0" y="1529" width="62.0" height="22" rx="2" fill="#9b773f"><title>UiPlanning: React scope discovery, status filters, prompt copying and optional schedule exports are implemented in PR392; source generation and bundle build pass, configured review and queue acceptance remain pending</title></rect>
+<text x="16" y="1576">AgentDispatch · Direct local and Hoplite agent dispatch</text>
+<text x="16" y="1590" fill="#66615b" font-size="10">proposed · Unassigned</text>
+<rect x="750.0" y="1565" width="62.0" height="22" rx="2" fill="#77716a"><title>AgentDispatch: Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client</title></rect>
 </g></svg>

@@ -7,6 +7,7 @@ The GitHub App posts findings, a five-point soundness score, a native check, and
 The workflow never merges a PR or enrolls it in the merge queue.
 The scheduled workflow checks for eligible successful PR CI runs every five minutes.
 GitHub can delay scheduled execution; this is not an immediate completion hook.
+Trusted collaborators can also request review with the configured mention commands.
 
 ## Before you start
 
@@ -62,7 +63,7 @@ CODEX_HOME=/private/tmp/KitReviewLogin codex -c 'cli_auth_credentials_store="fil
 Use a private secret channel or GitHub's secret interface for credential transfer.
 The runner writes rotated credentials back after the model process exits.
 Environment secrets load when their job starts, so serialized runs receive the latest token bundle.
-The workflow queues up to 100 runs and never intentionally cancels an active credential refresh.
+The account credential job queues up to 100 requests and never intentionally cancels an active credential refresh.
 
 ## Activate and verify
 
@@ -75,6 +76,13 @@ The workflow queues up to 100 runs and never intentionally cancels an active cre
 7. Verify the app's review identity, reviewed head and base, findings, score, and native report.
 
 Manual reruns use the `Account review` workflow with the successful PR CI run ID as input `id`.
+For a mention request, post one complete command from `AccountReview.MentionCommands` in the reviewer registry as a new PR comment.
+The commenter must have current write, maintain, or admin permission on the repository.
+Mention requests inspect the commented PR and allow an explicit reassessment of its current head.
+They search the 100 most recent successful PR CI runs.
+If current successful CI is unavailable, no model job starts; scheduled review can follow after CI succeeds.
+Mentions inside quotes, longer comments, edited comments, bot comments, and ordinary issue comments are ignored.
+Public comment admission runs without app or account credentials.
 Each scheduled invocation selects one unreported eligible run from the 30 most recent successful PR CI runs.
 Closed, draft, forked, obsolete, and previously reported inputs are skipped.
 Use manual dispatch for an older run outside that window or an explicit reassessment.
