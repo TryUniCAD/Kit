@@ -95,3 +95,72 @@ complete typed state and strict neutral projection across the isolated
 scene addition. The generated zero-LOD scene remains structural. Native
 style inheritance, role picking, full saved scene, preview regeneration
 and proprietary application acceptance are unresolved.
+
+## Strict SDK JSON height edit
+
+The research command [RegenerateSdkHeightEdit.py](RegenerateSdkHeightEdit.py)
+consumes the public reader's persisted JSON after changing one independent
+height driver. It first decodes the original typed state, reprojects its
+neutral document and checks that the only neutral mutation is the driver's
+positive millimetre literal and matching value. The source request's scoped
+projection omits graphics from extraction. A separate full-source
+regeneration must match the complete typed state including graphics,
+all other neutral semantics and the original archive digest. If the
+projection omits any source information, this comparison fails.
+
+The source-free edit from `riseGauge = 8.875 mm` to `19.125 mm` used
+the baseline archive digest `11ea093d009775708bfc48eb28d7ee792b0a52d41f0d00f9ae796917be4b6c89`
+and edited JSON digest `160fd8dacbbbb70ccca8056e4d054bd4db19767087a925807d63ac8ef82b9274`.
+The output matched the already frozen exact native candidate
+`37826d503ac08c16a39bf437cd263f3e488ef237104dfe20814f80397a90b0e9`.
+The emitter did not read native archives. The exact preflight also
+verified the registry and direct writer preserve an existing pathname,
+a missing parent directory and caller stream contents on refusal.
+
+Public registry staging can create directories before writing. Require
+complete source qualification, edit validation, full re-read and exact
+native receipt verification before this point, and before the direct
+writer mutates a caller path or stream. Keep the broad read-only guard
+for other saved histories. A scoped candidate needs independent control
+comparisons for authored and rebuilt geometry, history, material and
+appearance assignments by role, picking, viewport and previews. The #318
+native snapshot receipts cover three earlier archives without these
+generated graphics bytes. No receipt is inherited from them.
+
+### Face assignment observations
+
+The instrumented native control demonstrates why
+[appearance IDs alone are insufficient](../../../Documentation/Gotchas/Conversion/Fusion/Api/FaceAppearanceSourceIdentity.md).
+The older contrast stopped before capturing a styled archive. In the
+instrumented repeat, only the top face had the requested RGBA and
+`FaceAppearanceSource`. Fusion returned the same appearance ID for the
+copied finish and for the five inherited assignments. The diagnostic
+archive was saved with the control marked unqualified because the
+local checker had expected a different API source enum.
+
+The diagnostic top face's typed journal prefix points to a
+`NEUTRON_Material_attrib_def` record. That record refers back to the
+same face. Its UUID is the exact key in the live Design body's
+`faceVisualMaterialByAttrTagID` map. The map value resolves a visual
+asset through the body's material manager. The [older independent cut
+control](../Reconstruction/BoundaryCuts/Findings.md) carries the same
+reciprocal links. The plain cuboid has an empty face assignment map.
+These observations establish the binding in two sources. The public
+journal reader still refuses this attribute family. The field grammar,
+fresh allocation and full graphics role correlation require the
+other controlled face case and a fresh native bracket.
+
+The corrected controls captured all three independent documents in Fusion
+2706.1.17 with zero documents at entry and exit. Their receipt SHA-256
+is `828b9f5dc89e82e48a10180e819e6082d6980066076d890073a8aa2651a89579`.
+TopRed and WrongFaceRed changed only positive Z and positive X,
+respectively. Both applied RGBA `226,29,41,255` in the Protein
+asset's `metal_f0` property. The face journal, Design map and graphics
+leaf named the same asset through the typed joins. Both graphics leaves
+use a `FProteinEffectAttribute` in a kind-2 attribute set with flags
+`0x20`, priority 3 and ties enabled. Repeated top-face controls and the
+side contrast allocate different UUIDs and asset IDs. Those slots,
+IDs and qualifiers are evidence and do not act as writer constants.
+The renderer produced distinct images, but fixed-view metrics, picking
+and extended property measurements remain open. Extended inspection
+failed unit validation in all three controls.
