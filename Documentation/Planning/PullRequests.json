@@ -4,17 +4,56 @@
   "Purpose": "Dated open PR and recent delivery collision inventory; authors are contacts, not inferred scope owners; checks and approvals require fresh revision-bound evidence",
   "PullRequests": [
     {
-      "number": 404,
-      "title": "fix(solidworks): honor assembly tessellation opt-out",
-      "url": "https://github.com/TryUniCAD/Kit/pull/404",
+      "number": 299,
+      "title": "feat(fusion): read saved fixed-corner cuboids",
+      "url": "https://github.com/TryUniCAD/Kit/pull/299",
       "author": "Stephen316",
-      "headBranch": "codex/solidworks-assembly-tessellation",
+      "headBranch": "codex/fusion-saved-cuboid-roundtrip",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": null,
+      "checksState": "pending",
+      "updatedAt": "2026-11-28T18:02:38Z"
+    },
+    {
+      "number": 407,
+      "title": "fix(review): restore hosted TLS and responsive mention reactions",
+      "url": "https://github.com/TryUniCAD/Kit/pull/407",
+      "author": "jdharcourt",
+      "headBranch": "fix/reviewer-hosted-runtime-20261128",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": "review-required",
+      "checksState": "failing",
+      "updatedAt": "2026-11-28T18:02:03Z"
+    },
+    {
+      "number": 405,
+      "title": "fix(research): restore solidworks native verification dispatch",
+      "url": "https://github.com/TryUniCAD/Kit/pull/405",
+      "author": "Stephen316",
+      "headBranch": "codex/solidworks-native-com-accessors",
       "baseBranch": "main",
       "state": "open",
       "isDraft": false,
       "reviewDecision": "review-required",
       "checksState": "pending",
-      "updatedAt": "2026-11-28T17:48:50Z"
+      "updatedAt": "2026-11-28T18:01:23Z"
+    },
+    {
+      "number": 406,
+      "title": "fix(fusion): bind writer acceptance to exact native measurements",
+      "url": "https://github.com/TryUniCAD/Kit/pull/406",
+      "author": "Stephen316",
+      "headBranch": "codex/fusion-writer-native-measurement",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": "review-required",
+      "checksState": "pending",
+      "updatedAt": "2026-11-28T18:00:26Z"
     },
     {
       "number": 403,
@@ -26,8 +65,8 @@
       "state": "open",
       "isDraft": false,
       "reviewDecision": "review-required",
-      "checksState": "pending",
-      "updatedAt": "2026-11-28T17:45:41Z"
+      "checksState": "failing",
+      "updatedAt": "2026-11-28T17:54:45Z"
     },
     {
       "number": 401,
@@ -40,7 +79,20 @@
       "isDraft": false,
       "reviewDecision": "review-required",
       "checksState": "failing",
-      "updatedAt": "2026-11-28T16:34:09Z"
+      "updatedAt": "2026-11-28T17:50:21Z"
+    },
+    {
+      "number": 404,
+      "title": "fix(solidworks): honor assembly tessellation opt-out",
+      "url": "https://github.com/TryUniCAD/Kit/pull/404",
+      "author": "Stephen316",
+      "headBranch": "codex/solidworks-assembly-tessellation",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": "review-required",
+      "checksState": "failing",
+      "updatedAt": "2026-11-28T17:49:02Z"
     },
     {
       "number": 384,
@@ -106,19 +158,6 @@
       "reviewDecision": "review-required",
       "checksState": "passing",
       "updatedAt": "2026-11-28T00:00:33Z"
-    },
-    {
-      "number": 299,
-      "title": "feat(fusion): read saved fixed-corner cuboids",
-      "url": "https://github.com/TryUniCAD/Kit/pull/299",
-      "author": "Stephen316",
-      "headBranch": "codex/fusion-saved-cuboid-roundtrip",
-      "baseBranch": "main",
-      "state": "open",
-      "isDraft": false,
-      "reviewDecision": null,
-      "checksState": "passing",
-      "updatedAt": "2026-11-27T19:49:50Z"
     },
     {
       "number": 121,

@@ -334,7 +334,8 @@
         "GuardSha256": "7e16689f5828c84e78869510b9bb7b999577636f6e1bb1efe55fc0f2fe741132",
         "Boundary": "Real guard process with actual hosted input and actual live GitHub native receipts; no account credentials or mocked APIs"
       },
-      "Scope": "Restore pinned runtime TLS and valid PR reaction token scopes; acknowledge new messages independently of another account job; preserve serialized auth persistence and publication with queued native receipt reuse"
+      "Scope": "Restore pinned runtime TLS and valid PR reaction token scopes; acknowledge new messages independently of another account job; preserve serialized auth persistence and publication with queued native receipt reuse",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/407"
     },
     {
       "Id": "ReviewerContinuous",

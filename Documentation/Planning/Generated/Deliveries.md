@@ -4,15 +4,18 @@ Observed 2026-11-28; contacts are PR authors, not inferred owners. Refresh live 
 
 | PR | Scope | Contact | Head → base |
 | --- | --- | --- | --- |
-| [#404](https://github.com/TryUniCAD/Kit/pull/404) | fix(solidworks): honor assembly tessellation opt-out | Stephen316 | codex/solidworks-assembly-tessellation → main |
+| [#299](https://github.com/TryUniCAD/Kit/pull/299) | feat(fusion): read saved fixed-corner cuboids | Stephen316 | codex/fusion-saved-cuboid-roundtrip → main |
+| [#407](https://github.com/TryUniCAD/Kit/pull/407) | fix(review): restore hosted TLS and responsive mention reactions | jdharcourt | fix/reviewer-hosted-runtime-20261128 → main |
+| [#405](https://github.com/TryUniCAD/Kit/pull/405) | fix(research): restore solidworks native verification dispatch | Stephen316 | codex/solidworks-native-com-accessors → main |
+| [#406](https://github.com/TryUniCAD/Kit/pull/406) | fix(fusion): bind writer acceptance to exact native measurements | Stephen316 | codex/fusion-writer-native-measurement → main |
 | [#403](https://github.com/TryUniCAD/Kit/pull/403) | fix(research): report provisional holdout selections | Stephen316 | codex/provisional-inference-survivor → main |
 | [#401](https://github.com/TryUniCAD/Kit/pull/401) | test(review): temporary live JSON contract review fixture | jdharcourt | feat/reviewer-live-smoke-20261128 → main |
+| [#404](https://github.com/TryUniCAD/Kit/pull/404) | fix(solidworks): honor assembly tessellation opt-out | Stephen316 | codex/solidworks-assembly-tessellation → main |
 | [#384](https://github.com/TryUniCAD/Kit/pull/384) | refactor(solidworks): share proven archive field rules | usehoplite | codex/sw-header-bounds → main |
 | [#383](https://github.com/TryUniCAD/Kit/pull/383) | docs: audit solidworks later-phase coverage | usehoplite | hoplite/tegea-f1d4ae13--later-phases → main |
 | [#398](https://github.com/TryUniCAD/Kit/pull/398) | docs(planning): publish completed project import receipts | jdharcourt | feat/planning-import-receipts-20261128 → main |
 | [#396](https://github.com/TryUniCAD/Kit/pull/396) | feat(fusion): read owned offset-start circular extrusions through sdk and cli | jdharcourt | feat/fusion-offset-sdk-reader-20261127 → main |
 | [#397](https://github.com/TryUniCAD/Kit/pull/397) | feat(cad): qualify Fusion draft and rim reads with measured CLI parity | jdharcourt | feat/decoded-cad-read-write-20261127 → main |
-| [#299](https://github.com/TryUniCAD/Kit/pull/299) | feat(fusion): read saved fixed-corner cuboids | Stephen316 | codex/fusion-saved-cuboid-roundtrip → main |
 | [#121](https://github.com/TryUniCAD/Kit/pull/121) | feat(solidworks): build generative archives and native construction research | odinglyn0 | codex/solidworks-2026-native → main |
 | [#385](https://github.com/TryUniCAD/Kit/pull/385) | fix(ci): fail queue CI Agg as soon as a candidate job fails | usehoplite | hoplite/sybaris-29ba7c65 → main |
 | [#239](https://github.com/TryUniCAD/Kit/pull/239) | Write measured SOLIDWORKS 2026 circular blind bosses | odinglyn0 | codex/solidworks-circle-measured-main → main |
