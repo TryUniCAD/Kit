@@ -487,8 +487,11 @@ public static class SheetMetalCapture
             try
             {
                 var title = doc.GetTitle();
-                if (expectedReadOnlyPath != null && app.GetDocumentCount() == 1 && doc.IsOpenedReadOnly() &&
-                    String.Equals(doc.GetPathName(), expectedReadOnlyPath, StringComparison.OrdinalIgnoreCase))
+                var path = doc.GetPathName();
+                bool exactReadback = expectedReadOnlyPath != null && doc.IsOpenedReadOnly() &&
+                    String.Equals(path, expectedReadOnlyPath, StringComparison.OrdinalIgnoreCase);
+                bool unsavedPrivateAuthoring = expectedReadOnlyPath == null && String.IsNullOrEmpty(path);
+                if (app.GetDocumentCount() == 1 && (exactReadback || unsavedPrivateAuthoring))
                     app.QuitDoc(title);
                 else
                     app.CloseDoc(title);
