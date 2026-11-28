@@ -152,9 +152,9 @@ def compare(source, control, height_mm, output):
         (
             sys.executable,
             "-B",
-            __file__,
+            str(Path(__file__).resolve()),
             "--persisted",
-            str(persisted),
+            str(persisted.resolve()),
             "--height-mm",
             str(height_mm),
         ),
