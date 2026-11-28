@@ -10,7 +10,7 @@ Activate this skill before every repository task, including work on this skill i
 
 For an authorized repository change, implement the user's requested change, open its own scoped PR, clear every existing readiness gate on the current remote revision, and leave it open unless a verified repository administrator explicitly asks the agent to merge it. Stay with it through verified PR readiness, an authorized merge, or a specific external or authorization blocker. Do the work in the active task; do not stop at a plan, diagnosis, first push, or PR link.
 
-This incorporates CI repair, review follow-up, and merge-conflict resolution; no separate skills need to be installed or invoked. Read [ReviewBot.json](ReviewBot.json) at activation and again before requesting review. Its `Reviewers` array is the sole source of reviewer identities, report names, and exact request comments. For every entry, submit its `Comment` verbatim as a separate top-level PR comment, without prefixes, suffixes, or additional mentions. Follow the review timing below. Once review is due, request each reviewer once per accepted head unless that reviewer already has a request or review for that head. Add or change reviewers in that file alone. Missing, invalid, or empty configuration is a blocker, never permission to guess a trigger. Keep reviewer brands, handles, app slugs, account IDs, report names, and wake words out of other instructions, scripts, tests, and docs. All configured reviewers must pass their native reports and submit an actual `APPROVED` review on the current head before the PR is ready. Address every finding from every verified account or app, including top-level and advisory reports. Do not invoke an unconfigured fallback. Report independently enforced repository requirements separately. The canonical skill lives in `.agents/skills/standard-pr-practice`; Claude Code follows the root `CLAUDE.md` link to that same canonical skill. This repo does not register a separate native Claude Code slash command; use the plain-text request `use standard-pr-practice to <requested change>`. Keep one repository source rather than separate global Codex or Claude Code copies.
+This incorporates CI repair, review follow-up, and merge-conflict resolution; no separate skills need to be installed or invoked. Read [ReviewBot.json](ReviewBot.json) at activation and again before requesting review. Its `Reviewers` array is the sole source of reviewer identities, native report names, and trigger configuration. For an entry with `Trigger: schedule`, follow the automatic workflow on each proposed head through event dispatch and scheduled recovery regardless of CI failures or merge conflicts. For explicit reassessment, post one exact command from `AccountReview.MentionCommands` as the complete new PR comment; the commenter must have current write, maintain, or admin permission. Use the configured workflow dispatch with input `pull` and optional `force` for manual retries or input `comment` for an authorized mention. For a comment-triggered entry, submit its `Comment` verbatim once per accepted head. Follow the review timing below and never invoke a removed reviewer as a fallback. Add or change reviewers in that file alone. Missing, invalid, or empty configuration is a blocker, never permission to guess a trigger. Keep reviewer brands, handles, app slugs, account IDs, report names, and wake words out of other instructions, scripts, tests, and docs. All configured reviewers must pass their native reports and submit an actual `APPROVED` review on the current head before the PR is ready. Address every finding from every verified account or app, including top-level and advisory reports. Do not invoke an unconfigured fallback. Report independently enforced repository requirements separately. The canonical skill lives in `.agents/skills/standard-pr-practice`; Claude Code follows the root `CLAUDE.md` link to that same canonical skill. This repo does not register a separate native Claude Code slash command; use the plain-text request `use standard-pr-practice to <requested change>`. Keep one repository source rather than separate global Codex or Claude Code copies.
 
 ## Complete coding and quality standards
 
@@ -79,6 +79,19 @@ Start CI and mergeability checks immediately after publication. Start review at 
 Urgency preserves the existing scope, authorization boundaries, and completion gates. Require fresh passing CI, a clean review from every configured reviewer, and satisfied merge requirements before claiming the PR is ready to merge.
 
 ## Invocation and scope
+
+Agents must use [the agent planning workflow](../../../Documentation/Planning/AgentWorkflow.md)
+to select scheduled work, claim it, update state and hand it off.
+
+Before selecting, claiming or dispatching work, follow
+[repository planning](../../../Documentation/Planning/README.md) and the root
+`AGENTS.md` planning rules. Refresh the live scope claim, schedule, prerequisites,
+delivery PR and resource ownership. Preserve existing task owners. Update the owning
+register, explicit planning links and organization project when scope, ownership,
+blockers, schedules, PRs or acceptance evidence change. Regenerate and check planning
+views with `uv run --locked python re/automation/Planning/Build.py` and `--check`.
+Keep qualification stages and exact revision evidence separate. A project assignment,
+scheduled forecast or generated prompt never proves readiness or starts a runtime.
 
 In Claude Code, ask `use standard-pr-practice to <requested change>` in a normal message; `CLAUDE.md` routes to this file. No native Claude slash command is installed. In Codex, use `$standard-pr-practice <requested change>`, including within a `/goal` prompt.
 
@@ -151,12 +164,11 @@ classifies it as `HIGH` or `EXTREME`.
   research artifact policy.
 - Retain needed evidence and close completed task-owned Hopper documents
   promptly. Coordinate use of the shared REA connection when applicable.
-- Start CI as work proceeds. Track configured review as deferred until the
-  full requested scope and its pre-review acceptance evidence are complete.
-  At that point, request review for the current head and follow up on every
-  configuration entry and finding. Current-head approval and passing native
-  reports remain required before readiness. Queue acceptance follows its
-  normal enrollment gate.
+- Start CI and automatic revision reviews as work proceeds. After the full
+  requested scope and its pre-review acceptance evidence are complete, require
+  current-head review and follow up on every configuration entry and finding.
+  Current-head approval and passing native reports remain required before
+  readiness. Queue acceptance follows its normal enrollment gate.
 
 ## Local execution rules
 
@@ -193,7 +205,7 @@ Open the PR with explicit base and head and a description of the final problem, 
 
 Opening the PR begins CI and mergeability follow-up for the observed head/base pair. A newly opened PR with no results is waiting.
 
-For ordinary PRs, review begins at opening. For large PRs, apply the deferred timing above. Once review is due, inventory each configured reviewer's results and threads and follow [the review request procedure](references/ReviewFindings.md#request-review-for-the-current-head) for the current head and every accepted revision. Verify that the resulting review covers that head. Report an unavailable result without switching bots or changing repository settings.
+For ordinary PRs, review is due at opening; workflow-triggered review executes on every proposed head independently of CI status. Large PRs also receive revision reviews while work continues; readiness still requires complete scope and every existing gate. Once review is due, inventory each configured reviewer's results and threads and follow [the review request procedure](references/ReviewFindings.md#request-review-for-the-current-head) for the current head and every accepted revision. Verify that the resulting review covers that head. Report an unavailable result without switching bots or changing repository settings.
 
 Track a compact live record: target identity, accepted head SHA, current base SHA, applicable check/run/attempt IDs and URLs, the verified reviewer login or app identity, last observed review or trigger head, current result from every configured reviewer and its revision evidence, each finding and disposition, and mergeability/queue state. Refresh from GitHub whenever the head or base changes.
 
@@ -210,6 +222,8 @@ For each code repair, consult necessary documentation, edit in the isolated work
 CI follow-up includes the workflow, reusable workflow, action/script, runner sizing, caching, scheduling, sharding, concurrency, dependency-setup, and preview-harness changes needed to repair an evidenced failure on this PR. Do not request separate authorization just because the root cause is CI configuration. Preserve all applicable check names, test cases, acceptance coverage, trust boundaries, and timing targets. Use remote job/step timing to choose bounded scheduling or execution improvements and verify the full current-head suite afterward; account for runner cost when increasing resources.
 
 Acceptance criteria remain fixed unless the user explicitly changes them. Any explicitly agreed timing budget includes scheduling, setup, execution, and finalization; do not invent a suite target, reset the clock, exclude slow jobs, skip checks, or relax that budget to obtain green. Kit uses the documented job timeouts and 90-minute queue response timeout; these are failure limits, not measured performance targets. Do not weaken assertions, delete failing tests, loosen coverage/lint/type/security gates, add suppressions or skip paths, mask failures, update baselines merely to accept defects, silence any configured reviewer, fabricate statuses, or alter repository protections. Trigger, condition, permission, path-filter, package-script, and task-graph changes must preserve every applicable validation and existing trust boundary. Interpret specific managed Preview authorization within the named Preview scope and apply the local execution rules above. These rules apply to this skill and its supporting references.
+
+The repository owner explicitly approved only the two line-scoped `dangerous-triggers` exceptions on `pull_request_target` and `issue_comment` in `.github/workflows/ReviewRequest.yml`. This metadata-only dispatcher must never check out PR code or read app or account secrets. It verifies live comment authorization and passes only PR or comment numbers to the protected default-branch reviewer. This exception does not authorize other suppressions, relaxed admission, or changes to CI, approval or merge-queue gates.
 
 Poll or yield in responsive intervals around 30–60 seconds, with brief updates only for material progress or blockers. Continue while evidence-backed repairs are progressing; do not impose an arbitrary fix-count limit or require another prompt. A watcher, timeout, successful push, stale approval, reaction emoji, neutral placeholder, or empty inventory never proves completion.
 

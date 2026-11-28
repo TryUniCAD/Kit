@@ -24,7 +24,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Read the trusted base validation phase
+      - &ReadPhase
+        name: Read the trusted base validation phase
         id: phase
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
@@ -33,9 +34,7 @@ jobs:
             await SetPhase({ github, context, core });
 
   steering:
-    if: >-
-      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
-    needs: pr-ci-reuse
+    if: ${{ !cancelled() }}
     name: Python steering
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -45,7 +44,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - *ReadPhase
+
       - name: Set up uv
+        if: steps.phase.outputs.phase != ''
         uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
@@ -53,9 +55,11 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
+        if: steps.phase.outputs.phase != ''
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Verify tracked Python sources
+        if: steps.phase.outputs.phase != ''
         run: |
           mapfile -d '' PythonFiles < <(git ls-files -z -- '*.py')
           uv run python -m tools.Steering.SteeringCompliance \
@@ -63,4 +67,5 @@ jobs:
             "${PythonFiles[@]}"
 
       - name: Verify no recorded payloads
+        if: steps.phase.outputs.phase != ''
         run: uv run python -m tools.Donors.CheckReplays src

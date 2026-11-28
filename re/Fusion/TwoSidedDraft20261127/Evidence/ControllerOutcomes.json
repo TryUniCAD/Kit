@@ -1,0 +1,269 @@
+{
+  "jobs": [
+    {
+      "attempts": 1,
+      "fingerprint": "26c4e38a46671cee3d60d0aa8289b160e0e260588ace7db176964fa191f34535",
+      "generation": 1,
+      "id": "decode-partial",
+      "kind": "offline.fusion",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "b1bba30e9dea2ef6729d611df66526802a92d2ac82c240894d4a1b6b9e5fe41b",
+      "result": "b379f446969c373500144364af4809a12355d730c7a8bc87a092b37a71c43c7e",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "d7b4e45a960856214765157b987a4050190382f7f12b106d9346ec7fe951bb59",
+      "generation": 1,
+      "id": "decode-strict",
+      "kind": "offline.fusion",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "d0908c7231737f71bd46d26490b7f8277572a4564c7190e57c03c2ba139d62ef",
+      "result": "ca2c6b124255f140c7fd2519c4a226accd9748c7e258a5535752bce5f69862d1",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "6be033d3e140553cec13576c83ab87cc0a9a447c8f6c21c3ddc3fe0a5e0266d3",
+      "generation": 1,
+      "id": "verify-baseline",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "be505b5989e297fbcc6b0c38ad33c98e88d1dda73e0c2cc0b90ebe775d6eb5ec",
+      "result": "ebb05dee370f5a8056768c39c7ab7067bac168efc2dc1de7da886f87a37f9af4",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "0d79a211f94bd6b7cd78d4a801dd2b04f10cd55b14625698ef17b74530f9d442",
+      "generation": 2,
+      "id": "verify-baseline-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "2a508b730edaeadb6fd66bf8cfc2576cf262e5847321953d2efeb09167e7f4ec",
+      "result": "30ff07c3d570fae0665604466311d03236e52fb42936df8d3aca8ee21f5fb7d5",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "776c4d73c502b887f1a72c2178432a06a1283162c19cbaf9973e0aa360dd662c",
+      "generation": 1,
+      "id": "verify-draft_first",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "85e3c62dbf36b4251e3082668bf008ab2d8a9864a4202918932dc83cf1d1f79b",
+      "result": "bb5db41f88551f906be0ddc2304471268d40b21f90d69070bd8453420c1bfa35",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "0c7800454ed3dbaafb478ef4a413491f8ecdd253416a5f9d8e2526c697716f29",
+      "generation": 2,
+      "id": "verify-draft_first-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "3a78e3b66d9b7c9ef3ac488c547bb09f1790b786fcd4738962825b50daeb6fbf",
+      "result": "fcc7b3009205ca574e6a53094527f0a565d114d63f188a982425bb422f09e95d",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "5c3ac05523f21e64ebaf72349d88f5ea775c0cfa80f3b64552dc278267a116fe",
+      "generation": 1,
+      "id": "verify-draft_second",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "ec33c1b7c5b138f305aab2b2376df3ffc8df277776653cd44c28d6e0279a58f6",
+      "result": "c83ca9e39c29f85ad7e828faa3bb500ad71dd8ed83b480507729dd4d1e499e6a",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "e92ad6c19124390a8373a2f85c70134e9c0e965f3a38d558b8b32e064b3cd738",
+      "generation": 2,
+      "id": "verify-draft_second-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "7fae42776cfc57c19157811ab3f55e1badfb7cad3b84828c181512a22393d16b",
+      "result": "ce1cd2a750e2a0fe0398eeda66b94adfce39e87258a4e18bd4ae447a7cf1e205",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "31a6e8ee1cfcf3c043b4feb945fd835d81a5998269930d503a969a5b7450de78",
+      "generation": 1,
+      "id": "verify-first",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "7bccc6e62db38c450cda778aadfa743953d4ace54661e96359e824bf6a5b4cbe",
+      "result": "90b09c854476457199b6ee784e1475823da8681d9b3b290eff24764928493df6",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "89f67d1d4062d96f8fd1eb9733c0958acdf4c8a081f319fd10f1ce26d7c006f2",
+      "generation": 2,
+      "id": "verify-first-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "4d46867e1531cff8867c31245cd9147f6e816e71e7bd0f60f4655cee8328b00e",
+      "result": "4016fe9d801d8eaced36d5c195d07a82342f67fb7de83d11c8f6ce0cf965a691",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "7327cf19899695507658ae6843cf732e0d9c9a6a7d7d321605e0eaa1a6ff3b2a",
+      "generation": 1,
+      "id": "verify-frame",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "a829ddb6a1249445d71f055b569a531648ee9c5550d7264e864880f8f98f6f11",
+      "result": "6c894bdb9644ebe0542c4a3e4e217fb8f2316f075b1adb507ccb3d3b841f5760",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "f85e36d62af164708cb4bc7f3118855d578c52dde6583f2021ec590a81369391",
+      "generation": 2,
+      "id": "verify-frame-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "7980bbfa951cc8005324c11f9a154d85636365c1388a3a7f5f76b25378f20d69",
+      "result": "3ce60d84f51fda4fa2dedc9ae47612e575f28a465db7f704f7ccd1772fecee02",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "699f126b0b411890095c62f32071c68c8786d75b44fbc4239a9e8a5f3fd063b0",
+      "generation": 1,
+      "id": "verify-holdout_a",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "088ce4a8660e6e1de1fe87920470ea5be0d22021a8a871589c584bae104f1e82",
+      "result": "c874ed011f21762cb246012ebcc1c59c7d55d5f42f8487fad93af4f6baed81de",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "92bac5844d9425c5589ecb2fc51b69df2dbfbe508888e28976d6aa55b31f78b6",
+      "generation": 2,
+      "id": "verify-holdout_a-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "d3b41910d055743239deb43c398e53816d9c844cdf28c62bbfcd56ca59d42a74",
+      "result": "67a725d59eda8508e5fe566d954c71a6332fbd236dfb8bf26a4e21a06e979aff",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "ab8778326401586ca1b9500eb423ddfc1fd82db746636539a3f96006b63fa506",
+      "generation": 1,
+      "id": "verify-holdout_b",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "33f755a35b644e4bfa89956c0d38d9a3fbd397bea0cbc343b7f1c42f520b1709",
+      "result": "c971b02d7247bcc314c90ae6da147bf1f2d1125486c306e1859924f22d591d40",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "d0bb6f0706c2bc9ae7da24850fbaa85337490d05c86845da8c4e5e0c653b9c93",
+      "generation": 2,
+      "id": "verify-holdout_b-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "2af6463a885ddba3027984d776feac3a9c4f8abec558a5ab08a322f473d6ce50",
+      "result": "35484565147c03d170044938cc2aebe577542438189ef5532ba523409a4c292b",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "834267cf4d176b6840455020fc60081d03b0beea53b3429f8e5d64e48a03fb84",
+      "generation": 1,
+      "id": "verify-placement",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "b95a1e748847dfcb73dc173d4abe40ade30d8617e651ddd244b8b5756b8870ab",
+      "result": "f6767a48ac81e0a32af54981c26af49f6ce9c032ddc4779e93d0e40802641cfa",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "9692490ca9d8da5b8f86b406e50be4232832da635eaa3503c0898110c772828b",
+      "generation": 2,
+      "id": "verify-placement-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "ae54cadba594c786e712a7faf59d9111b15e86f1604da3c5d06c2db800d495c9",
+      "result": "7ddf7d34b02a22522269ce88caa7921d38cbadb7c04b66aa2747d39cb207a13a",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "7bd1aab058d89aab2f61c25736e5189248b15ed1eb99e8291aa40ebce9507942",
+      "generation": 1,
+      "id": "verify-radius",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "11f78f670b4e66d5fe8e387e109dbc1315a99ad218fde4fdbd3c7a52fb58b8b7",
+      "result": "125702eb4c81b782cb2b793a9c965e4202c47f81a34a19690037f304174406bf",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "6be44233af23531fd6a69eb7ee6f82ebd8957a690a7e2ed6125460587646a849",
+      "generation": 2,
+      "id": "verify-radius-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "f3419ef7e26ec4425ed9825707a79a5e659c9d4b0bd371c41fc15a738d7ebaac",
+      "result": "0f774025c56c80313da68029d22b39e793a709edac573309c8e1e757ae538229",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "de65d16faa1818bda6e804546c49fbe8d5b08ac407f714aba45dea8fb577598c",
+      "generation": 1,
+      "id": "verify-second",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "3be8b4359421a2f00d4a3625b3d67d915f88995d9a01e090a0ecbc2ad0e0ec59",
+      "result": "4799ad80bd549ee7e709b737766ae3bb40193eb5fd9fec3cc70d41c7a56a0dff",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "6b7c9345ba8349c65cd0a89251a148ac85ccfb0a4af2e06266352a49f02d6213",
+      "generation": 2,
+      "id": "verify-second-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "e23e13cb165454afddc73523b2ea632566db833c34a5ec8d9ae505638ff1671f",
+      "result": "d68da28b9031a2c980fbaa592f54a891ae732a4b01598ee9173b57d687c09024",
+      "state": "completed"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "f6cf31adc8cf967db1fb5065e4efcd544aca77f50284a028944f02722d13432d",
+      "generation": 1,
+      "id": "verify-swapped",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "b5b5f436f098cb6aebb75dfb1e2a7ca46415292eda18b1cf4940c43cf0913062",
+      "result": "45e56fc12129e489a8a045b4d2b48140f9d3462f7f415a4b39c2f2abfabd8b0f",
+      "state": "waiting_evidence"
+    },
+    {
+      "attempts": 1,
+      "fingerprint": "caf9dadf898a1c2f4322d29dbc313544f320e4f8e7aebb9a32e42f521f842f1e",
+      "generation": 2,
+      "id": "verify-swapped-control2",
+      "kind": "native.verify",
+      "reason": "recorded native observations and deterministic outcomes; conversion unqualified",
+      "receipt": "787bfaf2003675290a453a782bc6a30d05d96b04f231d482855461d78ee5f320",
+      "result": "6ce99a549c117ba6295c8f4f4ba10f4971c1992eafa183c1b01ad86fe1d4cca2",
+      "state": "completed"
+    }
+  ],
+  "raw_sha256": "cb66f25d8649e69152e83ca598e901808b60b48c40dc15da4f1ad8ea13e72578"
+}

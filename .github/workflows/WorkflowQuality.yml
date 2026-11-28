@@ -24,7 +24,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Read the trusted base validation phase
+      - &ReadPhase
+        name: Read the trusted base validation phase
         id: phase
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
@@ -353,9 +354,7 @@ jobs:
         run: bash .github/scripts/VerifyShardReports.sh "$ReportRoot" WindowsCli "$RunAttempt"
 
   zizmor:
-    if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
-    needs: pr-ci-reuse
+    if: github.event_name == 'pull_request'
     name: Zizmor
     runs-on: ubuntu-24.04
     timeout-minutes: 45
@@ -366,7 +365,10 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - *ReadPhase
+
       - name: Set up uv
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.12.5"
@@ -374,15 +376,15 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run Zizmor Actions audit
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         run: uv run zizmor --pedantic .github/workflows
 
   actionlint:
-    if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
-    needs: pr-ci-reuse
+    if: github.event_name == 'pull_request'
     name: actionlint
     runs-on: ubuntu-24.04
     timeout-minutes: 45
@@ -392,7 +394,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - *ReadPhase
+
       - name: Checkout pinned actionlint concurrency support
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: rhysd/actionlint
@@ -401,6 +406,7 @@ jobs:
           persist-credentials: false
 
       - name: Restore the pinned workflow analyzer
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         id: analyzer
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -408,7 +414,7 @@ jobs:
           key: actionlint-${{ runner.os }}-${{ runner.arch }}-go1.26.0-644076a59742c2d1540ebd4686eab3c308f0e562
 
       - name: Build pinned actionlint
-        if: steps.analyzer.outputs.cache-hit != 'true'
+        if: (steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request') && steps.analyzer.outputs.cache-hit != 'true'
         working-directory: ActionlintSource
         env:
           GOTOOLCHAIN: go1.26.0
@@ -418,4 +424,5 @@ jobs:
           go build -mod=readonly -trimpath -o "$RUNNER_TEMP/Actionlint/actionlint" ./cmd/actionlint
 
       - name: Run actionlint workflow analysis
+        if: steps.phase.outputs.phase == 'legacy' || steps.phase.outputs.phase == 'pull_request'
         run: '"${RUNNER_TEMP}/Actionlint/actionlint"'

@@ -49,7 +49,7 @@ Availability is a dated observation, not a permanent reservation.
 
 | ID  | Deliverable                                            | Status    | Owner and delivery                                    | Depends on                                   | Exit condition                                                                                                                                        |
 | --- | ------------------------------------------------------ | --------- | ----------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| B01 | Supported version, feature and route matrix            | Available | Unassigned; separate scoped PR                        | Current source and PR inventory              | Every intended family has explicit file types, vendor versions, feature scope and directional routes, with evidence or named gaps.                    |
+| B01 | Supported version, feature and route matrix            | Active    | Codex B01 matrix worker; scoped delivery below        | Current source and PR inventory              | Every intended family has explicit file types, vendor versions, feature scope and directional routes, with evidence or named gaps.                    |
 | B02 | Independent paired semantic qualification              | Blocked   | PR #94 register: A02d, A04c, A05c                     | Licensed native readback and source evidence | Initial paired sketches, bosses and cuts have independent inventories, resolved bindings and measured controls.                                       |
 | B03 | Graph comparison and proven format rules               | Blocked   | PR #94 register: A06, A07, A09                        | B02                                          | Ambiguities, field rules and counterexamples are traceable. Qualified comparisons and held-out codecs pass remote gates.                              |
 | B04 | Portable neutral-to-native writers                     | Blocked   | PR #94 register: A11, A12; coordinate PR #121         | B03 and independently understood grammar     | Both writers derive every byte and required relationship from portable semantics, without donor blocks or a CAD runtime.                              |
@@ -379,6 +379,17 @@ The takeover agent owns the serialized Windows oracle. Each workstream delivers 
 Protocol byte identity, an open PR, source training measurements, and green static checks do not complete this child.
 
 ## Important gap boundaries
+
+### B08-SW2026-PR121-READINESS
+
+Status: active. Owner: Codex swarm root, chat `01a22333-c91a-7753-a913-6ea8091aebc5`.
+Scope: resolve PR #121 against current main while preserving both Windows fixture contracts and current roadmap facts.
+Dependencies: PR head `6cf4d8a9ec216fdb82a873f5fffd3f2aa48d586b` and main `68cec987d0b720762ae95f2f92799eb113d23b44`.
+Delivery: [PR #121](https://github.com/TryUniCAD/Kit/pull/121), branch `codex/solidworks-2026-native`.
+Exit: no conflicts, passing affected process regressions, successful current-head PR CI and configured approval.
+Merge-group acceptance remains deferred. Broader B08 and CAD qualification remain unfinished.
+The [merge record](../Changes/Ci/Testing/SolidworksReadinessFixtureMerge.md) records verification and limitations.
+Native project synchronization is pending because this session has no project mutation connection.
 
 ### B04-SW2026-IMPORTED-BODY
 
@@ -1121,3 +1132,60 @@ Production decoding and conversion qualification remain open.
 The [register](../Reference/Research/AutomationSteps.md#a08h-rimfillet20261125-circular-rim-fillet-readwrite-packs) records dependencies and delivery.
 The [pack](../../re/Fusion/RimFilletPack/README.md) provides source-free writer acceptance and executable typed read/write regressions.
 The seven original snapshot-width refusals are retained; a width-preserving repair now passes 22 typed/native comparisons. All public neutral conversion refusals remain open. Delivery is [PR #301](https://github.com/TryUniCAD/Kit/pull/301). The production boundary and PRs #121/#297 remain unchanged.
+
+## A08h-FusionOffsetStart20261127 research evidence
+
+Codex owns signed OffsetStart and independent unequal two-sided circular extrusion evidence on `feat/fusion-offset-start-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusionoffsetstart20261127) records dependencies, exclusive native-resource coordination and exit conditions.
+The [package](../../re/Fusion/OffsetStart20261127/README.md) retains native sources, first/second/offset roles, strict refusals and fresh-process observations.
+Delivery is [PR #395](https://github.com/TryUniCAD/Kit/pull/395); B02–B05 and the supported production boundary remain unchanged.
+Keep the existing child claim until Planning PR #392 is integrated and its stable scope links can be regenerated.
+
+## A08h-FusionTwoSidedDraft20261127 research evidence
+
+Codex owns independently drafted two-sided circular Fusion extrusion evidence on `feat/fusion-two-sided-draft-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusiontwosideddraft20261127) records dependencies, native-resource ownership and exit requirements.
+The [package](../../re/Fusion/TwoSidedDraft20261127/README.md) preserves native sources, signed parameter roles, strict refusals and separate fresh-process witnesses.
+Delivery: [PR #394](https://github.com/TryUniCAD/Kit/pull/394). B02–B05 and the supported production boundary remain unchanged.
+The existing child claim is retained while the Planning register remains a separate unmerged delivery.
+
+## B01-SupportMatrix: consolidate existing support evidence
+
+Codex owns `feat/project-next-steps-20261127`, based on main `1619f00bf532caad262d1557bd69281179e5c497`.
+Scope: the [project-wide support matrix](../Reference/Operations/SupportMatrix.md), reusing existing catalogues and acceptance records.
+Dependencies: current public contracts, production source, automation ownership and PR #368's separately owned SOLIDWORKS census.
+Delivery: [PR #375](https://github.com/TryUniCAD/Kit/pull/375).
+The scoped snapshot is published for checking; unresolved version/type choices remain follow-up work.
+Exit: every roadmap family and directional route has an explicit status, source evidence or named gap, plus current-head CI and configured approval.
+Unresolved vendor-version promises remain open; B12 acceptance and native conversion work are not completed by this register.
+See the [change entry](../Changes/Planning/SupportMatrix.md).
+
+## B10-FormatDiscovery: focused CLI format lookup
+
+Codex CLI worker owns `feat/b10-cli-usability-20261127`.
+Scope: `kit formats [FORMAT]` lookup by primary identifier or alias, visible text aliases and unknown-format recovery.
+Dependencies: existing registry discovery and its unchanged JSON list schema.
+Delivery: [PR #376](https://github.com/TryUniCAD/Kit/pull/376).
+Exit: real-process discovery/refusal coverage, current-head CI and configured approval.
+Queue repair: preserve the intended text reminder and update directional CLI coverage to assert all three lines and directional aliases.
+The directional-format file and focused CLI process cases pass locally under explicit repair authorization.
+Remote PR checks and merge-group acceptance remain distinct evidence.
+Representative-user workflow evaluation and the broader B10 exit remain open.
+
+## B11-FirstUseGuides: installation and recovery guidance
+
+Codex documentation worker owns `feat/b11-documentation-usability-20261127`.
+Scope: installation, first use, format selection and result recovery guidance.
+Dependencies: current public metadata/API and the B10 CLI contract.
+Delivery: [PR #377](https://github.com/TryUniCAD/Kit/pull/377).
+See the [first-use change entry](https://github.com/TryUniCAD/Kit/blob/8c2a2affc/Documentation/Changes/Guides/FirstUseWorkflow.md) on that delivery branch.
+Exit: source-backed corrections, link/render evidence where available, current-head CI and configured approval.
+Representative-user evaluation and the broader B11 exit remain open.
+
+## A08h-FusionUnequalAxis20261127 research evidence
+
+Codex owns a bounded unequal two-sided Fusion revolution campaign on `feat/fusion-unequal-revolve-20261127`.
+The [owning child](../Reference/Research/AutomationSteps.md#a08h-fusionunequalaxis20261127) records dependencies, evidence and exit requirements.
+The [package](../../re/Fusion/UnequalAxis20261127/README.md) retains native source controls, explicit refusals and deterministic reader receipts.
+Publication uses [PR #393](https://github.com/TryUniCAD/Kit/pull/393); B02–B05 and the production snapshot remain unchanged.
+Planning-register linkage follows stable availability of that separate work.

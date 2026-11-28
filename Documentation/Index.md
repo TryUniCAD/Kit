@@ -44,6 +44,8 @@ Complete ASD-STE100 and ISO/IEC/IEEE 2651x conformance remains unverified.
 
 ## Format references
 
+- [Supported formats, versions and conversion evidence](Reference/Operations/SupportMatrix.md)
+
 - [SOLIDWORKS adapter](Reference/Adapters/Solidworks.md)
 - [SOLIDWORKS feature resolution](Reference/Adapters/SolidworksFeatures.md)
 - [FreeCAD adapter](Reference/Adapters/Freecad.md)
@@ -79,6 +81,8 @@ Use the result procedure before making a product acceptance claim.
 - [Conformance evidence and gaps](Standards/Conformance.md)
 
 ## Maintenance
+
+- [Planning board, schedules and agent scope claims](Planning/README.md)
 
 - [Conversion completion roadmap](../Roadmap.md)
 - [Conversion backlog and PR ownership](Maintenance/ConversionBacklog.md)

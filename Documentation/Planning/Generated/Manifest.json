@@ -1,0 +1,27 @@
+{
+  "MainRevision": "9415b79e4e2c23171440fe43560a39575d34aed5",
+  "ObservedOn": "2026-11-28",
+  "SourceHashes": {
+    "Documentation/Planning/Links.json": "3ea99d4cc95cc0fa3a1efa74eb3311732e3271f1ae02661ac6a70b34a215b528",
+    "Documentation/Planning/PullRequests.json": "910467c0fa8a2cd316a0f1cc30a3d8ea5b5cfdb0af3264876f83b3d98d45e749",
+    "Documentation/Planning/SdkScopes.json": "f4b9157b835e504d914d71160ee65e19305e69409261226e1179905df12027b5",
+    "Documentation/Planning/TaskIdentities.json": "6171959aadd12abdc62c9c7c8099c2de93fc5cc0cb9c8689ebdcab02d9bf31f2",
+    "Documentation/Maintenance/ConversionBacklog.md": "b42c2c4fcbd8fe554dfea8d1dcda545c51567e2e2c610b2bd96ab5510a1a2c61",
+    "Documentation/Reference/Research/AutomationSteps.md": "49f1551647a523539f35920e566a4cc4002a1f96e49c75ac3d11a93c73273cf6",
+    "re/solidworks/PlannerCatalog/Sources/FeaturePlan.json": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1",
+    "re/Fusion/PlannerCatalog/Data/Catalog.sqlite": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718",
+    "re/automation/Planning/Board/Board.jsx": "f621e0d9972d3ac35c09aaea97658b3e5d13b96f18d14d356cde3d3c04c47d5e",
+    "re/automation/Planning/Board/Board.css": "e131a719522da71d588b5a8750bffed948264e81d6b6b2cb8f727d775a8e2e76",
+    "Documentation/Planning/BundleManifest.json": "821dbeccf972521576d2aace952389396c06cd2c7ebcadf705545318cda26ff7",
+    "re/automation/Planning/Board/package.json": "2092945748c03a30a1e0b2d82a3846a04a5090c83dacff8897d2499e9d9b4cb7",
+    "re/automation/Planning/Board/package-lock.json": "0bcdaebbd8c59f432c8d35c05f5aeeb1d4a866a48844ed0e824252bb26bb8e0a",
+    "Documentation/Planning/Generated/Board.js": "415a3e54efd1b737c0884c31d1f9c30ecd66b0878b95d9eee1b8f61089f3797b",
+    "Documentation/Planning/Generated/Board.css": "53461e6dd36d9ca1d06a9ae0f3c6af2538e8146cd88bf01f5cbc184664b59dd9"
+  },
+  "ParentTasks": 48,
+  "RegisterRows": 80,
+  "Scopes": 4580,
+  "OpenPullRequests": 81,
+  "DeliveryRecords": 101,
+  "ProseClaims": 84
+}

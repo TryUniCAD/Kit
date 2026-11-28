@@ -13,6 +13,7 @@ from time import time as WallTime
 
 from tests.Research.Windows.Readback.ReadbackProgram import KReadbackScript
 from tests.Research.Windows.Readback.ProgressProgram import KProgressScript
+from tests.Research.Windows.Readback.WarmProgress import WarmProgress
 
 
 # compiling the managed fixture before dispatch keeps setup out of its deadline
@@ -23,6 +24,7 @@ def CompileProgress(TmpPath: FilePath, RootPath: FilePath, ShellPath: FilePath) 
     SourcePath = (
         RootPath / "re/automation/CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs"
     )
+    WarmProgress(SourcePath, ShellPath)
     Result = RunProcess(
         [
             str(ShellPath),

@@ -28,6 +28,34 @@ The full CLI module command is `uv run --frozen python -m KitCli`.
 Research execution uses `kit research` or `python -m KitCli research` so process access stays outside the SDK runtime.
 All commands below assume the installed tool is on `PATH`.
 
+## Find a format
+
+List installed readers and writers before selecting a conversion:
+
+```sh
+kit formats
+kit formats --json
+```
+
+Select one primary identifier or alias to inspect its registry entry:
+
+```sh
+kit formats solidworks.sldasm
+kit formats solidworks.sldasm --json
+```
+
+The alias selects the SOLIDWORKS entry, whose primary identifier is `solidworks.sldprt`.
+Check `write_extensions` and `write_aliases` when they differ from the reader fields.
+The assembly alias does not enable assembly writing.
+Text output includes aliases and a reminder that registration does not qualify a conversion.
+JSON output retains its list shape, containing one entry for a matching selection.
+An unknown identifier exits with status `1` and directs you to `kit formats`.
+Matching uses the registry's case-insensitive identifier and alias rules, rather than filename suffixes.
+
+Expected result: registered input and output identifiers, with their separate suffix and alias limits.
+Use [format selection](SelectFormat.md) and the adapter references to check feature and version limits.
+Discovery does not verify native opening, editing or rebuilding.
+
 ## Convert a file
 
 Supply a real source named `model.f3d` with features supported by the SDK before running this example.

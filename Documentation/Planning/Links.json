@@ -1,0 +1,662 @@
+{
+  "SchemaVersion": 1,
+  "ObservedOn": "2026-11-28",
+  "MainRevision": "9415b79e4e2c23171440fe43560a39575d34aed5",
+  "ScopeLinks": [
+    {
+      "ScopeId": "sw:family:sketchconics:circle",
+      "TaskId": "PR373",
+      "Boundary": "Circle and relation field candidates; no full circle-family acceptance",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/373",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sketchdimensions:linear-dimension",
+      "TaskId": "PR380",
+      "Boundary": "Bounded sketch dimension record bindings",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/380",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sketchdimensions:driving-dimension",
+      "TaskId": "PR369",
+      "Boundary": "Dimension field search; hypothesis evidence remains incomplete",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/369",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "PR366",
+      "Boundary": "Offline blind-boss milestone preparation; native acceptance remains separate",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/366",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:extrude:boss-base-extrude",
+      "TaskId": "PR314",
+      "Boundary": "Ordered constrained P03 Boss intent; broader source families remain open",
+      "Stages": {
+        "semantics": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/314",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:revolve:boss-base-revolve",
+      "TaskId": "PR244",
+      "Boundary": "Measured principal revolution subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/244",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:revolve:thin-revolve",
+      "TaskId": "PR247",
+      "Boundary": "Six measured thin-revolution cases",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/247",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sweep:boss-base-sweep",
+      "TaskId": "PR238",
+      "Boundary": "Measured Standard sweep subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/238",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:sweep:boss-base-sweep",
+      "TaskId": "PR245",
+      "Boundary": "Measured native-saved sweep history subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/245",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:chamfer:distance-distance-chamfer",
+      "TaskId": "PR240",
+      "Boundary": "Measured distance-chamfer subset; inspect exact parameter domain",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/240",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:prismatic:shell",
+      "TaskId": "PR255",
+      "Boundary": "Saved inward open-shell subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/255",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:pattern:linear-pattern",
+      "TaskId": "PR243",
+      "Boundary": "Measured local linear pattern subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/243",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:assembly:subassembly",
+      "TaskId": "PR236",
+      "Boundary": "Receipt-gated nested assembly subset",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/236",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:properties:part-material",
+      "TaskId": "PR260",
+      "Boundary": "Assigned part material read subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/260",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:configuration:configuration",
+      "TaskId": "PR200",
+      "Boundary": "Bounded configuration master bridge",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/200",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "sw:family:configuration:equation",
+      "TaskId": "PR258",
+      "Boundary": "Measured width-to-depth equation only",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/258",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR299",
+      "Boundary": "Saved fixed-corner cuboid subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/299",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR303",
+      "Boundary": "Saved cuboid writer research; wider qualification remains open",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/303",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.Parameter",
+      "TaskId": "PR326",
+      "Boundary": "Saved cuboid parameter binding subset",
+      "Stages": {
+        "decode": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/326",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.core.Appearance",
+      "TaskId": "PR337",
+      "Boundary": "Distinct Fusion material appearances research",
+      "Stages": {
+        "write": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/337",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR339",
+      "Boundary": "Witnessed P03 Fusion Boss replay subset",
+      "Stages": {
+        "native": {
+          "Status": "active",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/339",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.RevolveFeature",
+      "TaskId": "PR393",
+      "Boundary": "Unequal two-sided explicit construction-axis capture campaign; strict admission and complete reconstruction remain unresolved",
+      "Stages": {
+        "capture": {
+          "Status": "checking",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/393",
+          "Revision": ""
+        }
+      }
+    },
+    {
+      "ScopeId": "fusion:api:adsk.fusion.ExtrudeFeature",
+      "TaskId": "PR394",
+      "Boundary": "Independent two-sided circular extrusion drafts; 66 drafted strict states remain rejected and complete reconstruction remains open",
+      "Stages": {
+        "capture": {
+          "Status": "checking",
+          "Evidence": "https://github.com/TryUniCAD/Kit/pull/394",
+          "Revision": ""
+        }
+      }
+    }
+  ],
+  "Schedules": [],
+  "ExtraTasks": [
+    {
+      "Id": "ReviewerContinuous",
+      "Name": "Review each proposed revision independently of approval gates",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session fix/reviewer-review-on-change-20261128",
+      "Runner": "OpenAI",
+      "Parent": "AccountReviewer",
+      "Dependencies": [],
+      "Source": "Documentation/Tasks/AccountReviewer.md",
+      "Exit": "Commit changes dispatch a new current-head model review even with failed CI or conflicts; app approval remains gated by current successful CI and mergeability; mentions acknowledge processing and use current trusted policy",
+      "Branch": "fix/reviewer-review-on-change-20261128",
+      "Blocker": "Owner authorized one time bootstrap merge after all other CI and native queue gates pass; protected default branch deployment and hosted runtime diagnosis remain pending; native project sync lacks read project permission",
+      "Evidence": "https://github.com/TryUniCAD/Kit/actions/runs/46163285662",
+      "HostedSmoke": {
+        "PullRequest": "https://github.com/TryUniCAD/Kit/pull/401",
+        "Revision": "c9682038719ade0661f43b74bf69943d7a4b70d8",
+        "Run": "https://github.com/TryUniCAD/Kit/actions/runs/46166204811",
+        "Outcome": "Input preparation and container build passed; model exited with status 1; no model report or approving review",
+        "Disposition": "Disposable fixture must not merge and must close after finding and approval verification"
+      },
+      "LocalRuntime": "Same authenticated model reasoning and tool free CLI invocation returned a schema compliant report; hosted runtime acceptance remains unverified",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/402",
+      "PreparationEvidence": [
+        {
+          "pull": 330,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "c5665fc5edd894cf80cea207be76dfc29a77c659",
+          "base": "91069da35b02ccbd0c7cc7a543c9a6fd016adb52",
+          "mergeable": true,
+          "input_complete": true,
+          "context_bytes": 422112,
+          "collected_files": 14,
+          "omitted_file_count": 0,
+          "omitted_sources": 0
+        },
+        {
+          "pull": 384,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "1c189c4bcb0b06166e3773941d1f82d81cbd6f7f",
+          "base": "9415b79e4e2c23171440fe43560a39575d34aed5",
+          "mergeable": true,
+          "input_complete": false,
+          "context_bytes": 339220,
+          "collected_files": 40,
+          "omitted_file_count": 3,
+          "omitted_sources": 0
+        },
+        {
+          "pull": 398,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "cc22eadb06daa508b51b2b4f513298ad95f3f33f",
+          "base": "9415b79e4e2c23171440fe43560a39575d34aed5",
+          "mergeable": false,
+          "input_complete": false,
+          "context_bytes": 880876,
+          "collected_files": 20,
+          "omitted_file_count": 0,
+          "omitted_sources": 7
+        }
+      ],
+      "DispatcherException": {
+        "ApprovedBy": "jdharcourt",
+        "ApprovedOn": "2026-11-28",
+        "Scope": "Only dangerous-triggers annotations on pull_request_target and issue_comment in .github/workflows/ReviewRequest.yml",
+        "Constraints": "Metadata only; no PR code checkout or private credentials; live comment authorization; dispatch only the protected default branch reviewer; CI approval and merge queue gates unchanged",
+        "Verification": "Pinned Zizmor 1.32.0 pedantic offline audit passed both reviewer workflows with exactly two approved findings ignored"
+      },
+      "BootstrapReview": {
+        "PullRequest": "https://github.com/TryUniCAD/Kit/pull/402",
+        "Revision": "781797694e2d2ebf7a10bc907ec3f2908dd80e7d",
+        "Run": "https://github.com/TryUniCAD/Kit/actions/runs/46169826495",
+        "CheckId": 141055892952,
+        "Outcome": "PR exceeds the complete review file limit; input preparation published failure and skipped model review and publication",
+        "Approval": "Explicit owner bootstrap exception waives only failed reviewer check and missing app approval for PR 402; every other CI and native merge queue gate remains required"
+      },
+      "BootstrapAuthorization": {
+        "ApprovedBy": "jdharcourt",
+        "VerifiedUserId": 73539072,
+        "ApprovedOn": "2026-11-28",
+        "PullRequest": "https://github.com/TryUniCAD/Kit/pull/402",
+        "Scope": "One time bootstrap merge only; failed account reviewer check and missing app approval waived",
+        "Requirements": "All other CI checks pass; native merge queue acceptance passes; do not alter protections or bypass pending or failed queue acceptance",
+        "Continuation": "Authorization persists through ordinary task repairs; hosted runtime verification remains incomplete after merge"
+      }
+    },
+    {
+      "Id": "ReviewerLiveEvidence",
+      "Name": "Live review base and mergeability qualification",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/reviewer-model-reactions-20261128",
+      "Runner": "OpenAI",
+      "Parent": "AccountReviewer",
+      "Dependencies": [],
+      "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
+      "Exit": "Review snapshots bind live head and target revision; approval alone additionally requires successful matching CI and mergeability",
+      "Branch": "feat/reviewer-model-reactions-20261128",
+      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400",
+      "PreviousExit": "Review selection and publication compare ci evidence against the live target branch ref and refuse conflicting or indeterminate mergeability",
+      "ScopeChange": "Owner explicitly requested reviews during failed CI and merge conflicts and automatic rereview after each commit"
+    },
+    {
+      "Id": "ReviewerReactions",
+      "Name": "Mention review lifecycle reactions",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/reviewer-model-reactions-20261128",
+      "Runner": "OpenAI",
+      "Parent": "AccountReviewer",
+      "Dependencies": [],
+      "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
+      "Exit": "Authorized mention receives an app reaction when model review starts and a native outcome reaction after publication or failure without exposing credentials to the model",
+      "Branch": "feat/reviewer-model-reactions-20261128",
+      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400"
+    },
+    {
+      "Id": "ReviewerRuntime",
+      "Name": "Explicit default review model and reasoning",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/reviewer-model-reactions-20261128",
+      "Runner": "OpenAI",
+      "Parent": "AccountReviewer",
+      "Dependencies": [],
+      "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
+      "Exit": "Every hosted review passes the configured model and medium reasoning explicitly and reports the requested runtime without fallback",
+      "Branch": "feat/reviewer-model-reactions-20261128",
+      "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400"
+    },
+    {
+      "Id": "ReviewerBranding",
+      "Name": "Organization reviewer app name and logo",
+      "Status": "complete",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/codex-reviewer-20261128-setup",
+      "Runner": "OpenAI",
+      "Dependencies": [],
+      "Parent": "AccountReviewer",
+      "Source": "Documentation/Changes/Review/ReviewerBranding.md",
+      "Exit": "GitHub verifies the requested app display name and organization logo and the reviewer registry matches the actual resulting app and bot identities",
+      "Branch": "feat/codex-reviewer-20261128-setup",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
+      "Blocker": "Native project synchronization remains pending because project token scopes are unavailable; parent reviewer deployment and hosted acceptance remain unfinished",
+      "Evidence": {
+        "App": "https://github.com/apps/unicad",
+        "Bot": "https://api.github.com/users/unicad[bot]",
+        "Installation": "https://github.com/organizations/TryUniCAD/settings/installations/186823517",
+        "Avatar": "https://avatars.githubusercontent.com/in/5966452?v=4"
+      },
+      "AcceptedRevision": "b3e5255cdeea1cea904df485cf26d1d410a37f8e"
+    },
+    {
+      "Id": "ReviewerMentions",
+      "Name": "Trusted collaborator mention review requests",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/codex-reviewer-20261128-setup",
+      "Runner": "OpenAI",
+      "Dependencies": [],
+      "Parent": "AccountReviewer",
+      "MentionRepair": {
+        "Revision": "a5022354857791514dcfeeb049a28bdc595dfb6b",
+        "Report": "https://github.com/TryUniCAD/Kit/actions/runs/46153837089/job/141006028438",
+        "Change": "Use trusted scheduled mention polling and complete workflow concurrency without suppressing dangerous trigger audits",
+        "AcceptedRevision": "b3e5255cdeea1cea904df485cf26d1d410a37f8e",
+        "Verification": "Black and planning freshness passed; hosted CI and actual mention acceptance remain pending; local process tests were rejected by automatic approval review"
+      },
+      "Source": "Documentation/Changes/Review/ReviewerMentions.md",
+      "Exit": "Live authorized mentions select the commented PR with current successful CI while rejected public comments never reach protected app or account credential jobs",
+      "Branch": "feat/codex-reviewer-20261128-setup",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
+      "Blocker": "Hosted admission and authorized mention acceptance require initial default branch workflow deployment and activation; native project synchronization requires unavailable project scopes"
+    },
+    {
+      "Id": "AccountReviewer",
+      "Name": "Account authenticated review and GitHub App approval",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/codex-reviewer-20261128-setup",
+      "Runner": "OpenAI",
+      "Dependencies": [],
+      "Source": "Documentation/Tasks/AccountReviewer.md",
+      "Exit": "Revision bound end to end review posts priority findings and a five point score and approves only complete clean current head reviews after verified PR CI",
+      "Branch": "feat/codex-reviewer-20261128-setup",
+      "Blocker": "App identity, permissions, protected environment secrets and installation token access are verified; PR399 CI, initial workflow deployment, hosted credential rotation and current head approval remain pending; native project sync requires unavailable project token scopes",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
+      "VerificationRevision": "115109aa9a6b19d0592567dd8096c1b578e583cf",
+      "SteeringRepair": {
+        "Revision": "88449027bb947b4e94d35c6a2e1a17b8920e0850",
+        "Report": "https://github.com/TryUniCAD/Kit/actions/runs/46152804159/job/141002910376",
+        "Change": "Rename the scheduler run inventory to satisfy the mandatory identifier length rule"
+      },
+      "RepairEvidence": {
+        "Revision": "a06b12cf0f0144933abb17030d25b5a24dfad911",
+        "Failures": [
+          "https://github.com/TryUniCAD/Kit/actions/runs/46152077236/job/141000677751",
+          "https://github.com/TryUniCAD/Kit/actions/runs/46152077247/job/141000677843",
+          "https://github.com/TryUniCAD/Kit/actions/runs/46152077332/job/141000741402"
+        ],
+        "Change": "Move the change entry into a review topic and replace privileged completion events with scheduled verified CI selection without security suppressions"
+      },
+      "FollowUpPR": "https://github.com/TryUniCAD/Kit/pull/400",
+      "Deployment": {
+        "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/399",
+        "AcceptedRevision": "5d9c6a5f5a41e03d07368a5ef11f90b60caff4c2",
+        "State": "Initial workflow merged; activation paused for explicit runtime and reaction follow-up; hosted account execution remains unverified"
+      }
+    },
+    {
+      "Id": "PlanningViews",
+      "Name": "Repository planning register and dependency Gantt",
+      "Status": "active",
+      "Owner": "Codex planning agent",
+      "Dependencies": [],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Deterministic views cover registers and catalogues; maintenance instructions and process verification accompany the scoped delivery PR",
+      "Branch": "feat/project-todo-review-20261127",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/392",
+      "Blocker": "Bulk project writes repeatedly return HTTP502, connection timeouts and malformed responses across GraphQL and REST. Readback and durable identities retained; missing records and forecast cleanup remain unfinished. Configured reviewer skips actual review because its trial expired and credits are unavailable."
+    },
+    {
+      "Id": "FusionRevolveContrast",
+      "Name": "Unequal two-sided construction-axis revolve contrasts",
+      "Status": "checking",
+      "Owner": "jdharcourt",
+      "Dependencies": [],
+      "Source": "https://github.com/TryUniCAD/Kit/pull/393",
+      "Exit": "Bounded A08h-FusionUnequalAxis20261127 evidence and unresolved findings are recorded in PR393; strict reads, general constraints, complete reconstruction and editable conversion remain open",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/393",
+      "Branch": "feat/fusion-unequal-revolve-20261127"
+    },
+    {
+      "Id": "UiInspector",
+      "Name": "Local decoded-document and evidence inspector",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B01"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiConversion",
+      "Name": "Conversion setup and route eligibility interface",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B01", "B12"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiPreservation",
+      "Name": "Preservation differences and refusal explanation interface",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B12"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiResearch",
+      "Name": "Research queue and blocked-work interface",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["A03"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UxAccessibility",
+      "Name": "Keyboard navigation and accessible status reporting",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["UiInspector"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UxCli",
+      "Name": "CLI workflow and recovery improvements",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["B10"],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "Proposed scope requiring specification and owner claim; implemented behavior must pass process or browser acceptance and accessibility checks",
+      "Area": "UI/UX"
+    },
+    {
+      "Id": "UiPlanning",
+      "Name": "Planning board schedule editing and scope discovery",
+      "Status": "checking",
+      "Owner": "jdharcourt",
+      "Dependencies": [],
+      "Source": "Documentation/Planning/README.md",
+      "Exit": "React scope discovery, status filters, prompt copying and optional schedule exports are implemented in PR392; source generation and bundle build pass, configured review and queue acceptance remain pending",
+      "Area": "UI/UX",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/392",
+      "Branch": "feat/project-todo-review-20261127"
+    },
+    {
+      "Id": "AgentDispatch",
+      "Name": "Direct local and Hoplite agent dispatch",
+      "Status": "proposed",
+      "Owner": "Unassigned",
+      "Dependencies": ["A03", "UiPlanning"],
+      "Source": "Documentation/Planning/README.md",
+      "Area": "UI/UX",
+      "Exit": "Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client"
+    },
+    {
+      "Id": "PrReaderWriterReadiness",
+      "Name": "SOLIDWORKS PR121 current-main readiness repair",
+      "Status": "active",
+      "Owner": "Codex swarm root 01a22333-c91a-7753-a913-6ea8091aebc5",
+      "Dependencies": [],
+      "Source": "Documentation/Maintenance/ConversionBacklog.md",
+      "Area": "SDK",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/121",
+      "Branch": "codex/solidworks-2026-native",
+      "Exit": "No conflicts, preserved fixture modes, passing affected process regressions and current-head CI plus configured approval; broader CAD qualification and merge-group acceptance remain separate",
+      "Blocker": "Configured review and hosted current-head checks pending; native project synchronization unavailable in this session"
+    }
+  ],
+  "Dependencies": {
+    "B01": [],
+    "B02": [],
+    "B03": ["B02"],
+    "B04": ["B03"],
+    "B05": ["B02", "B03", "B04"],
+    "B06": ["B05"],
+    "B07": ["B06"],
+    "B08": [],
+    "B09": ["B01", "B05"],
+    "B10": [],
+    "B11": [],
+    "B12": ["B01"],
+    "B13": ["A07", "A08", "A14"],
+    "B14": ["B10", "B11", "B12"],
+    "A01": [],
+    "A02": ["A01"],
+    "A03": ["A01"],
+    "A04": ["A01"],
+    "A05": ["A01"],
+    "A06": ["A04", "A05"],
+    "A07": ["A03", "A06"],
+    "A08": [],
+    "A09": ["A07"],
+    "A10": ["A07", "A08", "A09"],
+    "A11": ["A01", "A06", "A09"],
+    "A12": ["A01", "A06", "A09"],
+    "A13": ["A04", "A05", "A08", "A11", "A12"],
+    "A14": ["A03"],
+    "A15": ["A07", "A08", "A14"],
+    "A16": ["A13", "A15"]
+  },
+  "DependencyPolicy": "These are parent-level prerequisite edges only; all detailed source dependency cells and external/native gates remain binding. A missing graph edge never makes a task runnable. B12 and B14 may qualify narrow subsets before all routes are complete.",
+  "SchedulePolicy": {
+    "Start": "2026-11-30",
+    "TimeboxDays": 5,
+    "ParallelLanes": {
+      "SOLIDWORKS": 2,
+      "Fusion": 2,
+      "Project": 2,
+      "UI/UX": 1,
+      "SDK": 2
+    },
+    "Basis": "Only explicitly supplied windows are dated; backlog order does not predict duration or delivery",
+    "ForecastEnabled": false
+  }
+}

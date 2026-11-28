@@ -1,0 +1,13 @@
+{
+  "SolidworksFamilies": 68,
+  "SolidworksSubfeatures": 585,
+  "FusionApiTypes": 2037,
+  "FusionNativeTypes": 1958,
+  "NativeInventory": {
+    "native_member": 1991,
+    "native_schema": 3563,
+    "native_type": 1958,
+    "ui_command": 3225
+  },
+  "UniversalVendorCoverage": "unverified; catalogues do not prove every product version or legal feature combination"
+}

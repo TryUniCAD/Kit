@@ -1,0 +1,58 @@
+{
+  "swapped_angles": {
+    "baseline_volume_cm3": 2.2423641163772734,
+    "swapped_volume_cm3": 2.2423641163772774,
+    "baseline_centroid_cm": [
+      0.07680474960960117,
+      0.8499999999999998,
+      0.3523143784962471
+    ],
+    "swapped_centroid_cm": [
+      0.07680474960960118,
+      0.8500000000000005,
+      -0.35231437849624786
+    ],
+    "equal_volume": true,
+    "centroid_distinguishes_roles": true
+  },
+  "axis_reversal": {
+    "baseline_axis": {
+      "type": "adsk::fusion::ConstructionAxis",
+      "name": "ExplicitAxis",
+      "origin_cm": [
+        1.1,
+        -0.7,
+        0.0
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "reversed_axis": {
+      "type": "adsk::fusion::ConstructionAxis",
+      "name": "ExplicitAxis",
+      "origin_cm": [
+        1.1,
+        -0.7,
+        0.0
+      ],
+      "direction": [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "baseline_centroid_cm": [
+      0.07680474960960117,
+      0.8499999999999998,
+      0.3523143784962471
+    ],
+    "reversed_centroid_cm": [
+      2.1231952503903995,
+      -2.2499999999999996,
+      0.35231437849624997
+    ]
+  }
+}

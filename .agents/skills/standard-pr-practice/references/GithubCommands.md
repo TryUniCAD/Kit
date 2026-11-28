@@ -79,6 +79,13 @@ GitHub review submissions carry `commit_id`, comments can link their original/cu
 
 ## Trigger, answer, and resolve
 
+For `Trigger: schedule`, follow the configured automatic workflow on each proposed head through event dispatch and scheduled recovery regardless of CI failures or merge conflicts.
+For explicit reassessment, post one exact `AccountReview.MentionCommands` entry as the whole new PR comment.
+The commenter must have current write, maintain, or admin permission; verify the resulting workflow and reviewed revision.
+For a manual retry, dispatch the configured `Workflow` with input `pull` and optional `force`, or input `comment` for an authorized mention.
+Do not use the comment-request commands below for an automatic reviewer.
+Those request commands apply only to entries with a configured `Comment`.
+
 ```sh
 jq -je --argjson Index 0 '.Reviewers[$Index].Comment | select(type == "string" and length > 0)' .agents/skills/standard-pr-practice/ReviewBot.json > /tmp/kit-review-comment.txt
 gh pr comment 123 --repo owner/repo --body-file /tmp/kit-review-comment.txt
@@ -86,7 +93,7 @@ gh api --method POST repos/owner/repo/pulls/123/comments/456789/replies -f body=
 gh api graphql -f query='mutation($threadId:ID!){resolveReviewThread(input:{threadId:$threadId}){thread{id isResolved}}}' -F threadId=PRRT_exampleNodeId
 ```
 
-Run the example commands separately from the repository root. Repeat for every entry, replacing the example index with its actual array index. The first command loads that entry’s `Comment` from [ReviewBot.json](../ReviewBot.json); proceed only if it succeeds, and use a task-owned temporary file. Submit that loaded string as the entire top-level comment to request review after opening the PR and after each new head. Check for an existing request or result first. Use [ReviewFindings.md](ReviewFindings.md) for revision attribution and completion rules. Finding replies must contain observed evidence rather than blindly copying the example. For a top-level report without review threads, post one concise finding-by-finding response linking the report, accepted fix SHA, and verification evidence; do not pretend an issue comment has a thread-resolution API. Resolve only threads from each configured reviewer with genuinely addressed findings; do not dismiss a blocking review or use resolution to hide a defect.
+Run the example commands separately from the repository root. Repeat comment requests only for comment-triggered entries, replacing the example index with its actual array index. The first command loads that entry’s `Comment` from [ReviewBot.json](../ReviewBot.json); proceed only if it succeeds, and use a task-owned temporary file. Submit that loaded string as the entire top-level comment to request review after opening the PR and after each new head. Check for an existing request or result first. Use [ReviewFindings.md](ReviewFindings.md) for revision attribution and completion rules. Finding replies must contain observed evidence rather than blindly copying the example. For a top-level report without review threads, post one concise finding-by-finding response linking the report, accepted fix SHA, and verification evidence; do not pretend an issue comment has a thread-resolution API. Resolve only threads from each configured reviewer with genuinely addressed findings; do not dismiss a blocking review or use resolution to hide a defect.
 
 ## Conflict mechanics and read-only merge state
 

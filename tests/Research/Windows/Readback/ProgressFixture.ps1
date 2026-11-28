@@ -6,13 +6,21 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-[CmdletBinding(DefaultParameterSetName = 'Capture')]
+[CmdletBinding(DefaultParameterSetName = 'Cached')]
 param(
-    [Parameter(Mandatory = $true, ParameterSetName = 'Compile')][string]$Source,
-    [Parameter(Mandatory = $true)][string]$AssemblyPath,
-    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$OwnerPath,
-    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$JournalPath,
-    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$MarkerPath
+    [Parameter(Mandatory = $true, ParameterSetName = 'Compile')]
+    [Parameter(Mandatory = $true, ParameterSetName = 'Cached')][string]$Source,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Compile')]
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')][string]$AssemblyPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')]
+    [Parameter(ParameterSetName = 'Cached')][string]$OwnerPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')]
+    [Parameter(ParameterSetName = 'Cached')][string]$JournalPath,
+    [Parameter(Mandatory = $true, ParameterSetName = 'Capture')]
+    [Parameter(ParameterSetName = 'Cached')][string]$MarkerPath,
+    [Parameter(ParameterSetName = 'Cached')][switch]$CompileOnly,
+    [Parameter(ParameterSetName = 'Cached')]
+    [Parameter(ParameterSetName = 'Compile')][string]$CacheRoot
 )
 $ErrorActionPreference = 'Stop'
 if ($PSCmdlet.ParameterSetName -eq 'Capture') {
@@ -20,7 +28,8 @@ if ($PSCmdlet.ParameterSetName -eq 'Capture') {
     [ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)
     return
 }
-
+$RequestedAssembly = $AssemblyPath
+[Console]::Error.WriteLine((@{ fixture = 'readback'; phase = 'started'; utc = [DateTime]::UtcNow.ToString('o') } | ConvertTo-Json -Compress))
 $Web = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 $Program = @'
 public static class ProgressFixture
@@ -53,4 +62,57 @@ public static class ProgressFixture
     }
 }
 '@
-Add-Type -TypeDefinition ((Get-Content -LiteralPath $Source -Raw) + "`n" + $Program) -ReferencedAssemblies @('System.Core.dll', $Web) -OutputAssembly $AssemblyPath
+$Started = [Diagnostics.Stopwatch]::StartNew()
+$Definition = (Get-Content -LiteralPath $Source -Raw) + "`n" + $Program
+$Identity = $Definition + [Environment]::Version.ToString() + [IntPtr]::Size + $PSVersionTable.PSVersion.ToString()
+$Hasher = [Security.Cryptography.SHA256]::Create()
+try {
+    $Digest = [BitConverter]::ToString($Hasher.ComputeHash([Text.Encoding]::UTF8.GetBytes($Identity))).Replace('-', '').ToLowerInvariant()
+} finally { $Hasher.Dispose() }
+if (-not $CacheRoot) {
+    $TempRoot = if ($env:RUNNER_TEMP) { $env:RUNNER_TEMP } else { [IO.Path]::GetTempPath() }
+    $CacheRoot = Join-Path $TempRoot 'KitReadbackFixture'
+}
+$CacheRoot = [IO.Path]::GetFullPath($CacheRoot)
+$null = [IO.Directory]::CreateDirectory($CacheRoot)
+$AssemblyPath = Join-Path $CacheRoot ($Digest + '.dll')
+$Hasher = [Security.Cryptography.SHA256]::Create()
+try {
+    $MutexKey = [BitConverter]::ToString($Hasher.ComputeHash([Text.Encoding]::UTF8.GetBytes($CacheRoot))).Replace('-', '')
+} finally { $Hasher.Dispose() }
+$Mutex = New-Object Threading.Mutex($false, ('Local\KitReadback-' + $Digest + '-' + $MutexKey))
+$HasLock = $false
+$Compiled = $false
+$CompileSeconds = 0.0
+try {
+    try { $HasLock = $Mutex.WaitOne(360000) }
+    catch [Threading.AbandonedMutexException] { $HasLock = $true }
+    if (-not $HasLock) { throw 'Timed out waiting for the readback fixture assembly' }
+    if (-not [IO.File]::Exists($AssemblyPath)) {
+        $PendingPath = Join-Path $CacheRoot ([Guid]::NewGuid().ToString('N') + '.dll')
+        $CompileClock = [Diagnostics.Stopwatch]::StartNew()
+        [Console]::Error.WriteLine((@{ fixture = 'readback'; phase = 'compile'; utc = [DateTime]::UtcNow.ToString('o') } | ConvertTo-Json -Compress))
+        try {
+            Add-Type -TypeDefinition $Definition -ReferencedAssemblies @('System.Core.dll', $Web) -OutputAssembly $PendingPath
+            [IO.File]::Move($PendingPath, $AssemblyPath)
+            $Compiled = $true
+        } finally {
+            if ([IO.File]::Exists($PendingPath)) { [IO.File]::Delete($PendingPath) }
+        }
+        $CompileSeconds = $CompileClock.Elapsed.TotalSeconds
+    }
+} finally {
+    if ($HasLock) { $Mutex.ReleaseMutex() }
+    $Mutex.Dispose()
+}
+Add-Type -Path $AssemblyPath
+[Console]::Error.WriteLine((@{
+    fixture = 'readback'; phase = 'loaded'; compiled = $Compiled; assembly = $AssemblyPath
+    compile_seconds = $CompileSeconds; elapsed_seconds = $Started.Elapsed.TotalSeconds
+} | ConvertTo-Json -Compress))
+if ($PSCmdlet.ParameterSetName -eq 'Compile') {
+    [IO.File]::Copy($AssemblyPath, $RequestedAssembly, $false)
+    return
+}
+if ($CompileOnly) { exit 0 }
+[ProgressFixture]::Run($OwnerPath, $JournalPath, $MarkerPath)

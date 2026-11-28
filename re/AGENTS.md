@@ -8,3 +8,15 @@ Use the existing `CadDocument` contract for native readers and destination write
 Require editable native acceptance for claims of cross-format conversion. Keep models off unless a separate authorization enables them.
 Run the applicable process and compatibility gates, and tie evidence to the exact tested revision.
 Application workers remain isolated research oracles.
+
+Read [repository planning](../Documentation/Planning/README.md) before choosing a
+decoding scope. Refresh live claims and schedules; claim the bounded child in the
+phase register before capture. Link exact catalogue scope IDs, dependencies, native
+resource, owner, delivery and exit evidence. Keep capture, decoding, semantic,
+writing and native-acceptance stages separate. A scheduled timebox never establishes
+qualification or reserves a shared CAD host. Update the owning register and project
+when a claim, blocker, schedule or evidence changes, then regenerate and check the
+planning views. Copy-prompt and dispatch recipients must recheck ownership before
+starting; do not run a scope already taken by another owner.
+
+Follow [the agent planning workflow](../Documentation/Planning/AgentWorkflow.md) at task start, state changes and handoff.
