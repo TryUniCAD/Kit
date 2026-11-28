@@ -1,9 +1,12 @@
 import json as JsonTools
+import sys as SysTools
+from pathlib import Path
 
 from ReviewSources import ReviewSources
 from Budget.AddSourceMut import AddSourceMut
 from Input.MakeContext import MakeContext
 from Input.ReadSource import ReadSource
+from Planning.PlanCoverage import PlanCoverage
 
 
 # bounded source coverage must remain explicit so incomplete input can never receive automatic approval
@@ -30,6 +33,9 @@ def BuildContext(
     Context["files"] = Sources
     for Source in ReviewSources(FileList, Evidence):
         AddSourceMut(Context, Source, Sources)
+    ProofData = PlanCoverage(Evidence, Settings, Sources)
+    if ProofData is not None:
+        Context["generated_verification"] = ProofData
     Context["omitted_file_count"] = int(str(Context["changed_file_count"])) - len(
         Sources
     )
@@ -40,3 +46,7 @@ def BuildContext(
     if len(Content.encode()) > 900000:
         raise ValueError("Review context exceeds the encoded input budget")
     return Content
+
+
+if __name__ == "__main__":
+    print(BuildContext(**JsonTools.loads(Path(SysTools.argv[1]).read_text())))

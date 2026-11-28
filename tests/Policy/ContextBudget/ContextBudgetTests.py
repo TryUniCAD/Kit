@@ -26,14 +26,13 @@ def CheckBudget(CaseName: str) -> None:
         InputPath = WorkPath / "Input.json"
         WriteCount = InputPath.write_text(JsonTools.dumps(InputData), encoding="utf-8")
         assert WriteCount > 0
-        OutputPath = WorkPath / "Context.json"
-        Result = RunCollector(RootPath, RepoPath, InputPath, OutputPath)
+        Result = RunCollector(RootPath, RepoPath, InputPath)
         if CaseName == "policy":
             assert Result.returncode != 0 and "encoded input budget" in Result.stderr
-            assert not OutputPath.exists()
+            assert not Result.stdout
             return
         assert Result.returncode == 0, Result.stderr
-        Content = OutputPath.read_bytes()
+        Content = Result.stdout.encode("utf-8")
         Context = CastValue(dict[str, object], JsonTools.loads(Content))
         VerifyBudget(CaseName, Context, len(Content))
         VerifySnapshots(RepoPath, Context, BeforeSha, HeadValue, TargetSha)
@@ -41,17 +40,14 @@ def CheckBudget(CaseName: str) -> None:
 
 # no account authentication or model execution enters this real git backed context process
 def RunCollector(
-    RootPath: Path, RepoPath: Path, InputPath: Path, OutputPath: Path
+    RootPath: Path, RepoPath: Path, InputPath: Path
 ) -> ProcessTools.CompletedProcess[str]:
     return ProcessTools.run(
         [
             SysTools.executable,
-            "-I",
             "-B",
-            str(Path(__file__).with_name("ContextRunner.py")),
-            str(RootPath / ".github/scripts/Review"),
+            str(RootPath / ".github/scripts/Review/BuildContext.py"),
             str(InputPath),
-            str(OutputPath),
         ],
         cwd=RepoPath,
         capture_output=True,
