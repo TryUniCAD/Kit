@@ -6,6 +6,13 @@ from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersion
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
+from convert.adapters.solidworks.Archive.Bodies.Fields.GhostWord import (
+    KGhostShift,
+    KGhostFlagMin,
+    KGhostFlagMax,
+    KGhostWordKind,
+)
+
 
 # the packed ghost word keeps the signed flag independent of the actual row count
 def WriteGhostMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
@@ -17,7 +24,9 @@ def WriteGhostMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     if Count != 0:
         raise BodyUnsupported("unqualified populated SOLIDWORKS ghost rows")
     Flags = ReadScopeValue(Scope, RuleValue.OtherName)
-    if type(Flags) is not int or not -8 <= Flags <= 7:
+    if type(Flags) is not int or not KGhostFlagMin <= Flags <= KGhostFlagMax:
         raise ValueError("native ghost flags require a signed four bit integer")
-    Writer.OutputValue.extend(EncodeScalar((Flags << 28) | Count, "i32"))
+    Writer.OutputValue.extend(
+        EncodeScalar((Flags << KGhostShift) | Count, KGhostWordKind)
+    )
     Scope.ValuesValue[RuleValue.NameValue] = Count

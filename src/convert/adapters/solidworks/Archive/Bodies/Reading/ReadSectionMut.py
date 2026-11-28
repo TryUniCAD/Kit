@@ -4,13 +4,17 @@ from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersion
 from convert.adapters.solidworks.Archive.Reading.ReadSectSpan import ReadSectSpan
 
+from convert.adapters.solidworks.Archive.Bodies.Fields.SectionField import (
+    KSectSkipMask,
+)
+
 
 # sized model sections must complete their own bodies before the outer cursor advances
 def ReadSectionMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
     Context = FrameValue.ContextValue
     if Context.VersionValue != KHeaderVersion:
         raise BodyUnsupported("SOLIDWORKS model section requires archive version 19000")
-    if Context.FlagsValue.get("conditions", 0) & 0x180000:
+    if Context.FlagsValue.get("conditions", 0) & KSectSkipMask:
         raise BodyUnsupported("unsupported SOLIDWORKS skipped model section")
     Reader = FrameValue.ReaderValue
     Cursor = Reader.Cursor

@@ -13,6 +13,12 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.CheckMassSlot import (
 )
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
+from convert.adapters.solidworks.Archive.Bodies.Fields.CacheCountField import (
+    KCacheCountKind,
+    KCacheSlotsMax,
+    KMassSelectorSlots,
+)
+
 
 # counted cache slots derive their wire frame from the actual modeled rows
 def WriteMassMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
@@ -20,12 +26,14 @@ def WriteMassMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     SlotsValue = ReadBodyRows(ScopeValue, RuleValue.NameValue)
     CountValue = len(SlotsValue)
     OutputValue = FrameValue.WriterValue.OutputValue
-    if CountValue > 2:
+    if CountValue > KCacheSlotsMax:
         raise BodyUnsupported("native part cache count is outside zero through two")
     SelectorValue = ReadScopeValue(ScopeValue, RuleValue.OtherName)
-    if type(SelectorValue) is not int or (CountValue < 2 and SelectorValue != 0):
+    if type(SelectorValue) is not int or (
+        CountValue < KMassSelectorSlots and SelectorValue != 0
+    ):
         raise BodyUnsupported("SOLIDWORKS mass cache selector requires two slots")
-    OutputValue.extend(EncodeScalar(CountValue, "i32"))
+    OutputValue.extend(EncodeScalar(CountValue, KCacheCountKind))
     for Index, SlotValue in enumerate(SlotsValue):
         if not isinstance(SlotValue, MutableMapping):
             raise BodyUnsupported("SOLIDWORKS mass cache slot requires modeled fields")
@@ -36,5 +44,5 @@ def WriteMassMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
             ReplaceValue(FrameValue, ScopeValue=SlotScope),
             "moMassPropCache_c.Serialize",
         )
-    if CountValue == 2:
+    if CountValue == KMassSelectorSlots:
         OutputValue.extend(EncodeScalar(SelectorValue, "i32"))

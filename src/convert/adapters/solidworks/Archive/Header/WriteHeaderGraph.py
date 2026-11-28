@@ -1,11 +1,13 @@
-from struct import pack as PackValue
-
 from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersion
 from convert.adapters.solidworks.Archive.Header.WriteHeaderBody import StoreHeaderBody
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.ObjectStore import ObjectStore
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Objects.ClassDescField import (
+    KClassDescWord,
+    KClassNameCodec,
+)
 from convert.adapters.solidworks.Archive.Objects.WriteObjectMut import WriteObjectMut
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 from convert.adapters.solidworks.Archive.Tags.EncodeTag import EncodeTag
@@ -25,8 +27,9 @@ def WriteHeadGraph(RootValue: ArchiveNode, Version: int) -> bytes:
 
     # class records derive name length from the selected runtime class
     def StoreClass(ClassValue: RuntimeClass) -> None:
-        NameValue = ClassValue.NameValue.encode("ascii")
-        Buffer.extend(PackValue("<HH", ClassValue.SchemaValue, len(NameValue)))
+        NameValue = ClassValue.NameValue.encode(KClassNameCodec)
+        Buffer.extend(KClassDescWord.pack(ClassValue.SchemaValue))
+        Buffer.extend(KClassDescWord.pack(len(NameValue)))
         Buffer.extend(NameValue)
 
     # retained child references enter the same stream allocation as their owner

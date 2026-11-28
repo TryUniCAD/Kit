@@ -1,7 +1,16 @@
-from struct import pack as PackValue
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
+
+from convert.adapters.solidworks.Archive.Tags.TagField import (
+    KTagShort,
+    KTagLong,
+    KTagNull,
+    KTagNewClass,
+    KTagWideMark,
+    KTagClassBit,
+    KTagWideClass,
+)
 
 
 # canonical native widths keep structural markers distinct from unsigned reference indices
@@ -13,16 +22,18 @@ def EncodeTag(TagValue: ArchiveTag) -> bytes:
     if TagValue.KindValue in ("Null", "NewClass"):
         if TagValue.IndexValue is not None:
             raise ValueError("structural archive tags cannot carry a reference index")
-        return PackValue("<H", 0 if TagValue.KindValue == "Null" else 0xFFFF)
+        return KTagShort.pack(
+            KTagNull if TagValue.KindValue == "Null" else KTagNewClass
+        )
     if TagValue.KindValue not in ("ClassRef", "ObjectRef"):
         raise ValueError("archive tag kind is unsupported")
     IndexValue = TagValue.IndexValue
     if type(IndexValue) is not int:
         raise TypeError("archive reference index must be an integer")
-    if not 1 <= IndexValue <= 0x7FFFFFFF:
+    if not 1 <= IndexValue <= KTagWideClass - 1:
         raise ValueError("archive reference index exceeds the unsigned tag domain")
-    if IndexValue < 0x7FFF:
-        TagWord = IndexValue | (0x8000 if TagValue.KindValue == "ClassRef" else 0)
-        return PackValue("<H", TagWord)
-    TagWord = IndexValue | (0x80000000 if TagValue.KindValue == "ClassRef" else 0)
-    return PackValue("<HI", 0x7FFF, TagWord)
+    if IndexValue < KTagWideMark:
+        TagWord = IndexValue | (KTagClassBit if TagValue.KindValue == "ClassRef" else 0)
+        return KTagShort.pack(TagWord)
+    TagWord = IndexValue | (KTagWideClass if TagValue.KindValue == "ClassRef" else 0)
+    return KTagShort.pack(KTagWideMark) + KTagLong.pack(TagWord)
