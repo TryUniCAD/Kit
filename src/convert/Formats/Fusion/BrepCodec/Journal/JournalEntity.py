@@ -1,4 +1,7 @@
 from typing import TypeAlias
+from convert.Formats.Fusion.BrepCodec.Journal.Attributes.MaterialAttrib import (
+    MaterialAttrib,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Complex.ComplexEntity import (
     KComplexEntity,
 )
@@ -67,6 +70,7 @@ KJournalEntity: TypeAlias = (  # lgtm[py/unused-global-variable]
     | SphereNode
     | TorusNode
     | TimeAttrib
+    | MaterialAttrib
     | FeatureAttrib
     | TrackAttrib
     | TagAttrib

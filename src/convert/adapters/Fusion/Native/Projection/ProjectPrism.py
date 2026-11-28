@@ -1,4 +1,6 @@
 from convert.adapters.Fusion.Native.DatumPrism.ReadDatumBody import ReadDatumBody
+from convert.adapters.Fusion.Native.FixedPrism.CheckStyledOwner import CheckStyleOwner
+from convert.adapters.Fusion.Native.FixedPrism.CheckStyledPrism import CheckStylePrism
 from convert.adapters.Fusion.Native.DraftedRectangle.ProjectDraft import ProjectDraft
 from convert.adapters.Fusion.Native.DatumPrism.ReadDatumFrame import (
     KYzMatrix,
@@ -23,15 +25,16 @@ from convert.adapters.Fusion.Native.Projection.ProjectRectangle import (
     ProjectSketch,
 )
 from convert.adapters.Fusion.Native.Projection.ReadMaterial import ReadMaterial
+from convert.adapters.Fusion.Native.Projection.ReadPrismRules import ReadPrismRules
 from convert.adapters.Fusion.Native.Rectangle.CheckBodyJoins import CheckBodyJoins
 from convert.adapters.Fusion.Native.Rectangle.CheckOperations import CheckOperations
 from convert.adapters.Fusion.Native.Rectangle.CheckRegion import CheckRegion
 from convert.adapters.Fusion.Native.Rectangle.CheckPrismTags import CheckPrismTags
 from convert.adapters.Fusion.Native.Rectangle.ReadRectangle import ReadRectangle
-from convert.adapters.Fusion.Native.Rectangle.ReadRectRules import ReadRectRules
 from convert.adapters.Fusion.Native.Graph.SelectExtrusion import SelectExtrusion
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
+from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
 from convert.adapters.Fusion.Native.SignedPrism.CheckSignedTags import CheckSignedTags
 from convert.adapters.Fusion.Native.SignedPrism.ReadSignedBody import ReadSignedBody
 from convert.adapters.Fusion.State.EncodeState import EncodeState
@@ -72,11 +75,9 @@ def ProjectPrism(
     Station = GenericStation(Model, Context)
     Reverse = Station < 0.0
     YzDatum = Station > 0.0 and Context.Plane.Fields["transform"] == KYzMatrix
-    Rectangle = ReadRectRules(Graph, Context, Reverse, YzDatum)
-    CheckGraph(Graph, Context, Rectangle, YzDatum)
-    CheckScopes(Graph, Context, Model.Asset.AssetId)
-    FrameValue = ReadDatumFrame(Graph, Context) if YzDatum else KTransformIdentity
-    Shape = ReadRectangle(Graph, Context, Rectangle)
+    Shape, Rectangle, FrameValue = ReadPrismGeom(
+        Graph, Context, Model, Reverse, YzDatum
+    )
     Parameters = ReadParameters(
         Graph,
         Context,
@@ -84,8 +85,6 @@ def ProjectPrism(
         Reverse=Reverse,
         PlainReverse=Reverse and Rectangle is None,
     )
-    CheckRegion(Graph, Context, Shape.LineNodes, Model.Asset.AssetId)
-    CheckPrismBody(Graph, Context, Model, Shape, FrameValue, Reverse, YzDatum)
     Material = ReadMaterial(Graph, Context, Model)
     Features = ProjectFeatures(Graph, Context, Rectangle, FrameValue.z_axis)
     DepthSpan = ReadSignedSpan(Features[-1], Parameters) if Reverse else None
@@ -115,6 +114,34 @@ def ProjectPrism(
     )
     Document.AssertValid()
     return Document
+
+
+# measured rectangular geometry must match its typed graph before neutral projection
+def ReadPrismGeom(
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    Model: DocumentModel,
+    Reverse: bool,
+    YzDatum: bool,
+) -> tuple[RectGeometry, RectSketchProof | None, Transform]:
+    Rectangle = ReadPrismRules(Graph, Context, Reverse, YzDatum)
+    Styled = None
+    if Graph.ByClass("VMBrepRef"):
+        if Rectangle is None or Rectangle.LineNormal is None or Reverse or YzDatum:
+            raise ValueError(
+                "Native face appearance requires the fixed XY cuboid profile"
+            )
+        Styled = CheckStyleOwner(Graph, Context, Model.Asset.AssetId)
+    CheckGraph(Graph, Context, Rectangle, YzDatum, Styled[0] if Styled else None)
+    CheckScopes(Graph, Context, Model.Asset.AssetId)
+    FrameValue = ReadDatumFrame(Graph, Context) if YzDatum else KTransformIdentity
+    Shape = ReadRectangle(Graph, Context, Rectangle)
+    CheckRegion(Graph, Context, Shape.LineNodes, Model.Asset.AssetId)
+    if Styled is None:
+        CheckPrismBody(Graph, Context, Model, Shape, FrameValue, Reverse, YzDatum)
+    else:
+        CheckStylePrism(Graph, Context, Model, Shape, *Styled)
+    return Shape, Rectangle, FrameValue
 
 
 # generic datum and reverse candidates must carry both independently typed geometry roles

@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "scope": "prior independently authored control and prior vendor-saved edited/restored research captures; no new native run is claimed",
+  "native_output_acceptance": "unmeasured for any new SDK re-emission",
+  "fixtures": [
+    {
+      "id": "BaselineControl",
+      "file": "BaselineControl.f3d",
+      "sha256": "5f9ad382c5e4b15313a59bebe4201ccd5b87137a3f20ebe85f5e3fba79148ca0",
+      "prior_capture": "../EncoderIntegratedFusion01/OracleReconstruction/VendorControl.f3d",
+      "prior_capture_stage": "ControlBefore",
+      "prior_case": "baseline",
+      "fusion_build": "2706.1.17",
+      "prior_pid": 25000,
+      "stage_status": "passed",
+      "custody_record": "Evidence/BaselineControl.json",
+      "custody_record_sha256": "99c5649dc3e04c40582bcd0dc0d9587edb2e7a0e4f4bdcb87c2fb5258e48f24e",
+      "custody_archive_key": "VendorControl.f3d"
+    },
+    {
+      "id": "BaselineEdited",
+      "file": "BaselineEdited.f3d",
+      "sha256": "1e7584c59f898b41af2ea3d5accf0c5c44e793bcd0ab7c5486a08feb55443aa2",
+      "prior_capture": "../EncoderIntegratedFusion01/OracleReconstruction/VendorEdited.f3d",
+      "prior_capture_stage": "Candidate",
+      "prior_case": "baseline",
+      "fusion_build": "2706.1.17",
+      "prior_pid": 34032,
+      "stage_status": "passed",
+      "custody_record": "Evidence/BaselineCandidate.json",
+      "custody_record_sha256": "7560b4f5a920e61f0c97377d52609d4b03ccfd9946d30c48317a3965014ed71c",
+      "custody_archive_key": "VendorEdited.f3d"
+    },
+    {
+      "id": "BaselineRestored",
+      "file": "BaselineRestored.f3d",
+      "sha256": "b6726c11bd4e67155035de7fc6bcda3b559682fc9c4f496c2b35a05d84184752",
+      "prior_capture": "../EncoderIntegratedFusion01/OracleReconstruction/VendorRestored.f3d",
+      "prior_capture_stage": "Candidate",
+      "prior_case": "baseline",
+      "fusion_build": "2706.1.17",
+      "prior_pid": 34032,
+      "stage_status": "passed",
+      "custody_record": "Evidence/BaselineCandidate.json",
+      "custody_record_sha256": "7560b4f5a920e61f0c97377d52609d4b03ccfd9946d30c48317a3965014ed71c",
+      "custody_archive_key": "VendorRestored.f3d"
+    },
+    {
+      "id": "HoldoutControl",
+      "file": "HoldoutControl.f3d",
+      "sha256": "850b1a76c30c673ba10e33ef1e78618c5e9f106646d5aa9fbf3411ddd6683ac4",
+      "prior_capture": "../FusionEncoderNativeCandidateArtifacts/NativeHoldoutEdited/VendorControl.f3d",
+      "prior_capture_stage": "ControlBefore",
+      "prior_case": "holdout",
+      "fusion_build": "2706.1.17",
+      "prior_pid": 26616,
+      "stage_status": "passed",
+      "custody_record": "Evidence/HoldoutControl.json",
+      "custody_record_sha256": "eb8e5249769f449687aa7a189eeb06890e7c90885fb010357d0a9f85d38e7586",
+      "custody_archive_key": "VendorControl.f3d"
+    }
+  ]
+}

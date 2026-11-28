@@ -448,6 +448,24 @@ The [change entry](../../Changes/Research/Readers/Fusion/FusionDecodeEfficiency.
 The Codex Fusion encoder worker owns this active task on `codex/fusion-saved-cuboid-roundtrip`.
 [PR #299](https://github.com/TryUniCAD/Kit/pull/299) delivers the read-only reader and is checking.
 The saved-graph writer and independent native acceptance remain open.
+The [saved cuboid display-order contrast](../../Changes/Research/Encoder/FusionSavedCuboidDisplayOrder.md)
+regenerates the history association from persisted typed JSON for two measured source states.
+The [height-edit leaf bounds probe](../../Changes/Research/Encoder/FusionSavedCuboidHeightLeafBounds.md)
+matched 18 role-bound display leaves across three saved height changes.
+The [generated body graphics contrast](../../Changes/Research/Encoder/FusionGeneratedCuboidBodyScene.md)
+combines source-free authored parts with an owner-bound scene on three requests.
+The [strict JSON height-edit probe](../../Changes/Research/Encoder/FusionStrictSavedCuboidHeightEdit.md)
+reproduces the frozen edited bytes after complete original-state verification.
+The [face material journal codec](../../Changes/Research/Encoder/FusionFaceMaterialJournalAttribute.md)
+retains measured owner and tag links without enabling public face-style admission.
+The [fixed corner line normal repair](../../Changes/Fusion/Adapter/FusionFixedCuboidPlaneSense.md)
+admits five additional exact native archives through strict readback.
+The [typed face appearance owner](../../Changes/Research/Encoder/FusionFaceAppearanceOwner.md) preserves exact reference records in three styled saves.
+The same-source scene omission reopened with matching camera, face appearance and pixels. The generated graphics candidate stalled during native import.
+The [fixed cuboid face appearance reader](../../Changes/Fusion/Adapter/FusionSavedCuboidFaceAppearance.md) verifies strict SDK and CLI preservation of the measured styled cases.
+The [resaved parameter observer rule](../../Changes/Fusion/Adapter/FusionFixedCuboidResavedObservers.md) verifies all six native edited and restored archives through strict SDK and CLI JSON. The shared integration suite covers the exact native fixture, five malformed observer contrasts and the ordinary authoring process.
+Three exact independently generated scene-free cuboids passed the native geometry lifecycle. Viewport picking, extended presentation, previews and styled candidate acceptance remain open.
+This is partial writer evidence. Saved-scene generation, material and preview preservation, and the held-out writer exit remain open.
 Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 The scope is the supported vendor-resaved constrained cuboid family.
 The exit requires exact saved-state reading and deterministic native generation from JSON alone.

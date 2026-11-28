@@ -23,6 +23,7 @@ from convert.adapters.Fusion.Native.Policy.CheckExtrusion import CheckExtrusion
 def CheckCutGraph(
     Graph: NativeGraph, Contexts: tuple[ExtrudeContext, ExtrudeContext], AssetId: str
 ) -> FeatureTag:
+    EmptyFields(Contexts[0].BodyNode, ("faceVisualMaterialByAttrTagID",))
     CheckClasses(Graph, Additional=("DRBody", "ASMRecipe"))
     if any(
         Group.Opaque
@@ -53,6 +54,5 @@ def CheckCutGraph(
             for Value in ObjectFields(NodeValue.Fields["massProperties"]).values()
         ):
             raise ValueError("Native cut has custom mass property overrides")
-    EmptyFields(Contexts[0].BodyNode, ("faceVisualMaterialByAttrTagID",))
     RequireFields(Contexts[0].DcBody, {"isEliminated": False})
     return BodyTag

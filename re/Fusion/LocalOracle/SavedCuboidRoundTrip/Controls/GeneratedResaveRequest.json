@@ -1,0 +1,210 @@
+{
+  "body_finish": {
+    "anisotropy": 0.0,
+    "color_space": 0,
+    "kind": "opaque",
+    "name": "Slate Gauge Exterior",
+    "reflectance": 0.125,
+    "rotation": 0.0,
+    "roughness": 0.625,
+    "scatter_color_rgba": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "scatter_distance_mm": null,
+    "tint_rgba": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "translucent": false
+  },
+  "material_request": {
+    "configuration_request": {
+      "camera_request": {
+        "cuboid": {
+          "component_title": "Slate Gauge Component",
+          "material": {
+            "density_kg_m3": 1380.0,
+            "label": "Slate Gauge Material",
+            "rgba": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ]
+          },
+          "names": {
+            "body": "Slate Gauge Solid",
+            "extrude": "Slate Gauge Extrusion",
+            "sketch": "Slate Gauge Rectangle"
+          },
+          "parameter_order": [
+            "width_driver",
+            "depth_driver",
+            "height_driver",
+            "width",
+            "depth",
+            "height",
+            "taper"
+          ],
+          "parameters": {
+            "depth": {
+              "comment": "",
+              "display_name": "Depth binding",
+              "driver_role": "depth_driver",
+              "expression": "depthGauge",
+              "unit": "mm",
+              "user_name": "depthModel",
+              "value": 1.6375000000000002
+            },
+            "depth_driver": {
+              "comment": "Drives the depth of the held profile",
+              "display_name": "Depth control",
+              "expression": "16.375 mm",
+              "unit": "mm",
+              "user_name": "depthGauge",
+              "value": 1.6375000000000002
+            },
+            "height": {
+              "comment": "",
+              "display_name": "Height binding",
+              "driver_role": "height_driver",
+              "expression": "riseGauge",
+              "unit": "mm",
+              "user_name": "heightModel",
+              "value": 0.8875000000000001
+            },
+            "height_driver": {
+              "comment": "Drives the height of the held profile",
+              "display_name": "Height control",
+              "expression": "8.875 mm",
+              "unit": "mm",
+              "user_name": "riseGauge",
+              "value": 0.8875000000000001
+            },
+            "taper": {
+              "comment": "",
+              "display_name": "Taper",
+              "expression": "0 deg",
+              "unit": "deg",
+              "user_name": "draftAngle",
+              "value": 0.0
+            },
+            "width": {
+              "comment": "",
+              "display_name": "Width binding",
+              "driver_role": "width_driver",
+              "expression": "widthGauge",
+              "unit": "mm",
+              "user_name": "widthModel",
+              "value": 2.4625000000000004
+            },
+            "width_driver": {
+              "comment": "Drives the width of the held profile",
+              "display_name": "Width control",
+              "expression": "24.625 mm",
+              "unit": "mm",
+              "user_name": "widthGauge",
+              "value": 2.4625000000000004
+            }
+          },
+          "schema": 1,
+          "scope": "fixed_cuboid_parameter_bindings",
+          "title": "Slate Gauge"
+        },
+        "named_views": [
+          {
+            "allow_modify": false,
+            "camera": {
+              "auto_focus": true,
+              "clip_far": 8.0,
+              "clip_near": 0.0,
+              "depth_field_enabled": false,
+              "exposure": 10.5,
+              "extents_height": 0.8,
+              "extents_width": 0.8,
+              "focal_distance": 2.0,
+              "lens_radius": 0.0,
+              "mirror_x": false,
+              "mirror_y": false,
+              "perspective_angle": 0.375,
+              "position": [
+                2.0,
+                -2.0,
+                3.0
+              ],
+              "projection": 1,
+              "target": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "up": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "name": "Slate Gauge Metric View"
+          }
+        ],
+        "schema": 1,
+        "scope": "fixed_cuboid_named_cameras"
+      },
+      "configuration_parts": [
+        "table",
+        "rule"
+      ],
+      "schema": 1,
+      "scope": "fixed_cuboid_empty_configuration_envelope"
+    },
+    "material_properties": {
+      "component_default": false,
+      "finish": {
+        "anisotropy": 0.0,
+        "color_space": 0,
+        "kind": "opaque",
+        "name": "Slate Gauge Physical",
+        "reflectance": 0.125,
+        "rotation": 0.0,
+        "roughness": 0.25,
+        "scatter_color_rgba": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scatter_distance_mm": null,
+        "tint_rgba": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translucent": false
+      },
+      "mechanics": {
+        "conductivity_w_m_k": 2.75,
+        "damping": 0.015625,
+        "specific_heat_j_kg_k": 875.0
+      },
+      "structural_class": "Basic",
+      "thermal": null,
+      "type": "Generic"
+    },
+    "schema": 1,
+    "scope": "fixed_cuboid_authored_material_properties"
+  },
+  "physical_appearance_rgba": [
+    0.0,
+    1.0,
+    0.0,
+    1.0
+  ],
+  "schema": 1,
+  "scope": "fixed_cuboid_distinct_material_appearances"
+}

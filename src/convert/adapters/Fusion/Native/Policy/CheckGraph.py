@@ -30,8 +30,9 @@ def CheckBase(
     Dimension: NativeNode | None = None,
     Rectangle: RectSketchProof | None = None,
     YzDatum: bool = False,
+    Additional: tuple[str, ...] = (),
 ) -> None:
-    CheckClasses(Graph, Dimension, Rectangle)
+    CheckClasses(Graph, Dimension, Rectangle, Additional)
     CheckAssembly(Graph, Context)
     CheckContainers(Graph, Context)
     CheckPlacement(Graph, Context, Dimension, Rectangle, YzDatum)
@@ -47,14 +48,19 @@ def CheckGraph(
     Context: ExtrudeContext,
     Rectangle: RectSketchProof | None = None,
     YzDatum: bool = False,
+    StyleOwner: NativeNode | None = None,
 ) -> None:
-    CheckBase(Graph, Context, Rectangle=Rectangle, YzDatum=YzDatum)
+    Additional = ("VMBrepRef", "ASMRecipe") if StyleOwner is not None else ()
+    CheckBase(
+        Graph, Context, Rectangle=Rectangle, YzDatum=YzDatum, Additional=Additional
+    )
     CheckFeature(Graph, Context.Extrude)
     CheckExtrusion(Graph, Context, YzDatum)
     Overrides = ObjectFields(Context.BodyNode.Fields["massProperties"])
     if any(Value != -1.0 for Value in Overrides.values()):
         raise ValueError("Native body mass-property overrides are not qualified")
-    EmptyFields(Context.BodyNode, ("faceVisualMaterialByAttrTagID",))
+    if StyleOwner is None:
+        EmptyFields(Context.BodyNode, ("faceVisualMaterialByAttrTagID",))
     RequireFields(Context.DcBody, {"isEliminated": False})
 
 

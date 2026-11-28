@@ -17,6 +17,9 @@ from convert.Formats.Fusion.BrepCodec.Journal.Geometry.PointNode import PointNod
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.PlaneNode import PlaneNode
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.EllipseNode import EllipseNode
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.ConeNode import ConeNode
+from convert.Formats.Fusion.BrepCodec.Journal.Attributes.MaterialAttrib import (
+    MaterialAttrib,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.FeatureAttrib import (
     FeatureAttrib,
@@ -73,6 +76,7 @@ def MakeEntityNode(Value: KJournalEntity) -> AsmRecord:
         Value,
         (
             TimeAttrib,
+            MaterialAttrib,
             TrackAttrib,
             TagAttrib,
             SketchAttrib,

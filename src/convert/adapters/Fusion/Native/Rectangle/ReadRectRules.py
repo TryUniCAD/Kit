@@ -13,16 +13,18 @@ from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     ResolveField,
     SameNodes,
 )
-from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords, TextValue
+from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Rectangle.OrderLines import OrderLines
 from convert.adapters.Fusion.Native.Rectangle.ReadRectDims import ReadRectDims
 from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
-from convert.Formats.Fusion.SegmentCodec.Features.Model.LocalRef import LocalRef
 from interchange.Enums.EnumGeometry import ConstraintKind
 from interchange.Enums.EnumUnits import UnitSystem
 from interchange.geometry.Models.Sketch import ConstraintRef, SketchRelation
+from convert.adapters.Fusion.Native.Rectangle.CheckRuleFrame import CheckRuleFrame
+from convert.adapters.Fusion.Native.Rectangle.ReadRectAxes import ReadRectAxes
+from convert.adapters.Fusion.Native.Rectangle.ReadRectUnits import ReadRectUnits
 
 
 # the selected constrained profile must prove its exact additions before sharing ordinary strict guards
@@ -77,31 +79,6 @@ def ReadRectRules(
     )
 
 
-# display units follow the active modeling length choice without changing stored measurements
-def ReadRectUnits(Graph: NativeGraph) -> UnitSystem:
-    Settings = Graph.OneClass("CommonDataAssetSettings")
-    Units = ResolveField(Graph, Settings, "activeUnitSystem", "UnitSystem")
-    Lengths = tuple(
-        Choice
-        for Choice in LinkedNodes(Graph, Units, "children")
-        if Choice.ClassName == "UnitSystemChoiceById"
-        and Choice.Fields["id"] == "ModelingLength"
-    )
-    if len(Lengths) != 1:
-        raise ValueError(
-            "Native constrained rectangle requires one modeling length setting"
-        )
-    NativeUnit = TextValue(Lengths[0].Fields["unitString"])
-    DisplayUnit = {
-        "millimeter": UnitSystem.KMillimeter,
-        "inch": UnitSystem.KInch,
-    }.get(NativeUnit)
-    if DisplayUnit is None:
-        raise ValueError("Unsupported native Fusion UnitSystemChoiceById.unitString")
-    RequireFields(Lengths[0], {"rParent": LocalRef(Units.ObjectId)})
-    return DisplayUnit
-
-
 # the free corner and the fixed origin have distinct identities and share only the proved coincidence
 def ReadRectAnchor(
     Graph: NativeGraph,
@@ -146,77 +123,3 @@ def ReadRectAnchor(
     RequireFields(Origin, {"isOrigin": True, "isFixed": True})
     CheckRuleFrame(Graph, Context, RuleNode, (Origin, Anchor))
     return RuleNode, Anchor, Origin
-
-
-# every exact line needs its own matching horizontal or vertical saved rule
-def ReadRectAxes(
-    Graph: NativeGraph,
-    Context: ExtrudeContext,
-    Rules: tuple[NativeNode, ...],
-    AnchorRule: NativeNode,
-    Lines: tuple[NativeNode, ...],
-) -> tuple[SketchRelation, ...]:
-    ByLine: dict[str, SketchRelation] = {}
-    for RuleNode in Rules:
-        if RuleNode == AnchorRule:
-            continue
-        Targets = LinkedNodes(Graph, RuleNode, "geometries")
-        if (
-            len(Targets) != 1
-            or Targets[0] not in Lines
-            or Targets[0].Identity in ByLine
-        ):
-            raise ValueError(
-                "Native rectangle axis rules must identify four distinct sides"
-            )
-        LineNode = Targets[0]
-        KindValue, CodeValue = LineAxis(Graph, LineNode)
-        RequireFields(RuleNode, {"constraintType": CodeValue})
-        CheckRuleFrame(Graph, Context, RuleNode, (LineNode,))
-        ByLine[LineNode.Identity] = SketchRelation(
-            RuleNode.Identity, KindValue, (ConstraintRef(LineNode.Identity),)
-        )
-    if len(ByLine) != 4:
-        raise ValueError(
-            "Native rectangle axis rules do not cover the selected perimeter"
-        )
-    return tuple(ByLine.values())
-
-
-# the line direction determines which native axis rule can constrain the saved side
-def LineAxis(Graph: NativeGraph, LineNode: NativeNode) -> tuple[ConstraintKind, int]:
-    Start = ResolveField(Graph, LineNode, "rStartPoint", "Point3D")
-    Finish = ResolveField(Graph, LineNode, "rEndPoint", "Point3D")
-    First = PointCoords(Start.Fields["point"])
-    Final = PointCoords(Finish.Fields["point"])
-    if First[1] == Final[1] and First[0] != Final[0]:
-        return ConstraintKind.KHorizontal, 64
-    if First[0] == Final[0] and First[1] != Final[1]:
-        return ConstraintKind.KVertical, 128
-    raise ValueError("Native rectangle axis rule refers to a nonaxis side")
-
-
-# original constraint subjects bind the same objects as their semantic operands
-def CheckRuleFrame(
-    Graph: NativeGraph,
-    Context: ExtrudeContext,
-    RuleNode: NativeNode,
-    Subjects: tuple[NativeNode, ...],
-) -> None:
-    RequireFields(
-        RuleNode, {"ParentNode": LocalRef(Context.Sketch.ObjectId), "isVisible": False}
-    )
-    Metadata = tuple(
-        (Subject.FieldName, Subject.TypeName, Subject.Value)
-        for Subject in RuleNode.Frame.Metadata or ()
-    )
-    Actual = tuple(
-        (Graph.Resolve(Subject.Target), Subject.ObserverIndex)
-        for Subject in RuleNode.Frame.Subjects or ()
-    )
-    if Metadata != (
-        ("EntityGenesis", "IntrinsicMetaTypeuint64", 2),
-    ) or Actual != tuple((NodeValue, 0) for NodeValue in Subjects):
-        raise ValueError(
-            "Native rectangle rule operands disagree with the authored observer links"
-        )

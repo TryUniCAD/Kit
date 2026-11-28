@@ -1,3 +1,9 @@
+from convert.Formats.Fusion.BrepCodec.Journal.Attributes.MaterialAttrib import (
+    MaterialAttrib,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeFaceAttrib import (
+    MakeFaceAttrib,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.FeatureAttrib import (
     FeatureAttrib,
 )
@@ -36,6 +42,8 @@ from convert.Formats.Fusion.BrepCodec.Journal.Writing.Attributes.MakeGenAttrib i
 
 # the attributes operation needs a consistent construction rule so revision ownership survives native history reconstruction
 def MakeAttributes(Value: KJournalEntity) -> AsmRecord:
+    if isinstance(Value, MaterialAttrib):
+        return MakeFaceAttrib(Value)
     if isinstance(Value, TimeAttrib):
         return MakeTimeAttrib(Value)
     if isinstance(Value, TrackAttrib):

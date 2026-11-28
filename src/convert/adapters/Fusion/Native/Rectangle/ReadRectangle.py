@@ -32,7 +32,16 @@ def ReadRectangle(
         )
     Points, Lines = ReadRectNodes(Graph, Context, Rectangle, Scoped)
     LineNodes = OrderLines(Graph, Lines)
-    Normal = (0.0, 0.0, 1.0 if Rectangle else -1.0)
+    Fixed = (
+        Rectangle.Anchor
+        if Rectangle and Rectangle.Anchor.Fields["isFixed"] is True
+        else None
+    )
+    Normal = (
+        Rectangle.LineNormal
+        if Rectangle and Rectangle.LineNormal is not None
+        else (0.0, 0.0, 1.0 if Rectangle and Fixed is None else -1.0)
+    )
     Geometry = tuple(ReadLine(Graph, NodeValue, Normal) for NodeValue in LineNodes)
     if (
         sum(
@@ -55,7 +64,9 @@ def ReadRectangle(
                 "specialType": 0,
             },
         )
-        if Coordinates[2] != 0 or Point.Fields["isFixed"] != Point.Fields["isOrigin"]:
+        if Coordinates[2] != 0 or Point.Fields["isFixed"] is not (
+            Point.Fields["isOrigin"] is True or Point == Fixed
+        ):
             raise ValueError("Unsupported native rectangle point constraints")
         Entities.append(
             SketchEntity(
