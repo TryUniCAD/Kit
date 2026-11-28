@@ -19,6 +19,7 @@ def ReadNames() -> tuple[NativeSchema, ...]:
     RootPath = Path(__file__).parents[4] / "Formats" / "Fusion"
     Paths = (
         RootPath / "DocumentCodec/Vocabulary/DesignClasses.json",
+        RootPath / "DocumentCodec/Vocabulary/FaceStyleClasses.json",
         RootPath / "ContainerCodec/Assembly/ActClasses.json",
         RootPath / "ContainerCodec/Browser/BrowserClasses.json",
     )

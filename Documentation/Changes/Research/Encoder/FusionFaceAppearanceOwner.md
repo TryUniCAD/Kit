@@ -5,6 +5,8 @@ primary record stores the feature reference, `VisualMaterialValue`
 and UTF-16 face tag. The base classes supply the recipe, scope,
 body tracking and compute state. The existing `ManagedEntity`
 continuation owns the parent reference.
+The saved face class lives in a reader vocabulary so the ordinary
+author still emits its established class registry.
 
 The two independent styled cuboids and a historical cut preserve
 their exact primary and continuation record bytes through typed

@@ -14,6 +14,7 @@ def ReadDocSchemas() -> tuple[ClassSchema, ...]:
     FusionPath = Path(__file__).parents[2]
     Paths = (
         FusionPath / "DocumentCodec" / "Vocabulary" / "DesignClasses.json",
+        FusionPath / "DocumentCodec" / "Vocabulary" / "FaceStyleClasses.json",
         FusionPath / "DocumentCodec" / "Vocabulary" / "FormClasses.json",
         FusionPath / "DocumentCodec" / "Vocabulary" / "SavedClasses.json",
         FusionPath / "ContainerCodec" / "Assembly" / "ActClasses.json",

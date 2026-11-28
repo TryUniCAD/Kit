@@ -48,10 +48,17 @@ def CheckFixTable(
         (Graph.Resolve(Subject.Target), Subject.ObserverIndex)
         for Subject in Search.Frame.Subjects or ()
     )
+
+    # allocation order must retain the same parameter observer identities after a vendor save
+    Allocated = tuple(sorted(ParamRows, key=lambda Param: Param.ObjectId))
+    Expected = tuple(
+        tuple((Param, 0) for Param in (Table, *Order))
+        for Order in (ParamRows, Allocated)
+    )
     if (
         len(Entries) != len(Catalog)
         or {Entry.First: Graph.Resolve(Entry.Second) for Entry in Entries} != Catalog
-        or Subjects != tuple((Param, 0) for Param in (Table, *ParamRows))
+        or Subjects not in Expected
     ):
         raise ValueError(
             "Native fixed rectangle parameter index disagrees with its table"

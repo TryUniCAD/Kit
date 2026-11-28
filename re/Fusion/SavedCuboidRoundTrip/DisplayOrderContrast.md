@@ -308,3 +308,49 @@ The checked scope covers one saved face override on the fixed
 cuboid. The native assembly, cut and unsupported style branches
 retain their own semantic limits. The exact independent writer
 candidate and full native lifecycle remain open.
+
+### Generated cuboid native lifecycle and observers
+
+The native geometry lifecycle measurements cover these independently
+generated archives without an OGS scene. The native
+batch index SHA-256 is
+`ccbcf7d60523cee1771ddacf98e8af9d657421359145a7ec64753b99e86262f2`.
+
+| Candidate | Archive SHA-256 prefix | Initial volume in mm³ | Edited volume in mm³ |
+| --- | --- | ---: | ---: |
+| Baseline | `40a748922a06` | 3578.705078125 | 11240.158203125 |
+| Strict JSON height edit | `50b230df4802` | 7711.857421875 | 11240.158203125 |
+| Independent holdout | `c8acf380c4de` | 18706.939453125 | 8628.662109375 |
+
+All 12 fresh Fusion 2706.1.17 stages passed. Each of the three
+cases had a starting control, candidate open and rebuild with
+isolated height, width and depth edits and restoration, fresh
+reopen of both vendor saves, and a closing control. Every session
+returned to zero open documents.
+
+All six vendor saves preserve seven creation-ordered parameters
+and their exact names and bindings. The saved name-search subjects
+instead follow the table with parameters ordered by their actual
+Design object identities. The reader now verifies both recorded
+orders with exact list length, one-to-one referents and rank zero.
+The original typed subject array survives JSON. An incorrect
+rank, duplicate, missing parameter, unrelated owner and unsupported
+permutation all refuse. Strict SDK evidence SHA-256
+`68fc327b98f1c5c0312842abf9e71677af77d8177b82f9ca2f947d2c38c9fe5e`.
+
+The six CLI results have exact source hashes, `partial: false`
+and full typed readback equality. Each role has two receipts.
+
+| Role | CLI receipt SHA-256 |
+| --- | --- |
+| Baseline | `b37802ea77294c37e4891493036174e6e5025d83542e65e15b82eacee467b28f` |
+| Strict JSON height edit | `696d46f8522a7e62fadfcf32a91b1a6f849b7b515132cef666c0efa8d4b677e6` |
+| Independent holdout | `2e2da2f7c976bd56ad4fd8f039dbdc81bf8be77559412c0f733a4e2d6832ad50` |
+
+The exact generated baseline also opened and rendered before any
+viewport change. Its separate observation SHA-256 is
+`4ad58bccbf5004ae9491caef065cdbefdd95db13b1e2a4950af8d571c9d72404`.
+Extended appearance inspection hit native unit validation. The
+stock control and generated archives do not establish full
+visible presentation equivalence, archived previews or picking.
+The saved-source writer guard stays closed.
