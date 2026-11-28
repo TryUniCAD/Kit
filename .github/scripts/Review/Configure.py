@@ -44,7 +44,7 @@ def ConfigureApp(AppSlug: str) -> None:
             raise ValueError(f"App permission must be {PermName}: {Access}")
     Config["Reviewers"] = [
         {
-            "Trigger": "workflow_run",
+            "Trigger": "schedule",
             "Workflow": Settings["Workflow"],
             "AppId": AppData["id"],
             "AppSlug": AppData["slug"],

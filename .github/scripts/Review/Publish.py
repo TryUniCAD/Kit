@@ -5,7 +5,6 @@ from typing import cast
 
 from ApiCall import ApiCall
 from ObjectMap import ObjectMap
-from ReadPages import ReadPages
 from CheckPull import CheckPull
 from ReadEvidence import ReadEvidence
 from Validate import ValidateReport
@@ -41,16 +40,6 @@ def PublishRun() -> None:
             "Installed app must be registered in ReviewBot.json before activation"
         )
     Reviewer = Matches[0]
-    Previous = ReadPages(f"repos/{RepoName}/pulls/{Evidence['pull_number']}/reviews")
-    if any(
-        ObjectMap(Entry["user"])["id"] == Reviewer["UserId"]
-        and Entry["commit_id"] == Report["head"]
-        and Entry["state"] in ("APPROVED", "CHANGES_REQUESTED")
-        for Entry in Previous
-    ):
-        raise ValueError(
-            "This app already reviewed this head; use a new revision for reassessment"
-        )
     Settings = ObjectMap(Config["AccountReview"])
     IsApproved = (
         Report["complete"]
@@ -59,6 +48,7 @@ def PublishRun() -> None:
         and not Report["findings"]
     )
     Verdict = "APPROVE" if IsApproved else "REQUEST_CHANGES"
+    BodyText = ReviewBody(Report) + f"\n\nCI run: {Evidence['run_id']}"
     CheckName = cast(list[str], Reviewer["Checks"])[0]
     CheckData = ObjectMap(
         ApiCall(
@@ -66,11 +56,12 @@ def PublishRun() -> None:
             {
                 "name": CheckName,
                 "head_sha": Report["head"],
+                "external_id": str(Evidence["run_id"]),
                 "status": "completed",
                 "conclusion": "success" if IsApproved else "failure",
                 "output": {
                     "title": f"Soundness {Report['score']}/5",
-                    "summary": ReviewBody(Report),
+                    "summary": BodyText,
                 },
             },
         )
@@ -84,7 +75,7 @@ def PublishRun() -> None:
             {
                 "commit_id": Report["head"],
                 "event": Verdict,
-                "body": ReviewBody(Report),
+                "body": BodyText,
             },
         )
     )

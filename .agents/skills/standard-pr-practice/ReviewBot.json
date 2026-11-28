@@ -1,7 +1,7 @@
 {
   "Reviewers": [
     {
-      "Trigger": "workflow_run",
+      "Trigger": "schedule",
       "Workflow": ".github/workflows/AccountReview.yml",
       "AppId": 5966452,
       "AppSlug": "jibiti-review",

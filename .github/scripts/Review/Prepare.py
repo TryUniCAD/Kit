@@ -2,12 +2,14 @@ import json as JsonTools
 import os as OsTools
 import subprocess as ProcessTools
 from pathlib import Path
+from typing import cast
 
 from ObjectMap import ObjectMap
 from ReadPages import ReadPages
 from CheckPull import CheckPull
-from CollectFiles import CollectFiles, ReadSource
-from ReadEvidence import ReadEvidence
+from BuildContext import BuildContext
+from SelectEvidence import SelectEvidence
+from ApiCall import ApiCall
 
 
 # untrusted workflow inputs must be checked before any account credential is restored
@@ -16,10 +18,19 @@ def PrepareRun() -> None:
     EventData = ObjectMap(
         JsonTools.loads(Path(OsTools.environ["GITHUB_EVENT_PATH"]).read_text())
     )
-    RunIdent = int(
-        str(ObjectMap(EventData.get("workflow_run", EventData.get("inputs")))["id"])
+    Config = ObjectMap(
+        JsonTools.loads(
+            Path(".agents/skills/standard-pr-practice/ReviewBot.json").read_text()
+        )
     )
-    Evidence = ReadEvidence(RepoName, RunIdent)
+    Settings = ObjectMap(Config["AccountReview"])
+    Reviewer = ObjectMap(cast(list[object], Config["Reviewers"])[0])
+    Settings = {**Settings, "UserId": Reviewer["UserId"]}
+    Evidence = SelectEvidence(RepoName, EventData, Settings)
+    if Evidence is None:
+        with Path(OsTools.environ["GITHUB_OUTPUT"]).open("a") as OutputFile:
+            OutputFile.write("ready=false\n")
+        return
     PullData = CheckPull(RepoName, Evidence)
     for Revision in (Evidence["head_sha"], Evidence["base_sha"]):
         ProcessTools.run(
@@ -30,28 +41,30 @@ def PrepareRun() -> None:
     FileList = ReadPages(f"repos/{RepoName}/pulls/{Evidence['pull_number']}/files")
     if len(FileList) != PullData["changed_files"]:
         raise ValueError("Changed file inventory is incomplete")
-    Context = {
-        "evidence": Evidence,
-        "title": PullData["title"],
-        "body": PullData["body"],
-        "files": CollectFiles(FileList, Evidence),
-        "policy": {
-            FileName: ReadSource(str(Evidence["base_sha"]), FileName)
-            for FileName in (
-                "AGENTS.md",
-                "Roadmap.md",
-                ".agents/skills/standard-pr-practice/SKILL.md",
-                "Documentation/Planning/Generated/Tasks.md",
-                "Documentation/Planning/Generated/Deliveries.md",
-                "Documentation/Reference/Operations/CadSuccessCriteria.md",
-            )
-        },
-    }
-    Content = JsonTools.dumps(Context)
-    if len(Content.encode()) > 900000:
-        raise ValueError("PR exceeds the complete review context limit")
+    try:
+        Content = BuildContext(Evidence, PullData, FileList)
+    except ValueError as ErrorInfo:
+        ApiCall(
+            f"repos/{RepoName}/check-runs",
+            {
+                "name": Settings["CheckName"],
+                "head_sha": Evidence["head_sha"],
+                "external_id": str(Evidence["run_id"]),
+                "status": "completed",
+                "conclusion": "failure",
+                "output": {
+                    "title": "Review input exceeds supported bounds",
+                    "summary": str(ErrorInfo),
+                },
+            },
+        )
+        with Path(OsTools.environ["GITHUB_OUTPUT"]).open("a") as OutputFile:
+            OutputFile.write("ready=false\n")
+        return
     Path("ReviewInput").mkdir()
     Path("ReviewInput/Context.json").write_text(Content)
+    with Path(OsTools.environ["GITHUB_OUTPUT"]).open("a") as OutputFile:
+        OutputFile.write("ready=true\n")
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ function ReadReviewers() {
   const Comments = new Set();
   const Accounts = new Set();
   for (const Reviewer of Config.Reviewers) {
-    const Automatic = Reviewer.Trigger === "workflow_run";
+    const Automatic = Reviewer.Trigger === "schedule";
     if (
       (Automatic
         ? typeof Reviewer.Workflow !== "string" ||

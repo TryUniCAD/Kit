@@ -79,7 +79,7 @@ GitHub review submissions carry `commit_id`, comments can link their original/cu
 
 ## Trigger, answer, and resolve
 
-For `Trigger: workflow_run`, follow the configured automatic workflow after successful PR aggregate CI.
+For `Trigger: schedule`, follow the configured automatic workflow after successful PR aggregate CI.
 For a manual retry, dispatch the configured `Workflow` with the successful CI run ID in input `id`.
 Do not use the comment-request commands below for an automatic reviewer.
 Those request commands apply only to entries with a configured `Comment`.

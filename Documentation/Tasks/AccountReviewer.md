@@ -5,6 +5,8 @@
 Run automated reviews on GitHub-hosted runners without an always-on server.
 The GitHub App posts findings, a five-point soundness score, a native check, and a revision-bound review.
 The workflow never merges a PR or enrolls it in the merge queue.
+The scheduled workflow checks for eligible successful PR CI runs every five minutes.
+GitHub can delay scheduled execution; this is not an immediate completion hook.
 
 ## Before you start
 
@@ -73,6 +75,10 @@ The workflow queues up to 100 runs and never intentionally cancels an active cre
 7. Verify the app's review identity, reviewed head and base, findings, score, and native report.
 
 Manual reruns use the `Account review` workflow with the successful PR CI run ID as input `id`.
+Each scheduled invocation selects one unreported eligible run from the 30 most recent successful PR CI runs.
+Closed, draft, forked, obsolete, and previously reported inputs are skipped.
+Use manual dispatch for an older run outside that window or an explicit reassessment.
+Unsupported input receives a failed native report and no approval, so it cannot block discovery of later candidates.
 The trusted workflow and scripts must exist on the default branch before automatic execution.
 Registration, installation, configuration, and activation are separate from implementation publication.
 

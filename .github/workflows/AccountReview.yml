@@ -1,9 +1,8 @@
 name: Account review
 
 on:
-  workflow_run:
-    workflows: [Pull Request]
-    types: [completed]
+  schedule:
+    - cron: "3-58/5 * * * *"
   workflow_dispatch:
     inputs:
       id:
@@ -20,27 +19,38 @@ concurrency:
 
 jobs:
   prepare:
-    if: >-
-      vars.ACCOUNT_REVIEW_ENABLED == 'true' &&
-      (github.event_name == 'workflow_dispatch' ||
-       (github.event.workflow_run.event == 'pull_request_target' &&
-        github.event.workflow_run.conclusion == 'success'))
+    name: Select verified PR input
+    if: vars.ACCOUNT_REVIEW_ENABLED == 'true'
+    environment: AccountReview
+    outputs:
+      ready: ${{ steps.input.outputs.ready }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: read
-      actions: read
-      pull-requests: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
+      - name: Obtain bounded input report token
+        id: input-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-pull-requests: read
+          permission-checks: write
+          permission-actions: read
+          permission-contents: read
       - name: Prepare complete revision bound input
+        id: input
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ steps.input-token.outputs.token }}
         run: python .github/scripts/Review/Prepare.py
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.input.outputs.ready == 'true'
         with:
           name: ReviewInput
           path: ReviewInput/Context.json
@@ -48,7 +58,9 @@ jobs:
           retention-days: 1
 
   review:
+    name: Review with isolated account runtime
     needs: prepare
+    if: needs.prepare.outputs.ready == 'true'
     environment: AccountReview
     runs-on: ubuntu-24.04
     timeout-minutes: 40
@@ -93,6 +105,7 @@ jobs:
           retention-days: 1
 
   publish:
+    name: Publish verified app review
     needs: review
     environment: AccountReview
     runs-on: ubuntu-24.04
