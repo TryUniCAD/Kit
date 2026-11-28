@@ -32,7 +32,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: ${{ github.event_name == 'workflow_dispatch' && inputs.connectivity_probe && 'account-review-connectivity' || 'account-review-auth' }}
+  group: ${{ github.event_name == 'workflow_dispatch' && inputs.connectivity_probe && 'account-review-connectivity' || format('account-review-request-{0}', inputs.comment && format('comment-{0}', inputs.comment) || inputs.pull && format('pull-{0}', inputs.pull) || github.run_id) }}
   cancel-in-progress: false
   queue: max
 
@@ -145,6 +145,7 @@ jobs:
           private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
           repositories: ${{ github.event.repository.name }}
           permission-issues: write
+          permission-pull-requests: write
       - name: Acknowledge review in progress
         if: needs.admit.outputs.mention == 'true'
         env:
@@ -168,10 +169,20 @@ jobs:
     needs: prepare
     if: needs.prepare.outputs.ready == 'true'
     environment: AccountReview
+    concurrency:
+      group: account-review-auth
+      cancel-in-progress: false
+      queue: max
+    outputs:
+      run: ${{ steps.runtime.outputs.run }}
+      published: ${{ steps.publish.outcome == 'success' }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 50
     permissions:
       contents: read
+      actions: read # Verifies trusted CI artifacts when reconsidering a queued receipt.
+      checks: read # Reads native app receipts before restoring account credentials.
+      pull-requests: read # Revalidates the live snapshot and actual app approvals.
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -181,14 +192,22 @@ jobs:
         with:
           name: ReviewInput
           path: ReviewInput
+      - name: Recheck the queued snapshot and native receipts
+        id: runtime
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONPATH: .github/scripts/Review
+        run: python -m Runtime.SelectRuntime
       - name: Build trusted isolated runtime
+        if: steps.runtime.outputs.run == 'true'
         run: docker build --tag kit-review-runtime .github/scripts/Review
       - name: Review data without executing PR code
+        if: steps.runtime.outputs.run == 'true'
         env:
           CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
         run: python .github/scripts/Review/RunModel.py
       - name: Obtain credential persistence token
-        if: always()
+        if: always() && steps.runtime.outputs.run == 'true'
         id: auth-token
         uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
         with:
@@ -197,41 +216,23 @@ jobs:
           repositories: ${{ github.event.repository.name }}
           permission-environments: write
       - name: Persist refreshed login and remove local credentials
-        if: always() && steps.auth-token.outcome == 'success'
+        if: always() && steps.runtime.outputs.run == 'true' && steps.auth-token.outcome == 'success'
         env:
           GH_TOKEN: ${{ steps.auth-token.outputs.token }}
         run: python .github/scripts/Review/SaveAuth.py
       - name: Validate untrusted report
+        if: steps.runtime.outputs.run == 'true'
         run: python .github/scripts/Review/Validate.py ReviewOutput/Report.json ReviewInput/Context.json
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.runtime.outputs.run == 'true'
         with:
           name: ReviewOutput
           path: ReviewOutput/Report.json
           if-no-files-found: error
           retention-days: 1
 
-  publish:
-    name: Publish verified app review
-    needs: review
-    environment: AccountReview
-    runs-on: ubuntu-24.04
-    timeout-minutes: 10
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.sha }}
-          persist-credentials: false
-      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
-        with:
-          name: ReviewInput
-          path: ReviewInput
-      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
-        with:
-          name: ReviewOutput
-          path: ReviewOutput
       - name: Obtain review publisher token
+        if: steps.runtime.outputs.run == 'true'
         id: review-token
         uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
         with:
@@ -243,6 +244,8 @@ jobs:
           permission-actions: read
           permission-contents: read
       - name: Publish current head review and native report
+        id: publish
+        if: steps.runtime.outputs.run == 'true'
         env:
           GH_TOKEN: ${{ steps.review-token.outputs.token }}
           REVIEW_APP_ID: ${{ vars.REVIEW_APP_ID }}
@@ -250,8 +253,8 @@ jobs:
 
   react:
     name: Complete review outcome
-    needs: [admit, prepare, review, publish]
-    if: always() && (needs.prepare.outputs.selected == 'true' || needs.admit.outputs.mention == 'true')
+    needs: [admit, prepare, review]
+    if: always() && ((needs.prepare.outputs.selected == 'true' && needs.review.outputs.run != 'false') || needs.admit.outputs.mention == 'true')
     environment: AccountReview
     runs-on: ubuntu-24.04
     timeout-minutes: 5
@@ -280,10 +283,10 @@ jobs:
           private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
           repositories: ${{ github.event.repository.name }}
           permission-issues: write
-          permission-pull-requests: read
+          permission-pull-requests: write
           permission-checks: write
       - name: Publish failed native report when the workflow did not complete
-        if: needs.prepare.outputs.selected == 'true' && (needs.prepare.result != 'success' || (needs.prepare.outputs.ready == 'true' && needs.publish.result != 'success'))
+        if: needs.prepare.outputs.selected == 'true' && (needs.prepare.result != 'success' || (needs.prepare.outputs.ready == 'true' && needs.review.outputs.published != 'true'))
         env:
           GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
         run: python .github/scripts/Review/FailReview.py
@@ -291,5 +294,5 @@ jobs:
         if: always() && steps.reaction-token.outcome == 'success'
         env:
           GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
-          REVIEW_SUCCEEDED: ${{ needs.publish.result == 'success' }}
+          REVIEW_SUCCEEDED: ${{ needs.review.outputs.published == 'true' }}
         run: python .github/scripts/Review/ReactMention.py complete

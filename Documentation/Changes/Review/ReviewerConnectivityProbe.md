@@ -21,3 +21,8 @@ The [receipt](../../../re/automation/ReviewConnectivity/HostedReceipt.json) reta
 The authenticated review failure remains unresolved; this probe establishes no review approval.
 
 See [transport evidence limits](../../Gotchas/Ci/Review/ReviewTransportEvidence.md).
+
+Main `141f396f183220e691194907cdcacb7ba56d9ce6` subsequently added a public certificate store for the native client.
+The readiness merge keeps its per-request dispatch and serialized credentialed account job.
+The diagnostic keeps its separate group and the original pinned runtime so the retained receipt remains reproducible.
+No additional hosted diagnostic or authenticated model success is claimed by this merge.

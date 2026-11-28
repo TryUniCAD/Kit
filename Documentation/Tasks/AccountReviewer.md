@@ -65,8 +65,10 @@ CODEX_HOME=/private/tmp/KitReviewLogin codex -c 'cli_auth_credentials_store="fil
 
 Use a private secret channel or GitHub's secret interface for credential transfer.
 The runner writes rotated credentials back after the model process exits.
-Environment secrets load when their job starts, so serialized runs receive the latest token bundle.
-The trusted workflow queues up to 100 requests and never intentionally cancels an active credential refresh.
+Environment secrets load when their job starts, so serialized account jobs receive the latest token bundle.
+The account job queues up to 100 requests and never intentionally cancels an active credential refresh.
+It retains the lock through native publication and rechecks existing reports after acquisition.
+Admission, source collection and progress reactions can run while another account job is active.
 
 ## Activate and verify
 
@@ -91,10 +93,12 @@ Public comment admission runs without app or account credentials.
 The app adds an eyes reaction after authorization and before source collection begins.
 When publication finishes, eyes is replaced with thumbs up for verified approval, thumbs down for requested changes, or hooray for a completed comment-only review awaiting approval conditions.
 Runtime or publication failure receives a confused reaction instead.
+Each transition removes the bot's older lifecycle reactions, so a retry does not retain an obsolete failure or approval indicator.
 Failure also publishes a failed native report with its workflow log link, so automatic reviews without a mention remain observable.
 Reactions describe request progress; only the native report and review establish the result.
 If GitHub cancels the entire workflow or the completion job fails, the progress reaction can remain until a successful retry.
 The starting and completion reaction steps use separate app tokens that never enter the model container.
+Both tokens need Issues write and Pull requests write for this repository's PR conversation reactions.
 Polling inspects the latest 100 repository comments and rotates through at most ten matching commands per invocation.
 The workflow run number advances the start position so completed requests do not permanently block older requests in that window.
 The app's native report marks a handled mention for the inspected head, preventing repeated requests from one unchanged comment.
@@ -139,6 +143,8 @@ The runner passes both values explicitly to Codex instead of using the CLI defau
 The requested default is `gpt-6.1-terra` with `medium` reasoning.
 Unsupported model or reasoning settings fail the job without selecting another model.
 The published review records the selected model and reasoning alongside its revision evidence.
+The pinned image exports its Node binary's public certificate authorities to a PEM file and supplies it through `CODEX_CA_CERTIFICATE` and `SSL_CERT_FILE`.
+This restores native-client TLS trust without disabling certificate verification or downloading another authority bundle.
 
 ## Probe hosted connectivity
 
