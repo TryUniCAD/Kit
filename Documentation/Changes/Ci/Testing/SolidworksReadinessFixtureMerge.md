@@ -18,3 +18,13 @@ This repair establishes no new CAD format or conversion qualification.
 
 See [assembly cache behavior](ReadbackAssemblyCache.md), [fixture modes](../../../Gotchas/Ci/Windows/ReadbackFixtureModes.md),
 and [the readiness claim](../../../Maintenance/ConversionBacklog.md#b08-sw2026-pr121-readiness).
+
+## Current review limit
+
+Repair revision `3c9743257cb77b508666b7d68ff56a2b5af46e86` is conflict-free on GitHub.
+The configured collector selects at most 40 changed files, but the parent PR contains 9,906 changed paths.
+The publisher requires complete source coverage before approval.
+This repair retains that gate and records the resulting readiness blocker.
+See the [trusted collector](https://github.com/TryUniCAD/Kit/blob/68cec987d0b720762ae95f2f92799eb113d23b44/.github/scripts/Review/ReviewSources.py)
+and [publication condition](https://github.com/TryUniCAD/Kit/blob/68cec987d0b720762ae95f2f92799eb113d23b44/.github/scripts/Review/Publish.py).
+A green CI aggregate does not remove this blocker.

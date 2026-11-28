@@ -163,6 +163,6 @@
 <text x="16" y="1770" fill="#66615b" font-size="10">proposed · Unassigned</text>
 <rect x="750.0" y="1745" width="62.0" height="22" rx="2" fill="#77716a"><title>AgentDispatch: Supported authenticated runtime adapters launch real jobs from the board, atomically claim and recheck bounded scopes, publish job and agent identities, update native status and assignees, and retain receipts; unavailable adapters stay visibly unavailable and credentials never enter the static client</title></rect>
 <text x="16" y="1792">PrReaderWriterReadiness · SOLIDWORKS PR121 current-main readiness repair</text>
-<text x="16" y="1806" fill="#66615b" font-size="10">active · Codex swarm root 01a22333-c91a-7753-a913-6ea8091aebc5</text>
-<rect x="610.0" y="1781" width="62.0" height="22" rx="2" fill="#9b773f"><title>PrReaderWriterReadiness: No conflicts, preserved fixture modes, passing affected process regressions and current-head CI plus configured approval; broader CAD qualification and merge-group acceptance remain separate</title></rect>
+<text x="16" y="1806" fill="#66615b" font-size="10">blocked · Codex swarm root 01a22333-c91a-7753-a913-6ea8091aebc5</text>
+<rect x="610.0" y="1781" width="62.0" height="22" rx="2" fill="#8b554e"><title>PrReaderWriterReadiness: No conflicts, preserved fixture modes, passing affected process regressions and current-head CI plus configured approval; broader CAD qualification and merge-group acceptance remain separate</title></rect>
 </g></svg>

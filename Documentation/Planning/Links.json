@@ -602,7 +602,7 @@
     {
       "Id": "PrReaderWriterReadiness",
       "Name": "SOLIDWORKS PR121 current-main readiness repair",
-      "Status": "active",
+      "Status": "blocked",
       "Owner": "Codex swarm root 01a22333-c91a-7753-a913-6ea8091aebc5",
       "Dependencies": [],
       "Source": "Documentation/Maintenance/ConversionBacklog.md",
@@ -610,7 +610,7 @@
       "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/121",
       "Branch": "codex/solidworks-2026-native",
       "Exit": "No conflicts, preserved fixture modes, passing affected process regressions and current-head CI plus configured approval; broader CAD qualification and merge-group acceptance remain separate",
-      "Blocker": "Configured review and hosted current-head checks pending; native project synchronization unavailable in this session"
+      "Blocker": "The trusted reviewer selects at most 40 changed files while PR121 has 9906 changed paths and approval requires complete coverage; configured account transport also failed on inspected heads; project sync pending"
     }
   ],
   "Dependencies": {
