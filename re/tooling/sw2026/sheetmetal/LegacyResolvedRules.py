@@ -168,3 +168,158 @@ def install_legacy_sketch_bend_rules(rules, boundary):
         xo('fdf8_handle', 'sgEntHandle'), xo('fe20', 'sgEntHandle'), xo('fe48', 'sgEntHandle'),
         xo('fde8', 'moCurveRef_w'), i32('fe78'), end,
     ])
+
+
+def install_legacy_mitered_flange(rules, boundary):
+    from Core import ArchiveError
+    from Dsl import base, emb, f64, i32
+    from Schema import Fn, If, Rep
+    from defs.ResolvedCore import concept_vt, obarray, xo
+
+    begin, end = boundary
+    name = 'moSMMiteredFlange_c'
+
+    def require_profile(ar, fields, owner):
+        if (owner.cls != name or owner.schema != 1 or ar.version != 19000 or
+                ar.ctx.get('model_is_part') != 1 or ar.ctx.get('cmgr_f658') != 0):
+            raise ArchiveError('MiteredFlange is outside the mode-zero version-19000 schema-one proposal')
+
+    def count_check(ar, fields, owner):
+        if fields['n'] < 0:
+            raise ArchiveError('unsupported MiteredFlange sketch handle count')
+
+    rules.provisional('sm.mitered_group', [
+        i32('n'), Fn(count_check, count_check),
+        If(lambda fields, ar: fields['n'] > 0, [
+            xo('sketch', 'sgSketch'), Rep('n', 'handles', [xo('o', 'sgEntHandle')]),
+        ]),
+    ])
+
+    def require_edge_schema(ar, fields, owner):
+        if owner.schema != 1:
+            raise ArchiveError(f'{owner.cls} is outside the schema-one edge-geometry proposal')
+
+    rules.provisional('moEdgeGeom_c', [
+        Fn(require_edge_schema, require_edge_schema), i32('f08'),
+        emb('f10', 'mgVector_c.restore'), emb('f28', 'mgVector_c.restore'),
+        emb('f40', 'mgPoint_c.restore'), emb('f58', 'mgPoint_c.restore'),
+        emb('f70', 'mgPoint_c.restore'),
+    ])
+    rules.provisional('moLinearEdgeGeom_c', [base('moEdgeGeom_c')])
+    concept_vt(name)
+    rules.provisional(name, [
+        Fn(require_profile, require_profile), begin, base('moSheetMetalBendGroup_c'),
+        xo('f920', 'moProfileRef_w'),
+        f64('f950'), f64('fc28'), f64('fc30'), f64('fc38'),
+        i32('f970'), i32('f974'), i32('f978'), i32('f984'), i32('f988'),
+        i32('fba4'), i32('f98c'), i32('fba0'),
+        f64('fc10'), f64('fc18'), i32('fc20'), i32('fc24'),
+        xo('fc40', 'moDisplayDim_c'), xo('fc48', 'moDisplayDim_c'), i32('f97c'),
+        obarray('f990'), emb('fbb0', 'su_CDWordArray'), emb('fbd0', 'su_CDWordArray'), obarray('fbf0'),
+        *(emb(field, 'sm.mitered_group') for field in ('f9f8', 'fa18', 'fa38', 'fa58')),
+        obarray('fc60'), i32('f980'), end,
+    ])
+
+
+def install_legacy_ui_bend(rules, boundary):
+    from Core import ArchiveError
+    from Dsl import base
+    from Schema import Fn
+    from defs.ResolvedCore import concept_vt, xo
+
+    begin, end = boundary
+    name = 'moUiBend_c'
+
+    def require_profile(archive, fields, owner):
+        if (owner.cls != name or owner.schema != 1 or archive.version != 19000
+                or archive.ctx.get('model_is_part') != 1
+                or archive.ctx.get('cmgr_f658') != 0):
+            raise ArchiveError('UiBend is outside the mode-zero version-19000 schema-one proposal')
+
+    concept_vt(name)
+    rules.provisional(name, [
+        Fn(require_profile, require_profile), begin, base('moBodyFeature_c'),
+        xo('f810', 'moOneBend_c'), end,
+    ])
+
+def describe_ui_bend_links(probe, observations):
+    rows = []
+    for _, _, incoming, _, _, fields, owner in observations:
+        if owner.cls != 'moUiBend_c':
+            continue
+        target = fields['f810']
+        target_slot = getattr(target, 'index', None)
+        inherited = any(entry.IndexValue == target_slot and entry.EntryValue is target
+                        for entry in incoming.state.EntriesValue)
+        rows.append(dict(
+            owner=probe.describe(owner), owner_f08=fields.get('f08'),
+            target=probe.describe(target), target_f08=getattr(target, 'f', {}).get('f08'),
+            target_inherited=inherited,
+        ))
+    return rows
+
+
+def install_legacy_flat_body_reader(rules, observations):
+    from Core import ArchiveError
+    from Schema import Fn
+    from convert.Geometry.ParaFormatError import ParaFormatError
+    from convert.Geometry.ParaFraming import KWrapperMagic
+    from convert.Geometry.Parasolid import DecodeBrepMut, IsPayloadApiMut
+    from convert.Geometry.ReadParaSection import ReadParaSection
+    from hashlib import sha256
+    from struct import unpack_from
+
+    provisional = rules.provisional
+
+    def read(original, archive, fields, owner):
+        if (owner.cls != 'moFlatPattern_c' or owner.schema != 1 or archive.version != 19000
+                or archive.ctx.get('model_is_part') != 1 or archive.ctx.get('cmgr_f658') != 0
+                or fields['has_flat_parasolid'] != 1):
+            return original.load(archive, fields, owner)
+        start = archive.p
+        if archive.left() < 5:
+            raise ArchiveError('truncated legacy flat-pattern body header')
+        length, kernel = unpack_from('<iB', archive.b, start)
+        if not 29 <= length <= min(archive.left() - 4, 16 * 1024 * 1024) or kernel != 0:
+            raise ArchiveError('unsupported legacy flat-pattern body framing or kernel')
+        end = start + 4 + length
+        frame = archive.b[start + 5:end]
+        if (unpack_from('<I', frame)[0] != len(frame) - 4
+                or frame[4:4 + len(KWrapperMagic)] != KWrapperMagic):
+            raise ArchiveError('legacy flat-pattern body lacks an exact chained native frame')
+        try:
+            section = ReadParaSection(frame, 4, 16 * 1024 * 1024)
+            if section.Start != 0 or section.End != len(frame) or not IsPayloadApiMut(section.Data):
+                raise ArchiveError('legacy flat-pattern body does not occupy one exact native frame')
+            model = DecodeBrepMut(section.Data)
+        except (ParaFormatError, ValueError) as error:
+            raise ArchiveError(f'legacy flat-pattern body failed typed geometry decode: {error}') from error
+        if model is None or len(model.bodies) != 1:
+            raise ArchiveError('legacy flat-pattern cache lacks one typed geometry body')
+        fields['legacy_flat_body'] = model
+        archive.p = end
+        observations.append(dict(start=start, end=end, map_count=archive.count, feature_id=fields.get('f08'),
+                                 sha256=sha256(section.Data).hexdigest(), body_count=len(model.bodies),
+                                 face_count=len(model.faces), edge_count=len(model.edges), vertex_count=len(model.vertices)))
+
+    def store(original, archive, fields, owner):
+        if fields.get('legacy_flat_body') is not None:
+            raise ArchiveError('legacy flat-pattern body typed cache has no exact store rule')
+        return original.store(archive, fields, owner)
+
+    def register(name, operations, **options):
+        if name == 'moFlatPattern_c':
+            indices = [i for i, op in enumerate(operations)
+                       if getattr(op, 'name', None) == 'has_flat_parasolid']
+            if (len(indices) != 1 or indices[0] + 2 >= len(operations)
+                    or not isinstance(operations[indices[0] + 1], Fn)
+                    or getattr(operations[indices[0] + 2], 'name', None) != 'f990'):
+                raise ArchiveError('frozen flat-pattern layout differs from its legacy cache overlay')
+            at = indices[0] + 1
+            original = operations[at]
+            operation = Fn(lambda ar, fields, owner: read(original, ar, fields, owner),
+                           lambda ar, fields, owner: store(original, ar, fields, owner))
+            operations = [*operations[:at], operation, *operations[at+1:]]
+        return provisional(name, operations, **options)
+
+    rules.provisional = register

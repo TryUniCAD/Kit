@@ -58,3 +58,29 @@ The subclass refuses the mode-seven inline feature and raw body lane. Its bounde
 | [40320, 48946) | 428 → 466 | `65bfa54fb3b38f6f25d7aa563996c7ee1f4e1acfeebe7bc0cf7dadab4ad2a6a2` |
 
 The two fresh process runs used rule SHA-256 `611e9356f07d59def3d87aff4d09645a65892b934002986d088d3c40c8eef731` and probe SHA-256 `19f48a7770fd92146604e6f715844115cb167bbaf5051e379411dbe10766d87a`. Each sketch-bend payload reproduced its source bytes, incoming identities and map roster. The cover's first remaining refusal in this revision is `moSMMiteredFlange_c` at byte 57,224. The plate still fully replays at map 372, and does not exercise this branch.
+
+## Mitered flange and UI bends
+
+The same pinned `sldsmmu.dll` resolves `moSMMiteredFlange_c` through descriptor `0x781190`, vtable `0x60fd90` and serializer `0x539700`. It calls `moSheetMetalBendGroup_c` at `0x53a9f0`, then reads its typed profile reference, scalars, dimension links, object and DWORD arrays, and four counted sketch and handle groups. Helper `0x5411d0` reads a tagged sketch for a positive group count and then one tagged handle per count. The cover exercises two empty and two populated groups. It also exercises both `moEdgeGeom_c` and `moLinearEdgeGeom_c`. The latter's entry `0x534ea0` forwards to `0x531290`. Both serialize a signed member, two three-component vectors and three three-component points.
+
+The cover mitered flange interval [57224, 106954) replays all 49,730 bytes with SHA-256 `f0c04ea9d03ea5aa83dae7c3f7620ad8ada8de96ba8be059305e035bc28a83f9` and advances the map counter from 568 to 882. Its base contains four additional complete sketch bends. The typed source members remain identified by their loader offsets. The semantic meaning of the geometry fields needs native correlation.
+
+The `moUiBend_c` descriptor `0x7802f0`, vtable `0x600ed0` and serializer `0x53cf70` use the body-feature base, then read the mode-zero typed OneBend reference at `+0x810`. The seven complete cover records reproduce their bytes and maps. Their native archive identifiers map as follows. Each target is the same inherited object, not a new allocation or a guessed feature-tree position.
+
+| UI bend `f08` | Sketch bend `f08` | Existing target slot |
+| ---: | ---: | ---: |
+| 53 | 40 | 342 |
+| 54 | 46 | 388 |
+| 55 | 52 | 427 |
+| 91 | 72 | 569 |
+| 92 | 78 | 619 |
+| 93 | 84 | 668 |
+| 94 | 90 | 717 |
+
+## Typed flat-pattern cache read
+
+The cover flat pattern with `f08=33` has a present inline body. SP04.1 `sldsmmu.dll` reads the signed presence field at `0x531e88` and calls the matching `sldmodu.dll` raw body helper `0x1111170` at `0x531ebf`. The helper's signed length and kernel byte are read at `0x1111211` and `0x111127b`. The resulting packet spans [113850, 116104), has length 2250 after the length word and kernel selector zero, and contains one complete native compressed chain. Its frame consumes all 2,249 bytes. It decompresses to 4,493 bytes, SHA-256 `2982558082ac3c53832829fd858baf79a91b5291486aafb4ce6c03710ade6bb3`. The pinned typed Parasolid decoder returns one body, six faces, twelve edges and eight vertices. The packet creates no object-map entries. The existing flat-pattern grammar follows with `f990` at 116104 and consumes the remaining 142 bytes.
+
+The cover completes linked reading at byte 116246 with 26 roots, map counter 950 and 949 occupied entries. All inherited configuration identities are preserved. Exact linked store intentionally exits 2 for this cache. The pinned `EncodeBrepMut` generates 3,393 bytes from the typed geometry, compared with 4,493 native bytes. `EncodePartMut` produces a frame of 1,862 bytes, compared with 2,249 native bytes. The current research workflow lacks an exact typed writer for this kernel representation and packing. The symbolic cache retains the parsed geometry only. These are offline read and regeneration measurements; native topology confirmation, held-out validation and a synthesized writer remain open.
+
+The final fresh process receipts bind rule SHA-256 `cffc7f11508630b4b96924dd40b1644014ab3297e30c24fc1c3d59488a7f9ed0` and probe SHA-256 `9e5932eb9dec578ffc78a5fdeeb56548de2df01e2de2eabb0e9c86581da58856`. The cover receipt SHA-256 is `55635069d046504d10604a5f0b35d5a29b29d102152afa1312e3fdafc46ed61a` and the plate receipt SHA-256 is `d5c62091f5b373f09c46e8ee35e74e8a37faa0efa09f7dd6686fd258425f9ca5`. The plate remains exact at 26,559 bytes, 22 roots, next counter 372 and 371 occupied entries. [Inline body frame gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/InlineFlatPatternBodyOwnsFrame.md)

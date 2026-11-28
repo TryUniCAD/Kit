@@ -39,7 +39,7 @@ Add `--linked` for the exact CMgr and inherited ResolvedFeatures check. Exit 2 p
 
 Compare the direct master's `n370/f358` membership and inherited links independently of the later-model `n16f8/f16e8` array. Compare incoming and allocated map slots to each reported target. Use the native API evidence to explain the base, body, sheet-metal and flat-pattern links and the topology reference. Refusals identify unresolved grammar; they are not decoded membership. Freeze the proposed change before using the held-out save. Byte-identical Config replay is offline segmentation evidence only.
 
-For a disclosed witness with a populated direct legacy master and CMgr mode zero, run the separate linked probe with the same independent digest and reference. It verifies the frozen probe itself and reports the legacy rule SHA-256 for each result. Exit 2 preserves the first unresolved linked boundary. A successful exit is complete archive replay for that witness.
+For a disclosed witness with a populated direct legacy master and CMgr mode zero, run the separate linked probe with the same independent digest and reference. It verifies the frozen probe itself and reports the legacy rule SHA-256 for each result. Exit 2 preserves the first unresolved read or store boundary. A complete linked read is reported separately from exact store. A successful exit requires both for that witness.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/sheetmetal/InspectLegacySheetMetal.py \

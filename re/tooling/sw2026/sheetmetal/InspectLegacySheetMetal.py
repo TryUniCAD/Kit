@@ -43,11 +43,13 @@ def unpack_reference(reference, revision, root):
 def inspect_legacy(source, probe, legacy):
     from Classes import registry
     from Core import ArchiveError
+    from defs import ResolvedCore
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 
     archive = SldprtArchive.from_bytes(source)
     observations = []
     bend_observations = []
+    cache_observations = []
     configured = []
 
     def legacy_registry():
@@ -55,19 +57,47 @@ def inspect_legacy(source, probe, legacy):
         legacy.install_legacy_resolved_rules(rules, probe.record_boundary(observations))
         legacy.install_legacy_bend_rules(rules, probe.record_boundary(bend_observations))
         legacy.install_legacy_sketch_bend_rules(rules, probe.record_boundary(observations))
+        legacy.install_legacy_mitered_flange(rules, probe.record_boundary(observations))
+        legacy.install_legacy_ui_bend(rules, probe.record_boundary(observations))
+        legacy.install_legacy_flat_body_reader(rules, cache_observations)
         configured.append(rules)
         return rules
 
-    result = probe.inspect(archive, legacy_registry, CONFIG, linked=True)
+    read_result = {}
+    load_resolved = ResolvedCore.load_resolved
+
+    def tracked_resolved(data, rules, version, *, archive=None, name=None, seed=None):
+        document, reader = load_resolved(data, rules, version, archive=archive, name=name, seed=seed)
+        incoming = {entry.IndexValue: entry.EntryValue for entry in seed.state.EntriesValue}
+        outgoing = probe.map_members(reader)
+        preserved = all(outgoing.get(slot) is value for slot, value in incoming.items())
+        if not preserved:
+            raise ArchiveError('legacy linked read changed an inherited configuration map identity')
+        read_result.update(
+            fully_consumed=reader.p == len(data) and not document.tail,
+            cursor=reader.p, remaining_bytes=reader.left(), tail_bytes=len(document.tail),
+            roots=len(document.roots), map_count=reader.count, map_entries=len(outgoing),
+            inherited_identities_preserved=True,
+        )
+        return document, reader
+
+    ResolvedCore.load_resolved = tracked_resolved
+    try:
+        result = probe.inspect(archive, legacy_registry, CONFIG, linked=True)
+    finally:
+        ResolvedCore.load_resolved = load_resolved
     linked = result['linked_streams']
     if not result['positive_populated_observed'] or linked['cmgr']['mode'] != 0:
         raise ArchiveError('expected a populated direct legacy master and CMgr mode zero')
     resolved = linked['resolved']
+    resolved['linked_read'] = read_result or None
+    resolved['legacy_flat_body_reads'] = cache_observations
     image = archive.require(CONFIG + '-ResolvedFeatures')
     rules, = configured
     version = result['config_version']
     resolved['legacy_candidate_replays'] = probe.replay_boundaries(image, rules, version, observations)
     resolved['legacy_bend_replays'] = legacy.replay_legacy_bend(image, rules, version, bend_observations)
+    resolved['legacy_ui_bend_links'] = legacy.describe_ui_bend_links(probe, observations)
     return result
 
 
