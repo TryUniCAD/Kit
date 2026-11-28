@@ -116,6 +116,8 @@ Successful receipts do not establish portable completeness or native conversion 
 The [Fusion saved cuboid binding procedure](../Changes/Research/Encoder/FusionSavedParameterBindings.md) uses a persisted semantic request to verify parameter names, order and feature ownership.
 Run this offline research procedure from a checkout. Its result has no direct Fusion application verification.
 
+The [named-camera procedure](../Changes/Research/Encoder/FusionSavedNamedCameras.md) extends the request with the ordered cameras of this saved cuboid scope.
+
 The [blind-boss audit](../Changes/Research/Solidworks/BlindBossDecodeAudit.md) records an executed offline scope and its limits.
 Offline readers decode existing native files without launching CAD applications.
 Archived application measurements support replay checks, not fresh vendor acceptance.
