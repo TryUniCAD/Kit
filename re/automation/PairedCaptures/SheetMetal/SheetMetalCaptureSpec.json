@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "build": "34.4.1.1011",
+  "modules": {
+    "sldsmmu.dll": "3299f8676485bab354704fb190cff768393bcf9a0ccd225ba6b29271e3b462ea",
+    "sldmodu.dll": "2201734ebe0106efde5a93e306067b4b5e2fdb0ba70bf38ce9a59242b283cb99"
+  },
+  "cases": [
+    {
+      "id": "A-only",
+      "bodies": [
+        "A"
+      ]
+    },
+    {
+      "id": "A-only-repeat",
+      "bodies": [
+        "A"
+      ]
+    },
+    {
+      "id": "A-then-B",
+      "bodies": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "B-then-A",
+      "bodies": [
+        "B",
+        "A"
+      ]
+    },
+    {
+      "id": "A-edge",
+      "bodies": [
+        "A"
+      ],
+      "flange": {
+        "body": "A",
+        "side": "max_y",
+        "angle_deg": 90,
+        "length_mm": 13,
+        "edit_mm": 16.25
+      }
+    },
+    {
+      "id": "held-out",
+      "holdout": true,
+      "bodies": [
+        "B-prime",
+        "A-prime"
+      ],
+      "flange": {
+        "body": "A-prime",
+        "side": "max_x",
+        "angle_deg": 75,
+        "length_mm": 17.5
+      }
+    }
+  ],
+  "bodies": {
+    "A": {
+      "low": [
+        0,
+        0
+      ],
+      "high": [
+        41,
+        23
+      ],
+      "thickness_mm": 1.25,
+      "radius_mm": 1.75
+    },
+    "B": {
+      "low": [
+        67,
+        11
+      ],
+      "high": [
+        96,
+        28
+      ],
+      "thickness_mm": 1.25,
+      "radius_mm": 1.75
+    },
+    "A-prime": {
+      "low": [
+        -14,
+        7
+      ],
+      "high": [
+        23,
+        33
+      ],
+      "thickness_mm": 1.6,
+      "radius_mm": 2.3
+    },
+    "B-prime": {
+      "low": [
+        49,
+        -19
+      ],
+      "high": [
+        71,
+        -4
+      ],
+      "thickness_mm": 1.6,
+      "radius_mm": 2.3
+    }
+  }
+}

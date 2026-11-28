@@ -337,6 +337,10 @@ records the remaining native inputs. Exit requires concrete per-body descriptors
 identity-preserving map admission, independently held-out lifecycle and topology
 verification, and the current revision's review and queue acceptance.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalBodyResearch.md)
+The [paired capture launcher](../../re/automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1)
+now binds the six native saves and the edit and restoration to the owned-process harness.
+The native capture, normalized Config comparison and held-out correlation are pending.
+[Capture recipe change](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalNativeCaptureRecipe.md)
 
 ### B04-SW2026-CONFIG-VIEWS
 

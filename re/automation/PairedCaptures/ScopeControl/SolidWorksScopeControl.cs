@@ -843,6 +843,16 @@ public sealed class SolidWorksScopeControl
 
     static string Phase(string specification, string directory, string executable, string provenance, string priorJson)
     {
+        return RunOwnedPhase(executable, (application, processRow) =>
+        {
+            var worker = new SolidWorksScopeControl(application, ObjectValue(Json.DeserializeObject(specification)));
+            return worker.Collect(directory, priorJson, processRow, ObjectValue(Json.DeserializeObject(provenance)));
+        }, false);
+    }
+
+    public static string RunOwnedPhase(string executable,
+        Func<ISldWorks, Dictionary<string, object>, object> collect, bool stopOnEmptyFailure)
+    {
         var launch = new ProcessStartInfo(executable)
         {
             UseShellExecute = false,
@@ -875,12 +885,11 @@ public sealed class SolidWorksScopeControl
                 }
                 Check(application.RevisionNumber() == "34.4.1" && FileVersionInfo.GetVersionInfo(executable).FileVersion == Build,
                     "The expected licensed SOLIDWORKS build did not start");
-                var worker = new SolidWorksScopeControl(application, ObjectValue(Json.DeserializeObject(specification)));
                 var started = DateTime.FromFileTimeUtc(owned.Created);
                 var processRow = Row("pid", pid, "started_utc", started.ToString("O"));
                 mayStop = false;
-                var output = worker.Collect(directory, priorJson, processRow, ObjectValue(Json.DeserializeObject(provenance)));
-                Check(application.GetDocumentCount() == 0, "The scope worker left an open document");
+                var output = collect(application, processRow);
+                Check(application.GetDocumentCount() == 0, "The capture worker left an open document");
                 mayStop = true;
                 RequestExit(owned, ref application);
                 Check(owned.Exited(60000), "The owned SOLIDWORKS process did not exit");
@@ -889,6 +898,11 @@ public sealed class SolidWorksScopeControl
             }
             catch (Exception error)
             {
+                if (stopOnEmptyFailure && application != null && !mayStop)
+                {
+                    try { mayStop = application.GetDocumentCount() == 0; }
+                    catch (COMException) { }
+                }
                 var cleanup = Recover(owned, pid, ref application, mayStop);
                 try { Release(ref application); }
                 catch (Exception releaseError) { cleanup["release_error"] = releaseError.Message; }

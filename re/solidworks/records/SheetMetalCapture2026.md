@@ -14,7 +14,18 @@ Author fully constrained XY rectangles with the listed world offsets, positive l
 
 Keep the six native `.SLDPRT` saves and per-file hash-bound observations. Record the active configuration, `SaveAs` outputs, exact body count and order, per-body bounds and mass/center, feature names and types, persistent identities, parent relationships, cut-list membership, folded and flat state, and the selected edge witness with its actual body and topology owner. A geometry match does not substitute for persistent selection identity. Preserve load, rebuild and native feature diagnostics. For `A-edge` independently edit flange length from `13` to `16.25`, rebuild, measure, save the edit, restore `13`, rebuild, save the restoration and verify both saves in fresh processes. Keep the phase identities, control observations, and archive hashes. Preserve the original failures and the original files.
 
-The existing `RunSolidWorksScope.ps1` harness has dedicated host ownership and private output guards but needs a sheet-metal authoring binding. Use the installed exact-build COM API and bind the actual arguments and precision. [Base flange authoring](https://help.solidworks.com/2023/english/api/sldworksapi/Insert_Sheet_Metal_Base_Flange_Example_CSharp.htm) · [Edge flange authoring](https://help.solidworks.com/2026/english/api/sldworksapi/Insert_Sheet_Metal_Edge_Flange_Example_VB.htm)
+The oracle owner runs the [paired capture launcher](../../automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1) from the pinned #225 checkout. It shares the scope-control host's process ownership and requires a fresh 64-bit Windows PowerShell 5.1 STA. Use the healthy stock part and its SHA-256, solid count, and volume in cubic metres from an independent receipt. Choose an unused private directory outside the checkout.
+
+
+```powershell
+powershell.exe -NoProfile -STA -File re/automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1 -SourceRevision REVISION -CompileOnly
+powershell.exe -NoProfile -STA -File re/automation/PairedCaptures/SheetMetal/RunSheetMetalCapture.ps1 -SourceRevision REVISION -OutputDirectory PRIVATE_NEW_DIRECTORY -StockControl STOCK_PART -StockControlSha256 STOCK_RECEIPT_SHA256 -StockSolidCount STOCK_RECEIPT_COUNT -StockVolumeM3 STOCK_RECEIPT_VOLUME
+```
+
+The launcher takes the shared native-oracle mutex, binds the executable and module hashes, and writes run provenance before authoring. Each case has its own owned authoring process, and each archive is reopened read-only in its own process. The output includes per-save checkpoints, authoring and reopen sidecars, and the two stock receipts. A completed run writes a SHA-256-addressed report. Keep failures and partial outputs in the original directory, then allocate a new directory for a rerun. Keep the contents of the sealed holdout directory with the oracle owner until the discovery rule is frozen. The recipe records the saved suppression state and any fixed-face reference exposed by the native API. It does not toggle and measure the unsaved flat configuration.
+
+
+[Base flange authoring](https://help.solidworks.com/2023/english/api/sldworksapi/Insert_Sheet_Metal_Base_Flange_Example_CSharp.htm) · [Edge flange authoring](https://help.solidworks.com/2026/english/api/sldworksapi/Insert_Sheet_Metal_Edge_Flange_Example_VB.htm)
 
 Run the following from the #225 checkout on each non-holdout archive using its independently obtained SHA-256. `REFERENCE_REPOSITORY` must contain Git object `b87f3b12b72874f4289b627d56e3740da2ab725b`. Use new result files. The probe uses only the tracked source of the referenced revision.
 
