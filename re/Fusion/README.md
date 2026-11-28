@@ -21,6 +21,12 @@ See the [reader guide](Notes/SdkReader.md) for history selection, assembly acces
 and Zstandard support. Strict translation and complete native Fusion output
 require further coverage.
 
+## Design texture placement
+
+The [Design texture placement procedure](../../Documentation/Changes/Research/Encoder/FusionDesignTexturePlacement.md)
+generates a fixed cuboid with two modern finishes and an explicit wood origin.
+It covers the Design mapping with empty texture bounds. Historical bounds and the graphics scene remain outside this research scope.
+
 ## Feature index
 
 | Feature                                                                    | Verified scope and open work                                                                                                   | Decoder                                                                                                         | Focused check                                                                       |
