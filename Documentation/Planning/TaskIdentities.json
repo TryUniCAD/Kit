@@ -1,0 +1,256 @@
+{
+  "SchemaVersion": 1,
+  "Policy": "Preserve ScopeId across edits and reordering. Source plus TaskId identifies each register row; update this mapping explicitly when relocating or renaming a registered task. Retain historical entries when tasks are removed. New unmapped rows receive a deterministic source/task hash, never a row position.",
+  "Rows": [
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A11c",
+      "ScopeId": "A11c:14"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A12a",
+      "ScopeId": "A12a:15"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A13a",
+      "ScopeId": "A13a:16"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A07d",
+      "ScopeId": "A07d:17"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08f",
+      "ScopeId": "A08f:18"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08g",
+      "ScopeId": "A08g:19"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08i",
+      "ScopeId": "A08i:20"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A02a",
+      "ScopeId": "A02a:37"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A02b",
+      "ScopeId": "A02b:38"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A02c",
+      "ScopeId": "A02c:39"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A02d",
+      "ScopeId": "A02d:40"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A03a",
+      "ScopeId": "A03a:41"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A03b",
+      "ScopeId": "A03b:42"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A03c",
+      "ScopeId": "A03c:43"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A03d",
+      "ScopeId": "A03d:44"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A03e",
+      "ScopeId": "A03e:45"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A04a",
+      "ScopeId": "A04a:46"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A04b",
+      "ScopeId": "A04b:47"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A04c",
+      "ScopeId": "A04c:48"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A05a",
+      "ScopeId": "A05a:49"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A05b",
+      "ScopeId": "A05b:50"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A05c",
+      "ScopeId": "A05c:51"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A06a",
+      "ScopeId": "A06a:52"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A06b",
+      "ScopeId": "A06b:53"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A06c",
+      "ScopeId": "A06c:54"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A06d",
+      "ScopeId": "A06d:55"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A06e",
+      "ScopeId": "A06e:56"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A06f",
+      "ScopeId": "A06f:57"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A11a",
+      "ScopeId": "A11a:58"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A11b",
+      "ScopeId": "A11b:59"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A16a",
+      "ScopeId": "A16a:60"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A16b",
+      "ScopeId": "A16b:61"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A16c",
+      "ScopeId": "A16c:62"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A16d",
+      "ScopeId": "A16d:63"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A16e",
+      "ScopeId": "A16e:64"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A16f",
+      "ScopeId": "A16f:65"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A16g",
+      "ScopeId": "A16g:66"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08a",
+      "ScopeId": "A08a:67"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08b",
+      "ScopeId": "A08b:68"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08c",
+      "ScopeId": "A08c:69"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08d",
+      "ScopeId": "A08d:70"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A08e",
+      "ScopeId": "A08e:71"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A10a",
+      "ScopeId": "A10a:72"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A10b",
+      "ScopeId": "A10b:73"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A10c",
+      "ScopeId": "A10c:74"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A10d",
+      "ScopeId": "A10d:75"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A14a",
+      "ScopeId": "A14a:76"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A14b",
+      "ScopeId": "A14b:77"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A14c",
+      "ScopeId": "A14c:78"
+    },
+    {
+      "Source": "Documentation/Reference/Research/AutomationSteps.md",
+      "TaskId": "A15a",
+      "ScopeId": "A15a:79"
+    }
+  ]
+}

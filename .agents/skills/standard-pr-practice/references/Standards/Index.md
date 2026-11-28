@@ -9,7 +9,9 @@ provenance. Read each rule set relevant to the task, using the routing table in
 `../../SKILL.md`.
 
 The readable files retain the original content except for the retired file
-notice policy. The pinned Git commit preserves the original files, paths,
+notice policy and explicit branding edits recorded in `Manifest.json`.
+CI applies those byte edits after verifying each original source hash.
+The pinned Git commit preserves the original files, paths,
 modes, and bytes.
 [Manifest.json](Manifest.json) records the original Git blob, SHA-256, size, and
 current location for every file, pinned to source commit
@@ -34,8 +36,8 @@ requirements retain their original force and scope. In particular:
 - Follow the main skill's local execution rules, including standing
   authorization for relevant local tests on large PRs. Heavy acceptance runs
   in the native merge queue.
-- [ReviewBot.json](../../ReviewBot.json) defines the only automated reviewer
-  request comment. The main skill defines all-CI follow-up, large-PR review
+- [ReviewBot.json](../../ReviewBot.json) defines automated reviewer identities,
+  native reports and triggers. The main skill defines all-CI follow-up, large-PR review
   timing, and readiness evidence.
 - Only verified repository administrators can explicitly authorize agent merges,
   queue enrollment, auto-merge, or supported overrides under the main skill's

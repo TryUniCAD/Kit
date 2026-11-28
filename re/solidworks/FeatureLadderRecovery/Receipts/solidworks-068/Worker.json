@@ -1,0 +1,51 @@
+{
+  "case": "solidworks-068",
+  "decodes": [
+    {
+      "case": "solidworks-068",
+      "source": "$RECOVERY/SolidWorksWarmCanaryFiles/control-before.SLDPRT",
+      "sha256": "6e4e3c552e8dadb72c7d3828f73c26c693ac22bfc7bcf1baffc3ac5b5195b9dc",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksWarmCanaryFiles/control-before.SLDPRT",
+        "-o",
+        "$RECOVERY/CanaryStrictDecodes/solidworks-068-control-before.json"
+      ],
+      "exit_code": 0,
+      "decoded_document": "$RECOVERY/CanaryStrictDecodes/solidworks-068-control-before.json",
+      "full_semantics_verified": false
+    },
+    {
+      "case": "solidworks-068",
+      "source": "$RECOVERY/SolidWorksWarmCanaryFiles/variation.SLDPRT",
+      "sha256": "a11b4b51b2391eaa679031b4e43eb4e889822b022d79c567b62679e1e64104d3",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksWarmCanaryFiles/variation.SLDPRT",
+        "-o",
+        "$RECOVERY/CanaryStrictDecodes/solidworks-068-variation.json"
+      ],
+      "exit_code": 0,
+      "decoded_document": "$RECOVERY/CanaryStrictDecodes/solidworks-068-variation.json",
+      "full_semantics_verified": false
+    },
+    {
+      "case": "solidworks-068",
+      "source": "$RECOVERY/SolidWorksWarmCanaryFiles/control-after.SLDPRT",
+      "sha256": "b83f81a13baf06600b85260d3316a336fd39d200b5b91a0d1b11643dc8007d10",
+      "command": [
+        "kit",
+        "decode",
+        "$RECOVERY/SolidWorksWarmCanaryFiles/control-after.SLDPRT",
+        "-o",
+        "$RECOVERY/CanaryStrictDecodes/solidworks-068-control-after.json"
+      ],
+      "exit_code": 0,
+      "decoded_document": "$RECOVERY/CanaryStrictDecodes/solidworks-068-control-after.json",
+      "full_semantics_verified": false
+    }
+  ],
+  "command_publication": "operator paths sanitized; original commands retained in private receipt"
+}

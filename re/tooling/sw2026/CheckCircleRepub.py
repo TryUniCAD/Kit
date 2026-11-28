@@ -36,6 +36,7 @@ def check_republish(target, audit, payload, receipt, epoch, locator, expected):
     successes = path_writes = 0
     refusals = []
     opened = audit.target_opens
+    prior_target = target.read_bytes()
     audit.phase = "write"
     try:
         for document in readers:
@@ -56,7 +57,9 @@ def check_republish(target, audit, payload, receipt, epoch, locator, expected):
                 verify_publication(document, registry(document, target), expected)
                 path_writes += 1
             else:
-                reject(lambda: registry(document, target), ValueError, "no unique exact native measurement")
+                diagnostic = ("cold readback differs from its regenerated part"
+                              if os.name == "nt" else "no unique exact native measurement")
+                reject(lambda: registry(document, target), ValueError, diagnostic)
 
         original = readers[0]
         changed = replace(original, metadata={**original.metadata, "unmapped_circle_semantics": True})
@@ -68,8 +71,8 @@ def check_republish(target, audit, payload, receipt, epoch, locator, expected):
                 "writer accessed input or a refused reread touched an output")
     finally:
         audit.phase = "done"
-    if path_writes:
-        require(target.read_bytes() == payload, "path publication differs from its measured source")
+    require(target.read_bytes() == (payload if path_writes else prior_target),
+            "path publication or refusal changed the wrong bytes")
     return {"strict_profiles": len(readers), "stream_publications": successes, "path_publications": path_writes,
             "exact_regeneration": True, "unrepresented_scope_refusals": refusals}
 

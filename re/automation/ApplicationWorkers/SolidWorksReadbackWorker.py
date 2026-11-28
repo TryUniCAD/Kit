@@ -10,7 +10,7 @@ from tempfile import TemporaryFile
 import time
 
 from ApplicationProtocol import (
-    ACKNOWLEDGEMENT, ApplicationTimeout, HostQueue, MAX_BYTES, PROTOCOL, QueueClient, WaitingApplication, WINDOWS_HELPERS,
+    ACKNOWLEDGEMENT, STOP_MARGIN_SECONDS, ApplicationTimeout, HostQueue, MAX_BYTES, PROTOCOL, QueueClient, WaitingApplication, WINDOWS_HELPERS,
     committed_bytes, configuration, encoded, file_bytes, pin, record, request_link, require, sha256, write_new, write_record,
 )
 from SolidWorksProgress import PROGRESS, recovery_progress, require_final_discard, require_progress
@@ -403,7 +403,8 @@ def dispatch(session, config, operation=OPERATION):
                "claim": "unqualified_dispatch", "native_qualified": False}
     if os.name != "nt" or config["application"] != "solidworks":
         return {"outcome": "waiting_application", "reason": "SOLIDWORKS readback requires Windows", "records": records}
-    deadline = min(job["stop_at"] - 1, time.time() + 300)
+    # recording the timeout takes several fsynced writes that must finish before the supervisor breaks the session at stop_at
+    deadline = min(job["stop_at"] - STOP_MARGIN_SECONDS, time.time() + 300)
     require(deadline > time.time(), "application session has no remaining dispatch budget")
     verify_sources(config)
     client = None

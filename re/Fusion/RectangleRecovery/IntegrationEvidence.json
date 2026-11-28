@@ -1,0 +1,145 @@
+{
+  "status": "passed",
+  "source_revision": "7a0a987ec2f1ab4099c839621a8e51d18bcfa872",
+  "positives": [
+    {
+      "case": "control-before",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        18.5,
+        11.5,
+        5.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "reverse-xy",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        18.5,
+        11.5,
+        -5.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "datum-yz",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        5.5,
+        11.5,
+        -18.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "control-after",
+      "volume_mm3": 9361.0,
+      "surface_area_mm2": 3022.0,
+      "centroid_mm": [
+        18.5,
+        11.5,
+        5.5
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "decimal-control-before",
+      "volume_mm3": 2418.8220000000006,
+      "surface_area_mm2": 1270.6200000000003,
+      "centroid_mm": [
+        8.100000000000001,
+        11.850000000000001,
+        3.15
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "decimal-reverse-xy",
+      "volume_mm3": 2418.8220000000006,
+      "surface_area_mm2": 1270.6200000000003,
+      "centroid_mm": [
+        8.100000000000001,
+        11.850000000000001,
+        -3.15
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "decimal-datum-yz",
+      "volume_mm3": 2418.8220000000006,
+      "surface_area_mm2": 1270.6200000000003,
+      "centroid_mm": [
+        3.15,
+        11.850000000000001,
+        -8.100000000000001
+      ],
+      "strict_sdk_and_cli_equal": true
+    },
+    {
+      "case": "decimal-control-after",
+      "volume_mm3": 2418.8220000000006,
+      "surface_area_mm2": 1270.6200000000003,
+      "centroid_mm": [
+        8.100000000000001,
+        11.850000000000001,
+        3.15
+      ],
+      "strict_sdk_and_cli_equal": true
+    }
+  ],
+  "negative_cases": [
+    "reverse-xy-writer-marked",
+    "reverse-xy-writer-stripped",
+    "datum-yz-writer-marked",
+    "datum-yz-writer-stripped",
+    "decimal-reverse-xy-writer-marked",
+    "decimal-reverse-xy-writer-stripped",
+    "decimal-datum-yz-writer-marked",
+    "decimal-datum-yz-writer-stripped",
+    "forward-xz",
+    "reverse-xz",
+    "reverse-yz",
+    "wrong-distance",
+    "unsupported-display-unit",
+    "named-reverse-distance"
+  ],
+  "full_semantics_verified": false,
+  "native_conversion_acceptance": false,
+  "candidate_sources": {
+    "src/convert/adapters/Fusion/Native/SignedPrism/ReadSignedBody.py": "dca47876d988ecbf36d2e25fb394c62dcd843f55ac47fa237523a9364cf884fd",
+    "src/convert/adapters/Fusion/Native/SignedPrism/CheckSignedTags.py": "e6917023a3c9c2356805794d49bbbcf855ad5329e097e5c5cf22f35bab765ef1",
+    "src/convert/adapters/Fusion/Native/DatumPrism/ReadDatumBody.py": "56326ce1fba9e3f13c119353bb7d1fbf88f298cfa2eb4232d7245282179aa9a0",
+    "src/convert/adapters/Fusion/Native/Rectangle/RectGeometry.py": "44b474aeef45b275cc33b563cf1b023c4d7753226ec3d6cb3e57405dc6012acd",
+    "src/convert/adapters/Fusion/Native/Rectangle/ReadRectangle.py": "aff8074c56c2841431b687a41ea6bc32462409afd7ddf70f32e0593ec7daf9f2",
+    "src/convert/adapters/Fusion/Native/Rectangle/ReadRectRules.py": "0f7709e4df1726801f0cea76f13f28fd8750831078438a39e927d2653c45fe3f",
+    "src/convert/adapters/Fusion/Native/Parameters/ReadParameters.py": "9e90b10035f801bc29c8634d0e7e43d6a5e7684a58e5df73712cd1887014d212",
+    "src/convert/adapters/Fusion/Native/Projection/ProjectPrism.py": "f20ab9d0856a08bf284fedc8723cc6f95e185e8aec0eadc8e9b89596f29ce35f"
+  },
+  "checkpoint": "scoped native endpoint repair; three process checks passed plus final recovery process passed with drafted coverage",
+  "drafted_controls": [
+    {
+      "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftNegative.f3d",
+      "exit_code": 0,
+      "diagnostic": ""
+    },
+    {
+      "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftPositive.f3d",
+      "exit_code": 0,
+      "diagnostic": ""
+    },
+    {
+      "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftSmall.f3d",
+      "exit_code": 0,
+      "diagnostic": ""
+    },
+    {
+      "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftSteep.f3d",
+      "exit_code": 0,
+      "diagnostic": ""
+    }
+  ]
+}

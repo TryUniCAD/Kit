@@ -334,6 +334,8 @@ bower_components
 .bower-registry
 .bower-tmp
 *.js
+!Documentation/Planning/Generated/Board.js
+!Documentation/Planning/Generated/BoardData.js
 composer.phar
 /vendor/
 *.ap_

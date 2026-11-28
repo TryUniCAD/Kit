@@ -8,6 +8,10 @@ from pathlib import Path, PurePosixPath
 
 IDENTITY_FIELDS = ("corpus_revision", "manifest_sha256", "sdk_revision", "sdk_sources_sha256", "tool_sources", "python", "receipt_version")
 LIMIT = 32 * 1024 * 1024
+MANIFEST_MIGRATION = (
+    "4cc8fb707641ecde29a04b5dafa1ecbf7e706a839550a4af3b8807d19b64d4e2",
+    "905b547f47e6b649b190bee11964067ce8dfa81ec8d43fd15e1c37f8d6eda05c",
+)
 
 
 def read_json(path):
@@ -135,6 +139,8 @@ def compare(expected, actual):
     validate_report(expected)
     validate_report(actual)
     for field in ("corpus_revision", "manifest_sha256"):
+        if field == "manifest_sha256" and (expected["observation"][field], actual["observation"][field]) == MANIFEST_MIGRATION:
+            continue
         if expected["observation"][field] != actual["observation"][field]:
             raise ValueError(f"census {field} differs; review and pin a new corpus baseline")
     expected_assets = {entry["path"]: entry for entry in expected["assets"]}
@@ -164,7 +170,7 @@ def main():
             return 0
         expected, actual = read_json(args.expected), read_json(args.actual)
         changes = compare(expected, actual)
-        print(json.dumps({"assets": len(actual["assets"]), "changes": changes, "baseline_revision": expected["observation"]["sdk_revision"], "observed_revision": actual["observation"]["sdk_revision"], "portable_complete": False}, sort_keys=True))
+        print(json.dumps({"assets": len(actual["assets"]), "changes": changes, "baseline_revision": expected["observation"]["sdk_revision"], "observed_revision": actual["observation"]["sdk_revision"], "baseline_manifest_sha256": expected["observation"]["manifest_sha256"], "observed_manifest_sha256": actual["observation"]["manifest_sha256"], "manifest_binding": "pinned_attribution_metadata_migration" if expected["observation"]["manifest_sha256"] != actual["observation"]["manifest_sha256"] else "identical_manifest_bytes", "portable_complete": False}, sort_keys=True))
         return 3 if changes else 0
     except (OSError, ValueError, KeyError, TypeError, RecursionError) as error:
         print(json.dumps({"error": str(error)[:2048], "portable_complete": False}, sort_keys=True), file=sys.stderr)

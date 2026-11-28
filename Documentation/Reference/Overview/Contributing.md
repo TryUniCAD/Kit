@@ -6,6 +6,9 @@ Submit a scoped change with its documentation, CI evidence, and configured revie
 The canonical workflow is [standard-pr-practice](../../../.agents/skills/standard-pr-practice/SKILL.md).
 The repository has one discoverable skill.
 
+Core contributors are Odin Glynn-Martin, Stephen Harcourt, and James Harcourt.
+They are copyright holders under the repository's [MIT License](../../../LICENSE).
+
 ## Before you start
 
 Read [AGENTS.md](../../../AGENTS.md), the skill, and its complete standards index.
@@ -36,7 +39,10 @@ PR creation does not authorize merge or queue enrollment.
 
 Read each entry in `Reviewers` from [ReviewBot.json](../../../.agents/skills/standard-pr-practice/ReviewBot.json).
 The array is the only source of reviewer identities, report names, and request text.
-For each entry, post `Comment` verbatim as a separate top-level request.
+For `Trigger: schedule`, follow the automatic review workflow on each proposed head regardless of CI failures or merge conflicts.
+For explicit reassessment, use one complete `AccountReview.MentionCommands` entry from the same registry in a new PR comment.
+Use its workflow dispatch with CI run input `id` for a manual retry.
+For a comment-triggered entry, post `Comment` verbatim as a separate top-level request.
 Post once per accepted head unless that reviewer already has a request or review for the head.
 Verify each responding account or app and reviewed SHA.
 Address actionable findings, including top-level and advisory reports.

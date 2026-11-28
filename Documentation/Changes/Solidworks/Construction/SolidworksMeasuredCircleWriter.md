@@ -30,3 +30,11 @@ change does not qualify saved-circle semantic rereads or FreeCAD corpus inputs.
 
 [Adapter guide](../../../Reference/Adapters/Solidworks.md) ·
 [Method and evidence](../../../../re/solidworks/records/SdkMeasuredCircleMain2026.md)
+
+The current-main compatibility replay retains the circle's SP05.2
+oracle scope. CPython 3.13.0 with stock zlib 1.3.1 republishes the
+measured candidate and preserves the destination on a Windows locator
+change. CPython 3.14.6 with zlib-ng refuses changed archive bytes and
+retains the strict saved-circle inspection results. The replay imports
+the normal SDK registry before enforcing the unchanged runtime input audit.
+See the [Windows locator refusal](../../../Gotchas/Conversion/Solidworks/ColdCircleWindowsLocator.md).

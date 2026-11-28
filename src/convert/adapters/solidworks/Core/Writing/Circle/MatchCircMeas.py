@@ -16,7 +16,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasRows import ReadMeasRows
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Circle.ReadCircMeas import KCircOracle
 from interchange.Core.Common import FreezeMapping
 
 
@@ -62,7 +62,7 @@ def MatchCircMeas(
             KPartMeasureOpt: FreezeMapping(
                 {
                     "generated_sha256": Digest,
-                    "oracle_build": KOraclePart["build"],
+                    "oracle_build": KCircOracle["build"],
                     "native_result_sha256": ReadMeasSha(
                         Receipt.get("raw_result_sha256")
                     ),
