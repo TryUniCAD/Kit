@@ -449,6 +449,9 @@ public static class SheetMetalCapture
         var row = Observe(doc, count);
         if (edge != null)
             row.Add("flange", ReadEdge(doc, (string)edge["profile_dimension"], (string)edge["source_edge"], length, angle, radius));
+        Check(!String.IsNullOrEmpty(id) && !Path.IsPathRooted(id) && id == Path.GetFileName(id)
+            && id != "." && id != ".." && id.IndexOfAny(Path.GetInvalidFileNameChars()) < 0,
+            "Capture ID must be a plain file name");
         var path = Path.Combine(directory, id + ".SLDPRT");
         Check(!File.Exists(path), "Refusing to overwrite an existing native archive");
         int errors = 0, warnings = 0;
@@ -485,9 +488,11 @@ public static class SheetMetalCapture
                 Dictionary<string, object> edge = null;
                 double length = 0, angle = 0, radius = 0;
                 var saves = new List<object>();
-                if (control.ContainsKey("flange"))
+                Dictionary<string, object> flange = null;
+                object flangeControl;
+                if (control.TryGetValue("flange", out flangeControl))
                 {
-                    var flange = Object(control["flange"]);
+                    flange = Object(flangeControl);
                     var body = Object(definitions[(string)flange["body"]]);
                     edge = AddEdge(doc, body, flange);
                     length = Length(flange, "length_mm");
@@ -497,10 +502,10 @@ public static class SheetMetalCapture
                 }
                 var original = Save(doc, directory, id, ids.Length, edge, process, length, angle, radius);
                 saves.Add(original);
-                if (edge != null && Object(control["flange"]).ContainsKey("edit_mm"))
+                if (edge != null && flange != null && flange.ContainsKey("edit_mm"))
                 {
                     var dimension = (string)edge["profile_dimension"];
-                    var editedLength = Length(Object(control["flange"]), "edit_mm");
+                    var editedLength = Length(flange, "edit_mm");
                     EditLength(doc, dimension, editedLength);
                     var edited = Save(doc, directory, id + "-edited", ids.Length, edge, process, editedLength, angle, radius);
                     Check(TotalVolume(edited) > TotalVolume(original) + 1e-12, "The length edit did not increase native volume");

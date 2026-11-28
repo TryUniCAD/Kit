@@ -898,12 +898,14 @@ public sealed class SolidWorksScopeControl
             }
             catch (Exception error)
             {
+                string stopProbeError = null;
                 if (stopOnEmptyFailure && application != null && !mayStop)
                 {
                     try { mayStop = application.GetDocumentCount() == 0; }
-                    catch (COMException) { }
+                    catch (COMException probeError) { stopProbeError = probeError.Message; }
                 }
                 var cleanup = Recover(owned, pid, ref application, mayStop);
+                if (stopProbeError != null) cleanup["stop_probe_error"] = stopProbeError;
                 try { Release(ref application); }
                 catch (Exception releaseError) { cleanup["release_error"] = releaseError.Message; }
                 error.GetBaseException().Data["scope_cleanup"] = Json.Serialize(cleanup);
