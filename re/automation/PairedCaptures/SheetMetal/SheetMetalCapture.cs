@@ -167,7 +167,45 @@ public static class SheetMetalCapture
         return actual.Zip(desired, (a, b) => a.Zip(b, (value, expected) => Near(value, expected)).All(v => v)).All(v => v);
     }
 
-    static Dictionary<string, object> AddBase(ISldWorks app, IModelDoc2 doc, string id, Dictionary<string, object> body)
+    static object Diagnostic(Func<object> measure)
+    {
+        try { return measure(); }
+        catch (Exception error)
+        {
+            var cause = error.GetBaseException();
+            return Row("measurement_error", cause.GetType().Name, "hresult", cause.HResult, "message", cause.Message);
+        }
+    }
+
+    static Dictionary<string, object> BaseProfile(ISldWorks app, ISketch sketch)
+    {
+        var utility = (IMathUtility)app.GetMathUtility();
+        var world = sketch.ModelToSketchTransform.IInverse();
+        var origin = (IMathPoint)utility.CreatePoint(new[] { 0.0, 0, 0 });
+        var normal = (IMathVector)utility.CreateVector(new[] { 0.0, 0, 1 });
+        var contours = Items(sketch.GetSketchContours()).Cast<ISketchContour>().ToArray();
+        Check(contours.Length == 1 && contours[0].IsClosed(), "The native base-flange sketch did not contain one closed contour");
+        return Row("origin_m", origin.IMultiplyTransform(world).ArrayData,
+            "normal", normal.IMultiplyTransform(world).ArrayData,
+            "model_to_sketch", sketch.ModelToSketchTransform.ArrayData,
+            "closed_contour_edges", Items(contours[0].GetSketchSegments()).Cast<ISketchLine>().Select(line =>
+            {
+                var a = (ISketchPoint)line.GetStartPoint2();
+                var b = (ISketchPoint)line.GetEndPoint2();
+                return new[] { new[] { a.X, a.Y, a.Z }, new[] { b.X, b.Y, b.Z } };
+            }).ToArray());
+    }
+
+    static object PlanarFaces(IBody2 body)
+    {
+        return Items(body.GetFaces()).Cast<IFace2>().Select(face => new { Face = face, Surface = face.IGetSurface() })
+            .Where(pair => pair.Surface != null && pair.Surface.IsPlane())
+            .Select(pair => Row("face_normal", pair.Face.Normal, "plane_parameters", pair.Surface.PlaneParams,
+                "area_m2", pair.Face.GetArea())).ToArray();
+    }
+
+    static Dictionary<string, object> AddBase(ISldWorks app, IModelDoc2 doc, string id, Dictionary<string, object> body,
+        string caseId, string discoveryDirectory)
     {
         doc.ClearSelection2(true);
         Check(doc.Extension.SelectByID2("Front Plane", "PLANE", 0, 0, 0, false, 0, null, 0), "Cannot select the world XY datum");
@@ -186,6 +224,7 @@ public static class SheetMetalCapture
         Check(status == (int)swConstrainedStatus_e.swFullyConstrained, "Base-flange rectangle constraint status " + status);
         doc.ClearSelection2(true);
         doc.SketchManager.InsertSketch(true);
+        var profile = Diagnostic(() => BaseProfile(app, sketch));
         var sketchFeature = (IFeature)sketch;
         sketchFeature.Name = "Sketch-" + id;
         Check(sketchFeature.Select2(false, 0), "Could not select the rectangle sketch");
@@ -216,8 +255,9 @@ public static class SheetMetalCapture
         var expected = DesiredBounds(body);
         var initial = Bodies(doc);
         var evidence = Row("id", id, "requested_thicken_direction", thickenTowardPositiveZ,
-            "intended_bounds_m", expected, "initial_bodies", initial.Select(candidate =>
-            Row("name", candidate.Name, "bounds_m", Bounds(candidate), "sheet_metal", candidate.IsSheetMetal())).ToArray());
+            "intended_bounds_m", expected, "profile", profile, "initial_bodies", initial.Select(candidate =>
+            Row("name", candidate.Name, "bounds_m", Bounds(candidate), "sheet_metal", candidate.IsSheetMetal(),
+                "planar_faces", Diagnostic(() => PlanarFaces(candidate)))).ToArray());
         try
         {
             var definition = flange.GetDefinition() as IBaseFlangeFeatureData;
@@ -226,7 +266,20 @@ public static class SheetMetalCapture
             evidence.Add("initial_thickness_m", definition.Thickness);
             evidence.Add("initial_radius_m", definition.BendRadius);
             var solid = initial.SingleOrDefault(candidate => HasBounds(candidate, expected));
-            Check(solid != null && solid.IsSheetMetal(), "No distinct positive-Z sheet-metal body matched " + id);
+            if (solid == null || !solid.IsSheetMetal())
+            {
+                if (discoveryDirectory != null && initial.Any(candidate => candidate.IsSheetMetal()))
+                {
+                    try { evidence.Add("unqualified_archive", SaveDiagnostic(doc, discoveryDirectory, caseId, id, initial.Length)); }
+                    catch (Exception diagnostic)
+                    {
+                        var cause = diagnostic.GetBaseException();
+                        evidence.Add("diagnostic_save_failure", Row("type", cause.GetType().Name,
+                            "hresult", cause.HResult, "message", cause.Message));
+                    }
+                }
+                throw new InvalidOperationException("No distinct positive-Z sheet-metal body matched " + id);
+            }
             Check(Near(definition.Thickness, thickness) && Near(definition.BendRadius, radius),
                 "Base flange did not report the requested thickness and radius for " + id);
             return Row("id", id, "body", BodyRow(doc, solid), "feature", Identity(doc, flange),
@@ -422,6 +475,27 @@ public static class SheetMetalCapture
         return Items(observation["bodies"]).Sum(body => Number(Object(body)["volume_m3"]));
     }
 
+    static Dictionary<string, object> SaveDiagnostic(IModelDoc2 doc, string directory, string caseId, string baseId, int count)
+    {
+        Check(caseId == "A-only" || caseId == "A-only-repeat" || caseId == "A-then-B" || caseId == "B-then-A" || caseId == "A-edge",
+            "Only a pinned discovery case may emit an unqualified diagnostic archive");
+        Check(baseId == "A" || baseId == "B", "Unqualified diagnostic archive has an unknown discovery body");
+        var diagnostics = Path.Combine(directory, "unqualified-discovery");
+        Check(!Directory.Exists(diagnostics) && !File.Exists(diagnostics), "Refusing to reuse an unqualified archive directory");
+        var observed = Diagnostic(() => Observe(doc, count));
+        Directory.CreateDirectory(diagnostics);
+        var path = Path.Combine(diagnostics, caseId + "-base-" + baseId + ".SLDPRT");
+        int errors = 0, warnings = 0;
+        bool saved = doc.Extension.SaveAs3(path, 0, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, null,
+            ref errors, ref warnings);
+        var archive = File.Exists(path) ? Archive(path) : null;
+        var report = Row("status", "unqualified_geometry_mismatch", "case", caseId, "base", baseId,
+            "archive", archive, "save_as", Row("success", saved, "errors", errors, "warnings", warnings),
+            "observation", observed);
+        WriteCheckpoint(Path.ChangeExtension(path, ".unqualified.json"), report);
+        return report;
+    }
+
     static Dictionary<string, object> Save(IModelDoc2 doc, string directory, string id, int count,
         Dictionary<string, object> edge, Dictionary<string, object> process, double length, double angle, double radius)
     {
@@ -458,7 +532,8 @@ public static class SheetMetalCapture
             var templateArchive = Archive(template);
             return WithDocument(app, app.NewDocument(template, 0, 0, 0) as IModelDoc2, doc =>
             {
-                var arguments = ids.Select(body => AddBase(app, doc, body, Object(definitions[body]))).ToArray();
+                var discoveryDirectory = control.ContainsKey("holdout") ? null : directory;
+                var arguments = ids.Select(body => AddBase(app, doc, body, Object(definitions[body]), id, discoveryDirectory)).ToArray();
                 Check(Bodies(doc).Length == ids.Length, "Disjoint base-flange controls did not retain the authored body membership");
                 var folder = Features(doc).FirstOrDefault(feature => feature.GetTypeName2() == "SolidBodyFolder");
                 var bodyFolder = folder == null ? null : folder.GetSpecificFeature2() as IBodyFolder;
