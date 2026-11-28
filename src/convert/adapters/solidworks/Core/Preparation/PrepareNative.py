@@ -5,6 +5,12 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCirclePart import (
+    IsCirclePart,
+)
+from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
+    PrepareCircle,
+)
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
@@ -36,11 +42,14 @@ def PrepareNative(
                 "unnamed native streams require an explicit final destination"
             )
         InputValue = ColdReadInput(DocumentValue, PureWindowsPath(FinalValue).stem)
-    PlanValue = PlanPartWrite(InputValue)
-    RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
-    Candidate = RunPartPrep(
-        InputValue, TargetValue, PlanValue, RecipeValue, SettingsValue
-    )
+    if IsCirclePart(InputValue):
+        Candidate = PrepareCircle(InputValue, TargetValue, WrittenAt, SettingsValue)
+    else:
+        PlanValue = PlanPartWrite(InputValue)
+        RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
+        Candidate = RunPartPrep(
+            InputValue, TargetValue, PlanValue, RecipeValue, SettingsValue
+        )
     if IsReadback:
         CheckColdRead(DocumentValue, Candidate.BytesValue)
     return Candidate

@@ -4,7 +4,7 @@ from interchange.document.Validation.DocumentValidate import AssertValid
 
 
 # the first candidate must reject unsupported neutral domains rather than silently omit authored data from a superficially valid part
-def RequirePlainDoc(DocumentValue: CadDocument) -> None:
+def RequirePlainDoc(DocumentValue: CadDocument, ParameterCount: int = 1) -> None:
     if not isinstance(CastValue(object, DocumentValue), CadDocument):
         raise TypeError("plain boss candidate requires a real neutral cad document")
     AssertValid(DocumentValue)
@@ -28,7 +28,7 @@ def RequirePlainDoc(DocumentValue: CadDocument) -> None:
         len(DocumentValue.sketches),
         len(DocumentValue.feature_timeline),
         len(DocumentValue.bodies),
-    ) != (1, 1, 1, 1, 1, 1):
+    ) != (1, ParameterCount, 1, 1, 1, 1):
         raise ValueError(
             "plain boss candidate requires one configuration length support sketch operation and body"
         )

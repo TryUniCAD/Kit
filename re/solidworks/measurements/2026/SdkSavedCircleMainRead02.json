@@ -1,0 +1,246 @@
+{
+  "cases": [
+    {
+      "editable_semantics": {
+        "active_depth_m_hex": "0x1.240b780346dc6p-6",
+        "depth_mm": 17.825,
+        "driver_ids": [
+          "sldprt:parameter:18:D1",
+          "sldprt:parameter:20:D1"
+        ],
+        "feature_id": "sldprt:feature:20",
+        "inactive_depth_m": 0.017825,
+        "inactive_depth_owner": {
+          "class": "moLengthParameter_c",
+          "dimension_index": 257,
+          "end": 12508,
+          "field_span": false,
+          "object_index": 258,
+          "offset": 12465,
+          "slot": "f818.f20",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "value_field": "f58",
+          "value_m": 0.017825
+        },
+        "radial_m_hex": "0x1.780346dc5d638p-6",
+        "radial_mm": 22.95,
+        "radius_mm": 11.475
+      },
+      "file_sha256": "f85b89e5920cfdb922657c57fc92d92c1e039db3e95286ad6e0f8e4c5712b6fc",
+      "linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2573,
+          "next_counter": 22,
+          "sha256": "1905786b45139c12b50e15d26f19bdeb2999d6910514fad7df4ad9c8a86b77ea"
+        },
+        "Contents/Config-0": {
+          "bytes": 26077,
+          "next_counter": 122,
+          "sha256": "68a96e3301e4fbd936e67602edd906857af47ec24a32b847b18ceb83c00bf487"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16807,
+          "next_counter": 278,
+          "sha256": "2ec1b22e2b6859e4a7c851d59c7bd634164306717633dc3498da19be5489bf5b"
+        }
+      },
+      "native_record_sha256": "438c0bd12ccb322f62d441acd0a8aac8560371bff2ffcf0b14224a346285d0d9",
+      "phase": "open-save",
+      "physical": {
+        "area_mm2": 2112.5168560166526,
+        "body_atom_id": 101,
+        "centroid_mm": [
+          7.125,
+          -5.675000000000001,
+          8.9125
+        ],
+        "cylinder_axis": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "face_ids": [
+          "sldprt:brep:face:40",
+          "sldprt:brep:face:54",
+          "sldprt:brep:face:56"
+        ],
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "78826fbb219952877ac7be98fed438f03349f8f2647f5748f0ea1d9bae878b81",
+        "signed_caps_mm": [
+          0.0,
+          17.825
+        ],
+        "volume_mm3": 7373.688714995752
+      }
+    },
+    {
+      "editable_semantics": {
+        "active_depth_m_hex": "0x1.5a12b5e529bafp-6",
+        "depth_mm": 21.122625000000003,
+        "driver_ids": [
+          "sldprt:parameter:18:D1",
+          "sldprt:parameter:20:D1"
+        ],
+        "feature_id": "sldprt:feature:20",
+        "inactive_depth_m": 0.017825,
+        "inactive_depth_owner": {
+          "class": "moLengthParameter_c",
+          "dimension_index": 257,
+          "end": 12602,
+          "field_span": false,
+          "object_index": 258,
+          "offset": 12559,
+          "slot": "f818.f20",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "value_field": "f58",
+          "value_m": 0.017825
+        },
+        "radial_m_hex": "0x1.39f87f023e9e9p-6",
+        "radial_mm": 19.163249999999998,
+        "radius_mm": 9.581625
+      },
+      "file_sha256": "566de86e115cf45420b4a2d481e42331656c28ebf16761a637c3ae8c9b63f11f",
+      "linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2667,
+          "next_counter": 22,
+          "sha256": "836bc68c438178bb1dd15ca0c57ce1cc469e0bedc591c29c92f785fc157758fd"
+        },
+        "Contents/Config-0": {
+          "bytes": 26095,
+          "next_counter": 122,
+          "sha256": "be89302b9bf98285be817f0ccf562e41c4c6eadb2fea0fb9ce5302467ba33835"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16901,
+          "next_counter": 278,
+          "sha256": "cf6445ad3b2ca729b48ad0ce1bbf044836b7215b994a2d4a10f996e2ac704cf4"
+        }
+      },
+      "native_record_sha256": "ac5b655fd02345a67b45c7300aab6f718e963ca291cefa90c6337abf97403808",
+      "phase": "fresh-reopen",
+      "physical": {
+        "area_mm2": 1848.4918136434019,
+        "body_atom_id": 101,
+        "centroid_mm": [
+          7.125,
+          -5.675000000000001,
+          10.561312500000001
+        ],
+        "cylinder_axis": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "face_ids": [
+          "sldprt:brep:face:40",
+          "sldprt:brep:face:54",
+          "sldprt:brep:face:56"
+        ],
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "9a5e5b8e0ac29135fd1daa27fac7feb3bd0d76a337630a35af8355bf9d7fd420",
+        "signed_caps_mm": [
+          0.0,
+          21.122625000000003
+        ],
+        "volume_mm3": 6092.227335460804
+      }
+    },
+    {
+      "editable_semantics": {
+        "active_depth_m_hex": "0x1.5a12b5e529bafp-6",
+        "depth_mm": 21.122625000000003,
+        "driver_ids": [
+          "sldprt:parameter:18:D1",
+          "sldprt:parameter:20:D1"
+        ],
+        "feature_id": "sldprt:feature:20",
+        "inactive_depth_m": 0.017825,
+        "inactive_depth_owner": {
+          "class": "moLengthParameter_c",
+          "dimension_index": 257,
+          "end": 12608,
+          "field_span": false,
+          "object_index": 258,
+          "offset": 12565,
+          "slot": "f818.f20",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "value_field": "f58",
+          "value_m": 0.017825
+        },
+        "radial_m_hex": "0x1.39f87f023e9e9p-6",
+        "radial_mm": 19.163249999999998,
+        "radius_mm": 9.581625
+      },
+      "file_sha256": "c8e6326464e2de7fd15d56a2e34c68320f7494cb3b6faa4a6924867619d16784",
+      "linked_streams": {
+        "Contents/CMgr": {
+          "bytes": 2673,
+          "next_counter": 22,
+          "sha256": "a594bb97c267defad722d2dc219a5e430600ad60d73146e3a57f83cfeba3aa46"
+        },
+        "Contents/Config-0": {
+          "bytes": 26095,
+          "next_counter": 122,
+          "sha256": "20a2108e3e7cf63e02bb4e8767319b40da797cdf70d54a92f57608621c6590a0"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16907,
+          "next_counter": 278,
+          "sha256": "7c2de7a6b6ffdec33d7145eb25c09ca6d37598cfce4cf7e6f96c732737aa1e8d"
+        }
+      },
+      "native_record_sha256": "5970f60d9f0fc44b1dc4f8666516965f626c0c5371558a2b467bc2ea55be3dcc",
+      "phase": "edited-fresh-reopen",
+      "physical": {
+        "area_mm2": 1848.4918136434019,
+        "body_atom_id": 101,
+        "centroid_mm": [
+          7.125,
+          -5.675000000000001,
+          10.561312500000001
+        ],
+        "cylinder_axis": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "face_ids": [
+          "sldprt:brep:face:40",
+          "sldprt:brep:face:54",
+          "sldprt:brep:face:56"
+        ],
+        "native_owner": 3,
+        "native_region": 38,
+        "native_shell": 7,
+        "partition_sha256": "25de32e3f5c172e3e3c21ae0ac68e79173cea2c79a43cc185141bf31899b834a",
+        "signed_caps_mm": [
+          0.0,
+          21.122625000000003
+        ],
+        "volume_mm3": 6092.227335460804
+      },
+      "refusals": {
+        "crossed_producing_atom": "saved circle typed owners unavailable: saved circle atom does not link its producing boss and configuration",
+        "stale_partition": "active cylinder radius differs from the owned sketch",
+        "unverified_geometry_unlinked": true,
+        "wrong_physical_atom": {
+          "claimed": 102,
+          "physical": 101,
+          "refusal": "saved circle partition shell disagrees with the live body atom"
+        }
+      }
+    }
+  ],
+  "fresh_processes": 3,
+  "linked_streams_exact": 9,
+  "native_process_launches": 0,
+  "native_report_sha256": "bc49ba2f4fd8215f2772c16dc7bdfc7c973f2dcacc4214b4890ef2bdb8ad6be0",
+  "schema": "kit.sw2026.saved-circle-sdk.v2",
+  "source_mode": "disclosed-packet",
+  "tool_sha256": "92ff8ad13ae1c98284c2a4dafe557af3b6ad9a4ab14130c8e7794cc303ae2aa0"
+}

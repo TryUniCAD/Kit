@@ -154,6 +154,24 @@ def AxisOffset(
 def CheckCylinder(
     Model: BrepModel, BossValue: CircularBoss, Radius: float
 ) -> CylinderData:
+    return CheckRoundBody(
+        Model,
+        BossValue["start_center_m"],
+        BossValue["axis"],
+        BossValue["signed_depth_m"],
+        Radius,
+    )
+
+
+# the same physical carrier proof admits a typed sketch independently of legacy feature records
+def CheckRoundBody(
+    Model: BrepModel,
+    Origin: KSavedVector,
+    AxisValue: KSavedVector,
+    Depth: float,
+    Radius: float,
+    BodyId: str = "",
+) -> CylinderData:
     RequireArch(
         len(Model.bodies) == len(Model.regions) == len(Model.shells) == 1
         and Model.regions[0].solid
@@ -162,7 +180,7 @@ def CheckCylinder(
         and len(Model.edges) == len(Model.curves) == 2
         and len(Model.vertices) == len(Model.edges)
         and not Model.wires
-        and not Model.validate(frozenset()),
+        and not Model.validate(frozenset((BodyId,)) if BodyId else frozenset()),
         True,
         "active circular partition is not a single closed analytic solid",
     )
@@ -210,11 +228,6 @@ def CheckCylinder(
         "active circular boundaries do not cover a full revolution",
     )
     (Cylinder,) = Cylinders
-    Origin, AxisValue, Depth = (
-        BossValue["start_center_m"],
-        BossValue["axis"],
-        BossValue["signed_depth_m"],
-    )
     CheckParallel(Cylinder.axis, AxisValue)
     RequireArch(
         IsClose(Cylinder.radius / 1000, Radius, rel_tol=0, abs_tol=KPlaneTolerance),

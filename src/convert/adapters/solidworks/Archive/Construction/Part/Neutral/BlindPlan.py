@@ -17,3 +17,8 @@ class BlindPlan:
     DepthValue: float
     WidthValue: float
     HeightValue: float
+
+    # the ordinary polygon path retains its existing canonical front support
+    @property
+    def AxisValue(self) -> str:
+        return "z"

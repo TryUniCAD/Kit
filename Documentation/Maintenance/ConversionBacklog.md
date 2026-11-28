@@ -80,6 +80,20 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### B04-SW2026-CIRCULAR-BOSS
+
+The PR #121 takeover team owns the main-target measured circle slice on
+`codex/solidworks-circle-measured-main`. It depends on the exact measured
+part publication gate and the typed part, sketch and radial driver graph.
+The disclosed forward Front-plane diameter archive reproduces through the
+SDK with exact bytes, ten streams, separate editable drivers and strict
+cold geometry. The follow-up reads the three disclosed native-saved diameter
+states through their exact live drivers and checked physical body. [PR #239](https://github.com/TryUniCAD/Kit/pull/239)
+still requires current-revision review and queue evidence. A public receipt
+and saved-reader scope for the reversed Top-plane radius, and an FCStd corpus
+audit, remain separate exits.
+[Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredCircleWriter.md)
+
 ### B10-RunDefaults
 
 Codex owns the profile-independent catalogue shortcut on `codex/desktop-run-defaults`.

@@ -1,14 +1,22 @@
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis import (
+    ReadPrincAxis,
+)
+from interchange.Records.RecordParameter import Parameter
 from interchange.Enums.EnumValues import ParameterRole
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.FeatureExtrude import ExtrudeFeature
 
 
 # a native driving dimension must preserve the actual neutral parameter sketch support configuration and body owners before synthesis
-def CheckPlainLinks(DocumentValue: CadDocument, Definition: ExtrudeFeature) -> None:
-    ConfigValue, Parameter = (
-        DocumentValue.configurations[0],
-        DocumentValue.parameters[0],
-    )
+def CheckPlainLinks(
+    DocumentValue: CadDocument,
+    Definition: ExtrudeFeature,
+    *,
+    DriverValue: Parameter | None = None,
+    AxisValue: str = "z",
+) -> None:
+    ConfigValue = DocumentValue.configurations[0]
+    DepthValue = DocumentValue.parameters[0] if DriverValue is None else DriverValue
     PlaneValue, SketchValue = DocumentValue.support_planes[0], DocumentValue.sketches[0]
     FeatureValue, BodyValue = DocumentValue.feature_timeline[0], DocumentValue.bodies[0]
     if (
@@ -29,18 +37,18 @@ def CheckPlainLinks(DocumentValue: CadDocument, Definition: ExtrudeFeature) -> N
             "plain boss sketch and support ownership differ from the actual neutral references"
         )
     if (
-        Parameter.role != ParameterRole.KDriving
-        or Parameter.expression is not None
-        or Parameter.owner_id != FeatureValue.id
-        or Parameter.name != "D1"
-        or Parameter.attributes
+        DepthValue.role != ParameterRole.KDriving
+        or DepthValue.expression is not None
+        or DepthValue.owner_id != FeatureValue.id
+        or DepthValue.name != "D1"
+        or DepthValue.attributes
     ):
         raise ValueError(
             "plain boss requires its actual unexpressed driving D1 parameter"
         )
     if (
-        FeatureValue.parameter_ids != (Parameter.id,)
-        or Parameter.value != Definition.length
+        FeatureValue.parameter_ids != (DepthValue.id,)
+        or DepthValue.value != Definition.length
     ):
         raise ValueError(
             "plain boss feature definition and driving parameter values disagree"
@@ -62,21 +70,5 @@ def CheckPlainLinks(DocumentValue: CadDocument, Definition: ExtrudeFeature) -> N
         raise ValueError(
             "plain boss does not admit attached offset or extended support semantics"
         )
-    TransformValue = PlaneValue.transform
-    if (
-        TransformValue.origin.x,
-        TransformValue.origin.y,
-        TransformValue.origin.z,
-        TransformValue.x_axis.x,
-        TransformValue.x_axis.y,
-        TransformValue.x_axis.z,
-        TransformValue.y_axis.x,
-        TransformValue.y_axis.y,
-        TransformValue.y_axis.z,
-        TransformValue.z_axis.x,
-        TransformValue.z_axis.y,
-        TransformValue.z_axis.z,
-    ) != (0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0):
-        raise ValueError(
-            "plain boss support must be the canonical front plane at the model origin"
-        )
+    if ReadPrincAxis(PlaneValue.transform) != AxisValue:
+        raise ValueError("plain boss support has a different canonical principal frame")

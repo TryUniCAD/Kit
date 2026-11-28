@@ -1,5 +1,8 @@
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Adapter import KSourceFormatKey
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCirclePart import (
+    IsCirclePart,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -9,5 +12,5 @@ def IsColdRead(Document: CadDocument) -> bool:
         Document.source.format_id == KPartFormatId
         and Document.source.container_version == "4"
         and Document.metadata.get(KSourceFormatKey) == KPartFormatId
-        and Document.brep is not None
+        and (Document.brep is not None or IsCirclePart(Document))
     )

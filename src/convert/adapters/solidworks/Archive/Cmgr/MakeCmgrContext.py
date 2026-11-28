@@ -36,6 +36,9 @@ def MakeCmgrContext(VersionValue: int, UsageValue: BodyUsage | None) -> BodyCont
         | {
             "moConfigurationMgr_c": (1,),
             "moCustomPropertyList": (1,),
+            "moCStringHandle_c": (1,),
+            "moExtObject_c": (1,),
+            "moLinkedAtomIdNode_c": (1,),
             "moPartConfiguration_c": (1,),
         },
         NewBodyUsage(VersionValue, UsageValue),
