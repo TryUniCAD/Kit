@@ -25,7 +25,7 @@ def AdmitRun() -> None:
             Path(".agents/skills/standard-pr-practice/ReviewBot.json").read_text()
         )
     )
-    IsAllowed = EventName in ("schedule", "workflow_dispatch")
+    IsAllowed = EventName in ("schedule", "workflow_dispatch", "push")
     if EventName == "issue_comment":
         IsAllowed = CanComment(
             OsTools.environ.get("GITHUB_REPOSITORY", ""),

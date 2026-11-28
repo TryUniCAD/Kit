@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 1,
   "ObservedOn": "2026-11-28",
-  "MainRevision": "5d9c6a5f5a41e03d07368a5ef11f90b60caff4c2",
+  "MainRevision": "9415b79e4e2c23171440fe43560a39575d34aed5",
   "ScopeLinks": [
     {
       "ScopeId": "sw:family:sketchconics:circle",
@@ -283,6 +283,92 @@
   "Schedules": [],
   "ExtraTasks": [
     {
+      "Id": "ReviewerContinuous",
+      "Name": "Review each proposed revision independently of approval gates",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session fix/reviewer-review-on-change-20261128",
+      "Runner": "OpenAI",
+      "Parent": "AccountReviewer",
+      "Dependencies": [],
+      "Source": "Documentation/Tasks/AccountReviewer.md",
+      "Exit": "Commit changes dispatch a new current-head model review even with failed CI or conflicts; app approval remains gated by current successful CI and mergeability; mentions acknowledge processing and use current trusted policy",
+      "Branch": "fix/reviewer-review-on-change-20261128",
+      "Blocker": "Owner authorized one time bootstrap merge after all other CI and native queue gates pass; protected default branch deployment and hosted runtime diagnosis remain pending; native project sync lacks read project permission",
+      "Evidence": "https://github.com/TryUniCAD/Kit/actions/runs/46163285662",
+      "HostedSmoke": {
+        "PullRequest": "https://github.com/TryUniCAD/Kit/pull/401",
+        "Revision": "c9682038719ade0661f43b74bf69943d7a4b70d8",
+        "Run": "https://github.com/TryUniCAD/Kit/actions/runs/46166204811",
+        "Outcome": "Input preparation and container build passed; model exited with status 1; no model report or approving review",
+        "Disposition": "Disposable fixture must not merge and must close after finding and approval verification"
+      },
+      "LocalRuntime": "Same authenticated model reasoning and tool free CLI invocation returned a schema compliant report; hosted runtime acceptance remains unverified",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/402",
+      "PreparationEvidence": [
+        {
+          "pull": 330,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "c5665fc5edd894cf80cea207be76dfc29a77c659",
+          "base": "91069da35b02ccbd0c7cc7a543c9a6fd016adb52",
+          "mergeable": true,
+          "input_complete": true,
+          "context_bytes": 422112,
+          "collected_files": 14,
+          "omitted_file_count": 0,
+          "omitted_sources": 0
+        },
+        {
+          "pull": 384,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "1c189c4bcb0b06166e3773941d1f82d81cbd6f7f",
+          "base": "9415b79e4e2c23171440fe43560a39575d34aed5",
+          "mergeable": true,
+          "input_complete": false,
+          "context_bytes": 339220,
+          "collected_files": 40,
+          "omitted_file_count": 3,
+          "omitted_sources": 0
+        },
+        {
+          "pull": 398,
+          "implementation_revision": "a384ed232df29a34ea6818ebedc09b78629aed4f",
+          "head": "cc22eadb06daa508b51b2b4f513298ad95f3f33f",
+          "base": "9415b79e4e2c23171440fe43560a39575d34aed5",
+          "mergeable": false,
+          "input_complete": false,
+          "context_bytes": 880876,
+          "collected_files": 20,
+          "omitted_file_count": 0,
+          "omitted_sources": 7
+        }
+      ],
+      "DispatcherException": {
+        "ApprovedBy": "jdharcourt",
+        "ApprovedOn": "2026-11-28",
+        "Scope": "Only dangerous-triggers annotations on pull_request_target and issue_comment in .github/workflows/ReviewRequest.yml",
+        "Constraints": "Metadata only; no PR code checkout or private credentials; live comment authorization; dispatch only the protected default branch reviewer; CI approval and merge queue gates unchanged",
+        "Verification": "Pinned Zizmor 1.32.0 pedantic offline audit passed both reviewer workflows with exactly two approved findings ignored"
+      },
+      "BootstrapReview": {
+        "PullRequest": "https://github.com/TryUniCAD/Kit/pull/402",
+        "Revision": "781797694e2d2ebf7a10bc907ec3f2908dd80e7d",
+        "Run": "https://github.com/TryUniCAD/Kit/actions/runs/46169826495",
+        "CheckId": 141055892952,
+        "Outcome": "PR exceeds the complete review file limit; input preparation published failure and skipped model review and publication",
+        "Approval": "Explicit owner bootstrap exception waives only failed reviewer check and missing app approval for PR 402; every other CI and native merge queue gate remains required"
+      },
+      "BootstrapAuthorization": {
+        "ApprovedBy": "jdharcourt",
+        "VerifiedUserId": 73539072,
+        "ApprovedOn": "2026-11-28",
+        "PullRequest": "https://github.com/TryUniCAD/Kit/pull/402",
+        "Scope": "One time bootstrap merge only; failed account reviewer check and missing app approval waived",
+        "Requirements": "All other CI checks pass; native merge queue acceptance passes; do not alter protections or bypass pending or failed queue acceptance",
+        "Continuation": "Authorization persists through ordinary task repairs; hosted runtime verification remains incomplete after merge"
+      }
+    },
+    {
       "Id": "ReviewerLiveEvidence",
       "Name": "Live review base and mergeability qualification",
       "Status": "active",
@@ -292,10 +378,12 @@
       "Parent": "AccountReviewer",
       "Dependencies": [],
       "Source": "Documentation/Changes/Review/ReviewerRuntimeAndReactions.md",
-      "Exit": "Review selection and publication compare ci evidence against the live target branch ref and refuse conflicting or indeterminate mergeability",
+      "Exit": "Review snapshots bind live head and target revision; approval alone additionally requires successful matching CI and mergeability",
       "Branch": "feat/reviewer-model-reactions-20261128",
       "Blocker": "Requested model and reasoning, renamed installed app, and accepted Issues write permission verified; hosted acceptance awaits deployment; native project synchronization remains pending missing project token scopes",
-      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400"
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/400",
+      "PreviousExit": "Review selection and publication compare ci evidence against the live target branch ref and refuse conflicting or indeterminate mergeability",
+      "ScopeChange": "Owner explicitly requested reviews during failed CI and merge conflicts and automatic rereview after each commit"
     },
     {
       "Id": "ReviewerReactions",

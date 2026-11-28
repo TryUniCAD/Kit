@@ -28,3 +28,8 @@ def ReadChecks(
         if len(Entries) < 100:
             return Records
     raise ValueError("App receipt inventory exceeded review limit")
+
+
+# chronological identities keep older green checks from overriding newer failed attempts
+def GetCheckId(CheckData: dict[str, object]) -> int:
+    return int(str(CheckData["id"]))

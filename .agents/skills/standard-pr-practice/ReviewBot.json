@@ -20,6 +20,7 @@
     "MinimumScore": 4,
     "Workflow": ".github/workflows/AccountReview.yml",
     "Model": "gpt-6.1-terra",
-    "ReasoningEffort": "medium"
+    "ReasoningEffort": "medium",
+    "RequestProtocol": 2
   }
 }

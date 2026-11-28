@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import cast
 
 from ApiCall import ApiCall
+from Input.ReactionContext import ReactionContext
 from MentionStatus import MentionStatus
 from ObjectMap import ObjectMap
 from ReadPages import ReadPages
@@ -14,7 +15,7 @@ from ReadPages import ReadPages
 def ReactMention(StateName: str) -> None:
     if StateName not in ("started", "complete"):
         raise ValueError("Unexpected review reaction state")
-    Context = ObjectMap(JsonTools.loads(Path("ReviewInput/Context.json").read_text()))
+    Context = ReactionContext()
     CommentId = Context.get("mention_comment")
     if CommentId is None:
         return

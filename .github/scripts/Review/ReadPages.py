@@ -8,7 +8,8 @@ from ObjectMap import ObjectMap
 def ReadPages(Route: str) -> list[dict[str, object]]:
     Records: list[dict[str, object]] = []
     for PageNum in range(1, 32):
-        PageData = ApiCall(f"{Route}?per_page=100&page={PageNum}")
+        Separator = "&" if "?" in Route else "?"
+        PageData = ApiCall(f"{Route}{Separator}per_page=100&page={PageNum}")
         if not isinstance(PageData, list):
             raise ValueError("Expected an API list")
         Entries = cast(list[object], PageData)

@@ -1,9 +1,9 @@
 import json as JsonTools
 import os as OsTools
-import subprocess as ProcessTools
 from pathlib import Path
 
 from ObjectMap import ObjectMap
+from Runtime.RunProcess import RunProcess
 
 
 # account credentials belong only to the isolated model container and must never become review artifacts
@@ -81,7 +81,21 @@ def RunModel() -> None:
         "--disable",
         "multi_agent",
         "--disable",
+        "multi_agent_v2",
+        "--disable",
         "view_image",
+        "--disable",
+        "image_generation",
+        "--disable",
+        "skill_search",
+        "--disable",
+        "tool_suggest",
+        "--disable",
+        "goals",
+        "--disable",
+        "artifact",
+        "--disable",
+        "sleep_tool",
         "--disable",
         "hooks",
         "-c",
@@ -94,15 +108,7 @@ def RunModel() -> None:
         "/output/Report.json",
         "-",
     ]
-    ProcessTools.run(
-        Arguments,
-        input=Prompt,
-        text=True,
-        check=True,
-        timeout=1800,
-        stdout=ProcessTools.DEVNULL,
-        stderr=ProcessTools.DEVNULL,
-    )
+    RunProcess(Arguments, Prompt)
 
 
 if __name__ == "__main__":
