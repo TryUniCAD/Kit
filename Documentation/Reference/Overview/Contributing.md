@@ -39,7 +39,9 @@ PR creation does not authorize merge or queue enrollment.
 
 Read each entry in `Reviewers` from [ReviewBot.json](../../../.agents/skills/standard-pr-practice/ReviewBot.json).
 The array is the only source of reviewer identities, report names, and request text.
-For each entry, post `Comment` verbatim as a separate top-level request.
+For `Trigger: workflow_run`, follow the automatic review workflow after successful aggregate PR CI.
+Use its workflow dispatch with CI run input `id` for a manual retry.
+For a comment-triggered entry, post `Comment` verbatim as a separate top-level request.
 Post once per accepted head unless that reviewer already has a request or review for the head.
 Verify each responding account or app and reviewed SHA.
 Address actionable findings, including top-level and advisory reports.

@@ -1,0 +1,130 @@
+name: Account review
+
+on:
+  workflow_run:
+    workflows: [Pull Request]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      id:
+        description: Successful PR CI workflow run ID
+        required: true
+        type: string
+
+permissions: {}
+
+concurrency:
+  group: account-review-auth
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  prepare:
+    if: >-
+      vars.ACCOUNT_REVIEW_ENABLED == 'true' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event.workflow_run.event == 'pull_request_target' &&
+        github.event.workflow_run.conclusion == 'success'))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Prepare complete revision bound input
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/Review/Prepare.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ReviewInput
+          path: ReviewInput/Context.json
+          if-no-files-found: error
+          retention-days: 1
+
+  review:
+    needs: prepare
+    environment: AccountReview
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewInput
+          path: ReviewInput
+      - name: Build trusted isolated runtime
+        run: docker build --tag kit-review-runtime .github/scripts/Review
+      - name: Review data without executing PR code
+        env:
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+        run: python .github/scripts/Review/RunModel.py
+      - name: Obtain credential persistence token
+        if: always()
+        id: auth-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-environments: write
+      - name: Persist refreshed login and remove local credentials
+        if: always() && steps.auth-token.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ steps.auth-token.outputs.token }}
+        run: python .github/scripts/Review/SaveAuth.py
+      - name: Validate untrusted report
+        run: python .github/scripts/Review/Validate.py ReviewOutput/Report.json ReviewInput/Context.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ReviewOutput
+          path: ReviewOutput/Report.json
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: review
+    environment: AccountReview
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewInput
+          path: ReviewInput
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ReviewOutput
+          path: ReviewOutput
+      - name: Obtain review publisher token
+        id: review-token
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
+        with:
+          app-id: ${{ vars.REVIEW_APP_ID }}
+          private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-pull-requests: write
+          permission-checks: write
+          permission-actions: read
+          permission-contents: read
+      - name: Publish current head review and native report
+        env:
+          GH_TOKEN: ${{ steps.review-token.outputs.token }}
+          REVIEW_APP_ID: ${{ vars.REVIEW_APP_ID }}
+        run: python .github/scripts/Review/Publish.py

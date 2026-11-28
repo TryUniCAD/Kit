@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 1,
-  "ObservedOn": "2026-11-27",
-  "MainRevision": "331ef8ce95f7e46814c5086110be9a23478ca8a8",
+  "ObservedOn": "2026-11-28",
+  "MainRevision": "2df599a77d33a9c994855766f4471d88539bf394",
   "ScopeLinks": [
     {
       "ScopeId": "sw:family:sketchconics:circle",
@@ -282,6 +282,19 @@
   ],
   "Schedules": [],
   "ExtraTasks": [
+    {
+      "Id": "AccountReviewer",
+      "Name": "Account authenticated review and GitHub App approval",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session feat/codex-reviewer-20261128-setup",
+      "Runner": "OpenAI",
+      "Dependencies": [],
+      "Source": "Documentation/Tasks/AccountReviewer.md",
+      "Exit": "Revision bound end to end review posts priority findings and a five point score and approves only complete clean current head reviews after verified PR CI",
+      "Branch": "feat/codex-reviewer-20261128-setup",
+      "Blocker": "App identity and corrected permissions are verified, app key and owner requested existing account login are stored in the protected environment, and a short lived read only installation token verified Kit access before revocation; hosted execution, initial workflow deployment and current head approval remain pending; project token lacks read project scope so native status and assignee sync remain pending"
+    },
     {
       "Id": "PlanningViews",
       "Name": "Repository planning register and dependency Gantt",

@@ -1,15 +1,22 @@
 {
   "Reviewers": [
     {
-      "Comment": "/devin review",
-      "AppId": 811515,
-      "AppSlug": "devin-ai-integration",
-      "UserId": 158243242,
-      "UserLogin": "devin-ai-integration[bot]",
-      "Checks": [],
-      "Statuses": ["Devin Review", "Devin Review / Kit Acceptance"],
-      "Documentation": "https://docs.devin.ai/work-with-devin/devin-review#triggering-a-review-from-a-pr-comment"
+      "Trigger": "workflow_run",
+      "Workflow": ".github/workflows/AccountReview.yml",
+      "AppId": 5966452,
+      "AppSlug": "jibiti-review",
+      "UserId": 362345322,
+      "UserLogin": "jibiti-review[bot]",
+      "Checks": ["Account review result"],
+      "Statuses": [],
+      "Documentation": "Documentation/Tasks/AccountReviewer.md"
     }
   ],
-  "ExcludedReports": []
+  "ExcludedReports": [],
+  "AccountReview": {
+    "AppId": 5966452,
+    "CheckName": "Account review result",
+    "MinimumScore": 4,
+    "Workflow": ".github/workflows/AccountReview.yml"
+  }
 }
