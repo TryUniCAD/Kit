@@ -327,6 +327,17 @@ admission in [PR #183](https://github.com/TryUniCAD/Kit/pull/183)
 retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigSheetMetalMaster.md)
 
+### B04-SW2026-CONFIG-SHEET-METAL-POPULATED
+
+The PR #225 takeover worker owns the populated-master research follow-up on
+`codex/solidworks-config-sheet-metal`. It depends on the bounded empty master,
+exact-build loader evidence, and controlled native body membership and topology
+observations. The [capture handoff](../../re/solidworks/records/SheetMetalCapture2026.md)
+records the remaining native inputs. Exit requires concrete per-body descriptors,
+identity-preserving map admission, independently held-out lifecycle and topology
+verification, and the current revision's review and queue acceptance.
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksSheetMetalBodyResearch.md)
+
 ### B04-SW2026-CONFIG-VIEWS
 
 The PR #121 takeover team owns this bounded `moView_c` reader on
