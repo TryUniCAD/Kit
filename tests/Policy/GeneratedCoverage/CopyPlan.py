@@ -4,6 +4,8 @@ import sys as SysTools
 from pathlib import Path
 from shutil import copyfile
 
+from tests.Policy.GeneratedCoverage.AlterPlanMut import AlterPlanMut
+
 
 # actual catalogue and register data expose reconstruction failures that tiny policy fixtures cannot establish
 def CopyPlan(
@@ -12,20 +14,23 @@ def CopyPlan(
     Manifest = JsonTools.loads(
         (RootPath / "Documentation/Planning/Generated/Manifest.json").read_text()
     )
+    InputNames = [str(FileName) for FileName in Manifest["SourceHashes"]]
     CodeNames = [
         str(SourcePath.relative_to(RootPath))
         for SourcePath in (RootPath / "re/automation/Planning").rglob("*.py")
         if "__pycache__" not in SourcePath.parts
     ]
-    for FileName in [*Manifest["SourceHashes"], *CodeNames]:
+    for FileName in [*InputNames, *CodeNames]:
         TargetPath = TempPath / FileName
         TargetPath.parent.mkdir(parents=True, exist_ok=True)
-        copyfile(RootPath / FileName, TargetPath)
+        CopiedPath = copyfile(RootPath / FileName, TargetPath)
+        assert Path(CopiedPath).is_file()
     LinkPath = TempPath / "Documentation/Planning/Links.json"
     LinkData = JsonTools.loads(LinkPath.read_text())
     LinkData["ExtraTasks"][0]["Blocker"] += " Coverage process boundary verification"
-    LinkPath.write_text(JsonTools.dumps(LinkData, indent=2) + "\n")
-    ProcessTools.run(
+    WriteCount = LinkPath.write_text(JsonTools.dumps(LinkData, indent=2) + "\n")
+    assert WriteCount > 0
+    ProcessInfo = ProcessTools.run(
         [
             SysTools.executable,
             str(RootPath / "re/automation/Planning/Build.py"),
@@ -34,29 +39,13 @@ def CopyPlan(
         ],
         env=EnvState,
         capture_output=True,
-        check=True,
+        check=False,
         timeout=60,
     )
-    if CaseName == "tampered":
-        TargetPath = TempPath / "Documentation/Planning/Generated/BoardData.js"
-        TargetPath.write_bytes(TargetPath.read_bytes() + b"window.Unverified = true;\n")
-    if CaseName == "generator":
-        TargetPath = TempPath / "re/automation/Planning/Build.py"
-        TargetPath.write_bytes(
-            TargetPath.read_bytes()
-            + b'\nraise SystemExit("proposed generator executed")\n'
-        )
-    if CaseName == "input":
-        TargetPath = TempPath / "Documentation/Planning/SdkScopes.json"
-        InputData = JsonTools.loads(TargetPath.read_text())
-        InputData["CoverageProcess"] = True
-        TargetPath.write_text(JsonTools.dumps(InputData))
-    if CaseName == "added":
-        TargetPath = TempPath / "re/automation/Planning/hashlib.py"
-        TargetPath.write_text('raise SystemExit("proposed module executed")\n')
-        CodeNames.append(str(TargetPath.relative_to(TempPath)))
+    assert ProcessInfo.returncode == 0, ProcessInfo.stderr
+    AlterPlanMut(TempPath, CaseName, CodeNames)
     FileNames = [
-        *Manifest["SourceHashes"],
+        *InputNames,
         *CodeNames,
         *[
             str(SourcePath.relative_to(TempPath))

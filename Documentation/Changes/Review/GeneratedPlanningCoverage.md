@@ -36,7 +36,7 @@ python .github/scripts/Review/BuildContext.py /path/to/Request.json
 The JSON request supplies `Evidence`, `PullData`, `FileList` and `Settings`, matching the trusted preparation inputs.
 This process does not publish reviews or access account authentication.
 The merge-queue suite gains a real Git and planning-process compatibility check using the repository's complete register and catalogue data.
-It checks valid reconstruction and rejection of modified output, modified generator, unsupported input and stale base.
+It checks valid reconstruction and rejection of modified output, modified or added generator code, unsupported input, symlink Git modes and stale base.
 It creates no branches, pushes no refs and uses an isolated index.
 The real context CLI was run against retained hosted input artifact `15277185273` for PR #401 head `fa405f5b0710d5cc971985901232519a9acaba63` and trusted base `141f396f183220e691194907cdcacb7ba56d9ce6`.
 Both generated files matched their previous and proposed Git objects exactly, producing complete coverage of all nine files with zero omissions and 471,798 encoded context bytes.

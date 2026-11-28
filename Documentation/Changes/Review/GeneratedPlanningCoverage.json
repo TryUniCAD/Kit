@@ -40,8 +40,8 @@
   "ImplementationHashes": {
     ".github/scripts/Review/BuildContext.py": "8435e9abbb5f3b1f39f8cae5d9e1333b9351bfa303885e78d31678bfe2254047",
     ".github/scripts/Review/Planning/StagePlan.py": "5a3a461f0a69411f4e86dba399d32cc1b36398f2cfdf8b00819aae8a321d0133",
-    ".github/scripts/Review/Planning/BuildProof.py": "376078ee48a2ad147ce47c0a44ff5611cfdf518b7e5e2cdb9555907bf632a288",
-    ".github/scripts/Review/Planning/ReadBlob.py": "17d9995f2763413bc3a7e24fe6523a8bb02a0cb55d43eece95bd947b538f3595",
+    ".github/scripts/Review/Planning/BuildProof.py": "d1510408b88fc84908d243745944e806186dc4fd476b7a1fe4a82eb2460819e7",
+    ".github/scripts/Review/Planning/ReadBlob.py": "fc2d06396244e4c14deff7864e9c2385a62b740a13f478f2b864cbfd4138141e",
     ".github/scripts/Review/Planning/PlanCoverage.py": "04048dd33a6a76af361aa1f83f54ca6a59c817b56c214ffacad0e1e60bb91c21"
   },
   "Limitation": "This proves source reconstruction only; deployed model review and genuine current-head approval remain unverified"

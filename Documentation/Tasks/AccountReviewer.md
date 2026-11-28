@@ -120,6 +120,7 @@ Registration, installation, configuration, and activation are separate from impl
 Approval requires complete source coverage, a complete scope-matching review, a score of at least four, and zero unresolved findings at every priority.
 It also requires a non-draft mergeable PR, completed successful CI, and an immutable trusted CI receipt matching the current head and live target.
 The score alone never authorizes approval.
+Reviews use a [verdict-first presentation](../Changes/Review/ReviewPresentation.md) with priority-grouped findings and collapsible verification details; presentation never changes the approval decision.
 Malformed output, fork PRs, changed revisions, and unauthorized requests stop publication.
 CI failure, drafts, or conflicts permit review publication but forbid approval.
 CI evidence must match the live target branch ref, and GitHub must report the PR as mergeable.

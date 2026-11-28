@@ -4,6 +4,7 @@ Observed 2026-11-28; contacts are PR authors, not inferred owners. Refresh live 
 
 | PR | Scope | Contact | Head → base |
 | --- | --- | --- | --- |
+| [#408](https://github.com/TryUniCAD/Kit/pull/408) | fix(review): verify planning coverage and clarify review reports | jdharcourt | fix/reviewer-live-acceptance-20261128 → main |
 | [#299](https://github.com/TryUniCAD/Kit/pull/299) | feat(fusion): read saved fixed-corner cuboids | Stephen316 | codex/fusion-saved-cuboid-roundtrip → main |
 | [#407](https://github.com/TryUniCAD/Kit/pull/407) | fix(review): restore hosted TLS and responsive mention reactions | jdharcourt | fix/reviewer-hosted-runtime-20261128 → main |
 | [#405](https://github.com/TryUniCAD/Kit/pull/405) | fix(research): restore solidworks native verification dispatch | Stephen316 | codex/solidworks-native-com-accessors → main |

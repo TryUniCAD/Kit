@@ -10,7 +10,7 @@ from tests.Policy.GeneratedCoverage.CreatePlan import CreatePlan
 
 # complete context must depend on real git sources and exact rebuilds while rejecting altered output code and unsupported inputs
 @Pytest.mark.parametrize(
-    "CaseName", ("valid", "tampered", "generator", "added", "input", "stale")
+    "CaseName", ("valid", "tampered", "generator", "added", "input", "symlink", "stale")
 )
 def CheckPlanReview(TmpPath: Path, CaseName: str) -> None:
     Revision, HeadSha, EnvState = CreatePlan(TmpPath, CaseName)
@@ -28,7 +28,7 @@ def CheckPlanReview(TmpPath: Path, CaseName: str) -> None:
     )["AccountReview"]
     Settings["PolicyRevision"] = Revision
     RequestPath = TmpPath / "Request.json"
-    RequestPath.write_text(
+    WriteCount = RequestPath.write_text(
         JsonTools.dumps(
             {
                 "Evidence": {
@@ -49,6 +49,7 @@ def CheckPlanReview(TmpPath: Path, CaseName: str) -> None:
             }
         )
     )
+    assert WriteCount > 0
     Result = ProcessTools.run(
         [
             SysTools.executable,

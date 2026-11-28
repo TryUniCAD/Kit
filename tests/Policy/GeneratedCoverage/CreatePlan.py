@@ -23,6 +23,7 @@ def CreatePlan(TempPath: Path, CaseName: str) -> tuple[str, str, dict[str, str]]
     ).stdout.strip()
     EnvState = {
         "PATH": OsTools.environ.get("PATH", OsTools.defpath),
+        "SYSTEMROOT": OsTools.environ.get("SYSTEMROOT", ""),
         "GIT_DIR": GitDir,
         "GIT_WORK_TREE": str(TempPath),
         "GIT_INDEX_FILE": str(TempPath / "Index"),
@@ -31,13 +32,33 @@ def CreatePlan(TempPath: Path, CaseName: str) -> tuple[str, str, dict[str, str]]
         "GIT_COMMITTER_NAME": "Coverage process",
         "GIT_COMMITTER_EMAIL": "coverage@example.invalid",
     }
-    ProcessTools.run(
-        ["git", "read-tree", Revision], cwd=TempPath, env=EnvState, check=True
+    ProcessInfo = ProcessTools.run(
+        ["git", "read-tree", Revision], cwd=TempPath, env=EnvState, check=False
     )
+    assert ProcessInfo.returncode == 0, ProcessInfo.stderr
     FileNames = CopyPlan(RootPath, TempPath, CaseName, EnvState)
-    ProcessTools.run(
-        ["git", "add", "--", *FileNames], cwd=TempPath, env=EnvState, check=True
+    ProcessInfo = ProcessTools.run(
+        ["git", "add", "--", *FileNames], cwd=TempPath, env=EnvState, check=False
     )
+    assert ProcessInfo.returncode == 0, ProcessInfo.stderr
+    if CaseName == "symlink":
+        FileName = "Documentation/Planning/Generated/BoardData.js"
+        SourceBlob = ProcessTools.run(
+            ["git", "rev-parse", f":{FileName}"],
+            cwd=TempPath,
+            env=EnvState,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+        ProcessInfo = ProcessTools.run(
+            ["git", "update-index", "--cacheinfo", "120000", SourceBlob, FileName],
+            cwd=TempPath,
+            env=EnvState,
+            capture_output=True,
+            check=False,
+        )
+        assert ProcessInfo.returncode == 0, ProcessInfo.stderr
     TreeName = ProcessTools.run(
         ["git", "write-tree"],
         cwd=TempPath,

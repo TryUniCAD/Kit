@@ -158,6 +158,9 @@ read its complete standards index and every applicable rule before coding.
   and unchanged remaining generator dependencies. A filename, hash alone, omitted
   source, failed rebuild, stale base or changed generator never establishes coverage.
   Keep such reviews partial and block approval when these requirements are unmet.
+  Present published reviews with a clear native verdict, a score out of five,
+  explicit coverage, findings grouped by P1/P2/P3 and collapsible verification
+  details. Preserve the canonical receipt markers used for request deduplication.
 - `jdharcourt` and `odinglynn` are repository-policy administrators with merge
   privileges. Either may explicitly authorize agent queue enrollment, auto-merge,
   or merging under the existing readiness gates. Verify the requester’s GitHub

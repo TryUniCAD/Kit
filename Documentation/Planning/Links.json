@@ -283,6 +283,22 @@
   "Schedules": [],
   "ExtraTasks": [
     {
+      "Id": "ReviewerPresentation",
+      "Name": "Readable native review verdicts findings and verification",
+      "Status": "active",
+      "Owner": "jdharcourt",
+      "Agent": "T3 Code Codex reviewer session fix/reviewer-live-acceptance-20261128",
+      "Runner": "OpenAI",
+      "Parent": "ReviewerHosted",
+      "Dependencies": [],
+      "Source": "Documentation/Changes/Review/ReviewPresentation.md",
+      "Branch": "fix/reviewer-live-acceptance-20261128",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/408",
+      "Exit": "Native review clearly shows the actual verdict soundness coverage grouped P1 P2 P3 findings and collapsible verification while existing request and approval receipt discovery remains compatible",
+      "Blocker": "Actual completed hosted report rendered locally with the proposed formatter; protected deployment and live presentation acceptance remain pending; native project sync lacks project permission",
+      "Evidence": "https://github.com/TryUniCAD/Kit/pull/401#pullrequestreview-6099650637"
+    },
+    {
       "Id": "ReviewerCoverage",
       "Name": "Verified generated planning coverage for account reviews",
       "Status": "active",
@@ -298,7 +314,15 @@
       "Evidence": "https://github.com/TryUniCAD/Kit/pull/401#pullrequestreview-6099686787",
       "VerificationRevision": "fa405f5b0710d5cc971985901232519a9acaba63",
       "ProcessEvidence": "Documentation/Changes/Review/GeneratedPlanningCoverage.json",
-      "Verification": "Actual production context process rebuilt PR401 head fa405f5b0710d5cc971985901232519a9acaba63 with all 9 sources covered zero omissions and 471798 encoded bytes; exact generated before and after byte equality passed; remote negative cases and deployed model approval remain pending"
+      "Verification": "Actual production context process rebuilt PR401 head fa405f5b0710d5cc971985901232519a9acaba63 with all 9 sources covered zero omissions and 471798 encoded bytes; exact generated before and after byte equality passed; remote negative cases and deployed model approval remain pending",
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/408",
+      "CiRepair": {
+        "Revision": "69937478094f06c64b9cd32c5b1df21b6c71df4e",
+        "Job": "https://github.com/TryUniCAD/Kit/actions/runs/46181033963/job/141090386260",
+        "Finding": "Pyright reported unused file and process return values in new real process compatibility checks",
+        "Repair": "Retain concrete path types and verify returned paths byte counts and process completion; no type rule or acceptance assertion is disabled",
+        "Status": "Repair implemented; current revision remote validation pending"
+      }
     },
     {
       "Id": "ReviewerHosted",

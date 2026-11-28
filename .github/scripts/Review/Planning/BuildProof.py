@@ -44,7 +44,12 @@ def BuildProof(
                     WorkDir,
                 ],
                 cwd=WorkDir,
-                env={"PATH": OsTools.defpath, "LANG": "C.UTF-8", "TZ": "UTC"},
+                env={
+                    "PATH": OsTools.defpath,
+                    "LANG": "C.UTF-8",
+                    "TZ": "UTC",
+                    "SYSTEMROOT": OsTools.environ.get("SYSTEMROOT", ""),
+                },
                 capture_output=True,
                 check=True,
                 timeout=60,

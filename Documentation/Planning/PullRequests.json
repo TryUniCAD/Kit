@@ -4,6 +4,19 @@
   "Purpose": "Dated open PR and recent delivery collision inventory; authors are contacts, not inferred scope owners; checks and approvals require fresh revision-bound evidence",
   "PullRequests": [
     {
+      "number": 408,
+      "title": "fix(review): verify planning coverage and clarify review reports",
+      "url": "https://github.com/TryUniCAD/Kit/pull/408",
+      "author": "jdharcourt",
+      "headBranch": "fix/reviewer-live-acceptance-20261128",
+      "baseBranch": "main",
+      "state": "open",
+      "isDraft": false,
+      "reviewDecision": "review-required",
+      "checksState": "failing",
+      "VerificationRevision": "69937478094f06c64b9cd32c5b1df21b6c71df4e"
+    },
+    {
       "number": 299,
       "title": "feat(fusion): read saved fixed-corner cuboids",
       "url": "https://github.com/TryUniCAD/Kit/pull/299",

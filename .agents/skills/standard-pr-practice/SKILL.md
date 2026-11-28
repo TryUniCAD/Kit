@@ -28,6 +28,10 @@ Changed generators, unsupported inputs, stale bases, incomplete input coverage a
 any byte mismatch retain partial coverage and block automatic approval.
 The model still assesses semantics and every other readiness gate remains required.
 
+Publish reviews with the actual native verdict, a score out of five, explicit coverage,
+findings grouped by P1/P2/P3 and collapsible revision and approval verification.
+Preserve the final canonical mention and snapshot receipts used for deduplication.
+
 ## Complete coding and quality standards
 
 The previous repository standards are incorporated into this skill **in full**,
