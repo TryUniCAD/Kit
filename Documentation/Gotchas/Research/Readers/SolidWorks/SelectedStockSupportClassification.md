@@ -9,4 +9,4 @@ the resolved sketch made the registry refuse an unchanged strict readback.
 Publish the qualified plane-reference annotation only after validating
 the actual reference, its frame and the typed owner aliases. Finish a
 measured same-format write by regenerating the part and checking the whole
-document. [Measured readback evidence](../../../../re/solidworks/records/SdkMeasuredSelectedStock2026.md#strict-readback-republication)
+document. [Measured readback evidence](../../../../../re/solidworks/records/SdkMeasuredSelectedStock2026.md#strict-readback-republication)
