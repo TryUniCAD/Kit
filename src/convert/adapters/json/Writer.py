@@ -3,13 +3,13 @@ from pathlib import Path as FilePath
 from convert.adapters.base import Destination
 from convert.adapters.base import WriteOptions
 from convert.adapters.base import WriteResult
+from convert.adapters.json.CheckJsonNative import CheckJsonNative
 from convert.adapters.json.Metadata import KInfoValue
 from convert.adapters.json.StreamIo import WriteStream
 from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.registry.NativeWrite import CheckNative
 from interchange import CadDocument
 
 
@@ -32,7 +32,7 @@ class JsonWriter:
         CheckInchWrite(DocValue)
         CheckEquations(DocValue)
         CheckSupports(DocValue)
-        CheckNative(DocValue)
+        DocValue = CheckJsonNative(DocValue)
         Settings = Options or WriteOptions()
         if Settings.validate:
             DocValue.assert_valid()

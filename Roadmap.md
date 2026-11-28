@@ -37,6 +37,14 @@ Registration, same-format reconstruction and retained native bytes do not establ
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [measured SOLIDWORKS part requirements](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md) define the writer's supported geometry and measurement gate.
 
+## SOLIDWORKS work after the snapshot
+
+[#235](https://github.com/TryUniCAD/Kit/pull/235) landed the measured
+SOLIDWORKS 2026 line-loop boss writer. The
+[distance chamfer delivery](re/solidworks/records/ChamferDistanceMain2026.md)
+extends that bounded Front-plane route with equal and two-distance modes
+and keeps a separate exact per-output measurement gate.
+
 ## Destination
 
 A fully functional release covers all nine CAD families above through one documented public SDK and CLI.

@@ -1,0 +1,138 @@
+{
+  "base_revision": "495334f9bf2c46ee829cdce804c7a5ab214ef3e4",
+  "case_results": [
+    {
+      "alternate_outer_deflate": {
+        "alternate_sha256": "2e15caffa0e24384404efe20bfa5c6df0dc37d2c1b34f6daaee2967db455e7e1",
+        "cli_refusals": 5,
+        "cli_repeated_exact": true,
+        "contrast": "outer_deflate_level_zero",
+        "first_checks": {
+          "compile": 1,
+          "verify": 1
+        },
+        "genuine_zlib_ng_contrast": false,
+        "json_routes": 2,
+        "json_sha256": "15e79b922c413d2b1773c3475e5aea2248f26eda67b16875484f25114fe5de7f",
+        "logical_streams": 10,
+        "measured_original": true,
+        "native_processes": 0,
+        "native_refusals": 2,
+        "native_rows": 18,
+        "ordered_rows": 20,
+        "original_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+        "repeated_checks": {
+          "compile": 1,
+          "verify": 1
+        },
+        "runtime": "1.2.12",
+        "runtime_reads": 0,
+        "schema": "kit.sw2026.chamfer-json-deflate-contrast.v1",
+        "sdk_refusals": 12,
+        "slot": 0,
+        "snapshot_source_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded"
+      },
+      "ordinary_outer_deflate": {
+        "cad_launches": 0,
+        "cli_native_rows": 18,
+        "cli_publications": 2,
+        "cli_refusals": 2,
+        "json_routes": 2,
+        "json_sha256": "15e79b922c413d2b1773c3475e5aea2248f26eda67b16875484f25114fe5de7f",
+        "native_republication_routes": 2,
+        "native_rows": 18,
+        "ordered_rows": 20,
+        "runtime_input_reads": 0,
+        "sdk_refusals": 16,
+        "source_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded"
+      },
+      "slot": 0
+    },
+    {
+      "alternate_outer_deflate": {
+        "alternate_sha256": "95df658a83788d6e1398a3beaa3f5a75c041f1f1287c3fe55d05e54adaa55cfe",
+        "cli_refusals": 5,
+        "cli_repeated_exact": true,
+        "contrast": "outer_deflate_level_zero",
+        "first_checks": {
+          "compile": 1,
+          "verify": 1
+        },
+        "genuine_zlib_ng_contrast": false,
+        "json_routes": 2,
+        "json_sha256": "2c1daa4772648c92a2225d8bb3ed4972470d032aea67343e8276e01cffee5d19",
+        "logical_streams": 10,
+        "measured_original": true,
+        "native_processes": 0,
+        "native_refusals": 2,
+        "native_rows": 18,
+        "ordered_rows": 20,
+        "original_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+        "repeated_checks": {
+          "compile": 1,
+          "verify": 1
+        },
+        "runtime": "1.2.12",
+        "runtime_reads": 0,
+        "schema": "kit.sw2026.chamfer-json-deflate-contrast.v1",
+        "sdk_refusals": 12,
+        "slot": 1,
+        "snapshot_source_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb"
+      },
+      "ordinary_outer_deflate": {
+        "cad_launches": 0,
+        "cli_native_rows": 18,
+        "cli_publications": 2,
+        "cli_refusals": 2,
+        "json_routes": 2,
+        "json_sha256": "2c1daa4772648c92a2225d8bb3ed4972470d032aea67343e8276e01cffee5d19",
+        "native_republication_routes": 2,
+        "native_rows": 18,
+        "ordered_rows": 20,
+        "runtime_input_reads": 0,
+        "sdk_refusals": 16,
+        "source_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb"
+      },
+      "slot": 1
+    }
+  ],
+  "existing_measurement_receipts": {
+    "re/solidworks/measurements/2026/ChamferDistancePairDisclosedNative01.json": "6538bdc0dfa5d1b82fab03bde1d742f98fabd8c9299c1a18c2e55f5248b429c9",
+    "re/solidworks/measurements/2026/ChamferDistancePairGenerated01.json": "f8b77a00518ea5e8918fbb4dbebc466611c9c38f6e676f09da1f9f3b09a026fb",
+    "re/solidworks/measurements/2026/SdkPublicChamferDistanceRead01.json": "6d803680a917fdaf9295ae9d40acdca758ca7edbfcd087788e00216119b9c774"
+  },
+  "process_negatives": [
+    "forged original digest",
+    "wrong measured source identity",
+    "different independently generated History stream",
+    "unclaimed bytes after the source archive trailer",
+    "altered portable body volume",
+    "alternate physical archive against the original native publication receipt"
+  ],
+  "schema": "kit.sw2026.chamfer-json-compression-evidence.v1",
+  "scope": "Classic zlib 1.2.12 supplemental outer DEFLATE level contrast. Geometry and all typed rows derive from the same neutral model. Native acceptance remains bound to the existing whole-file measurements.",
+  "source_sha256": {
+    "re/tooling/sw2026/CheckChmfDeflate.py": "7bd5b70be76b7c107137b29f07c31e08352bf7a9f459c1b9d5a87a2d80fc7f4d",
+    "re/tooling/sw2026/CheckChmfJsonBoundary.py": "70e42cdda017eb5587311177f69382ae8210abf8ca0a0e7b5d71e019259895ba",
+    "re/tooling/sw2026/CheckMeasuredChamfer.py": "74996df10e5a7826af6338e177004c7e3095e1f229d2e46c3c1a8f3ac64d091e",
+    "re/tooling/sw2026/CheckScopedPlainWriter.py": "a1fe2873539965c0db03c1b4aac971c9fd421a59fb0fde1d733dcc136601311b",
+    "src/convert/Commands/CheckPortable.py": "79c3e0c12758978b4cb6fc7fcfb00141666bb0ab2060b831db8ce5bab1897536",
+    "src/convert/adapters/json/CheckJsonNative.py": "096127eb55d1aa7427ca371d268fc46ac1c5d4545779e5220b342341ec1d332c",
+    "src/convert/adapters/json/Writer.py": "0dcef517919c86c9c9a86be0334aca8e66ee40dd2d064714358972e22371ffc7",
+    "src/convert/adapters/registry/RegistryWriteApi.py": "0c45f0580748f5cbba5187b9471784651a82ae4be138078c8d0c6f9bdf2497e2",
+    "src/convert/adapters/solidworks/Container/CheckArcFrames.py": "baa2902ce85a24aa6d88ce96b0b3dbba732e9c824d85282e57474574b9ac664c",
+    "src/convert/adapters/solidworks/Container/Container.py": "a5bd3ae30ac80a2d02b65e51f084ee9f38498b6d2f40afb996c141d42747c6fb",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/BuildChmfPart.py": "c156fa76e3ce7791f6d16057b7dab0077bb25c0f549f38bb602c4f8b36c79153",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/CheckChmfRead.py": "ce751e029724bab840d2c326992174b2efb0299e45ae4b60522e9406544f6be6",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/CheckChmfSha.py": "f76aff49298bb2b681d8d0f1fc97b8ea1316026ad48b31b7eab8cd107179669b",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/CheckChmfSnap.py": "3b91e91a4a6bde4c58ab4b878e1ab24017f88d44ec8bbeb4b7e940184dbd21e7",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/ChmfSnapTrust.py": "d2b973f73930e0650ace4e7667b9eff6f4bf78a765ac6fe826494cd5f0ba54af",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/IsChmfSnapDoc.py": "e7acf672ee3a2b0f5aa326eab02a7629cca7a72da040e01beb1f91af6e40f239",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/MakeChmfSnap.py": "cfe840c2bd908ad0a39eddbc34189ce7c0a60f98be6be122e4bfea99beae6b6c",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/PrepChmfPart.py": "f6202418670bd15d8b7ae6a872cf097e2309f725c356ff32e5f3982b58db8df1",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/ReadChmfSelf.py": "9aecaa0bb004b8458655dc5d2a57799cb3c1321815cfbba2718be32353a2b61f",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/CheckColdRead.py": "aa498457ea98e83741213e0340dde8fa108a2f6ce25fee2d34353058aa709aa3",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/ReadColdDoc.py": "f4617a06e967a3ea78f3b8713a38aac8650ef3ca93e913885b115a753da6260c",
+    "tests/Convert/Solidworks/ChamferWriting/ChamferBoundaryTests.py": "1658702cfc27802216cf7f2fd9a1c5515227526eeca32c12c6d9bcccbf455930"
+  }
+}

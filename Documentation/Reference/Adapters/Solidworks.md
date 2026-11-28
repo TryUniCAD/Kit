@@ -338,6 +338,55 @@ with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
 
+### Measured distance chamfers
+
+The same SOLIDWORKS 2026 writer accepts a forward rectangular Front-plane
+blind boss with one selected chamfer edge. Equal distance has a live
+`D1`. Two distances have independent `D1` and `D3` in the order defined
+by the selected incident faces. The neutral document supplies two physical
+picks, one configuration named `Default`, and millimetre driver values.
+
+For an empty binary stream, provide the exact measured Windows part
+locator in `values["final_destination"]`. The
+`values["solidworks_native_measurement"]` envelope contains the original
+`written_at` integer and a `receipt` object. The receipt schema is
+`kit.sw2026.distance-pair-publication.v1`, containing the parsed
+`generation`, parsed `native_result` and `native_result_sha256`.
+Authenticate the native report before using it. Both
+`write_document` and the direct writer apply the same complete-file
+digest and native lifecycle check before publishing.
+
+Strict cold inspection recovers the two native edit modes, their actual
+owners, both physical selections, and a one-body analytic solid. The
+complete strict readback can be republished at its same measured identity.
+Before writing, Kit regenerates the archive from the typed model, compares
+the complete readback to that regenerated archive, and checks the exact
+measurement. Both writer entry points report the actual native capability
+transfers.
+
+The same complete cold chamfer can use ordinary interchange JSON through
+the SDK or `kit convert Part.SLDPRT Part.json`. Kit checks every regenerated
+logical stream against the authenticated original, checks the complete
+container framing and verifies the typed readback. The JSON keeps the
+original source digest, ordered feature-tree rows, native type IDs, archive
+provenance and editable model. It stores the verified self locator and construction epoch in
+`solidworks_cold_chamfer_source` and omits the original replay envelope and
+native row byte copies. An unchanged byte-free snapshot can re-export as
+JSON when regeneration proves its original digest or its independently
+measured source digest matches the complete logical bundle. Native SDK
+publication requires the original locator, receipt and exact measured
+whole output digest.
+[Chamfer compression boundary](../../Gotchas/Conversion/Solidworks/Inspection/ChamferJsonCompression.md)
+
+A current SOLIDWORKS chamfer with an unqualified saved or alternate
+history is refused in strict mode, including `include_brep=False`.
+Permissive inspection reports `sldprt.chamfer_history_unresolved`,
+retains the native-only feature record and continues the independently
+qualified stock or cut projection. Raw Parasolid extraction follows
+its separate payload path. The
+[measured distance chamfer entry](../../Changes/Solidworks/Construction/SolidworksMeasuredDistanceChamfers.md)
+links the two disclosed inputs and verification.
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.

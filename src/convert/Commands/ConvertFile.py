@@ -1,6 +1,7 @@
 from convert.api.ApiContext import GetRegistry
 from convert.api.ApiOpen import OpenDocument
 from convert.api.ApiWrite import WriteDocument
+from convert.adapters.json.Adapter import JsonAdapter
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
@@ -42,7 +43,11 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
     )
     Writer = Registry.GetWriter(DestFormat)
     IsPartWriter = Writer.info.FormatId == KPartFormatId
-    CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
+    CheckPortable(
+        Document,
+        WriterQualifiedPart=IsPartWriter,
+        JsonTarget=type(Writer) is JsonAdapter,
+    )
     Result = WriteDocument(
         Document,
         Options.Destination,

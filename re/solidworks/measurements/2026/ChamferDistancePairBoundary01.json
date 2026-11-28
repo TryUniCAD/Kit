@@ -1,0 +1,261 @@
+{
+  "build": "34.5.2.0604",
+  "disclosed_angle_distance": [
+    {
+      "actual_driver_names": [
+        "D1",
+        "D2"
+      ],
+      "case": "ChamferDistanceAxialA",
+      "display_slots": {
+        "f810": "moDisplayDistanceDim_c",
+        "f818": "moDisplayAngularDim_c",
+        "f820": null,
+        "f828": null,
+        "f830": null,
+        "f838": null
+      },
+      "edited": false,
+      "exact_linked_replay": true,
+      "external_accesses": 0,
+      "flags_byte": 10,
+      "mode_word": 1,
+      "source_sha256": "836084659fbd2875467c3e74c342f3ef5c6863cc1cc385431f046c5cc829d2b2"
+    },
+    {
+      "actual_driver_names": [
+        "D1",
+        "D2"
+      ],
+      "case": "ChamferDistanceAxialA",
+      "display_slots": {
+        "f810": "moDisplayDistanceDim_c",
+        "f818": "moDisplayAngularDim_c",
+        "f820": null,
+        "f828": null,
+        "f830": null,
+        "f838": null
+      },
+      "edited": true,
+      "exact_linked_replay": true,
+      "external_accesses": 0,
+      "flags_byte": 10,
+      "mode_word": 1,
+      "source_sha256": "1da486887e30e7e33fab8e482c8bd170302a75126bd106980a2baeb492a94d2b"
+    },
+    {
+      "actual_driver_names": [
+        "D1",
+        "D2"
+      ],
+      "case": "ChamferAngleTopB",
+      "display_slots": {
+        "f810": "moDisplayDistanceDim_c",
+        "f818": "moDisplayAngularDim_c",
+        "f820": null,
+        "f828": null,
+        "f830": null,
+        "f838": null
+      },
+      "edited": false,
+      "exact_linked_replay": true,
+      "external_accesses": 0,
+      "flags_byte": 10,
+      "mode_word": 1,
+      "source_sha256": "feeca66dd548eb6361c7626385302d6bf4a64ca22c027504d0f8bf8b9a58ee15"
+    },
+    {
+      "actual_driver_names": [
+        "D1",
+        "D2"
+      ],
+      "case": "ChamferAngleTopB",
+      "display_slots": {
+        "f810": "moDisplayDistanceDim_c",
+        "f818": "moDisplayAngularDim_c",
+        "f820": null,
+        "f828": null,
+        "f830": null,
+        "f838": null
+      },
+      "edited": true,
+      "exact_linked_replay": true,
+      "external_accesses": 0,
+      "flags_byte": 10,
+      "mode_word": 1,
+      "source_sha256": "e82b727876b1db00a986372a7fdc7efb897185ebf46add9acab3b2677f2fd197"
+    }
+  ],
+  "guarded_source_processes": 4,
+  "installed": {
+    "constructor_ordinals": {
+      "f810": 1,
+      "f818": 2,
+      "f820": 3
+    },
+    "equal_distance_bit": 16,
+    "expected_type_2_rows": {
+      "equal": [
+        18,
+        [
+          "f810"
+        ]
+      ],
+      "independent": [
+        2,
+        [
+          "f810",
+          "f820"
+        ]
+      ]
+    },
+    "exports": [
+      {
+        "address": "0x18023e400",
+        "name": "??0Chamfer_c@@QEAA@PEAVmoModel_c@@NNHHH"
+      },
+      {
+        "address": "0x180244e00",
+        "name": "?getChamferType@Chamfer_c@@"
+      },
+      {
+        "address": "0x180248890",
+        "name": "?isEqualDist@Chamfer_c@@"
+      },
+      {
+        "address": "0x18024d210",
+        "name": "?setChamferType@Chamfer_c@@"
+      },
+      {
+        "address": "0x18024d370",
+        "name": "?setEqualDist@Chamfer_c@@"
+      },
+      {
+        "address": "0x180245d40",
+        "name": "?getWidth@Chamfer_c@@"
+      },
+      {
+        "address": "0x180244f30",
+        "name": "?getDist@Chamfer_c@@"
+      },
+      {
+        "address": "0x1802400f0",
+        "name": "?cleanupDims@Chamfer_c@@"
+      }
+    ],
+    "image_bytes": 6836824,
+    "image_sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+    "imports": {
+      "0x1803e4b70": {
+        "module": "SLDMODU.dll",
+        "name": "?GetThisClass@AngleDim_c@@SAPEAUCRuntimeClass@@XZ"
+      },
+      "0x1803e4b88": {
+        "module": "SLDMODU.dll",
+        "name": "??0moDisplayAngularDim_c@@QEAA@PEAVmoModel_c@@PEAUCRuntimeClass@@NPEAVmoFeature_c@@JH@Z"
+      },
+      "0x1803e7ef0": {
+        "module": "SLDMODU.dll",
+        "name": "??0moDisplayDistanceDim_c@@QEAA@PEAVmoModel_c@@PEAUCRuntimeClass@@NPEAVmoFeature_c@@JH@Z"
+      },
+      "0x1803e7f10": {
+        "module": "SLDMODU.dll",
+        "name": "?GetThisClass@ParallelPlaneDistanceDim_c@@SAPEAUCRuntimeClass@@XZ"
+      },
+      "0x1803ec690": {
+        "module": "swccu.dll",
+        "name": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+      }
+    },
+    "machine": "x64",
+    "native_mode_mask": 15,
+    "ordinary_flags_byte": 10,
+    "original_ranges": [
+      {
+        "bytes": 671,
+        "end_exclusive": "0x18023e69f",
+        "file_offset": 2349056,
+        "name": "edge_constructor",
+        "sha256": "5c4c027d95d889fff08a90e3cf9a18024c55a6ce358002c48c10cfe533fdf3d5",
+        "start": "0x18023e400"
+      },
+      {
+        "bytes": 10,
+        "end_exclusive": "0x180244e0a",
+        "file_offset": 2376192,
+        "name": "mode_getter",
+        "sha256": "1bc870b303ec94f2725f637e878f1c3f7ae0fe843f4628cfbb9ef27fa68578a4",
+        "start": "0x180244e00"
+      },
+      {
+        "bytes": 13,
+        "end_exclusive": "0x18024889d",
+        "file_offset": 2391184,
+        "name": "equality_getter",
+        "sha256": "b77cfca6692215f5006e3ab4dcba4324bc0291e26ab73ca9e85a00474fbbf2ac",
+        "start": "0x180248890"
+      },
+      {
+        "bytes": 18,
+        "end_exclusive": "0x18024d222",
+        "file_offset": 2410000,
+        "name": "mode_setter",
+        "sha256": "04f7a365693231cf55f2193dfdbb0b5f4caf669346e1caf7cf4af561cb7c2c54",
+        "start": "0x18024d210"
+      },
+      {
+        "bytes": 31,
+        "end_exclusive": "0x18024d38f",
+        "file_offset": 2410352,
+        "name": "equality_setter",
+        "sha256": "e87a5cae8f742ef2acefeda9036c8f6491ca501e8a3eb3fe5fe9d6b6c128da10",
+        "start": "0x18024d370"
+      },
+      {
+        "bytes": 192,
+        "end_exclusive": "0x180244ed0",
+        "file_offset": 2376208,
+        "name": "second_display_exposure",
+        "sha256": "980c753d6f94c8771543ae8d4be0ad97836a002373e88e10674de70a57ef3679",
+        "start": "0x180244e10"
+      },
+      {
+        "bytes": 33,
+        "end_exclusive": "0x180245d61",
+        "file_offset": 2380096,
+        "name": "width_getter",
+        "sha256": "7dccfea93350e8bc2f912ba6cdcb5a87a3905cf5e555531ba668baa3a28e7eaf",
+        "start": "0x180245d40"
+      },
+      {
+        "bytes": 33,
+        "end_exclusive": "0x180244f51",
+        "file_offset": 2376496,
+        "name": "other_distance_getter",
+        "sha256": "90e8d0dbf4b7ed14934106315ac3792b6eed7423331342b49c589f9fd2c386cd",
+        "start": "0x180244f30"
+      },
+      {
+        "bytes": 339,
+        "end_exclusive": "0x180240243",
+        "file_offset": 2356464,
+        "name": "cleanup",
+        "sha256": "5cc342a5eeeb388da18196684b74bb640af2abfc40b6ce41ef49a4697856b471",
+        "start": "0x1802400f0"
+      },
+      {
+        "bytes": 64,
+        "end_exclusive": "0x18023f104",
+        "file_offset": 2352324,
+        "name": "current_mode_load",
+        "sha256": "9749e6a01515f70aa1f62b3229cca39bc659afef65e27f1feafa1592d8c78537",
+        "start": "0x18023f0c4"
+      }
+    ],
+    "rea_known_serializer": "ev_7cb8c3657c99eaaa67c46ce501bcee9ddfeedbdd86c1cd9af82b26979601a7e7",
+    "rea_resource_identity": "ev_0abc627ded68a778913137169a7778a9c5d8a4de5eadea4cd58a3cc4d440aa32"
+  },
+  "native_processes": 0,
+  "observed_distance_pair_files": 0,
+  "schema": "kit.sw2026.distance-pair-chamfer-boundary.v1"
+}

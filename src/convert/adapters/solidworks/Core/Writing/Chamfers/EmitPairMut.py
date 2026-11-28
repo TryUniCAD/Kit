@@ -1,0 +1,53 @@
+from pathlib import Path as FilePath
+
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
+from convert.adapters.base.WritePolicy import GetCapValue, GetDocumentCaps
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import (
+    PrepChmfPart,
+)
+from convert.adapters.solidworks.Core.Writing.Chamfers.VerifyPairMeas import (
+    VerifyPairMeas,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.CheckMeasPath import (
+    CheckMeasPath,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.PublishMeasMut import (
+    PublishMeasMut,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
+    ReadMeasInput,
+)
+from interchange.document.Models.DocumentModel import CadDocument
+
+
+# distance modes must pass their exact native receipt before file or stream publication
+def EmitPairMut(
+    DocumentValue: CadDocument,
+    TargetValue: KTargetType,
+    OptionsValue: WriteOptions | None,
+) -> WriteResult:
+    WrittenAt, Receipt, Settings = ReadMeasInput(OptionsValue)
+    OutputPath = (
+        FilePath(TargetValue).expanduser().resolve()
+        if isinstance(TargetValue, (str, FilePath))
+        else None
+    )
+    if OutputPath is not None:
+        CheckMeasPath(OutputPath, Settings)
+    Candidate = PrepChmfPart(
+        DocumentValue,
+        OutputPath or TargetValue,
+        WrittenAt,
+        Settings,
+    )
+    Evidence = VerifyPairMeas(Receipt, Candidate, WrittenAt)
+    Transfers = tuple(
+        CapTransfer(CapValue, TransferMode.KNative)
+        for CapValue in sorted(GetDocumentCaps(DocumentValue), key=GetCapValue)
+    )
+    return PublishMeasMut(
+        TargetValue, OutputPath, Settings, Candidate.BytesValue, Evidence, Transfers
+    )

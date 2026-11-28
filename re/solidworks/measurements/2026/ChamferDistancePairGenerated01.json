@@ -1,0 +1,74 @@
+{
+  "candidates": [
+    {
+      "archive_bytes": 8990,
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "config_map": 91,
+      "drivers": [
+        [
+          "D1",
+          0.004875,
+          25
+        ]
+      ],
+      "guarded_processes": 2,
+      "mode_word": 18,
+      "name": "EqualDistanceEdge.SLDPRT",
+      "neutral_sha256": "001a7a009a25202ee98120ab700cc9af6de597e085b19aab1638ad628efd77cd",
+      "resolved_map": 256,
+      "runtime_external_reads": 0,
+      "schema": "kit.sw2026.distance-pair-neutral-compiler.v1",
+      "streams": {
+        "Contents/CMgr": "b4d3d7055580b1cdcddfffc1b2708ce585e5a3dbcdd41e486051d7280024966a",
+        "Contents/CMgrHdr2": "816762925e9998dc6de738f67569439df7b67f598b8829c7c942a58ab5bed237",
+        "Contents/Config-0": "325fd46ac2f91e04cafa963d672b4456fc4e26b0a124d7a810e7031d593ebfbe",
+        "Contents/Config-0-ModelHeader": "93897ccfee1239cd62867a4bb987b5d398c2acfe68baa46edf6c3f264f5f525c",
+        "Contents/Config-0-ResolvedFeatures": "8b5ad6eccc8954667f105b8cafc167417d2247a1cf235d3a8b37146343c39666",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "f289227c30c0da10c701d55419708d0912ed18c1e9e7ad590d9707cda36ff6c0",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "48b69e881e0ac59394d60bfdd13075f40d9e21ace4e1f21daa0c3f7bb5921383",
+        "swXmlContents/KeyWords": "bf3d58129f3b6ed9c92c04bdd5d9b0ae08bab8a36a2357dca11c8cb26811e517"
+      }
+    },
+    {
+      "archive_bytes": 9174,
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "config_map": 92,
+      "drivers": [
+        [
+          "D1",
+          0.004875,
+          25
+        ],
+        [
+          "D3",
+          0.008375,
+          26
+        ]
+      ],
+      "guarded_processes": 2,
+      "mode_word": 2,
+      "name": "UnequalDistanceEdge.SLDPRT",
+      "neutral_sha256": "21f5f6cb71555b448b670e1e0f647bc5ea147d139d27c3550591c3bf76957b4c",
+      "resolved_map": 263,
+      "runtime_external_reads": 0,
+      "schema": "kit.sw2026.distance-pair-neutral-compiler.v1",
+      "streams": {
+        "Contents/CMgr": "1231648e99415dc812fa347304334ec3a003a00afb4dc4c61d95405062791a7b",
+        "Contents/CMgrHdr2": "816762925e9998dc6de738f67569439df7b67f598b8829c7c942a58ab5bed237",
+        "Contents/Config-0": "83ea2e74c07cfcba81a1408d5ec9e94816d72697c301ae3077dba223bd766f86",
+        "Contents/Config-0-ModelHeader": "d5fd1e5e11b850571fe2019ddf13a211e812af0022fde4b3074db550a3342187",
+        "Contents/Config-0-ResolvedFeatures": "feda2dc05d1228db2070788611ccb03736a3c5139140ac76f0b7130b91aa3198",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "5de9041fd8b6ad27b0bbf4e0d0f0c9357bb5736c1f157ec441d3a0a814133eac",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "48b69e881e0ac59394d60bfdd13075f40d9e21ace4e1f21daa0c3f7bb5921383",
+        "swXmlContents/KeyWords": "07e636c0befe4c8263a07dad0c55b6b0575a16b497f9391079140179a9b5b51b"
+      }
+    }
+  ],
+  "destination": "C:\\KitChamferPairGenerated05\\Packet\\Candidates",
+  "schema": "kit.sw2026.distance-pair-neutral-build.v1",
+  "written_at": 1795331500
+}

@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Chamfers.ChmfFieldRule import (
+    ChmfFieldRule,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
@@ -59,7 +62,10 @@ KMaterialFields = MappingProxyType(
                 "f2b0",
                 "i32",
                 BodyValue=(
-                    NativeField("Fail", "alternate moDisplayItem_c.Serialize f2b0"),
+                    ChmfFieldRule(
+                        NativeField("Scalar", "v", "i32"),
+                        "alternate moDisplayItem_c.Serialize f2b0",
+                    ),
                 ),
                 CountValue="n2b0",
                 ModeValue="Positive",

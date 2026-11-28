@@ -1,0 +1,473 @@
+{
+  "build": "34.5.2.0604",
+  "cases": [
+    {
+      "build": "34.5.2.0604",
+      "case": "equal",
+      "drivers": {
+        "shared": {
+          "field": "f810",
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14505,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12764,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13735,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13322,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13735,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13431,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13480,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13437,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "persistent_id": 33,
+          "value_si": 0.004875
+        }
+      },
+      "edited": false,
+      "exact_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "end": 14860,
+        "field_span": false,
+        "object_index": 274,
+        "offset": 12000,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_input_reads": 0,
+      "heldout_sources_read": 0,
+      "map_counters": [
+        110,
+        316
+      ],
+      "mode_fields": {
+        "f860": 0,
+        "f878": 0,
+        "f87c": 0,
+        "f8a0": 10,
+        "f8f0": 1,
+        "has_f808": 0
+      },
+      "mode_word": 18,
+      "native_terminal_sha256": "d8ff6c2678c05c88f52a3d10e10e1ccdd84fb52a9b374bf7542be868f4215390",
+      "selected_edge": {
+        "class": "moCompEdge_c",
+        "end": 14806,
+        "field_span": false,
+        "object_index": 305,
+        "offset": 14512,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+      "stream_replays": {
+        "Contents/CMgr": [
+          2175,
+          "345a5c4d338e62602bec11d2fc691cc223c164679e3c613551a0e2058b7e21d8"
+        ],
+        "Contents/Config-0": [
+          25742,
+          "e009f3b606b0d50c7cb96a0a2a92193bc43414049ebbc5c9c5c0cfaa4a911f06"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          14864,
+          "989a8b316b427aafb6427cd4be431445b57f4a5ac3c706ace83692196df6d302"
+        ]
+      }
+    },
+    {
+      "build": "34.5.2.0604",
+      "case": "equal",
+      "drivers": {
+        "shared": {
+          "field": "f810",
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14685,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12944,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13915,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13502,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13915,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13611,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13660,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13617,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "persistent_id": 33,
+          "value_si": 0.006125
+        }
+      },
+      "edited": true,
+      "exact_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "end": 15040,
+        "field_span": false,
+        "object_index": 274,
+        "offset": 12180,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_input_reads": 0,
+      "heldout_sources_read": 0,
+      "map_counters": [
+        110,
+        316
+      ],
+      "mode_fields": {
+        "f860": 0,
+        "f878": 0,
+        "f87c": 0,
+        "f8a0": 10,
+        "f8f0": 1,
+        "has_f808": 0
+      },
+      "mode_word": 18,
+      "native_terminal_sha256": "d8ff6c2678c05c88f52a3d10e10e1ccdd84fb52a9b374bf7542be868f4215390",
+      "selected_edge": {
+        "class": "moCompEdge_c",
+        "end": 14986,
+        "field_span": false,
+        "object_index": 305,
+        "offset": 14692,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+      "stream_replays": {
+        "Contents/CMgr": [
+          2432,
+          "ea3c59510c39b2614983aab1f4ad08f4905ea7d464402fbfce68feb726987c3f"
+        ],
+        "Contents/Config-0": [
+          25766,
+          "703b1f94b38b0a498c4dbb4b840c194d01c78fa52f2ae47365d2655d4203b811"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          15044,
+          "735cfe9f7edcebbccc2d0c35b277d0b3e1e50e5253f1b797b12e63b5e0ee48a5"
+        ]
+      }
+    },
+    {
+      "build": "34.5.2.0604",
+      "case": "unequal",
+      "drivers": {
+        "first": {
+          "field": "f810",
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14505,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12764,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13735,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13322,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13735,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13431,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13480,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13437,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "persistent_id": 33,
+          "value_si": 0.004875
+        },
+        "second": {
+          "field": "f820",
+          "name": "D3",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 16176,
+              "field_span": false,
+              "object_index": 305,
+              "offset": 14507,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 15406,
+              "field_span": false,
+              "object_index": 306,
+              "offset": 15065,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 15406,
+              "field_span": false,
+              "object_index": 307,
+              "offset": 15174,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 15223,
+              "field_span": false,
+              "object_index": 308,
+              "offset": 15180,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "persistent_id": 34,
+          "value_si": 0.008375
+        }
+      },
+      "edited": false,
+      "exact_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "end": 16527,
+        "field_span": false,
+        "object_index": 274,
+        "offset": 12000,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_input_reads": 0,
+      "heldout_sources_read": 0,
+      "map_counters": [
+        110,
+        322
+      ],
+      "mode_fields": {
+        "f860": 0,
+        "f878": 0,
+        "f87c": 0,
+        "f8a0": 10,
+        "f8f0": 1,
+        "has_f808": 0
+      },
+      "mode_word": 2,
+      "native_terminal_sha256": "d1892bc383b88c4d0b4a48d2fa768c2274a70f755068e218a28ca6475fb45b51",
+      "selected_edge": {
+        "class": "moCompEdge_c",
+        "end": 16473,
+        "field_span": false,
+        "object_index": 311,
+        "offset": 16179,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6",
+      "stream_replays": {
+        "Contents/CMgr": [
+          2175,
+          "e620a8aa6967bdb438619a023b543e8794d56d8d53b516b53697ffb370302aab"
+        ],
+        "Contents/Config-0": [
+          25742,
+          "c69a8c60c697baec689cec4228edcd72673818bc2285dceda9415542f2efaa90"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          16531,
+          "d038285b21349b06bb14fa657787c0a8097811ce48a4250ea20d453e78b1992a"
+        ]
+      }
+    },
+    {
+      "build": "34.5.2.0604",
+      "case": "unequal",
+      "drivers": {
+        "first": {
+          "field": "f810",
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 14697,
+              "field_span": false,
+              "object_index": 299,
+              "offset": 12956,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13927,
+              "field_span": false,
+              "object_index": 300,
+              "offset": 13514,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 13927,
+              "field_span": false,
+              "object_index": 301,
+              "offset": 13623,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 13672,
+              "field_span": false,
+              "object_index": 302,
+              "offset": 13629,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "persistent_id": 33,
+          "value_si": 0.004875
+        },
+        "second": {
+          "field": "f820",
+          "name": "D3",
+          "owners": [
+            {
+              "class": "moDisplayDistanceDim_c",
+              "end": 16368,
+              "field_span": false,
+              "object_index": 305,
+              "offset": 14699,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 15598,
+              "field_span": false,
+              "object_index": 306,
+              "offset": 15257,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "ParallelPlaneDistanceDim_c",
+              "end": 15598,
+              "field_span": false,
+              "object_index": 307,
+              "offset": 15366,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moLengthParameter_c",
+              "end": 15415,
+              "field_span": false,
+              "object_index": 308,
+              "offset": 15372,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "persistent_id": 34,
+          "value_si": 0.009625
+        }
+      },
+      "edited": true,
+      "exact_replay": true,
+      "feature": {
+        "class": "Chamfer_c",
+        "end": 16719,
+        "field_span": false,
+        "object_index": 274,
+        "offset": 12192,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "guarded_input_reads": 0,
+      "heldout_sources_read": 0,
+      "map_counters": [
+        110,
+        322
+      ],
+      "mode_fields": {
+        "f860": 0,
+        "f878": 0,
+        "f87c": 0,
+        "f8a0": 10,
+        "f8f0": 1,
+        "has_f808": 0
+      },
+      "mode_word": 2,
+      "native_terminal_sha256": "d1892bc383b88c4d0b4a48d2fa768c2274a70f755068e218a28ca6475fb45b51",
+      "selected_edge": {
+        "class": "moCompEdge_c",
+        "end": 16665,
+        "field_span": false,
+        "object_index": 311,
+        "offset": 16371,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "source_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+      "stream_replays": {
+        "Contents/CMgr": [
+          2444,
+          "87b6a63b5d14cbec1e4fee63d74002a644f6057a327c3cd972ce601374395316"
+        ],
+        "Contents/Config-0": [
+          25770,
+          "9902492a0538da3abed4951c36aef0d3a7309c81594480b2b206d881dc3c7f99"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          16723,
+          "23a5aa92ba5fab7dff318feef6776100f5392e661e0dbc8b30b2adaaabc9339c"
+        ]
+      }
+    }
+  ],
+  "codec_revision": "d18c88c9cc2de90407bd292c2d79b9a4032d02bc",
+  "guarded_input_reads": 0,
+  "heldout_sources_read": 0,
+  "new_solidworks_processes": 0,
+  "processes": 4,
+  "schema": "kit.sw2026.distance-pair-typed-replay.v1",
+  "script_sha256": "afba565db828bb5b472fbde6f77be2920000b9e06b79dc4442cb5d39ebc87a10",
+  "source_tree_zip_sha256": "cc17a7faa3054403c72e00718b78a893fa2b669155a69b464b733973d53c8c49"
+}

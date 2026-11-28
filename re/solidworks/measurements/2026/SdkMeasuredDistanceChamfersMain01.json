@@ -1,0 +1,112 @@
+{
+  "basis_main": "e5294382aad0c04ba26554dfe381fd03daec110a",
+  "cases": [
+    {
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "bytes": 8990,
+      "codec_refused": false,
+      "deflate": "1.2.12",
+      "edited_private_driver_mm": 5.625,
+      "edited_private_sha256": "10e951004a833e19f55e851230bea1a5cad69739268683c3f92b30042cbee799",
+      "expected_native_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "mode_word": 18,
+      "native_acceptance_routes": 2,
+      "native_processes_started": 0,
+      "qualified_logical_streams": 10,
+      "refusals": [
+        "missing_receipt",
+        "changed_model",
+        "wrong_locator"
+      ],
+      "runtime_reads": 0,
+      "semantic_read_matches": true,
+      "strict_geometry": {
+        "area_mm2": 10013.564833435667,
+        "centroid_mm": [
+          11.125425038639875,
+          -8.209891808346214,
+          9.375
+        ],
+        "drivers": [
+          "D1"
+        ],
+        "topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "volume_mm3": 55443.603515625
+      }
+    },
+    {
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "bytes": 9174,
+      "codec_refused": false,
+      "deflate": "1.2.12",
+      "edited_private_driver_mm": 9.125,
+      "edited_private_sha256": "7a689a4a909c6106b4fc9b9cb316732f52e84722505636202aab2c002650b9d7",
+      "expected_native_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "mode_word": 2,
+      "native_acceptance_routes": 2,
+      "native_processes_started": 0,
+      "qualified_logical_streams": 10,
+      "refusals": [
+        "missing_receipt",
+        "changed_model",
+        "wrong_locator"
+      ],
+      "runtime_reads": 0,
+      "semantic_read_matches": true,
+      "strict_geometry": {
+        "area_mm2": 9983.306694781071,
+        "centroid_mm": [
+          11.043444938169543,
+          -8.271261754676036,
+          9.375
+        ],
+        "drivers": [
+          "D1",
+          "D3"
+        ],
+        "topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "volume_mm3": 55283.642578125
+      }
+    }
+  ],
+  "deflate": "1.2.12",
+  "evidence_sha256": {
+    "ChamferDistancePairDisclosedNative01": "6538bdc0dfa5d1b82fab03bde1d742f98fabd8c9299c1a18c2e55f5248b429c9",
+    "ChamferDistancePairGenerated01": "f8b77a00518ea5e8918fbb4dbebc466611c9c38f6e676f09da1f9f3b09a026fb",
+    "ChamferDistancePairHeldoutNative01": "00ebeab7479f9a9cc6468d4f91412e0a15bb162c65c4fdf32536d23b21857c36",
+    "ChamferDistancePairHeldoutSource01": "fd0cb78f285bc90f0bc1ec9e72483dd1659c68431b29d64dc457fcfd9c0915c0",
+    "SdkPublicChamferDistanceRead01": "6d803680a917fdaf9295ae9d40acdca758ca7edbfcd087788e00216119b9c774"
+  },
+  "fresh_guarded_workers": 4,
+  "native_processes_started": 0,
+  "ordinary_writer_controls": {
+    "Skew": {
+      "measurements_accepted": 3,
+      "runtime_input_file_reads": 0,
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2"
+    },
+    "Step": {
+      "measurements_accepted": 3,
+      "runtime_input_file_reads": 0,
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+    }
+  },
+  "python_version": "3.14.7",
+  "schema": "kit.sw2026.main-measured-distance-chamfer.v1",
+  "source_aggregate": "49dcac548fff89b914dd2cd6ae33c6df58b69912",
+  "source_tree": "266f31e8b6dd41dfcbff9c606442a1519b973998",
+  "verified_head": "93ff73740bf75d711c3436a220ecbd9a30636165",
+  "worker_sha256": "0004468135ddec2aa8f786b84fb1d8a785f05f56cd801d8102977fd37ca4e59b"
+}

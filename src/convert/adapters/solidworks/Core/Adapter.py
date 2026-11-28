@@ -175,6 +175,15 @@ from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfDoc import BindChmfDoc
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfModel import BindChmfModel
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BuildChmfGeom import BuildChmfGeom
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import ChmfPartRead
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import (
+    IsChmfFeature,
+    KChmfRejected,
+    TryColdChmf,
+)
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -362,11 +371,7 @@ def ReadNativePart(
     *,
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = (
-        NativePartModel(Archive, Settings.configuration)
-        if ModelValue is None
-        else ModelValue
-    )
+    Model, ChamferValue = ReadBoundPart(Archive, Settings, ModelValue)
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -375,7 +380,7 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings, ChamferValue=ChamferValue)
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -463,9 +468,15 @@ def ReadNativePart(
         tuple(
             (
                 DiagValue(
-                    code="sldprt.native_record_unresolved",
+                    code=(
+                        "sldprt.chamfer_history_unresolved"
+                        if Message == KChmfRejected
+                        else "sldprt.native_record_unresolved"
+                    ),
                     message=Message,
-                    severity=Severity.INFO,
+                    severity=(
+                        Severity.KWarning if Message == KChmfRejected else Severity.INFO
+                    ),
                 )
                 for Message in Model.diagnostics
             )
@@ -522,21 +533,57 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    DocValue = ProjectPartDoc(
+        DocValue, Model, Archive, Payloads, Settings, ChamferValue=ChamferValue
+    )
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(WithPartProps(DocValue, Archive), DataValue)
 
 
+# the measured cold chamfer projection is separate from the unchanged native model fallback
+def ReadBoundPart(
+    Archive: SldprtArchive, Settings: ReadOptions, ModelValue: NativeModel | None
+) -> tuple[NativeModel, ChmfPartRead | None]:
+    if ModelValue is not None:
+        ModelValue, ChamferValue = TryColdChmf(Archive, ModelValue, Settings)
+        return (
+            BindChmfModel(ModelValue, ChamferValue) if ChamferValue is not None else ModelValue,
+            ChamferValue,
+        )
+    Model, ConfigData, Resolved, ConfigStream, ResolvedName = DecodePartBase(
+        Archive, Settings.configuration
+    )
+    Model, ChamferValue = TryColdChmf(Archive, Model, Settings)
+    if ChamferValue is not None:
+        return BindChmfModel(Model, ChamferValue), ChamferValue
+    Refined = RefinePartModel(
+        Archive, Model, ConfigData, Resolved, ConfigStream, ResolvedName
+    )
+    if KChmfRejected in Model.diagnostics and KChmfRejected not in Refined.diagnostics:
+        Refined = Replace(Refined, diagnostics=(*Refined.diagnostics, KChmfRejected))
+    return Refined, None
+
+
 # cached payloads keep priority over geometry derived from a qualified cold archive
 def PartBrepData(
-    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    Settings: ReadOptions,
+    *,
+    ChamferValue: ChmfPartRead | None = None,
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
-    ColdBrep = (
-        ColdPrism(Model, KPartBodyId)
-        if Settings.include_brep and not Settings.extract_raw_brep
-        else None
-    )
+    ColdBrep = None
+    if (
+        Settings.include_brep
+        and not Settings.extract_raw_brep
+        and KChmfRejected not in Model.diagnostics
+    ):
+        ColdBrep = (
+            ColdPrism(Model, KPartBodyId)
+            if ChamferValue is None
+            else BuildChmfGeom(ChamferValue, KPartBodyId)
+        )
     Payloads, Diagnostics = BrepPayloads(
         Archive, Settings, AllowAbsent=ColdBrep is not None
     )
@@ -568,7 +615,11 @@ def ProjectPartDoc(
     Archive: SldprtArchive,
     Payloads: tuple[BrepPayload, ...],
     Settings: ReadOptions,
+    *,
+    ChamferValue: ChmfPartRead | None = None,
 ) -> CadDoc:
+    if ChamferValue is not None:
+        return BindChmfDoc(DocValue, ChamferValue)
     DocValue = ProjectCutDoc(DocValue, Model.cut_source)
     DocValue = ProjectScopeDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue = ProjectPadDoc(DocValue, Archive, Model.active_configuration_id)
@@ -2208,6 +2259,13 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 
 # this definition exists because focused behavior needs one stable owner
 def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+    return RefinePartModel(Archive, *DecodePartBase(Archive, Requested))
+
+
+# configuration choice and initial native root discovery are shared with typed cold feature readers
+def DecodePartBase(
+    Archive: SldprtArchive, Requested: str | None
+) -> tuple[NativeModel, bytes, bytes, str, str]:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2256,10 +2314,24 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         configuration_stream=ConfigStream,
         Display=ParseDisplay(Archive.get(KInformationStream) or b""),
     )
+    return Model, ConfigData, Resolved, ConfigStream, SelectedStream
+
+
+# older feature projections preserve their existing fallback order after initial part discovery
+def RefinePartModel(
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    ConfigData: bytes,
+    Resolved: bytes,
+    ConfigStream: str,
+    SelectedStream: str,
+) -> NativeModel:
     if SelectedStream == KitResolvedStream:
         return Model
-
-    Model = WithTypedNative(Model, Archive)
+    TypedModel = WithTypedNative(Model, Archive)
+    if TypedModel is not Model and KChmfRejected in TypedModel.diagnostics:
+        return TypedModel
+    Model = TypedModel
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(
@@ -3560,6 +3632,7 @@ def Timeline(
         Feature.object_id: Order for Order, Feature in enumerate(Model.features)
     }
     SelectionIds = {Selection.id for Selection in Selections}
+    ChamferUnresolved = KChmfRejected in Model.diagnostics
     PrincipalPlaneIds = {Plane.object_id for Plane in Model.planes if Plane.principal}
     PreviousOperation: int | None = None
     Result: list[FeatureStep] = []
@@ -3620,7 +3693,15 @@ def Timeline(
                 ),
                 parameter_ids=ParamIds,
                 operation=OperationValue,
-                definition=BuildFeature(Feature, Operation, SketchById, PlaneById),
+                definition=(
+                    NativeFallback(Feature, Operation)
+                    if ChamferUnresolved
+                    and (
+                        IsChmfFeature(Feature)
+                        or (Operation is not None and Operation.kind == "chamfer")
+                    )
+                    else BuildFeature(Feature, Operation, SketchById, PlaneById)
+                ),
                 selection_ids=Selected,
                 provenance=OpProvenance(Feature, Operation),
                 attributes=FrozenMapping(Attributes),

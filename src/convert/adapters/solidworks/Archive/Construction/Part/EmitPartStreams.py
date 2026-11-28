@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist import (
     MakeFreshHist,
 )
+from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import (
+    KeywordFeature,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartKeys import (
     MakePartKeys,
 )
@@ -46,6 +49,8 @@ def EmitPartStreams(
     InputValue: PartBuildInput,
     PlanValue: BlindPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    Chamfer: tuple[ArchiveNode, KeywordFeature] | None = None,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
@@ -54,8 +59,17 @@ def EmitPartStreams(
         "model_is_part": 1,
         "cmgr_f658": CastValue(int, SystemValue.ManagerValue.FieldsValue["f658"]),
     }
+    RootsValue = (*FeatureValues, Chamfer[0]) if Chamfer is not None else FeatureValues
+    BodyMap: dict[str, object] | None = (
+        {"n": 0, "fcd8": []} if Chamfer is not None else None
+    )
     ResolvedBytes, ResolvedValue = WriteResolMut(
-        FeatureValues, None, 19000, ConfigValue.MapValue, ContextValue
+        RootsValue,
+        BodyMap,
+        19000,
+        ConfigValue.MapValue,
+        ContextValue,
+        WriteChamfers=Chamfer is not None,
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),
@@ -70,7 +84,12 @@ def EmitPartStreams(
             MakeFreshHist(InputValue.HistoryValue), 19000
         )[0],
         KeywordsStream: MakePartKeys(
-            SystemValue, FeatureValues, InputValue, PlanValue, SketchDims
+            SystemValue,
+            FeatureValues,
+            InputValue,
+            PlanValue,
+            SketchDims,
+            AdditionalRows=() if Chamfer is None else (Chamfer[1],),
         ),
     }
     return StreamsValue, ConfigValue, ResolvedValue

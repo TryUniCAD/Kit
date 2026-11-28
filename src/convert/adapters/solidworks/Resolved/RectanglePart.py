@@ -30,6 +30,9 @@ from convert.adapters.solidworks.Resolved.ProfileSketch import (
 from convert.adapters.solidworks.Resolved.ResolvedHead import OpenResolved
 from convert.adapters.solidworks.Resolved.SystemPrefix import ReadSysPrefix
 
+# the short list extent separates saved rectangle roots with and without one atom
+KRectListCounts = (18, 19)
+
 
 # the neutral projection needs one fully framed sketch and its proven principal datum
 @Dataclass(frozen=True, slots=True)
@@ -81,7 +84,7 @@ def TryRectBoss(
 def ReadRectPart(ConfigData: bytes, Resolved: bytes, Generation: int) -> RectanglePart:
     ConfigMap, MapWalk = ReadOrdinaryMap(ConfigData, Generation)
     HasAtom = MapWalk["atom_count"] == 1
-    Cursor = OpenResolved(Resolved, ConfigMap, 19 if HasAtom else 18)
+    Cursor = OpenResolved(Resolved, ConfigMap, KRectListCounts[int(HasAtom)])
     System = ReadSysPrefix(Cursor)
     Origin = ReadOrigin(Cursor, Generation)
     RequireArch(

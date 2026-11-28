@@ -5,6 +5,9 @@ from convert.Commands.CheckFeatures import CheckFeatures
 from convert.Commands.Qualified.CheckDocHistory import CheckDocHistory
 from convert.Commands.CheckRetained import CheckRetained
 from convert.Commands.Qualified.CheckGeometry import CheckGeometry
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfSnapDoc import (
+    IsChmfSnapDoc,
+)
 from interchange.assembly.AssemblyEnums import ComponentKind
 from interchange.brep.Curves.BrepCurves import NativeCurve
 from interchange.brep.Curves.BrepPcurves import NativePcurve
@@ -21,7 +24,13 @@ KInspectText = (
 
 
 # writer success must not qualify opaque records incomplete assemblies or retained source data
-def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -> None:
+def CheckPortable(
+    Document: CadDocument,
+    *,
+    WriterQualifiedPart: bool = False,
+    JsonTarget: bool = False,
+) -> None:
+    IsChmfJson = JsonTarget and IsChmfSnapDoc(Document)
     for PartValue in WalkDocuments(Document):
         Freecad = PartValue.metadata.get("freecad")
         for RecordName, IsBlocked in (
@@ -45,7 +54,8 @@ def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -
             ),
             (
                 "NativeFeature",
-                any(
+                not IsChmfJson
+                and any(
                     isinstance(Feature.definition, NativeFeature)
                     for Feature in PartValue.FeatureTimeline
                 ),
@@ -113,10 +123,11 @@ def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -
             ):
                 if isinstance(Geometry, (NativeCurve, NativePcurve, NativeSurface)):
                     raise ValueError(type(Geometry).__name__ + KInspectText)
-        if not WriterQualifiedPart:
+        if not (WriterQualifiedPart or IsChmfJson):
             CheckFeatures(PartValue)
-    CheckRetained(Document)
-    if not WriterQualifiedPart:
+    if not IsChmfJson:
+        CheckRetained(Document)
+    if not (WriterQualifiedPart or IsChmfJson):
         for PartValue in WalkDocuments(Document):
             CheckGeometry(PartValue)
     for PartValue in WalkDocuments(Document):
