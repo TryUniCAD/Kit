@@ -160,6 +160,7 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
     FindLocalOwner,
 )
@@ -171,6 +172,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 )
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
+from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -354,8 +359,14 @@ def ReadNativePart(
     DataValue: bytes,
     Label: str,
     Settings: ReadOptions,
+    *,
+    ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = NativePartModel(Archive, Settings.configuration)
+    Model = (
+        NativePartModel(Archive, Settings.configuration)
+        if ModelValue is None
+        else ModelValue
+    )
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -364,7 +375,7 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings)
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -384,8 +395,12 @@ def ReadNativePart(
         if Candidate is None
         else None
     )
-    if ActivePart is not None:
-        BrepValue, LocalOwner, LocalDiag = ActivePart.ModelValue, None, None
+    if ActivePart is not None or ColdBrep is not None:
+        BrepValue, LocalOwner, LocalDiag = (
+            ActivePart.ModelValue if ActivePart is not None else ColdBrep,
+            None,
+            None,
+        )
     else:
         BrepValue, LocalOwner, LocalDiag = TypedBrep(
             Payloads,
@@ -406,14 +421,14 @@ def ReadNativePart(
         else FinalBodyId(TimeValues, SolidOpIds)
     )
     BodyFeature = LocalOwner or SolidBody(Model.features)
-    SavedPart = ActivePart.ModelValue if ActivePart is not None else None
+    MassBody = ActivePart.ModelValue if ActivePart is not None else ColdBrep
     Fallback = TopologySummary(
         solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
     )
     if LocalOwner is not None and BrepValue is not None:
         BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
     Summary, Measures = ActivePartMass(
-        SavedPart, PartTopology(SavedPart, KPartBodyId, Fallback), KPartBodyId
+        MassBody, PartTopology(MassBody, KPartBodyId, Fallback), KPartBodyId
     )
     Bodies = (
         BodyValue(
@@ -510,7 +525,22 @@ def ReadNativePart(
     DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue.assert_valid()
     ValidateSource(Label, False)
-    return RetainSource(DocValue, DataValue)
+    return RetainSource(WithPartProps(DocValue, Archive), DataValue)
+
+
+# cached payloads keep priority over geometry derived from a qualified cold archive
+def PartBrepData(
+    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
+) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
+    ColdBrep = (
+        ColdPrism(Model, KPartBodyId)
+        if Settings.include_brep and not Settings.extract_raw_brep
+        else None
+    )
+    Payloads, Diagnostics = BrepPayloads(
+        Archive, Settings, AllowAbsent=ColdBrep is not None
+    )
+    return Payloads, Diagnostics, ColdBrep if not Payloads and not Diagnostics else None
 
 
 # planes and sketches must bind to the same native parameter identities
@@ -2228,6 +2258,8 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
     )
     if SelectedStream == KitResolvedStream:
         return Model
+
+    Model = WithTypedNative(Model, Archive)
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(
@@ -2309,7 +2341,9 @@ def Parameters(
                         else ParamRole.DRIVING
                     ),
                     owner_id=FeatureId(Feature.object_id),
-                    provenance=(
+                    provenance=TypedProvenance(
+                        Dimension.TypedOwner or {}, f"{Feature.object_id}:{Dimension.name}"
+                    ) or (
                         ProvenanceA(
                             f"{Feature.object_id}:{Dimension.name}",
                             Dimension.native_offset,
@@ -2338,6 +2372,11 @@ def Parameters(
                                 else {}
                             ),
                             "native_role": Dimension.native_role or "unresolved",
+                            **(
+                                {"typed_archive_owner": Dimension.TypedOwner}
+                                if Dimension.TypedOwner is not None
+                                else {}
+                            ),
                             "native_operands": tuple(
                                 (
                                     {
@@ -2760,6 +2799,8 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
+    if Sketch.TypedLines is not None:
+        return LineSketch(Sketch)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities
@@ -3549,6 +3590,19 @@ def Timeline(
         }
         OperationValue, Selected = TimelineOp(Operation, SelectionIds)
         if Operation is not None:
+            ProfileValue = (
+                SketchById.get(Operation.profile_id)
+                if Operation.profile_id is not None
+                else None
+            )
+            if (
+                Operation.kind == "join"
+                and PreviousOperation is None
+                and ProfileValue is not None
+                and ProfileValue.TypedLines is not None
+                and Operation.dependencies == (ProfileValue.object_id,)
+            ):
+                OperationValue = BoolOperation.CREATE
             Attributes.update(OperationAttrs(Operation))
             if Operation.kind != "surface":
                 PreviousOperation = Operation.object_id
@@ -3875,7 +3929,7 @@ def FeatureKindA(Feature: NativeFeature | XmlFeature) -> FeatureKind:
 
 # this definition exists because focused behavior needs one stable owner
 def BrepPayloads(
-    Archive: SldprtArchive, Options: ReadOptions
+    Archive: SldprtArchive, Options: ReadOptions, *, AllowAbsent: bool = False
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...]]:
     if not Options.include_brep:
         return ((), ())
@@ -3900,7 +3954,7 @@ def BrepPayloads(
             continue
         for Native in Decoded:
             Payloads.append(BrepPayloadA(len(Payloads), Native))
-    if not Payloads and Options.strict:
+    if not Payloads and Options.strict and not AllowAbsent:
         raise SldprtFormatError("SLDPRT contains no readable Parasolid payload")
     return (tuple(Payloads), tuple(Diagnostics))
 

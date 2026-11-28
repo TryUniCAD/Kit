@@ -11,9 +11,12 @@ from tools.TestShards.ShardPlan import ShardPlan
 
 # the allocate contract needs a shared interpretation so every collected case receives exactly one verified outcome
 def AllocateTests(
-    TestIds: Sequence[str], Durations: Mapping[str, float], MaxTests: int
+    TestIds: Sequence[str],
+    Durations: Mapping[str, float],
+    MaxTests: int,
+    ShardCount: int = 0,
 ) -> list[ShardPlan]:
-    ShardCount = MathLib.ceil(len(TestIds) / MaxTests)
+    ShardCount = max(ShardCount, MathLib.ceil(len(TestIds) / MaxTests))
     Weights = EstimateTests(TestIds, Durations)
     Members: dict[int, list[int]] = {ShardPos: [] for ShardPos in range(ShardCount)}
     OpenSlots = [(0.0, 0, ShardPos) for ShardPos in range(ShardCount)]

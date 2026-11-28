@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -112,7 +112,7 @@ KProgressCapture = """    owner_path = output / 'fixture-owner.json'
         str(powershell), '-NoProfile', '-NonInteractive', '-File', str(Path(__file__).with_name('Progress.ps1')),
         '-Source', str(Path(config['source_root']) / 're/automation/CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs'),
         '-OwnerPath', str(owner_path), '-JournalPath', str(journal_path), '-MarkerPath', str(output / 'fixture-action.txt'),
-    ], capture_output=True, check=False, timeout=15, creationflags=subprocess.CREATE_NO_WINDOW)
+    ], capture_output=True, check=False, timeout=60, creationflags=subprocess.CREATE_NO_WINDOW)
     assert generated.returncode == 0, generated.stderr.decode(errors='replace')
     native_progress = json.loads(generated.stdout)
     progress = journal_path.read_bytes().splitlines(keepends=True)

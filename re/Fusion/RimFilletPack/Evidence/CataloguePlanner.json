@@ -1,0 +1,24 @@
+{
+  "full_record_sha256": "88ab6c06400253003025e35030f0bdbe5cf9f303818229769721e2301656b469",
+  "catalogues": {
+    "fusion": "fb7a2ba614bbfecaaae60c9277487faa559ed3ab6cc1d41cd9b8b03689a10718",
+    "solidworks": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1"
+  },
+  "scopes": {
+    "p01-corner-rectangle": "api:adsk.fusion.SketchLines.addTwoPointRectangle",
+    "p03-blind-boss.fusion": "api:adsk.fusion.ExtrudeFeature",
+    "p03-blind-boss.solidworks": "family:extrude:boss-base-extrude",
+    "p04-through-all-body-selection": "family:extrude:cut-extrude"
+  },
+  "scope_order": [
+    "p01-corner-rectangle",
+    "p03-blind-boss.fusion",
+    "p03-blind-boss.solidworks",
+    "p04-through-all-body-selection"
+  ],
+  "feature_counts": {
+    "fusion": 85,
+    "solidworks": 585
+  },
+  "full_record_location": "<campaign-output>/FullCataloguePlanner.json"
+}

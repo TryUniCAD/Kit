@@ -1,0 +1,12 @@
+{
+  "source_revision": "66d4f5b856833833bbf67fe62a61c3450d8dc76f",
+  "inputs": "12 original source-free generated fillet candidates",
+  "operations": [
+    "existing ReadDocument",
+    "existing EmitParsed",
+    "existing ReadDocument equality"
+  ],
+  "native_evidence_policy": "reuse earlier native receipt only when reconstructed bytes hash equals the exact previously uploaded measured payload",
+  "new_native_requests": false,
+  "models_enabled": false
+}

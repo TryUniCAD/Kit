@@ -42,12 +42,13 @@ def DropOrphans(
     Result = Schemas
     while True:
         Present = {Schema.ClassGuid.upper() for Schema in Result}
+        Present.add(KNativeRoot)
         Retained = tuple(
             Schema
             for Schema in Result
             if Schema.ClassGuid.upper() in Declared
             or not Schema.BaseGuid
-            or Schema.BaseGuid.upper() in Present | {KNativeRoot}
+            or Schema.BaseGuid.upper() in Present
         )
         if len(Retained) == len(Result):
             return Result

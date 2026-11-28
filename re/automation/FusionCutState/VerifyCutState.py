@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -642,7 +642,9 @@ def public_guards(raw, document, contract, mode):
     result = {
         "strict": refusal(
             lambda: open_document(raw, strict=True),
-            "Native Fusion projection requires a sketch followed by one extrusion",
+            "Native Fusion semantic link requires an entity reference"
+            if mode[0] == "through_all"
+            else "Unmodeled native Fusion semantic entity class",
         )
     }
     for name, item in (

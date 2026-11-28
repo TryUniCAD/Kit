@@ -1,0 +1,11 @@
+{
+  "job": "0724311667d1748637a2fbbc01917603",
+  "pid": 18048,
+  "image": "<pc-owner-home>\\AppData\\Local\\Autodesk\\webdeploy\\production\\39e8a3d5e919c70b05ef3ebfe9c6bfc8d9ee001e\\Fusion360.exe",
+  "created": "2026-11-25T23:15:42.752000+00:00",
+  "windows": [],
+  "interactive_processes_touched": false,
+  "graceful_close_requested": true,
+  "owned_orphan_terminated": true,
+  "exited": true
+}

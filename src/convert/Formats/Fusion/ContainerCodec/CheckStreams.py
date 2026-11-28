@@ -2,13 +2,14 @@ from typing import cast as CastValue
 
 from convert.Formats.Fusion.AssetCodec.Zip.ZipLimits import KMaxMemberBytes
 from convert.Formats.Fusion.BulkSpans import ReadBulkSpans
+from convert.Formats.Fusion.ContainerCodec.Model.SegmentIndex import SegmentIndex
 from convert.Formats.Fusion.ContainerCodec.Model.SegmentSlot import SegmentSlot
 from convert.Formats.Fusion.ContainerCodec.Model.SegmentStreams import SegmentStreams
 from convert.Formats.Fusion.SegmentCodec.Metadata.ReadMetaWire import ReadMetaWire
 
 
 # invalid streams input must fail here so archive members retain their native ownership and reference relationships
-def CheckStreams(Value: SegmentStreams, SlotValue: SegmentSlot) -> None:
+def CheckStreams(Value: SegmentStreams, SlotValue: SegmentSlot) -> SegmentIndex:
     if (
         not isinstance(CastValue(object, Value), SegmentStreams)
         or type(Value.SegmentId) is not int
@@ -34,4 +35,5 @@ def CheckStreams(Value: SegmentStreams, SlotValue: SegmentSlot) -> None:
         Metadata.StoredIds
     ).issubset(Owners):
         raise ValueError("Fusion segment roots disagree with primary identities")
-    _ = ReadBulkSpans(Value.BulkData, Value.Metadata, Segment=SlotValue.Segment)
+    Spans = ReadBulkSpans(Value.BulkData, Value.Metadata, Segment=SlotValue.Segment)
+    return SegmentIndex(Metadata, Spans)

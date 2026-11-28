@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
+# SPDX-FileCopyrightText: Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt
 #
 # This SPDX license identifier and copyright notice must not be
 # removed, altered, or obscured. Doing so is a material breach of
@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumDocument import Severity
 from interchange.geometry.Models.GeometryCurves import CircleGeometry, PointGeometry
 from interchange.geometry.Models.VectorPlane import PlaneVector
 from tests.Convert.Solidworks.Core.CircleOnly.AssertSupport import AssertSupport
@@ -18,7 +19,10 @@ def AssertCircle(
 ) -> None:
     Document.assert_valid()
     assert Document.bodies == () and Document.brep is None
-    assert Document.diagnostics == ()
+    (PropertyInfo,) = Document.diagnostics
+    assert PropertyInfo.code == "solidworks.part_text_properties_unavailable"
+    assert PropertyInfo.severity == Severity.INFO
+    assert PropertyInfo.message == "part properties require an empty compatible native manager"
     assert Document.metadata["source_display_units"] == DisplayUnit
     (SketchValue,) = Document.sketches
     Circle, Origin = SketchValue.entities

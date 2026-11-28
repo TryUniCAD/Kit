@@ -14,8 +14,10 @@ class CliOptions(Namespace):
         self.SourceFormat: str | None = None
         self.DestFormat: str | None = None
         self.Configuration: str | None = None
+        self.FormatName: str | None = None
         self.JsonOutput = False
         self.Overwrite = False
+        self.NativeMeasurePath: FilePath | None = None
         self.Partial = False
         self.Offline = False
         self.Layer = "neutral"

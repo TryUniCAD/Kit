@@ -17,9 +17,14 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteCountMut import (
 def WriteArrayMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     ItemsValue = ReadBodyRows(FrameValue.ScopeValue, RuleValue.NameValue)
     if RuleValue.KindValue == "Repeat":
-        LengthValue = ReadScopeValue(FrameValue.ScopeValue, RuleValue.CountValue)
+        Fixed = RuleValue.ModeValue == "Fixed"
+        LengthValue = (
+            RuleValue.MaskValue
+            if Fixed
+            else ReadScopeValue(FrameValue.ScopeValue, RuleValue.CountValue)
+        )
         if type(LengthValue) is not int or NormalizeCount(
-            LengthValue, RuleValue.ModeValue
+            LengthValue, "" if Fixed else RuleValue.ModeValue
         ) != len(ItemsValue):
             raise ValueError("native repeat count differs from its modeled rows")
     else:

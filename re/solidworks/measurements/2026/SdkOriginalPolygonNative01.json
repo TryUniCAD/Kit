@@ -1,0 +1,300 @@
+{
+  "cases": [
+    {
+      "build_a_sha256": "48f7fc31e46378a9e2ed445a930b88ceca76327b2fa416dc56c32d78c69f9760",
+      "build_b_sha256": "48f7fc31e46378a9e2ed445a930b88ceca76327b2fa416dc56c32d78c69f9760",
+      "bytes": 8144,
+      "counterpart_sha256": "aef8acd93f5cb7538ecbfcabf849c995b2590651df6c12fe87ff32e9934bac7e",
+      "edited_file_sha256": "d8e988965d8939440a2659d055c27ceb5a2cc7e203c2a9576f3f6bda4875bda1",
+      "expected_sha256": "607b5055e6b2a2e7eacd041a97e48f7f7acc7f644fb9ec9d77847d6a55a4fc01",
+      "generated_immutable": true,
+      "generated_sha256": "d6ecf346c961c7b30ce1ba149e6dd8d6c86f8f7ec3ba64f5adc23e3dfce8fd16",
+      "guarded_workers": 4,
+      "native_source_tree_equal": true,
+      "observed": {
+        "edited_reopen": {
+          "body_count": 1,
+          "depth_m": 0.01625,
+          "mass": {
+            "area": 0.0035758454506976973,
+            "com": [
+              0.006666666666666669,
+              0.006999999999999999,
+              0.008125000000000002
+            ],
+            "mass": 1.2415e-05,
+            "volume": 1.2415e-05
+          }
+        },
+        "generated_on_open": {
+          "body_count": 1,
+          "depth_m": 0.013000000000000001,
+          "mass": {
+            "area": 0.003166276360558158,
+            "com": [
+              0.006666666666666666,
+              0.007000000000000002,
+              0.0065000000000000014
+            ],
+            "mass": 9.932000000000002e-06,
+            "volume": 9.932000000000002e-06
+          }
+        },
+        "native_source": {
+          "body_count": 1,
+          "depth_m": 0.013,
+          "mass": {
+            "area": 0.003166276360558158,
+            "com": [
+              0.006666666666666669,
+              0.007000000000000002,
+              0.0065
+            ],
+            "mass": 9.932000000000002e-06,
+            "volume": 9.932000000000002e-06
+          }
+        }
+      },
+      "original_source_sha256": "051437f311217cc7eac0eb49a5a84b2d8acdc2507dbfc0c542e60393fc7d7cda",
+      "prepare_sha256": "4c27912b5078500ab1ba65430a4f4ecf00568ab45cbea48dcfda7cb1b8fde3eb",
+      "request_sha256": "48674cec860283fa1e85802cf97c8b13b6cb554c493c7e8034e47bda68926e5b",
+      "runtime_input_reads": 0,
+      "sketch_segments": 3,
+      "slot": "H3_scalene",
+      "source_immutable": true,
+      "streams": 10,
+      "tree_rows": 25
+    },
+    {
+      "build_a_sha256": "6a152f5266099fe7bd633da0bf788c57b06bebda32446b53b592c1d51b20b23e",
+      "build_b_sha256": "6a152f5266099fe7bd633da0bf788c57b06bebda32446b53b592c1d51b20b23e",
+      "bytes": 8214,
+      "counterpart_sha256": "b1d9823fca637430e6f47c3c2714d4a5ea1fe6f1697460ac38f7ac5bcd10a009",
+      "edited_file_sha256": "6f9dd725ae76b66147d2b3d2fa18843a29e69ca4aafed8103731bb786c67760b",
+      "expected_sha256": "b4db9c93a48c8fe0e3a81568605f6dcf1af79b11baafe96928edff815e99563a",
+      "generated_immutable": true,
+      "generated_sha256": "23c4445b82c25966d8a8460465ea9d65d866e67bfd72b030267ba0b67ded24da",
+      "guarded_workers": 4,
+      "native_source_tree_equal": true,
+      "observed": {
+        "edited_reopen": {
+          "body_count": 1,
+          "depth_m": 0.00875,
+          "mass": {
+            "area": 0.005224988434500474,
+            "com": [
+              0.005411149516972435,
+              0.0033525658069662296,
+              0.0043749999999999995
+            ],
+            "mass": 1.6454375000000005e-05,
+            "volume": 1.6454375000000005e-05
+          }
+        },
+        "generated_on_open": {
+          "body_count": 1,
+          "depth_m": 0.007,
+          "mass": {
+            "area": 0.004932190747600379,
+            "com": [
+              0.005411149516972437,
+              0.0033525658069662317,
+              0.0035000000000000005
+            ],
+            "mass": 1.3163500000000002e-05,
+            "volume": 1.3163500000000002e-05
+          }
+        },
+        "native_source": {
+          "body_count": 1,
+          "depth_m": 0.007,
+          "mass": {
+            "area": 0.004932190747600379,
+            "com": [
+              0.005411149516972432,
+              0.0033525658069662317,
+              0.0035
+            ],
+            "mass": 1.31635e-05,
+            "volume": 1.31635e-05
+          }
+        }
+      },
+      "original_source_sha256": "f92409497c861c9d88c6933a3bc35bba8fcce1928cda6a4608499e82a09eb734",
+      "prepare_sha256": "59843f3c23b54c08a2a9bbf91614294084d380ff12e7e32c3be342a0eed3963c",
+      "request_sha256": "6a27ca3dd0b16b28987a712cf0c9157549bfd4d939e030576cf6a68bb225c1b7",
+      "runtime_input_reads": 0,
+      "sketch_segments": 5,
+      "slot": "H5_irregular",
+      "source_immutable": true,
+      "streams": 10,
+      "tree_rows": 25
+    },
+    {
+      "build_a_sha256": "fd6c419b24598678ebc69b40d2422d31329c0d227b7b508f3f3619666853a803",
+      "build_b_sha256": "fd6c419b24598678ebc69b40d2422d31329c0d227b7b508f3f3619666853a803",
+      "bytes": 8317,
+      "counterpart_sha256": "b320b7ecc4d525ca3bcf0d0db015f59cdd1694d4ea0f4353e4e9743c09e3b0be",
+      "edited_file_sha256": "9ffdf7928b6947b6bd00ac62b7ceb89b65cba33a39f4081e8293f398bc1ea496",
+      "expected_sha256": "ef0c1855e7a519370239778c9be283c9e8f35400be368d91cc27d9bd861bf1e9",
+      "generated_immutable": true,
+      "generated_sha256": "1308df9050767301172ec5b84e6d0e2141089046ea007681fe3eceadb79a7f2f",
+      "guarded_workers": 4,
+      "native_source_tree_equal": true,
+      "observed": {
+        "edited_reopen": {
+          "body_count": 1,
+          "depth_m": 0.02125,
+          "mass": {
+            "area": 0.010788186658948703,
+            "com": [
+              0.0014406699320587773,
+              0.006562595460051614,
+              0.010625
+            ],
+            "mass": 6.724562500000001e-05,
+            "volume": 6.724562500000001e-05
+          }
+        },
+        "generated_on_open": {
+          "body_count": 1,
+          "depth_m": 0.017,
+          "mass": {
+            "area": 0.009896349327158962,
+            "com": [
+              0.0014406699320587777,
+              0.006562595460051614,
+              0.008499999999999999
+            ],
+            "mass": 5.3796500000000006e-05,
+            "volume": 5.3796500000000006e-05
+          }
+        },
+        "native_source": {
+          "body_count": 1,
+          "depth_m": 0.017,
+          "mass": {
+            "area": 0.009896349327158964,
+            "com": [
+              0.0014406699320587766,
+              0.006562595460051614,
+              0.008499999999999999
+            ],
+            "mass": 5.3796500000000006e-05,
+            "volume": 5.3796500000000006e-05
+          }
+        }
+      },
+      "original_source_sha256": "62602b7f17fc75ec6e51ae13c8a6bb7fd162c6a8b669da37eea99e2935535604",
+      "prepare_sha256": "e45d7f59deb572152681d6c05e89bc9be7b6795c6fbceea84ce8ac8f6d9ded92",
+      "request_sha256": "90fa8024d48ea86e1e147816a3397cee4dc2fb7f71a4c622842bf7d7505109bb",
+      "runtime_input_reads": 0,
+      "sketch_segments": 7,
+      "slot": "H7_irregular",
+      "source_immutable": true,
+      "streams": 10,
+      "tree_rows": 25
+    }
+  ],
+  "disclosed": {
+    "distinct_native_processes": 4,
+    "generated_bytes_sha256": "ff2e3fbdf99e59e6a20f55600a9e26914c9807b1f0533bdee29fe0236baf9178",
+    "healthy_controls": true,
+    "numeric_comparisons": 90,
+    "result_sha256": "4eb68f345a3d3ac39a8c0cd22762385c12a80cdafd0b2c89e006048c3224a641"
+  },
+  "generation_report_sha256": "cada40412454c8493fb51a53e44d2565fb505c69cb7d48703c338475a788ff49",
+  "heldout_native_polygon_scope_qualified": true,
+  "oracle": {
+    "com": "SldWorks.Application.34",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604",
+    "transport": "Parallels prlctl exec --current-user"
+  },
+  "original_native_inputs_read_by_writer": 0,
+  "original_sources_inspected_after_generation": 3,
+  "passed": true,
+  "production_fcstd_conversions": 0,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.sdk-original-polygon-native-receipt.v1",
+  "source_closure_sha256": "c45dd7702e3238ec1713fb1b03850a941f3837498241d80c736a2a69c494b145",
+  "source_lock_sha256": "abc1724a8856083a9c5e7054cd85b3035dc7da8423063f0caabd07a3e6f9dc40",
+  "trial": {
+    "controls_healthy": true,
+    "host_report_sha256": "51e30f4a2dd6ef17184f064cf28e044c4194473a559f1c907caed32b27da5519",
+    "license_inventory_preserved": true,
+    "native_processes": 11,
+    "numeric_comparisons": 546,
+    "packet_sha256": "11743f22f893ad1426d31dd7bb77d29c283659f4742d9a52ad2e0f2d87be04c4",
+    "phases": {
+      "ControlAfter": {
+        "numeric_comparisons": 0,
+        "process_creation_filetime": 134394441586437838,
+        "record_sha256": "a23af5828f0326a47205a793c43ab6575451cb5af10968af1a928cd906034cf9"
+      },
+      "ControlBefore": {
+        "numeric_comparisons": 0,
+        "process_creation_filetime": 134394437881142963,
+        "record_sha256": "36755e7a139cc5636446fb6f1eed82fbe792c40edf315b5358e0779af9410af9"
+      },
+      "H3_scaleneGenerated": {
+        "numeric_comparisons": 54,
+        "process_creation_filetime": 134394438486892604,
+        "record_sha256": "6a321846c89aaf3e242a1fa1b84d7ee3f08e3048f2405306d018cd257d8e890a"
+      },
+      "H3_scaleneReopen": {
+        "numeric_comparisons": 36,
+        "process_creation_filetime": 134394438867469032,
+        "record_sha256": "57b1d57fbee8d1bff05b08691cf317c9eec0bc0983c9dfe9d7b2cb6fb07fc5ea"
+      },
+      "H3_scaleneSource": {
+        "numeric_comparisons": 36,
+        "process_creation_filetime": 134394438150812464,
+        "record_sha256": "a88c2ef502c7d3e7e79d3e3c8d59292ee638a22e1b025b436041b23dfeb86faf"
+      },
+      "H5_irregularGenerated": {
+        "numeric_comparisons": 78,
+        "process_creation_filetime": 134394439524584252,
+        "record_sha256": "74560b791cd46e0cd375d578e3f4e31718dafcd1ab3dc0c3290f8a4ef20d5210"
+      },
+      "H5_irregularReopen": {
+        "numeric_comparisons": 52,
+        "process_creation_filetime": 134394439982438825,
+        "record_sha256": "67a43ad117df133492ffc6790160b3741da175725e444f03ab7ed300b46f9bcc"
+      },
+      "H5_irregularSource": {
+        "numeric_comparisons": 52,
+        "process_creation_filetime": 134394439174026118,
+        "record_sha256": "786cd41a60d378b807398d334d334d1f56453a972a1ef4c2287b5b69b2523c73"
+      },
+      "H7_irregularGenerated": {
+        "numeric_comparisons": 102,
+        "process_creation_filetime": 134394440688148811,
+        "record_sha256": "2f989d3d21e72c8bf6136a23741239da161147db5a42ae51a220bb62c14a73ba"
+      },
+      "H7_irregularReopen": {
+        "numeric_comparisons": 68,
+        "process_creation_filetime": 134394441182948686,
+        "record_sha256": "707fadd871147ee193d016ddc162d9e4c436c93ffdc60e238a150548a25356c2"
+      },
+      "H7_irregularSource": {
+        "numeric_comparisons": 68,
+        "process_creation_filetime": 134394440320972856,
+        "record_sha256": "ba5e2598adb2a0fb3c102c934bfe750082886f61b8d6655e408f02a3b867e622"
+      }
+    },
+    "postflight_sha256": "dd12d5aedf764c628082ffed8b490f3b4f2a6ac0896b4853675d2670baf1c734",
+    "preflight_sha256": "047937e7d31dbc00bc99a304f645af7a32b995b96914d81508112dfcb1f45a54",
+    "result_sha256": "b0b6654cc6b4bcda539af59c1a3f859c9e24b9f13dfb14ab7674158879778c68",
+    "tools_sha256": {
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+      "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+      "InspectSdkBlindPart.py": "86a3ef7c8a74b778800f83e6e920ab33f18ddb3363774ac29dad7b43858fbaa5",
+      "InspectSdkPolygonCohort.py": "f7ecb842bf98e3a7171cff03cbbb2f0ddba29feecf60c839896e743ebabf0b49",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  },
+  "writer_revision": "189eccc0639d0435e7ecff5b866df13fc6cd1308"
+}

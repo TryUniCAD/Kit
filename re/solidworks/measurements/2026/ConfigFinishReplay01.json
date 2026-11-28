@@ -1,0 +1,390 @@
+{
+  "exact_native_intervals": 24,
+  "guarded_fresh_processes": 3,
+  "native_launches": 0,
+  "results": [
+    {
+      "case": "ladder",
+      "exact_intervals": [
+        {
+          "fields_sha256": "f3c69749ed02bd488ab5c2a78a4ae3581f9c0a48a6c57a73df703fc7ed9052fa",
+          "interval": [
+            16177,
+            16499
+          ],
+          "layout": "moSFDataHelper_c",
+          "role": [
+            "f2e8"
+          ],
+          "wire_sha256": "140e622af90241ea7d7290dee6f407d2fea7993e025671142bae1065011d4c80"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            16242,
+            16330
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f2e8",
+            "fc0"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "e1f19902574364ad451e5cc2ee9072975479aa931cfb4a0c79319d274cfd4eb2",
+          "interval": [
+            16332,
+            16471
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "role": [
+            "f2e8",
+            "f128"
+          ],
+          "wire_sha256": "205f10591833f5cf4c95d28f5ce58efa06b7d9d26033fe98c78937221a5dd9e8"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            16349,
+            16437
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f2e8",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "f3c69749ed02bd488ab5c2a78a4ae3581f9c0a48a6c57a73df703fc7ed9052fa",
+          "interval": [
+            17306,
+            17628
+          ],
+          "layout": "moSFDataHelper_c",
+          "role": [
+            "f730",
+            "f260"
+          ],
+          "wire_sha256": "140e622af90241ea7d7290dee6f407d2fea7993e025671142bae1065011d4c80"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17371,
+            17459
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f260",
+            "fc0"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "e1f19902574364ad451e5cc2ee9072975479aa931cfb4a0c79319d274cfd4eb2",
+          "interval": [
+            17461,
+            17600
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "role": [
+            "f730",
+            "f260",
+            "f128"
+          ],
+          "wire_sha256": "205f10591833f5cf4c95d28f5ce58efa06b7d9d26033fe98c78937221a5dd9e8"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17478,
+            17566
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f260",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "f3c69749ed02bd488ab5c2a78a4ae3581f9c0a48a6c57a73df703fc7ed9052fa",
+          "interval": [
+            17628,
+            17950
+          ],
+          "layout": "moSFDataHelper_c",
+          "role": [
+            "f730",
+            "f268"
+          ],
+          "wire_sha256": "140e622af90241ea7d7290dee6f407d2fea7993e025671142bae1065011d4c80"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17693,
+            17781
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f268",
+            "fc0"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        },
+        {
+          "fields_sha256": "e1f19902574364ad451e5cc2ee9072975479aa931cfb4a0c79319d274cfd4eb2",
+          "interval": [
+            17783,
+            17922
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "role": [
+            "f730",
+            "f268",
+            "f128"
+          ],
+          "wire_sha256": "205f10591833f5cf4c95d28f5ce58efa06b7d9d26033fe98c78937221a5dd9e8"
+        },
+        {
+          "fields_sha256": "f58e2cfd2cc6b488942e7c9538b0938e8933f12cc4db91bea6cf6190b54aaec2",
+          "interval": [
+            17800,
+            17888
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f268",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "994ddec943e3bc7d3723bcae6091081a2e6ab725195a05aaa306d987f9c55bda"
+        }
+      ],
+      "map_anchors": [
+        1,
+        2,
+        3
+      ],
+      "map_base": 4,
+      "map_counter": 69,
+      "native_source": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "runtime_external_accesses": 0
+    },
+    {
+      "case": "concave",
+      "exact_intervals": [
+        {
+          "fields_sha256": "f8f312682227a80904061cf83cdec95fd9403a141ac92a1605ea2c198ba55e65",
+          "interval": [
+            14626,
+            14972
+          ],
+          "layout": "moSFDataHelper_c",
+          "role": [
+            "f2e8"
+          ],
+          "wire_sha256": "e6ab28092afb8b1176b3d94ef66908fbbf14ad528fc62f8c30b8154a4e7c8a95"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            14691,
+            14791
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f2e8",
+            "fc0"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "0fd826df64dd4f05d80a1b6f8a3ed5183f4f26b524af7a9dead15a1c477e552a",
+          "interval": [
+            14793,
+            14944
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "role": [
+            "f2e8",
+            "f128"
+          ],
+          "wire_sha256": "c1f31635f79b001df26707da1c5a1d298d3819692b0fe30870fb5651fca63908"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            14810,
+            14910
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f2e8",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "f8f312682227a80904061cf83cdec95fd9403a141ac92a1605ea2c198ba55e65",
+          "interval": [
+            15839,
+            16185
+          ],
+          "layout": "moSFDataHelper_c",
+          "role": [
+            "f730",
+            "f260"
+          ],
+          "wire_sha256": "e6ab28092afb8b1176b3d94ef66908fbbf14ad528fc62f8c30b8154a4e7c8a95"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            15904,
+            16004
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f260",
+            "fc0"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "0fd826df64dd4f05d80a1b6f8a3ed5183f4f26b524af7a9dead15a1c477e552a",
+          "interval": [
+            16006,
+            16157
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "role": [
+            "f730",
+            "f260",
+            "f128"
+          ],
+          "wire_sha256": "c1f31635f79b001df26707da1c5a1d298d3819692b0fe30870fb5651fca63908"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            16023,
+            16123
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f260",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "f8f312682227a80904061cf83cdec95fd9403a141ac92a1605ea2c198ba55e65",
+          "interval": [
+            16185,
+            16531
+          ],
+          "layout": "moSFDataHelper_c",
+          "role": [
+            "f730",
+            "f268"
+          ],
+          "wire_sha256": "e6ab28092afb8b1176b3d94ef66908fbbf14ad528fc62f8c30b8154a4e7c8a95"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            16250,
+            16350
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f268",
+            "fc0"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        },
+        {
+          "fields_sha256": "0fd826df64dd4f05d80a1b6f8a3ed5183f4f26b524af7a9dead15a1c477e552a",
+          "interval": [
+            16352,
+            16503
+          ],
+          "layout": "moAnnotationDataHelper_c",
+          "role": [
+            "f730",
+            "f268",
+            "f128"
+          ],
+          "wire_sha256": "c1f31635f79b001df26707da1c5a1d298d3819692b0fe30870fb5651fca63908"
+        },
+        {
+          "fields_sha256": "b680f1579632c84a22e9d58bdb4b6f4099274e7aea669a6fbb58fbbc83de21ac",
+          "interval": [
+            16369,
+            16469
+          ],
+          "layout": "utCharFormat_c",
+          "role": [
+            "f730",
+            "f268",
+            "f128",
+            "f08"
+          ],
+          "wire_sha256": "5ec31a987c8869df9272ca6d85677290c11499184acaeb1d5e66bdd118289391"
+        }
+      ],
+      "map_anchors": [
+        1,
+        2,
+        3
+      ],
+      "map_base": 4,
+      "map_counter": 54,
+      "native_source": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "runtime_external_accesses": 0
+    },
+    {
+      "bytes": 372,
+      "case": "wire",
+      "fields_sha256": "8ab421ce98e4ee1475abf2c1eff4bb8e4a83f8bb0027e224d163b7d82895cadf",
+      "leader_font": "Lead \u03bb\ud83d\ude00",
+      "maps": {
+        "base": 4,
+        "classes": 18,
+        "counter": 69,
+        "entries": 68,
+        "objects": 50
+      },
+      "outer_font": [
+        "A",
+        "Finish \u00c9"
+      ],
+      "refusals": [
+        "truncated",
+        "trailing",
+        "wrong_version",
+        "unmapped_part",
+        "noncanonical_text"
+      ],
+      "runtime_external_accesses": 0,
+      "wire_sha256": "8cc8ee465b1e487b83d8644eb9bb0a7ce2da334b1df5e87f82030ca252a82eed"
+    }
+  ],
+  "schema": "kit.sw2026.config-finish.replay.v1"
+}

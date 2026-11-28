@@ -12,6 +12,8 @@ gh workflow run MergeQueue.yml --ref WORKFLOW_BRANCH -f audit_sha=FULL_SOURCE_SH
 ```
 
 The workflow branch selects the audit harness; `audit_sha` selects the code under verification.
+The public-checksum scanner probe uses the harness commit's fixture and policy.
+The actual full-history secret scan retains the selected source revision and its own policy.
 Keep those two revisions distinct in reports.
 The audit runs the complete suite, Linux/Windows/macOS process checks, and every existing heavy security job.
 It neither downloads accepted test results nor publishes a reusable test-result cache.
