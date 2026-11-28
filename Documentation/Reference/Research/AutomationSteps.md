@@ -335,6 +335,27 @@ passed [hosted process verification](https://github.com/TryUniCAD/Kit/actions/ru
 on saved discovery archives at `ebe6130c`. Qualified A06 paired evidence
 remains required for full acceptance.
 
+### A07-ProvisionalHoldoutSelection
+
+Codex owns provisional selection in [PR #403](https://github.com/TryUniCAD/Kit/pull/403)
+on `codex/provisional-inference-survivor`. This child is checking. It depends on
+the A03 inference session contract and the existing A07 field search and
+codec admission gates. When holdout observations refute every rival, the
+assessment reports the sole surviving frozen candidate without changing
+its ambiguity status for codec admission. See the
+[change entry](../../Changes/Research/Controller/ProvisionalHoldoutSelection.md).
+
+The delivery exit requires the collected worker-process regression to select
+either candidate at its expected offset and preserve the tie, discovery digest,
+candidate identities, counterexamples, and codec admission behavior. PR CI Agg
+passed on [`85097f2f`](https://github.com/TryUniCAD/Kit/commit/85097f2f5c71846d5a4fe80d71503361b1317180)
+in [job 141062835617](https://github.com/TryUniCAD/Kit/actions/runs/46172181160/job/141062835617).
+The PR tracks current-head CI and configured review. The worker-process
+regression awaits merge-group execution. The selected rule still requires
+replay on independent evidence for qualification because the first holdout
+was used to choose it. Full A07 acceptance still requires qualified A06 paired
+evidence.
+
 ## A02 implementation and remaining evidence
 
 Shared PR head: `Stephen316/Kit:docs/automation-plan` on PR #94.
