@@ -227,7 +227,7 @@ public static class SheetMetalCapture
             evidence.Add("initial_radius_m", definition.BendRadius);
             var solid = initial.SingleOrDefault(candidate => HasBounds(candidate, expected));
             Check(solid != null && solid.IsSheetMetal(), "No distinct positive-Z sheet-metal body matched " + id);
-            Check(definition != null && Near(definition.Thickness, thickness) && Near(definition.BendRadius, radius),
+            Check(Near(definition.Thickness, thickness) && Near(definition.BendRadius, radius),
                 "Base flange did not report the requested thickness and radius for " + id);
             return Row("id", id, "body", BodyRow(doc, solid), "feature", Identity(doc, flange),
                 "direction_evidence", evidence,
