@@ -87,8 +87,9 @@ Public comment admission runs without app or account credentials.
 After complete input is prepared, the app adds an eyes reaction to an admitted mention.
 When publication finishes, that reaction is replaced with thumbs up for a verified approval or thumbs down for verified requested changes.
 Runtime or publication failure receives a confused reaction instead.
+Failure also publishes a failed native report with its workflow log link, so automatic reviews without a mention remain observable.
 Reactions describe request progress; only the native report and review establish the result.
-If GitHub cancels the entire workflow or reaction publication fails, the progress reaction can remain until a successful retry.
+If GitHub cancels the entire workflow or the completion job fails, the progress reaction can remain until a successful retry.
 The starting and completion reaction steps use separate app tokens that never enter the model container.
 Polling inspects the latest 100 repository comments and rotates through at most ten matching commands per invocation.
 The workflow run number advances the start position so completed requests do not permanently block older requests in that window.

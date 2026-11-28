@@ -203,9 +203,9 @@ jobs:
         run: python .github/scripts/Review/Publish.py
 
   react:
-    name: Complete mention reaction
+    name: Complete review outcome
     needs: [prepare, review, publish]
-    if: always() && needs.prepare.outputs.ready == 'true' && needs.prepare.outputs.mention == 'true'
+    if: always() && needs.prepare.outputs.ready == 'true'
     environment: AccountReview
     runs-on: ubuntu-24.04
     timeout-minutes: 5
@@ -220,7 +220,7 @@ jobs:
         with:
           name: ReviewInput
           path: ReviewInput
-      - name: Obtain terminal reaction token
+      - name: Obtain completion report and reaction token
         id: reaction-token
         uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2
         with:
@@ -229,7 +229,14 @@ jobs:
           repositories: ${{ github.event.repository.name }}
           permission-issues: write
           permission-pull-requests: read
+          permission-checks: write
+      - name: Publish failed native report when the workflow did not complete
+        if: needs.publish.result != 'success'
+        env:
+          GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
+        run: python .github/scripts/Review/FailReview.py
       - name: Replace progress reaction with verified outcome
+        if: always() && steps.reaction-token.outcome == 'success'
         env:
           GH_TOKEN: ${{ steps.reaction-token.outputs.token }}
           REVIEW_SUCCEEDED: ${{ needs.publish.result == 'success' }}

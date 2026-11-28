@@ -13,8 +13,9 @@ Read-only public comment admission remains unchanged.
 After preparing complete eligible input, the app adds an eyes reaction to the admitted mention.
 After native publication, it replaces eyes with thumbs up for approval or thumbs down for requested changes.
 A failed review or publication receives a confused reaction.
+A failed runtime or publication job also creates a failed native report linked to its workflow logs, including automatic reviews without a mention.
 Only the app's own progress reaction is removed; other users' reactions remain.
-Full workflow cancellation or a reaction API failure can prevent cleanup until a retry succeeds.
+Full workflow cancellation or completion-job failure can prevent cleanup until a retry succeeds.
 Native checks and approving reviews remain the acceptance evidence.
 
 Live target-ref and mergeability checks now reject stale CI even when PR metadata retains an older base SHA.
