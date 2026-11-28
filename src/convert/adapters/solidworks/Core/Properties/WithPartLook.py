@@ -34,6 +34,7 @@ def WithPartLook(
 ) -> CadDocument:
     if not Requested:
         return Document
+    Document = ReportOwners(Document)
     if ActiveConfigId != 0:
         return PartLookError(Document, "stored appearance requires active configuration 0")
     if Archive.format_version != 4 or Archive.get("Contents/Config-0") is None:
@@ -42,11 +43,9 @@ def WithPartLook(
         Evidence = ReadPartLook(Archive)
     except (TypeError, ValueError, KeyError, SyntaxError) as ErrorInfo:
         return PartLookError(Document, str(ErrorInfo))
-    return ReportOwners(
-        ReplaceValue(
-            Document,
-            metadata=FreezeMapping({**Document.metadata, KPartLookKey: Evidence}),
-        )
+    return ReplaceValue(
+        Document,
+        metadata=FreezeMapping({**Document.metadata, KPartLookKey: Evidence}),
     )
 
 
