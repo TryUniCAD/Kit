@@ -10,7 +10,7 @@ from urllib.request import urlopen
 def CheckRuntimeTls() -> None:
     with TemporaryDirectory() as TempName:
         TrustPath = Path(TempName) / "Certificates.pem"
-        run(
+        Result = run(
             [
                 "node",
                 str(
@@ -19,10 +19,11 @@ def CheckRuntimeTls() -> None:
                 ),
                 str(TrustPath),
             ],
-            check=True,
+            check=False,
             capture_output=True,
             timeout=20,
         )
+        assert Result.returncode == 0, Result.stderr
         TrustData = create_default_context(cafile=str(TrustPath))
         assert TrustData.cert_store_stats()["x509_ca"] > 0
         try:

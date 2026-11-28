@@ -335,7 +335,14 @@
         "Boundary": "Real guard process with actual hosted input and actual live GitHub native receipts; no account credentials or mocked APIs"
       },
       "Scope": "Restore pinned runtime TLS and valid PR reaction token scopes; acknowledge new messages independently of another account job; preserve serialized auth persistence and publication with queued native receipt reuse",
-      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/407"
+      "DeliveryPR": "https://github.com/TryUniCAD/Kit/pull/407",
+      "CiRepair": {
+        "Revision": "e230f7d889d7eb7a063cbd1f355c698d5a4bd931",
+        "Job": "https://github.com/TryUniCAD/Kit/actions/runs/46173892991/job/141068162816",
+        "Finding": "Pyright reportUnusedCallResult on the real certificate exporter smoke subprocess",
+        "Repair": "Capture the process result and assert its successful exit before TLS verification; no type check or test assertion is disabled",
+        "Status": "Repair implemented; current revision remote validation pending"
+      }
     },
     {
       "Id": "ReviewerContinuous",
