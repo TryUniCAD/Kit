@@ -107,10 +107,11 @@ public static class SheetMetalCapture
         var code = feature.GetErrorCode2(out warning);
         var suppressed = feature.IsSuppressed();
         Check(code == 0 || suppressed, "Native feature diagnostic " + code + " on " + feature.Name + " (warning=" + warning + ")");
-        var result = Row("name", feature.Name, "type", type, "persist_reference", Identity(doc, feature),
+        var result = Row("name", feature.Name, "type", type, "feature_id", feature.GetID(),
+            "persist_reference", Identity(doc, feature),
             "suppressed", suppressed, "error", code, "warning", warning, "parents",
             Items(feature.GetParents()).Cast<IFeature>().Select(parent => Row("name", parent.Name,
-                "type", parent.GetTypeName2(), "persist_reference", Identity(doc, parent))).ToArray());
+                "type", parent.GetTypeName2(), "feature_id", parent.GetID(), "persist_reference", Identity(doc, parent))).ToArray());
         if (type == "CutListFolder")
         {
             var folder = feature.GetSpecificFeature2() as IBodyFolder;
@@ -475,7 +476,7 @@ public static class SheetMetalCapture
             "Could not edit and rebuild the driving edge-flange profile dimension");
     }
 
-    static T WithDocument<T>(ISldWorks app, IModelDoc2 doc, Func<IModelDoc2, T> operation)
+    static T WithDocument<T>(ISldWorks app, IModelDoc2 doc, string expectedReadOnlyPath, Func<IModelDoc2, T> operation)
     {
         Check(doc != null, "No native part document was available");
         Exception original = null;
@@ -483,7 +484,16 @@ public static class SheetMetalCapture
         catch (Exception error) { original = error; throw; }
         finally
         {
-            try { app.CloseDoc(doc.GetTitle()); }
+            try
+            {
+                var title = doc.GetTitle();
+                if (expectedReadOnlyPath != null && app.GetDocumentCount() == 1 && doc.IsOpenedReadOnly() &&
+                    String.Equals(doc.GetPathName(), expectedReadOnlyPath, StringComparison.OrdinalIgnoreCase))
+                    app.QuitDoc(title);
+                else
+                    app.CloseDoc(title);
+                Check(app.GetDocumentCount() == 0, "The owned capture document did not close");
+            }
             catch (Exception error)
             {
                 if (original == null) throw;
@@ -585,10 +595,12 @@ public static class SheetMetalCapture
         var ids = Items(control["bodies"]).Cast<string>().ToArray();
         return SolidWorksScopeControl.RunOwnedPhase(executable, (app, process) =>
         {
+            app.UserControlBackground = true;
+            Check(app.UserControlBackground, "The owned authoring session did not retain background lifetime control");
             var template = app.GetDocumentTemplate((int)swDocumentTypes_e.swDocPART, "", 0, 0, 0);
             Check(File.Exists(template), "Missing the native part template");
             var templateArchive = Archive(template);
-            return WithDocument(app, app.NewDocument(template, 0, 0, 0) as IModelDoc2, doc =>
+            return WithDocument(app, app.NewDocument(template, 0, 0, 0) as IModelDoc2, null, doc =>
             {
                 var discoveryDirectory = control.ContainsKey("holdout") ? null : directory;
                 var thicknesses = ids.Select(body => Length(Object(definitions[body]), "thickness_mm")).Distinct().ToArray();
@@ -646,23 +658,31 @@ public static class SheetMetalCapture
         Check(String.Equals((string)before["sha256"], expectedHash, StringComparison.Ordinal), "Input archive SHA-256 differs from its receipt");
         return SolidWorksScopeControl.RunOwnedPhase(executable, (app, process) =>
         {
-            int errors, warnings;
-            var part = OpenPart(app, path, out errors, out warnings);
-            var row = WithDocument(app, part, doc =>
+            app.UserControlBackground = true;
+            Check(app.UserControlBackground, "The owned readback session did not retain background lifetime control");
+            int partType = (int)swDocumentTypes_e.swDocPART;
+            app.DocumentVisible(false, partType);
+            try
             {
-                Check(doc.IsOpenedReadOnly() && errors == 0 &&
-                    (warnings & ~(int)swFileLoadWarning_e.swFileLoadWarning_ReadOnly) == 0 &&
-                    String.Equals(doc.GetPathName(), path, StringComparison.OrdinalIgnoreCase),
-                    "Exact archive did not open cleanly and read-only, errors=" + errors + " warnings=" + warnings);
-                var observed = Observe(doc, bodies);
-                if (!String.IsNullOrEmpty(sourceEdge))
-                    observed.Add("flange", ReadEdge(doc, dimensionName, sourceEdge, length, angle, radius));
-                return Row("id", identity, "native_process", process, "archive", before, "open_errors", errors,
-                    "open_warnings", warnings, "read_only", true, "observation", observed);
-            });
-            var after = Archive(path);
-            Check((string)before["sha256"] == (string)after["sha256"], "The read-only native verification changed the input file");
-            return row;
+                int errors, warnings;
+                var part = OpenPart(app, path, out errors, out warnings);
+                var row = WithDocument(app, part, path, doc =>
+                {
+                    Check(doc.IsOpenedReadOnly() && errors == 0 &&
+                        (warnings & ~(int)swFileLoadWarning_e.swFileLoadWarning_ReadOnly) == 0 &&
+                        String.Equals(doc.GetPathName(), path, StringComparison.OrdinalIgnoreCase),
+                        "Exact archive did not open cleanly and read-only, errors=" + errors + " warnings=" + warnings);
+                    var observed = Observe(doc, bodies);
+                    if (!String.IsNullOrEmpty(sourceEdge))
+                        observed.Add("flange", ReadEdge(doc, dimensionName, sourceEdge, length, angle, radius));
+                    return Row("id", identity, "native_process", process, "archive", before, "open_errors", errors,
+                        "open_warnings", warnings, "read_only", true, "observation", observed);
+                });
+                var after = Archive(path);
+                Check((string)before["sha256"] == (string)after["sha256"], "The read-only native verification changed the input file");
+                return row;
+            }
+            finally { app.DocumentVisible(true, partType); }
         }, true);
     }
 }

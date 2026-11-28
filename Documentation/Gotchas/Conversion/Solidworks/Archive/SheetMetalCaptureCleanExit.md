@@ -1,0 +1,5 @@
+# Sheet-metal SaveAs can succeed before process exit fails
+
+The exact 34.4.1.1011 capture at revision 9f2f570 saved the intended positive-Z A-only geometry as a closed copy with no save errors or warnings. The authoring process then failed its normal exit deadline and required owned-process cleanup. The post-failure stock control hit the same exit deadline. The retained archive and save receipt are useful for offline research. They have no independent native reopen or completed stock bracket.
+
+Use the catalogue's proven owned-background lifetime path for research readback. Open the exact part as windowless and read-only, verify that it is the sole document with the expected path, and use QuitDoc. The launcher still requires an empty session and normal held-handle exit before proceeding. Allocate a new output directory for a rerun and keep every failed attempt. [Catalogue exit observation](../../../Research/Workers/SolidWorks/CatalogueCaptureExitObservation.md) · [Capture procedure](../../../../../re/solidworks/records/SheetMetalCapture2026.md)
