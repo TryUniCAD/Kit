@@ -266,6 +266,11 @@ entry point returns `None`.
 
 ## Feature history
 
+The bounded configuration master uses the part’s signed selector and the
+concrete directly owned feature body. Its empty per-body list and inherited
+fields preserve the caller’s archive map.
+[Configuration master scope](../../Changes/Solidworks/Archive/SolidworksConfigMasterBridge.md)
+
 The resolved-feature grammar includes class definitions and object references.
 The archive map changes as records are read.
 Structural edits require consistent identifiers and map indices.

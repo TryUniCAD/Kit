@@ -292,6 +292,17 @@ cases, and current revision review and CI. The remaining configuration
 layouts and complete physical admission have separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigMemberFields.md)
 
+### B04-SW2026-CONFIG-MASTER
+
+The PR #121 takeover team owns the bounded configuration master reader
+on codex/solidworks-config-direct-owner. It follows the accepted part
+header and feature layouts. Exit requires the real present and absent
+bridge intervals, the complete inherited map at the selector boundary,
+authored contrasts, and current revision queue and review evidence.
+Populated master rows, linked masters, normal SDK projection and native
+history preservation have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMasterBridge.md)
+
 ### B04-SW2026-CONFIG-FIELD-ACTIONS
 
 The PR #121 takeover team owns the bounded branch, virtual and fixed
