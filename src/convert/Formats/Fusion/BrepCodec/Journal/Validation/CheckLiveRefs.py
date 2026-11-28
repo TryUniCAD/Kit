@@ -1,3 +1,6 @@
+from convert.Formats.Fusion.BrepCodec.Journal.Validation.CheckMaterialLinks import (
+    CheckMaterialLinks,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Validation.EntityRefRules import (
     KEntityRefRules,
 )
@@ -63,6 +66,7 @@ def CheckLiveRefs(
                 raise ValueError(
                     "Fusion historical entity reference is absent or class-incompatible"
                 )
+    CheckMaterialLinks(Records, Versions, Aliases)
     CheckNestTags(Records, Versions, Aliases)
     CheckLiveUses(Records, Versions, Aliases)
     CheckLiveFaces(Records, Versions, Aliases)

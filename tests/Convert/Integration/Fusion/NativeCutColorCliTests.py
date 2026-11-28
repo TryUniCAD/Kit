@@ -17,6 +17,7 @@ def CheckColorCli() -> None:
         / "re/Fusion/Reconstruction/BoundaryCuts/Controls/ReviewGuards/FaceAppearance.f3d"
     )
     with TemporaryDirectory() as WorkName:
+        Output = FilePath(WorkName) / "output.json"
         Result = ProcessLayer.run(
             [
                 System.executable,
@@ -25,7 +26,7 @@ def CheckColorCli() -> None:
                 "decode",
                 str(Source),
                 "--output",
-                str(FilePath(WorkName) / "output.json"),
+                str(Output),
             ],
             cwd=RootPath,
             env=Environment,
@@ -35,10 +36,11 @@ def CheckColorCli() -> None:
             check=False,
         )
         assert Result.returncode != 0
+        assert not Output.exists()
         assert any(
             Message in Result.stdout + Result.stderr
             for Message in (
                 "faceVisualMaterialByAttrTagID",
-                "Unsupported Fusion journal attribute family",
+                "Unknown native Fusion entity class BFB592FE-03DD-4DAA-A4AC-14D02ABB672A",
             )
         )

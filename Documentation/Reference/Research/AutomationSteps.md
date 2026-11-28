@@ -456,6 +456,8 @@ The [generated body graphics contrast](../../Changes/Research/Encoder/FusionGene
 combines source-free authored parts with an owner-bound scene on three requests.
 The [strict JSON height-edit probe](../../Changes/Research/Encoder/FusionStrictSavedCuboidHeightEdit.md)
 reproduces the frozen edited bytes after complete original-state verification.
+The [face material journal codec](../../Changes/Research/Encoder/FusionFaceMaterialJournalAttribute.md)
+retains measured owner and tag links without enabling public face-style admission.
 Distinct-face style and the exact generated candidates' native presentation and lifecycle remain open.
 This is partial writer evidence. Saved-scene generation, material and preview preservation, and the held-out writer exit remain open.
 Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).

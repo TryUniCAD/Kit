@@ -1,4 +1,8 @@
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.AttribLinks import AttribLinks
+from convert.Formats.Fusion.BrepCodec.Journal.Attributes.MaterialAttrib import (
+    KMaterialFamily,
+    MaterialAttrib,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TrackAttrib import TrackAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
@@ -58,6 +62,9 @@ def ReadAttribNode(Cursor: FieldCursor) -> KJournalEntity:
             if Family == "Timestamp_attrib_def"
             else TrackAttrib(Links, ReadLongMut(Cursor))
         )
+    if Family == KMaterialFamily:
+        NeedFieldMut(Cursor, (4, 1))
+        return MaterialAttrib(Links, ReadTextMut(Cursor))
     if Family == "FDM_feature_attrib_def":
         return ReadFdmAttrib(Cursor, Links)
     raise ValueError("Unsupported Fusion journal attribute family")

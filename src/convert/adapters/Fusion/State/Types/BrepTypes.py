@@ -18,6 +18,9 @@ from convert.Formats.Fusion.BrepCodec.Journal.Attributes.NestedTag import Nested
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.SketchAttrib import (
     SketchAttrib,
 )
+from convert.Formats.Fusion.BrepCodec.Journal.Attributes.MaterialAttrib import (
+    MaterialAttrib,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TagAttrib import TagAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TimeAttrib import TimeAttrib
 from convert.Formats.Fusion.BrepCodec.Journal.Attributes.TrackAttrib import TrackAttrib
@@ -124,6 +127,7 @@ KBrepTypes: tuple[type[object], ...] = (
     NestedTag,
     SketchAttrib,
     TagAttrib,
+    MaterialAttrib,
     TimeAttrib,
     TrackAttrib,
     AsmRoot,
