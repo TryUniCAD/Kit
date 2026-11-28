@@ -37,3 +37,31 @@ independently authored reference. A distinct native face appearance and a
 fixed-view comparison before rebuild must resolve whether this physical
 role order matters to Fusion. Keep public writing disabled pending this
 and the other saved-source writer requirements.
+
+## Height-edit leaf bounds
+
+[InspectHeightLeafGeometry.py](InspectHeightLeafGeometry.py) regenerates the
+18 zero-LOD bounds from the analytic target prism frame. The bounds are
+derived from each leaf's solved topology role. A height edit changes the
+bounds without moving the other typed leaf fields to a different role.
+The isolated predictor takes strict persisted JSON and the frozen target
+height. It refuses native-archive opens. The parent process opens the saved
+native control after the predictor finishes and compares role-bound boxes.
+A graphics re-encode/re-read verifies the typed result and unchanged
+non-world streams. Original leaf bounds fail the changed-frame check.
+
+| Input | Saved control | Target height | Generated world SHA-256 |
+| --- | --- | ---: | --- |
+| Baseline restored `b6726c11…` | Baseline edited `1e7584c59…` | 28.3 mm | `d1d18df433b7d2213e22b69159aa398678823b0c72849863607962814528510c` |
+| Baseline edited `1e7584c59…` | Baseline restored `b6726c11…` | 13.8 mm | `8fb1caba4044ecfffe1bbbfeb35dcad46c11353c3ee16663e82cf42e6ab9b6dc` |
+| Independent restored `7a4d4a4a…` | Independent edited `71c13916…` | 29.5 mm | `aa139ff561b7509ab615950e45b05f0f8ef591d1d4120399333d9a2d15b76e47` |
+
+The baseline pair is in the checked-in corpus. The independent pair is
+from PR #307's earlier post-freeze native batch. Every role, bound and
+order matched in the three comparisons. The historical negative control
+`850b1a76…` refused on the unique live graphics owner check.
+
+The experiment updates leaf bounds only. The preserved aggregate model
+box can differ from the target capture, and all three inputs contain
+one distinct face attribute set. Full graphics generation, per-face
+presentation, picking and the fresh native acceptance bracket remain open.

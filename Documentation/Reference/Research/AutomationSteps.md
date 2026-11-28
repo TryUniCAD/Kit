@@ -450,7 +450,9 @@ The Codex Fusion encoder worker owns this active task on `codex/fusion-saved-cub
 The saved-graph writer and independent native acceptance remain open.
 The [saved cuboid display-order contrast](../../Changes/Research/Encoder/FusionSavedCuboidDisplayOrder.md)
 regenerates the history association from persisted typed JSON for two measured source states.
-The exact generated candidate bytes still require a native presentation and lifecycle bracket.
+The [height-edit leaf bounds probe](../../Changes/Research/Encoder/FusionSavedCuboidHeightLeafBounds.md)
+matched 18 role-bound display leaves across three saved height changes.
+Distinct-face style and the exact generated candidate's native presentation and lifecycle remain open.
 This is partial writer evidence. Saved-scene generation, material and preview preservation, and the held-out writer exit remain open.
 Dependencies are A05c, A11c, and the [research round-trip command in PR #297](https://github.com/TryUniCAD/Kit/pull/297).
 The scope is the supported vendor-resaved constrained cuboid family.
