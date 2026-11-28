@@ -5,6 +5,7 @@ from dataclasses import replace as ReplaceData
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 import pytest as PytestLib
+from convert import open_document as OpenDocument
 from convert.adapters.solidworks import (
     SldprtArchive,
     build_sldprt as BuildSldprt,
@@ -55,6 +56,69 @@ KParaCompanion = KRandom / "Parasolid" / "V8_engine.x_t"
 
 # distinguishes the canonical external corpus from locally normalized variants
 KCompanionSizes = ((KAcisCompanion, 61518735), (KParaCompanion, 8036848))
+
+
+# the assembly has both cached meshes and tracked component documents
+KCamAssembly = (
+    KRandom.parent
+    / "Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+    / "ENSAMBLAJE DE SEGURO DE ARBOL DE LEVAS.SLDASM"
+)
+
+
+# mesh filtering must preserve strict reads supported by linked parts or native cache evidence
+@PytestLib.mark.parametrize("UseBytes", (False, True))
+def TestMeshOptOut(UseBytes: bool) -> None:
+    Source = KCamAssembly.read_bytes() if UseBytes else KCamAssembly
+    Default = OpenDocument(
+        Source, source_format="solidworks.sldasm", include_brep=False
+    )
+    Filtered = OpenDocument(
+        Source,
+        source_format="solidworks.sldasm",
+        include_brep=False,
+        include_tessellation=False,
+    )
+    assert Default.assembly is not None
+    assert Filtered.assembly is not None
+    assert len(Default.meshes) == 2
+    assert len(Default.assembly.documents) == (0 if UseBytes else 2)
+    assert Capability.KTessellation in Default.capabilities
+    assert Filtered.meshes == ()
+    assert Filtered.metadata["assembly_mesh_count"] == 0
+    assert Capability.KTessellation not in Filtered.capabilities
+    assert Filtered.assembly == ReplaceData(
+        Default.assembly,
+        definitions=tuple(
+            ReplaceData(Definition, mesh_ids=())
+            for Definition in Default.assembly.definitions
+        ),
+    )
+    assert Filtered.validate() == ()
+
+
+# linked assemblies must also omit cached meshes and retain valid definition references
+def TestLinkedMesh() -> None:
+    Document = OpenDocument(
+        KCamAssembly.with_name("ENSAMBLE 3_IZQUIERDO.SLDASM"),
+        source_format="solidworks.sldasm",
+        include_brep=False,
+        include_tessellation=False,
+    )
+    assert Document.assembly is not None
+    Nested = [
+        Linked.document
+        for Linked in Document.assembly.documents
+        if Linked.document.assembly is not None
+    ]
+    assert len(Nested) == 1
+    Child = Nested[0]
+    assert Child.assembly is not None
+    assert Child.meshes == ()
+    assert all(not Definition.mesh_ids for Definition in Child.assembly.definitions)
+    assert Child.metadata["assembly_mesh_count"] == 0
+    assert Capability.KTessellation not in Child.capabilities
+    assert Document.validate() == ()
 
 
 # prevents another local corpus from being compared with canonical byte goldens

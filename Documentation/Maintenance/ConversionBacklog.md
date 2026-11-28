@@ -80,6 +80,18 @@ This task does not change the supported format boundary or close B14 release qua
 
 ## Important gap boundaries
 
+### B08-SW-ASSEMBLY-TESSELLATION
+
+The reader verification swarm owns the SOLIDWORKS assembly inspection repair
+on `codex/solidworks-assembly-tessellation`, delivered in [PR #404](https://github.com/TryUniCAD/Kit/pull/404).
+The repair depends on the existing strict component resolution path and tracked
+assembly controls. It omits returned meshes when the caller disables tessellation
+and preserves the cached evidence required for source resolution.
+The exit requires valid public SDK results for path, isolated bytes, and linked
+assemblies, plus current revision CI and configured review. Three focused SDK
+integration cases passed on Python 3.14.6. Merge-group acceptance remains separate.
+[Change entry](../Changes/Solidworks/Inspection/Assemblies/SolidworksAssemblyTessellation.md)
+
 ### B10-RunDefaults
 
 Codex owns the profile-independent catalogue shortcut on `codex/desktop-run-defaults`.

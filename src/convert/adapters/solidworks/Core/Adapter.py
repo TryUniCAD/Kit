@@ -35,6 +35,7 @@ from interchange import (
     BrepPayload,
     CadDocument as CadDoc,
     CadSource,
+    Capability,
     ChamferFeature,
     CircleGeometry as CircleGeom,
     CombineFeature,
@@ -911,7 +912,8 @@ def AsmDoc(
         SelectValues,
         TimeValues,
     ) = AsmPartFields(Archive, Settings)
-    Meshes, MeshIds = AsmMeshes(Native)
+    CachedMeshes, MeshIds = AsmMeshes(Native)
+    Meshes = CachedMeshes if Settings.include_tessellation else ()
     Index = ComponentFile(Label, Settings)
     ResolveComponents = Settings.values.get("resolve_components", True) is not False
     Documents, DocIds, ResolvedPaths, DocDiagnostics = AsmDocuments(
@@ -922,7 +924,7 @@ def AsmDoc(
         DocIds,
         ResolvedPaths,
         {DocValue.id: DocValue.document for DocValue in Documents},
-        MeshIds,
+        MeshIds if Settings.include_tessellation else {},
         Label,
         ResolveComponents=ResolveComponents,
     )
@@ -1065,7 +1067,11 @@ def AsmDoc(
         meshes=Meshes,
         brep_payloads=(*BrepValues, *MatePayloads, *CompanionPayloads),
         diagnostics=Diagnostics,
-        capabilities=Adapter.info.capabilities,
+        capabilities=(
+            Adapter.info.capabilities
+            if Settings.include_tessellation
+            else Adapter.info.capabilities - {Capability.KTessellation}
+        ),
         metadata=FrozenMapping(
             {
                 "adapter": KAsmFormatId,
@@ -1206,7 +1212,10 @@ def AsmDocuments(
         Options = Replace(
             Settings,
             configuration=Representative.configuration_name or None,
-            include_tessellation=Representative.document_type == "ASSEMBLY",
+            include_tessellation=(
+                Settings.include_tessellation
+                and Representative.document_type == "ASSEMBLY"
+            ),
             values=FrozenMapping(Values),
         )
         try:
